@@ -1,90 +1,102 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOMAC.cpp
-*
+* 
 * @class      DIOMAC
 * @brief      Data Input/Output MAC class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOMAC.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "DIOMAC.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOMAC:: DIOMAC()
-* @brief      IOMAC
+* 
+* @fn         DIOMAC::DIOMAC()
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     DIOMAC:: :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOMAC:: DIOMAC()
+DIOMAC::DIOMAC()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOMAC::~ DIOMAC()
-* @brief      IOMAC
+* 
+* @fn         DIOMAC::~DIOMAC()
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     DIOMAC::~ :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOMAC::~ DIOMAC()
+DIOMAC::~DIOMAC()
+
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::IsZero()
 * @brief      IsZero
 * @ingroup    DATAIO
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::IsZero()
 {  
@@ -97,15 +109,14 @@ bool DIOMAC::IsZero()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XBYTE* DIOMAC::Get()
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @return     XBYTE* :
-*
+* 
+* @return     XBYTE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* DIOMAC::Get()
 {
@@ -114,13 +125,13 @@ XBYTE* DIOMAC::Get()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XDWORD DIOMAC::GetManufactured()
 * @brief      GetManufactured
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOMAC::GetManufactured()
 {
@@ -134,19 +145,17 @@ XDWORD DIOMAC::GetManufactured()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 * @brief      GetXString
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  MACstring : 
 * @param[in]  separator : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 {
@@ -167,17 +176,14 @@ bool DIOMAC::GetXString(XSTRING& MACstring, XCHAR separator)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XQWORD DIOMAC::GetLongNumber()
 * @brief      GetLongNumber
 * @ingroup    DATAIO
-*
-* @return     XQWORD :
-*
+* 
+* @return     XQWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XQWORD DIOMAC::GetLongNumber()
 {
@@ -195,17 +201,16 @@ XQWORD DIOMAC::GetLongNumber()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::Set(XBYTE* MAC)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  MAC :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  MAC : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::Set(XBYTE* MAC)
 {
@@ -218,18 +223,16 @@ bool DIOMAC::Set(XBYTE* MAC)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::Set(XSTRING& MAC)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  MAC :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  MAC : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::Set(XSTRING& MAC)
 {
@@ -255,18 +258,16 @@ bool DIOMAC::Set(XSTRING& MAC)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::Set(char* MAC)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  MAC :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  MAC : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::Set(char* MAC)
 {
@@ -278,17 +279,16 @@ bool DIOMAC::Set(char* MAC)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::IsEqual(DIOMAC* MAC)
 * @brief      IsEqual
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  MAC : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::IsEqual(DIOMAC* MAC)
 {
@@ -302,18 +302,17 @@ bool DIOMAC::IsEqual(DIOMAC* MAC)
   return true;  
 }
 
-  
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOMAC::IsEqual(DIOMAC& MAC)
 * @brief      IsEqual
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  MAC : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOMAC::IsEqual(DIOMAC& MAC)
 {
@@ -321,17 +320,15 @@ bool DIOMAC::IsEqual(DIOMAC& MAC)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOMAC::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMAC::Clean()
 {
@@ -339,3 +336,4 @@ void DIOMAC::Clean()
 }
 
 
+#pragma endregion

@@ -658,7 +658,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
               crc32.ResetResult();
               crc32.Do((XBYTE*)echoreply.echorequest.cdata, DIOPING_REQ_TICKETSIZE);
 
-            //if(crc32result == crc32.GetResultCRC32())
+              if(crc32result == crc32.GetResultCRC32())
                 {
                   XWORD checksum = CalculeCheckSum((XWORD *)&echoreply.echorequest, sizeof(DIOPING_ECHOREQUEST));
                   if(!checksum)
@@ -717,13 +717,11 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                     {
                       XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
                     }
-                }
-               /* 
+                }               
                else
                 {
                   XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
-                }
-               */
+                }               
             }
            else
             {

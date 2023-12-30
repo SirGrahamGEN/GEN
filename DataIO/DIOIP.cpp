@@ -1,59 +1,75 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOIP.cpp
-*
+* 
 * @class      DIOIP
 * @brief      Data Input/Output IP class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOIP.h"
 
 #include <stdio.h>
 #include <string.h>
 
 #include "DIOURL.h"
-#include "DIOIP.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_DIOIPADDRESS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOIPADDRESS:: DIOIPADDRESS()
 * @brief      IOIPADDRESS
 * @ingroup    DATAIO
-*
-* @return     DIOIPADDRESS:: :
-*
+* 
+* @return     DIOIPADDRESS:: : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIPADDRESS:: DIOIPADDRESS()
 {
@@ -61,17 +77,15 @@ DIOIPADDRESS:: DIOIPADDRESS()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOIPADDRESS::~DIOIPADDRESS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIPADDRESS::~DIOIPADDRESS()
 {
@@ -79,15 +93,14 @@ DIOIPADDRESS::~DIOIPADDRESS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XBYTE* DIOIPADDRESS::Get()
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @return     XBYTE* :
-*
+* 
+* @return     XBYTE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* DIOIPADDRESS::Get()
 {
@@ -95,17 +108,16 @@ XBYTE* DIOIPADDRESS::Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::GetXString(XSTRING& IPstring)
+* 
+* @fn         bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
 * @brief      GetXString
 * @ingroup    DATAIO
-*
-* @param[in]  IPstring :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  addressstring : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
 {
@@ -126,17 +138,16 @@ bool DIOIPADDRESS::GetXString(XSTRING& addressstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIP::GetDIOURL(DIOURL* url)
+* 
+* @fn         bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
 * @brief      GetDIOURL
 * @ingroup    DATAIO
-*
-* @param[in]  url :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  url : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
 {
@@ -157,15 +168,14 @@ bool DIOIPADDRESS::GetDIOURL(DIOURL* url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOIPADDRESS::IsEmpty()
 * @brief      IsEmpty
 * @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::IsEmpty()
 {
@@ -175,15 +185,14 @@ bool DIOIPADDRESS::IsEmpty()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOIPADDRESS::IsLocal()
 * @brief      IsLocal
 * @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::IsLocal()
 {
@@ -202,15 +211,14 @@ bool DIOIPADDRESS::IsLocal()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::IsAPIPAAddress()
-* @brief      IsAPIPAAddress  APIPA (Automatic Private Internet Protocol Addressing)
+* 
+* @fn         bool DIOIPADDRESS::IsAPIPA()
+* @brief      IsAPIPA
 * @ingroup    DATAIO
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::IsAPIPA()
 {
@@ -220,18 +228,16 @@ bool DIOIPADDRESS::IsAPIPA()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::Set(XBYTE* IP)
+* 
+* @fn         bool DIOIPADDRESS::Set(XBYTE* address)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  IP :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  address : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Set(XBYTE* address)
 {
@@ -244,20 +250,19 @@ bool DIOIPADDRESS::Set(XBYTE* address)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOIPADDRESS::Set(XBYTE byte1, XBYTE byte2, XBYTE byte3, XBYTE byte4)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  byte1 :
-* @param[in]  byte2 :
-* @param[in]  byte3 :
-* @param[in]  byte4 :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  byte1 : 
+* @param[in]  byte2 : 
+* @param[in]  byte3 : 
+* @param[in]  byte4 : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Set(XBYTE byte1, XBYTE byte2, XBYTE byte3, XBYTE byte4)
 {
@@ -270,17 +275,16 @@ bool DIOIPADDRESS::Set(XBYTE byte1, XBYTE byte2, XBYTE byte3, XBYTE byte4)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::Set(XCHAR* IPchar)
+* 
+* @fn         bool DIOIPADDRESS::Set(XCHAR* addresschar)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  addresschar :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  addresschar : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Set(XCHAR* addresschar)
 {
@@ -292,17 +296,16 @@ bool DIOIPADDRESS::Set(XCHAR* addresschar)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::Set(XSTRING& IPstring)
+* 
+* @fn         bool DIOIPADDRESS::Set(XSTRING& addressstring)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  addressstring :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  addressstring : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Set(XSTRING& addressstring)
 {
@@ -329,17 +332,16 @@ bool DIOIPADDRESS::Set(XSTRING& addressstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::Set(char* IPchar)
+* 
+* @fn         bool DIOIPADDRESS::Set(char* addresschar)
 * @brief      Set
 * @ingroup    DATAIO
-*
-* @param[in]  addresschar :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  addresschar : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Set(char* addresschar)
 {
@@ -351,17 +353,16 @@ bool DIOIPADDRESS::Set(char* addresschar)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOIPADDRESS::Compare(DIOIP& otherIP)
+* 
+* @fn         bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 * @brief      Compare
 * @ingroup    DATAIO
-*
-* @param[in]  otheraddress :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  otheraddress : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 {
@@ -374,16 +375,15 @@ bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOIPADDRESS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIPADDRESS::Clean()
 {
@@ -391,23 +391,20 @@ void DIOIPADDRESS::Clean()
 }
 
 
+#pragma endregion
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOIP class                                                                                                         */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_DIOIP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOIP::DIOIP()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIP::DIOIP()
 {
@@ -415,16 +412,15 @@ DIOIP::DIOIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOIP::~DIOIP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIP::~DIOIP()
 {
@@ -432,15 +428,14 @@ DIOIP::~DIOIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOIPADDRESS* DIOIP::GetMask()
 * @brief      GetMask
 * @ingroup    DATAIO
-*
-* @return     DIOIPADDRESS* :
-*
+* 
+* @return     DIOIPADDRESS* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIPADDRESS* DIOIP::GetMask()
 {
@@ -448,16 +443,15 @@ DIOIPADDRESS* DIOIP::GetMask()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOIP::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIP::Clean()
 {
@@ -465,3 +459,7 @@ void DIOIP::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
