@@ -656,7 +656,7 @@ bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICA
                   ini->ReadValue(DIOAPPLICATIONUPDATE_FILESSECTION, key, value);
                   if(!value.IsEmpty())
                     {
-                      XPATH     xpathfile(XSTRING_STANDARDSIZE);
+                      XPATH     xpathfile(_MAXSTR);
                       int       sizefile = 0;
                       XDWORD    CRC32    = 0;
 

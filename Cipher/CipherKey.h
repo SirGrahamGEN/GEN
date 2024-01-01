@@ -30,10 +30,15 @@
 #define _CIPHERKEY_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBuffer.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum CIPHERKEYTYPE
 {
@@ -44,8 +49,12 @@ enum CIPHERKEYTYPE
   CIPHERKEYTYPE_CERTIFICATE   
 };
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class CIPHERKEY
 {
@@ -65,11 +74,10 @@ class CIPHERKEY
 
     CIPHERKEYTYPE         type;
 
-private:
+  private:
 
     void                  Clean                     ();
 };
-
 
 
 class CIPHERKEYSYMMETRICAL : public CIPHERKEY
@@ -96,6 +104,14 @@ class CIPHERKEYSYMMETRICAL : public CIPHERKEY
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif

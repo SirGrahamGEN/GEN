@@ -3,7 +3,7 @@
 * @file       CipherKeysFilePEM.cpp
 * 
 * @class      CIPHERKEYSFILEPEM
-* @brief      Cipher File Keys PEM class
+* @brief      Cipher File Keys PEM (GEN Key File) class
 * @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherKeysFilePEM.h"
 
 #include "XBuffer.h"
 #include "XBER.h"
@@ -40,15 +46,22 @@
 
 #include "CipherKey.h"
 
-#include "CipherKeysFilePEM.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CIPHERKEYSFILEPEM_TYPECERTIFICATE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,6 +109,12 @@ void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma region CIPHERKEYSFILEPEM
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -456,3 +475,10 @@ void CIPHERKEYSFILEPEM::Clean()
 {
   xfiletxt  = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

@@ -5597,6 +5597,7 @@ bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 bool XSTRING::ReAllocBuffer(XDWORD size)
 {
   if(!size)
@@ -5605,28 +5606,38 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
     }
    else
     {      
-      XDWORD _sizemem = (size + XSTRING_BLOCKMEM);
+      XDWORD sizeblockmen      = (size + XSTRING_BLOCKMEM);
+      XDWORD sizeblockmenbytes = (sizeblockmen  * sizeof(XCHAR));
      
       if(!text)
         {
-          text = new XCHAR[_sizemem];
-          if(!text) return false;
+          text = (XCHAR*)new XBYTE[sizeblockmenbytes];
+          if(!text) 
+            {
+              return false;
+            }
 
-          memset(text, 0, (_sizemem * sizeof(XCHAR)));
+          memset(text, 0, sizeblockmenbytes);
 
-          this->sizemem = _sizemem;
+          this->sizemem = sizeblockmen;
         }
        else
         {
           if(size >= this->sizemem)
-            {
-              XCHAR* ttext = new XCHAR[_sizemem];
-              if(!ttext) return false;
+            {              
+              XCHAR* ttext = (XCHAR*)new XBYTE[sizeblockmenbytes];
+              if(!ttext) 
+                {
+                  return false;
+                }
 
-              memset(ttext, 0, (_sizemem * sizeof(XCHAR)));
+              memset(ttext, 0, sizeblockmenbytes);
 
               XDWORD tsize = size;
-              if(tsize>this->size) tsize = this->size;
+              if(tsize > this->size) 
+                {
+                  tsize = this->size;
+                }
 
               memcpy(ttext, text, tsize * sizeof(XCHAR));
 
@@ -5634,7 +5645,7 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 
               text = ttext;
 
-              this->sizemem = _sizemem;
+              this->sizemem = sizeblockmen;
             }
            else
             {
@@ -5650,6 +5661,47 @@ bool XSTRING::ReAllocBuffer(XDWORD size)
 
   return true;
 }
+*/
+bool XSTRING::ReAllocBuffer(XDWORD sizechar)
+{
+  if(!sizechar)
+    {
+      FreeBuffer();
+
+      return true;
+    }
+
+  XDWORD newsizechar      = (sizechar + XSTRING_EXCESSCHARS);
+  XDWORD newsizecharbytes = (newsizechar * sizeof(XCHAR));
+  XCHAR* newtext          = (XCHAR*)new XBYTE[newsizecharbytes];
+  if(!newtext) 
+    {
+      return false;
+    }
+
+  memset(newtext, 0, newsizecharbytes);
+
+  if(text)
+    {
+      if(this->size >= sizechar)
+        { 
+          memcpy(newtext, text, sizechar * sizeof(XCHAR));
+        }
+       else
+        {
+          memcpy(newtext, text, size * sizeof(XCHAR));
+        } 
+
+      FreeBuffer();
+    }
+
+  text          = newtext;
+  this->size    = sizechar;
+  this->sizemem = newsizechar;
+
+  return true;
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------

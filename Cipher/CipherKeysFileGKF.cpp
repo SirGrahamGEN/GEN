@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherKeysFileGKF.h"
 
 #include "XFactory.h"
 #include "XMPInteger.h"
@@ -42,14 +48,19 @@
 #include "Cipher.h"
 #include "CipherRSA.h"
 
-#include "CipherKeysFileGKF.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -768,3 +779,7 @@ void CIPHERKEYSFILEGKF::Clean()
 {
   xfilexml  = NULL;
 }
+
+
+#pragma endregion
+

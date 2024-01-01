@@ -3,7 +3,7 @@
 * @file       CompressLZW.cpp
 * 
 * @class      COMPRESSLZW
-* @brief      Compress LZW (Gif compression) class
+* @brief      Compress LZW (GIF compression) class
 * @ingroup    COMPRESS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,27 +26,37 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CompressLZW.h"
 
 #include <stdio.h>
 #include <string.h>
 
 #include "XBuffer.h"
 
-#include "CompressLZW.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -626,3 +636,7 @@ void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)
   byoutbit = uiAdd % 8;
   curout += uiAdd / 8;
 }
+
+
+#pragma endregion
+

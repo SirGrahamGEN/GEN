@@ -30,26 +30,47 @@
 #define _HASHSHA1_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "Hash.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class HASHSHA1 : public HASH
 {
   public:
-                      HASHSHA1              ();
-    virtual          ~HASHSHA1              ();
+                      HASHSHA1                  ();
+    virtual          ~HASHSHA1                  ();
 
     using             HASH::Do;
-    bool              Do                    (XBYTE* input, XQWORD size);
+    bool              Do                        (XBYTE* input, XQWORD size);
 
-    int               GetDefaultSize        ();
+    int               GetDefaultSize            ();
 
   private:
+   
+    void              Reset                     ();
+
+    void              Input                     (XBYTE* input, XQWORD length);
+
+    void              ProcessMessageBlock       ();
+    void              PadMessage                ();
+    XDWORD            CircularShift             (int bits, XDWORD word);
+
+    bool              Result                    (XDWORD* msgdigest); 
+
+    void              Clean                     (); 
 
      XDWORD           H[5];                     // Message digest buffers
 
@@ -61,21 +82,16 @@ class HASHSHA1 : public HASH
 
      bool             computed;                 // Is the digest computed?
      bool             corrupted;                // Is the message digest corrupe
-
-    void              Clean                 ();
-
-    void              Reset                 ();
-
-    void              Input                 (XBYTE* input, XQWORD length);
-
-    void              ProcessMessageBlock   ();
-    void              PadMessage            ();
-    XDWORD            CircularShift         (int bits, XDWORD word);
-
-    bool              Result                (XDWORD* msgdigest);
 };
+
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif

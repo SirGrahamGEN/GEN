@@ -30,17 +30,26 @@
 #define _COMPRESSLZRW1KH_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "CompressBase.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define CMPFLAG_COPIED                    0x80
 #define CMPFLAG_COMPRESS                  0x40
 
 #define CMPTARGET(operation,index,data)  target?(target[index]=(XBYTE)data):CompressResult((bool)operation,(XBYTE)data,(void*)param1)
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class XBUFFER;
 
@@ -66,6 +75,15 @@ class COMPRESS_LZRW1KH : public COMPRESSBASE
     XDWORD                  hash[4096];
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

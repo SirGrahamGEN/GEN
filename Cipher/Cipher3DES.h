@@ -30,10 +30,15 @@
 #define _CIPHER3DES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "CipherDES.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 typedef struct
 {
@@ -42,7 +47,11 @@ typedef struct
 
 } CIPHER3DES_CONTEXT;
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class CIPHER3DES : public CIPHERDES
 {
@@ -75,6 +84,15 @@ class CIPHER3DES : public CIPHERDES
     void                  Clean                   ();
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherRSA.h"
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -43,16 +49,21 @@
 
 #include "Hash.h"
 
-#include "CipherRSA.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 CIPHERRSA* CIPHERRSA::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 #pragma region CIPHERKEYRSAPUBLIC
@@ -1490,3 +1501,7 @@ void CIPHERRSA::Clean()
 
 
 #pragma endregion
+
+
+#pragma endregion 
+

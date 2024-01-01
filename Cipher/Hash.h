@@ -30,13 +30,18 @@
 #define _HASH_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFactory.h"
 #include "XDateTime.h"
 #include "XPath.h"
 #include "XString.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define HASHMAXFILESIZEBUFFER (1024*512)
 #define HASHALLFILESIZE       0x80000000
@@ -58,7 +63,11 @@ enum HASHTYPE
   HASHTYPE_RIPEMD160    ,
 };
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class XFACTORY;
 class XFILE;
@@ -98,8 +107,15 @@ class HASH
     void                          Clean                         ();
 };
 
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

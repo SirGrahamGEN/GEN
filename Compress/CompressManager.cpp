@@ -26,27 +26,39 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CompressManager.h"
 
 #include "CompressLZW.h"
 #include "CompressLZRW1KH.h"
 #include "CompressZIP.h"
 #include "CompressGZ.h"
 
-#include "CompressManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 COMPRESSMANAGER* COMPRESSMANAGER::instance=NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -156,3 +168,7 @@ void COMPRESSMANAGER::Clean()
 {
   lastcompresstype = COMPRESSBASE_TYPE_NONE;
 }
+
+
+#pragma endregion
+

@@ -26,37 +26,42 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherBlowfish.h"
 
 #include <string.h>
 
 #include "XFactory.h"
 
-#include "CipherBlowfish.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-
-#define GET_UINT32_BE(n,b,i)  {  (n) =    ( (XDWORD) (b)[(i)    ] << 24 )             \
-                                        | ( (XDWORD) (b)[(i) + 1] << 16 )             \
-                                        | ( (XDWORD) (b)[(i) + 2] <<  8 )             \
-                                        | ( (XDWORD) (b)[(i) + 3]       );            \
-                              }
-
-#define PUT_UINT32_BE(n,b,i)  {  (b)[(i)    ] = (XBYTE) ( (n) >> 24 );       \
-                                 (b)[(i) + 1] = (XBYTE) ( (n) >> 16 );       \
-                                 (b)[(i) + 2] = (XBYTE) ( (n) >>  8 );       \
-                                 (b)[(i) + 3] = (XBYTE) ( (n)       );       \
-                              }
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#define GET_UINT32_BE(n,b,i)  {  (n) =    ( (XDWORD) (b)[(i)    ] << 24 )              \
+                                        | ( (XDWORD) (b)[(i) + 1] << 16 )              \
+                                        | ( (XDWORD) (b)[(i) + 2] <<  8 )              \
+                                        | ( (XDWORD) (b)[(i) + 3]       );             \
+                              }
+
+#define PUT_UINT32_BE(n,b,i)  {  (b)[(i)    ] = (XBYTE) ( (n) >> 24 );                 \
+                                 (b)[(i) + 1] = (XBYTE) ( (n) >> 16 );                 \
+                                 (b)[(i) + 2] = (XBYTE) ( (n) >>  8 );                 \
+                                 (b)[(i) + 3] = (XBYTE) ( (n)       );                 \
+                              }
 
 XDWORD CIPHERBLOWFISH::P[CIPHERBLOWFISH_ROUNDS + 2]   = { 0x243F6A88L, 0x85A308D3L, 0x13198A2EL, 0x03707344L,
                                                           0xA4093822L, 0x299F31D0L, 0x082EFA98L, 0xEC4E6C89L,
@@ -326,8 +331,11 @@ XDWORD CIPHERBLOWFISH::S[4][256]                     =  { { 0xD1310BA6L, 0x98DFB
                                                             0xB74E6132L, 0xCE77E25BL, 0x578FDFE3L, 0x3AC372E6L
                                                           }
                                                         };
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -345,7 +353,6 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 
   type              = CIPHERTYPE_BLOWFISH;
   paddingadjustsize = 16;
-
 }
 
 
@@ -360,7 +367,6 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERBLOWFISH::~CIPHERBLOWFISH()
-
 {
   Clean();
 }
@@ -906,3 +912,7 @@ void CIPHERBLOWFISH::Clean()
 {
 
 }
+
+
+#pragma endregion
+

@@ -26,23 +26,34 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XBuffer.h"
+#pragma region INCLUDES
 
 #include "CompressLZRW1KH.h"
 
+#include "XBuffer.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -392,3 +403,7 @@ XDWORD COMPRESS_LZRW1KH::DecompressionBuffer(XBYTE *source,XBYTE *target,XDWORD 
 
  return y;
 }
+
+
+#pragma endregion
+

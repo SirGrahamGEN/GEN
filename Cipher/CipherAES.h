@@ -30,10 +30,15 @@
 #define _CIPHERAES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "Cipher.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define CIPHERAES_ENCRYPT     1
 #define CIPHERAES_DECRYPT     0
@@ -47,8 +52,11 @@ typedef struct
 
 } CIPHERAES_CONTEXT;
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class CIPHERAES : public CIPHER
 {
@@ -96,6 +104,14 @@ class CIPHERAES : public CIPHER
     static int            initdone;
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif

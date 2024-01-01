@@ -75,15 +75,12 @@ typedef struct
 } SHORTSTRING;
 #pragma pack(pop, r1)
 
+#define XSTRING_EXCESSCHARS             1
 
 #ifdef MICROCONTROLLER
-#define XSTRING_BLOCKMEM                8
-#define XSTRING_MAXTEMPOSTR             128
-#define XSTRING_STANDARDSIZE            64
+  #define XSTRING_MAXTEMPOSTR           128
 #else
-#define XSTRING_BLOCKMEM                8
-#define XSTRING_MAXTEMPOSTR             1024
-#define XSTRING_STANDARDSIZE            256
+  #define XSTRING_MAXTEMPOSTR           1024
 #endif
 
 #define XSTRING_SIZETABLE64BITS         64
@@ -335,7 +332,7 @@ class GEN_API_LIB XSTRING
     
   protected: 
     
-    bool                  ReAllocBuffer                   (XDWORD size);
+    bool                  ReAllocBuffer                   (XDWORD sizechar);
     bool                  FreeBuffer                      ();
 
     bool                  ConvertStringWithMask           (XCHAR* mask, XCHAR* string, XCHAR* result);

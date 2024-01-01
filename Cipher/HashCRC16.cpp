@@ -26,25 +26,35 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "HashCRC16.h"
 
 #include "XBuffer.h"
 #include "XFactory.h"
 
-#include "HashCRC16.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -278,7 +288,6 @@ void HASHCRC16::Ini(void)
                          };
 
   memcpy(table, tabletmp, 256*sizeof(XWORD));
-
 }
 
 
@@ -314,3 +323,6 @@ void HASHCRC16::Clean()
 {
   resulttmp = NULL;
 }
+
+
+#pragma endregion

@@ -4,8 +4,6 @@
 * 
 * @class      CIPHERCURVE25519
 * @brief      Cipher Curve25519 class
-*             More information about curve25519 can be found here   http://cr.yp.to/ecdh.html
-*             Refactored code from curve25519-donna: Curve25519 elliptic curve, public key function http://code.google.com/p/curve25519-donna/
 * @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -28,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherCurve25519.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -42,16 +46,21 @@
 #include "XFactory.h"
 #include "XRand.h"
 
-#include "CipherCurve25519.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 const XBYTE CIPHERCURVE25519::basepoint[CIPHERCURVE25519_MAXKEY] = { 9 };
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,8 +211,6 @@ void CIPHERCURVE25519::CleanAllKeys()
       memset(keys[c], 0, CIPHERCURVE25519_MAXKEY);
     }
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1142,3 +1149,7 @@ void CIPHERCURVE25519::Clean()
 {
   CleanAllKeys();
 }
+
+
+#pragma endregion
+

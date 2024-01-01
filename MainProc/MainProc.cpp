@@ -1,44 +1,53 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       MainProc.cpp
-*
+* 
 * @class      MAINPROC
 * @brief      Main Procedure class
 * @ingroup    MAIN PROCEDURE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-#include "XString.h"
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "MainProc.h"
 
+#include "XString.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 MAIN_FUNCTION_TYPE  Main_Proc_PlatformIni   = MAIN_FUNCTION_PLATFORMINI;
 MAIN_FUNCTION_TYPE  Main_Proc_Ini           = MAIN_FUNCTION_INI;
@@ -46,18 +55,21 @@ MAIN_FUNCTION_TYPE  Main_Proc_Update        = MAIN_FUNCTION_UPDATE;
 MAIN_FUNCTION_TYPE  Main_Proc_End           = MAIN_FUNCTION_END;
 MAIN_FUNCTION_TYPE  Main_Proc_PlatformEnd   = MAIN_FUNCTION_PLATFORMEND;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         MAINPROC::MAINPROC()
 * @brief      Constructor
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROC::MAINPROC()
 {
@@ -66,14 +78,14 @@ MAINPROC::MAINPROC()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         MAINPROC::~MAINPROC()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROC::~MAINPROC()
 {
@@ -83,34 +95,32 @@ MAINPROC::~MAINPROC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN)
+* @fn         bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    MAIN PROCEDURE
-*
+* 
 * @param[in]  appmain : 
 * @param[in]  applicationmode : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
   return false;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::Update()
 * @brief      Update
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::Update()
 {
@@ -118,16 +128,14 @@ bool MAINPROC::Update()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::End()
 * @brief      End
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::End()
 {
@@ -137,7 +145,6 @@ bool MAINPROC::End()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -185,7 +192,6 @@ bool MAINPROC::CreateParams(int nparams, char* params[])
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
@@ -214,7 +220,6 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROC::CreateParams(int nparams, XCHAR* params)
@@ -241,8 +246,6 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -285,7 +288,6 @@ bool MAINPROC::CreateParams(XCHAR* commandline)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROC::SetHandle(void* handle)
@@ -303,7 +305,6 @@ void MAINPROC::SetHandle(void* handle)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* MAINPROC::GetXPathExec()
@@ -317,6 +318,7 @@ XPATH* MAINPROC::GetXPathExec()
 {
   return &xpathexec;
 }
+
 
 #endif
 
@@ -336,7 +338,6 @@ bool MAINPROC::Factorys_Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROC::Factorys_End()
@@ -350,7 +351,6 @@ bool MAINPROC::Factorys_End()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -368,8 +368,8 @@ APPMAIN* MAINPROC::GetAppMain()
 }
 
 
-
 #ifndef MICROCONTROLLER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -384,7 +384,6 @@ XVECTOR<XSTRING*>* MAINPROC::GetExecParams()
 {
   return &execparams;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -426,4 +425,7 @@ void MAINPROC::Clean()
   handle            = NULL;  
   appmain           = NULL;    
 }
+
+
+#pragma endregion
 

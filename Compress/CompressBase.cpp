@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CompressBase.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,15 +45,19 @@
 
 #include "XBuffer.h"
 
-#include "CompressBase.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +103,6 @@ COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::~COMPRESSBASE()
-
 {
   SetType();
 }
@@ -265,3 +274,7 @@ bool COMPRESSBASE::CompressResult(bool compress,XBYTE data,void* param1)
 
   return false;
 }
+
+
+#pragma endregion
+

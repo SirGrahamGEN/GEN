@@ -26,22 +26,30 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "HashWhirlpool.h"
 
 #include <string.h>
 
 #include "XBuffer.h"
 
-#include "HashWhirlpool.h"
-
 #include "XMemory_Control.h"
 
-/*---- DEFINES & ENUMS  ---------------------------------------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 #define LL(v)                   (v##ULL)
 
@@ -62,10 +70,6 @@
 #define U32TO8_BIG(c, v)        do { XDWORD x = (v); XBYTE *d = (c); d[0] = T8(x >> 24); d[1] = T8(x >> 16); d[2] = T8(x >> 8); d[3] = T8(x); } while (0)
 #define U32TO8_LITTLE(c, v)     do { XDWORD x = (v); XBYTE *d = (c); d[0] = T8(x); d[1] = T8(x >> 8); d[2] = T8(x >> 16); d[3] = T8(x >> 24); } while (0)
 #define ROTL32(v, n)            (T32((v) << (n)) | ((v) >> (32 - (n))))
-
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
-
-
 
 XQWORD HASHWHIRLPOOL::C0[256] = { LL(0x18186018c07830d8), LL(0x23238c2305af4626), LL(0xc6c63fc67ef991b8), LL(0xe8e887e8136fcdfb),
                                   LL(0x878726874ca113cb), LL(0xb8b8dab8a9626d11), LL(0x0101040108050209), LL(0x4f4f214f426e9e0d),
@@ -609,7 +613,11 @@ XQWORD HASHWHIRLPOOL::rc[HASHWHIRLPOOL_ROUNDS+1]  = { LL(0x0000000000000000),
                                                       LL(0xca2dbf07ad5a8333),
                                                     };
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -994,7 +1002,6 @@ void HASHWHIRLPOOL::Add(XBYTE* source, XDWORD sourceBits, WHIRLPOOL* structpoint
       value >>= 8;
     }
 
-
   // process data in chunks of 8 bits (a more efficient approach would be to take whole-word chunks):
   while (sourceBits > 8)
     {
@@ -1171,4 +1178,7 @@ void HASHWHIRLPOOL::Clean()
 {
 
 }
+
+
+#pragma endregion
 

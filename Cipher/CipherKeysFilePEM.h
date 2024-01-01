@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       CipherFileKeys.h
+* @file       CipherKeysFilePEM.h
 * 
 * @class      CIPHERKEYSFILEPEM
 * @brief      Cipher File Keys PEM (GEN Key File) class
@@ -30,6 +30,7 @@
 #define _CIPHERKEYSFILEPEM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 #include "XDateTime.h"
@@ -37,8 +38,11 @@
 
 #include "CipherKey.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define CIPHERKEYSFILEPEM_EXT           __L(".PEM")
 #define CIPHERKEYSFILEKEY_EXT           __L(".KEY")
@@ -52,8 +56,11 @@
 #define CIPHERKEYSFILEPEM_PRIVATE       __L("PRIVATE")
 #define CIPHERKEYSFILEPEM_CERTIFICATE   __L("CERTIFICATE")
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class XFACTORY;
 class CIPHERKEY;
@@ -101,9 +108,7 @@ class CIPHERKEYSFILEPEM_TYPECERTIFICATE
     XBYTE*                  der_bytes;
     XDWORD                  der_len;
     XBYTE*                  bytes;
-    XDWORD                  len;
-
-    
+    XDWORD                  len;    
 };
 
 
@@ -135,6 +140,15 @@ class CIPHERKEYSFILEPEM
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

@@ -5,7 +5,7 @@
 * @class      FACTORYBASE
 * @brief      Factory Base class
 * @ingroup    PLATFORM_COMMON
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -29,61 +29,94 @@
 #ifndef _FACTORYBASE_H_
 #define _FACTORYBASE_H_
 
-#ifdef XMEMORY_CONTROL_ACTIVE
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <string.h>
 
 #include "XBase.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
-#define FACTORY_MODULE(variable)    if(variable) variable->SetModule(__FILE__);
+#ifdef XMEMORY_CONTROL_ACTIVE
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class FACTORYBASE
-{
-  public:
-                              FACTORYBASE         ()    
-                              { 
-                                Clean();                            
-                              }
-
-    virtual                  ~FACTORYBASE         ()    
-                              { 
-                                Clean();                            
-                              }
-
-    void                      SetModule           (const char* _pathmodule)
-                              {
-                                if(_pathmodule) 
-                                  {
-                                    memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
-                                  }
-                              }  
-  private:
-
-    char                      pathmodule[_MAXSTR];
-
-    void                      Clean               ()
-                              {
-                                memset(pathmodule, 0, _MAXSTR);                                
-                              }
-};
+  #define FACTORY_MODULE(variable)    if(variable) variable->SetModule(__FILE__);
 
 #else
 
-class FACTORYBASE
-{
-
-};
-
-#define FACTORY_MODULE(variable)   
+  #define FACTORY_MODULE(variable)   
 
 #endif
+
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+#ifdef XMEMORY_CONTROL_ACTIVE
+
+  class FACTORYBASE
+  {
+    public:
+                                FACTORYBASE         ()    
+                                { 
+                                  Clean();                            
+                                }
+
+      virtual                  ~FACTORYBASE         ()    
+                                { 
+                                  Clean();                            
+                                }
+
+      void                      SetModule           (const char* _pathmodule)
+                                {
+                                  if(_pathmodule) 
+                                    {
+                                      memcpy(pathmodule, _pathmodule, strlen(_pathmodule));
+                                    }
+                                }  
+    private:
+
+      char                      pathmodule[_MAXSTR];
+
+      void                      Clean               ()
+                                {
+                                  memset(pathmodule, 0, _MAXSTR);                                
+                                }
+  };
+
+#else
+
+  class FACTORYBASE
+  {
+
+  };
+
+#endif
+
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

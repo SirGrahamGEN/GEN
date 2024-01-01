@@ -689,7 +689,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                               xevent.SetPingReply((DIOPINGREPLY*)replys.Get(replys.GetSize()-1));
                               PostEvent(&xevent);
 
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Ping: received! %s %s (elapsed time %d)"), fromIP.Get(), targetIP.Get(), elapsed);
+                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Ping: received! %s %s (elapsed time %d)"), fromIP.Get(), targetIP.Get(), elapsed);
 
                               if(exitfirstgoodreply)
                                 {
@@ -704,28 +704,28 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
                             }
                            else
                             {
-                              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: application ID not equal! %s %s"), fromIP.Get(), targetIP.Get());
+                              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: application ID not equal! %s %s"), fromIP.Get(), targetIP.Get());
                             }
                         }
                        else
                         {
-                          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not IP equal! %s %s"), fromIP.Get(), targetIP.Get());
+                          // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: not IP equal! %s %s"), fromIP.Get(), targetIP.Get());
                         }
 
                     }
                    else
                     {
-                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
+                      // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error Checksum! %s "), targetIP.Get());
                     }
                 }               
                else
                 {
-                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
+                  // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: error CRC! %s "), targetIP.Get());
                 }               
             }
            else
             {
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: Is not reply packet! %s "), targetIP.Get());
+              // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Ping: Is not reply packet! %s "), targetIP.Get());
             }
         }
    }

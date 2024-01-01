@@ -30,10 +30,15 @@
 #define _CIPHER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "CipherKey.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define CIPHERMAXKEYS 2
 
@@ -57,9 +62,11 @@ enum CIPHERCHAININGMODE
   CIPHERCHAININGMODE_CTR            ,
 };
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS
 
 class CIPHER
 {
@@ -117,6 +124,15 @@ class CIPHER
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

@@ -30,9 +30,14 @@
 #define _CIPHERCURVE25519_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum CIPHERCURVE25519_TYPEKEY  
 {
@@ -45,7 +50,11 @@ enum CIPHERCURVE25519_TYPEKEY
 
 #define CIPHERCURVE25519_MAXKEY  32
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class CIPHERCURVE25519
 {
@@ -101,8 +110,15 @@ class CIPHERCURVE25519
     XBYTE                   keys[CIPHERCURVE25519_MAXKEYS][CIPHERCURVE25519_MAXKEY];    
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

@@ -26,26 +26,36 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "CipherKey.h"
 
 #include <string.h>
 
 #include "XFactory.h"
 
-#include "CipherKey.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 #pragma region CIPHERKEY
@@ -64,7 +74,6 @@ CIPHERKEY::CIPHERKEY()
 { 
   Clean();                                          
 }
-
 
        
 /**-------------------------------------------------------------------------------------------------------------------
@@ -206,7 +215,6 @@ CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
@@ -223,7 +231,6 @@ CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -247,7 +254,6 @@ XBYTE* CIPHERKEYSYMMETRICAL::Get(int& size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBUFFER* CIPHERKEYSYMMETRICAL::Get()
@@ -261,7 +267,6 @@ XBUFFER* CIPHERKEYSYMMETRICAL::Get()
 {
   return xbufferkey;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -286,7 +291,6 @@ bool CIPHERKEYSYMMETRICAL::Set(XBYTE* key, XDWORD size)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -360,4 +364,13 @@ void CIPHERKEYSYMMETRICAL::Clean()
   xbufferkey = NULL;
 }
 
+
 #pragma endregion
+
+
+#pragma endregion
+
+
+
+
+

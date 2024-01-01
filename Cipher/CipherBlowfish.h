@@ -30,10 +30,15 @@
 #define _CIPHERBLOWFISH_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "Cipher.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define CIPHERBLOWFISH_ENCRYPT     1
 #define CIPHERBLOWFISH_DECRYPT     0
@@ -50,8 +55,11 @@ typedef struct
 
 } CIPHERBLOWFISH_CONTEXT;
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class CIPHERBLOWFISH : public CIPHER
 {
@@ -86,6 +94,15 @@ class CIPHERBLOWFISH : public CIPHER
     bool                  BlowfishCipher_CTR      (CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size, int* nc_off, XBYTE nonce_counter[CIPHERBLOWFISH_BLOCKSIZE], XBYTE stream_block[CIPHERBLOWFISH_BLOCKSIZE], XBYTE* input, XBYTE* output);
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

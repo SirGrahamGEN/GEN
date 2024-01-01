@@ -30,16 +30,20 @@
 #define _CIPHERDES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "Cipher.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
+#define CIPHERDES_ENCRYPT             1
+#define CIPHERDES_DECRYPT             0
 
-#define CIPHERDES_ENCRYPT           1
-#define CIPHERDES_DECRYPT           0
-
-#define CIPHERDES_KEYSIZE           8
+#define CIPHERDES_KEYSIZE             8
 #define CIPHERDES_WEAKKEYCOUNT        16
 
 
@@ -49,10 +53,10 @@
                                         | ( (XDWORD) (b)[(i) + 3]       );                   \
                               }
 
-#define PUT_XDWORD_BE(n,b,i)  {  (b)[(i)    ] = (XBYTE) ( (n) >> 24 );               \
-                                 (b)[(i) + 1] = (XBYTE) ( (n) >> 16 );               \
-                                 (b)[(i) + 2] = (XBYTE) ( (n) >>  8 );               \
-                                 (b)[(i) + 3] = (XBYTE) ( (n)       );               \
+#define PUT_XDWORD_BE(n,b,i)  {  (b)[(i)    ] = (XBYTE) ( (n) >> 24 );                       \
+                                 (b)[(i) + 1] = (XBYTE) ( (n) >> 16 );                       \
+                                 (b)[(i) + 2] = (XBYTE) ( (n) >>  8 );                       \
+                                 (b)[(i) + 3] = (XBYTE) ( (n)       );                       \
                               }
 
 
@@ -101,8 +105,11 @@ typedef struct
 
 } CIPHERDES_CONTEXT;
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class CIPHERDES : public CIPHER
 {
@@ -151,6 +158,16 @@ class CIPHERDES : public CIPHER
     void                  Clean                   ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
