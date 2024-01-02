@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPCursorMotion.cpp
-*
+* 
 * @class      INPCURSORMOTION
 * @brief      Input Cursor Motion
 * @ingroup    INPUT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPCursorMotion.h"
 
 #include <stdlib.h>
 #include <math.h>
@@ -40,14 +46,22 @@
 #include "XFactory.h"
 #include "XTimer.h"
 
-#include "INPCursorMotion.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_INPCURSORMOTIONPOINT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +77,6 @@ INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +95,6 @@ INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTIONPOINT::GetX()
@@ -96,7 +108,6 @@ float INPCURSORMOTIONPOINT::GetX()
 {
   return x;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -114,7 +125,6 @@ float INPCURSORMOTIONPOINT::GetY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTIONPOINT::GetZ()
@@ -128,7 +138,6 @@ float INPCURSORMOTIONPOINT::GetZ()
 {
   return z;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -149,9 +158,7 @@ void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
   this->x = x;
   this->y = y;
   this->z = z;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -171,7 +178,6 @@ void INPCURSORMOTIONPOINT::SetX(float x)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::SetY(float y)
@@ -189,8 +195,6 @@ void INPCURSORMOTIONPOINT::SetY(float y)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTIONPOINT::SetZ(float z)
@@ -206,7 +210,6 @@ void INPCURSORMOTIONPOINT::SetZ(float z)
 {
   this->z = z;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -227,14 +230,10 @@ void INPCURSORMOTIONPOINT::Clean()
 }
 
 
+#pragma endregion
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* INPUT CURSOR MOTION
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_INPCURSORMOTION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -270,7 +269,6 @@ INPCURSORMOTION::~INPCURSORMOTION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
@@ -286,7 +284,6 @@ XVECTOR<INPCURSORMOTIONPOINT*>* INPCURSORMOTION::Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::GetNPoints()
@@ -300,7 +297,6 @@ int INPCURSORMOTION::GetNPoints()
 {
   return points.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -322,7 +318,6 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetFirstPoint()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
@@ -340,7 +335,6 @@ INPCURSORMOTIONPOINT* INPCURSORMOTION::GetLastPoint()
 
   return point;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -369,7 +363,6 @@ bool INPCURSORMOTION::AddPoint(float x, float y, float z)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::DeleteAllPoints()
@@ -388,8 +381,6 @@ bool INPCURSORMOTION::DeleteAllPoints()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -500,7 +491,6 @@ bool INPCURSORMOTION::AddFromLine(INPCURSORMOTION_REDUCEDMODE reducedmode, int r
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int reducedfactor,int xc, int yc, int radio)
@@ -554,7 +544,6 @@ bool INPCURSORMOTION::AddFromCircle(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -694,7 +683,6 @@ bool INPCURSORMOTION::AddFromElipse(INPCURSORMOTION_REDUCEDMODE reducedmode,int 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPCURSORMOTION::GetAngle()
@@ -723,7 +711,6 @@ float INPCURSORMOTION::GetAngle()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::GetModule()
@@ -749,7 +736,6 @@ int INPCURSORMOTION::GetModule()
 
   return module;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -788,7 +774,6 @@ bool INPCURSORMOTION::IsInRect(int x, int y, int width, int height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::IsInCurse()
@@ -802,7 +787,6 @@ bool INPCURSORMOTION::IsInCurse()
 {
   return isincurse;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -822,7 +806,6 @@ bool INPCURSORMOTION::SetIsInCurse(bool isincurse)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -850,7 +833,6 @@ bool INPCURSORMOTION::IsReadyToTest(XDWORD npoints_min)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
@@ -876,7 +858,6 @@ bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -917,7 +898,6 @@ INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
 
   return INPCURSORMOTION_DIR_UNKNOWN;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -993,7 +973,6 @@ XQWORD INPCURSORMOTION::GetTimeElapsed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
@@ -1011,7 +990,6 @@ bool INPCURSORMOTION::SetTimeElapsed(XQWORD timeelapsed)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1032,7 +1010,6 @@ bool INPCURSORMOTION::Reset()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1064,7 +1041,6 @@ int INPCURSORMOTION::CalculateReducedModeSteps(INPCURSORMOTION_REDUCEDMODE mode,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPCURSORMOTION::Round(double a)
@@ -1082,7 +1058,6 @@ int INPCURSORMOTION::Round(double a)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPCURSORMOTION::Clean()
@@ -1098,6 +1073,12 @@ void INPCURSORMOTION::Clean()
   isincurse   = false;
   timeelapsed = 0;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 
 
 

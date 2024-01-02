@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPButton.cpp
-*
+* 
 * @class      INPBUTTON
 * @brief      Input Button Class
 * @ingroup    INPUT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPButton.h"
 
 #include <string.h>
 
@@ -39,14 +45,19 @@
 #include "XFactory.h"
 #include "XTrace.h"
 
-#include "INPButton.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -59,13 +70,11 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPBUTTON::INPBUTTON()
-
 {
   Clean();
 
   GEN_XFACTORY_CREATE(xtimerpress, CreateTimer())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +95,6 @@ INPBUTTON::~INPBUTTON()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_ID INPBUTTON::GetID()
@@ -100,7 +108,6 @@ INPBUTTON_ID INPBUTTON::GetID()
 {
   return ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +127,6 @@ void INPBUTTON::SetID(INPBUTTON_ID ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD INPBUTTON::GetKeyCode()
@@ -134,7 +140,6 @@ XWORD INPBUTTON::GetKeyCode()
 {
   return keycode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -154,7 +159,6 @@ void INPBUTTON::SetKeyCode(XWORD keycode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR INPBUTTON::GetSymbol()
@@ -168,7 +172,6 @@ XCHAR INPBUTTON::GetSymbol()
 {
   return symbol;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,7 +191,6 @@ void INPBUTTON::SetSymbol(XCHAR symbol)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_STATE INPBUTTON::GetState()
@@ -202,7 +204,6 @@ INPBUTTON_STATE INPBUTTON::GetState()
 {
   return state;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -222,7 +223,6 @@ void INPBUTTON::SetState(INPBUTTON_STATE state)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float INPBUTTON::GetPressure()
@@ -236,7 +236,6 @@ float INPBUTTON::GetPressure()
 {
   return pressure;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,8 +255,6 @@ void INPBUTTON::SetPressure(float pressure)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPBUTTON::IsPressed()
@@ -271,7 +268,6 @@ bool INPBUTTON::IsPressed()
 {
   return pressed;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,9 +340,6 @@ XQWORD INPBUTTON::GetTimePressed()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTON_ID ID, XCHAR symbol)
@@ -380,7 +373,6 @@ bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTO
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPBUTTON::Clean()
@@ -407,4 +399,6 @@ void INPBUTTON::Clean()
   xtimerpress      = NULL;
 };
 
+
+#pragma endregion
 

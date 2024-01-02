@@ -764,14 +764,23 @@ bool XSTRING::Add(XSTRING& string)
   XDWORD ssize = GetSize();
   XDWORD ini;
 
-  if(string.IsEmpty()) return false;
+  if(string.IsEmpty()) 
+    {
+      return false;
+    }
 
   if(string.Get())
     {
-      if(!string.Get()[0]) return false;
+      if(!string.Get()[0]) 
+        {
+          return false;
+        }
     }
 
-  if(!tsize) return false;
+  if(!tsize) 
+    {
+      return false;
+    }
 
   ini = 0;
 

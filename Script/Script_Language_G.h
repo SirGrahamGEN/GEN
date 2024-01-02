@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       Script_Language_G.h
-*
-* @class      SCRIPT_LNG_G
+* 
+* @class      SCRIPT_LANGUAGE_G
 * @brief      Script Language G interpreter (mini .c interpreter)
 * @ingroup    SCRIPT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _SCRIPT_LNG_G_H_
-#define _SCRIPT_LNG_G_H_
+#ifndef _SCRIPT_LANGUAGE_G_H_
+#define _SCRIPT_LANGUAGE_G_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XVector.h"
@@ -43,9 +44,11 @@
 #include "Script.h"
 #include "Script_ErrorCode.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
-
+#pragma region DEFINES_ENUMS
 
 #define SCRIPT_LNG_G_VERSION                    1
 #define SCRIPT_LNG_G_SUBVERSION                 0
@@ -97,8 +100,6 @@ enum SCRIPT_LNG_G_TOKENIREPS
   SCRIPT_LNG_G_TOKENIREPS_END
 };
 
-
-
 enum SCRIPT_LNG_G_ERRORCODE
 {
   SCRIPT_LNG_G_ERRORCODE_SYNTAX         = SCRIPT_ERRORCODE_OWN  ,   // "Syntax error"
@@ -129,15 +130,17 @@ union SCRIPT_LNG_G_VARVALUE
   XSTRING*     string;
 };
 
-#define SCRIPT_LNG_G_MAXIDLEN       31    // max ID     length
-#define SCRIPT_LNG_G_MAXTOKENLEN   128    // max token  length
-#define SCRIPT_LNG_G_NUMPARAMS      41    // max params lenght
+#define SCRIPT_LNG_G_MAXIDLEN                   31      // max ID     length
+#define SCRIPT_LNG_G_MAXTOKENLEN                128     // max token  length
+#define SCRIPT_LNG_G_NUMPARAMS                  41      // max params lenght
 
-#define SCRIPT_LNG_G_EXTENSION   __L(".g")
+#define SCRIPT_LNG_G_EXTENSION                  __L(".g")
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS
 
 class XTHREADCOLLECTED;
 class SCRIPT_LIB;
@@ -161,7 +164,6 @@ class SCRIPT_LNG_G_COMMAND
     XSTRING                             command;
     SCRIPT_LNG_G_TOKENIREPS             token;
 };
-
 
 
 class SCRIPT_LNG_G_FUNCTIONTYPE
@@ -239,8 +241,6 @@ class SCRIPT_LNG_G_VAR
     bool                                isarg;
     bool                                isreturnvalue;
 };
-
-
 
 
 class SCRIPT_LNG_G : public SCRIPT
@@ -348,12 +348,15 @@ class SCRIPT_LNG_G : public SCRIPT
 
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
-
 

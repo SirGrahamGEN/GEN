@@ -1,54 +1,64 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPManager.cpp
-*
+* 
 * @class      INPMANAGER
 * @brief      Input Manager class
 * @ingroup    INPUT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPManager.h"
 
 #include "XFactory.h"
 
 #include "INPButton.h"
 #include "INPDevice.h"
 
-#include "INPManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 INPMANAGER* INPMANAGER::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,7 +76,6 @@ bool INPMANAGER::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPMANAGER& INPMANAGER::GetInstance()
@@ -82,7 +91,6 @@ INPMANAGER& INPMANAGER::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -105,7 +113,6 @@ bool INPMANAGER::DelInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::AddDevice(INPDEVICE* device)
@@ -126,7 +133,6 @@ bool INPMANAGER::AddDevice(INPDEVICE* device)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -153,7 +159,6 @@ bool INPMANAGER::DelDevice(INPDEVICE* device)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::DeleteAllDevices()
@@ -174,7 +179,6 @@ bool INPMANAGER::DeleteAllDevices()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPMANAGER::GetNDevices()
@@ -188,7 +192,6 @@ int INPMANAGER::GetNDevices()
 {
   return devicemap.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -211,7 +214,6 @@ INPDEVICE* INPMANAGER::GetDevice(int index)
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -239,7 +241,6 @@ INPDEVICE* INPMANAGER::GetDevice(INPDEVICE_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPMANAGER::Update()
@@ -263,7 +264,6 @@ bool INPMANAGER::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPMANAGER::INPMANAGER()
@@ -277,7 +277,6 @@ INPMANAGER::INPMANAGER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -298,7 +297,6 @@ INPMANAGER::~INPMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPMANAGER::Clean()
@@ -313,3 +311,7 @@ void INPMANAGER::Clean()
 {
   devicemap.DeleteAll();
 }
+
+
+#pragma endregion
+
