@@ -165,9 +165,26 @@ bool DIOLINUXSTREAMUDP::Open()
 {
   if(!threadconnection)  return false;
 
-  if(!inbuffer)         return false;
-  if(!outbuffer)        return false;
-  if(!config)           return true;
+  if(!inbuffer)          return false;
+  if(!outbuffer)         return false;
+  if(!config)            return true;
+
+  if(!config->IsServer())
+    {
+      if(config->GetRemoteURL()->IsEmpty()) 
+        {
+          return false;   
+        }
+
+      if(config->GetRemoteURL()->IsAURL())
+        {
+          config->GetRemoteURL()->ResolveURL((*config->GetResolvedRemoteURL()));
+        }
+       else 
+        {
+          config->GetResolvedRemoteURL()->Set(config->GetRemoteURL()->Get());      
+        }
+    }
 
   SetEvent(DIOLINUXUDPFSMEVENT_GETTINGCONNECTION);
 
@@ -647,21 +664,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                       {
                                                                         int yes = 1;
                                                                         setsockopt(diostream->handle, SOL_SOCKET, SO_BROADCAST, (char*)&yes, sizeof(yes));
-                                                                      }
-                                                                     else
-                                                                      {
-                                                                        if(diostream->config->GetRemoteURL()->GetSize()) 
-                                                                          {
-                                                                            if(diostream->config->GetRemoteURL()->IsAURL())
-                                                                              {
-                                                                                diostream->config->GetRemoteURL()->ResolveURL((*diostream->config->GetResolvedRemoteURL()));
-                                                                              }
-                                                                             else
-                                                                              {
-                                                                                 diostream->config->GetResolvedRemoteURL()->Set(diostream->config->GetRemoteURL()->Get());
-                                                                              }
-                                                                          }
-                                                                      }
+                                                                      }                                                                     
                                                                   }
 
                                                                 if(diostream->config->GetSizeBufferSO())

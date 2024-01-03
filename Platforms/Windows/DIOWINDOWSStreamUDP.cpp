@@ -149,6 +149,23 @@ bool DIOWINDOWSSTREAMUDP::Open()
   if(!outbuffer)        return false;
   if(!config)           return true;
 
+  if(!config->IsServer())
+    {
+      if(config->GetRemoteURL()->IsEmpty()) 
+        {
+          return false;   
+        }
+
+      if(config->GetRemoteURL()->IsAURL())
+        {
+          config->GetRemoteURL()->ResolveURL((*config->GetResolvedRemoteURL()));
+        }
+       else 
+        {
+          config->GetResolvedRemoteURL()->Set(config->GetRemoteURL()->Get());      
+        }
+    }
+  
   SetEvent(DIOWINDOWSUDPFSMEVENT_GETTINGCONNECTION);
 
   status = DIOSTREAMSTATUS_GETTINGCONNECTION;
@@ -476,10 +493,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
 
                                                                               target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
 
-                                                                              size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
-
-                                                                              //XTRACE_PRINTCOLOR(1, __L("Write UDP to [%s] (%d)"), tmpremoteaddress.Get(), size);
-
+                                                                              size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);                                                                              
                                                                               if(size == SOCKET_ERROR)
                                                                                 {
                                                                                   diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
@@ -490,11 +504,11 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                                 {
                                                                                   if(diostream->config->IsUsedDatagrams())
                                                                                     {
-                                                                                       diostream->DeleteDatagram(indexdatagram);
+                                                                                      diostream->DeleteDatagram(indexdatagram);
                                                                                     }
                                                                                    else 
                                                                                     {
-                                                                                       diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                      diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
                                                                                     }
                                                                                 }
                                                                             }
@@ -644,21 +658,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                       {
                                                                         int yes = 1;
                                                                         setsockopt(diostream->handle, SOL_SOCKET, SO_BROADCAST, (char*)&yes, sizeof(yes));
-                                                                      }
-                                                                     else
-                                                                      {
-                                                                        if(diostream->config->GetRemoteURL()->GetSize()) 
-                                                                          {
-                                                                            if(diostream->config->GetRemoteURL()->IsAURL())
-                                                                              {
-                                                                                diostream->config->GetRemoteURL()->ResolveURL((*diostream->config->GetResolvedRemoteURL()));
-                                                                              }
-                                                                             else
-                                                                              {
-                                                                                diostream->config->GetResolvedRemoteURL()->Set(diostream->config->GetRemoteURL()->Get());
-                                                                              }
-                                                                          }
-                                                                      }
+                                                                      }                                                                     
                                                                   }
 
                                                                 if(diostream->config->GetSizeBufferSO())
