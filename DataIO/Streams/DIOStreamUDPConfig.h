@@ -55,7 +55,9 @@ class DIOSTREAMUDPCONFIG : public DIOSTREAMCONFIG, public DIOSTREAMCONFIGSTRING
     virtual                ~DIOSTREAMUDPCONFIG          ();
 
     DIOIP*                  GetLocalIP                  ();
+
     DIOURL*                 GetRemoteURL                ();
+    XSTRING*                GetResolvedRemoteURL        ();
 
     int                     GetRemotePort               ();
     bool                    SetRemotePort               (int port);
@@ -69,6 +71,7 @@ class DIOSTREAMUDPCONFIG : public DIOSTREAMCONFIG, public DIOSTREAMCONFIGSTRING
   protected:
 
     DIOIP                   localIP;
+    XSTRING                 resolvedremoteURL;
 
     int                     remoteoffsetport;
 

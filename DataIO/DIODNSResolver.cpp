@@ -322,7 +322,20 @@ bool DIODNSRESOLVER::DelInstance()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XDWORD timeout)
 {
-  if(Host_FindIP(URL, IPresolved)) return true;
+  if(xmutexresolved)
+    {
+      //xmutexresolved->Lock();
+    }
+
+  if(Host_FindIP(URL, IPresolved)) 
+    {
+      if(xmutexresolved)
+        {
+          //xmutexresolved->UnLock();
+        }
+
+      return true;
+    }
 
   if(!listhostresolved.GetSize())
     {
@@ -330,6 +343,7 @@ bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
     }
 
   DIOURL url;
+  
   url = URL;  
 
   if(url.IsAURL())
@@ -372,7 +386,10 @@ bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
                       dnsprotocolclient->SetServer(serverIP.Get(), serverDNS->GetPort());
 
                       status = dnsprotocolclient->ResolveURL(URL, IPresolved, querytype, timeout);
-                      if(status) break;
+                      if(status) 
+                        {
+                          break;
+                        }
                     }
                 }
 
@@ -381,6 +398,11 @@ bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
 
           GEN_XFACTORY.DeleteTimer(xtimerout);
         }
+    }
+
+  if(xmutexresolved)
+    {
+      //xmutexresolved->UnLock();
     }
 
   return true;
@@ -750,6 +772,8 @@ bool DIODNSRESOLVER::Host_DeleteAllList()
 DIODNSRESOLVER::DIODNSRESOLVER()
 {
   Clean();
+
+  xmutexresolved = GEN_XFACTORY.Create_Mutex();  
 }
 
 
@@ -765,6 +789,12 @@ DIODNSRESOLVER::DIODNSRESOLVER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER::~DIODNSRESOLVER()
 {  
+  if(xmutexresolved)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexresolved);
+      xmutexresolved = NULL;
+    }
+
   DNSServer_DeleteAllList();
   Host_DeleteAllList();
 
@@ -784,7 +814,7 @@ DIODNSRESOLVER::~DIODNSRESOLVER()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVER::Clean()
 {
-  
+  xmutexresolved        = NULL;
 }
 
 

@@ -80,14 +80,14 @@ DIOSTREAMUDPCONFIG::~DIOSTREAMUDPCONFIG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
+* @fn         DIOIP* DIOSTREAMUDPCONFIG::GetLocalIP()
 * @brief      GetLocalIP
 * @ingroup    DATAIO
 *
 * @return     DIOIP* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
+DIOIP* DIOSTREAMUDPCONFIG::GetLocalIP()
 {
   return &localIP;
 }
@@ -96,30 +96,44 @@ DIOIP* DIOSTREAMUDPCONFIG ::GetLocalIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOURL* DIOSTREAMUDPCONFIG ::GetRemoteURL()
+* @fn         DIOURL* DIOSTREAMUDPCONFIG::GetRemoteURL()
 * @brief      GetRemoteURL
 * @ingroup    DATAIO
 *
 * @return     DIOURL* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOURL* DIOSTREAMUDPCONFIG ::GetRemoteURL()
+DIOURL* DIOSTREAMUDPCONFIG::GetRemoteURL()
 {
   return &remoteURL;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSTREAMUDPCONFIG::GetResolvedRemoteURL()
+* @brief      GetResolvedRemoteURL
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSTREAMUDPCONFIG::GetResolvedRemoteURL()
+{
+  return &resolvedremoteURL;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int DIOSTREAMUDPCONFIG ::GetRemotePort()
+* @fn         int DIOSTREAMUDPCONFIG::GetRemotePort()
 * @brief      GetRemotePort
 * @ingroup    DATAIO
 *
 * @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOSTREAMUDPCONFIG ::GetRemotePort()
+int DIOSTREAMUDPCONFIG::GetRemotePort()
 {
   return remoteport;
 }
