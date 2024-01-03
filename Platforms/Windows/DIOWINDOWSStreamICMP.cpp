@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamICMP.cpp
 * 
 * @class      DIOWINDOWSSTREAMICMP
-* @brief      WINDOWS Data Input/Output Stream ICMP class
+* @brief      Data Input/Output WINDOWS Stream ICMP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -115,18 +115,16 @@ DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP()
 {
   if(threadconnection) DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMICMP, threadconnection);
@@ -135,25 +133,38 @@ DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMICMP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMICMP::Open()
 {
   if(!threadconnection)  return false;
 
   if(!inbuffer)         return false;
   if(!outbuffer)        return false;
+
+  if(!config->IsServer())
+    {
+      if(config->GetRemoteURL()->IsEmpty()) 
+        {
+          return false;   
+        }
+
+      if(config->GetRemoteURL()->IsAURL())
+        {
+          config->GetRemoteURL()->ResolveURL((*config->GetResolvedRemoteURL()));
+        }
+       else 
+        {
+          config->GetResolvedRemoteURL()->Set(config->GetRemoteURL()->Get());      
+        }
+    }
 
   SetEvent(DIOWINDOWSICMPFSMEVENT_GETTINGCONNECTION);
 
@@ -167,20 +178,15 @@ bool DIOWINDOWSSTREAMICMP::Open()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMICMP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMICMP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -198,18 +204,15 @@ bool DIOWINDOWSSTREAMICMP::Disconnect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMICMP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMICMP::Close()
 {
   if(!threadconnection) return false;
@@ -227,56 +230,18 @@ bool DIOWINDOWSSTREAMICMP::Close()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
-/*
-{
-  struct timeval  tv;
-  int             rc;
-  fd_set          fdr;
-  fd_set          fdw;
-  fd_set          fds;
-
-  if(socket==INVALID_SOCKET) return -1;
-
-  FD_ZERO(&fdr);
-  FD_ZERO(&fdw);
-  FD_ZERO(&fds);
-
-  FD_SET((unsigned int)socket,&fdr);
-  FD_SET((unsigned int)socket,&fdw);
-  FD_SET((unsigned int)socket,&fds);
-
-  tv.tv_sec  = 0;
-  tv.tv_usec = 100;
-
-  rc = select((int)(socket)+1, &fdr, &fdw, &fds, &tv);
-  if(rc==SOCKET_ERROR) return -1;
-  //if(rc>1)             return -1;
-
-  int status1 = FD_ISSET(socket,&fdr) ? 1 : 0;
-  int status2 = FD_ISSET(socket,&fdw) ? 1 : 0;
-  int status3 = FD_ISSET(socket,&fds) ? 1 : 0;
-
-  if(status1 || status2) return  1;
-  if(status3)            return -1;
-
-  return 0;
-}
-*/
 {
   struct timeval  tv;
   int             rc;
@@ -319,39 +284,35 @@ int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMICMP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMICMP::Clean()
 {
-  threadconnection   = NULL;
+  threadconnection  = NULL;
   status            = DIOSTREAMSTATUS_DISCONNECTED;
   handle            = INVALID_SOCKET;
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMICMP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMICMP* diostream = (DIOWINDOWSSTREAMICMP*)data;
@@ -361,9 +322,9 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
     {
       switch(diostream->GetCurrentState())
         {
-          case DIOWINDOWSICMPFSMSTATE_NONE                : break;
+          case DIOWINDOWSICMPFSMSTATE_NONE              : break;
 
-          case DIOWINDOWSICMPFSMSTATE_GETTINGCONNECTION    : switch(diostream->IsReadyConnect(diostream->handle))
+          case DIOWINDOWSICMPFSMSTATE_GETTINGCONNECTION : switch(diostream->IsReadyConnect(diostream->handle))
                                                             {
                                                               case -1:  diostream->SetEvent(DIOWINDOWSICMPFSMEVENT_DISCONNECTING);
                                                                         break;
@@ -377,9 +338,9 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
                                                             }
                                                           break;
 
-          case DIOWINDOWSICMPFSMSTATE_CONNECTED         : break;
+          case DIOWINDOWSICMPFSMSTATE_CONNECTED        :  break;
 
-          case DIOWINDOWSICMPFSMSTATE_WAITINGTOREAD     : { struct timeval  waitd;
+          case DIOWINDOWSICMPFSMSTATE_WAITINGTOREAD    :  { struct timeval  waitd;
                                                             fd_set          read_flags;
                                                             fd_set          write_flags;
 
@@ -470,9 +431,10 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
 
                                                                             target_addr.sin_family = AF_INET;
 
-                                                                            if(datagram->GetAddress()->IsEmpty())
-                                                                                    tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                              else  tmpremoteaddress = datagram->GetAddress()->Get();
+                                                                            if(!datagram->GetAddress()->IsEmpty())
+                                                                              {
+                                                                                diostream->config->GetResolvedRemoteURL()->Set(datagram->GetAddress()->Get());
+                                                                              }
 
                                                                             XBUFFER charstr;
                                                                             
@@ -510,9 +472,9 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
                                                           }
                                                           break;
 
-          case DIOWINDOWSICMPFSMSTATE_SENDINGDATA       : break;
+          case DIOWINDOWSICMPFSMSTATE_SENDINGDATA      :  break;
 
-          case DIOWINDOWSICMPFSMSTATE_DISCONNECTING     : break;
+          case DIOWINDOWSICMPFSMSTATE_DISCONNECTING    :  break;
 
         }
     }
@@ -526,7 +488,7 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
             {
               case DIOWINDOWSICMPFSMSTATE_NONE                : break;
 
-              case DIOWINDOWSICMPFSMSTATE_GETTINGCONNECTION    : { SOCKADDR_IN loc_addr;
+              case DIOWINDOWSICMPFSMSTATE_GETTINGCONNECTION   : { SOCKADDR_IN loc_addr;
 
                                                                   memset(&loc_addr, 0, sizeof(SOCKADDR_IN));
 
@@ -566,13 +528,7 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
                                                                           diostream->SetEvent(DIOWINDOWSICMPFSMEVENT_DISCONNECTING);
                                                                           break;
                                                                         }
-                                                                    }
-
-
-                                                                  if(!diostream->config->IsServer())
-                                                                    {
-                                                                      if(diostream->config->GetRemoteURL()->GetSize()) diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
-                                                                    }
+                                                                    }                                                                 
 
                                                                   /*
                                                                   int opt = 1;
@@ -619,6 +575,9 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
         }
     }
 }
+
+#pragma endregion
+
 
 #pragma endregion
 

@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamICMP.cpp
 * 
 * @class      DIOLINUXSTREAMICMP
-* @brief      LINUX Data Input/Output Stream ICMP class
+* @brief      Data Input/Output LINUX Stream ICMP class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -175,10 +175,27 @@ DIOLINUXSTREAMICMP::~DIOLINUXSTREAMICMP()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMICMP::Open()
 {
-  if(!threadconnection)  return false;
+  if(!threadconnection)   return false;
 
-  if(!inbuffer)         return false;
-  if(!outbuffer)        return false;
+  if(!inbuffer)           return false;
+  if(!outbuffer)          return false;
+
+  if(!config->IsServer())
+    {
+      if(config->GetRemoteURL()->IsEmpty()) 
+        {
+          return false;   
+        }
+
+      if(config->GetRemoteURL()->IsAURL())
+        {
+          config->GetRemoteURL()->ResolveURL((*config->GetResolvedRemoteURL()));
+        }
+       else 
+        {
+          config->GetResolvedRemoteURL()->Set(config->GetRemoteURL()->Get());      
+        }
+    }
 
   SetEvent(DIOLINUXICMPFSMEVENT_GETTINGCONNECTION);
 

@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamICMP.h
 * 
 * @class      DIOWINDOWSSTREAMICMP
-* @brief      WINDOWS Data Input/Output Stream ICMP class
+* @brief      Data Input/Output WINDOWS Stream ICMP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,6 +30,7 @@
 #define _DIOWINDOWSSTREAMICMP_H_
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -108,11 +109,8 @@ class DIOWINDOWSSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
     static void               ThreadConnection                        (void* data);
 
     XTHREADCOLLECTED*         threadconnection;
-    SOCKET                    handle;
-    XSTRING                   remoteaddress;
-
+    SOCKET                    handle;    
 };
-
 
 #pragma endregion
 
@@ -125,5 +123,6 @@ class DIOWINDOWSSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
 
 
 #endif
+
 
 #endif

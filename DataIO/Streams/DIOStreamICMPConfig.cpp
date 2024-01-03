@@ -124,6 +124,21 @@ DIOURL* DIOSTREAMICMPCONFIG ::GetRemoteURL()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSTREAMICMPCONFIG::GetResolvedRemoteURL()
+* @brief      GetResolvedRemoteURL
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOSTREAMICMPCONFIG::GetResolvedRemoteURL()
+{
+  return &resolvedremoteURL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMICMPCONFIG ::Clean()
 * @brief      Clean the attributes of the class: Default initialice

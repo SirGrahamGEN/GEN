@@ -62,12 +62,15 @@ class DIOSTREAMICMPCONFIG : public DIOSTREAMCONFIG
     virtual                ~DIOSTREAMICMPCONFIG         ();
 
     DIOIP*                  GetLocalIP                  ();
+
     DIOURL*                 GetRemoteURL                ();
+    XSTRING*                GetResolvedRemoteURL        ();
 
   protected:
 
     DIOIP                   localIP;
     DIOURL*                 remoteURL;
+    XSTRING                 resolvedremoteURL;
 
   private:
 
