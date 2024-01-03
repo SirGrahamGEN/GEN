@@ -330,7 +330,10 @@ void DIOLINUXSTREAMUDP::Clean()
 void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
 {
   DIOLINUXSTREAMUDP* diostream = (DIOLINUXSTREAMUDP*)thread;
-  if(!diostream) return;
+  if(!diostream) 
+    {
+      return;
+    }
 
   if(diostream->GetEvent()==DIOLINUXUDPFSMEVENT_NONE)
     {
@@ -338,7 +341,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
         {
           case DIOLINUXUDPFSMSTATE_NONE               : break;
 
-          case DIOLINUXUDPFSMSTATE_GETTINGCONNECTION   : switch(diostream->IsReadyConnect(diostream->handle))
+          case DIOLINUXUDPFSMSTATE_GETTINGCONNECTION  : switch(diostream->IsReadyConnect(diostream->handle))
                                                           {
                                                             case -1:  diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
                                                                       break;
@@ -403,7 +406,6 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
 
                                                               FD_CLR(diostream->handle, &read_flags);
 
-
                                                               struct sockaddr_in  origin_addr;
                                                               socklen_t           size_addr = sizeof(sockaddr_in);
 
@@ -434,7 +436,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                                                     , _address[2]
                                                                                                     , _address[3]);
 
-                                                                  port =  ntohs(origin_addr.sin_port);
+                                                                  port = ntohs(origin_addr.sin_port);
 
                                                                   //XTRACE_PRINTCOLOR(1, __L("Read UDP from [%s] (%d)"), address.Get(), size);
 
@@ -465,8 +467,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                           struct sockaddr_in  target_addr;
                                                                           socklen_t           size_addr = sizeof(sockaddr_in);
                                                                           int                 size;
-                                                                          XSTRING             tmpremoteaddress;
-
+                                                                         
                                                                           memset(&target_addr, 0, size_addr);
 
                                                                           target_addr.sin_family = AF_INET;
@@ -477,27 +478,19 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                             }
                                                                            else
                                                                             {
-                                                                              if(datagram->GetAddress()->IsEmpty())
-                                                                                {
-                                                                                  tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                                }
-                                                                               else  
+                                                                              if(!datagram->GetAddress()->IsEmpty())                                                                                
                                                                                 { 
-                                                                                  tmpremoteaddress = datagram->GetAddress()->Get();
+                                                                                  diostream->config->GetResolvedRemoteURL()->Set(datagram->GetAddress()->Get());
                                                                                 }
 
                                                                               XBUFFER charstr;
                                                                               
-                                                                              tmpremoteaddress.ConvertToASCII(charstr);                                                                              
-                                                                              target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());
-                                                                              
+                                                                              diostream->config->GetResolvedRemoteURL()->ConvertToASCII(charstr);                                                                              
+                                                                              target_addr.sin_addr.s_addr = inet_addr(charstr.GetPtrChar());                                                                              
                                                                             }
 
                                                                           target_addr.sin_port  = htons(datagram->GetPort()?datagram->GetPort():diostream->config->GetRemotePort());
-                                                                          size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);
-
-                                                                          //XTRACE_PRINTCOLOR(1, __L("Write UDP to [%s] (%d)"), tmpremoteaddress.Get(), size);
-
+                                                                          size = sendto(diostream->handle,(char*)datagram->GetData()->Get(), datagram->GetData()->GetSize(), 0, (sockaddr*)&target_addr, size_addr);                                                                       
                                                                           if(size == -1)
                                                                             {
                                                                               diostream->SetEvent(DIOLINUXUDPFSMEVENT_DISCONNECTING);
@@ -527,8 +520,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                     {
                                                                       struct sockaddr_in  target_addr;
                                                                       socklen_t           size_addr = sizeof(sockaddr_in);
-                                                                      int                 size;
-                                                                      XSTRING             tmpremoteaddress;
+                                                                      int                 size;                                                                      
 
                                                                       memset(&target_addr, 0, size_addr);
 
@@ -537,8 +529,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                       if(diostream->config->IsBroadcastModeActive())
                                                                         {
                                                                           target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
-
-                                                                          target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+                                                                          target_addr.sin_port        = htons(diostream->config->GetRemotePort());
 
                                                                           diostream->outbuffer->SetBlocked(true);
                                                                           size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
@@ -546,16 +537,14 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                         }
                                                                        else
                                                                         {
-                                                                          tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                          
-                                                                          if(!tmpremoteaddress.IsEmpty())
+                                                                          if(!diostream->config->GetResolvedRemoteURL()->IsEmpty())
                                                                             {    
                                                                               XBUFFER charstr;
                                                                           
-                                                                              tmpremoteaddress.ConvertToASCII(charstr);                                                                          
-                                                                              target_addr.sin_addr.s_addr   = inet_addr(charstr.GetPtrChar());     
-                                                                          
-                                                                              target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+                                                                              diostream->config->GetResolvedRemoteURL()->ConvertToASCII(charstr);  
+                                                                        
+                                                                              target_addr.sin_addr.s_addr  = inet_addr(charstr.GetPtrChar());                                                                               
+                                                                              target_addr.sin_port         = htons(diostream->config->GetRemotePort());
 
                                                                               diostream->outbuffer->SetBlocked(true);
                                                                               size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
@@ -665,11 +654,11 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                           {
                                                                             if(diostream->config->GetRemoteURL()->IsAURL())
                                                                               {
-                                                                                diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                                diostream->config->GetRemoteURL()->ResolveURL((*diostream->config->GetResolvedRemoteURL()));
                                                                               }
                                                                              else
                                                                               {
-                                                                                 diostream->remoteaddress = diostream->config->GetRemoteURL()->Get();
+                                                                                 diostream->config->GetResolvedRemoteURL()->Set(diostream->config->GetRemoteURL()->Get());
                                                                               }
                                                                           }
                                                                       }
@@ -685,7 +674,6 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                   }
 
                                                                 fcntl(diostream->handle, F_SETFL, fcntl(diostream->handle, F_GETFL,0) | O_NONBLOCK);
-
                                                               }
                                                               break;
 
@@ -707,7 +695,9 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
                                                                 diostream->PostEvent(&xevent);
 
                                                                 diostream->threadconnection->Run(false);
-                                                                diostream->status        = DIOSTREAMSTATUS_DISCONNECTED;
+                                                                diostream->status = DIOSTREAMSTATUS_DISCONNECTED;
+
+                                                                diostream->config->GetResolvedRemoteURL()->Empty();
                                                               }
                                                               break;
 

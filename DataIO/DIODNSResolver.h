@@ -130,6 +130,8 @@ class DIODNSRESOLVER
 
     static DIODNSRESOLVER*                  instance;
 
+    XMUTEX*                                 xmutexresolved;    
+
     XVECTOR<DIODNSRESOLVER_DNSSERVER*>      listDNSservers;
     XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>   listhostresolved;
     

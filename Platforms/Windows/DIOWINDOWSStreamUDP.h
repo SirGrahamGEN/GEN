@@ -91,8 +91,6 @@ class DIOWINDOWSSTREAMUDP : public DIOSTREAMUDP , public XFSMACHINE
 
     XTHREADCOLLECTED*         threadconnection;
     SOCKET                    handle;
-    XSTRING                   remoteaddress;
-
 };
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/

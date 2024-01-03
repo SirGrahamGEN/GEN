@@ -447,8 +447,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                               SOCKADDR_IN  target_addr;
                                                                               int          size_addr = sizeof(SOCKADDR_IN);
                                                                               int          size;
-                                                                              XSTRING      tmpremoteaddress;
-
+                                                                             
                                                                               memset(&target_addr, 0, size_addr);
 
                                                                               target_addr.sin_family = AF_INET;
@@ -459,13 +458,14 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                                 }
                                                                                else
                                                                                 {
-                                                                                  if(datagram->GetAddress()->IsEmpty())
-                                                                                          tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                                    else  tmpremoteaddress = datagram->GetAddress()->Get();
+                                                                                  if(!datagram->GetAddress()->IsEmpty())
+                                                                                    {
+                                                                                      diostream->config->GetResolvedRemoteURL()->Set(datagram->GetAddress()->Get());
+                                                                                    }
 
                                                                                   XBUFFER charstr;
                                                                                   
-                                                                                  tmpremoteaddress.ConvertToASCII(charstr);
+                                                                                  diostream->config->GetResolvedRemoteURL()->ConvertToASCII(charstr);
                                                                                   
                                                                                   #ifndef BUILDER
                                                                                   inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
@@ -489,8 +489,13 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                               if(size)
                                                                                 {
                                                                                   if(diostream->config->IsUsedDatagrams())
+                                                                                    {
                                                                                        diostream->DeleteDatagram(indexdatagram);
-                                                                                  else diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                    }
+                                                                                   else 
+                                                                                    {
+                                                                                       diostream->outbuffer->Extract(NULL, 0 , datagram->GetData()->GetSize());
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
@@ -505,8 +510,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                           SOCKADDR_IN  target_addr;
                                                                           int          size_addr = sizeof(SOCKADDR_IN);
                                                                           int          size;
-                                                                          XSTRING      tmpremoteaddress;
-
+                                                                          
                                                                           memset(&target_addr, 0, size_addr);
 
                                                                           target_addr.sin_family = AF_INET;
@@ -514,22 +518,19 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                           if(diostream->config->IsBroadcastModeActive())
                                                                             {
                                                                               target_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
-
-                                                                              target_addr.sin_port  = htons(diostream->config->GetRemotePort());
+                                                                              target_addr.sin_port        = htons(diostream->config->GetRemotePort());
 
                                                                               diostream->outbuffer->SetBlocked(true);
                                                                               size = sendto(diostream->handle,(char*)diostream->outbuffer->Get(), esize, 0, (sockaddr*)&target_addr, size_addr);
                                                                               diostream->outbuffer->SetBlocked(false);
                                                                             }
                                                                            else
-                                                                            {
-                                                                              tmpremoteaddress = diostream->remoteaddress.Get();
-                                                                              
-                                                                              if(!tmpremoteaddress.IsEmpty())
+                                                                            {                                                                                                                                                            
+                                                                              if(!diostream->config->GetResolvedRemoteURL()->IsEmpty())
                                                                                 {
                                                                                   XBUFFER charstr;
                                                                               
-                                                                                  tmpremoteaddress.ConvertToASCII(charstr);
+                                                                                  diostream->config->GetResolvedRemoteURL()->ConvertToASCII(charstr);
                                                                                                                                                             
                                                                                   #ifndef BUILDER
                                                                                   inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
@@ -630,7 +631,6 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
 
                                                                     if(bind(diostream->handle, (LPSOCKADDR)&loc_addr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR)
                                                                       {
-
                                                                         int error = WSAGetLastError();
 
                                                                         diostream->SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
@@ -651,11 +651,11 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                           {
                                                                             if(diostream->config->GetRemoteURL()->IsAURL())
                                                                               {
-                                                                                diostream->config->GetRemoteURL()->ResolveURL(diostream->remoteaddress);
+                                                                                diostream->config->GetRemoteURL()->ResolveURL((*diostream->config->GetResolvedRemoteURL()));
                                                                               }
                                                                              else
                                                                               {
-                                                                                 diostream->remoteaddress = diostream->config->GetRemoteURL()->Get();
+                                                                                diostream->config->GetResolvedRemoteURL()->Set(diostream->config->GetRemoteURL()->Get());
                                                                               }
                                                                           }
                                                                       }
@@ -698,7 +698,9 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                                 diostream->PostEvent(&xevent);
 
                                                                 diostream->threadconnection->Run(false);
-                                                                diostream->status       = DIOSTREAMSTATUS_DISCONNECTED;
+                                                                diostream->status = DIOSTREAMSTATUS_DISCONNECTED;
+
+                                                                diostream->config->GetResolvedRemoteURL()->Empty();
                                                               }
                                                               break;
 

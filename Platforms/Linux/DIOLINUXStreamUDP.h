@@ -92,8 +92,7 @@ class DIOLINUXSTREAMUDP : public DIOSTREAMUDP , public XFSMACHINE
     static void               ThreadRunFunction                     (void* thread);
 
     XTHREADCOLLECTED*         threadconnection;
-    int                       handle;
-    XSTRING                   remoteaddress;
+    int                       handle;    
 };
 
 

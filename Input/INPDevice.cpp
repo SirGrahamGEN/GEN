@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPDevice.cpp
-*
+* 
 * @class      INPDEVICE
 * @brief      Input Device Class
 * @ingroup    INPUT
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPDevice.h"
 
 #include <stdio.h>
 
@@ -40,14 +46,19 @@
 #include "INPButton.h"
 #include "INPCursor.h"
 
-#include "INPDevice.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +74,6 @@ INPDEVICE::INPDEVICE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +92,6 @@ INPDEVICE::~INPDEVICE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::IsCreated()
@@ -98,7 +107,6 @@ bool INPDEVICE::IsCreated()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::IsEnabled()
@@ -112,7 +120,6 @@ bool INPDEVICE::IsEnabled()
 {
   return enabled;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +139,6 @@ void INPDEVICE::SetEnabled(bool enabled)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE_TYPE INPDEVICE::GetType()
@@ -146,7 +152,6 @@ INPDEVICE_TYPE INPDEVICE::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,7 +169,6 @@ void INPDEVICE::SetType(INPDEVICE_TYPE type)
 {
   this->type = type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -185,7 +189,6 @@ int INPDEVICE::GetNButtons()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPBUTTON*>* INPDEVICE::GetButtons()
@@ -201,7 +204,6 @@ XVECTOR<INPBUTTON*>* INPDEVICE::GetButtons()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<INPCURSOR*>* INPDEVICE::GetCursors()
@@ -215,7 +217,6 @@ XVECTOR<INPCURSOR*>* INPDEVICE::GetCursors()
 {
   return &cursors;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -238,7 +239,6 @@ bool INPDEVICE::DeleteAllButtons()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::DeleteAllCursors()
@@ -257,7 +257,6 @@ bool INPDEVICE::DeleteAllCursors()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -287,7 +286,6 @@ INPBUTTON* INPDEVICE::GetButton(INPBUTTON_ID ID)
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -345,7 +343,6 @@ INPBUTTON* INPDEVICE::GetButtonByCode(XWORD code)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON_STATE INPDEVICE::GetButtonState(INPBUTTON_ID ID)
@@ -377,7 +374,6 @@ INPBUTTON_STATE INPDEVICE::GetButtonState(INPBUTTON_ID ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPBUTTON* INPDEVICE::IsPressButton()
@@ -405,7 +401,6 @@ INPBUTTON* INPDEVICE::IsPressButton()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::ReleaseAllButtons()
@@ -431,7 +426,6 @@ bool INPDEVICE::ReleaseAllButtons()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPDEVICE::GetNCursors()
@@ -448,7 +442,6 @@ int INPDEVICE::GetNCursors()
 
   return cursors->GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -482,7 +475,6 @@ INPCURSOR* INPDEVICE::GetCursor(INPCURSOR_ID ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPCURSOR* INPDEVICE::GetCursor(int index)
@@ -505,7 +497,6 @@ INPCURSOR* INPDEVICE::GetCursor(int index)
 
   return (INPCURSOR*)cursors->Get(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -535,7 +526,6 @@ INPCURSOR* INPDEVICE::IsChangeCursor()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::SetScreen(void* param)
@@ -555,7 +545,6 @@ bool INPDEVICE::SetScreen(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::Release()
@@ -571,7 +560,6 @@ bool INPDEVICE::Release()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPDEVICE::Update()
@@ -585,29 +573,6 @@ bool INPDEVICE::Update()
 {
   return true;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPDEVICE::AddPosition(int index, float x, float y, bool ispressed)
-* @brief      AddPosition
-* @ingroup    INPUT
-*
-* @param[in]  index :
-* @param[in]  x :
-* @param[in]  y :
-* @param[in]  ispressed :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool INPDEVICE::AddPosition(int index, float x, float y, bool ispressed)
-{
-  return false;
-}
-*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -629,3 +594,6 @@ void INPDEVICE::Clean()
 
   grpscreen = NULL;
 }
+
+
+#pragma endregion

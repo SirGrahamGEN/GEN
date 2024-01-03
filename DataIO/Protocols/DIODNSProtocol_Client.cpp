@@ -494,7 +494,7 @@ bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBUFFER& EncodedURL, XSTRING& URL)
 bool DIODNSPROTOCOLCLIENT::DecodeDNSFormat(XBYTE* EncodedURL, XSTRING& URL)
 {
   XBUFFER _EncodedURL;
-  int     size = strlen((char*)EncodedURL);
+  int     size = (int)strlen((char*)EncodedURL);
 
   _EncodedURL.Add(EncodedURL, size);
   
