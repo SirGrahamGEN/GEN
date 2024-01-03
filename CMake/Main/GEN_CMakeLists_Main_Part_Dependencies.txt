@@ -6,13 +6,6 @@
 
 set(CMAKE_CXX_STANDARD 11)
 
-#set(DEFAULT_TARGET_PROPS
-#                         # Require C++17.
-#                         CXX_STANDARD 17
-#                         CXX_STANDARD_REQUIRED FALSE
-#                         # Prefer C11, but support C99 and earlier when possible.
-#                         C_STANDARD 11)
-
 #set(CMAKE_CXX_EXTENSIONS OFF) 
 
 add_definitions(-DUNICODE)
