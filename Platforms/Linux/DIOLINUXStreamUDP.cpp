@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamUDP.cpp
 * 
 * @class      DIOLINUXSTREAMUDP
-* @brief      Data Input/Output Linux Stream UDP class
+* @brief      Data Input/Output LINUX Stream UDP class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamUDP.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,7 +66,6 @@
 #include <linux/if_ether.h>
 
 #include "XFactory.h"
-#include "XThreadCollected.h"
 #include "XBuffer.h"
 #include "XTrace.h"
 
@@ -69,15 +74,21 @@
 #include "DIOStreamXEvent.h"
 #include "DIOStreamUDPConfig.h"
 #include "DIOStreamUDP.h"
-#include "DIOLINUXStreamUDP.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -708,3 +719,7 @@ void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)
         }
     }
 }
+
+
+#pragma endregion
+

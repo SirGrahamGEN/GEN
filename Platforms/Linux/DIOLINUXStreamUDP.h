@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamUDP.h
 * 
 * @class      DIOLINUXSTREAMUDP
-* @brief      Data Input/Output Linux Stream UDP class
+* @brief      Data Input/Output LINUX Stream UDP class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,15 +30,20 @@
 #define _DIOLINUXSTREAMUDP_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
 
 #include "DIOStreamUDP.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIOLINUXUDPFSMEVENTS
 {
@@ -68,9 +73,11 @@ enum DIOLINUXUDPFSMSTATES
   DIOLINUXUDP_LASTSTATE
 };
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class XTHREADCOLLECTED;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 class DIOLINUXSTREAMUDP : public DIOSTREAMUDP , public XFSMACHINE
 {
@@ -95,10 +102,15 @@ class DIOLINUXSTREAMUDP : public DIOSTREAMUDP , public XFSMACHINE
     int                       handle;    
 };
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
 

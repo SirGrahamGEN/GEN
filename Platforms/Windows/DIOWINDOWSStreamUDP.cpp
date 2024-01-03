@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamUDP.cpp
 * 
 * @class      DIOWINDOWSSTREAMUDP
-* @brief      Data Input/Output Windows Stream UDP class
+* @brief      Data Input/Output WINDOWS Stream UDP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,38 +26,41 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include <winsock2.h>
-#include <windows.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
+#include "DIOWINDOWSStreamUDP.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
 #include "XTrace.h"
 
-#include "XThreadCollected.h"
-
 #include "DIOIP.h"
 #include "DIOURL.h"
 #include "DIOStreamXEvent.h"
 #include "DIOStreamUDPConfig.h"
-
-#include "DIOWINDOWSStreamUDP.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -709,4 +712,4 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
     }
 }
 
-
+#pragma endregion
