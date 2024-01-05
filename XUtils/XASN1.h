@@ -30,11 +30,16 @@
 #define _XASN1_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBER.h"
 #include "XBuffer.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 typedef struct
 {
@@ -44,9 +49,11 @@ typedef struct
    
 } XASN1_OID_PROPERTY;
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS
 
 class XASN1
 {
@@ -68,7 +75,15 @@ class XASN1
     static XASN1_OID_PROPERTY         OID_properties[];
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

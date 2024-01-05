@@ -68,7 +68,7 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
 
     bool                            Ini                             (APPCFG* cfg);
 
-    int                             GetCPUAverangge                 ();  
+    int                             GetCPUAverange                  ();  
 
     bool                            End                             ();
 

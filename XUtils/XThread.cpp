@@ -317,7 +317,6 @@ bool XTHREAD::WaitToEnd(XDWORD timeout)
       return true;
     }
 
-
   bool statustimeout = false;
 
   XTIMER* GEN_XFACTORY_CREATE(xtimerout, CreateTimer())

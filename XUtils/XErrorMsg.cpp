@@ -1,45 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XErrorMsg.cpp
-*
+* 
 * @class      XERRORMSG
 * @brief      eXtended Error Message class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XErrorMsg.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_XERRORMSG
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -55,7 +70,6 @@ XERRORMSG::XERRORMSG()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -79,7 +93,6 @@ XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORMSG::~XERRORMSG()
@@ -94,7 +107,6 @@ XERRORMSG::~XERRORMSG()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,7 +147,6 @@ bool XERRORMSG::Set(int code, XCHAR* title, XCHAR* msg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::Set(int code, int level, int image, int sound, XCHAR* title, XCHAR* msg)
@@ -165,8 +176,6 @@ bool XERRORMSG::Set(int code, int level, int image, int sound, XCHAR* title, XCH
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetCode()
@@ -180,7 +189,6 @@ int XERRORMSG::GetCode()
 {
   return code;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,7 +210,6 @@ bool XERRORMSG::SetCode(int code)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetLevel()
@@ -216,7 +223,6 @@ int XERRORMSG::GetLevel()
 {
   return level;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -253,7 +259,6 @@ int XERRORMSG::GetImage()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetImage(int image)
@@ -273,7 +278,6 @@ bool XERRORMSG::SetImage(int image)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XERRORMSG::GetSound()
@@ -287,7 +291,6 @@ int XERRORMSG::GetSound()
 {
   return sound;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -307,7 +310,6 @@ bool XERRORMSG::SetSound(int sound)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -346,7 +348,6 @@ bool XERRORMSG::SetTitle(XCHAR* title)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetTitle(XSTRING& title)
@@ -379,7 +380,6 @@ XSTRING* XERRORMSG::GetMsg()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetMsg(XCHAR* msg)
@@ -401,7 +401,6 @@ bool XERRORMSG::SetMsg(XCHAR* msg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORMSG::SetMsg(XSTRING& msg)
@@ -417,7 +416,6 @@ bool XERRORMSG::SetMsg(XSTRING& msg)
 {
   return SetMsg(msg.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -444,9 +442,10 @@ bool XERRORMSG::Clean()
 }
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XERRORSMSG                                                                                                          */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
+
+
+#pragma region CLASS_XERRORSMSG
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -464,7 +463,6 @@ XERRORSMSG::XERRORSMSG()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
@@ -478,14 +476,12 @@ XERRORSMSG::XERRORSMSG()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
-
 {
   Clean();
 
   SetTitleApplication(titleapp);
   SetVersion(version);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -506,7 +502,6 @@ XERRORSMSG::~XERRORSMSG()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORSMSG::GetTitleApplication()
@@ -522,7 +517,6 @@ XSTRING* XERRORSMSG::GetTitleApplication()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XERRORSMSG::GetVersion()
@@ -536,7 +530,6 @@ XSTRING* XERRORSMSG::GetVersion()
 {
   return &version;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -560,8 +553,6 @@ bool XERRORSMSG::SetTitleApplication(XCHAR* titleapp)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetTitleApplication(XSTRING& titleapp)
@@ -577,7 +568,6 @@ bool XERRORSMSG::SetTitleApplication(XSTRING& titleapp)
 {
   return SetTitleApplication(titleapp.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -601,7 +591,6 @@ bool XERRORSMSG::SetVersion(XCHAR* version)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::SetVersion(XSTRING& version)
@@ -617,7 +606,6 @@ bool XERRORSMSG::SetVersion(XSTRING& version)
 {
   return SetVersion(version.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -644,7 +632,6 @@ XERRORMSG* XERRORSMSG::FindMsg(int code)
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -680,7 +667,6 @@ bool XERRORSMSG::AddMsg(int code, int level, int image, int sound, XCHAR* title,
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -719,7 +705,6 @@ bool XERRORSMSG::EraseMsg(int code)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::EraseAllMsg()
@@ -739,7 +724,6 @@ bool XERRORSMSG::EraseAllMsg()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -763,7 +747,6 @@ XERRORMSG_RETURN XERRORSMSG::ShowMsg(int code,bool statusline,XBYTE returns,XCHA
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XERRORSMSG::Clean()
@@ -781,4 +764,7 @@ bool XERRORSMSG::Clean()
 
   return true;
 }
+
+
+#pragma endregion
 

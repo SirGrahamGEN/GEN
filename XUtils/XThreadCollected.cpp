@@ -178,7 +178,10 @@ void XTHREADCOLLECTED::Wait(int milliseconds)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTHREADCOLLECTED::End()
 {
-  if(directxthread) return directxthread->End();
+  if(directxthread) 
+    {
+      return directxthread->End();
+    }
 
   if(status == XTHREADSTATUS_END) return false;
   status = XTHREADSTATUS_EXIT;

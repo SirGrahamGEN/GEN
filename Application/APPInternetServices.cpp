@@ -671,6 +671,8 @@ XSCHEDULER* APPINTERNETSERVICES::GetXScheduler()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::End()
 {
+  endservices =  true;
+
   if(xscheduler)
     {
       delete xscheduler;
@@ -951,7 +953,12 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 
               xdatetime_local->Read();
 
-              status = ntp->GetTime((*url), 15, GEN_XSYSTEM.HardwareUseLittleEndian(), (*xdatetime_local));
+              if(endservices)
+                {
+                  break;
+                }
+
+              status = ntp->GetTime((*url), DIONTP_DEFAULTTIMEOUT, GEN_XSYSTEM.HardwareUseLittleEndian(), (*xdatetime_local));
               if(status)
                 {                        
                   if(cfg->InternetServices_GetUpdateTimeNTPMeridianDifference() == APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO)
@@ -1099,9 +1106,11 @@ void APPINTERNETSERVICES::Clean()
 
   haveinternetconnection  = false;
 
+  endservices             = false;
+
   scraperwebpublicIP      = NULL;
 
-  xdatetime_local        = NULL;
+  xdatetime_local         = NULL;
   xdatetime_UTC           = NULL;
 
   dyndnsmanager           = NULL;

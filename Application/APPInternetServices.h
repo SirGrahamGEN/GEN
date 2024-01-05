@@ -123,6 +123,8 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     bool                            haveinternetconnection;
 
+    bool                            endservices;
+
     DIOSCRAPERWEBPUBLICIP*          scraperwebpublicIP;
     XSTRING                         publicIP;
 

@@ -1,36 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XFileXML.cpp
-*
+* 
 * @class      XFILEXML
 * @brief      eXtended XML (eXtensible Markup Language) file class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XFileXML.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -39,15 +46,22 @@
 #include "XFactory.h"
 #include "XTimer.h"
 
-#include "XFileXML.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
+#pragma region CLASS_XFILEXMLATTRIBUTE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +77,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -85,7 +98,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
@@ -98,13 +110,11 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
-
 {
   Clean();
 
   this->name = name;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,14 +130,12 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
-
 {
   Clean();
 
   this->name  = name;
   this->value = value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -143,14 +151,12 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
-
 {
   Clean();
 
   this->name  = name;
   this->value = value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,11 +170,9 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::~XFILEXMLATTRIBUTE()
-
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -184,8 +188,6 @@ XSTRING& XFILEXMLATTRIBUTE::GetName()
 {
   return name;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -207,7 +209,6 @@ bool XFILEXMLATTRIBUTE::SetName(XSTRING& name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetName(XCHAR* name)
@@ -227,7 +228,6 @@ bool XFILEXMLATTRIBUTE::SetName(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLATTRIBUTE::GetValue()
@@ -241,7 +241,6 @@ XSTRING& XFILEXMLATTRIBUTE::GetValue()
 {
   return value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -263,7 +262,6 @@ bool XFILEXMLATTRIBUTE::SetValue(XSTRING& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
@@ -283,7 +281,6 @@ bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXMLATTRIBUTE::Clean()
@@ -301,10 +298,10 @@ void XFILEXMLATTRIBUTE::Clean()
 }
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XFILEXMLELEMENT                                                                                                     */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+#pragma region CLASS_XFILEXMLELEMENT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -322,20 +319,18 @@ XFILEXMLELEMENT::XFILEXMLELEMENT()
 }
 
 
-/*-------------------------------------------------------------------
-//  XFILEXMLELEMENT::XFILEXMLELEMENT
-*/
-/**
-//
-//
-//  ""
-//  @version      09/02/2011 11:19:14
-//
-//  @return
-//  @param        name :
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* @param[in]  XSTRING& : 
+* @param[in]  XFILEXMLELEMENTTYPE type : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
 {
   Clean();
@@ -343,7 +338,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
   this->name  = name;
   this->type  = type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -365,8 +359,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
   this->name  = name;
   this->type  = type;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -392,7 +384,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTY
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE type)
@@ -416,7 +407,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE t
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT::~XFILEXMLELEMENT()
@@ -436,7 +426,6 @@ XFILEXMLELEMENT::~XFILEXMLELEMENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLELEMENT::GetName()
@@ -450,8 +439,6 @@ XSTRING& XFILEXMLELEMENT::GetName()
 {
   return name;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -473,7 +460,6 @@ bool XFILEXMLELEMENT::SetName(XSTRING& name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetName(XCHAR* name)
@@ -491,7 +477,6 @@ bool XFILEXMLELEMENT::SetName(XCHAR* name)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -517,8 +502,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XSTRING& name, XSTRING& value)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XCHAR* name, XCHAR* value)
@@ -542,7 +525,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::AddAtribute(XCHAR* name, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetNAttributes()
@@ -556,7 +538,6 @@ int XFILEXMLELEMENT::GetNAttributes()
 {
   return attributes.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -579,7 +560,6 @@ XFILEXMLATTRIBUTE* XFILEXMLELEMENT::GetAttribute(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XFILEXMLELEMENT::GetValueAttribute(XSTRING& name)
@@ -595,7 +575,6 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XSTRING& name)
 {
   return GetValueAttribute(name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -629,7 +608,6 @@ XCHAR* XFILEXMLELEMENT::GetValueAttribute(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::GetValueAttribute(XSTRING& name, XSTRING& value)
@@ -646,7 +624,6 @@ bool XFILEXMLELEMENT::GetValueAttribute(XSTRING& name, XSTRING& value)
 {
   return GetValueAttribute(name.Get(),value);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -681,7 +658,6 @@ bool XFILEXMLELEMENT::GetValueAttribute(XCHAR* name,XSTRING& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetIntValueAttribute(XSTRING& name)
@@ -697,7 +673,6 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XSTRING& name)
 {
   return GetIntValueAttribute(name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -719,7 +694,6 @@ int XFILEXMLELEMENT::GetIntValueAttribute(XCHAR* name)
 
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -744,7 +718,6 @@ bool XFILEXMLELEMENT::GetBoolValueAttribute(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double XFILEXMLELEMENT::GetFloatValueAttribute(XCHAR* name)
@@ -765,7 +738,6 @@ double XFILEXMLELEMENT::GetFloatValueAttribute(XCHAR* name)
 
   return 0.0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -792,7 +764,6 @@ bool XFILEXMLELEMENT::DeleteAtribute(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteAllAtributes()
@@ -814,7 +785,6 @@ bool XFILEXMLELEMENT::DeleteAllAtributes()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING& XFILEXMLELEMENT::GetValue()
@@ -828,7 +798,6 @@ XSTRING& XFILEXMLELEMENT::GetValue()
 {
   return value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -850,7 +819,6 @@ bool XFILEXMLELEMENT::SetValue(XSTRING& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::SetValue(XCHAR* value)
@@ -868,7 +836,6 @@ bool XFILEXMLELEMENT::SetValue(XCHAR* value)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -891,7 +858,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement()
 
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -918,7 +884,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name)
@@ -941,7 +906,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name)
 
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -967,7 +931,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XSTRING& name,XSTRING& value)
 
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -996,7 +959,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::AddElement(XCHAR* name,XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXMLELEMENT::GetNElements()
@@ -1010,7 +972,6 @@ int XFILEXMLELEMENT::GetNElements()
 {
   return elements.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1031,7 +992,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetElement(int index)
   XFILEXMLELEMENT* element = (XFILEXMLELEMENT*)elements.Get(index);
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1058,7 +1018,6 @@ bool XFILEXMLELEMENT::DeleteElement(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXMLELEMENT::DeleteAllElements()
@@ -1079,7 +1038,6 @@ bool XFILEXMLELEMENT::DeleteAllElements()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXMLELEMENT::GetFather()
@@ -1093,7 +1051,6 @@ XFILEXMLELEMENT* XFILEXMLELEMENT::GetFather()
 {
   return father;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1115,7 +1072,6 @@ bool XFILEXMLELEMENT::SetFather(XFILEXMLELEMENT* father)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENTTYPE XFILEXMLELEMENT::GetType()
@@ -1129,7 +1085,6 @@ XFILEXMLELEMENTTYPE XFILEXMLELEMENT::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1151,7 +1106,6 @@ bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXMLELEMENT::Clean()
@@ -1171,11 +1125,10 @@ void XFILEXMLELEMENT::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XFILEXML                                                                                                            */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XFILEXML
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1191,7 +1144,6 @@ XFILEXML::XFILEXML() : XFILETXT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1214,7 +1166,6 @@ XFILEXML::~XFILEXML()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::GetRoot()
@@ -1228,7 +1179,6 @@ XFILEXMLELEMENT* XFILEXML::GetRoot()
 {
   return root;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1250,7 +1200,6 @@ bool XFILEXML::SetRoot(XFILEXMLELEMENT* root)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1281,7 +1230,6 @@ bool XFILEXML::EncodeAllLines(bool istabulatedline)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1355,7 +1303,6 @@ bool XFILEXML::DecodeAllLines()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::ReadAndDecodeAllLines()
@@ -1375,7 +1322,6 @@ bool XFILEXML::ReadAndDecodeAllLines()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1398,7 +1344,6 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline, XFILETXTFORMATCHAR f
 
   return WriteAndEncodeAllLines(istabulatedline);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1424,7 +1369,6 @@ bool XFILEXML::WriteAndEncodeAllLines(bool istabulatedline)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1458,7 +1402,6 @@ XFILEXMLELEMENT* XFILEXML::SearchChild(XCHAR* name, XFILEXMLELEMENT* father)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XSTRING& name, int& index, XFILEXMLELEMENT* father)
@@ -1476,7 +1419,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XSTRING& name, int& index, XFILEXMLELEM
 {
   return SearchElement(name.Get(), index, father);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1524,7 +1466,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XFILEXMLELEMEN
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XSTRING& namefather)
@@ -1542,7 +1483,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XSTRING& namef
 {
   return SearchElement(name, index, namefather.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1568,7 +1508,6 @@ XFILEXMLELEMENT* XFILEXML::SearchElement(XCHAR* name, int& index, XCHAR* namefat
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element, XSTRING& nameattribute, XSTRING& value)
@@ -1586,7 +1525,6 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element, XSTRING& nameattri
 {
   return SearchAttributeValue(element,nameattribute.Get(),value);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1625,7 +1563,6 @@ bool XFILEXML::SearchAttributeValue(XFILEXMLELEMENT* element,XCHAR* nameattribut
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XFILEXMLATTRIBUTE*>* XFILEXML::GetCFGAtributes()
@@ -1639,7 +1576,6 @@ XVECTOR<XFILEXMLATTRIBUTE*>* XFILEXML::GetCFGAtributes()
 {
   return &cfgattributes;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1660,7 +1596,6 @@ bool XFILEXML::DeleteAllCFGAtributes()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1684,7 +1619,6 @@ bool XFILEXML::DeleteAllElements()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1809,7 +1743,6 @@ bool XFILEXML::DecodeConfig(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeComent(XSTRING& string)
@@ -1840,7 +1773,6 @@ bool XFILEXML::DecodeComent(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::DecodeCDATA(XSTRING& string)
@@ -1868,7 +1800,6 @@ bool XFILEXML::DecodeCDATA(XSTRING& string)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1956,7 +1887,6 @@ bool XFILEXML::DecodeElement(XSTRING& string, XFILEXMLELEMENTTYPELINE typeline)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXML::AddTabs(int level,int spacetabs,XSTRING& string)
@@ -1984,7 +1914,6 @@ bool XFILEXML::AddTabs(int level,int spacetabs,XSTRING& string)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2020,8 +1949,6 @@ bool XFILEXML::EncodeConfig(XSTRING& string)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2143,8 +2070,6 @@ bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXML::Clean()
@@ -2162,3 +2087,14 @@ void XFILEXML::Clean()
   encodelevel   = -1;
   ignorecomments= false;
 }
+
+
+#pragma endregion
+
+
+
+#pragma endregion
+
+
+
+

@@ -198,7 +198,6 @@ bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int queryty
 {
   #define ASK_ID 0x55AA
 
-
   if(!diostreamudpcfg)  return false;
 
   DIOURL  url;  
@@ -209,7 +208,7 @@ bool DIODNSPROTOCOLCLIENT::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int queryty
 
   url = URL;
 
-  if(url.IsAURL())
+  if(!url.IsAURL())
     {
       IPresolved.Set(url);
       return true;

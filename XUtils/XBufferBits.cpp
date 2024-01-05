@@ -1,48 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XBufferBits.cpp
-*
+* 
 * @class      XBUFFERBITS
-* @brief      eXtended Reads bits from an xbuffer
+* @brief      eXtended Reads a bit stream from a xbuffer
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XBuffer.h"
+#pragma region INCLUDES
 
 #include "XBufferBits.h"
 
+#include "XBuffer.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,8 +77,6 @@ XBUFFERBITS::XBUFFERBITS(XBUFFER* xbuffer)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFERBITS::~XBUFFERBITS()
@@ -82,7 +91,6 @@ XBUFFERBITS::~XBUFFERBITS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -100,7 +108,6 @@ bool XBUFFERBITS::IsByteAligned()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFERBITS::IsEOF()
@@ -114,7 +121,6 @@ bool XBUFFERBITS::IsEOF()
 {
   return p >= (xbuffer->Get()+xbuffer->GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +138,6 @@ bool XBUFFERBITS::IsOverrun()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFERBITS::GetBytePosition()
@@ -148,7 +153,6 @@ XDWORD XBUFFERBITS::GetBytePosition()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFERBITS::GetBitPosition()
@@ -162,7 +166,6 @@ XDWORD XBUFFERBITS::GetBitPosition()
 {
   return 8 - bits_left;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -182,7 +185,6 @@ void XBUFFERBITS::SetPosition(XDWORD index, XDWORD bitindex)
   p = xbuffer->Get() + index;
   bits_left = 8 - ((bitindex >= 8) ? 7 : 0); // zero base index, can't be 8
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -206,7 +208,6 @@ void XBUFFERBITS::SkipU1()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFERBITS::PeekU1()
@@ -227,8 +228,6 @@ XDWORD XBUFFERBITS::PeekU1()
 
   return r;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,7 +260,6 @@ XDWORD XBUFFERBITS::ReadU1()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBUFFERBITS::SkipU(XDWORD n)
@@ -281,7 +279,6 @@ void XBUFFERBITS::SkipU(XDWORD n)
       SkipU1();
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -311,7 +308,6 @@ XDWORD XBUFFERBITS::PeekU(XDWORD n)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XBUFFERBITS::ReadU(XDWORD n)
@@ -334,7 +330,6 @@ XDWORD XBUFFERBITS::ReadU(XDWORD n)
 
   return r;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -363,7 +358,6 @@ XDWORD XBUFFERBITS::ReadUE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XBUFFERBITS::ReadSE()
@@ -387,7 +381,6 @@ int XBUFFERBITS::ReadSE()
 
   return r;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -422,8 +415,6 @@ void XBUFFERBITS::WriteU1(XDWORD v)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBUFFERBITS::WriteU(XDWORD n, XDWORD v)
@@ -444,7 +435,6 @@ void XBUFFERBITS::WriteU(XDWORD n, XDWORD v)
       WriteU1((v >> ( n - i - 1 ))&0x01);
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -516,8 +506,6 @@ void XBUFFERBITS::WriteUE(XDWORD v)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBUFFERBITS::WriteSE(int v)
@@ -542,7 +530,6 @@ void XBUFFERBITS::WriteSE(int v)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBUFFERBITS::Clean()
@@ -559,3 +546,7 @@ void XBUFFERBITS::Clean()
   p           = NULL;
   bits_left   = 0;
 }
+
+
+#pragma endregion
+

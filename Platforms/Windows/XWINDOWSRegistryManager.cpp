@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       XWindowsRegistryManager.cpp
-*
+* 
+* @file       XWINDOWSRegistryManager.cpp
+* 
 * @class      XWINDOWSREGISTRYMANAGER
-* @brief      eXtended WINDOWS Registry Manager class
+* @brief      WINDOWS eXtended Registry Manager class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #ifdef WINDOWS
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSRegistryManager.h"
 
 #include <Windows.h>
 
@@ -40,14 +48,22 @@
 #include "XPath.h"
 #include "XBuffer.h"
 
-#include "XWINDOWSRegistryManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_XWINDOWSREGISTRYKEY
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +79,6 @@ XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +97,6 @@ XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HKEY XWINDOWSREGISTRYKEY::GetHandle()
@@ -96,7 +110,6 @@ HKEY XWINDOWSREGISTRYKEY::GetHandle()
 {
   return handlekey;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -116,7 +129,6 @@ void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XWINDOWSREGISTRYKEY::GetType()
@@ -130,7 +142,6 @@ XDWORD XWINDOWSREGISTRYKEY::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -148,7 +159,6 @@ void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
 {
   this->type = type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -206,7 +216,7 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
 
       case REG_DWORD_BIG_ENDIAN             : { XDWORD _data = 0;
                                                 databuffer.Get(_data);
-                                                //SWAPDWORD(_data);
+                                               
                                                 data = _data;
                                               }
                                               break;
@@ -236,15 +246,11 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XCHAR* name, XVARIANT& data)
                                               }
                                               break;
 
- 
-
                                     default : return false;
-
     }
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -263,7 +269,6 @@ bool XWINDOWSREGISTRYKEY::ReadValue(XSTRING& name, XVARIANT& data)
 {
   return ReadValue(name.Get(), data);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -292,7 +297,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XDWORD type, XVARIANT& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
@@ -311,46 +315,43 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 
   LSTATUS status = ERROR_SUCCESS;
 
-  if(type == REG_NONE)
-    {
-      switch(data.GetType())
-        {    
-          case XVARIANT_TYPE_SHORT            :
-          case XVARIANT_TYPE_WORD             :
-          case XVARIANT_TYPE_INTEGER          :
-          case XVARIANT_TYPE_DWORD            : type = REG_DWORD;
-                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
-                                                break;  
+  switch(data.GetType())
+    {    
+      case XVARIANT_TYPE_SHORT            :
+      case XVARIANT_TYPE_WORD             :
+      case XVARIANT_TYPE_INTEGER          :
+      case XVARIANT_TYPE_DWORD            : type = REG_DWORD;
+                                            status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                            break;  
 
-          case XVARIANT_TYPE_DOUBLEINTEGER    : 
-          case XVARIANT_TYPE_QWORD            : type = REG_QWORD;
-                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
-                                                break;
-          case XVARIANT_TYPE_NULL             :  
-          case XVARIANT_TYPE_BOOLEAN          : 
-          case XVARIANT_TYPE_FLOAT            :
-          case XVARIANT_TYPE_DOUBLE           :   
-          case XVARIANT_TYPE_DATE             :
-          case XVARIANT_TYPE_TIME             :  
-          case XVARIANT_TYPE_DATETIME         : 
-          case XVARIANT_TYPE_POINTER          : type = REG_NONE; 
-                                                status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
-                                                break;
+      case XVARIANT_TYPE_DOUBLEINTEGER    : 
+      case XVARIANT_TYPE_QWORD            : type = REG_QWORD;
+                                            status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                            break;
+      case XVARIANT_TYPE_NULL             :  
+      case XVARIANT_TYPE_BOOLEAN          : 
+      case XVARIANT_TYPE_FLOAT            :
+      case XVARIANT_TYPE_DOUBLE           :   
+      case XVARIANT_TYPE_DATE             :
+      case XVARIANT_TYPE_TIME             :  
+      case XVARIANT_TYPE_DATETIME         : 
+      case XVARIANT_TYPE_POINTER          : type = REG_NONE; 
+                                            status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)data.GetData(), (DWORD)data.GetSize());
+                                            break;
 
-          case XVARIANT_TYPE_CHAR             :
-          case XVARIANT_TYPE_XCHAR            :
-          case XVARIANT_TYPE_STRING           : { XSTRING* string =  (XSTRING*)data.GetData();
-                                                  type = REG_SZ;
-                                                  status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)(string->Get()), (DWORD)string->GetSize()*sizeof(XCHAR));
-                                                }
-                                                break;
+      case XVARIANT_TYPE_CHAR             :
+      case XVARIANT_TYPE_XCHAR            :
+      case XVARIANT_TYPE_STRING           : { XSTRING* string =  (XSTRING*)data.GetData();
+                                              type = REG_SZ;
+                                              status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)(string->Get()), (DWORD)string->GetSize()*sizeof(XCHAR));
+                                            }
+                                            break;
         
-          case XVARIANT_TYPE_BUFFER           : { XBUFFER* buffer =  (XBUFFER*)data.GetData();
-                                                  type = REG_BINARY;
-                                                  status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)buffer->Get(), (DWORD)buffer->GetSize());
-                                                 }
-                                                break;           
-       }
+      case XVARIANT_TYPE_BUFFER           : { XBUFFER* buffer =  (XBUFFER*)data.GetData();
+                                              type = REG_BINARY;
+                                              status = RegSetValueEx(handlekey, name, 0, (DWORD)type, (LPBYTE)buffer->Get(), (DWORD)buffer->GetSize());
+                                              }
+                                            break;           
     }
 
   
@@ -358,7 +359,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -375,9 +375,10 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XCHAR* name, XVARIANT& data)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XVARIANT& data)
 {
+  type = REG_NONE;
+
   return WriteValue(name.Get(), data);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -397,7 +398,6 @@ bool XWINDOWSREGISTRYKEY::WriteValue(XSTRING& name, XDWORD type, XVARIANT& data)
 {
   return WriteValue(name.Get(), type, data);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -444,7 +444,6 @@ bool XWINDOWSREGISTRYKEY::EnumValues(XVECTOR<XSTRING*>* valuelist)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
@@ -467,7 +466,6 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
@@ -483,7 +481,6 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
 {
   return DeleteValue(name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -502,7 +499,6 @@ void XWINDOWSREGISTRYKEY::Clear()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYKEY::Clean()
@@ -519,14 +515,10 @@ void XWINDOWSREGISTRYKEY::Clean()
 }
 
 
+#pragma endregion
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/*  XWINDOWSREGISTRYMANAGER                                                                                            */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
-
-
+#pragma region CLASS_XWINDOWSREGISTRYMANAGER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -542,7 +534,6 @@ XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -561,7 +552,6 @@ XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring , XWINDOWSREGISTRYKEY& registrykey)
@@ -575,25 +565,6 @@ XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
-{
-  if(registrykey.GetHandle() != NULL) return false;
-
-  HKEY  oper_handlekey;
-  DWORD disposition;
-
-  XDWORD error = RegCreateKeyEx(handlekey, subkeystring, 0, NULL, 0, KEY_ALL_ACCESS | KEY_WOW64_64KEY, NULL, &oper_handlekey, &disposition);
-  if(error != ERROR_SUCCESS)  return false;
-
-  registrykey.SetHandle(oper_handlekey);
-
-  return true;
-}
-*/
-
-//-------------------------------------------------------------------------------------------------------------------
-
 bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWINDOWSREGISTRYKEY& registrykey)
 {
   if(registrykey.GetHandle() != NULL) return false;
@@ -645,7 +616,6 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XCHAR* subkeystring, XWI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring , XWINDOWSREGISTRYKEY& registrykey)
@@ -663,7 +633,6 @@ bool XWINDOWSREGISTRYMANAGER::CreateKey(HKEY handlekey, XSTRING& subkeystring, X
 {
   return CreateKey(handlekey, subkeystring.Get(), registrykey);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -695,7 +664,6 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XCHAR* subkeystring, XWIND
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWINDOWSREGISTRYKEY& registrykey)
@@ -713,7 +681,6 @@ bool XWINDOWSREGISTRYMANAGER::OpenKey(HKEY handlekey, XSTRING& subkeystring, XWI
 {
   return OpenKey(handlekey, subkeystring.Get(), registrykey);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -765,7 +732,6 @@ bool XWINDOWSREGISTRYMANAGER::EnumKeys(XWINDOWSREGISTRYKEY& registrykey, XVECTOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registyrkey)
@@ -787,7 +753,6 @@ bool XWINDOWSREGISTRYMANAGER::CloseKey(XWINDOWSREGISTRYKEY& registrykey)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -857,7 +822,6 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XCHAR* subkeystring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
@@ -876,7 +840,6 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSREGISTRYMANAGER::Clean()
@@ -893,4 +856,11 @@ void XWINDOWSREGISTRYMANAGER::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
+
+
 #endif
+

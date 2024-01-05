@@ -37,7 +37,7 @@
 
 #define DIONTP_DEFAULTPORT        123
 #define DIONTP_JAN1ST1900         2415021
-
+#define DIONTP_DEFAULTTIMEOUT     10              
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 

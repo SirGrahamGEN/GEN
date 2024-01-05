@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XFileXDB.cpp
-*
+* 
 * @class      XFILEXDB
 * @brief      eXtended Dialog Sentence file class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XFileXDB.h"
 
 #include <string.h>
 
@@ -41,14 +47,19 @@
 
 #include "Hash.h"
 
-#include "XFileXDB.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,7 +81,6 @@ XFILEXDB::XFILEXDB(HASH* hash) : XFILEHASH(hash)
 
   Set(XFILE_XDB_ID, XFILEXDB_TYPE, XFILEXDB_VERSION, XFILEXDB_IDSTRING);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -98,7 +108,6 @@ XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILEXDB::~XFILEXDB()
@@ -115,7 +124,6 @@ XFILEXDB::~XFILEXDB()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -139,7 +147,6 @@ bool XFILEXDB::SetPath(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXDB::Ini()
@@ -153,7 +160,6 @@ bool XFILEXDB::Ini()
 {
   return OpenFile();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -171,7 +177,6 @@ bool XFILEXDB::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMAP<XDWORD, XDWORD>* XFILEXDB::GetIndexMap()
@@ -185,7 +190,6 @@ XMAP<XDWORD, XDWORD>* XFILEXDB::GetIndexMap()
 {
   return &indexmap;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -231,7 +235,6 @@ bool XFILEXDB::OpenFile()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XFILEXDB::GetNumberRecords()
@@ -245,7 +248,6 @@ int XFILEXDB::GetNumberRecords()
 {
   return nrecords;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -299,7 +301,6 @@ XBUFFER* XFILEXDB::GetRecord(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XFILEXDB::GetRecordIndex(XDWORD index)
@@ -351,7 +352,6 @@ XBUFFER* XFILEXDB::GetRecordIndex(XDWORD index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XFILEXDB::GetPosition(XDWORD ID)
@@ -381,7 +381,6 @@ XDWORD XFILEXDB::GetPosition(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILEXDB::CloseFile()
@@ -405,7 +404,6 @@ bool XFILEXDB::CloseFile()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFILEXDB::Clean()
@@ -425,4 +423,7 @@ void XFILEXDB::Clean()
 
   indexmap.DeleteAll();
 }
+
+
+#pragma endregion
 

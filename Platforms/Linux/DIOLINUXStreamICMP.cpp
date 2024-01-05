@@ -69,7 +69,6 @@
 #include "XFactory.h"
 #include "XBuffer.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 
 #include "DIOIP.h"
 #include "DIOURL.h"

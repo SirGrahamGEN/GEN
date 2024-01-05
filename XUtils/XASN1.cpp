@@ -3,7 +3,7 @@
 * @file       XASN1.cpp
 * 
 * @class      XASN1
-* @brief      eXtended ANS.1 format buffer (Abstract Syntax Notation One, defined in X.208)
+* @brief      eXtended ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XASN1.h"
 
 #include "XBER.h"
 #include "XTrace.h"
@@ -40,8 +46,13 @@
 
 #include "XMemory_Control.h"
 
+#include "XMemory_Control.h"
+
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XASN1_OID_PROPERTY XASN1::OID_properties[] = {  { __L("0.4.0.1862.1.1"),                    __L("QcCompliance")                                   , false },
                                                 { __L("0.4.0.1862.1.2"),                    __L("QcLimitValue")                                   , false },
@@ -789,8 +800,11 @@ XASN1_OID_PROPERTY XASN1::OID_properties[] = {  { __L("0.4.0.1862.1.1"),        
                                                 { __L("2.5.8.1.1"),                         __L("rsa")                                            , false } 
                                               }; 
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -931,3 +945,7 @@ void XASN1::Clean()
 {
   ber = NULL;
 }
+
+
+#pragma endregion
+

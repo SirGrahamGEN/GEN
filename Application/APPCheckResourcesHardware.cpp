@@ -175,14 +175,14 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
+* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAverange()
 * @brief      GetCPUAverangge
 * @ingroup    APPLICATION
 *
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCHECKRESOURCESHARDWARE::GetCPUAverangge()
+int APPCHECKRESOURCESHARDWARE::GetCPUAverange()
 {
   if(!nsamplesCPU) return 0;
   
@@ -275,13 +275,12 @@ bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
           cpuusage = GEN_XSYSTEM.GetCPUUsageTotal();
     else  cpuusage = GEN_XSYSTEM.GetCPUUsageForProcessName(cfg->CheckResourcesHardware_GetCPUUsageProcessName()->Get());  
 
-
   nCPUusage  += cpuusage;
   nsamplesCPU++;
    
   if(nsamplesCPU > 5)
     {
-      if((nCPUusage /nsamplesCPU) > (XDWORD)cfg->CheckResourcesHardware_GetCPUUsageLimitPercent())
+      if((nCPUusage / nsamplesCPU) > (XDWORD)cfg->CheckResourcesHardware_GetCPUUsageLimitPercent())
         {
           //GEN_XLOG.AddEntry(XLOGLEVEL_WARNING, APP_CFG_LOG_SECTIONID_STATUSAPP, false, __L("Uso de la CPU"), cfg->CheckResourcesHardware_GetCPUUsageLimitPercent());
       
@@ -337,7 +336,7 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 
   switch(xevent->GetEventFamily())
     {
-      case XEVENT_TYPE_SCHEDULER       : { XSCHEDULER_XEVENT* event = (XSCHEDULER_XEVENT*)xevent;
+      case XEVENT_TYPE_SCHEDULER      : { XSCHEDULER_XEVENT* event = (XSCHEDULER_XEVENT*)xevent;
                                           if(!event) return;
 
                                           HandleEvent_Scheduler(event);
@@ -361,7 +360,7 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::Clean()
 {
-  inexit                  =  false;
+  inexit                  = false;
   exitmutex               = NULL;
   xscheduler              = NULL;
 

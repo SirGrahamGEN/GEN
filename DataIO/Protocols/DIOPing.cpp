@@ -525,6 +525,8 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
 
   urltarget->ResolveURL(targetIP);
 
+  diostreamICMPconfig.GetRemoteURL()->Set(urltarget->Get());
+  
   diostreamICMPconfig.SetMode(DIOSTREAMMODE_CLIENT);
 
   DIOSTREAMICMP* diostreamICMP  = (DIOSTREAMICMP*)GEN_DIOFACTORY.CreateStreamIO(&diostreamICMPconfig);

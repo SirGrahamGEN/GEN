@@ -37,6 +37,7 @@
 #include <stdio.h>
 
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
 
 #include "DIOStreamICMP.h"
 
@@ -80,7 +81,6 @@ enum DIOLINUXICMPFSMSTATES
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XTHREADCOLLECTED;
 
 class DIOLINUXSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
 {

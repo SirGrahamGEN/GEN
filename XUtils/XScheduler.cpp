@@ -964,13 +964,27 @@ bool XSCHEDULER::End()
 void XSCHEDULER::ThreadScheduler(void* data)
 {
   XSCHEDULER* xscheduler = (XSCHEDULER*)data;
-  if(!xscheduler)                      return;
-  if(!xscheduler->xmutexscheduler)     return;
-  if(!xscheduler->xdatetimeactual)     return;
+  if(!xscheduler)                      
+    {
+      return;
+    }
+
+  if(!xscheduler->xmutexscheduler)     
+    {
+      return;
+    }
+
+  if(!xscheduler->xdatetimeactual)     
+    {
+      return;
+    }
+
+  if(!xscheduler->isactive) 
+    {
+      return;
+    }
 
   GEN_XSLEEP.MilliSeconds(10);
-
-  if(!xscheduler->isactive)  return;
 
   xscheduler->xmutexscheduler->Lock();
 
@@ -984,7 +998,10 @@ void XSCHEDULER::ThreadScheduler(void* data)
       return;
     }
 
-  if(xscheduler->xdatetimeactual) xscheduler->xdatetimeactual->Read();
+  if(xscheduler->xdatetimeactual) 
+    {
+      xscheduler->xdatetimeactual->Read();
+    }
 
   if(task->IsActive())
     {
@@ -1000,11 +1017,11 @@ void XSCHEDULER::ThreadScheduler(void* data)
           xevent.SetDateTime(xscheduler->xdatetimeactual);
 
           xscheduler->PostEvent(&xevent);
-
+                 
           return;
         }
     }
-
+   
   xscheduler->indextask++;
   xscheduler->xmutexscheduler->UnLock();
 }

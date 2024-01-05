@@ -1,50 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XEEPROMMemoryManager.cpp
-*
+* 
 * @class      XEEPROMMEMORYMANAGER
 * @brief      eXtended EEPROM Memory Manager class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XEEPROMMemoryManager.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "XEEPROMMemoryManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XEEPROMMEMORYMANAGER* XEEPROMMEMORYMANAGER::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,7 +72,6 @@ XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -95,7 +106,6 @@ bool XEEPROMMEMORYMANAGER::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
@@ -112,7 +122,6 @@ XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,7 +144,6 @@ bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 
   return (instance)?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -162,9 +170,6 @@ bool XEEPROMMEMORYMANAGER::DelInstance()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::Ini()
@@ -180,7 +185,6 @@ bool XEEPROMMEMORYMANAGER::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::End()
@@ -194,7 +198,6 @@ bool XEEPROMMEMORYMANAGER::End()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -213,7 +216,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XBYTE));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -253,7 +255,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
@@ -271,7 +272,6 @@ bool XEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -292,7 +292,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
@@ -311,7 +310,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
@@ -328,8 +326,6 @@ bool XEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 {
   return Write(offset,(XBYTE*)&data, sizeof(XDWORD));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -366,7 +362,5 @@ bool XEEPROMMEMORYMANAGER::EraseAll()
 }
 
 
-
-
-
+#pragma endregion
 

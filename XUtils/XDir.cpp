@@ -1,51 +1,66 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XDir.cpp
-*
+* 
 * @class      XDIR
 * @brief      eXtended dir class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XDir.h"
 
 #include <stdio.h>
 #include <string.h>
 
 #include "XFactory.h"
 #include "XFile.h"
-#include "XDir.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_XDIRELEMENT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -61,7 +76,6 @@ XDIRELEMENT::XDIRELEMENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,7 +110,6 @@ XDIRELEMENTTYPE XDIRELEMENT::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
@@ -114,7 +127,6 @@ void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XDIRELEMENT::GetPathSearch()
@@ -128,7 +140,6 @@ XPATH* XDIRELEMENT::GetPathSearch()
 {
   return &pathsearch;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +157,6 @@ XSTRING* XDIRELEMENT::GetPatternSearch()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* XDIRELEMENT::GetNameFile()
@@ -160,7 +170,6 @@ XPATH* XDIRELEMENT::GetNameFile()
 {
   return &namefile;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -178,7 +187,6 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Created()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
@@ -192,7 +200,6 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_Modificated()
 {
   return &datetime_modificated;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -210,7 +217,6 @@ XDATETIME* XDIRELEMENT::GetDateTimeFile_LastAccess()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XDIRELEMENT::GetHandle()
@@ -224,7 +230,6 @@ void* XDIRELEMENT::GetHandle()
 {
   return handle;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -244,7 +249,6 @@ void XDIRELEMENT::SetHandle(void* handle)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XDIRELEMENT::GetFindFileData()
@@ -258,7 +262,6 @@ void* XDIRELEMENT::GetFindFileData()
 {
   return findfiledata;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -276,7 +279,6 @@ void XDIRELEMENT::SetFindFileData(void* findfiledata)
 {
   this->findfiledata = findfiledata;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -300,7 +302,6 @@ bool XDIRELEMENT::DeleteFindFileData()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XDIRELEMENT::Clean()
@@ -320,6 +321,11 @@ void XDIRELEMENT::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma region CLASS_XDIR
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -334,7 +340,6 @@ XDIR::XDIR()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -353,7 +358,6 @@ XDIR::~XDIR()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::Exist(XPATH& xpath)
@@ -369,7 +373,6 @@ bool XDIR::Exist(XPATH& xpath)
 {
   return Exist(xpath.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -390,7 +393,6 @@ bool XDIR::Make(XPATH& xpath, bool recursive)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::ChangeTo(XPATH& xpath)
@@ -406,7 +408,6 @@ bool XDIR::ChangeTo(XPATH& xpath)
 {
   return ChangeTo(xpath.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -425,7 +426,6 @@ bool XDIR::Delete(XPATH& xpath,bool all)
 {
   return Delete(xpath.Get(),all);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -447,7 +447,6 @@ bool XDIR::FirstSearch(XPATH& xpath,XSTRING& patternsearch,XDIRELEMENT* searchel
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::FirstSearch(XPATH& xpath,XCHAR* patternsearch,XDIRELEMENT* searchelement)
@@ -467,7 +466,6 @@ bool XDIR::FirstSearch(XPATH& xpath,XCHAR* patternsearch,XDIRELEMENT* searchelem
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::FirstSearch(XCHAR* xpath,XSTRING& patternsearch,XDIRELEMENT* searchelement)
@@ -485,7 +483,6 @@ bool XDIR::FirstSearch(XCHAR* xpath,XSTRING& patternsearch,XDIRELEMENT* searchel
 {
   return FirstSearch(xpath,patternsearch.Get(),searchelement);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -550,7 +547,6 @@ bool XDIR::Copy(XPATH& xpathsource,XPATH& xpathtarget)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::Copy(XCHAR* xpathsource,XPATH& xpathtarget)
@@ -571,7 +567,6 @@ bool XDIR::Copy(XCHAR* xpathsource,XPATH& xpathtarget)
 
   return Copy(_xpathsource, xpathtarget);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -596,7 +591,6 @@ bool XDIR::Copy(XPATH& xpathsource,XCHAR* xpathtarget)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
@@ -618,9 +612,7 @@ bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
   _xpathtarget = xpathtarget;
 
   return Copy(_xpathsource, _xpathtarget);
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -637,3 +629,10 @@ void XDIR::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

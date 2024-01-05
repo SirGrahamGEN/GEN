@@ -312,17 +312,24 @@ bool DIOURL::GetHTTPResource(XSTRING& resource)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOURL::IsAURL()
 {
+  int count = 0; 
+
   for(XDWORD c=0; c<size; c++)
     {
       if(!text[c]) break;
-
-      if((text[c] != __C('.'))  && (!Character_IsNumber(text[c])))
+  
+      if((text[c] >= __C('0')) && (text[c] <= '9') || (text[c] == __C('.'))) 
         {
-          return false;
+          
+
         }
+       else
+        {
+          return true;        
+        }     
     }
 
-  return true;
+  return false;
 }
 
 
@@ -410,7 +417,7 @@ bool DIOURL::IsLocalAddress()
 {
   DIOIP IP;
 
-  if(!IsAURL())
+  if(IsAURL())
     {
       ResolveURL(IP);
 

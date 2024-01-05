@@ -1,46 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XFString.cpp
-*
+* 
 * @class      XFSTRING
 * @brief      Unicode Fast String class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFString.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -56,7 +67,6 @@ XFSTRING::XFSTRING(): XSTRING()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -76,7 +86,6 @@ XFSTRING::XFSTRING(int n) : XSTRING(n)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
@@ -92,7 +101,6 @@ XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +120,6 @@ XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(const char* string) : XSTRING(string)
@@ -130,7 +137,6 @@ XFSTRING::XFSTRING(const char* string) : XSTRING(string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
@@ -146,7 +152,6 @@ XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +172,6 @@ int XFSTRING::Fast_ConvertToInt(int index)
   swscanf(&text[index], __L("%d"), &result);
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -191,7 +195,6 @@ XDWORD XFSTRING::Fast_ConvertToDWord(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XFSTRING::Fast_ConvertToQWord(int index)
@@ -211,7 +214,6 @@ XQWORD XFSTRING::Fast_ConvertToQWord(int index)
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +237,6 @@ XQWORDSIG XFSTRING::Fast_ConvertToSQWord(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XFSTRING::Fast_ConvertToFloat(int index)
@@ -255,7 +256,6 @@ float XFSTRING::Fast_ConvertToFloat(int index)
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -279,7 +279,6 @@ double XFSTRING::Fast_ConvertToDouble(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::Fast_AddCharacter(XCHAR character)
@@ -299,7 +298,6 @@ bool XFSTRING::Fast_AddCharacter(XCHAR character)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -322,7 +320,6 @@ bool XFSTRING::Fast_Empty()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (const char* string)
@@ -338,7 +335,6 @@ void XFSTRING::operator =  (const char* string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +354,6 @@ void XFSTRING::operator =  (const XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (const XSTRING& string)
@@ -374,7 +369,6 @@ void XFSTRING::operator =  (const XSTRING& string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -394,7 +388,6 @@ void XFSTRING::operator =  (XWORD* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator = (XBUFFER& string)
@@ -410,7 +403,6 @@ void XFSTRING::operator =  (XBUFFER& string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -430,7 +422,6 @@ void XFSTRING::operator += (const char* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (const XCHAR* string)
@@ -446,7 +437,6 @@ void XFSTRING::operator += (const XCHAR* string)
 {
   Add(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -466,7 +456,6 @@ void XFSTRING::operator += (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFSTRING::operator += (XCHAR character)
@@ -482,7 +471,6 @@ void XFSTRING::operator += (XCHAR character)
 {
   Add(character);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -502,7 +490,6 @@ bool XFSTRING::operator <  (const XSTRING& string) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator > (XSTRING& string)
@@ -518,7 +505,6 @@ bool XFSTRING::operator >  (XSTRING& string)
 {
   return (bool)(Compare(string) == 1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -538,7 +524,6 @@ bool XFSTRING::operator <= (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator >= (XSTRING& string)
@@ -554,7 +539,6 @@ bool XFSTRING::operator >= (XSTRING& string)
 {
   return (bool)(Compare(string) != -1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -574,7 +558,6 @@ bool XFSTRING::operator == (const XSTRING& string) const
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFSTRING::operator != (XSTRING& string)
@@ -592,7 +575,6 @@ bool XFSTRING::operator != (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR XFSTRING::operator [] (int position)
@@ -608,7 +590,6 @@ XCHAR XFSTRING::operator [] (int position)
 {
   return text[position];
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -633,7 +614,6 @@ int XFSTRING::Scan(const XCHAR* mask, ...)
 
   return n;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -676,4 +656,6 @@ bool XFSTRING::Explode(XCHAR token, XVECTOR<XFSTRING*>* receive)
   return true;
 }
 
+
+#pragma endregion
 

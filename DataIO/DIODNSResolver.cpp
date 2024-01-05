@@ -346,7 +346,7 @@ bool DIODNSRESOLVER::ResolveURL(XCHAR* URL, DIOIP& IPresolved, int querytype, XD
   
   url = URL;  
 
-  if(url.IsAURL())
+  if(!url.IsAURL())
     {  
       IPresolved.Set(URL);  
     }

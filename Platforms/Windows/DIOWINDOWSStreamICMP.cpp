@@ -366,7 +366,6 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
                                                                 break;
                                                               }
 
-
                                                             if(FD_ISSET(diostream->handle, &read_flags))  //Socket ready for reading
                                                               {
                                                                 FD_CLR(diostream->handle, &read_flags);
@@ -424,8 +423,7 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
                                                                           {
                                                                             SOCKADDR_IN  target_addr;
                                                                             int          size_addr = sizeof(SOCKADDR_IN);
-                                                                            int          size;
-                                                                            XSTRING      tmpremoteaddress;
+                                                                            int          size;                                                                            
 
                                                                             memset(&target_addr, 0, size_addr);
 
@@ -438,7 +436,7 @@ void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)
 
                                                                             XBUFFER charstr;
                                                                             
-                                                                            tmpremoteaddress.ConvertToASCII(charstr);
+                                                                            diostream->config->GetResolvedRemoteURL()->ConvertToASCII(charstr);
                                                                             
                                                                             #ifndef BUILDER
                                                                             inet_pton(target_addr.sin_family, charstr.GetPtrChar(), &target_addr.sin_addr.s_addr);
