@@ -130,34 +130,66 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbytes, 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualCPUUsage()
-* @brief      GetActualCPUUsage
+* 
+* @fn         int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
+* @brief      GetActualTotalCPUUsage
 * @ingroup    APPLICATION
-*
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualCPUUsage()
+int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
 {
-  return CPUusage;
+  return totalCPUusage;
 }
  
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualCPUUsage(int& CPUusage)
-* @brief      SetActualCPUUsage
+* 
+* @fn         void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
+* @brief      SetActualTotalCPUUsage
 * @ingroup    APPLICATION
-*
+* 
 * @param[in]  CPUusage : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualCPUUsage(int& CPUusage)
+void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
 {
-  this->CPUusage = CPUusage;
+  this->totalCPUusage = totalCPUusage;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
+* @brief      GetActualAppCPUUsage
+* @ingroup    APPLICATION
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
+{
+  return appCPUusage;
+}
+ 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
+* @brief      SetActualAppCPUUsage
+* @ingroup    APPLICATION
+* 
+* @param[in]  CPUusage : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
+{
+  this->appCPUusage = appCPUusage;
 }
 
 
@@ -175,7 +207,9 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()
 {
   memfree_inbytes   = 0;
   memfree_percent   = 0; 
-  CPUusage          = 0; 
+
+  totalCPUusage     = 0; 
+  appCPUusage       = 0; 
 }
 
 

@@ -45,7 +45,8 @@ enum APPCHECKRESOURCESHARDWARE_XEVENT_TYPE
 {
   APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_UNKNOWN              = XEVENT_TYPE_APPLICATIONCHECKRESOURCESHW  ,
   APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT                                                    ,
-  APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_CPUUSAGELIMIT                                       
+  APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT                                              ,
+  APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT                                       
 };
 
 #pragma endregion
@@ -60,22 +61,27 @@ class XPUBLISHER;
 class APPCHECKRESOURCESHARDWARE_XEVENT : public XEVENT
 {
   public:
-                                APPCHECKRESOURCESHARDWARE_XEVENT       (XSUBJECT* subject, XDWORD type = APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_APPLICATIONCHECKRESOURCESHW);
-    virtual                    ~APPCHECKRESOURCESHARDWARE_XEVENT       ();
+                                APPCHECKRESOURCESHARDWARE_XEVENT        (XSUBJECT* subject, XDWORD type = APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_APPLICATIONCHECKRESOURCESHW);
+    virtual                    ~APPCHECKRESOURCESHARDWARE_XEVENT        ();
 
-    bool                        GetActualMemFree                       (XDWORD& memfree_inbytes, XBYTE& memfree_percent);
-    void                        SetActualMemFree                       (XDWORD memfree_inbytes, XBYTE memfree_percent);
+    bool                        GetActualMemFree                        (XDWORD& memfree_inbytes, XBYTE& memfree_percent);
+    void                        SetActualMemFree                        (XDWORD memfree_inbytes, XBYTE memfree_percent);
 
-    int                         GetActualCPUUsage                      ();
-    void                        SetActualCPUUsage                      (int& CPUusage);
+    int                         GetActualTotalCPUUsage                  ();
+    void                        SetActualTotalCPUUsage                  (int& CPUusage);
+
+    int                         GetActualAppCPUUsage                    ();
+    void                        SetActualAppCPUUsage                    (int& CPUusage);
 
   private:
 
-    void                        Clean                                  ();
+    void                        Clean                                   ();
 
     XDWORD                      memfree_inbytes;
     XBYTE                       memfree_percent;
-    int                         CPUusage;    
+
+    int                         totalCPUusage;    
+    int                         appCPUusage;    
 };
 
 #pragma endregion

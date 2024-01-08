@@ -1,39 +1,45 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSSystem.cpp
-*
+* 
 * @class      XWINDOWSSYSTEM
-* @brief      eXtended WINDOWS System class
+* @brief      WINDOWS eXtended System class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSSystem.h"
 
 #define SECURITY_WIN32
-
 
 #include <cstdio>
 #include <windows.h>
@@ -68,24 +74,22 @@
 #include "XTrace.h"
 #include "XLanguage_ISO_639_3.h"
 
-#include "XWINDOWSSystem.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XWINDOWSSYSTEM_CPUUSAGESTATUS                                                                                     */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_XWINDOWSSYSTEM_CPUUSAGESTATUS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -98,11 +102,9 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
-
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,7 +121,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 {
   Clean();
 }
-
 
 	
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,13 +143,10 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 }
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XWINDOWSSYSTEM                                                                                                    */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_XWINDOWSSYSTEM_XWINDOWSSYSTEM
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -168,7 +166,6 @@ XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
@@ -185,7 +182,6 @@ XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -207,69 +203,6 @@ XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 }
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
-* @brief      Get Type SO
-* @ingroup    PLATFORM_WINDOWS
-*
-* @return     XSYSTEM_SO : type of SO (enum XSYSTEM_SO)
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-XSYSTEM_SO XWINDOWSSYSTEM::GetTypeSO()
-{
-  #ifdef BUILDER
-
-  OSVERSIONINFO osvi;
-
-  osvi.dwOSVersionInfoSize =sizeof(OSVERSIONINFO);
-
-  GetVersionEx(&osvi);
-
-  switch(osvi.dwPlatformId)
-    {
-      case VER_PLATFORM_WIN32s        : return XSYSTEM_SO_WINDOWS;
-      case VER_PLATFORM_WIN32_WINDOWS : return XSYSTEM_SO_WINDOWS98;
-      case VER_PLATFORM_WIN32_NT      : return XSYSTEM_SO_WINDOWSNT4;
-    }
-
-  #else
-
-  OSVERSIONINFOEXW osvi;
-  DWORDLONG        const dwlConditionMask = VerSetConditionMask(0, VER_PLATFORMID, VER_GREATER_EQUAL);
-
-  osvi.dwOSVersionInfoSize = sizeof(osvi);
-  #if(_MSC_PLATFORM_TOOLSET == 'v140')
-  osvi.dwPlatformId        = _WIN32_WINNT_WIN10;
-  #endif
-
-  VerifyVersionInfoW(&osvi, VER_PRODUCT_TYPE, dwlConditionMask);
-
-
-  switch(osvi.dwPlatformId)
-    {
-      case _WIN32_WINNT_NT4           : return XSYSTEM_SO_WINDOWSNT4;
-      case _WIN32_WINNT_WIN2K         : return XSYSTEM_SO_WINDOWS2000;
-      case _WIN32_WINNT_WINXP         : return XSYSTEM_SO_WINDOWSXP;
-      case _WIN32_WINNT_WS03          : return XSYSTEM_SO_WINDOWSSERVER2003;
-      case _WIN32_WINNT_VISTA         : return XSYSTEM_SO_WINDOWSVISTA;
-      case _WIN32_WINNT_WIN7          : return XSYSTEM_SO_WINDOWS7;
-      #if(_MSC_PLATFORM_TOOLSET == 'v140')
-      case _WIN32_WINNT_WIN8          : return XSYSTEM_SO_WINDOWS8;
-      case _WIN32_WINNT_WINBLUE       : return XSYSTEM_SO_WINDOWS81;
-      case _WIN32_WINNT_WIN10         : return XSYSTEM_SO_WINDOWS10;
-      #endif
-    }
-
-  #endif
-
-  return XSYSTEM_SO_WINDOWS;
-}
-*/
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
@@ -289,7 +222,6 @@ XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
@@ -305,67 +237,7 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
 {
   ID.Empty();
 
-
-  /*
-  OSVERSIONINFOEXW osvi;
-  DWORDLONG        const dwlConditionMask = VerSetConditionMask(0, VER_PLATFORMID, VER_GREATER_EQUAL);
-
-  
-  memset((XBYTE*)&osvi, 0, sizeof(OSVERSIONINFOEXW));
-
-  osvi.dwOSVersionInfoSize = sizeof(osvi);
-  
-  #if(_MSC_PLATFORM_TOOLSET == 'v140')
-  osvi.dwPlatformId        = _WIN32_WINNT_WIN10;
-  #endif
-
-  VerifyVersionInfoW(&osvi, VER_PRODUCT_TYPE, dwlConditionMask);
-  */
-
-  /*
-  SYSTEM_INFO systeminfo;
-  GetNativeSystemInfo(&systeminfo);
-  */
-
-  /*
-  // ----------------------------------------------------------------------------
-  // 
-  //                         | dwVersionMajor | dwVersionMinor |
-  //  Windows 10             | 6              | 4              |
-  //  Windows 8.1            | 6              | 3              |
-  //  Windows Server 2012 R2 | 6              | 3              |
-  //  Windows 8              | 6              | 2              |
-  //  Windows Server 2012    | 6              | 2              |
-  //  Windows 7              | 6              | 1              |
-  //  Windows Server 2008 R2 | 6              | 1              |
-  //  Windows Server 2008    | 6              | 0              |
-  //  Windows Vista          | 6              | 0              |
-  //  Windows Server 2003 R2 | 5              | 2              |
-  //  Windows Server 2003    | 5              | 2              |
-  //  Windows XP 64-Bit      | 5              | 2              |
-  //  Windows XP             | 5              | 1              |
-  //  Windows 2000           | 5              | 0              |
-  // 
-  // -----------------------------------------------------------------------------
-
-
-  
-  OSVERSIONINFOW osinfo;
-  DWORD          product_type = 0;
-  double         version      = 0.0f;
-  
-  ZeroMemory(&osinfo, sizeof(OSVERSIONINFOEX));
-  osinfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
-  
-  GetVersionEx(&osinfo);
-  
-  GetProductInfo(osinfo.dwMajorVersion, osinfo.dwMinorVersion, 0, 0, &product_type);
-   
-  version = osinfo.dwMajorVersion + (osinfo.dwMinorVersion / 10.0) - (product_type == VER_NT_WORKSTATION) ? 0.5 : 0.0;
-  */
-
   #ifndef BUILDER
-
   XWINDOWSWMIINTERFACE*  wmiinterface;
   XSTRING                wmianswer[4];
 
@@ -393,7 +265,6 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE XWINDOWSSYSTEM::GetLanguageSO()
@@ -419,7 +290,6 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
@@ -439,7 +309,6 @@ XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
 
   return &serialnumber;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -465,7 +334,6 @@ bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -527,13 +395,10 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
   cpuusage = (int)(f + 0.5);	// rounding the result
 
   if(cpuusage < 0)  return 0;
-
   #endif
 
 	return cpuusage;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -560,7 +425,6 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
   if(hprocesssnap == INVALID_HANDLE_VALUE )  return false;
 
   // Set the size of the structure before using it.
-
   memset(&pe32, 0, sizeof(PROCESSENTRY32));
   pe32.dwSize = sizeof(PROCESSENTRY32);
 
@@ -589,7 +453,6 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 
   return cpuusage;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -654,7 +517,6 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
@@ -670,7 +532,6 @@ XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 {
   return (XCHAR*)_wgetenv((const wchar_t *)variablename);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -722,7 +583,6 @@ bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
@@ -764,8 +624,6 @@ bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 
   return _wputenv(all.Get())?false:true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -844,8 +702,6 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
@@ -903,7 +759,6 @@ bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XWINDOWSSYSTEM::Sound_GetLevel()
@@ -918,7 +773,6 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
   float                   currentvolume     = 0.0f;
 
   #ifndef BUILDER
-
   IMMDeviceEnumerator*    deviceenumerator  = NULL;
   IAudioEndpointVolume*   endpointvolume    = NULL;
   IMMDevice*              defaultdevice     = NULL;
@@ -959,12 +813,10 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
     }
 
   CoUninitialize();
-
   #endif
 
   return (int)(currentvolume*100);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -983,7 +835,6 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
   bool                    status            = false;
 
   #ifndef BUILDER
-
   float                   currentvolume     = 0.0f;
   IMMDeviceEnumerator*    deviceenumerator  = NULL;
   IAudioEndpointVolume*   endpointvolume    = NULL;
@@ -1032,13 +883,10 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
     }
 
   CoUninitialize();
-
   #endif
 
   return status;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1061,17 +909,12 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
   IAudioEndpointVolume*   endpointvolume    = NULL;
   IMMDevice*              defaultdevice     = NULL;
   HRESULT                 hresult;
-  
-
-  //-------------------------------------------------------------------------------------------------------------------
-
+ 
   CoInitialize(NULL);
 
   hresult = CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceenumerator);
   if(!deviceenumerator) return false;
   if(hresult != S_OK) return false;
-
-  //-------------------------------------------------------------------------------------------------------------------
 
   hresult = deviceenumerator->GetDefaultAudioEndpoint(eRender, eConsole, &defaultdevice);
   if(hresult != S_OK) return false;
@@ -1081,8 +924,6 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 
   if(defaultdevice)
     {
-      //-------------------------------------------------------------------------------------------------------------------
-
       hresult = defaultdevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointvolume);
       status = (hresult == S_OK)?true:false;
 
@@ -1092,13 +933,8 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
           defaultdevice = NULL;
           endpointvolume->GetMasterVolumeLevel(&currentvolume);
 
-          //-------------------------------------------------------------------------------------------------------------------
-
           endpointvolume->GetMasterVolumeLevelScalar(&currentvolume);
-
           endpointvolume->SetMute(on, NULL);
-
-          //-------------------------------------------------------------------------------------------------------------------
 
           endpointvolume->Release();
         }
@@ -1109,7 +945,6 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1141,18 +976,8 @@ bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
       return true;
     }
 
-  /*
-  #ifdef _DEBUG
-  isincharge    = false;
-  levelpercent  = 10;
-  return true;  
-  #endif
-  */
-
   return false;      
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1182,7 +1007,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processn
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
@@ -1196,20 +1020,40 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processn
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
 {
-  if(cpuusagestatus.IsEmpty()) return NULL;
+  if(cpuusagestatus.IsEmpty()) 
+    {
+      return NULL;
+    }
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->Lock();
+    }
 
   for(XDWORD c=0; c<cpuusagestatus.GetSize(); c++)
     {
       XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = cpuusagestatus.Get(c);
       if(cus)
         {
-          if(!cus->processname.Compare(processname, true)) return cus;
+          if(!cus->processname.Compare(processname, true)) 
+            {
+              if(xmutexcheckCPUusage)
+                {
+                  xmutexcheckCPUusage->UnLock();
+                }
+
+              return cus;
+            }
         }
+    }
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->UnLock();
     }
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1239,7 +1083,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
@@ -1253,20 +1096,40 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processI
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
 {
-  if(cpuusagestatus.IsEmpty()) return NULL;
+  if(cpuusagestatus.IsEmpty()) 
+    {
+      return NULL;
+    }
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->Lock();
+    }
 
   for(XDWORD c=0; c<cpuusagestatus.GetSize(); c++)
     {
       XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = cpuusagestatus.Get(c);
       if(cus)
         {
-          if(cus->processID == processID) return cus;
+          if(cus->processID == processID) 
+            {
+              if(xmutexcheckCPUusage)
+                {
+                  xmutexcheckCPUusage->UnLock();
+                }
+
+              return cus;
+            }
         }    
+    }
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->UnLock();
     }
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1303,3 +1166,11 @@ void XWINDOWSSYSTEM::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+

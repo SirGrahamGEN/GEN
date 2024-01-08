@@ -431,16 +431,18 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
 bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
 { 
   #define PIPE_READ   0
-  #define PIPE_WRITE  1
+  #define PIPE_WRITE  1  
+  #define MAXNPARAMS  20
 
   if(!applicationpath) return false;
 
-  pid_t pID;
-  bool  exist  = false;
-  bool  status = false;
-  int   stdinpipe[2]  = { 0 , 0 };
-  int   stdoutpipe[2] = { 0 , 0 };
-  int   nresult = 0;
+  pid_t   pID;
+  bool    exist  = false;
+  bool    status = false;
+  int     stdinpipe[2]  = { 0 , 0 };
+  int     stdoutpipe[2] = { 0 , 0 };
+  int     nresult = 0;  
+  XSTRING _params;
 
   if(pipe(stdinpipe) < 0)
     {
@@ -485,29 +487,26 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
 
   //------------------------------------------
 
-  XSTRING _params;
-
   cmd = applicationpath;
-
+  
   _params.Add(cmd);
   if(params)
     {
       _params.Add(" ");
       _params.Add(params);
     }
-
-  #define MAXNPARAMS  20
-
-  char* param[MAXNPARAMS] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-                              NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
-                            };
-  int   start             = 0;
-  bool  endfound          = false;
-
+ 
+  char*     param[MAXNPARAMS] = { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+                                  NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+                                };
+  int       start             = 0;
+  bool      endfound          = false;
+  
   for(int c=0; c<MAXNPARAMS; c++)
     {
-      XSTRING string;
-      int     found = _params.Find(__L(" "), true, start);
+      XSTRING   string;
+      XBUFFER   xbuffer;
+      int       found = _params.Find(__L(" "), true, start);
 
       if(found == XSTRING_NOTFOUND)
         {
@@ -519,7 +518,16 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
           _params.Copy(start, found, string);
           start = found+1;
         }
-            
+
+      string.ConvertToASCII(xbuffer);
+         
+      param[c] = new char[xbuffer.GetSize()+1];
+      if(param[c])
+        {
+          memset(param[c], 0, xbuffer.GetSize()+1);
+          memcpy(param[c], xbuffer.Get(), xbuffer.GetSize());         
+        }
+                 
       if(endfound) break;
     }
 

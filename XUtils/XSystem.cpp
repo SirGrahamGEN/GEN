@@ -1,51 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XSystem.cpp
-*
+* 
 * @class      XSYSTEM
 * @brief      System class
-* @note        Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
+* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-#include "XPath.h"
-#include "XLanguage_ISO_639_3.h"
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XSystem.h"
 
+#include "XFactory.h"
+#include "XPath.h"
+#include "XLanguage_ISO_639_3.h"
+#include "XThread.h"
+
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-XSYSTEM* XSYSTEM::instance = NULL;
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+XSYSTEM* XSYSTEM::instance            = NULL;
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,6 +74,8 @@ XSYSTEM* XSYSTEM::instance = NULL;
 XSYSTEM::XSYSTEM()
 {
   Clean();
+
+  xmutexcheckCPUusage = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -75,9 +91,13 @@ XSYSTEM::XSYSTEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM::~XSYSTEM()
 {
+  if(xmutexcheckCPUusage)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexcheckCPUusage);
+    }
+
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,7 +116,6 @@ bool XSYSTEM::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSYSTEM& XSYSTEM::GetInstance()
@@ -113,8 +132,6 @@ XSYSTEM& XSYSTEM::GetInstance()
 
   return (*instance);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -137,7 +154,6 @@ bool XSYSTEM::SetInstance(XSYSTEM* _instance)
 
   return (instance)?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -182,10 +198,6 @@ XSYSTEM_HARDWARETYPE  XSYSTEM::GetTypeHardware(int* revision)
 }
 
 
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::HardwareUseLittleEndian()
@@ -224,7 +236,6 @@ bool XSYSTEM::HardwareUseLittleEndian()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring = NULL)
@@ -242,7 +253,6 @@ XSYSTEM_PLATFORM XSYSTEM::GetPlatform(XSTRING* namestring)
 
   return XSYSTEM_PLATFORM_UNKNOWN;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -264,7 +274,6 @@ bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE XSYSTEM::GetLanguage()
@@ -281,7 +290,6 @@ XDWORD XSYSTEM::GetLanguageSO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XSYSTEM::GetSerialNumber()
@@ -295,7 +303,6 @@ XSTRING* XSYSTEM::GetSerialNumber()
 {
   return &serialnumber;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -318,7 +325,6 @@ bool XSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,8 +350,6 @@ int XSYSTEM::GetFreeMemoryPercent()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::FreeCacheMemory()
@@ -361,7 +365,6 @@ bool XSYSTEM::FreeCacheMemory()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetCPUUsageTotal()
@@ -375,7 +378,6 @@ int XSYSTEM::GetCPUUsageTotal()
 {
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -395,7 +397,6 @@ int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
@@ -411,7 +412,6 @@ int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -431,7 +431,6 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& variablename)
@@ -447,7 +446,6 @@ XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& variablename)
 {
   return GetEnviromentVariable(variablename.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -468,7 +466,6 @@ bool XSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::SetEnviromentVariable(XSTRING& variablename, XSTRING& value)
@@ -485,7 +482,6 @@ bool XSYSTEM::SetEnviromentVariable(XSTRING& variablename, XSTRING& value)
 {
   return SetEnviromentVariable(variablename.Get(), value.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,8 +516,6 @@ bool XSYSTEM::DelEnviromentVariable(XSTRING& namevariable)
 {
   return DelEnviromentVariable(namevariable.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -559,7 +553,6 @@ bool XSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSYSTEM::Sound_GetLevel()
@@ -573,7 +566,6 @@ int XSYSTEM::Sound_GetLevel()
 {
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -593,7 +585,6 @@ bool XSYSTEM::Sound_SetLevel(int level)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSYSTEM::Sound_SetMutex(bool on)
@@ -609,7 +600,6 @@ bool XSYSTEM::Sound_SetMutex(bool on)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -628,7 +618,6 @@ bool XSYSTEM::GetBatteryLevel (bool& isincharge, XBYTE& levelpercent)
 {
   return false;
 }
-
 
 
 #ifndef MICROCONTROLLER
@@ -693,7 +682,6 @@ bool XSYSTEM::HostFile(bool add, XCHAR* domain, XCHAR* IP)
   return status;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -712,7 +700,6 @@ bool XSYSTEM::HostFile(bool add, XSTRING& domain, XSTRING& IP)
 {
   return HostFile(add, domain.Get(), IP.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -786,21 +773,9 @@ int XSYSTEM::IsLineInHostFile(XFILETXT& xfileTXT, XCHAR* domain, XCHAR* IP)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSYSTEM::Clean()
 {
-
+  xmutexcheckCPUusage = NULL;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pragma endregion
 

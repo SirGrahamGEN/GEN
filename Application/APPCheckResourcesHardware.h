@@ -46,7 +46,8 @@ enum APPCHECKRESOURCESHARDWARE_TASKID
 {
   APPCHECKRESOURCESHARDWARE_TASKID_UNKNOWN                   = 0  ,
   APPCHECKRESOURCESHARDWARE_TASKID_CHECKMEMORY                    ,
-  APPCHECKRESOURCESHARDWARE_TASKID_CPUUSAGE                       ,
+  APPCHECKRESOURCESHARDWARE_TASKID_TOTALCPUUSAGE                  ,
+  APPCHECKRESOURCESHARDWARE_TASKID_APPCPUUSAGE                    ,
 };
 
 #pragma endregion
@@ -68,15 +69,17 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
 
     bool                            Ini                             (APPCFG* cfg);
 
-    int                             GetCPUAverange                  ();  
+    int                             GetCPUTotalCPUUsageAverange     ();  
+    int                             GetCPUAppCPUUsageAverange       ();  
 
     bool                            End                             ();
-
 
   private:
 
     bool                            CheckMemoryStatus               ();
-    bool                            CheckCPUUsageStatus             ();
+
+    bool                            CheckTotalCPUUsageStatus        ();
+    bool                            CheckAppCPUUsageStatus          ();
 
     void                            HandleEvent_Scheduler           (XSCHEDULER_XEVENT* xevent);
     void                            HandleEvent                     (XEVENT* xevent);
@@ -89,8 +92,11 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
     XMUTEX*                         exitmutex;
     XSCHEDULER*                     xscheduler;
 
-    XDWORD                          nCPUusage;
-    XDWORD                          nsamplesCPU;
+    XDWORD                          ntotalCPUusage;
+    XDWORD                          ntotalCPUsamples;
+
+    XDWORD                          nappCPUusage;
+    XDWORD                          nappCPUsamples;
 
 };
 

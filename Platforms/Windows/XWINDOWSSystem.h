@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSSystem.h
-*
+* 
 * @class      XWINDOWSSYSTEM
-* @brief      eXtended WINDOWS System class
+* @brief      WINDOWS eXtended System class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XWINDOWSSYSTEM_H_
 #define _XWINDOWSSYSTEM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <windows.h>
 #include <stdio.h>
@@ -38,24 +39,29 @@
 
 #include "XSystem.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
-//#define XWINDOWSSYSTEM_MAX_KEY_LENGTH														255
-//#define XWINDOWSSYSTEM_MAX_VALUE_NAME													16383
+#define XWINDOWSSYSTEM_MAXNETADDRIP															16
 
-#define XWINDOWSSYSTEM_MAXNETADDRIP															 16
-
-#define XWINDOWSSYSTEM_SYSTEM_OBJECT_INDEX												2		// 'System' object
-#define XWINDOWSSYSTEM_PROCESS_OBJECT_INDEX											230		// 'Process' object
-#define XWINDOWSSYSTEM_PROCESSOR_OBJECT_INDEX										238		// 'Processor' object
-#define XWINDOWSSYSTEM_TOTAL_PROCESSOR_TIME_COUNTER_INDEX				240		// '% Total processor time' counter (valid in WinNT under 'System' object)
-#define XWINDOWSSYSTEM_PROCESSOR_TIME_COUNTER_INDEX								6		// '% processor time' counter (for Win2K/XP)
+#define XWINDOWSSYSTEM_SYSTEM_OBJECT_INDEX											2					// 'System' object
+#define XWINDOWSSYSTEM_PROCESS_OBJECT_INDEX											230				// 'Process' object
+#define XWINDOWSSYSTEM_PROCESSOR_OBJECT_INDEX										238				// 'Processor' object
+#define XWINDOWSSYSTEM_TOTAL_PROCESSOR_TIME_COUNTER_INDEX				240				// '% Total processor time' counter (valid in WinNT under 'System' object)
+#define XWINDOWSSYSTEM_PROCESSOR_TIME_COUNTER_INDEX							6					// '% processor time' counter (for Win2K/XP)
 
 #define XWINDOWSSYSTEM_TOTALBYTES																100*1024
 #define XWINDOWSSYSTEM_BYTEINCREMENT														10*1024
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 #ifndef BUILDER
 
@@ -353,7 +359,7 @@ class XWINDOWSSYSTEM_PERFCOUNTERS
 		PPERF_OBJECT_TYPE														NextObject																				(PPERF_OBJECT_TYPE perfobj)						{	return( (PPERF_OBJECT_TYPE)((PBYTE)perfobj + perfobj->TotalByteLength));											}
 		PPERF_COUNTER_DEFINITION										FirstCounter																			(PPERF_OBJECT_TYPE perfobj)						{	return( (PPERF_COUNTER_DEFINITION) ((PBYTE)perfobj + perfobj->HeaderLength));									}
 		PPERF_COUNTER_DEFINITION										NextCounter																				(PPERF_COUNTER_DEFINITION perfcntr)		{	return( (PPERF_COUNTER_DEFINITION)((PBYTE)perfcntr + perfcntr->ByteLength));									}
-		PPERF_INSTANCE_DEFINITION										FirstInstance																			(PPERF_OBJECT_TYPE perfobj)						{ return( (PPERF_INSTANCE_DEFINITION)((PBYTE)perfobj + perfobj->DefinitionLength));								}
+		PPERF_INSTANCE_DEFINITION										FirstInstance																			(PPERF_OBJECT_TYPE perfobj)						{ return( (PPERF_INSTANCE_DEFINITION)((PBYTE)perfobj + perfobj->DefinitionLength));							}
 
 		PPERF_INSTANCE_DEFINITION										NextInstance																			(PPERF_INSTANCE_DEFINITION PerfInst)
 																								{
@@ -385,7 +391,6 @@ class XWINDOWSSYSTEM_CPUUSAGESTATUS
 
     void																				Clean																							();
 };
-
 
 
 class XWINDOWSSYSTEM : public XSYSTEM
@@ -439,11 +444,15 @@ class XWINDOWSSYSTEM : public XSYSTEM
 		XVECTOR<XWINDOWSSYSTEM_CPUUSAGESTATUS*>			cpuusagestatus;		
 };
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
 

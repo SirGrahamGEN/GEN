@@ -77,7 +77,8 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
   Clean();
 
   RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);
-  RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_CPUUSAGELIMIT);
+  RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT);
+  RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT);
 
   GEN_XFACTORY_CREATE(exitmutex, Create_Mutex());
 }
@@ -98,7 +99,8 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
   End();
 
   DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);
-  DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_CPUUSAGELIMIT);
+  DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT);
+  DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT);
 
   GEN_XFACTORY.Delete_Mutex(exitmutex);
 
@@ -119,8 +121,12 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 {
+  if(!cfg) 
+    {
+      return false;
+    }
+
   this->cfg = cfg;
-  if(!this->cfg) return false;
 
   xscheduler = new XSCHEDULER();
   if(!xscheduler) return false;
@@ -144,19 +150,33 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 
  //---------------------------------------------------------
 
-  for(int c=0; c<70; c++)
+  for(int c=0; c<100; c++)
     {
-      CheckCPUUsageStatus();      
+      CheckTotalCPUUsageStatus();   
+      CheckAppCPUUsageStatus();   
       GEN_XSLEEP.MilliSeconds(10);  
     }
 
-  if(cfg->CheckResourcesHardware_GetCPUUsageCheckCadence())
+  if(cfg->CheckResourcesHardware_GetTotalCPUUsageCheckCadence())
     {
       xtask = new XSCHEDULERTASK(xscheduler);
       if(!xtask) return false;
 
-      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, cfg->CheckResourcesHardware_GetCPUUsageCheckCadence());
-      xtask->SetID(APPCHECKRESOURCESHARDWARE_TASKID_CPUUSAGE);
+      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, cfg->CheckResourcesHardware_GetTotalCPUUsageCheckCadence());
+      xtask->SetID(APPCHECKRESOURCESHARDWARE_TASKID_TOTALCPUUSAGE);
+      xtask->SetIsStartImmediatelyCycles(true);
+      xtask->SetIsActive(true);
+
+      xscheduler->Task_Add(xtask);
+    }
+
+  if(cfg->CheckResourcesHardware_GetAppCPUUsageCheckCadence())
+    {
+      xtask = new XSCHEDULERTASK(xscheduler);
+      if(!xtask) return false;
+
+      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, cfg->CheckResourcesHardware_GetAppCPUUsageCheckCadence());
+      xtask->SetID(APPCHECKRESOURCESHARDWARE_TASKID_APPCPUUSAGE);
       xtask->SetIsStartImmediatelyCycles(true);
       xtask->SetIsActive(true);
 
@@ -174,19 +194,38 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAverange()
-* @brief      GetCPUAverangge
+* 
+* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageAverange()
+* @brief      GetCPUTotalCPUUsageAverange
 * @ingroup    APPLICATION
-*
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCHECKRESOURCESHARDWARE::GetCPUAverange()
+int APPCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageAverange()
 {
-  if(!nsamplesCPU) return 0;
-  
-  return (nCPUusage /nsamplesCPU);
+  if(!ntotalCPUusage) return 0;
+
+  return (ntotalCPUusage / ntotalCPUsamples);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange(XCHAR* name)
+* @brief      GetCPUAppCPUUsageAverange
+* @ingroup    APPLICATION
+* 
+* @param[in]  name : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange()
+{
+  if(!nappCPUusage) return 0;
+
+  return (nappCPUusage / nappCPUsamples);
 }
 
 
@@ -258,34 +297,65 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
-* @brief      CheckCPUUsageStatus
+* @fn         bool APPCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
+* @brief      CheckTotalCPUUsageStatus
 * @ingroup    APPLICATION
 *
 * @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPCHECKRESOURCESHARDWARE::CheckCPUUsageStatus()
+bool APPCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
 {
   if(!cfg) return false;
 
-  int cpuusage;
-
-  if(cfg->CheckResourcesHardware_GetCPUUsageProcessName()->IsEmpty())
-          cpuusage = GEN_XSYSTEM.GetCPUUsageTotal();
-    else  cpuusage = GEN_XSYSTEM.GetCPUUsageForProcessName(cfg->CheckResourcesHardware_GetCPUUsageProcessName()->Get());  
-
-  nCPUusage  += cpuusage;
-  nsamplesCPU++;
+  int cpuusage = GEN_XSYSTEM.GetCPUUsageTotal();
+  
+  ntotalCPUusage  += cpuusage;
+  ntotalCPUsamples++;
    
-  if(nsamplesCPU > 5)
+  if(ntotalCPUsamples > 5)
     {
-      if((nCPUusage / nsamplesCPU) > (XDWORD)cfg->CheckResourcesHardware_GetCPUUsageLimitPercent())
-        {
-          //GEN_XLOG.AddEntry(XLOGLEVEL_WARNING, APP_CFG_LOG_SECTIONID_STATUSAPP, false, __L("Uso de la CPU"), cfg->CheckResourcesHardware_GetCPUUsageLimitPercent());
-      
-          APPCHECKRESOURCESHARDWARE_XEVENT  xevent(this, APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_CPUUSAGELIMIT);        
-          xevent.SetActualCPUUsage(cpuusage);      
+      if(GetCPUTotalCPUUsageAverange() > (XDWORD)cfg->CheckResourcesHardware_GetTotalCPUUsageLimitPercent())
+        {      
+          APPCHECKRESOURCESHARDWARE_XEVENT  xevent(this, APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT);        
+          xevent.SetActualTotalCPUUsage(cpuusage);      
+          PostEvent(&xevent);
+        } 
+    }
+    
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
+* @brief      CheckAppCPUUsageStatus
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
+{
+  if(!cfg) return false;
+
+  int cpuusage = 0;
+
+  if(!cfg->CheckResourcesHardware_GetAppCPUUsageProcessName()->IsEmpty())
+    {
+      cpuusage = GEN_XSYSTEM.GetCPUUsageForProcessName(cfg->CheckResourcesHardware_GetAppCPUUsageProcessName()->Get());  
+    }
+
+  nappCPUusage  += cpuusage;
+  nappCPUsamples++;
+   
+  if(nappCPUsamples > 5)
+    {
+      if(GetCPUAppCPUUsageAverange() > (XDWORD)cfg->CheckResourcesHardware_GetAppCPUUsageLimitPercent())
+        {      
+          APPCHECKRESOURCESHARDWARE_XEVENT  xevent(this, APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT);        
+          xevent.SetActualAppCPUUsage(cpuusage);      
           PostEvent(&xevent);
         } 
     }
@@ -310,8 +380,10 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
   switch(event->GetTask()->GetID())
     {
-      case APPCHECKRESOURCESHARDWARE_TASKID_CHECKMEMORY       : CheckMemoryStatus();      break;
-      case APPCHECKRESOURCESHARDWARE_TASKID_CPUUSAGE          : CheckCPUUsageStatus();    break;
+      case APPCHECKRESOURCESHARDWARE_TASKID_CHECKMEMORY       : CheckMemoryStatus();            break;
+
+      case APPCHECKRESOURCESHARDWARE_TASKID_TOTALCPUUSAGE     : CheckTotalCPUUsageStatus();     break;
+      case APPCHECKRESOURCESHARDWARE_TASKID_APPCPUUSAGE       : CheckAppCPUUsageStatus();       break;
     } 
 }
 
@@ -360,12 +432,17 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::Clean()
 {
+  cfg                     = NULL;
+
   inexit                  = false;
   exitmutex               = NULL;
   xscheduler              = NULL;
 
-  nCPUusage               = 0;
-  nsamplesCPU             = 0;
+  ntotalCPUusage          = 0;
+  ntotalCPUsamples        = 0;
+
+  nappCPUusage            = 0;
+  nappCPUsamples          = 0;
 }
 
 

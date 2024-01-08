@@ -134,7 +134,6 @@ bool APPCFG::DoVariableMapping()
     { 
       CFGvalue->SetModeRemoteMix((XFILECFG_MODEREMOTEMIX)(CFGvalue->GetModeRemoteMix() | XFILECFG_MODEREMOTEMIX_NOTDELADDKEYS));
     }
-
   #endif  
   #endif
 
@@ -146,14 +145,17 @@ bool APPCFG::DoVariableMapping()
 
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE              , &checkresourceshardware_memstatuscheckcadence                 , __L("System Memory status check cadence")                                 , APP_CFG_DEFAULT_REMARK_COLUMN);
   AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT              , &checkresourceshardware_memstatuslimitpercent                 , __L("System Memory free Limit percent")                                   , APP_CFG_DEFAULT_REMARK_COLUMN);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGECHECKCADENCE               , &checkresourceshardware_cpuusagecheckcadence                  , __L("System CPU usage cadence")                                           , APP_CFG_DEFAULT_REMARK_COLUMN);
-  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGELIMITPERCENT               , &checkresourceshardware_cpuusagelimitpercent                  , __L("System CPU limit percent")                                           , APP_CFG_DEFAULT_REMARK_COLUMN);  
-  AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGEPROCESSNAME                , &checkresourceshardware_cpuusageprocessname                   , __L("System CPU usage process name")                                      , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGECHECKCADENCE          , &checkresourceshardware_totalcpuusagecheckcadence             , __L("System Total CPU usage cadence")                                     , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGELIMITPERCENT          , &checkresourceshardware_totalcpuusagelimitpercent             , __L("System Total CPU limit percent")                                     , APP_CFG_DEFAULT_REMARK_COLUMN);  
+  AddValue(XFILECFG_VALUETYPE_STRING  , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGEPROCESSNAME             , &checkresourceshardware_appcpuusageprocessname                , __L("System App CPU usage process name")                                  , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGECHECKCADENCE            , &checkresourceshardware_appcpuusagecheckcadence               , __L("System App CPU usage cadence")                                       , APP_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APP_CFG_SECTION_CHECKRESOURCESHARDWARE    , APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGELIMITPERCENT            , &checkresourceshardware_appcpuusagelimitpercent               , __L("System App CPU limit percent")                                       , APP_CFG_DEFAULT_REMARK_COLUMN);    
   #endif
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
+
   AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
   AddRemark(APP_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration"), 0, 2);
 
@@ -331,9 +333,11 @@ bool APPCFG::DoDefault()
   #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
   checkresourceshardware_memstatuscheckcadence      = 30;
   checkresourceshardware_memstatuslimitpercent      = 5;
-  checkresourceshardware_cpuusagecheckcadence       = 20;
-  checkresourceshardware_cpuusagelimitpercent       = 70;  
-  checkresourceshardware_cpuusageprocessname.Empty();
+  checkresourceshardware_totalcpuusagecheckcadence  = 20;
+  checkresourceshardware_totalcpuusagelimitpercent  = 70;  
+  checkresourceshardware_appcpuusageprocessname.Empty();
+  checkresourceshardware_appcpuusagecheckcadence    = 20;
+  checkresourceshardware_appcpuusagelimitpercent    = 70;  
   #endif
 
 
@@ -636,47 +640,78 @@ int APPCFG::CheckResourcesHardware_GetMemStatusLimitPercent()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int APPCFG::CheckResourcesHardware_GetCPUUsageCheckCadence()
-* @brief      CheckResourcesHardware_GetCPUUsageCheckCadence
+* @fn         int APPCFG::CheckResourcesHardware_GetTotalCPUUsageCheckCadence()
+* @brief      CheckResourcesHardware_GetTotalCPUUsageCheckCadence
 * @ingroup    APPLICATION
 *
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCFG::CheckResourcesHardware_GetCPUUsageCheckCadence()
+int APPCFG::CheckResourcesHardware_GetTotalCPUUsageCheckCadence()
 {
-  return checkresourceshardware_cpuusagecheckcadence;
+  return checkresourceshardware_totalcpuusagecheckcadence;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int APPCFG::CheckResourcesHardware_GetCPUUsageLimitPercent()
-* @brief      CheckResourcesHardware_GetCPUUsageLimitPercent
+* @fn         int APPCFG::CheckResourcesHardware_GetTotalCPUUsageLimitPercent()
+* @brief      CheckResourcesHardware_GetTotalCPUUsageLimitPercent
 * @ingroup    APPLICATION
 *
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int APPCFG::CheckResourcesHardware_GetCPUUsageLimitPercent()
+int APPCFG::CheckResourcesHardware_GetTotalCPUUsageLimitPercent()
 {
-  return checkresourceshardware_cpuusagelimitpercent;
+  return checkresourceshardware_totalcpuusagelimitpercent;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* APPCFG::CheckResourcesHardware_GetCPUUsageProcessName()
-* @brief      CheckResourcesHardware_GetCPUUsageProcessName
+* @fn         XSTRING* APPCFG::CheckResourcesHardware_GetAppCPUUsageProcessName()
+* @brief      CheckResourcesHardware_GetAppCPUUsageProcessName
 * @ingroup    APPLICATION
 *
 * @return     XSTRING* : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* APPCFG::CheckResourcesHardware_GetCPUUsageProcessName()
+XSTRING* APPCFG::CheckResourcesHardware_GetAppCPUUsageProcessName()
 {
-  return &checkresourceshardware_cpuusageprocessname;
+  return &checkresourceshardware_appcpuusageprocessname;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPCFG::CheckResourcesHardware_GetAppCPUUsageCheckCadence()
+* @brief      CheckResourcesHardware_GetAppCPUUsageCheckCadence
+* @ingroup    APPLICATION
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPCFG::CheckResourcesHardware_GetAppCPUUsageCheckCadence()
+{
+  return checkresourceshardware_appcpuusagecheckcadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPCFG::CheckResourcesHardware_GetAppCPUUsageLimitPercent()
+* @brief      CheckResourcesHardware_GetAppCPUUsageLimitPercent
+* @ingroup    APPLICATION
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPCFG::CheckResourcesHardware_GetAppCPUUsageLimitPercent()
+{
+  return checkresourceshardware_appcpuusagelimitpercent;
+}
+
 
 #endif
 
@@ -1803,9 +1838,11 @@ void APPCFG::Clean()
   #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
   checkresourceshardware_memstatuscheckcadence      = 0;
   checkresourceshardware_memstatuslimitpercent      = 0;
-  checkresourceshardware_cpuusagecheckcadence       = 0;                      
-  checkresourceshardware_cpuusagelimitpercent       = 0;  
-  checkresourceshardware_cpuusageprocessname.Empty();
+  checkresourceshardware_totalcpuusagecheckcadence  = 0;                      
+  checkresourceshardware_totalcpuusagelimitpercent  = 0;  
+  checkresourceshardware_appcpuusageprocessname.Empty();
+  checkresourceshardware_appcpuusagecheckcadence    = 0;                      
+  checkresourceshardware_appcpuusagelimitpercent    = 0;  
   #endif
 
   //-----------------------------------------------------------------------------------------------------

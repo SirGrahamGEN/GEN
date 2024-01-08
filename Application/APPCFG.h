@@ -78,9 +78,11 @@
 #define APP_CFG_SECTION_CHECKRESOURCESHARDWARE                                    __L("check resources hardware")
 #define APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE                      __L("memstatuscheckcadenceseconds")
 #define APP_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT                      __L("memstatuslimitpercent")
-#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGECHECKCADENCE                       __L("cpuusagecheckcadenceseconds")
-#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGELIMITPERCENT                       __L("cpuusagelimitpercent")
-#define APP_CFG_CHECKRESOURCESHARDWARE_CPUUSAGEPROCESSNAME                        __L("cpuusageprocessname")
+#define APP_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGECHECKCADENCE                  __L("totalcpuusagecheckcadenceseconds")
+#define APP_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGELIMITPERCENT                  __L("totalcpuusagelimitpercent")
+#define APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGEPROCESSNAME                     __L("appcpuusageprocessname")
+#define APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGECHECKCADENCE                    __L("appcpuusagecheckcadenceseconds")
+#define APP_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGELIMITPERCENT                    __L("appcpuusagelimitpercent")
 
 #endif
 
@@ -267,9 +269,11 @@ class APPCFG
     int                  CheckResourcesHardware_GetMemStatusCheckCadence          ();
     int                  CheckResourcesHardware_GetMemStatusLimitPercent          ();
 
-    int                  CheckResourcesHardware_GetCPUUsageCheckCadence           ();
-    int                  CheckResourcesHardware_GetCPUUsageLimitPercent           ();
-    XSTRING*             CheckResourcesHardware_GetCPUUsageProcessName            ();
+    int                  CheckResourcesHardware_GetTotalCPUUsageCheckCadence      ();
+    int                  CheckResourcesHardware_GetTotalCPUUsageLimitPercent      ();
+    XSTRING*             CheckResourcesHardware_GetAppCPUUsageProcessName         ();
+    int                  CheckResourcesHardware_GetAppCPUUsageCheckCadence        ();
+    int                  CheckResourcesHardware_GetAppCPUUsageLimitPercent        ();
     #endif
 
 
@@ -283,7 +287,7 @@ class APPCFG
     int                  InternetServices_GetUpdateTimeNTPMeridianDifference      ();
     bool                 InternetServices_GetUpdateTimeNTPUseDayLightSaving       ();
     #ifdef APP_CFG_DNSRESOLVER_ACTIVE
-    bool                 DNSResolver_GetHost                              (int index, XSTRING& host, XSTRING& IPresolved);
+    bool                 DNSResolver_GetHost                                      (int index, XSTRING& host, XSTRING& IPresolved);
     XSTRING*             DNSResolver_GetDNSserver                                 (int index);
     bool                 SetAutomaticDNSResolver                                  ();
     #endif
@@ -382,9 +386,11 @@ class APPCFG
     #ifdef APP_CFG_CHECKRESOURCESHARDWARE_ACTIVE
     int                  checkresourceshardware_memstatuscheckcadence;
     int                  checkresourceshardware_memstatuslimitpercent;
-    int                  checkresourceshardware_cpuusagecheckcadence;
-    int                  checkresourceshardware_cpuusagelimitpercent;
-    XSTRING              checkresourceshardware_cpuusageprocessname; 
+    int                  checkresourceshardware_totalcpuusagecheckcadence;
+    int                  checkresourceshardware_totalcpuusagelimitpercent;
+    XSTRING              checkresourceshardware_appcpuusageprocessname; 
+    int                  checkresourceshardware_appcpuusagecheckcadence;
+    int                  checkresourceshardware_appcpuusagelimitpercent;
     #endif
 
 

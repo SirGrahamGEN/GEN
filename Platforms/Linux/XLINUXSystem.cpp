@@ -411,6 +411,11 @@ bool XLINUXSYSTEM::FreeCacheMemory()
 * --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXSYSTEM::GetCPUUsageTotal()
 {
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->Lock();
+    }
+
   static unsigned int lasttotaluser, lasttotaluserlow, lasttotalsys, lasttotalidle;
   float               percent;
   int                 intpercent;     
@@ -440,11 +445,14 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
   lasttotalidle    = totalidle;
      
   intpercent = percent;
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->UnLock();
+    }
     		
   return intpercent;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -468,13 +476,26 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
   int       cpuusage  = 0;
   bool      status;
 
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->Lock();
+    }
+
   params.Format(__L("-C %s -o %%cpu"), processname);  
-  in.Format(__L("| tail -n 1"));
+  //in.Format(__L("| tail -n 1"));
   
   status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
   if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
 
-  if(!status) return -1;
+  if(!status) 
+    {
+      if(xmutexcheckCPUusage)
+        {
+          xmutexcheckCPUusage->UnLock();
+        }
+
+      return -1;
+    }
 
   out.DeleteCharacter(__C('\n'));
   out.DeleteCharacter(__C('\r'));
@@ -493,10 +514,14 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
      
   cpuusagef = out.ConvertToFloat();
   cpuusage  = (int)cpuusagef;     
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->UnLock();
+    }
     
   return cpuusage;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,13 +545,26 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
   int       cpuusage  = 0;
   bool      status;
 
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->Lock();
+    }
+
   params.Format(__L("-C -p %d -o %%cpu"), processID);  
   in.Format(__L("| tail -n 1"));
   
   status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
   if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
 
-  if(!status) return -1;
+  if(!status) 
+    {
+      if(xmutexcheckCPUusage)
+        {
+          xmutexcheckCPUusage->UnLock();
+        }
+
+      return -1;
+    }
 
   out.DeleteCharacter(__C('\n'));
   out.DeleteCharacter(__C('\r'));
@@ -545,6 +583,11 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
      
   cpuusagef = out.ConvertToFloat();
   cpuusage  = (int)cpuusagef;     
+
+  if(xmutexcheckCPUusage)
+    {
+      xmutexcheckCPUusage->UnLock();
+    }
     
   return cpuusage;  
 }
