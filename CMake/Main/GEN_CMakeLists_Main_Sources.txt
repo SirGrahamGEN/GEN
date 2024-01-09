@@ -77,7 +77,7 @@ if(APP_FEATURE)
 
   if(APP_CFG_LOCATION_FEATURE)
 
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XLocationAddress.cpp")
+    option(LOCATION_FEATURE  "Location API"  true )
   
   endif()
 
@@ -98,6 +98,16 @@ if(APP_CFG_REMOTEFILE_FEATURE)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIORemoteFileCFG.cpp")
 
+endif()
+
+
+# --------------------------------------------------------------------
+# Location 
+
+if(LOCATION_FEATURE)
+
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_LOCATION}/LocationAddress.cpp")
+  
 endif()
 
 
