@@ -428,7 +428,7 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
      
   if(totaluser < lasttotaluser || totaluserlow < lasttotaluserlow || totalsys < lasttotalsys || totalidle < lasttotalidle)
     {
-      //Overflow detection. Just skip this value.
+      // Overflow detection. Just skip this value.
       percent = -1.0;
     }
    else
@@ -466,6 +466,7 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {  
   XSTRING   params;
@@ -522,6 +523,43 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
     
   return cpuusage;  
 }
+*/
+
+int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
+{  
+  XSTRING command;
+  XSTRING result;
+  XBUFFER charcmd;
+  
+  command.Format(__L("ps -C %s -o %%cpu"), processname);
+
+  command.ConvertToASCII(charcmd);  
+
+  // Open a pipe to the command
+  FILE* pipe = popen((char*)charcmd.Get(), "r");
+  if(!pipe) 
+    {
+       return 0; // Error
+    }
+   
+  char buffer[128];    
+  while(!feof(pipe)) 
+    {
+      if(fgets(buffer, 128, pipe) != NULL)
+        {
+          result += buffer;
+        }
+    }
+  
+  pclose(pipe);
+
+  // Extract the CPU usage percentage from the result
+  double cpupercentage = 0.0f;
+  result.UnFormat(__L("%%CPU\n %lf\n"), &cpupercentage);
+
+  return static_cast<int>(cpupercentage);
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -535,6 +573,7 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
   XSTRING   params;
@@ -590,6 +629,41 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
     }
     
   return cpuusage;  
+}
+*/
+int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
+{
+  XSTRING command;
+  XSTRING result;
+  XBUFFER charcmd;
+  
+  command.Format(__L("ps -C -p %d -o %%cpu"), processID);
+
+  command.ConvertToASCII(charcmd);  
+
+  // Open a pipe to the command
+  FILE* pipe = popen((char*)charcmd.Get(), "r");
+  if(!pipe) 
+    {
+       return 0; // Error
+    }
+   
+  char buffer[128];    
+  while(!feof(pipe)) 
+    {
+      if(fgets(buffer, 128, pipe) != NULL)
+        {
+          result += buffer;
+        }
+    }
+  
+  pclose(pipe);
+
+  // Extract the CPU usage percentage from the result
+  double cpupercentage = 0.0f;
+  result.UnFormat(__L("%%CPU\n %lf\n"), &cpupercentage);
+
+  return static_cast<int>(cpupercentage);
 }
 
 

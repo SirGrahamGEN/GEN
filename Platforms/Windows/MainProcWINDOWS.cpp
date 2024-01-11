@@ -1137,7 +1137,10 @@ int wmain(int argc, wchar_t* argv[])
 
       if(!SetConsoleCtrlHandler((PHANDLER_ROUTINE)Exception_ConsoleHandler, TRUE)) return -1;
 
-      int status = 0;
+      int status            = 0;
+      int returngoogletest  = 0;
+      int returncode        = 0;
+      int ntotaltests       = 0;
 
       #ifdef APP_ACTIVE
       if(!mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
@@ -1150,14 +1153,13 @@ int wmain(int argc, wchar_t* argv[])
 
       if(!status)
         {
-          #ifdef GOOGLETEST_ACTIVE      
-          RUN_ALL_TESTS();
+          #ifdef GOOGLETEST_ACTIVE                
+          returngoogletest = RUN_ALL_TESTS();
+          ntotaltests = ::testing::UnitTest::GetInstance()->total_test_count();
           #else
           while(mainprocwindows.Update());
           #endif
         }
-
-      int returncode = 0;
 
       #ifdef APP_ACTIVE
       if(mainprocwindows.GetAppMain())
@@ -1173,7 +1175,15 @@ int wmain(int argc, wchar_t* argv[])
 
       mainprocwindows.End();
 
-      if(!SetConsoleCtrlHandler((PHANDLER_ROUTINE)Exception_ConsoleHandler, FALSE)) return -1;
+      if(!SetConsoleCtrlHandler((PHANDLER_ROUTINE)Exception_ConsoleHandler, FALSE)) 
+        {
+          return -1;
+        }
+
+      #ifdef GOOGLETEST_ACTIVE      
+      returncode = returngoogletest;
+      //if(!returngoogletest) returncode = ntotaltests;
+      #endif
 
       return returncode;
     }

@@ -635,7 +635,10 @@ XSCHEDULER::~XSCHEDULER()
 
   End();
 
-  if(xtimerwait) GEN_XFACTORY.DeleteTimer(xtimerwait);
+  if(xtimerwait) 
+    {
+      GEN_XFACTORY.DeleteTimer(xtimerwait);
+    }
 
   Clean();
 }

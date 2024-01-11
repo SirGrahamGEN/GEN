@@ -101,7 +101,7 @@ enum XTHREADGROUPID
 #define XTHREAD_TIMEOUT                     60   // seconds
 #define XTHREAD_DEFAULTWAITYIELD            10   // milliseconds
 
-#define XTHREAD_DEFAULTTIMEOUTEND           10   // seconds
+#define XTHREAD_DEFAULTTIMEOUTEND           30   // seconds
 
 typedef void (*XTHREADFUNCTION)(void* data);
 
