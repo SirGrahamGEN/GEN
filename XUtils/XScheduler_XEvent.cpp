@@ -1,45 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XScheduler_XEvent.cpp
-*
+* 
 * @class      XSCHEDULER_XEVENT
-* @brief      eXtended Scheduler eXtended Event class
+* @brief      eXtended Utils Scheduler Event class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XScheduler_XEvent.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -61,7 +73,6 @@ XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
@@ -78,7 +89,6 @@ XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULER* XSCHEDULER_XEVENT::GetScheduler()
@@ -92,7 +102,6 @@ XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 {
   return xscheduler;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +121,6 @@ void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
@@ -126,7 +134,6 @@ XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 {
   return xtask;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +153,6 @@ void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
@@ -160,7 +166,6 @@ XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 {
   return xdatetime;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -178,7 +183,6 @@ void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 {
   this->xdatetime = xdatetime;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -199,4 +203,6 @@ void XSCHEDULER_XEVENT::Clean()
   xtimer      = NULL;
 }
 
+
+#pragma endregion
 

@@ -3,7 +3,7 @@
 * @file       XBinaryMap.h
 * 
 * @class      XBINARYMAP
-* @brief      eXtended Binary map class
+* @brief      eXtended Utils Binary map class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

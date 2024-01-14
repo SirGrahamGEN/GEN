@@ -1,47 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XInterpolator.cpp
-*
+* 
 * @class      XINTERPOLATOR
-* @brief      eXtended Interpolator class
+* @brief      eXtended Utils Interpolator class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XTrace.h"
+#pragma region INCLUDES
 
 #include "XInterpolator.h"
 
+#include "XTrace.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +76,6 @@ XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR::~XINTERPOLATOR()
@@ -81,7 +92,6 @@ XINTERPOLATOR::~XINTERPOLATOR()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
@@ -95,7 +105,6 @@ XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,7 +124,6 @@ void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
@@ -129,7 +137,6 @@ XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 {
   return mode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -147,7 +154,6 @@ void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 {
   this->mode = mode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -171,7 +177,6 @@ void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::Set(XDWORD current, XDWORD target, float speed)
@@ -193,7 +198,6 @@ void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetCurrent()
@@ -207,7 +211,6 @@ XDWORD XINTERPOLATOR::GetCurrent()
 {
   return current;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -243,7 +246,6 @@ void XINTERPOLATOR::SetCurrent(XDWORD current)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetTarget()
@@ -259,7 +261,6 @@ XDWORD XINTERPOLATOR::GetTarget()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float XINTERPOLATOR::GetSpeed()
@@ -273,7 +274,6 @@ float XINTERPOLATOR::GetSpeed()
 {
   return speed;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -293,7 +293,6 @@ void XINTERPOLATOR::SetSpeed(float speed)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMaximun()
@@ -307,7 +306,6 @@ XDWORD XINTERPOLATOR::GetMaximun()
 {
   return max;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -325,7 +323,6 @@ void XINTERPOLATOR::SetMaximun(XDWORD max)
 {
   this->max = max;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -360,7 +357,6 @@ void XINTERPOLATOR::SetMinimun(XDWORD min)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMultiplicator()
@@ -374,7 +370,6 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 {
   return multiplier;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -394,7 +389,6 @@ void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
@@ -412,7 +406,6 @@ void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
@@ -426,7 +419,6 @@ XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 {
   return factortype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -446,7 +438,6 @@ void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XINTERPOLATOR_LIMITS XINTERPOLATOR::GetLimitFlags()
@@ -460,7 +451,6 @@ XINTERPOLATOR_LIMITS  XINTERPOLATOR::GetLimitFlags()
 {
   return limits;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,7 +484,6 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR& interpolator)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
@@ -512,8 +501,6 @@ bool XINTERPOLATOR::CopyFrom(XINTERPOLATOR* interpolator)
 
   return CopyFrom((*interpolator));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -545,7 +532,6 @@ bool XINTERPOLATOR::CopyTo(XINTERPOLATOR& interpolator)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -583,8 +569,6 @@ const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
   CopyFrom(interpolator);
   return (*this);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -630,7 +614,6 @@ void XINTERPOLATOR::SetTarget(XDWORD target)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::Update(XQWORD delta)
@@ -672,7 +655,6 @@ bool XINTERPOLATOR::Update(XQWORD delta)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::Interpolate(XQWORD delta)
@@ -698,7 +680,17 @@ bool XINTERPOLATOR::Interpolate(XQWORD delta)
 }
 
 
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
+* @brief      InterpolateLinear
+* @ingroup    XUTILS
+* 
+* @param[in]  delta : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
 {
   float   fdelta    = (float)(delta/100.0f);
@@ -750,7 +742,6 @@ bool XINTERPOLATOR::InterpolateLinear(XQWORD delta)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -818,8 +809,6 @@ bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
@@ -849,7 +838,6 @@ bool XINTERPOLATOR::DeSerialize(XBUFFER* xbuffer) const
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -896,7 +884,6 @@ bool XINTERPOLATOR::Serialize(XBUFFER* buffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XINTERPOLATOR::SetMask(XDWORD mask)
@@ -916,7 +903,6 @@ bool XINTERPOLATOR::SetMask(XDWORD mask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XINTERPOLATOR::GetMask()
@@ -930,7 +916,6 @@ XDWORD XINTERPOLATOR::GetMask()
 {
   return mask;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -948,8 +933,6 @@ float XINTERPOLATOR::GetCarry()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XINTERPOLATOR::SetCarry(float carry)
@@ -965,7 +948,6 @@ void XINTERPOLATOR::SetCarry(float carry)
 {
   this->carry = carry;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -995,4 +977,6 @@ void XINTERPOLATOR::Clean()
   multiplier  = 1;
 }
 
+
+#pragma endregion
 

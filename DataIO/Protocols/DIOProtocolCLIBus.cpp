@@ -23,6 +23,7 @@
 #include "XFactory.h"
 #include "XRand.h"
 #include "XTrace.h"
+#include "XSleep.h"
 #include "XThreadCollected.h"
 
 #include "DIOProtocolCLIBus.h"

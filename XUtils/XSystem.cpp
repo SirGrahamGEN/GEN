@@ -3,7 +3,7 @@
 * @file       XSystem.cpp
 * 
 * @class      XSYSTEM
-* @brief      System class
+* @brief      eXtended Utils System class
 * @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    XUTILS
 * 

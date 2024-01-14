@@ -3,7 +3,7 @@
 * @file       XScheduler.cpp
 * 
 * @class      XSCHEDULER
-* @brief      eXtended Scheduler class
+* @brief      eXtended Utils Scheduler class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -109,7 +109,6 @@ XSCHEDULERTASK::~XSCHEDULERTASK()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XSCHEDULERTASK::IsActive()
@@ -123,7 +122,6 @@ bool XSCHEDULERTASK::IsActive()
 {
   return active;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +144,6 @@ bool XSCHEDULERTASK::SetIsActive(bool active)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XSCHEDULERTASK::GetID()
@@ -160,7 +157,6 @@ XDWORD XSCHEDULERTASK::GetID()
 {
   return ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

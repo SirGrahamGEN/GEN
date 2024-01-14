@@ -3,7 +3,7 @@
 * @file       XASN1.cpp
 * 
 * @class      XASN1
-* @brief      eXtended ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
+* @brief      eXtended Utils ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

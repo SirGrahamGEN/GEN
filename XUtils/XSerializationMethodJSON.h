@@ -3,7 +3,7 @@
 * @file       XSerializationMethodJSON.h
 * 
 * @class      XSERIALIZATIONMETHODJSON
-* @brief      eXtended Serializable method JSON class
+* @brief      eXtended Utils Serializable method JSON class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,14 +30,23 @@
 #define _XSERIALIZATIONMETHODJSON_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XSerializationMethod.h"
 #include "XFileJSON.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class XSERIALIZATIONMETHODJSON : public XSERIALIZATIONMETHOD
@@ -104,7 +113,15 @@ class XSERIALIZATIONMETHODJSON : public XSERIALIZATIONMETHOD
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

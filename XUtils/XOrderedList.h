@@ -3,7 +3,7 @@
 * @file       XOrderedList.h
 * 
 * @class      XORDEREDLIST
-* @brief      eXtended Orderer List template
+* @brief       eXtended Utils Orderer List template
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,13 +30,22 @@
 #define _XORDEREDLIST_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XList.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 template <class T>
@@ -94,6 +103,15 @@ class XORDEREDLIST : public XLIST<T>
                         }  
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif

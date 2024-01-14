@@ -33,7 +33,10 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFactory.h"
 #include "XTrace.h"
+#include "XThreadCollected.h"
+#include "XSleep.h"
 
 #include "DIOLINUXDBus_XEvent.h"
 #include "DIOLINUXDBus.h"

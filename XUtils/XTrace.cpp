@@ -1,36 +1,44 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file        XTrace.cpp
-*
-* @class       XTRACE
-* @brief       eXtended Trace class (for debug)
-* @ingroup     UTILS
-*
+* 
+* @file       XTrace.cpp
+* 
+* @class      XTRACE
+* @brief       eXtended Utils Trace class 
+* @ingroup    XUTILS
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#include "XTrace.h"
 
 #include "XFactory.h"
 
@@ -43,20 +51,25 @@
 #include "DIOStreamIPLocalEnumDevices.h"
 #include "DIOScraperWebPublicIP.h"
 
-#include "XTrace.h"
+#include "XMemory_Control.h"
+
+
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XTRACE* XTRACE::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XTRACE_TARGET                                                                                                     */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_XTRACE_TARGET
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -72,7 +85,6 @@ XTRACE_TARGET::XTRACE_TARGET()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -91,7 +103,6 @@ XTRACE_TARGET::~XTRACE_TARGET()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE_TYPE XTRACE_TARGET::GetType()
@@ -105,7 +116,6 @@ XTRACE_TYPE XTRACE_TARGET::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,7 +135,6 @@ void XTRACE_TARGET::SetType(XTRACE_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE_TARGET::GetAim()
@@ -139,7 +148,6 @@ XCHAR* XTRACE_TARGET::GetAim()
 {
   return aim;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -162,7 +170,6 @@ bool XTRACE_TARGET::GetAim(XSTRING& aim)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE_TARGET::SetAim(XSTRING& aim)
@@ -179,7 +186,6 @@ void XTRACE_TARGET::SetAim(XSTRING& aim)
   memset(this->aim, 0, (_MAXSTR * sizeof(XCHAR)));
   memcpy(this->aim, aim.Get(), (aim.GetSize() * sizeof(XCHAR)));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,7 +207,6 @@ void XTRACE_TARGET::SetAim(XCHAR* aim)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTRACE_TARGET::GetNSending()
@@ -215,7 +220,6 @@ XDWORD XTRACE_TARGET::GetNSendings()
 {
   return nsendings;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -234,6 +238,7 @@ void XTRACE_TARGET::AddNSendings()
 
 
 #if (defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -265,7 +270,6 @@ void XTRACE_TARGET::SetPort(XWORD port)
 {
   this->port = port;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -315,7 +319,6 @@ bool XTRACE_TARGET::IPTarget()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         char* XTRACE_TARGET::GetIP()
@@ -331,7 +334,6 @@ char* XTRACE_TARGET::GetIP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTRACE_TARGET::GetNETHandle()
@@ -345,7 +347,6 @@ XQWORD XTRACE_TARGET::GetNETHandle()
 {
   return NEThandle;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -395,11 +396,10 @@ void XTRACE_TARGET::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XTRACE_STATUS_MSG                                                                                                 */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XTRACE_STATUS_MSG
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -417,7 +417,6 @@ XTRACE_STATUS_MSG::XTRACE_STATUS_MSG()
 
   GEN_XFACTORY_CREATE(xtimerlastupdate, CreateTimer())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -442,7 +441,6 @@ XTRACE_STATUS_MSG::~XTRACE_STATUS_MSG()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
@@ -456,7 +454,6 @@ XTRACE_TYPE_STATUS_MSG XTRACE_STATUS_MSG::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -476,7 +473,6 @@ void XTRACE_STATUS_MSG::SetType(XTRACE_TYPE_STATUS_MSG type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* XTRACE_STATUS_MSG::GetName()
@@ -490,7 +486,6 @@ XSTRING* XTRACE_STATUS_MSG::GetName()
 {
   return &name;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -508,8 +503,6 @@ XTIMER* XTRACE_STATUS_MSG::GetXTimerLastUpdate()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE_STATUS_MSG::Value_GetBoolean()
@@ -523,7 +516,6 @@ bool XTRACE_STATUS_MSG::Value_GetBoolean()
 {
   return value_boolean;
 }
-    
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,7 +535,6 @@ void XTRACE_STATUS_MSG::Value_SetBoolean(bool value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int XTRACE_STATUS_MSG::Value_GetInteger()
@@ -558,7 +549,6 @@ int XTRACE_STATUS_MSG::Value_GetInteger()
   return value_integer;
 }
     
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -576,7 +566,6 @@ void XTRACE_STATUS_MSG::Value_SetInteger(int value)
   this->value_integer = value;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -592,7 +581,6 @@ XSTRING* XTRACE_STATUS_MSG::Value_GetString()
   return &value_string;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -606,8 +594,7 @@ XSTRING* XTRACE_STATUS_MSG::Value_GetString()
 XDWORD XTRACE_STATUS_MSG::Value_GetDword()
 {
   return value_dword;
-}
-    
+}   
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -692,9 +679,7 @@ void XTRACE_STATUS_MSG::Value_SetColor(XBYTE* value)
       value_color[c] = value[c];
     }
 }
-
-
-      
+    
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -725,11 +710,10 @@ void XTRACE_STATUS_MSG::Clean()
 }  
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XTRACE_STATUS_MSGS                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XTRACE_STATUS_MSGS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -745,8 +729,7 @@ XTRACE_STATUS_MSGS::XTRACE_STATUS_MSGS()
 {
   Clean();
 }
-       
-
+      
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -764,8 +747,6 @@ XTRACE_STATUS_MSGS::~XTRACE_STATUS_MSGS()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -883,7 +864,6 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Add(XSTRING* line)
   return status_msg;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -913,7 +893,6 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
@@ -934,8 +913,6 @@ XTRACE_STATUS_MSG* XTRACE_STATUS_MSGS::StatusMsg_Get(int index)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
@@ -949,8 +926,6 @@ XVECTOR<XTRACE_STATUS_MSG*>* XTRACE_STATUS_MSGS::StatusMsg_GetAll()
 {
   return &statusmsgs;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -973,7 +948,6 @@ bool XTRACE_STATUS_MSGS::StatusMsg_DeleteAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XTRACE_STATUS_MSGS::Clean()
@@ -990,11 +964,10 @@ void XTRACE_STATUS_MSGS::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  XTRACE                                                                                                            */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XTRACE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1012,7 +985,6 @@ XTRACE::XTRACE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRACE::~XTRACE()
@@ -1027,7 +999,6 @@ XTRACE::~XTRACE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1088,7 +1059,6 @@ bool XTRACE::SetTarget(int index, XTRACE_TYPE type, XCHAR* aim)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::AddTarget(XTRACE_TYPE type, XCHAR* aim)
@@ -1147,7 +1117,6 @@ XDWORD XTRACE::GetSizeLimit()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::SetSizeLimit(XDWORD sizelimit)
@@ -1168,7 +1137,6 @@ bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE::GetApplicationName()
@@ -1182,8 +1150,6 @@ XCHAR* XTRACE::GetApplicationName()
 {
   return applicationname;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1207,7 +1173,6 @@ void XTRACE::SetApplicationName(XCHAR* applicationname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
@@ -1227,7 +1192,6 @@ void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetApplicationName(XSTRING& applicationname)
@@ -1243,7 +1207,6 @@ void XTRACE::SetApplicationName(XSTRING& applicationname)
 {
   SetApplicationName(applicationname.Get(), applicationname.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1267,7 +1230,6 @@ void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubv
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
@@ -1289,7 +1251,6 @@ void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubver
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XTRACE::GetApplicationID()
@@ -1303,7 +1264,6 @@ XCHAR* XTRACE::GetApplicationID()
 {
   return applicationID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1325,7 +1285,6 @@ void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::SetApplicationID(XSTRING& applicationID)
@@ -1341,8 +1300,6 @@ void XTRACE::SetApplicationID(XSTRING& applicationID)
 {
   SetApplicationID(applicationID.Get(), applicationID.GetSize());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1364,7 +1321,6 @@ bool XTRACE::ClearScreen(XBYTE level)
 
   return Print(level, string.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1402,7 +1358,6 @@ void XTRACE::PrintHeader(XCHAR* header)
 
   openheader = header?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1456,7 +1411,6 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
   va_end(arg);
 
   sequence++;
-
   
   if(level)
     {
@@ -1503,9 +1457,6 @@ bool XTRACE::Print(XBYTE level, XCHAR* mask,...)
 
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1569,7 +1520,6 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBYTE* data, XDWORD size, XDWORD margin
             }
         }
 
-
       if(showtext)
         {
           index -= _sizeline;
@@ -1596,7 +1546,6 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBYTE* data, XDWORD size, XDWORD margin
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWORD sizeline, bool showoffset, bool showtext)
@@ -1619,8 +1568,6 @@ bool XTRACE::PrintDataBlock(XBYTE level, XBUFFER& data, XDWORD marginsize, XDWOR
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::ClearMsgsStatus(XBYTE level)
@@ -1640,9 +1587,6 @@ bool XTRACE::ClearMsgsStatus(XBYTE level)
 
   return Print(level, string.Get());
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1668,7 +1612,6 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
@@ -1684,14 +1627,12 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, bool value)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, int value)
 {
-   XSTRING string;
+  XSTRING string;
 
   string.Format(__L("%s,%s,%c,%d"), XTRACE_IDMSGSTATUS, name, XTRACE_IDMSGSTATUS_INTEGER, value);
 
   return Print(level, string.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1717,7 +1658,6 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
@@ -1739,7 +1679,6 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XDWORD value)
 
   return Print(level, string.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1765,8 +1704,6 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
@@ -1790,9 +1727,6 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, XBYTE value[3])
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -1813,7 +1747,6 @@ void XTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -1832,7 +1765,6 @@ void XTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1873,8 +1805,6 @@ bool XTRACE::GetHandleNet(XTRACE_TARGET* target)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
@@ -1891,7 +1821,6 @@ bool XTRACE::CloseHandleNet(XTRACE_TARGET* target)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2579,3 +2508,10 @@ void XTRACE::Clean()
   openheader                = false;
   sequence                  = 0;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

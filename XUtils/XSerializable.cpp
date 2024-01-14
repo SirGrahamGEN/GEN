@@ -3,7 +3,7 @@
 * @file       XSerializable.cpp
 * 
 * @class      XSERIALIZABLE
-* @brief      eXtended Serializable base class
+* @brief      eXtended Utils Serializable class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XSerializable.h"
 
 #ifdef XSERIALIZABLE_BINARY_ACTIVE
 #include "XSerializationMethodBinary.h"
@@ -41,15 +47,19 @@
 #include "XSerializationMethodJSON.h"
 #endif
 
-#include "XSerializable.h"
-
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,8 +75,7 @@ XSERIALIZABLE::XSERIALIZABLE()
 {
   Clean();
 }
-    
-
+ 
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -82,7 +91,6 @@ XSERIALIZABLE::~XSERIALIZABLE()
 {
   Clean();
 }
-
 
 
 #ifdef XSERIALIZABLE_BINARY_ACTIVE
@@ -108,7 +116,6 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XBUFFER& databinary)
   return (XSERIALIZATIONMETHOD*)serializable;
 }
 #endif
-
 
 
 #ifdef XSERIALIZABLE_JSON_ACTIVE
@@ -156,7 +163,6 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerialization()
@@ -171,7 +177,6 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
   return serializationmethod; 
 }
     
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -188,7 +193,6 @@ void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationme
 {
   this->serializationmethod = serializationmethod;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -210,7 +214,6 @@ bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
@@ -230,7 +233,6 @@ bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn          bool XSERIALIZATIONMETHOD::Serialize()
@@ -246,7 +248,6 @@ bool XSERIALIZABLE::Serialize()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,7 +267,6 @@ bool XSERIALIZABLE::Deserialize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZABLE::Clean()
@@ -281,4 +281,7 @@ void XSERIALIZABLE::Clean()
 {
   serializationmethod = NULL;
 }
+
+
+#pragma endregion
 

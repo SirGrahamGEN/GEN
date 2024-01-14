@@ -1,42 +1,52 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLanguage_ISO_639_3.cpp
-*
-* @class      XLANGUAGE_ISO_639-3
-* @brief      eXtended Language ISO 639_3 class
+* 
+* @class      XLANGUAGE_ISO_639_3
+* @brief      eXtended Utils Language ISO 639-3 class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XLanguage_ISO_639_3.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 
 XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_ENG,  __L("eng")   ,  __L("en")   ,  __L("English")               , __L("")                   , __L("")                       },
                                                    {  XLANGUAGE_ISO_639_3_CODE_SPA,  __L("spa")   ,  __L("es")   ,  __L("Spanish")               , __L("Castilian")          , __L("")                       },   
@@ -227,8 +237,11 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
                                                    //#endif
                                                };
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -246,7 +259,6 @@ XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
@@ -261,7 +273,6 @@ XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -288,7 +299,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha3(XCHAR* codealpha3)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha2(XCHAR* codealpha2)
@@ -313,7 +323,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByCodeAlpha2(XCHAR* codealpha2)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XLANGUAGE_ISO_639_3::Code_GetByEnglishName(XCHAR* englishname)
@@ -336,7 +345,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByEnglishName(XCHAR* englishname)
 
   return XLANGUAGE_ISO_639_3_CODE_INVALID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -367,7 +375,6 @@ XDWORD XLANGUAGE_ISO_639_3::Code_GetByAlias(XCHAR* alias)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCode(XDWORD code, XSTRING& codealpha3)
@@ -395,7 +402,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCode(XDWORD code, XSTRING& codealpha3)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -429,7 +435,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING&
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByEnglishName(XCHAR* englishname, XSTRING& codealpha3)
@@ -459,7 +464,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByEnglishName(XCHAR* englishname, XSTRIN
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -501,7 +505,6 @@ bool XLANGUAGE_ISO_639_3::CodeAlpha3_GetByAlias(XCHAR* alias, XSTRING& codealpha
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCode(XDWORD code, XSTRING& englishname)
@@ -529,7 +532,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCode(XDWORD code, XSTRING& englishnam
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -563,7 +565,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha3(XCHAR* codealpha3, XSTRING
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING& englishname)
@@ -593,7 +594,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByCodeAlpha2(XCHAR* codealpha2, XSTRING
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -635,7 +635,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishn
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLANGUAGE_ISO_639_3::Clean()
@@ -651,4 +650,6 @@ void XLANGUAGE_ISO_639_3::Clean()
 
 }
 
+
+#pragma endregion
 

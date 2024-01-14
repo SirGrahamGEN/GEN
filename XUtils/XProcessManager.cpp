@@ -3,7 +3,8 @@
 * @file       XProcessManager.cpp
 * 
 * @class      XPROCESSMANAGER
-* @brief      
+* @brief      eXtended Utils process manager class
+* @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -54,6 +55,7 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
+
 
 #pragma region CLASS_XPROCESS
 /**-------------------------------------------------------------------------------------------------------------------
@@ -730,12 +732,9 @@ void XPROCESSMANAGER::Clean()
 
 }
 
-#pragma endregion
 
 #pragma endregion
 
 
-
-
-
+#pragma endregion
 

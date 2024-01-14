@@ -1,38 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XTimer.cpp
-*
+* 
 * @class      XTIMER
-* @brief
+* @brief      eXtended Utils Timer class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
+#include "XTimer.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -44,19 +49,28 @@
 #include "XTranslation.h"
 #include "XTranslation_GEN.h"
 
-#include "XTimer.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 #ifdef XTRACE_ACTIVE_VIRTUALCLOCKTICK
-XTIMERCLOCK*  xtimerclock = NULL;
+
+  XTIMERCLOCK*  xtimerclock = NULL;
+
 #endif
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_XTIMERCLOCK
 
 
 #ifdef XTRACE_ACTIVE_VIRTUALCLOCKTICK
@@ -72,7 +86,6 @@ XTIMERCLOCK*  xtimerclock = NULL;
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMERCLOCK::XTIMERCLOCK()
-
 {
   Clean();
 
@@ -83,7 +96,6 @@ XTIMERCLOCK::XTIMERCLOCK()
       if(threadclock) threadclock->Ini();
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -97,7 +109,6 @@ XTIMERCLOCK::XTIMERCLOCK()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMERCLOCK::~XTIMERCLOCK()
-
 {
   if(threadclock)
     {
@@ -109,8 +120,6 @@ XTIMERCLOCK::~XTIMERCLOCK()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -136,8 +145,6 @@ XQWORD XTIMERCLOCK::GetClockTicks()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMERCLOCK::Clean()
@@ -155,8 +162,6 @@ void XTIMERCLOCK::Clean()
   xmutexclock = NULL;
   threadclock = NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -189,6 +194,11 @@ void XTIMERCLOCK::ThreadClockFunction(void* data)
 #endif
 
 
+#pragma endregion
+
+
+#pragma region CLASS_XTIMER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -205,7 +215,6 @@ XTIMER::XTIMER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER::~XTIMER()
@@ -220,7 +229,6 @@ XTIMER::~XTIMER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -240,7 +248,6 @@ void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::AddSeconds(XQWORD seconds)
@@ -256,7 +263,6 @@ void XTIMER::AddSeconds(XQWORD seconds)
 {
   AddMilliSeconds(seconds * 1000);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -278,7 +284,6 @@ void XTIMER::SetMilliSeconds(XQWORD milliseconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTIMER::Reset()
@@ -293,7 +298,6 @@ void XTIMER::Reset()
   more      = 0;
   last      = GetMicroSecondsTickCounter();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -317,7 +321,6 @@ XDWORD XTIMER::GetMeasureHours()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTIMER::GetMeasureMinutes()
@@ -336,7 +339,6 @@ XDWORD XTIMER::GetMeasureMinutes()
 
   return (XDWORD)minutes;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +360,6 @@ XDWORD XTIMER::GetMeasureSeconds()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMeasureMilliSeconds()
@@ -376,7 +377,6 @@ XQWORD XTIMER::GetMeasureMilliSeconds()
 
   return (XDWORD)milliseconds;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -397,7 +397,6 @@ XQWORD XTIMER::GetMeasureMicroSeconds()
 
   return elapsed;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -422,7 +421,6 @@ bool XTIMER::GetMeasureToDate(XDATETIME* xdatetime)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -546,7 +544,6 @@ bool XTIMER::GetMeasureString(XSTRING& measure,bool large)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD XTIMER::GetMicroSecondsTickCounter()
@@ -578,5 +575,10 @@ void XTIMER::Clean()
   more = 0L;
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 
 

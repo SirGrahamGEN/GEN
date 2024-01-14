@@ -3,7 +3,7 @@
 * @file       XThreadListNonPreemptive.h
 * 
 * @class      XTHREADLISTNONPREEMPTIVE
-* @brief      eXtended Thread List Non Preemtive class
+* @brief      eXtended Utils Thread List Non Preemtive class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -49,6 +49,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class XTHREADLISTNONPREEMPTIVE
 {
   public:
@@ -73,6 +74,7 @@ class XTHREADLISTNONPREEMPTIVE
     static XTHREADLISTNONPREEMPTIVE*        instance;
     XVECTOR<XTHREAD*>                       xthreadsvector;
 };
+
 
 #pragma endregion
 

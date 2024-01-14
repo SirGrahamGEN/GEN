@@ -3,7 +3,7 @@
 * @file       XSerializationMethodBinary.cpp
 * 
 * @class      XSERIALIZATIONMETHODBINARY
-* @brief      eXtended Serialization method binary class
+* @brief      eXtended Utils Serialization binary class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,27 +26,37 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XSerializationMethodBinary.h"
 
 #include <stdio.h>
 #include <string.h>
 
 #include "XBuffer.h"
 
-#include "XSerializationMethodBinary.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -431,8 +441,7 @@ bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER* var, XCHAR* name)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZATIONMETHODBINARY::Add(XVARIANT* var, XCHAR* name)
-{
-  
+{ 
   return true;
 }
 
@@ -486,7 +495,6 @@ bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name, bool op
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -822,3 +830,7 @@ void XSERIALIZATIONMETHODBINARY::Clean()
 {
   bufferdata = NULL; 
 }
+
+
+#pragma endregion
+

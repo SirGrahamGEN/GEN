@@ -3,7 +3,7 @@
 * @file       XInheritEnum.h
 * 
 * @class      XINHERITENUM
-* @brief      Inherit Enums for C++
+* @brief      eXtended Utils Inherit Enums
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,12 +30,21 @@
 #define _XINHERITENUM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 template <typename enumT, typename baseenumT>
 class XINHERITENUM
@@ -81,6 +90,15 @@ class XINHERITENUM
      };
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

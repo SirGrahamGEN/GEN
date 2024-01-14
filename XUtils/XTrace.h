@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XTrace.h
-*
+* 
 * @class      XTRACE
-* @brief      eXtended Trace  class (for debug)
+* @brief      eXtended Utils Trace class 
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _XTRACE_H_
 #define _XTRACE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <string.h>
@@ -47,9 +48,14 @@
 #include "XString.h"
 #include "XBuffer.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 class XTRACE;
+
 
 enum XTRACE_TYPE
 {
@@ -95,14 +101,6 @@ enum XTRACE_TYPE_STATUS_MSG
 #endif
 
 #define XTRACE_DEFAULT_SPECIALAIM           __L("eXtended Trace Monitor")
-
-/*
-#define XTRACE_DEFAULT_NETAIM1              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug1.kicks-ass.org:10021")
-#define XTRACE_DEFAULT_NETAIM2              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug2.kicks-ass.org:10022")
-#define XTRACE_DEFAULT_NETAIM3              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug3.kicks-ass.org:10023")
-#define XTRACE_DEFAULT_NETAIM4              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug4.kicks-ass.org:10024")
-#define XTRACE_DEFAULT_NETAIM5              GEN_XTRACE_NET_DEFAULT_01    // __L("xdebug5.kicks-ass.org:10025")
-*/
 
 #define XTRACE_LIMITCTRLNETRESURCES         25
 
@@ -267,7 +265,12 @@ enum XTRACE_TYPE_STATUS_MSG
 
 #endif
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XFACTORY;
 class XMUTEX;
@@ -325,8 +328,6 @@ class XTRACE_TARGET
 };
 
 
-
-
 class XTRACE_STATUS_MSG
 {
   public:
@@ -377,7 +378,6 @@ class XTRACE_STATUS_MSG
 };
 
 
-
 class XTRACE_STATUS_MSGS
 {
   public:
@@ -398,7 +398,6 @@ class XTRACE_STATUS_MSGS
     
     XVECTOR<XTRACE_STATUS_MSG*>     statusmsgs;
 };
-
 
 
 class XTRACE
@@ -507,7 +506,16 @@ class XTRACE
     void                            Clean                             ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
 
 
 #endif
+

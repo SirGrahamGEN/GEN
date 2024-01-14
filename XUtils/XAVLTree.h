@@ -3,7 +3,7 @@
 * @file       XAVLTree.h
 * 
 * @class      XAVLTREE
-* @brief      eXtended AVL Tree class (https://en.wikipedia.org/wiki/AVL_tree)
+* @brief      eXtended Utils AVL Tree class (https://en.wikipedia.org/wiki/AVL_tree)
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

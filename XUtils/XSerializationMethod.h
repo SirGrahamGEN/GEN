@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XSerializableMethod.h
+* @file       XSerializationMethod.h
 * 
-* @class      XSERIALIZABLEMETHOD
-* @brief      eXtended Serialization method class
+* @class      XSERIALIZATIONMETHOD
+* @brief      eXtended Utils Serialization class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,14 +30,23 @@
 #define _XSERIALIZATIONMETHOD_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-//#include "nameof.hpp"
+#pragma region INCLUDES
 
 #include "XString.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XBUFFER;
 class XVARIANT;       
@@ -95,7 +104,15 @@ class XSERIALIZATIONMETHOD
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

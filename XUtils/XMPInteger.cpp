@@ -1,46 +1,54 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XMPInteger.cpp
-*
+* 
 * @class      XMPINTEGER
-* @brief      eXtended Multi-Precision Integer class
+* @brief      eXtended Utils Multi-Precision Integer class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XMPInteger.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "XMPInteger.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,  29,   31,   37,   41,   43,   47,   53,   59,
                                    61,   67,   71,   73,   79,   83,   89,   97,  101,  103,  107,  109,  113,  127,  131,  137,
@@ -55,9 +63,11 @@ static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,
                                   953,  967,  971,  977,  983,  991,  997, -103
                                 };
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,8 +83,6 @@ XMPINTEGER::XMPINTEGER()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -94,7 +102,6 @@ XMPINTEGER::~XMPINTEGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetSign()
@@ -108,7 +115,6 @@ int XMPINTEGER::GetSign()
 {
   return sign;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -126,7 +132,6 @@ XDWORD XMPINTEGER::GetNLimbs()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLIMB* XMPINTEGER::GetLimbs()
@@ -140,7 +145,6 @@ XLIMB* XMPINTEGER::GetLimbs()
 {
   return limbs;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -160,7 +164,6 @@ void XMPINTEGER::SetSign(int sign)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
@@ -176,7 +179,6 @@ void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 {
   this->nlimbs = nlimbs;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -196,7 +198,6 @@ void XMPINTEGER::SetLimbs(XLIMB* limbs)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::Ini()
@@ -214,7 +215,6 @@ bool XMPINTEGER::Ini()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -254,7 +254,6 @@ bool XMPINTEGER::Grow(XDWORD nblimbs)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -304,7 +303,6 @@ bool XMPINTEGER::Shrink(XDWORD nblimbs)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
@@ -346,7 +344,6 @@ bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
@@ -370,7 +367,6 @@ void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
 
   xmpinteger->CopyFrom(&xmpitempo);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -397,7 +393,6 @@ bool XMPINTEGER::LeftSet(int z)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetBit(XDWORD position)
@@ -415,7 +410,6 @@ int XMPINTEGER::GetBit(XDWORD position)
 
   return ( limbs[position / XMPINTEGER_BITSINLIMB] >> (position % XMPINTEGER_BITSINLIMB) ) & 0x01;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -451,7 +445,6 @@ bool XMPINTEGER::SetBit(XDWORD position, XBYTE value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::GetLSB()
@@ -477,7 +470,6 @@ int XMPINTEGER::GetLSB()
 
   return 0 ;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -508,7 +500,6 @@ int XMPINTEGER::GetMSB()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XMPINTEGER::GetSize()
@@ -522,7 +513,6 @@ XDWORD XMPINTEGER::GetSize()
 {
   return ((GetMSB()+7) >> 3);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -563,7 +553,6 @@ int XMPINTEGER::ImportFromBinary(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
@@ -595,7 +584,6 @@ int XMPINTEGER::ExportToBinary(XBYTE* buffer, XDWORD size)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -658,7 +646,6 @@ bool XMPINTEGER::LeftShift(XDWORD count)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::RightShift(XDWORD count)
@@ -697,7 +684,6 @@ bool XMPINTEGER::RightShift(XDWORD count)
         }
     }
 
-
   // shift by count % limb_size
   if(v1>0)
     {
@@ -712,7 +698,6 @@ bool XMPINTEGER::RightShift(XDWORD count)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -754,7 +739,6 @@ int XMPINTEGER::CompareABSValues(XMPINTEGER& xmpinteger)
 
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -801,7 +785,6 @@ int XMPINTEGER::CompareSignedValues(XMPINTEGER& xmpinteger)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::CompareSignedValues(int integer)
@@ -827,8 +810,6 @@ int XMPINTEGER::CompareSignedValues(int integer)
 
  return CompareSignedValues(xmpinteger);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -898,8 +879,6 @@ bool XMPINTEGER::AdditionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
@@ -945,7 +924,6 @@ bool XMPINTEGER::SubtractionABS(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2)
@@ -983,7 +961,6 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1025,7 +1002,6 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteg
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
@@ -1053,7 +1029,6 @@ bool XMPINTEGER::AdditionSigned(XMPINTEGER* xmpinteger, int integer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
@@ -1079,7 +1054,6 @@ bool XMPINTEGER::SubtractionSigned(XMPINTEGER* xmpinteger, int integer)
 
   return(SubtractionSigned(xmpinteger, &_xmpinteger2));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1144,7 +1118,6 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger1, XMPINTEGER* xmpinteger2
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger, int integer)
@@ -1169,7 +1142,6 @@ bool XMPINTEGER::Multiplication(XMPINTEGER* xmpinteger, int integer)
 
   return Multiplication(xmpinteger, &_xmpinteger);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1337,7 +1309,6 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, int integerb)
@@ -1364,7 +1335,6 @@ bool XMPINTEGER::Division(XMPINTEGER* xmpintegerQ, XMPINTEGER* xmpintegerR, XMPI
 
   return Division( xmpintegerQ, xmpintegerR, xmpintegerA, &_B );
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1398,7 +1368,6 @@ bool XMPINTEGER::Module(XMPINTEGER* xmpintegerR, XMPINTEGER* xmpintegerA, XMPINT
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1460,7 +1429,6 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MontgomeryIni(XLIMB*mm, XMPINTEGER* N)
@@ -1488,8 +1456,6 @@ void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 
   *mm = ~x + 1;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1540,7 +1506,6 @@ void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEG
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
@@ -1568,7 +1533,6 @@ void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMP
 
   MontgomeryMultiplication( A, &U, N, mm, T );
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1773,7 +1737,6 @@ bool XMPINTEGER::SlidingWindowExponentiation(XMPINTEGER* A, XMPINTEGER* E, XMPIN
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER* B)
@@ -1841,7 +1804,6 @@ bool XMPINTEGER::GreatestCommonDivisor(XMPINTEGER* G, XMPINTEGER* A, XMPINTEGER*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
@@ -1865,7 +1827,6 @@ int XMPINTEGER::FillRandom(XDWORD size, XMPINTEGER_FUNCRANDOM funcrandom, void* 
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2018,7 +1979,6 @@ int XMPINTEGER::CheckSmallFactors()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
@@ -2113,7 +2073,6 @@ bool XMPINTEGER::MillerRabin(XMPINTEGER* X, XMPINTEGER_FUNCRANDOM funcrandom, vo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
@@ -2149,7 +2108,6 @@ int XMPINTEGER::IsPrime(XMPINTEGER_FUNCRANDOM funcrandom, void* paramrandom)
 
   return MillerRabin(&XX, funcrandom, paramrandom)?0:-1;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2250,7 +2208,6 @@ bool XMPINTEGER::GeneratePrime(int nbits, int dhflag, XMPINTEGER_FUNCRANDOM func
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
@@ -2334,7 +2291,6 @@ bool XMPINTEGER::SetFromString(int radix, XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
@@ -2351,7 +2307,6 @@ bool XMPINTEGER::SetFromString(int radix, XSTRING& string)
 {
   return SetFromString(radix, string.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2428,7 +2383,6 @@ bool XMPINTEGER::GetToString(int radix, XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
@@ -2461,7 +2415,6 @@ bool XMPINTEGER::SetFromXBuffer(XBUFFER& xbuffer)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2497,7 +2450,6 @@ bool XMPINTEGER::GetToXBuffer(XBUFFER& xbuffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::End()
@@ -2520,7 +2472,6 @@ bool XMPINTEGER::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2554,7 +2505,6 @@ void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
       c = z; i++; d++;
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2623,8 +2573,6 @@ void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
@@ -2650,8 +2598,6 @@ bool XMPINTEGER::GetDigit(XDWORD* data, int radix, XCHAR character)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2688,7 +2634,6 @@ bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XMPINTEGER::Clean()
@@ -2705,3 +2650,7 @@ void XMPINTEGER::Clean()
   nlimbs  = 0;
   limbs   = NULL;
 }
+
+
+#pragma endregion
+

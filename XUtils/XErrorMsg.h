@@ -3,7 +3,7 @@
 * @file       XErrorMsg.h
 * 
 * @class      XERRORMSG
-* @brief      eXtended Error Message class
+* @brief      eXtended Utils Error Message class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

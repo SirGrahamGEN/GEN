@@ -3,7 +3,7 @@
 * @file       XMemory_Control.cpp
 * 
 * @class      XMEMORY_CONTROL
-* @brief      eXtended Memory Control class
+* @brief      eXtended Utils Memory Control class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

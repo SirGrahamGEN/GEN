@@ -3,7 +3,7 @@
 * @file       XDriveImageManager.cpp
 * 
 * @class      XDRIVEIMAGEMANAGER
-* @brief      eXtended Drive Image Manager class
+* @brief      eXtended Utils Drive Image Manager class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -3,7 +3,7 @@
 * @file       XBER.h
 * 
 * @class      XBER
-* @brief      eXtended Basic Encoding Rules (BER) encoding class (https://en.wikipedia.org/wiki/X.690)
+* @brief      eXtended Utils Basic Encoding Rules (BER) encoding class (https://en.wikipedia.org/wiki/X.690)
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

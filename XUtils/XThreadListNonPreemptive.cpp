@@ -3,7 +3,7 @@
 * @file       XThreadListNonPreemptive.cpp
 * 
 * @class      XTHREADLISTNONPREEMPTIVE
-* @brief      eXtended Thread List Non Preemtive class
+* @brief      eXtended Utils Thread List Non Preemtive class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

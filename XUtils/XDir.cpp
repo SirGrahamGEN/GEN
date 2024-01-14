@@ -3,7 +3,7 @@
 * @file       XDir.cpp
 * 
 * @class      XDIR
-* @brief      eXtended dir class
+* @brief      eXtended Utils dir class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

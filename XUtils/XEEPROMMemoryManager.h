@@ -3,7 +3,7 @@
 * @file       XEEPROMMemoryManager.h
 * 
 * @class      XEEPROMMEMORYMANAGER
-* @brief      eXtended EEPROM Memory Manager class
+* @brief      eXtended Utils EEPROM Memory Manager class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

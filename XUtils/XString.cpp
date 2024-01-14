@@ -3,7 +3,7 @@
 * @file       XString.cpp
 * 
 * @class      XSTRING
-* @brief      eXtended Unicode String class
+* @brief      eXtended Utils Unicode String class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -3875,7 +3875,6 @@ bool XSTRING::ConvertToExchangeXBuffer(XBUFFER& xbuffer, bool addzeroatend, bool
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XSTRING::GetSizeConvertToUTF8()
@@ -4181,7 +4180,6 @@ bool XSTRING::ConvertFromUTF16(XBUFFER& xbuffer)
 {
   return ConvertFromXBuffer(xbuffer, XSTRINGCODING_UTF16);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -5606,71 +5604,6 @@ bool XSTRING::GetTypeOfLineEnd(XSTRING& lineend)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool XSTRING::ReAllocBuffer(XDWORD size)
-{
-  if(!size)
-    {
-      FreeBuffer();
-    }
-   else
-    {      
-      XDWORD sizeblockmen      = (size + XSTRING_BLOCKMEM);
-      XDWORD sizeblockmenbytes = (sizeblockmen  * sizeof(XCHAR));
-     
-      if(!text)
-        {
-          text = (XCHAR*)new XBYTE[sizeblockmenbytes];
-          if(!text) 
-            {
-              return false;
-            }
-
-          memset(text, 0, sizeblockmenbytes);
-
-          this->sizemem = sizeblockmen;
-        }
-       else
-        {
-          if(size >= this->sizemem)
-            {              
-              XCHAR* ttext = (XCHAR*)new XBYTE[sizeblockmenbytes];
-              if(!ttext) 
-                {
-                  return false;
-                }
-
-              memset(ttext, 0, sizeblockmenbytes);
-
-              XDWORD tsize = size;
-              if(tsize > this->size) 
-                {
-                  tsize = this->size;
-                }
-
-              memcpy(ttext, text, tsize * sizeof(XCHAR));
-
-              FreeBuffer();
-
-              text = ttext;
-
-              this->sizemem = sizeblockmen;
-            }
-           else
-            {
-              // culd we have an off by one error here?
-              // size is index zero, not reall an off by one problem here
-               memset(&text[size], 0, (this->sizemem - size)* sizeof(XCHAR));
-               text[size] = '\0';
-            }
-        }
-
-      this->size = size;
-    }
-
-  return true;
-}
-*/
 bool XSTRING::ReAllocBuffer(XDWORD sizechar)
 {
   if(!sizechar)
@@ -5710,7 +5643,6 @@ bool XSTRING::ReAllocBuffer(XDWORD sizechar)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -5983,5 +5915,4 @@ void XSTRING::Clean()
 
 
 #endif
-
 

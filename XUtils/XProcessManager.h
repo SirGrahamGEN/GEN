@@ -3,7 +3,7 @@
 * @file       XProcessManager.h
 * 
 * @class      XPROCESSMANAGER
-* @brief      eXtended process manager class
+* @brief      eXtended Utils process manager class
 * @note       Can´t be construct Factory + singelton without depends of system. IT´S NOT A SINGLETON.
 * @ingroup    XUTILS
 * 

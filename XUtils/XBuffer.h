@@ -3,7 +3,7 @@
 * @file       XBuffer.h
 * 
 * @class      XBUFFER
-* @brief      eXtended buffer functions class
+* @brief      eXtended Utils Buffer functions class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

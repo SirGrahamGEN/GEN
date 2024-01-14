@@ -3,7 +3,7 @@
 * @file       XBufferBits.cpp
 * 
 * @class      XBUFFERBITS
-* @brief      eXtended Reads a bit stream from a xbuffer
+* @brief      eXtended Utils Reads a bit stream from a xbuffer
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

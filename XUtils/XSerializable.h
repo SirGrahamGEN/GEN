@@ -3,7 +3,7 @@
 * @file       XSerializable.h
 * 
 * @class      XSERIALIZABLE
-* @brief      eXtended Serializable base class
+* @brief      eXtended Utils Serializable class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,8 +30,7 @@
 #define _XSERIALIZABLE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-//#include "nameof.hpp"
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XString.h"
@@ -39,17 +38,25 @@
 #include "XVariant.h"
 #include "XVector.h"
 
-
 #ifdef XSERIALIZABLE_JSON_ACTIVE
 #include "XFileJSON.h"
 #endif
 
 #include "XSerializationMethod.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XSERIALIZABLE
 {
@@ -233,7 +240,15 @@ class XSERIALIZABLE
        
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

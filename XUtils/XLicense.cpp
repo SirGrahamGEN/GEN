@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLicense.cpp
-*
+* 
 * @class      XLICENSE
-* @brief      eXtended License generator and control class
+* @brief      eXtended Utils License generator and control class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLicense.h"
 
 #include "XFactory.h"
 #include "XPublisher.h"
@@ -48,107 +54,22 @@
 #include "DIOStreamDeviceIP.h"
 #include "DIOStreamIPLocalEnumDevices.h"
 
-#include "XLicense.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      Constructor
-* @ingroup    XUTILS
-*
-* @param[in]  subject :
-* @param[in]  type :
-* @param[in]  family :
-*
-* @return     Does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLICENSEXEVENT::~XLICENSEXEVENT()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XLICENSEXEVENT::~XLICENSEXEVENT()
-{
-  Clean();
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLICENSE* XLICENSEXEVENT::Get()
-* @brief      Get
-* @ingroup    XUTILS
-*
-* @return     XLICENSE* :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XLICENSE* XLICENSEXEVENT::Get()
-{
-  return xlicense;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLICENSEXEVENT::Set(XLICENSE* xlicense)
-* @brief      Set
-* @ingroup    XUTILS
-*
-* @param[in]  xlicense :
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XLICENSEXEVENT::Set(XLICENSE* xlicense)
-{
-  this->xlicense = xlicense;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLICENSEXEVENT::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XLICENSEXEVENT::Clean()
-{
-  xlicense  = NULL;
-}
-
-
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XLICENSEID                                                                                                          */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_XLICENSEID
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -166,7 +87,6 @@ XLICENSEID::XLICENSEID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSEID::~XLICENSEID()
@@ -181,7 +101,6 @@ XLICENSEID::~XLICENSEID()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -207,7 +126,6 @@ bool XLICENSEID::GetPart(int npart, XDWORD part)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSEID::SetPart(int npart, XDWORD part)
@@ -231,7 +149,6 @@ bool XLICENSEID::SetPart(int npart, XDWORD part)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD* XLICENSEID::GetParts()
@@ -245,7 +162,6 @@ XDWORD* XLICENSEID::GetParts()
 {
   return part;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,7 +182,6 @@ void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
       xbuffer.Add((XDWORD)part[c]);
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -295,7 +210,6 @@ void XLICENSEID::GetXString(XSTRING& IDstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSEID::Clean()
@@ -315,11 +229,10 @@ void XLICENSEID::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XLICENSE                                                                                                            */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XLICENSE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -342,7 +255,6 @@ XLICENSE::XLICENSE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLICENSE::~XLICENSE()
@@ -362,9 +274,6 @@ XLICENSE::~XLICENSE()
 
   Clean();
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -447,8 +356,6 @@ bool XLICENSE::GenerateMachineID(XLICENSEID& licenseID)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* license)
@@ -500,8 +407,6 @@ bool XLICENSE::Generate(XLICENSEID& licenseID, XSTRING* applicationID, XBUFFER* 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbufferkey)
@@ -535,7 +440,6 @@ bool XLICENSE::GetBufferKeyFromMachineID(XSTRING& applicationID, XBUFFER& xbuffe
 
   return xbufferkey.GetSize()?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -605,7 +509,6 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XLICENSE::GetApplicationID()
@@ -619,7 +522,6 @@ XSTRING* XLICENSE::GetApplicationID()
 {
   return &applicationID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -637,7 +539,6 @@ XDATETIME* XLICENSE::GetExpirationDateTime()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* XLICENSE::Get()
@@ -651,7 +552,6 @@ XBUFFER* XLICENSE::Get()
 {
   return license;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -682,7 +582,6 @@ bool XLICENSE::Get(XSTRING& licensestring)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -726,7 +625,6 @@ bool XLICENSE::LoadFromFile(XPATH& xpath, XSTRING& applicationID, XBUFFER* licen
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& applicationID, XBUFFER* license, XSTRING* expirationdate)
@@ -758,7 +656,6 @@ bool XLICENSE::LoadFromURL(DIOURL& url, int timeout, XSTRING* IPlocal, XSTRING& 
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -811,7 +708,6 @@ bool XLICENSE::LoadFromBuffer(XBUFFER& xbuffer, XSTRING& applicationID, XBUFFER*
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -882,7 +778,6 @@ bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING&
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
@@ -905,7 +800,6 @@ bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLICENSE::Clean()
@@ -920,4 +814,10 @@ void XLICENSE::Clean()
 {
   license = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

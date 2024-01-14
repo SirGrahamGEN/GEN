@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XThread.cpp
-*
+* 
 * @class      XTHREAD
-* @brief      eXtended Thread class
+* @brief      eXtended Utils Thread class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XThread.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -39,15 +45,22 @@
 #include "XFactory.h"
 #include "XTimer.h"
 
-#include "XThread.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
+#pragma region CLASS_XMUTEX
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +76,6 @@ XMUTEX::XMUTEX()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +94,6 @@ XMUTEX::~XMUTEX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMUTEX::IsLock()
@@ -96,7 +107,6 @@ bool XMUTEX::IsLock()
 {
   return islock;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -114,7 +124,6 @@ bool XMUTEX::Lock()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XMUTEX::UnLock()
@@ -128,7 +137,6 @@ bool XMUTEX::UnLock()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -147,12 +155,10 @@ void XMUTEX::Clean()
 }
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XTHREAD                                                                                                             */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_XTHREAD
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -179,7 +185,6 @@ XTHREAD::XTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, vo
   this->ID          = ID;
   this->function    = function;
   this->param       = param;
-
 }
 
 
@@ -199,7 +204,6 @@ XTHREAD::~XTHREAD()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::Ini(bool run)
@@ -215,7 +219,6 @@ bool XTHREAD::Ini(bool run)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +238,6 @@ bool XTHREAD::Wait(int miliseconds)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::End()
@@ -249,7 +251,6 @@ bool XTHREAD::End()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,7 +267,6 @@ bool XTHREAD::IsRunning()
   if(statusfunc == XTHREADSTATUS_RUN) return true;
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -295,7 +295,6 @@ bool XTHREAD::Run(bool activate)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -339,7 +338,6 @@ bool XTHREAD::WaitToEnd(XDWORD timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTHREAD::GetWaitYield()
@@ -353,7 +351,6 @@ XDWORD XTHREAD::GetWaitYield()
 {
   return waityield;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -373,7 +370,6 @@ void XTHREAD::SetWaitYield(XDWORD waityield)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::Exit()
@@ -390,7 +386,6 @@ bool XTHREAD::Exit()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADGROUPID XTHREAD::GetGroupID()
@@ -404,7 +399,6 @@ XTHREADGROUPID XTHREAD::GetGroupID()
 {
   return groupID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -424,7 +418,6 @@ void XTHREAD::SetGroupID(XTHREADGROUPID groupID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XTHREAD::GetID()
@@ -438,7 +431,6 @@ XSTRING* XTHREAD::GetID()
 {
   return &ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -456,7 +448,6 @@ XTHREADFUNCTION XTHREAD::GetFunction()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* XTHREAD::GetParam()
@@ -472,7 +463,6 @@ void* XTHREAD::GetParam()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADPRIORITY XTHREAD::GetPriority()
@@ -486,7 +476,6 @@ XTHREADPRIORITY XTHREAD::GetPriority()
 {
   return priority;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -506,7 +495,6 @@ void XTHREAD::SetPriority(XTHREADPRIORITY priority)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD XTHREAD::GetStackSize()
@@ -520,7 +508,6 @@ XDWORD XTHREAD::GetStackSize()
 {
   return stacksize;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -540,7 +527,6 @@ void XTHREAD::SetStackSize(XDWORD stacksize)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTHREAD::IsInFunction()
@@ -556,7 +542,6 @@ bool XTHREAD::IsInFunction()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREADSTATUS XTHREAD::GetStatusFunc()
@@ -570,7 +555,6 @@ XTHREADSTATUS XTHREAD::GetStatusFunc()
 {
   return statusfunc;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -600,4 +584,9 @@ void XTHREAD::Clean()
   statusfunc      = XTHREADSTATUS_NONE;
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

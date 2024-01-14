@@ -3,7 +3,7 @@
 * @file       XSerializationMethodJSON.cpp
 * 
 * @class      XSERIALIZATIONMETHODJSON
-* @brief      eXtended Serialization method JSON class
+* @brief      eXtended Utils Serializable method JSON class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,25 +26,35 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XSerializationMethodJSON.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "XSerializationMethodJSON.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -955,3 +965,7 @@ void XSERIALIZATIONMETHODJSON::Clean()
 
   actualobject  = NULL;
 }
+
+
+#pragma endregion
+

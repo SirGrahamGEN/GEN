@@ -33,6 +33,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+#include "XFactory.h"
 #include "XSleep.h"
 #include "XTrace.h"
 #include "XTimer.h"

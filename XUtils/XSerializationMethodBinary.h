@@ -3,7 +3,7 @@
 * @file       XSerializationMethodBinary.h
 * 
 * @class      XSERIALIZATIONMETHODBINARY
-* @brief      eXtended Serialization method binary class
+* @brief      eXtended Utils Serialization binary class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,13 +30,19 @@
 #define _XSERIALIZATIONMETHODBINARY_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XString.h"
 
 #include "XSerializationMethod.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum XSERIALIZATIONMETHODBINARY_TYPEELEMENT
 {
@@ -56,11 +62,16 @@ enum XSERIALIZATIONMETHODBINARY_TYPEELEMENT
   XSERIALIZATIONMETHODBINARY_TYPEELEMENT_XBUFFER       ,
 };
 
-
 #define XSERIALIZATIONMETHOD_STRUCT_ID  0x81
 #define XSERIALIZATIONMETHOD_ARRAY_ID   0x82
 
+
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XVARIANT;
 
@@ -121,7 +132,15 @@ class XSERIALIZATIONMETHODBINARY : public XSERIALIZATIONMETHOD
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

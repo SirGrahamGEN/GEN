@@ -3,7 +3,7 @@
 * @file       XDateTime.cpp
 * 
 * @class      XDATETIME
-* @brief      eXtended date time class
+* @brief      eXtended Utils date time class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

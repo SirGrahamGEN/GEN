@@ -3,7 +3,7 @@
 * @file       XFSMachine.h
 * 
 * @class      XFSMACHINE
-* @brief      eXtended Finite state machine class
+* @brief      eXtended Utils Finite state machine class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

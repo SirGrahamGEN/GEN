@@ -3,7 +3,7 @@
 * @file       XDriveImageManager_XEvent.cpp
 * 
 * @class      XDRIVEIMAGEMANAGER_XEVENT
-* @brief      eXtended Drive Image Mamanger Event class
+* @brief      eXtended Utils Drive Image Mamanger Event class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

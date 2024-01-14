@@ -3,7 +3,7 @@
 * @file       XSerializationMethod.cpp
 * 
 * @class      XSERIALIZATIONMETHOD
-* @brief      eXtended Serialization method class
+* @brief      eXtended Utils Serialization class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,26 +26,36 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XSerializationMethod.h"
 
 #include "XString.h"
 #include "XBuffer.h"
 #include "XVector.h"
 
-#include "XSerializationMethod.h"
-
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -655,7 +665,6 @@ bool XSERIALIZATIONMETHOD::ExtractArray(XDWORD nelements, XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void XSERIALIZATIONMETHOD::Clean()
@@ -670,4 +679,7 @@ void XSERIALIZATIONMETHOD::Clean()
 {
 
 }
+
+
+#pragma endregion
 

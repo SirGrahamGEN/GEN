@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XTranslation_GEN.cpp
-*
+* 
 * @class      XTRANSLATION_GEN
-* @brief      eXtension Translation GEN (sencences within the framework) fram class
+* @brief      eXtension Translation of GEN class (sencences within the framework)
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XTranslation_GEN.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -39,21 +45,23 @@
 
 #include "XTranslation.h"
 
-#include "XTranslation_GEN.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XTRANSLATION_GEN* XTRANSLATION_GEN::instance  = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XTRANSLATION_GEN_SENTENCE                                                                                           */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_XTRANSLATION_GEN_SENTENCE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -69,7 +77,6 @@ XTRANSLATION_GEN_SENTENCE::XTRANSLATION_GEN_SENTENCE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -88,7 +95,6 @@ XTRANSLATION_GEN_SENTENCE::~XTRANSLATION_GEN_SENTENCE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -110,11 +116,10 @@ void XTRANSLATION_GEN_SENTENCE::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XTRANSLATION_GEN                                                                                                    */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XTRANSLATION_GEN
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +137,6 @@ bool XTRANSLATION_GEN::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION_GEN& XTRANSLATION_GEN::GetInstance()
@@ -148,7 +152,6 @@ XTRANSLATION_GEN& XTRANSLATION_GEN::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -174,8 +177,6 @@ bool XTRANSLATION_GEN::DelInstance()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION_GEN::XTRANSLATION_GEN()
@@ -191,7 +192,6 @@ XTRANSLATION_GEN::XTRANSLATION_GEN()
 
   Sentences_AddAll();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -210,7 +210,6 @@ XTRANSLATION_GEN::~XTRANSLATION_GEN()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -281,7 +280,6 @@ bool XTRANSLATION_GEN::Sentence_Add(XDWORD ID, XDWORD codelanguage, XCHAR* sente
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTRANSLATION_GEN_SENTENCE* XTRANSLATION_GEN::Sentence_Get(XDWORD ID, XDWORD codelanguage)
@@ -307,7 +305,6 @@ XTRANSLATION_GEN_SENTENCE* XTRANSLATION_GEN::Sentence_Get(XDWORD ID, XDWORD code
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -439,8 +436,6 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION_GEN::Sentences_DeleteAll()
@@ -459,8 +454,6 @@ bool XTRANSLATION_GEN::Sentences_DeleteAll()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -495,7 +488,6 @@ bool XTRANSLATION_GEN::Sentences_AddToTranslation(XDWORD codelanguage)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XTRANSLATION_GEN::Clean()
@@ -510,4 +502,10 @@ void XTRANSLATION_GEN::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

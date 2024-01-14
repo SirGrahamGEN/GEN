@@ -1,47 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XFactory.cpp
-*
+* 
 * @class      XFACTORY
-* @brief      eXtended platform Factory
+* @brief      eXtended Utils factory
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFactory.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XFACTORY* XFACTORY::instance = NULL;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -57,7 +69,6 @@ XFACTORY::XFACTORY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -76,7 +87,6 @@ XFACTORY::~XFACTORY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::GetIsInstanced()
@@ -91,7 +101,6 @@ bool XFACTORY::GetIsInstanced()
 {
   return instance!=NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -138,7 +147,6 @@ bool XFACTORY::SetInstance(XFACTORY* _instance)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFACTORY::DelInstance()
@@ -160,7 +168,6 @@ bool XFACTORY::DelInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* XFACTORY::CreateTimer()
@@ -175,7 +182,6 @@ XTIMER* XFACTORY::CreateTimer()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -196,7 +202,6 @@ bool XFACTORY::DeleteTimer(XTIMER* timer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* XFACTORY::CreateDateTime()
@@ -211,7 +216,6 @@ XDATETIME* XFACTORY::CreateDateTime()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -232,7 +236,6 @@ bool XFACTORY::DeleteDateTime(XDATETIME* datetime)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XRAND* XFACTORY::CreateRand()
@@ -247,7 +250,6 @@ XRAND* XFACTORY::CreateRand()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -268,7 +270,6 @@ bool XFACTORY::DeleteRand(XRAND* rand)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILE* XFACTORY::Create_File()
@@ -283,7 +284,6 @@ XFILE* XFACTORY::Create_File()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -304,7 +304,6 @@ bool XFACTORY::Delete_File(XFILE* file)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR* XFACTORY::Create_Dir()
@@ -319,7 +318,6 @@ XDIR* XFACTORY::Create_Dir()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -355,7 +353,6 @@ XCONSOLE* XFACTORY::CreateConsole()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -449,8 +446,6 @@ bool XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XFACTORY::Clean()
@@ -466,4 +461,6 @@ void XFACTORY::Clean()
 
 }
 
+
+#pragma endregion
 

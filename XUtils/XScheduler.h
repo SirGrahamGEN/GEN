@@ -3,7 +3,7 @@
 * @file       XScheduler.h
 * 
 * @class      XSCHEDULER
-* @brief      eXtended Scheduler class
+* @brief      eXtended Utils Scheduler class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -44,6 +44,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 #define XSCHEDULER_CYCLEFOREVER    -1
 
 #define XSCHEDULER_DAYWEEK_NONE           0x00
@@ -57,11 +58,13 @@
 #define XSCHEDULER_DAYWEEK_ISWORKDAY      (XSCHEDULER_DAYWEEK_ISMONDAY   | XSCHEDULER_DAYWEEK_ISTUESDAY |  XSCHEDULER_DAYWEEK_ISWEDNESDAY | XSCHEDULER_DAYWEEK_ISTHURSDAY | XSCHEDULER_DAYWEEK_ISFRIDAY)
 #define XSCHEDULER_DAYWEEK_ISWEEKEND      (XSCHEDULER_DAYWEEK_ISSATURDAY | XSCHEDULER_DAYWEEK_ISSUNDAY)
 
+
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
+
 
 class XPUBLISHER;
 class XMUTEX;
@@ -69,12 +72,6 @@ class XTHREADCOLLECTED;
 class XTIMER;
 class XSCHEDULERTASK;
 class XSCHEDULER;
-
-#pragma endregion
-
-
-/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
-#pragma region FUNCTIONS_PROTOTYPES
 
 
 class XSCHEDULERTASK
@@ -182,6 +179,16 @@ class XSCHEDULER  : public XSUBJECT
     XVECTOR<XSCHEDULERTASK*>    tasks;
     int                         indextask;
 };
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
 
 
 #pragma endregion

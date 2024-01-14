@@ -3,7 +3,7 @@
 * @file       XDictionary.h
 * 
 * @class      XDICTIONARY
-* @brief      eXtended Diccionary class
+* @brief      eXtended Utils Diccionary class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

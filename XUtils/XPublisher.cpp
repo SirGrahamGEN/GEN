@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XPublisher.cpp
-*
+* 
 * @class      XPUBLISHER
-* @brief      eXtended Publisher class
+* @brief      eXtended Utils Publisher class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XPublisher.h"
 
 #include <stdio.h>
 
@@ -39,15 +45,24 @@
 #include "XObserver.h"
 #include "XTrace.h"
 
-#include "XPublisher.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XPUBLISHER*   XPUBLISHER::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_XPUBLISHERENTRY
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,7 +80,6 @@ XPUBLISHERENTRY::XPUBLISHERENTRY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHERENTRY::~XPUBLISHERENTRY()
@@ -80,7 +94,6 @@ XPUBLISHERENTRY::~XPUBLISHERENTRY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -101,11 +114,10 @@ void XPUBLISHERENTRY::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XPUBLISHER                                                                                                          */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XPUBLISHER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -123,7 +135,6 @@ bool XPUBLISHER::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHER& GEN_XPUBLISHER.
@@ -139,7 +150,6 @@ XPUBLISHER& XPUBLISHER::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -163,7 +173,6 @@ bool XPUBLISHER::DelInstance()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -204,7 +213,6 @@ bool XPUBLISHER::RegisterEvent(XDWORD type, XSUBJECT* subject)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,7 +269,6 @@ bool XPUBLISHER::DeRegisterEvent(XDWORD type, XSUBJECT* subject)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::DeRegisterAllEvents()
@@ -284,7 +291,6 @@ bool XPUBLISHER::DeRegisterAllEvents()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +364,6 @@ bool XPUBLISHER::SubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obser
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPUBLISHER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* observer)
@@ -399,6 +404,37 @@ bool XPUBLISHER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obs
   return status;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XPUBLISHER::Active(bool on)
+* @brief      Active
+* @ingroup    XUTILS
+* 
+* @param[in]  on : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XPUBLISHER::Active(bool on)
+{ 
+  this->on  = on;                   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPUBLISHER::IsInEvent()
+* @brief      IsInEvent
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XPUBLISHER::IsInEvent()
+{ 
+  return inevent;                   
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -452,7 +488,6 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPUBLISHER::XPUBLISHER()
@@ -463,7 +498,6 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHER::XPUBLISHER()
-
 {
   Clean();
 
@@ -471,7 +505,6 @@ XPUBLISHER::XPUBLISHER()
 
   GEN_XFACTORY_CREATE(xmutexevents, Create_Mutex())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -485,7 +518,6 @@ XPUBLISHER::XPUBLISHER()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHER::~XPUBLISHER()
-
 {
   DeRegisterAllEvents();
 
@@ -493,7 +525,6 @@ XPUBLISHER::~XPUBLISHER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -512,3 +543,10 @@ void XPUBLISHER::Clean()
   inevent      = false;
   xmutexevents = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

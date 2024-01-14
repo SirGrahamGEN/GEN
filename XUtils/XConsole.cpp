@@ -3,7 +3,7 @@
 * @file       XConsole.cpp
 * 
 * @class      XCONSOLE
-* @brief      eXtended Console base class
+* @brief      eXtended Utils Console base class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

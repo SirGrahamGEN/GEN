@@ -3,7 +3,7 @@
 * @file       XEvent.cpp
 * 
 * @class      XEVENT
-* @brief      eXtended Event base class
+* @brief      eXtended Utils Event base class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

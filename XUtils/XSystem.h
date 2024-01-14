@@ -81,6 +81,7 @@ enum XSYSTEM_SO
   XSYSTEM_SO_WINDOWS8                                     ,
   XSYSTEM_SO_WINDOWS81                                    ,
   XSYSTEM_SO_WINDOWS10                                    ,
+  XSYSTEM_SO_WINDOWS11                                    ,
 
   XSYSTEM_SO_LINUX                              = 0x0200  ,
 

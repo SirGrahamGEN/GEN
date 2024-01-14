@@ -3,7 +3,7 @@
 * @file       XString.h
 * 
 * @class      XSTRING
-* @brief      eXtended Unicode String class
+* @brief      eXtended Utils Unicode String class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -133,8 +133,10 @@ typedef struct
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class XBUFFER;
 class XMUTEX;
+
 
 class GEN_API_LIB XSTRING
 {

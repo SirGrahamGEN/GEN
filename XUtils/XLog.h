@@ -3,7 +3,7 @@
 * @file       XLog.h
 * 
 * @class      XLOG
-* @brief      eXtended LOG class
+* @brief      eXtended Utils Log class
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.

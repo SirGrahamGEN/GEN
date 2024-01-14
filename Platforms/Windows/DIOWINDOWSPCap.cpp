@@ -46,6 +46,7 @@
 #include <winsock2.h>
 #include <windows.h>
 
+#include "XFactory.h"
 #include "XTrace.h"
 #include "XThreadCollected.h"
 #include "XString.h"

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XPath.cpp
-*
+* 
 * @class      XPATH
-* @brief      eXtended Path class
+* @brief      eXtended Utils Path class
 * @ingroup    XUTILS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XPath.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -42,13 +48,19 @@
 #include "XString.h"
 #include "XTrace.h"
 
-#include "XPath.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +76,6 @@ XPATH::XPATH(): XSTRING()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -84,7 +95,6 @@ XPATH::XPATH(XDWORD size): XSTRING(size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH::XPATH(const char* path)
@@ -102,7 +112,6 @@ XPATH::XPATH(const char* path) : XSTRING(path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH::XPATH(const XCHAR* path)
@@ -118,7 +127,6 @@ XPATH::XPATH(const XCHAR* path): XSTRING(path)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -139,7 +147,6 @@ XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH::XPATH(XPATH& path)
@@ -155,7 +162,6 @@ XPATH::XPATH(XPATH& path): XSTRING(path)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -175,8 +181,6 @@ XPATH::XPATH(XSTRING& string)  : XSTRING(string)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH::XPATH(XWORD* path)
@@ -194,7 +198,6 @@ XPATH::XPATH(XWORD* path) : XSTRING(path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH::~XPATH()
@@ -209,7 +212,6 @@ XPATH::~XPATH()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -229,7 +231,6 @@ void XPATH::operator = (const char* path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATH::operator = (const XCHAR* path)
@@ -245,7 +246,6 @@ void XPATH::operator = (const XCHAR* path)
 {
   Set(path);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -265,7 +265,6 @@ void XPATH::operator = (XPATH& path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATH::operator = (XSTRING& string)
@@ -281,7 +280,6 @@ void XPATH::operator = (XSTRING& string)
 {
   Set(string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -301,7 +299,6 @@ void XPATH::operator = (XWORD* path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATH::operator += (const char* path)
@@ -317,7 +314,6 @@ void XPATH::operator += (const char* path)
 {
   Add(path);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -337,7 +333,6 @@ void XPATH::operator += (const XCHAR* path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATH::operator += (XPATH& path)
@@ -353,7 +348,6 @@ void XPATH::operator += (XPATH& path)
 {
   Add(path);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -373,7 +367,6 @@ void XPATH::operator += (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XPATH::operator += (XCHAR path)
@@ -389,7 +382,6 @@ void XPATH::operator += (XCHAR path)
 {
   Add(path);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -409,7 +401,6 @@ bool XPATH::operator <  (XPATH& path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator > (XPATH& path)
@@ -425,7 +416,6 @@ bool XPATH::operator >  (XPATH& path)
 {
   return (bool)(Compare(path) ==  1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -445,7 +435,6 @@ bool XPATH::operator <= (XPATH& path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator >= (XPATH& path)
@@ -461,7 +450,6 @@ bool XPATH::operator >= (XPATH& path)
 {
   return (bool)(Compare(path) != -1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -481,7 +469,6 @@ bool XPATH::operator == (XPATH& path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator != (XPATH& path)
@@ -497,7 +484,6 @@ bool XPATH::operator != (XPATH& path)
 {
   return (bool)(Compare(path) !=  0);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -517,7 +503,6 @@ bool XPATH::operator <  (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator > (XSTRING& string)
@@ -533,7 +518,6 @@ bool XPATH::operator >  (XSTRING& string)
 {
   return (bool)(Compare(string) ==  1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -553,7 +537,6 @@ bool XPATH::operator <= (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator >= (XSTRING& string)
@@ -569,7 +552,6 @@ bool XPATH::operator >= (XSTRING& string)
 {
   return (bool)(Compare(string) != -1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -589,7 +571,6 @@ bool XPATH::operator == (XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::operator != (XSTRING& string)
@@ -605,7 +586,6 @@ bool XPATH::operator != (XSTRING& string)
 {
   return (bool)(Compare(string) !=  0);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -630,7 +610,6 @@ XCHAR XPATH::operator [](int position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::GetDrive(XSTRING& drive)
@@ -650,7 +629,6 @@ bool XPATH::GetDrive(XSTRING& drive)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -680,7 +658,6 @@ bool XPATH::GetPath(XSTRING& path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::GetDriveAndPath(XSTRING& drivepath)
@@ -706,7 +683,6 @@ bool XPATH::GetDriveAndPath(XSTRING& drivepath)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -736,7 +712,6 @@ bool XPATH::GetPathAndNamefile(XSTRING& pathnamefile)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -770,7 +745,6 @@ bool XPATH::GetPathAndNamefileExt(XSTRING& pathnamefile)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::GetNamefile(XSTRING& namefile)
@@ -790,7 +764,6 @@ bool XPATH::GetNamefile(XSTRING& namefile)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -820,7 +793,6 @@ bool XPATH::GetNamefileExt(XSTRING& namefileext)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::GetExt(XSTRING& ext)
@@ -840,7 +812,6 @@ bool XPATH::GetExt(XSTRING& ext)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -887,7 +858,6 @@ bool XPATH::GetPathInSequence(int index, XSTRING& pathpart)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         const XCHAR* XPATH::SetOnlyDrive()
@@ -909,7 +879,6 @@ const XCHAR* XPATH::SetOnlyDrive()
 
   return string.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -935,7 +904,6 @@ const XCHAR* XPATH::SetOnlyPath()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XCHAR* XPATH::SetOnlyDriveAndPath()
@@ -957,7 +925,6 @@ const XCHAR* XPATH::SetOnlyDriveAndPath()
 
   return string.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -983,7 +950,6 @@ const XCHAR* XPATH::SetOnlyPathAndNamefile()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XCHAR* XPATH::SetOnlyPathAndNamefileExt()
@@ -1005,7 +971,6 @@ const XCHAR* XPATH::SetOnlyPathAndNamefileExt()
 
   return string.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1031,7 +996,6 @@ const XCHAR* XPATH::SetOnlyNamefile()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XCHAR* XPATH::SetOnlyNamefileExt()
@@ -1055,7 +1019,6 @@ const XCHAR* XPATH::SetOnlyNamefileExt()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         const XCHAR* XPATH::SetOnlyExt()
@@ -1077,7 +1040,6 @@ const XCHAR* XPATH::SetOnlyExt()
 
   return string.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1124,7 +1086,6 @@ bool XPATH::DeleteExt()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::Slash_HaveAtLast()
@@ -1142,7 +1103,6 @@ bool XPATH::Slash_HaveAtLast()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1185,7 +1145,6 @@ bool XPATH::Slash_Add()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::Slash_Normalize(bool inverse)
@@ -1222,7 +1181,6 @@ bool XPATH::Slash_Normalize(bool inverse)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPATH::Slash_Delete()
@@ -1246,8 +1204,6 @@ bool XPATH::Slash_Delete()
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1291,7 +1247,6 @@ bool XPATH::AddToNameFile(bool isprefix, XCHAR* tag)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1339,8 +1294,6 @@ bool XPATH::Create(int nelements,...)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1395,8 +1348,6 @@ bool XPATH::Create(XPATHSMANAGERSECTIONTYPE sectiontype, int nelements, ...)
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1479,5 +1430,5 @@ bool XPATH::Split(XSTRING* drive, XPATH* xpath, XSTRING* name, XSTRING* ext)
 }
 
 
-
+#pragma endregion
 
