@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DB_SQL_Database.cpp
-*
+* 
 * @class      DB_SQL_DATABASE
-* @brief      DataBase Holds database class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL "database" class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #ifdef DB_SQL_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DB_SQL_Database.h"
 
 #include "XFactory.h"
 
@@ -41,13 +49,19 @@
 
 #include "DB_SQL_Database.h"
 
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,7 +80,6 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
   GEN_XFACTORY_CREATE(mutex, Create_Mutex())
   if(mutex) isthreadsafe = true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +106,6 @@ DB_SQL_DATABASE::~DB_SQL_DATABASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
@@ -107,7 +119,6 @@ DB_SQL_DATABASE_ENCODING DB_SQL_DATABASE::GetCurrentEncoding()
 {
   return this->encodingtype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,7 +136,6 @@ DB_SQL_DATABASE_TYPE DB_SQL_DATABASE::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DB_SQL_DATABASE::GetTypeName()
@@ -141,7 +151,6 @@ XCHAR* DB_SQL_DATABASE::GetTypeName()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DB_SQL_DATABASE::GetDefaultPort()
@@ -155,7 +164,6 @@ XDWORD DB_SQL_DATABASE::GetDefaultPort()
 {
   return defaultport;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -177,7 +185,6 @@ XPATH* DB_SQL_DATABASE::GetDefaultPath()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::IsOpen()
@@ -191,7 +198,6 @@ bool DB_SQL_DATABASE::IsOpen()
 {
   return (status == DB_SQL_DATABASE_FLAGS_CONNECTED);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -212,7 +218,6 @@ bool DB_SQL_DATABASE::SetConnection(DB_SQL_CONNECTION* connection)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::IsTransactionStarted()
@@ -226,7 +231,6 @@ bool DB_SQL_DATABASE::IsTransactionStarted()
 {
   return transactionstarted;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -244,7 +248,6 @@ DB_SQL_VECTOR<DB_SQL_STRING*>* DB_SQL_DATABASE::GetTableList()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
@@ -260,7 +263,6 @@ DB_SQL_VECTOR<DB_SQL_ERROR*>* DB_SQL_DATABASE::GetErrorList()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
@@ -274,7 +276,6 @@ DB_SQL_VARIANT* DB_SQL_DATABASE::CreateVariant()
 {
   return new DB_SQL_VARIANT();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -295,7 +296,6 @@ bool DB_SQL_DATABASE::OnConnection()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::OnDisconnection()
@@ -309,7 +309,6 @@ bool DB_SQL_DATABASE::OnDisconnection()
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -336,7 +335,6 @@ bool DB_SQL_DATABASE::Open()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Close()
@@ -357,8 +355,7 @@ bool DB_SQL_DATABASE::Close()
     }
 
   return false;
-};
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -374,7 +371,6 @@ XCHAR* DB_SQL_DATABASE::GetLastError()
 {
   return (this->errorstack.GetSize()>0 ? this->errorstack.GetLast()->description.Get() : __L(""));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -400,7 +396,6 @@ bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::Error(XCHAR* errorstring)
@@ -424,7 +419,6 @@ void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::Error(char* errorstring)
@@ -446,7 +440,6 @@ void DB_SQL_DATABASE::Error(char* errorstring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::ClearPreviousErrors()
@@ -461,7 +454,6 @@ void DB_SQL_DATABASE::ClearPreviousErrors()
   this->errorstack.DeleteContents();
   this->errorstack.DeleteAll();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -522,7 +514,6 @@ bool DB_SQL_DATABASE::Table_IsThere(XCHAR* nametable, XCHAR* constfield, bool& i
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool& isexist)
@@ -540,7 +531,6 @@ bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool&
 {
   return Table_IsThere(nametable.Get(), constfield, isexist);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -589,7 +579,6 @@ bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfield
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
@@ -630,7 +619,6 @@ bool DB_SQL_DATABASE::Table_Delete(XCHAR* nametable)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -710,7 +698,6 @@ bool DB_SQL_DATABASE::Lock()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_DATABASE::Unlock()
@@ -726,7 +713,6 @@ bool DB_SQL_DATABASE::Unlock()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -756,7 +742,6 @@ bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_DATABASE::Clean()
@@ -781,6 +766,9 @@ void DB_SQL_DATABASE::Clean()
   status                  = DB_SQL_DATABASE_FLAGS_UNKNOWN;
   encodingtype            = DB_SQL_DATABASE_ENCODING_UNKNOWN;
 }
+
+
+#pragma endregion
 
 
 #endif

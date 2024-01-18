@@ -1,48 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SQLITE_Result.cpp
-*
+* 
+* @file       SQLite_Result.cpp
+* 
 * @class      SQLITE_RESULT
-* @brief      DataBase SQLite Result class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL SQLite Result class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DB_SQL_ACTIVE) && defined(DB_SQLITE_ACTIVE)
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XTrace.h"
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "SQLite_Result.h"
 
+#include "XTrace.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +77,6 @@ SQLITE_RESULT::~SQLITE_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumRows()
@@ -79,7 +92,6 @@ XQWORD SQLITE_RESULT::GetNumRows()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumColumns()
@@ -93,7 +105,6 @@ XQWORD SQLITE_RESULT::GetNumColumns()
 {
   return sqlite3_column_count(query->ppstmt);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +123,6 @@ bool SQLITE_RESULT::Seek(int index)
   // SQLITE Can't seek a result set
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,7 +152,6 @@ bool SQLITE_RESULT::First()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_RESULT::Last()
@@ -157,7 +166,6 @@ bool SQLITE_RESULT::Last()
   // SQLITE Can't seek a result set
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -181,7 +189,6 @@ bool SQLITE_RESULT::Next()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -257,7 +264,6 @@ bool SQLITE_RESULT::ProcessRow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_RESULT::Abort()
@@ -271,7 +277,6 @@ bool SQLITE_RESULT::Abort()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -289,7 +294,6 @@ bool SQLITE_RESULT::HasNext()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_RESULT::SQLITE_RESULT()
@@ -303,7 +307,6 @@ SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -321,6 +324,9 @@ void SQLITE_RESULT::Clean()
   lastresult  = SQLITE_ROW;
   query       = NULL;
 }
+
+
+#pragma endregion
 
 
 #endif

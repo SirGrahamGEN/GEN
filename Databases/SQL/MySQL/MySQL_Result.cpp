@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       MYSQL_Result.cpp
-*
+* 
+* @file       MySQL_Result.cpp
+* 
 * @class      MYSQL_RESULT
-* @brief      DataBase MySQL Result class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL MySQL Result class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DB_SQL_ACTIVE) && defined(DB_MYSQL_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MySQL_Result.h"
 
 #include <mysql.h>
 
@@ -41,9 +49,17 @@
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -121,7 +137,6 @@ XQWORD MYSQL_RESULT::GetNumRows()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD MYSQL_RESULT::GetNumColumns()
@@ -135,7 +150,6 @@ XQWORD MYSQL_RESULT::GetNumColumns()
 {
   return mysql_stmt_field_count(query->stmt);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -157,7 +171,6 @@ bool MYSQL_RESULT::Seek(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_RESULT::First()
@@ -173,7 +186,6 @@ bool MYSQL_RESULT::First()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_RESULT::Last()
@@ -187,7 +199,6 @@ bool MYSQL_RESULT::Last()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -208,7 +219,6 @@ bool MYSQL_RESULT::Next()
 
   return (RC==DB_SQL_MYSQL_OK);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -311,7 +321,6 @@ bool MYSQL_RESULT::ProcessRow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_RESULT::Abort()
@@ -325,8 +334,6 @@ bool MYSQL_RESULT::Abort()
 {
   return 0;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,7 +351,6 @@ bool MYSQL_RESULT::HasNext()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         MYSQL_RESULT::MYSQL_RESULT()
@@ -358,7 +364,6 @@ MYSQL_RESULT::MYSQL_RESULT() : DB_SQL_RESULT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -381,4 +386,8 @@ void MYSQL_RESULT::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
+

@@ -1,51 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SQLPostgreSQLDatabase.cpp
-*
+* 
+* @file       PostgreSQL_Database.cpp
+* 
 * @class      POSTGRESQL_DATABASE
-* @brief      DataBase PostgreSQL Database class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL PostgreSQL Database class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DB_SQL_ACTIVE) && defined(DB_POSTGRESQL_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "PostgreSQL_Database.h"
 
 #include <libpq-fe.h>
 
-#include "PostgreSQL_Database.h"
 #include "PostgreSQL_Connection.h"
 #include "PostgreSQL_Query.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,7 +80,6 @@ POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
   type        = DB_SQL_DATABASE_FLAGS_SQL | DB_SQL_DATABASE_FLAGS_TRANSACTIONAL;
   defaultport = 5432;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -98,7 +111,6 @@ DB_SQL_DATABASE_TYPE POSTGRESQL_DATABASE::GetType()
 {
   return DB_SQL_DATABASE_TYPE_POSTGRESQL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -144,7 +156,6 @@ bool POSTGRESQL_DATABASE::Transaction()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::Commit()
@@ -171,7 +182,6 @@ bool POSTGRESQL_DATABASE::Commit()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,7 +212,6 @@ bool POSTGRESQL_DATABASE::Rollback(XCHAR* savepointname)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -239,7 +248,6 @@ bool POSTGRESQL_DATABASE::Savepoint(XCHAR* savepoint)
 
   return success;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -279,7 +287,6 @@ bool POSTGRESQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
@@ -294,8 +301,6 @@ DB_SQL_QUERY* POSTGRESQL_DATABASE::CreateQuery()
   POSTGRESQL_QUERY* query = new POSTGRESQL_QUERY(this);
   return query;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -372,7 +377,6 @@ bool POSTGRESQL_DATABASE::GetTables()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
@@ -390,7 +394,6 @@ DB_SQL_DATABASE_ENCODING POSTGRESQL_DATABASE::GetDatabaseEncoding()
 
   return  encodingtype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -442,9 +445,9 @@ bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingt
       case DB_SQL_DATABASE_ENCODING_UHC               : break;
 
       case DB_SQL_DATABASE_ENCODING_UTF8              : { int rc = PQsetClientEncoding(conn,"UTF8");
-                                                        if(rc==0) return true;
-                                                      }
-                                                      break;
+                                                          if(rc==0) return true;
+                                                        }
+                                                        break;
       case DB_SQL_DATABASE_ENCODING_WIN866            :
       case DB_SQL_DATABASE_ENCODING_WIN874            :
       case DB_SQL_DATABASE_ENCODING_WIN1250           :
@@ -464,7 +467,6 @@ bool POSTGRESQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingt
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_DATABASE::OnConnection()
@@ -481,7 +483,6 @@ bool POSTGRESQL_DATABASE::OnConnection()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -514,7 +515,6 @@ bool POSTGRESQL_DATABASE::IsThreadSafe()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void POSTGRESQL_DATABASE::Clean()
@@ -532,4 +532,8 @@ void POSTGRESQL_DATABASE::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
+

@@ -1,53 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DB_SQL_Query.cpp
-*
+* 
 * @class      DB_SQL_QUERY
-* @brief
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL Query Abstract class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #ifdef DB_SQL_ACTIVE
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DB_SQL_Query.h"
 
 #include "XBuffer.h"
 
 #include "DB_SQL_Result.h"
 #include "DB_SQL_Database.h"
 
-#include "DB_SQL_Query.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -69,7 +81,6 @@ DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY::~DB_SQL_QUERY()
@@ -84,7 +95,6 @@ DB_SQL_QUERY::~DB_SQL_QUERY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -102,7 +112,6 @@ bool DB_SQL_QUERY::ClearCursor()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::IsWellConstructedQuery()
@@ -116,7 +125,6 @@ bool DB_SQL_QUERY::IsWellConstructedQuery()
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -134,7 +142,6 @@ DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_STRING* DB_SQL_QUERY::GetValue()
@@ -148,7 +155,6 @@ DB_SQL_STRING* DB_SQL_QUERY::GetValue()
 {
   return &value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,7 +194,6 @@ bool DB_SQL_QUERY::UnbindAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
@@ -205,7 +210,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 {
   return statementbindings.Set(ID, variant);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -231,7 +235,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
@@ -253,7 +256,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 
   return statementbindings.Add(ID, variant);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -279,7 +281,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
@@ -301,7 +302,6 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 
   return statementbindings.Add(ID, variant);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +327,6 @@ bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DB_SQL_QUERY::ClearBuffers()
@@ -349,7 +348,6 @@ void DB_SQL_QUERY::ClearBuffers()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
@@ -369,7 +367,6 @@ bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -394,5 +391,8 @@ void DB_SQL_QUERY::Clean()
 }
 
 
+#pragma endregion
+
 
 #endif
+

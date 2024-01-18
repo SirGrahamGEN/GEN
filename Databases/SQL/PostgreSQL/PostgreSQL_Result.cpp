@@ -1,39 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SQLPostgreSQLResult.cpp
-*
+* 
+* @file       PostgreSQL_Result.cpp
+* 
 * @class      POSTGRESQL_RESULT
-* @brief      DataBase PostgreSQL Result class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL PostgreSQL Result class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DB_SQL_ACTIVE) && defined(DB_POSTGRESQL_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "PostgreSQL_Result.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -41,14 +48,19 @@
 #include "XTrace.h"
 #include "XSystem.h"
 
-#include "PostgreSQL_Result.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +85,6 @@ POSTGRESQL_RESULT::~POSTGRESQL_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XQWORD POSTGRESQL_RESULT::GetNumRows()
@@ -88,7 +99,6 @@ XQWORD POSTGRESQL_RESULT::GetNumRows()
   int res=PQntuples(this->resultset);
   return res;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -106,7 +116,6 @@ XQWORD POSTGRESQL_RESULT::GetNumColumns()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_RESULT::Seek(int index)
@@ -122,7 +131,6 @@ bool POSTGRESQL_RESULT::Seek(int index)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -151,7 +159,6 @@ bool POSTGRESQL_RESULT::First()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_RESULT::Last()
@@ -165,7 +172,6 @@ bool POSTGRESQL_RESULT::Last()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -182,7 +188,6 @@ bool POSTGRESQL_RESULT::Next()
   currentrow++;
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -407,9 +412,7 @@ bool POSTGRESQL_RESULT::ProcessRow()
                                           }
                                           break;
 
-
-              case TIMEOID              :
-                                          {
+              case TIMEOID              : {
                                             XBYTE* data = (XBYTE*)PQgetvalue(resultset, (int)currentrow, e);
 
                                             DB_SQL_DATETIME datetime;
@@ -438,8 +441,8 @@ bool POSTGRESQL_RESULT::ProcessRow()
                                             variant->SetType(XVARIANT_TYPE_TIME);
                                           }
                                           break;
-              case DATEOID              :
-                                          {
+
+              case DATEOID              : {
                                             XBYTE* data = (XBYTE*)PQgetvalue(resultset, (int)currentrow, e);
 
                                             DB_SQL_DATETIME datetime;
@@ -537,7 +540,6 @@ bool POSTGRESQL_RESULT::ProcessRow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_RESULT::Abort()
@@ -553,7 +555,6 @@ bool POSTGRESQL_RESULT::Abort()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool POSTGRESQL_RESULT::HasNext()
@@ -567,7 +568,6 @@ bool POSTGRESQL_RESULT::HasNext()
 {
   return (((int)this->currentrow)<PQntuples(this->resultset));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -589,7 +589,6 @@ POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void POSTGRESQL_RESULT::Clean()
@@ -607,5 +606,8 @@ void POSTGRESQL_RESULT::Clean()
 }
 
 
+#pragma endregion
+
 
 #endif
+

@@ -95,6 +95,9 @@ class DB_SQL_QUERY
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-#endif
 
 #endif
+
+
+#endif
+

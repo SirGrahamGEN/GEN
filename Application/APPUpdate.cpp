@@ -39,6 +39,7 @@
 
 #include "APPUpdate.h"
 
+#include "XFactory.h"
 #include "XLog.h"
 #include "XSystem.h"
 #include "XScheduler_XEvent.h"

@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       MYSQL_Query.cpp
-*
+* 
+* @file       MySQL_Query.cpp
+* 
 * @class      MYSQL_QUERY
-* @brief      DataBase MySQL Query class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL MySQL Query class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DB_SQL_ACTIVE) && defined(DB_MYSQL_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MySQL_Query.h"
 
 #include "XBuffer.h"
 #include "XMemory_Control.h"
@@ -41,13 +49,19 @@
 #include "MySQL_Database.h"
 #include "MySQL_Result.h"
 
-#include "MySQL_Query.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,7 +79,6 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +99,6 @@ MYSQL_QUERY::~MYSQL_QUERY()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -145,7 +157,6 @@ bool MYSQL_QUERY::Execute()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::UnbindAll()
@@ -182,7 +193,6 @@ bool MYSQL_QUERY::UnbindAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
@@ -204,7 +214,6 @@ bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 
   return statementbindings.Add(ID, variant);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -352,7 +361,6 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
@@ -371,7 +379,6 @@ DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -484,7 +491,6 @@ bool MYSQL_QUERY::BindParametersToQuery()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_QUERY::BindParametersToResult()
@@ -560,7 +566,6 @@ bool MYSQL_QUERY::BindParametersToResult()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MYSQL_QUERY::Clean()
@@ -580,4 +585,8 @@ void MYSQL_QUERY::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
+

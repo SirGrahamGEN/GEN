@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SQLITE_Database.cpp
-*
+* 
+* @file       SQLite_Database.cpp
+* 
 * @class      SQLITE_DATABASE
-* @brief      DataBase SQLite Database class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL SQLite Database class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DB_SQL_ACTIVE) && defined(DB_SQLITE_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "SQLite_Database.h"
 
 #include "XTrace.h"
 
@@ -41,14 +49,19 @@
 
 #include "DB_SQL_Query.h"
 
-#include "SQLite_Database.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -68,7 +81,6 @@ SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         SQLITE_DATABASE::~SQLITE_DATABASE()
@@ -83,7 +95,6 @@ SQLITE_DATABASE::~SQLITE_DATABASE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -101,7 +112,6 @@ DB_SQL_DATABASE_TYPE SQLITE_DATABASE::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* SQLITE_DATABASE::GetTypeName()
@@ -115,7 +125,6 @@ XCHAR* SQLITE_DATABASE::GetTypeName()
 {
   return __L("SQLite");
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,7 +144,6 @@ bool SQLITE_DATABASE::Transaction()
 
   return (rc==SQLITE_OK || rc==SQLITE_BUSY);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -160,7 +168,6 @@ bool SQLITE_DATABASE::Commit()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -204,7 +211,6 @@ bool SQLITE_DATABASE::Rollback(XCHAR* savepoint)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
@@ -228,7 +234,6 @@ bool SQLITE_DATABASE::Savepoint(XCHAR* savepoint)
   
   return (rc==SQLITE_OK);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,8 +261,6 @@ bool SQLITE_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
@@ -280,7 +283,6 @@ DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
@@ -295,7 +297,6 @@ DB_SQL_CONNECTION* SQLITE_DATABASE::CreateConnection()
   DB_SQL_CONNECTION* conn = new SQLITE_CONNECTION(this);
   return conn;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +359,6 @@ bool SQLITE_DATABASE::GetTables()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
@@ -372,7 +372,6 @@ DB_SQL_DATABASE_ENCODING SQLITE_DATABASE::GetDatabaseEncoding()
 {
   return DB_SQL_DATABASE_ENCODING_UNKNOWN;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -452,7 +451,6 @@ bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void SQLITE_DATABASE::Clean()
@@ -471,4 +469,8 @@ void SQLITE_DATABASE::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
+

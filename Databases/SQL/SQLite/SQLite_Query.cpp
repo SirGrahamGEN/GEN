@@ -1,38 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       SQLITE_Query.cpp
-*
+* 
+* @file       SQLite_Query.cpp
+* 
 * @class      SQLITE_QUERY
-* @brief      DataBase SQLite Query class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL SQLite Query class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DB_SQL_ACTIVE) && defined(DB_SQLITE_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "SQLite_Query.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -40,13 +48,20 @@
 #include "SQLite_Database.h"
 #include "SQLite_Connection.h"
 #include "SQLite_Result.h"
-#include "SQLite_Query.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +88,6 @@ SQLITE_QUERY::~SQLITE_QUERY()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -129,7 +143,6 @@ bool SQLITE_QUERY::Execute()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_QUERY::ClearCursor()
@@ -143,7 +156,6 @@ bool SQLITE_QUERY::ClearCursor()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,7 +176,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
@@ -181,7 +192,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 {
   return DB_SQL_QUERY::Bind(ID+1, string);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,7 +212,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
@@ -221,7 +230,6 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_QUERY::IsWellConstructedQuery()
@@ -236,7 +244,6 @@ bool SQLITE_QUERY::IsWellConstructedQuery()
   //pending checks
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,7 +390,6 @@ int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool SQLITE_QUERY::BindParametersToQuery()
@@ -480,7 +486,6 @@ bool SQLITE_QUERY::BindParametersToQuery()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_RESULT* SQLITE_QUERY::ConstructResult()
@@ -502,6 +507,8 @@ DB_SQL_RESULT* SQLITE_QUERY::ConstructResult()
   return set;
 }
 
+
+#pragma endregion
 
 
 #endif

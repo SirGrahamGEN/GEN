@@ -1,50 +1,63 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       MYSQL_Database.cpp
-*
+* 
+* @file       MySQL_Database.cpp
+* 
 * @class      MYSQL_DATABASE
-* @brief      DataBase MySQL Database class
-* @ingroup    DATABASESSQL
-*
+* @brief      DataBase SQL MySQL Database class
+* @ingroup    DATABASES
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DB_SQL_ACTIVE) && defined(DB_MYSQL_ACTIVE)
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MySQL_Database.h"
 
 #include "MySQL_Connection.h"
 #include "MySQL_Query.h"
 
-#include "MySQL_Database.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +76,6 @@ MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
   type        = DB_SQL_DATABASE_FLAGS_SQL | DB_SQL_DATABASE_FLAGS_TRANSACTIONAL;
   defaultport = 3306;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -97,7 +109,6 @@ DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* MYSQL_DATABASE::GetTypeName()
@@ -113,8 +124,6 @@ XCHAR* MYSQL_DATABASE::GetTypeName()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
@@ -128,7 +137,6 @@ DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 {
   return new DB_SQL_VARIANT();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -157,7 +165,6 @@ bool MYSQL_DATABASE::Transaction()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -192,7 +199,6 @@ bool MYSQL_DATABASE::Commit()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -246,7 +252,6 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
@@ -280,7 +285,6 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -317,7 +321,6 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
@@ -334,7 +337,6 @@ DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
@@ -349,7 +351,6 @@ DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
   DB_SQL_CONNECTION* conn = new MYSQL_CONNECTION(this);
   return conn;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -415,7 +416,6 @@ bool MYSQL_DATABASE::GetTables()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
@@ -440,7 +440,6 @@ DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 
   return DB_SQL_DATABASE_ENCODING_UNKNOWN;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -492,9 +491,9 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
       case DB_SQL_DATABASE_ENCODING_UHC                 : break;
 
       case DB_SQL_DATABASE_ENCODING_UTF8                : { int rc = mysql_set_character_set(conn,"utf8");
-                                                          if (rc == 0) return true;
-                                                        }
-                                                        break;
+                                                            if (rc == 0) return true;
+                                                          }
+                                                          break;
       case DB_SQL_DATABASE_ENCODING_WIN866              :
       case DB_SQL_DATABASE_ENCODING_WIN874              :
       case DB_SQL_DATABASE_ENCODING_WIN1250             :
@@ -514,7 +513,6 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MYSQL_DATABASE::Clean()
@@ -532,5 +530,8 @@ void MYSQL_DATABASE::Clean()
 }
 
 
+#pragma endregion
+
 
 #endif
+
