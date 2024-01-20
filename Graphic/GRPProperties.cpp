@@ -1,44 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPProperties.cpp
-*
+* 
 * @class      GRPPROPERTIES
 * @brief      Graphics Properties class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "GRPProperties.h"
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -58,7 +71,6 @@ GRPPROPERTIES::GRPPROPERTIES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTIES::~GRPPROPERTIES()
@@ -75,7 +87,6 @@ GRPPROPERTIES::~GRPPROPERTIES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPPROPERTYMODE GRPPROPERTIES::GetMode()
@@ -89,7 +100,6 @@ GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 {
   return mode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -109,7 +119,6 @@ void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetPositionX()
@@ -125,7 +134,6 @@ XDWORD GRPPROPERTIES::GetPositionX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetPositionY()
@@ -139,7 +147,6 @@ XDWORD GRPPROPERTIES::GetPositionY()
 {
   return positiony;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -161,7 +168,6 @@ void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetWidth()
@@ -175,7 +181,6 @@ XDWORD GRPPROPERTIES::GetWidth()
 {
   return width;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -195,7 +200,6 @@ void GRPPROPERTIES::SetWidth(XDWORD width)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetHeight()
@@ -209,7 +213,6 @@ XDWORD GRPPROPERTIES::GetHeight()
 {
   return height;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -227,7 +230,6 @@ void GRPPROPERTIES::SetHeight(XDWORD height)
 {
   this->height = height;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -249,7 +251,6 @@ void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetMaxWidth()
@@ -263,7 +264,6 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 {
   return maxwidth;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +283,6 @@ void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetMaxHeight()
@@ -297,7 +296,6 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 {
   return maxheight;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -315,7 +313,6 @@ void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 {
   this->maxheight = maxheight;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -337,7 +334,6 @@ void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPPROPERTIES::GetDPI()
@@ -351,7 +347,6 @@ float GRPPROPERTIES::GetDPI()
 {
   return DPIs;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -371,7 +366,6 @@ void GRPPROPERTIES::SetDPI(float DPI)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPPROPERTIES::GetStride()
@@ -385,7 +379,6 @@ XDWORD GRPPROPERTIES::GetStride()
 {
   return stride;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -405,7 +398,6 @@ void GRPPROPERTIES::SetStride(XDWORD stride)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPPROPERTIES::IsBufferInverse()
@@ -419,7 +411,6 @@ bool GRPPROPERTIES::IsBufferInverse()
 {
   return isbufferinverse;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -439,7 +430,6 @@ void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPPROPERTIES::HasTitle()
@@ -453,7 +443,6 @@ bool GRPPROPERTIES::HasTitle()
 {
   return hastitle;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -471,8 +460,6 @@ void GRPPROPERTIES::SetHasTitle(bool hastitle)
 {
   this->hastitle = hastitle;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -511,7 +498,6 @@ XBYTE GRPPROPERTIES::GetBitsperPixel()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE GRPPROPERTIES::GetBytesperPixel()
@@ -525,7 +511,6 @@ XBYTE GRPPROPERTIES::GetBytesperPixel()
 {
   return (GetBitsperPixel()/8);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -555,7 +540,6 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
@@ -581,7 +565,6 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
   properties->isbufferinverse   = isbufferinverse;
   properties->hastitle          = hastitle;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -611,7 +594,6 @@ int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPPROPERTIES::Default()
@@ -635,7 +617,6 @@ void GRPPROPERTIES::Default()
   isbufferinverse = false;
   hastitle        = true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -662,5 +643,9 @@ void GRPPROPERTIES::Clean()
   isbufferinverse = false;
   hastitle        = false;
 }
+
+
+#pragma endregion
+
 
 

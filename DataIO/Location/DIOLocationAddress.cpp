@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       LocationAddress.cpp
+* @file       DIOLocationAddress.cpp
 * 
-* @class      LOCATIONADDRESS
-* @brief      Location Address class  (container)
+* @class      DIOLOCATIONADDRESS
+* @brief      Data Input/Output Location Address class  (container)
 * @ingroup    LOCATION
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "LocationAddress.h"
+#include "DIOLocationAddress.h"
 
 #include "XMemory_Control.h"
 
@@ -56,14 +56,14 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         LOCATIONADDRESS::LOCATIONADDRESS()
+* @fn         DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
 * @brief      Constructor
 * @ingroup    LOCATION
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-LOCATIONADDRESS::LOCATIONADDRESS()
+DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
 {
   Clean();
 }
@@ -71,7 +71,7 @@ LOCATIONADDRESS::LOCATIONADDRESS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         LOCATIONADDRESS::~LOCATIONADDRESS()
+* @fn         DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    LOCATION
@@ -79,7 +79,7 @@ LOCATIONADDRESS::LOCATIONADDRESS()
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-LOCATIONADDRESS::~LOCATIONADDRESS()
+DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
 {
   Clean();
 }
@@ -87,14 +87,14 @@ LOCATIONADDRESS::~LOCATIONADDRESS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* LOCATIONADDRESS::GetStreet()
+* @fn         XSTRING* DIOLOCATIONADDRESS::GetStreet()
 * @brief      GetStreet
 * @ingroup    LOCATION
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* LOCATIONADDRESS::GetStreet()
+XSTRING* DIOLOCATIONADDRESS::GetStreet()
 {
   return &street;
 }
@@ -102,14 +102,14 @@ XSTRING* LOCATIONADDRESS::GetStreet()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* LOCATIONADDRESS::GetCity()
+* @fn         XSTRING* DIOLOCATIONADDRESS::GetCity()
 * @brief      GetCity
 * @ingroup    LOCATION
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* LOCATIONADDRESS::GetCity()
+XSTRING* DIOLOCATIONADDRESS::GetCity()
 {
   return &city;
 }
@@ -117,14 +117,14 @@ XSTRING* LOCATIONADDRESS::GetCity()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* LOCATIONADDRESS::GetState()
+* @fn         XSTRING* DIOLOCATIONADDRESS::GetState()
 * @brief      GetState
 * @ingroup    LOCATION
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* LOCATIONADDRESS::GetState()
+XSTRING* DIOLOCATIONADDRESS::GetState()
 {
   return &state;
 }
@@ -132,14 +132,14 @@ XSTRING* LOCATIONADDRESS::GetState()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* LOCATIONADDRESS::GetCountry()
+* @fn         XSTRING* DIOLOCATIONADDRESS::GetCountry()
 * @brief      GetCountry
 * @ingroup    LOCATION
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* LOCATIONADDRESS::GetCountry()
+XSTRING* DIOLOCATIONADDRESS::GetCountry()
 {
   return &country;
 }
@@ -147,14 +147,14 @@ XSTRING* LOCATIONADDRESS::GetCountry()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD LOCATIONADDRESS::GetPostalCode()
+* @fn         XDWORD DIOLOCATIONADDRESS::GetPostalCode()
 * @brief      GetPostalCode
 * @ingroup    LOCATION
 * 
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD LOCATIONADDRESS::GetPostalCode()
+XDWORD DIOLOCATIONADDRESS::GetPostalCode()
 {
   return postalcode;
 }
@@ -162,7 +162,7 @@ XDWORD LOCATIONADDRESS::GetPostalCode()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void LOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
+* @fn         void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 * @brief      SetPostalCode
 * @ingroup    LOCATION
 * 
@@ -171,7 +171,7 @@ XDWORD LOCATIONADDRESS::GetPostalCode()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void LOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
+void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 {
   this->postalcode = postalcode;
 }
@@ -179,7 +179,7 @@ void LOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void LOCATIONADDRESS::Clean()
+* @fn         void DIOLOCATIONADDRESS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup
@@ -187,7 +187,7 @@ void LOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void LOCATIONADDRESS::Clean()
+void DIOLOCATIONADDRESS::Clean()
 {
   postalcode  = 0;
 }

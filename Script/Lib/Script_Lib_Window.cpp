@@ -57,7 +57,7 @@
 #include "GRPBitmap.h"
 #include "GRPBitmapFile.h"
 
-#include "GRPViewPort.h"
+#include "GRPViewport.h"
 #include "GRPCanvas.h"
 
 #include "Script.h"

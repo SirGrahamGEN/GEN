@@ -5,7 +5,7 @@
 * @class      GRPFRAMERATE
 * @brief      Graphic Frame Rate class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,29 +24,38 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFactory.h"
-#include "XTimer.h"
-#include "XThread.h"
-#include "XThreadCollected.h"
+#pragma region INCLUDES
 
 #include "GRPFrameRate.h"
 
+#include "XFactory.h"
+#include "XTimer.h"
+#include "XThreadCollected.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,10 +76,8 @@ GRPFRAMERATE::GRPFRAMERATE()
   thread_framerate = CREATEXTHREAD((XTHREADGROUPID)(XTHREADGROUPID_GRPFRAMERATE), __L("GRPFRAMERATE::GRPFRAMERATE"), ThreadRunFunction_Framerate, this);    
   if(!thread_framerate)  return;
 
-  if(!thread_framerate->Ini()) return;
-                      
+  if(!thread_framerate->Ini()) return;                      
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -99,7 +106,6 @@ GRPFRAMERATE::~GRPFRAMERATE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XTIMER* GRPFRAMERATE::GetXTime()
@@ -113,8 +119,6 @@ XTIMER* GRPFRAMERATE::GetXTimer()
 {
   return xtimertotal;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +136,6 @@ void GRPFRAMERATE::AddNFrames()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD GRPFRAMERATE::GetNFrames()
@@ -146,7 +149,6 @@ XDWORD GRPFRAMERATE::GetNFrames()
 {
   return nframes;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -169,7 +171,6 @@ void GRPFRAMERATE::Reset()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         float GRPFRAMERATE::Get()
@@ -187,7 +188,6 @@ float GRPFRAMERATE::Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
@@ -199,32 +199,6 @@ float GRPFRAMERATE::Get()
 * @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-/*
-void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
-{
-  GRPFRAMERATE* grpframerate = (GRPFRAMERATE*)param;
-  if(!grpframerate) return;
-
-  static int counter = 0;
- 
-  XDWORD nsec = grpframerate->xtimertotal->GetMeasureSeconds();
-  if(!nsec)  return;
-
-  grpframerate->actual_framerate = (float)((float)grpframerate->nframes / (float)nsec); 
-  
-  GEN_XSLEEP.MilliSeconds(10);
-
-  counter++;
-
-  if(counter >= 100)
-    {
-      grpframerate->xtimertotal->Reset();
-      grpframerate->nframes = 0;
- 
-      counter = 0;
-    }    
-}
-*/
 void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 {
   GRPFRAMERATE* grpframerate = (GRPFRAMERATE*)param;
@@ -239,10 +213,6 @@ void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
   grpframerate->nframes = 0;
   
 }
-
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -264,3 +234,7 @@ void GRPFRAMERATE::Clean()
   
   actual_framerate  = 0.0f;  
 }
+
+
+#pragma endregion
+

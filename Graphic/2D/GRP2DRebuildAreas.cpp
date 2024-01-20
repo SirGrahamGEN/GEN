@@ -1,47 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRP2DRebuildAreas.cpp
-*
+* 
 * @class      GRP2DREBUILDAREAS
-* @brief      Graphics 2D Rebuild Areas
+* @brief      Graphics 2D Rebuild Areas class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-#include "GRPCanvas.h"
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "GRP2DRebuildAreas.h"
 
+#include "GRPCanvas.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -57,7 +72,6 @@ GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +96,6 @@ GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRP2DREBUILDAREA::GetXPos()
@@ -98,7 +111,6 @@ double GRP2DREBUILDAREA::GetXPos()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         double GRP2DREBUILDAREA::GetYPos()
@@ -112,7 +124,6 @@ double GRP2DREBUILDAREA::GetYPos()
 {
   return ypos;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +143,6 @@ void GRP2DREBUILDAREA::SetXPos(double xpos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREA::SetYPos(double ypos)
@@ -150,7 +160,6 @@ void GRP2DREBUILDAREA::SetYPos(double ypos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
@@ -164,7 +173,6 @@ GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 {
   return bitmap;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -184,7 +192,6 @@ void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* GRP2DREBUILDAREA::GetExtraData()
@@ -198,7 +205,6 @@ void* GRP2DREBUILDAREA::GetExtraData()
 {
   return extra_data;
 }
-    
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -216,7 +222,6 @@ void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 {
   this->extra_data = extra_data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -240,12 +245,10 @@ void GRP2DREBUILDAREA::Clean()
 }
 
 
+#pragma endregion
 
 
-//--------------------------------------------------------------------------------------------------------------------
-// AREAS
-//--------------------------------------------------------------------------------------------------------------------
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,7 +264,6 @@ GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -297,7 +299,6 @@ XDWORD GRP2DREBUILDAREAS::GetExcessEdge()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
@@ -316,8 +317,6 @@ bool GRP2DREBUILDAREAS::SetExcessEdge(XDWORD excessedge)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
@@ -331,7 +330,6 @@ XVECTOR<GRP2DREBUILDAREA*>* GRP2DREBUILDAREAS::GetRebuildAreas()
 {
   return &areas;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -355,7 +353,6 @@ bool GRP2DREBUILDAREAS::RebuildAllAreas()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
@@ -374,7 +371,6 @@ bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -420,7 +416,6 @@ bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, doub
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double height)
@@ -439,7 +434,6 @@ GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -461,7 +455,6 @@ void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRP2DREBUILDAREAS::Clean()
@@ -476,4 +469,14 @@ void GRP2DREBUILDAREAS::Clean()
 {
   excessedge = GRP2DREBUILDAREAS_DEFAULT_EXCESSEDGE;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+
+
+
 

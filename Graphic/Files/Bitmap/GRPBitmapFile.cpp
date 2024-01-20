@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmapFile.cpp
-*
+* 
 * @class      GRPBITMAPFILE
-* @brief      Graphic Bitmap File Class
+* @brief      Graphics Bitmap File class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmapFile.h"
 
 #include <string.h>
 
@@ -45,14 +51,22 @@
 #include "GRPBitmapFileBMP.h"
 #include "GRPBitmapFileTGA.h"
 
-#include "GRPBitmapFile.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_GRPBITMAPFILEBASE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,7 +84,6 @@ GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 
   GEN_XFACTORY_CREATE(file, Create_File())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -91,7 +104,6 @@ GRPBITMAPFILEBASE::~GRPBITMAPFILEBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE forcemode)
@@ -108,7 +120,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -130,7 +141,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBASE::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
@@ -150,7 +160,6 @@ bool GRPBITMAPFILEBASE::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, in
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* GRPBITMAPFILEBASE::ReadImageBufferFromFile(XPATH& xpath)
@@ -166,7 +175,6 @@ XBYTE* GRPBITMAPFILEBASE::ReadImageBufferFromFile(XPATH& xpath)
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -198,7 +206,6 @@ GRPBITMAP* GRPBITMAPFILEBASE::ForceModeOfBitmap(GRPPROPERTYMODE forcemode, GRPBI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBASE::Open(XPATH& xpath,bool readonly)
@@ -218,8 +225,6 @@ bool GRPBITMAPFILEBASE::Open(XPATH& xpath,bool readonly)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -242,7 +247,6 @@ bool GRPBITMAPFILEBASE::Create(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBASE::Close()
@@ -258,7 +262,6 @@ bool GRPBITMAPFILEBASE::Close()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -277,14 +280,10 @@ void GRPBITMAPFILEBASE::Clean()
 }
 
 
+#pragma endregion
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* GRPBITMAPFILE
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_GRPBITMAPFILE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -300,8 +299,6 @@ GRPBITMAPFILE::GRPBITMAPFILE()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -323,7 +320,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
@@ -343,7 +339,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILE::~GRPBITMAPFILE()
@@ -358,7 +353,6 @@ GRPBITMAPFILE::~GRPBITMAPFILE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -376,7 +370,6 @@ XCHAR* GRPBITMAPFILE::GetPath()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILE::SetPath(XPATH& xpath)
@@ -392,7 +385,6 @@ void GRPBITMAPFILE::SetPath(XPATH& xpath)
 {
   this->xpath = xpath;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -504,7 +496,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(XPATH& xpath, GRPPROPERTYMODE forcemode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
@@ -522,7 +513,6 @@ GRPBITMAP* GRPBITMAPFILE::Load(GRPPROPERTYMODE forcemode)
 
   return Load(xpath, forcemode);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -568,7 +558,6 @@ bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILE::Save(XPATH& xpath, GRPBITMAP* bitmap, int quality)
@@ -586,7 +575,6 @@ bool GRPBITMAPFILE::Save(XPATH& xpath, GRPBITMAP* bitmap, int quality)
 {
   return Save(xpath.Get(), bitmap, quality);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -607,7 +595,6 @@ bool GRPBITMAPFILE::Save(GRPBITMAP* bitmap, int quality)
 
   return Save(xpath, bitmap, quality);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -667,7 +654,6 @@ GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILE::Clean()
@@ -682,4 +668,10 @@ void GRPBITMAPFILE::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

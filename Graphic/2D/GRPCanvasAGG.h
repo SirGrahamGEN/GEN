@@ -1,40 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPCanvasAGG.h
-*
+* 
 * @class      GRPCANVASAGG
 * @brief      Graphics Canvas AGG Library class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPCANVASAGG_H_
 #define _GRPCANVASAGG_H_
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
-
-#include "GEN_Defines.h"
-
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <math.h>
@@ -80,14 +76,17 @@
 #include "GRPBitmap.h"
 #include "GRPBitmapSequence.h"
 #include "GRPCanvas.h"
-#include "GRPViewPort.h"
+#include "GRPViewport.h"
 #include "GRPFrameRate.h"
-
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 #define AGG_OUTLINE_INI                                       agg::line_profile_aa                                                                             profile;                         \
                                                               agg::renderer_outline_aa<agg::renderer_base<PIXELFORMATBUFFER> >                                 ren(*renderer_base, profile);    \
@@ -115,9 +114,11 @@ typedef agg::font_engine_freetype_int32                       AGG_FONT_ENGINE;
 typedef agg::font_cache_manager<AGG_FONT_ENGINE>              AGG_FONT_MANAGER;
 
 
-    
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class GRPCANVASAGG_SIMPLE_VERTEX_SOURCE
@@ -206,8 +207,6 @@ class GRPCANVASAGG_SIMPLE_VERTEX_SOURCE
 };
 
 
-
-
 template<class RASTERIZERTYPE, class RENDERER, class SCANLINETYPE>
 class GRPCANVASAGG_DASHED_LINE
 {
@@ -259,7 +258,6 @@ class GRPCANVASAGG_DASHED_LINE
     agg::conv_stroke<GRPCANVASAGG_SIMPLE_VERTEX_SOURCE>                         m_stroke;
     agg::conv_stroke<agg::conv_dash<GRPCANVASAGG_SIMPLE_VERTEX_SOURCE> >        m_dash_stroke;
 };
-
 
 
 template<class PIXELFORMATBUFFER, class COLORTYPE>
@@ -1334,9 +1332,15 @@ class GRPCANVASAGG: public GRPCANVAS
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
 

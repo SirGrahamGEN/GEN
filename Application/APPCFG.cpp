@@ -194,7 +194,7 @@ bool APPCFG::DoVariableMapping()
 
   //---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  #ifdef APP_CFG_LOCATION_ACTIVE
+  #ifdef APP_CFG_DIOLOCATION_ACTIVE
   AddRemark(APP_CFG_SECTION_LOCATION, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
   AddRemark(APP_CFG_SECTION_LOCATION, __L(" Location info section of configuration"), 0, 2);
   
@@ -977,7 +977,7 @@ XSTRING* APPCFG::DNSManager_GetURL(int index)
 #endif
 
 
-#ifdef APP_CFG_LOCATION_ACTIVE
+#ifdef APP_CFG_DIOLOCATION_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -1866,7 +1866,7 @@ void APPCFG::Clean()
 
   //-----------------------------------------------------------------------------------------------------
 
-  #ifdef APP_CFG_LOCATION_ACTIVE
+  #ifdef APP_CFG_DIOLOCATION_ACTIVE
   location_street.Empty();
   location_city.Empty();
   location_state.Empty();

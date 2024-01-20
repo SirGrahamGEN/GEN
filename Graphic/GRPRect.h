@@ -47,6 +47,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 template<class T>
 class GRPRECTBASE
 {
@@ -183,11 +184,13 @@ class GRPRECTBASE
                               }
 };
 
+
 #pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
+
 
 template<class R>
 inline R IntersectRectangles(const R& r1, const R& r2)
@@ -202,7 +205,6 @@ inline R IntersectRectangles(const R& r1, const R& r2)
   return r;
 }
 
-
 template<class R>
 inline R UniteRectangles(const R& r1, const R& r2)
 {
@@ -215,6 +217,7 @@ inline R UniteRectangles(const R& r1, const R& r2)
 
   return r;
 }
+
 
 #pragma endregion
 

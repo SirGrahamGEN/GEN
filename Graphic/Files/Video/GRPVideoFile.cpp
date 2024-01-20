@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPVideoFile.cpp
-*
+* 
 * @class      GRPVIDEOFILE
-* @brief      Graphic Video File Class
-* @ingroup    GRAPHIC
-*
+* @brief      Graphic Video File class
+* @ingroup    VIDEO
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPVideoFile.h"
 
 #include "XFactory.h"
 
@@ -39,20 +45,22 @@
 #include "GRPBitmap.h"
 #include "GRPBitmapSequence.h"
 
-#include "GRPVideoFile.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* GRPVIDEOFILE_PROPERTYS
-*
-* --------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_GRPVIDEOFILE_PROPERTYS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +94,6 @@ GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVIDEOFILE_PROPERTYS::Clean()
@@ -106,14 +113,10 @@ void GRPVIDEOFILE_PROPERTYS::Clean()
 }
 
 
+#pragma endregion
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* GRPVIDEOFILE
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_GRPVIDEOFILE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -147,7 +150,6 @@ GRPVIDEOFILE::~GRPVIDEOFILE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILE::Open(XCHAR* xpath)
@@ -163,8 +165,6 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 {
   return false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -185,7 +185,6 @@ bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS* GRPVIDEOFILE::GetPropertys()
@@ -199,7 +198,6 @@ GRPVIDEOFILE_PROPERTYS*  GRPVIDEOFILE::GetPropertys()
 {
   return &propertys;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -220,7 +218,6 @@ XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
@@ -235,10 +232,8 @@ XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 {
-
   return false;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,7 +251,6 @@ bool GRPVIDEOFILE::Close()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIDEOFILE::Clean()
@@ -271,4 +265,10 @@ void GRPVIDEOFILE::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

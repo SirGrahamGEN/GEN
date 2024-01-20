@@ -1,50 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       GRPViewPort.cpp
-*
+* 
+* @file       GRPViewport.cpp
+* 
 * @class      GRPVIEWPORT
-* @brief      Graphics View Port class
+* @brief      Graphics Viewport class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPViewport.h"
 
 #include "GRPXEvent.h"
 #include "GRPFactory.h"
 #include "GRPScreen.h"
 #include "GRPCanvasAGG.h"
 
-#include "GRPViewPort.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,7 +72,6 @@ GRPVIEWPORT::GRPVIEWPORT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -84,7 +95,6 @@ GRPVIEWPORT::~GRPVIEWPORT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* GRPVIEWPORT::GetID()
@@ -100,7 +110,6 @@ XSTRING* GRPVIEWPORT::GetID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPVIEWPORT::IsActive()
@@ -114,7 +123,6 @@ bool GRPVIEWPORT::IsActive()
 {
   return active;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -149,7 +157,6 @@ GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
@@ -165,7 +172,6 @@ void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 {
   this->projectiontype = projectiontype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -196,7 +202,6 @@ bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetPositionX()
@@ -212,7 +217,6 @@ float GRPVIEWPORT::GetPositionX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetPositionY()
@@ -226,7 +230,6 @@ float  GRPVIEWPORT::GetPositionY()
 {
   return y;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -248,7 +251,6 @@ void GRPVIEWPORT::SetPosition(float x, float y)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetWidth()
@@ -264,8 +266,6 @@ float GRPVIEWPORT::GetWidth()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPVIEWPORT::GetHeight()
@@ -279,7 +279,6 @@ float GRPVIEWPORT::GetHeight()
 {
   return height;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -301,7 +300,6 @@ void GRPVIEWPORT::SetSize(float width, float height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS* GRPVIEWPORT::GetCanvas()
@@ -315,8 +313,6 @@ GRPCANVAS*  GRPVIEWPORT::GetCanvas()
 {
   return canvas;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -345,4 +341,5 @@ void GRPVIEWPORT::Clean()
 }
 
 
+#pragma endregion
 

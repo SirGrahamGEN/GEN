@@ -75,9 +75,9 @@ if(APP_FEATURE)
   endif()
 
 
-  if(APP_CFG_LOCATION_FEATURE)
+  if(APP_CFG_DIOLOCATION_FEATURE)
 
-    option(LOCATION_FEATURE  "Location API"  true )
+    option(DIO_LOCATION_FEATURE  "Location API"  true )
   
   endif()
 
@@ -98,16 +98,6 @@ if(APP_CFG_REMOTEFILE_FEATURE)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIORemoteFileCFG.cpp")
 
-endif()
-
-
-# --------------------------------------------------------------------
-# Location 
-
-if(LOCATION_FEATURE)
-
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_LOCATION}/LocationAddress.cpp")
-  
 endif()
 
 
@@ -310,7 +300,7 @@ if(GRP_FEATURE)
 
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPFactory.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPScreen.cpp")
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPViewPort.cpp")
+  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPViewport.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPXEvent.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPProperties.cpp")
   list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPBitmap.cpp")
@@ -329,12 +319,12 @@ if(GRP_FEATURE)
 
 
   if(GRP_VIDEO_FILE_FEATURE)
-  
-    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFile.cpp")
+                           
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_FILES_VIDEO}/GRPVideoFile.cpp")
 
     if(GRP_VIDEO_FILE_AVI_FEATURE)
      
-      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC}/GRPVideoFileAVI.cpp")
+      list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_GRAPHIC_FILES_VIDEO}/GRPVideoFileAVI.cpp")
 
     endif()
 
@@ -1010,7 +1000,14 @@ if(DIO_FEATURE)
     list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO}/DIOApplicationUpdate.cpp")
     
   endif()
+  
+  
+  if(DIO_LOCATION_FEATURE)
 
+    list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_DATAIO_LOCATION}/DIOLocationAddress.cpp")
+  
+  endif()
+  
 endif()
 
 

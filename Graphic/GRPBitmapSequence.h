@@ -42,6 +42,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 enum GRPBITMAPSEQUENCESTATUS
 {
   GRPBITMAPSEQUENCESTATUS_NONE     = 0,
@@ -55,6 +56,7 @@ enum GRPBITMAPSEQUENCESTATUS
 
 #define GRPBITMAPSEQUENCE_INFINITE      0
 #define GRPBITMAPSEQUENCE_FRAMESSECOND  12
+
 
 #pragma endregion
 
@@ -91,7 +93,6 @@ class GRPBITMAPFRAME
     int                           ajustx;
     int                           ajusty;
 };
-
 
 
 class GRPBITMAPSEQUENCE

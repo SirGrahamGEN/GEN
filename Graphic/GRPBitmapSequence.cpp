@@ -59,6 +59,7 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
 #pragma region CLASS_BITMAPFRAME
 
 
@@ -775,7 +776,4 @@ void GRPBITMAPSEQUENCE::Clean()
 
 
 #pragma endregion
-
-
-
 

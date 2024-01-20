@@ -49,6 +49,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 enum GRPSCREENTYPE
 {
   GRPSCREENTYPE_UNKNOW                        =  0  ,
@@ -62,11 +63,13 @@ enum GRPSCREENTYPE
   GRPSCREENTYPE_ANDROID
 };
 
+
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
+
 
 class GRPCANVAS;
 class GRPVIEWPORT;

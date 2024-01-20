@@ -5,7 +5,7 @@
 * @class      GRPFRAMERATE
 * @brief      Graphic Frame Rate class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,20 +24,29 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _GRPFRAMERATE_H_
 #define _GRPFRAMERATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-#define GRPFRAMERATE_DEFALT_UPDATETIME   1
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XTIMER;
 class XTHREADCOLLECTED;
@@ -59,7 +68,6 @@ class GRPFRAMERATE
 
     float                     Get                           ();
     
-
   private:
     
     static void               ThreadRunFunction_Framerate   (void* param);
@@ -73,12 +81,18 @@ class GRPFRAMERATE
     XDWORD                    ngets;  
    
     float                     actual_framerate;
-
-
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

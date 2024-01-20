@@ -1,58 +1,69 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       GRPContext.cpp
-*
-* @class      GRPCONTEXT
-* @brief      Graphics Context class
+* 
+* @file       GRP3DContext.cpp
+* 
+* @class      GRP3DCONTEXT
+* @brief      Graphics 3D Context class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include "GRPContext.h"
+#include "GRP3DContext.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         GRPCONTEXT::GRPCONTEXT()
+* @fn         GRP3DCONTEXT::GRP3DCONTEXT()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPCONTEXT::GRPCONTEXT()
+GRP3DCONTEXT::GRP3DCONTEXT()
 {
   Clean();
 
@@ -60,10 +71,9 @@ GRPCONTEXT::GRPCONTEXT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         GRPCONTEXT::~GRPCONTEXT()
+* @fn         GRP3DCONTEXT::~GRP3DCONTEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
@@ -71,32 +81,30 @@ GRPCONTEXT::GRPCONTEXT()
 * @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPCONTEXT::~GRPCONTEXT()
+GRP3DCONTEXT::~GRP3DCONTEXT()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         GRPSCREEN* GRPCONTEXT::GetScreen()
+* @fn         GRPSCREEN* GRP3DCONTEXT::GetScreen()
 * @brief      Get Screen Handle
 * @ingroup    GRAPHIC
 *
 * @return     GRPSCREEN* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPSCREEN* GRPCONTEXT::GetScreen()
+GRPSCREEN* GRP3DCONTEXT::GetScreen()
 {
   return screen;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPCONTEXT::SetScreen(GRPSCREEN* screen)
+* @fn         void GRP3DCONTEXT::SetScreen(GRPSCREEN* screen)
 * @brief      Set Screen Handle
 * @ingroup    GRAPHIC
 *
@@ -105,16 +113,15 @@ GRPSCREEN* GRPCONTEXT::GetScreen()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPCONTEXT::SetScreen(GRPSCREEN* screen)
+void GRP3DCONTEXT::SetScreen(GRPSCREEN* screen)
 {
   this->screen = screen;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPCONTEXT::Create(void* handle)
+* @fn         bool GRP3DCONTEXT::Create(void* handle)
 * @brief      Create context
 * @ingroup    GRAPHIC
 *
@@ -123,82 +130,75 @@ void GRPCONTEXT::SetScreen(GRPSCREEN* screen)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCONTEXT::Create(void* handle)
+bool GRP3DCONTEXT::Create(void* handle)
 {
   return false;
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPCONTEXT::IsLost()
+* @fn         bool GRP3DCONTEXT::IsLost()
 * @brief      Is Lost context
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCONTEXT::IsLost()
+bool GRP3DCONTEXT::IsLost()
 {
   return false;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPCONTEXT::Update()
+* @fn         bool GRP3DCONTEXT::Update()
 * @brief      Update Context
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCONTEXT::Update()
+bool GRP3DCONTEXT::Update()
 {
   return true;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPCONTEXT::Destroy()
+* @fn         bool GRP3DCONTEXT::Destroy()
 * @brief      Destroy context
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCONTEXT::Destroy()
+bool GRP3DCONTEXT::Destroy()
 {
   return false;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPCONTEXT::IsMustRebuild()
+* @fn         bool GRP3DCONTEXT::IsMustRebuild()
 * @brief      Is Must Rebuild context
 * @ingroup    GRAPHIC
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCONTEXT::IsMustRebuild()
+bool GRP3DCONTEXT::IsMustRebuild()
 {
   return this->mustrebuild;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPCONTEXT::SetMustRebuild(bool mustrebuild)
+* @fn         void GRP3DCONTEXT::SetMustRebuild(bool mustrebuild)
 * @brief      Set Must Rebuild
 * @ingroup    GRAPHIC
 *
@@ -207,32 +207,30 @@ bool GRPCONTEXT::IsMustRebuild()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPCONTEXT::SetMustRebuild(bool mustrebuild)
+void GRP3DCONTEXT::SetMustRebuild(bool mustrebuild)
 {
   this->mustrebuild = mustrebuild;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD GRPCONTEXT::GetMultisampling()
+* @fn         XDWORD GRP3DCONTEXT::GetMultisampling()
 * @brief      Get Multi sampling
 * @ingroup    GRAPHIC
 *
 * @return     XDWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD GRPCONTEXT::GetMultisampling()
+XDWORD GRP3DCONTEXT::GetMultisampling()
 {
   return multisampling;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPCONTEXT::SetMultiSampling(XDWORD multisampling)
+* @fn         void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
 * @brief      Set Multi Sampling
 * @ingroup    GRAPHIC
 *
@@ -241,16 +239,15 @@ XDWORD GRPCONTEXT::GetMultisampling()
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPCONTEXT::SetMultiSampling(XDWORD multisampling)
+void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
 {
   this->multisampling = multisampling;
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPCONTEXT::Clean()
+* @fn         void GRP3DCONTEXT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
@@ -258,10 +255,14 @@ void GRPCONTEXT::SetMultiSampling(XDWORD multisampling)
 * @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPCONTEXT::Clean()
+void GRP3DCONTEXT::Clean()
 {
   screen          = NULL;
   mustrebuild     = false;
   multisampling   = 0;
 }
+
+
+#pragma endregion
+
 

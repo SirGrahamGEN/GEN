@@ -41,7 +41,7 @@
 
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
-#include "GRPViewPort.h"
+#include "GRPViewport.h"
 #include "GRPFrameRate.h"
 
 #include "XMemory_Control.h"
@@ -833,4 +833,6 @@ void GRPSCREEN::Clean()
   isshow              = false;
 }
 
+
 #pragma endregion
+

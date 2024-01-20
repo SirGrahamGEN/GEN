@@ -1,46 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmap.cpp
-*
+* 
 * @class      GRPBITMAP
 * @brief      Graphics Bitmap class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmap.h"
 
 #include "GRPRect.h"
-#include "GRPBitmap.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -68,7 +81,6 @@ GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferi
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP::~GRPBITMAP()
@@ -83,7 +95,6 @@ GRPBITMAP::~GRPBITMAP()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -101,7 +112,6 @@ bool GRPBITMAP::IsValid()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* GRPBITMAP::GetBuffer()
@@ -115,7 +125,6 @@ XBYTE* GRPBITMAP::GetBuffer()
 {
   return buffer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -133,7 +142,6 @@ XBYTE** GRPBITMAP::GetBufferPointer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAP::GetBufferSize()
@@ -147,7 +155,6 @@ int GRPBITMAP::GetBufferSize()
 {
   return buffersize;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +174,6 @@ GRPBITMAP* GRPBITMAP::GetSubBitmap(GRPRECTINT& rect)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAP::Clone()
@@ -181,7 +187,6 @@ GRPBITMAP* GRPBITMAP::Clone()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,7 +206,6 @@ bool GRPBITMAP::CopyFrom(GRPBITMAP* bitmap)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAP::ConvertToMode(GRPPROPERTYMODE newmode)
@@ -219,7 +223,6 @@ GRPBITMAP* GRPBITMAP::ConvertToMode(GRPPROPERTYMODE newmode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::FlipHorizontal()
@@ -235,7 +238,6 @@ bool GRPBITMAP::FlipHorizontal()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::FlipVertical()
@@ -249,7 +251,6 @@ bool GRPBITMAP::FlipVertical()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -269,7 +270,6 @@ bool GRPBITMAP::Rotate(float degrees)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAP::Scale(int nwidth, int nheight)
@@ -286,7 +286,6 @@ bool GRPBITMAP::Scale(int nwidth, int nheight)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -487,7 +486,6 @@ XDWORD GRPBITMAP::GetHandle()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAP::SetHandle(XDWORD handle)
@@ -583,6 +581,9 @@ void GRPBITMAP::Clean()
   isvalid     = false;
   handle      = GRPBITMAP_INVALIDHANDLE;
 }
+
+
+#pragma endregion
 
 
 

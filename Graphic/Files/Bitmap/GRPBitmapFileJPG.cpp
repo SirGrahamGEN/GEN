@@ -1,49 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmapFileJPG.cpp
-*
+* 
 * @class      GRPBITMAPFILEJPG
 * @brief      Graphic bitmap file JPEG format (JPEG: Joint Photographic Experts Group) class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmapFileJPG.h"
 
 #include "GRPFactory.h"
 #include "GRPBitmap.h"
 
-#include "GRPBitmapFileJPG.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,6 +77,7 @@ METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 }
 
 
+#pragma region CLASS_GRPBITMAPFILEJPG
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +98,6 @@ GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
@@ -104,7 +115,6 @@ GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -181,8 +191,6 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, GRPPROPERTYMODE forcemode)
@@ -255,7 +263,6 @@ GRPBITMAP* GRPBITMAPFILEJPG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
@@ -318,24 +325,6 @@ bool GRPBITMAPFILEJPG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 }
 
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPBITMAPFILEJPG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void GRPBITMAPFILEJPG::Clean()
-{
-
-}
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
@@ -395,7 +384,6 @@ bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEJPGHEADER* header)
@@ -441,7 +429,6 @@ bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -595,8 +582,6 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height, XBYTE* buffer, int quality, bool baseline)
@@ -666,4 +651,25 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void GRPBITMAPFILEJPG::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPBITMAPFILEJPG::Clean()
+{
+
+}
+
+
+#pragma endregion
+
+
+#pragma endregion
 

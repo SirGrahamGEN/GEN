@@ -14,7 +14,7 @@
 *
 *               APP_CFG_GENERAL_ACTIVE           : Default general (debug trace, memory check, etc..
 *               APP_CFG_INTERNETSERVICES_ACTIVE  : Inter
-*               APP_CFG_LOCATION_ACTIVE          : Location info (street, postal code, etc..)
+*               APP_CFG_DIOLOCATION_ACTIVE       : Location info (street, postal code, etc..)
 *               APP_CFG_APPUPDATE_ACTIVE         : Application update
 *               APP_CFG_ALERTS_ACTIVE            : Alerts
 *               APP_CFG_LOG_ACTIVE               : Log
@@ -120,7 +120,7 @@
 #endif
 
 
-#ifdef APP_CFG_LOCATION_ACTIVE
+#ifdef APP_CFG_DIOLOCATION_ACTIVE
 
 #define APP_CFG_SECTION_LOCATION                                                  __L("location")
 #define APP_CFG_CENTERNAME                                                        __L("name")
@@ -298,7 +298,7 @@ class APPCFG
     #endif
 
 
-    #ifdef APP_CFG_LOCATION_ACTIVE
+    #ifdef APP_CFG_DIOLOCATION_ACTIVE
     XSTRING*             Location_GetStreet                                       ();
     XSTRING*             Location_GetCity                                         ();
     XSTRING*             Location_GetState                                        ();
@@ -416,7 +416,7 @@ class APPCFG
     #endif
 
 
-    #ifdef APP_CFG_LOCATION_ACTIVE
+    #ifdef APP_CFG_DIOLOCATION_ACTIVE
     XSTRING              location_street;
     XSTRING              location_city;
     XSTRING              location_state;

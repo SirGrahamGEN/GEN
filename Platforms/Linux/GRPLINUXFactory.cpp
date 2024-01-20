@@ -44,7 +44,7 @@
 #endif
 
 #ifdef GRP_OPENGL_ACTIVE
-#include "GRPContext.h"
+#include "GRP3DContext.h"
 #endif
 
 #include "GRPLINUXFactory.h"

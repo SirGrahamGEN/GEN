@@ -26,7 +26,7 @@
 #include "GRPOpenGL.h"
 #endif
 
-#include "GRPContext.h"
+#include "GRP3DContext.h"
 
 /*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
 

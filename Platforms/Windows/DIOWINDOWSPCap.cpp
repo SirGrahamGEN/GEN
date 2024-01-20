@@ -43,14 +43,10 @@
 
 #include "DIOWINDOWSPCap.h"
 
-#include <winsock2.h>
-#include <windows.h>
-
 #include "XFactory.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 #include "XString.h"
-#include "XWINDOWSThread.h"
+#include "XThreadCollected.h"
 
 #include "XMemory_Control.h"
 

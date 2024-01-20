@@ -1,47 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmapFileTGA.cpp
-*
+* 
 * @class      GRPBITMAPFILETGA
-* @brief
+* @brief      Graphic bitmap file TGA / TARGA format class (TGA  : Truevision Graphics Adapter)
+* @brief                                                   (TARGA: Truevision Advanced Raster Graphics Adapter)
+
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmapFileTGA.h"
 
 #include "GRPFactory.h"
 #include "GRPBitmap.h"
 
-#include "GRPBitmapFileTGA.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_GRPBITMAPFILETGAHEADER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -59,7 +77,6 @@ GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
@@ -74,7 +91,6 @@ GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -128,7 +144,6 @@ bool GRPBITMAPFILETGAHEADER::Load(XFILE* file)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -186,8 +201,6 @@ bool GRPBITMAPFILETGAHEADER::Load(XBYTE* buffer, XDWORD size, XDWORD& indexbuffe
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
@@ -201,7 +214,6 @@ GRPBITMAPFILETGAHEADERINFO* GRPBITMAPFILETGAHEADER::GetHeaderInfo()
 {
   return &headerinfo;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -219,7 +231,6 @@ int GRPBITMAPFILETGAHEADER::GetWidth()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetHeight()
@@ -233,7 +244,6 @@ int GRPBITMAPFILETGAHEADER::GetHeight()
 {
   return headerinfo.height;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -251,7 +261,6 @@ int GRPBITMAPFILETGAHEADER::GetBitsPerPixel()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int GRPBITMAPFILETGAHEADER::GetOffsetData()
@@ -265,7 +274,6 @@ int GRPBITMAPFILETGAHEADER::GetOffsetData()
 {
   return offsetdata;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +291,6 @@ GRPPROPERTYMODE GRPBITMAPFILETGAHEADER::GetMode()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
@@ -297,7 +304,6 @@ GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 {
   return (GRPBITMAPFILETGATYPE)headerinfo.datatypecode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -320,6 +326,11 @@ void GRPBITMAPFILETGAHEADER::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma region CLASS_GRPBITMAPFILETGA
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -336,7 +347,6 @@ GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
@@ -351,7 +361,6 @@ GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -500,7 +509,6 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 
   return ForceModeOfBitmap(forcemode, bitmap);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -653,7 +661,6 @@ GRPBITMAP* GRPBITMAPFILETGA::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
@@ -731,26 +738,6 @@ bool GRPBITMAPFILETGA::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 }
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPBITMAPFILETGA::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void GRPBITMAPFILETGA::Clean()
-{
-   indexbuffer = 0;
-}
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
@@ -773,7 +760,6 @@ bool GRPBITMAPFILETGA::ReadHeaderFile(GRPBITMAPFILETGAHEADER* header)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFILEBMPHEADER* header)
@@ -793,9 +779,6 @@ bool GRPBITMAPFILETGA::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -840,4 +823,25 @@ bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2
   return true;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void GRPBITMAPFILETGA::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPBITMAPFILETGA::Clean()
+{
+   indexbuffer = 0;
+}
+
+
+#pragma endregion
+
+
+#pragma endregion
 

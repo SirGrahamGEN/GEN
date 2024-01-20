@@ -34,6 +34,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include <winsock2.h>
+#include <windows.h>
+
 #include <pcap.h>
 
 #include "DIOPCap.h"
@@ -51,11 +54,11 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XFACTORY;
-class XTHREAD;
+
 class XTHREADCOLLECTED;
 
-class  DIOWINDOWSPCAP : public DIOPCAP
+
+class DIOWINDOWSPCAP : public DIOPCAP
 {
   public:
                                   DIOWINDOWSPCAP                      ();
@@ -74,7 +77,7 @@ class  DIOWINDOWSPCAP : public DIOPCAP
     static void                   PacketHandler                       (u_char* param, const struct pcap_pkthdr* header, const u_char* pkt_data);
 
     pcap_t*                       handle;
-    XTHREAD*                      threadcapture;
+    XTHREADCOLLECTED*             threadcapture;
 };
 
 #pragma endregion

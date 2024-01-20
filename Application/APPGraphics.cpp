@@ -52,12 +52,14 @@
 
 #include "GRPXEvent.h"
 #include "GRPScreen.h"
+
 #ifdef GRP_OPENGL_ACTIVE
-#include "GRPContext.h"
+#include "GRP3DContext.h"
 #endif
+
 #include "GRPCanvas.h"
 #include "GRPFactory.h"
-#include "GRPViewPort.h"
+#include "GRPViewport.h"
 
 #include "APPBase.h"
 #include "APPCFG.h"

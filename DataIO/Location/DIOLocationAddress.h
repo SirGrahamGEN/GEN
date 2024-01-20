@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       LocationAddress.h
+* @file       DIOLocationAddress.h
 * 
-* @class      LOCATIONADDRESS
-* @brief      Location Address class  (container)
+* @class      DIOLOCATIONADDRESS
+* @brief      Data Input/Output Location Address class  (container)
 * @ingroup    LOCATION
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _LOCATIONADDRESS_H_
-#define _LOCATIONADDRESS_H_
+#ifndef _DIOLOCATIONADDRESS_H_
+#define _DIOLOCATIONADDRESS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -47,12 +47,12 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class LOCATIONADDRESS
+class DIOLOCATIONADDRESS
 {
   public:
 
-                        LOCATIONADDRESS           ();
-    virtual            ~LOCATIONADDRESS           ();
+                        DIOLOCATIONADDRESS        ();
+    virtual            ~DIOLOCATIONADDRESS        ();
 
     XSTRING*            GetStreet                 ();
     XSTRING*            GetCity                   ();

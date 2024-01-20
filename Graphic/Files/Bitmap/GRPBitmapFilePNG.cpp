@@ -1,48 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPBitmapFilePNG.cpp
-*
+* 
 * @class      GRPBITMAPFILEPNG
 * @brief      Graphic bitmap file PNG format (PNG: Portable Network Graphics) class
 * @ingroup    GRAPHIC
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPBitmapFilePNG.h"
 
 #include "GRPFactory.h"
 #include "GRPBitmap.h"
 
-#include "GRPBitmapFilePNG.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,7 +72,6 @@ GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
@@ -75,7 +86,6 @@ GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -203,7 +213,6 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromFile(XPATH& xpath, GRPPROPERTYMODE 
 
   return ForceModeOfBitmap(forcemode, bitmap);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -338,8 +347,6 @@ GRPBITMAP* GRPBITMAPFILEPNG::CreateBitmapFromBuffer(XBYTE* buffer, XDWORD size, 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int quality)
@@ -450,7 +457,6 @@ bool GRPBITMAPFILEPNG::CreateFileFromBitmap(XPATH& xpath, GRPBITMAP* bitmap, int
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
@@ -466,7 +472,6 @@ XBYTE* GRPBITMAPFILEPNG::BufferData_Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
@@ -480,7 +485,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 {
   return bufferdataindex;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -500,7 +504,6 @@ void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
@@ -514,26 +517,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 {
   return bufferdatasize;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPBITMAPFILEPNG::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void GRPBITMAPFILEPNG::Clean()
-{
-  bufferdata        = NULL;
-  bufferdataindex   = 0;
-  bufferdatasize    = 0;
-}
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -556,7 +539,6 @@ void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t 
 
   xfilepng->GetPrimaryFile()->Read((XBYTE*)data, (int)length);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -588,7 +570,6 @@ void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t length)
@@ -609,3 +590,24 @@ void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t
 
   xfilepng->GetPrimaryFile()->Write((XBYTE*)data, (int)length);
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void GRPBITMAPFILEPNG::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPBITMAPFILEPNG::Clean()
+{
+  bufferdata        = NULL;
+  bufferdataindex   = 0;
+  bufferdatasize    = 0;
+}
+
+
+#pragma endregion
