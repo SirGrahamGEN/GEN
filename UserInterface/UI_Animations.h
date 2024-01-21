@@ -5,7 +5,7 @@
 * @class      UI_ANIMATIONS
 * @brief      User Interface Animations class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,23 +24,34 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_ANIMATIONS_H_
 #define _UI_ANIMATIONS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XMap.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define GEN_UI_ANIMATIONS  UI_ANIMATIONS::GetInstance()
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class UI_ANIMATION;
+
 
 class UI_ANIMATIONS
 {
@@ -73,8 +84,15 @@ class UI_ANIMATIONS
 
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

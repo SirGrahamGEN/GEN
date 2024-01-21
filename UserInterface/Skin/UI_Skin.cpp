@@ -3,9 +3,9 @@
 * @file       UI_Skin.cpp
 * 
 * @class      UI_SKIN
-* @brief      User Interface Skin class
+* @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "UI_Skin.h"
 
 #include "XTimer.h" 
 
@@ -42,19 +48,22 @@
 #include "UI_Property_Scrolleable.h"
 #include "UI_Animation.h"
 
-#include "UI_Skin.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  UI_SKIN_TEXTBOX_PART                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_UI_SKIN_TEXTBOX_PART
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +76,6 @@
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN_TEXTBOX_PART::UI_SKIN_TEXTBOX_PART()
-
 {
   Clean();
 }
@@ -89,7 +97,6 @@ UI_SKIN_TEXTBOX_PART::~UI_SKIN_TEXTBOX_PART()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetLineNumber()
@@ -103,7 +110,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetLineNumber()
 {
   return linenumber;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -122,7 +128,6 @@ void UI_SKIN_TEXTBOX_PART::SetLineNumber(XDWORD linenumber)
   this->linenumber = linenumber;
 }
 
-
 		
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -137,7 +142,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetXPos()
 {
   return xpos;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -156,7 +160,6 @@ void UI_SKIN_TEXTBOX_PART::SetXPos(XDWORD xpos)
   this->xpos = xpos;
 }
 
-
 		
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -171,7 +174,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetYPos()
 {
   return ypos;
 }	
-
 
 	
 /**-------------------------------------------------------------------------------------------------------------------
@@ -191,7 +193,6 @@ void UI_SKIN_TEXTBOX_PART::SetYPos(XDWORD ypos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_COLOR* UI_SKIN_TEXTBOX_PART::GetColor()
@@ -207,7 +208,6 @@ UI_COLOR* UI_SKIN_TEXTBOX_PART::GetColor()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetWidth()
@@ -221,7 +221,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetWidth()
 {
   return width;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -241,7 +240,6 @@ void UI_SKIN_TEXTBOX_PART::SetWidth(XDWORD width)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD UI_SKIN_TEXTBOX_PART::GetHeight()
@@ -255,8 +253,7 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetHeight()
 {
   return height;
 }
-		
-
+	
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -274,7 +271,6 @@ void UI_SKIN_TEXTBOX_PART::SetHeight(XDWORD height)
   this->height = height;
 }
 
-
 		
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -289,7 +285,6 @@ XSTRING* UI_SKIN_TEXTBOX_PART::GetText()
 {
   return &text;
 }
-
 
 	
 /**-------------------------------------------------------------------------------------------------------------------
@@ -314,10 +309,10 @@ void UI_SKIN_TEXTBOX_PART::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  UI_SKIN_TEXTBOX_IMAGE                                                                                             */
-/*--------------------------------------------------------------------------------------------------------------------*/
+
+#pragma region CLASS_UI_SKIN_TEXTBOX_IMAGE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -333,7 +328,6 @@ UI_SKIN_TEXTBOX_IMAGE::UI_SKIN_TEXTBOX_IMAGE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -354,7 +348,6 @@ UI_SKIN_TEXTBOX_IMAGE::~UI_SKIN_TEXTBOX_IMAGE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN_TEXTBOX_IMAGE::GetName()
@@ -368,8 +361,6 @@ XSTRING* UI_SKIN_TEXTBOX_IMAGE::GetName()
 {
   return &name;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -387,7 +378,6 @@ UI_BOUNDARYLINE* UI_SKIN_TEXTBOX_IMAGE::GetBoundaryLine()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ANIMATION* UI_SKIN_TEXTBOX_IMAGE::GetAnimation()
@@ -401,7 +391,6 @@ UI_ANIMATION* UI_SKIN_TEXTBOX_IMAGE::GetAnimation()
 {
   return animation;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -421,7 +410,6 @@ void UI_SKIN_TEXTBOX_IMAGE::SetAnimation(UI_ANIMATION* animation)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XDWORD>* UI_SKIN_TEXTBOX_IMAGE::GetLineNumbers()
@@ -435,7 +423,6 @@ XVECTOR<XDWORD>* UI_SKIN_TEXTBOX_IMAGE::GetLineNumbers()
 {
   return &linenumbers;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -461,8 +448,6 @@ bool UI_SKIN_TEXTBOX_IMAGE::IsInLine(XDWORD nline)
 }
 	
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN_TEXTBOX_IMAGE::Clean()
@@ -479,12 +464,10 @@ void UI_SKIN_TEXTBOX_IMAGE::Clean()
 }
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  UI_SKIN                                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_UI_SKIN
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -501,9 +484,7 @@ UI_SKIN::UI_SKIN()
   Clean();     
   
   this->name = UI_SKIN_NAME_UNKNOWN;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,7 +524,6 @@ XSTRING* UI_SKIN::GetName()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_TYPE UI_SKIN::GetType(XCHAR* name)
@@ -571,7 +551,6 @@ UI_SKIN_TYPE UI_SKIN::GetType(XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN_DRAWMODE UI_SKIN::GetDrawMode()
@@ -585,8 +564,6 @@ UI_SKIN_DRAWMODE UI_SKIN::GetDrawMode()
 {
   return drawmode;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -608,7 +585,6 @@ bool UI_SKIN::SetDrawMode(UI_SKIN_DRAWMODE drawmode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::GetRasterFont()
@@ -622,7 +598,6 @@ XSTRING* UI_SKIN::GetRasterFont()
 {
   return &rasterfontname;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -655,7 +630,6 @@ bool UI_SKIN::LoadFonts()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         double UI_SKIN::GetWithString(XCHAR* string, XDWORD sizefont)
@@ -672,7 +646,6 @@ double UI_SKIN::GetWithString(XCHAR* string, XDWORD sizefont)
 {
   return 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -692,7 +665,6 @@ double UI_SKIN::GetWithString(XSTRING& string, XDWORD sizefont)
   return GetWithString(string.Get(), sizefont);
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -710,7 +682,6 @@ double UI_SKIN::GetHeightString(XCHAR* string, XDWORD sizefont)
 {
   return 0;
 }
-    
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -730,7 +701,6 @@ double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::Background_GetColor()
@@ -746,7 +716,6 @@ XSTRING* UI_SKIN::Background_GetColor()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_SKIN::Background_GetNameFile()
@@ -760,7 +729,6 @@ XSTRING* UI_SKIN::Background_GetNameFile()
 {
   return &background_namefile;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -780,7 +748,6 @@ bool UI_SKIN::Background_LoadBitmap()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_SKIN::Background_GetBitmap()
@@ -794,7 +761,6 @@ GRPBITMAP* UI_SKIN::Background_GetBitmap()
 {
   return background_bitmap;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -835,7 +801,6 @@ bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
@@ -851,7 +816,6 @@ bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -871,7 +835,6 @@ bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
@@ -887,7 +850,6 @@ bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -924,7 +886,6 @@ bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element)
@@ -959,7 +920,6 @@ bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element)
@@ -975,7 +935,6 @@ bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -995,7 +954,6 @@ bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
@@ -1011,7 +969,6 @@ bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1031,7 +988,6 @@ bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
@@ -1047,7 +1003,6 @@ bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1067,7 +1022,6 @@ bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
@@ -1083,7 +1037,6 @@ bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1110,7 +1063,6 @@ bool UI_SKIN::CalculeBoundaryLine_AllElements(UI_ELEMENT* element, bool recursiv
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1143,7 +1095,6 @@ bool UI_SKIN::GetAddPositionScrollSteps(UI_ELEMENT* element, double& x_positionw
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::SetElementPosition(UI_ELEMENT* element, double x_position, double y_position)
@@ -1161,7 +1112,6 @@ bool UI_SKIN::SetElementPosition(UI_ELEMENT* element, double x_position, double 
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1199,7 +1149,6 @@ bool UI_SKIN::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1257,7 +1206,6 @@ bool UI_SKIN::Draw(UI_ELEMENT* element)
 } 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Scroll(UI_ELEMENT* element)
@@ -1273,7 +1221,6 @@ bool UI_SKIN::Draw_Scroll(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1293,7 +1240,6 @@ bool UI_SKIN::Draw_Text(UI_ELEMENT* element)
   return false;
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -1311,7 +1257,6 @@ bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)
 {
   return false;
 }
-
 
   
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1332,7 +1277,6 @@ bool UI_SKIN::Draw_Image(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
@@ -1349,7 +1293,6 @@ bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1387,7 +1330,6 @@ bool UI_SKIN::Draw_MultiOption(UI_ELEMENT* element)
   return false;
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -1405,7 +1347,6 @@ bool UI_SKIN::Draw_Button(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1426,7 +1367,6 @@ bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
@@ -1443,7 +1383,6 @@ bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1464,7 +1403,6 @@ bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)
@@ -1481,7 +1419,6 @@ bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1501,7 +1438,6 @@ bool UI_SKIN::Draw_ListBox(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
@@ -1519,7 +1455,6 @@ bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKIN::Clean()
@@ -1535,3 +1470,10 @@ void UI_SKIN::Clean()
   drawmode           = UI_SKIN_DRAWMODE_UNKNOWN;
   background_bitmap  = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

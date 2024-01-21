@@ -3,9 +3,9 @@
 * @file       UI_Skin.h
 * 
 * @class      UI_SKIN
-* @brief      User Interface Skin Canvas Class
+* @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,17 +24,21 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_SKIN_H_
 #define _UI_SKIN_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "UI_Element.h"
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum UI_SKIN_TYPE
 {
@@ -54,7 +58,12 @@ enum UI_SKIN_DRAWMODE
 #define UI_SKIN_NAME_UNKNOWN      __L("")
 #define UI_SKIN_NAME_FLAT         __L("FLAT")
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class GRPBITMAP;
 class UI_ANIMATION;
@@ -99,7 +108,6 @@ class UI_SKIN_TEXTBOX_PART
 };	
 
 
-
 class UI_SKIN_TEXTBOX_IMAGE
 {
   public :
@@ -124,7 +132,6 @@ class UI_SKIN_TEXTBOX_IMAGE
     UI_ANIMATION*                     animation;
     XVECTOR<XDWORD> 									linenumbers; 
 };
-
 
 
 class UI_SKIN 
@@ -192,8 +199,7 @@ class UI_SKIN
     virtual bool                      Draw_Form                           (UI_ELEMENT* element);
     virtual bool                      Draw_Menu				                    (UI_ELEMENT* element);
     virtual bool                      Draw_ListBox                        (UI_ELEMENT* element);  
-    virtual bool                      Draw_ProgressBar                    (UI_ELEMENT* element);  
-    
+    virtual bool                      Draw_ProgressBar                    (UI_ELEMENT* element);     
 
   protected:
 
@@ -213,8 +219,15 @@ class UI_SKIN
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

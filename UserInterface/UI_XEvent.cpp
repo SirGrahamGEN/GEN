@@ -1,45 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       UI_XEvent.cpp
-*
+* 
 * @class      UI_XEVENT
 * @brief      User Interface eXtended Event class
-* @ingroup    XUTILS
-*
+* @ingroup    USERINTERFACE
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "UI_XEvent.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -61,7 +73,6 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_XEVENT::~UI_XEVENT()
@@ -76,7 +87,6 @@ UI_XEVENT::~UI_XEVENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -94,7 +104,6 @@ XDWORD UI_XEVENT::GetXPos()
 }
     
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_XEVENT::SetXPos(XDWORD xpos)
@@ -111,7 +120,6 @@ void UI_XEVENT::SetXPos(XDWORD xpos)
   this->xpos = xpos;
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -126,7 +134,6 @@ XDWORD UI_XEVENT::GetYPos()
 {
   return ypos;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +153,6 @@ void UI_XEVENT::SetYPos(XDWORD ypos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_XEVENT::GetElement()
@@ -160,7 +166,6 @@ UI_ELEMENT* UI_XEVENT::GetElement()
 {
   return element;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -178,7 +183,6 @@ INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
@@ -194,7 +198,6 @@ void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
 {
   this->cursormotion = cursormotion;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -218,7 +221,6 @@ bool UI_XEVENT::SetElement(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKIN* UI_XEVENT::GetSkin()
@@ -232,7 +234,6 @@ UI_SKIN* UI_XEVENT::GetSkin()
 {
   return skin;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -269,7 +270,6 @@ XSTRING* UI_XEVENT::GetMaskTextValue()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* UI_XEVENT::GetMaskText()
@@ -283,7 +283,6 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 {
   return &masktextresolved;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -308,5 +307,6 @@ void UI_XEVENT::Clean()
 }
 
 
+#pragma endregion
 
 

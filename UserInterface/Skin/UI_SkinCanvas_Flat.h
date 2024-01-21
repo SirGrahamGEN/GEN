@@ -3,9 +3,9 @@
 * @file       UI_SkinCanvas_Flat.h
 * 
 * @class      UI_SKINCANVAS_FLAT
-* @brief      User Interface Skin Canvas FLAT Class
+* @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,20 +24,28 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_SKINCANVAS_FLAT_H_
 #define _UI_SKINCANVAS_FLAT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "UI_SkinCanvas.h"
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class UI_SKINCANVAS_FLAT : public UI_SKINCANVAS
@@ -54,8 +62,14 @@ class UI_SKINCANVAS_FLAT : public UI_SKINCANVAS
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-

@@ -5,7 +5,7 @@
 * @class      UI_VIRTUALKEYBOARD
 * @brief      User Interface Virtual Keyboard class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "UI_VirtualKeyboard.h"
 
 #include "GRPScreen.h"
 #include "GRPCanvas.h"
@@ -42,6 +48,7 @@
 #include "UI_Layout.h"
 #include "UI_Skin.h"
 #include "UI_SkinCanvas.h"
+#include "UI_Element_Image.h"
 #include "UI_Element_Text.h"
 #include "UI_Element_EditText.h"
 #include "UI_Element_MultiOption.h"
@@ -49,19 +56,22 @@
 #include "UI_Element_Form.h"
 #include "UI_Manager.h"
 
-#include "UI_VirtualKeyboard.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  UI_VIRTUALKEYBOARD                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_UI_VIRTUALKEYBOARD
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -79,7 +89,6 @@ UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
@@ -95,8 +104,7 @@ UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
   Clean();
 }
 
-
-   
+  
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
@@ -119,10 +127,10 @@ void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  UI_VIRTUALKEYBOARD                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
+
+#pragma region CLASS_UI_VIRTUALKEYBOARD
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -153,7 +161,6 @@ UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
 { 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -211,7 +218,6 @@ bool UI_VIRTUALKEYBOARD::Ini(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::IsShow()
@@ -227,7 +233,6 @@ bool UI_VIRTUALKEYBOARD::IsShow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_ELEMENT* UI_VIRTUALKEYBOARD::GetElementEditable()
@@ -241,7 +246,6 @@ UI_ELEMENT* UI_VIRTUALKEYBOARD::GetElementEditable()
 {
   return element_editable;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +331,6 @@ bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -502,8 +505,6 @@ bool UI_VIRTUALKEYBOARD::SelectInput(UI_ELEMENT* key_select)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::End()
@@ -515,11 +516,8 @@ bool UI_VIRTUALKEYBOARD::SelectInput(UI_ELEMENT* key_select)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_VIRTUALKEYBOARD::End()
 {
-
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -582,7 +580,6 @@ UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
@@ -603,37 +600,7 @@ GRPBITMAP* UI_VIRTUALKEYBOARD::LoadKeyImage(XCHAR* pathimage)
   if(animation) bitmap = animation->GetBitmap();
     
   return bitmap;
-
-  /*
-  XPATH       xpathfullimg;
-  GRPBITMAP*  bitmap = NULL; 
-
-  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpathfullimg);
-  xpathfullimg.Slash_Add();
-  xpathfullimg.Add(pathimage);
-
-  switch(skin->GetDrawMode())
-    {
-      case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
-
-      case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin; 
-                                          if(skincanvas)
-                                            {                                              
-                                              GRPBITMAPFILE bitmapfile;
-                                              
-                                              bitmap = bitmapfile.Load(xpathfullimg, skincanvas->GetCanvas()->GetMode());                
-                                            }
-                                        }
-                                        break;
-
-      case UI_SKIN_DRAWMODE_CONTEXT  : break;
-    }
-
-  return bitmap;
-  */
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -774,8 +741,6 @@ bool UI_VIRTUALKEYBOARD::AddKeyButton(XCHAR* leyend, XCHAR* text, XCHAR* xpathbi
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -919,7 +884,6 @@ bool UI_VIRTUALKEYBOARD::CreateAllKeys(double x, double y)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
@@ -938,7 +902,6 @@ bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -962,3 +925,10 @@ void UI_VIRTUALKEYBOARD::Clean()
   actualset         = UI_VIRTUALKEYBOARD_SET_UPPERCASE;
   contentchanged    = false;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

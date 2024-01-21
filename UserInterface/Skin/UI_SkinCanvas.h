@@ -3,9 +3,9 @@
 * @file       UI_SkinCanvas.h
 * 
 * @class      UI_SKINCANVAS
-* @brief      User Interface Skin Canvas Class
+* @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,20 +24,28 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _UI_SKINCANVAS_H_
 #define _UI_SKINCANVAS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XRect.h"
+#include "XPath.h"
 
 #include "GRP2DRebuildAreas.h"
 
 #include "UI_Element.h"
-
 #include "UI_Skin.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum UI_SKINCANVAS_TYPE
 {
@@ -53,14 +61,19 @@ enum UI_SKINCANVAS_TYPE
 #define UI_SKINCANVAS_PRESELECT_MAXEDGE		4
 #define UI_SKINCANVAS_EDIT_MAXEDGE				10	
 
+
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class GRPSCREEN;
 class GRPVIEWPORT;
 class GRPCANVAS;
 class UI_LAYOUT;
 class UI_ELEMENT_TEXTBOX;
-
 
 
 class UI_SKINCANVAS_REBUILDAREAS : public GRP2DREBUILDAREAS
@@ -87,7 +100,6 @@ class UI_SKINCANVAS_REBUILDAREAS : public GRP2DREBUILDAREAS
 		GRPSCREEN*												screen;
 		GRPCANVAS*												canvas; 		
 };
-
 
 
 class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
@@ -171,8 +183,15 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

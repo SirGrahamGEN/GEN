@@ -5,7 +5,7 @@
 * @class      UI_BOUNDARYLINE
 * @brief      User Interface Boundary Line class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,22 +24,34 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "UI_BoundaryLine.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -62,7 +74,6 @@ UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
@@ -77,7 +88,6 @@ UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -98,7 +108,6 @@ void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
   width   = boundaryline.width;
   height  = boundaryline.height;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +141,6 @@ void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-
 bool UI_BOUNDARYLINE::SetAround(UI_BOUNDARYLINE& boundaryline)
 {
   if(x > boundaryline.x)    x = boundaryline.x;
@@ -143,7 +151,6 @@ bool UI_BOUNDARYLINE::SetAround(UI_BOUNDARYLINE& boundaryline)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -170,7 +177,6 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void UI_BOUNDARYLINE::Clean()
@@ -188,4 +194,7 @@ void UI_BOUNDARYLINE::Clean()
   width   = 0;
   height  = 0;
 }
+
+
+#pragma endregion
 

@@ -5,7 +5,7 @@
 * @class      UI_MANAGER
 * @brief      User Interface Manager class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "UI_Manager.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,15 +86,21 @@
 #include "UI_SkinCanvas.h"
 #include "UI_SkinCanvas_Flat.h"
 
-#include "UI_Manager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 UI_MANAGER* UI_MANAGER::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3494,19 +3506,70 @@ UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELE
  
   if(GetLayoutElementValue(nodeelement, __L("type"), value))
     {                              
-      if(!value.Compare(__L("text")           , true))  element = GetLayoutElement_Text(nodeelement, father);          
-      if(!value.Compare(__L("textbox")        , true))  element = GetLayoutElement_TextBox(nodeelement, father);          
-      if(!value.Compare(__L("image")          , true))  element = GetLayoutElement_Image(nodeelement, father);
-      if(!value.Compare(__L("animation")      , true))  element = GetLayoutElement_Animation(nodeelement, father);          
-      if(!value.Compare(__L("option")         , true))  element = GetLayoutElement_Option(nodeelement, father);          
-      if(!value.Compare(__L("multioption")    , true))  element = GetLayoutElement_MultiOption(nodeelement, father);          
-      if(!value.Compare(__L("button")         , true))  element = GetLayoutElement_Button(nodeelement, father); 
-      if(!value.Compare(__L("checkbox")       , true))  element = GetLayoutElement_CheckBox(nodeelement, father);          
-      if(!value.Compare(__L("edittext")       , true))  element = GetLayoutElement_EditText(nodeelement, father);          
-      if(!value.Compare(__L("form")           , true))  element = GetLayoutElement_Form(nodeelement, father);
-      if(!value.Compare(__L("menu")           , true))  element = GetLayoutElement_Menu(nodeelement, father);      
-      if(!value.Compare(__L("listbox")        , true))  element = GetLayoutElement_ListBox(nodeelement, father);      
-      if(!value.Compare(__L("progressbar")    , true))  element = GetLayoutElement_ProgressBar(nodeelement, father);      
+      if(!value.Compare(__L("text")           , true))  
+        {
+          element = GetLayoutElement_Text(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("textbox")        , true))  
+        {
+          element = GetLayoutElement_TextBox(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("image")          , true))  
+        {
+          element = GetLayoutElement_Image(nodeelement, father);
+        }
+
+      if(!value.Compare(__L("animation")      , true))  
+        {
+          element = GetLayoutElement_Animation(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("option")         , true))  
+        {
+          element = GetLayoutElement_Option(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("multioption")    , true))  
+        {
+          element = GetLayoutElement_MultiOption(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("button")         , true))  
+        { 
+          element = GetLayoutElement_Button(nodeelement, father); 
+        }
+
+      if(!value.Compare(__L("checkbox")       , true))  
+        {
+          element = GetLayoutElement_CheckBox(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("edittext")       , true))  
+        {
+          element = GetLayoutElement_EditText(nodeelement, father);          
+        }
+
+      if(!value.Compare(__L("form")           , true))  
+        {
+          element = GetLayoutElement_Form(nodeelement, father);
+        }
+
+      if(!value.Compare(__L("menu")           , true))  
+        {
+          element = GetLayoutElement_Menu(nodeelement, father);      
+        }
+
+      if(!value.Compare(__L("listbox")        , true))  
+        {
+          element = GetLayoutElement_ListBox(nodeelement, father);      
+        }
+
+      if(!value.Compare(__L("progressbar")    , true))  
+        {
+          element = GetLayoutElement_ProgressBar(nodeelement, father);      
+        }
     }
 
   return element;
@@ -4340,4 +4403,7 @@ void UI_MANAGER::Clean()
 
   virtualkeyboard     = NULL;
 }
+
+
+#pragma endregion
 

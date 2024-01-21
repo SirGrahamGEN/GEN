@@ -3,9 +3,9 @@
 * @file       UI_SkinCanvas_Flat.cpp
 * 
 * @class      UI_SKINCANVAS_FLAT
-* @brief      User Interface Skin Canvas FLAT class
+* @brief      User Interface Skin Canvas class
 * @ingroup    USERINTERFACE
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "UI_SkinCanvas_Flat.h"
 
 #include "XRect.h"
 
@@ -50,14 +56,19 @@
 #include "UI_Element_EditText.h"
 #include "UI_Element_Form.h"
 
-#include "UI_SkinCanvas_Flat.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -79,7 +90,6 @@ UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()
@@ -94,7 +104,6 @@ UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()
 { 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -162,7 +171,6 @@ bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void UI_SKINCANVAS_FLAT::Clean()
@@ -177,3 +185,7 @@ void UI_SKINCANVAS_FLAT::Clean()
 {
   
 }
+
+
+#pragma endregion
+
