@@ -212,6 +212,8 @@ class XTHREADSCOLLECTEDMANAGER
 
 #else
 
+  #include "XThread.h"
+
   #define CREATEXTHREAD               GEN_XFACTORY.CreateThread
   #define DELETEXTHREAD               GEN_XFACTORY.DeleteThread
   #define XTHREADCOLLECTED            XTHREAD

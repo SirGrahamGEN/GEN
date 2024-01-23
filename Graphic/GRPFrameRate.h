@@ -33,6 +33,7 @@
 #pragma region INCLUDES
 
 #include "XBase.h"
+#include "XThreadCollected.h"
 
 #pragma endregion
 
@@ -49,7 +50,6 @@
 
 
 class XTIMER;
-class XTHREADCOLLECTED;
 
 
 class GRPFRAMERATE
