@@ -30,7 +30,7 @@ message(STATUS "[GEN Setting build type to ${CMAKE_BUILD_TYPE} specified]")
 if(XMEMORY_CONTROL_FEATURE)
 
   add_definitions(-DXMEMORY_CONTROL_ACTIVE)
-  list(APPEND SOURCES "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
+  list(APPEND SOURCES_MODULES_LIST "${GEN_DIRECTORY_SOURCES_XUTILS}/XMemory_Control.cpp")
 
 endif()
 

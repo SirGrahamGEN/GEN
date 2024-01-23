@@ -18,4 +18,4 @@ add_definitions(-DFT_DEBUG_LEVEL_ERROR)
 add_definitions(-DFT_DEBUG_LEVEL_TRACE)
 add_definitions(-DFT2_BUILD_LIBRARY)
 
-list(APPEND INCLUDES_DIR  ${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include)
+list(APPEND INCLUDES_DIR_LIST  ${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include)
