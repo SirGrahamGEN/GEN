@@ -1132,6 +1132,13 @@ if(DIO_FEATURE)
 
   endif()
 
+  
+  if(DIO_CAMERA_FEATURE)
+
+   option(XSCHEDULER_FEATURE  "XScheduler"   true )  
+  
+  endif()
+
 
   if(DIO_APPLICATIONUPDATE_FEATURE)
    

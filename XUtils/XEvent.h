@@ -76,8 +76,9 @@ enum XEVENT_TYPE : XDWORD
   XEVENT_TYPE_FILEZIP                           = 0x001A0000 ,
   XEVENT_TYPE_FILECFG                           = 0x001B0000 ,  
   XEVENT_TYPE_BLUETOOTH                         = 0x001C0000 ,
-  XEVENT_TYPE_INPUT_CAPTURE                     = 0x001D0000 ,  
-  XEVENT_TYPE_LINUX_DBUS                        = 0x001E0000 ,
+  XEVENT_TYPE_INPUT_CAPTURE                     = 0x001D0000 , 
+  XEVENT_TYPE_CAMERA                            = 0x001E0000 ,  
+  XEVENT_TYPE_LINUX_DBUS                        = 0x001F0000 ,
 
   XEVENT_TYPE_OWNAPPLICATION                    = 0x80000000 
 };
