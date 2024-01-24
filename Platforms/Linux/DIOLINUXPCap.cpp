@@ -21,7 +21,6 @@
 
 #include "XFactory.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 
 #include "DIOLINUXPCap.h"
 

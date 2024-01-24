@@ -24,13 +24,14 @@
 
 #include "DIOPCap.h"
 
+#include "XThreadCollected.h"
+
 /*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
 
 
 /*---- CLASS -----------------------------------------------------------------------------*/
 
 class XFACTORY;
-class XTHREADCOLLECTED;
 
 class DIOLINUXPCAP : public DIOPCAP
 {

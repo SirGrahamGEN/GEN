@@ -39,6 +39,8 @@
 
 #include <pcap.h>
 
+#include "XThreadCollected.h"
+
 #include "DIOPCap.h"
 
 #pragma endregion
@@ -53,10 +55,6 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
-
-
-class XTHREADCOLLECTED;
-
 
 class DIOWINDOWSPCAP : public DIOPCAP
 {
