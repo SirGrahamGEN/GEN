@@ -51,7 +51,7 @@ if(COMPILE_FOR_LINUX_ARM_RPI)
   set(CMAKE_C_COMPILER_LAUNCHER "ccache")
   set(CMAKE_CXX_COMPILER_LAUNCHER "ccache")
 
-  list(APPEND INCLUDES_DIR_LIST "${RPI_SYSROOT}/usr/include/arm-linux-gnueabihf/")     
+  list(APPEND GEN_INCLUDES_DIR_LIST "${RPI_SYSROOT}/usr/include/arm-linux-gnueabihf/")     
   
   set(CMAKE_C_COMPILER   "${RPI_TOOLS}/bin/arm-linux-gnueabihf-gcc")
   set(CMAKE_CXX_COMPILER "${RPI_TOOLS}/bin/arm-linux-gnueabihf-g++")
@@ -78,7 +78,7 @@ if(COMPILE_FOR_LINUX_ARM)
   set(CMAKE_SYSTEM_PROCESSOR arm)  
                           
   set(ARM_TOOLS "/usr")
-  list(APPEND INCLUDES_DIR_LIST "${ARM_TOOLS}/include/")   
+  list(APPEND GEN_INCLUDES_DIR_LIST "${ARM_TOOLS}/include/")   
   
   set(CMAKE_C_COMPILER_LAUNCHER "ccache")
   set(CMAKE_CXX_COMPILER_LAUNCHER "ccache")
@@ -107,7 +107,7 @@ if(COMPILE_FOR_LINUX_ARM_64 OR COMPILE_FOR_LINUX_ARM_RPI_64)
 
   set(CMAKE_SYSTEM_PROCESSOR aarch64)  
                                     
-  list(APPEND INCLUDES_DIR_LIST "/usr/include/")    
+  list(APPEND GEN_INCLUDES_DIR_LIST "/usr/include/")    
  
   set(ARM64_TOOLS "/usr")
   set(CMAKE_C_COMPILER   "${ARM64_TOOLS}/bin/aarch64-linux-gnu-gcc")

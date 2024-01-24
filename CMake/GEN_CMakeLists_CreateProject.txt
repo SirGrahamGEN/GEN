@@ -11,16 +11,16 @@ if(COMPILE_FOR_ESP32)
 
 else()
 
-  include_directories(${INCLUDES_DIR_LIST})
+  include_directories(${GEN_INCLUDES_DIR_LIST})
 
 
   if("${APP_RESOURCE_FILE}" STREQUAL "")
 
-    add_executable(${CMAKE_PROJECT_NAME} ${SOURCES_MODULES_LIST})
+    add_executable(${CMAKE_PROJECT_NAME} ${GEN_SOURCES_MODULES_LIST})
 
   else()
 
-    add_executable(${CMAKE_PROJECT_NAME} ${SOURCES_MODULES_LIST} ${APP_RESOURCE_FILE})
+    add_executable(${CMAKE_PROJECT_NAME} ${GEN_SOURCES_MODULES_LIST} ${APP_RESOURCE_FILE})
 
   endif()
 

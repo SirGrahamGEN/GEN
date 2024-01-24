@@ -20,12 +20,12 @@ set(CMAKE_TOOLCHAIN_FILE  "${ANDROID_NDK_ROOT}/build/cmake/android.toolchain.cma
 #set(CMAKE_C_COMPILER   "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/bin/clang-cl")
 #set(CMAKE_CXX_COMPILER "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++")
 
-#list(APPEND INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include")
-#list(APPEND INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/arm-linux-androideabi")
+#list(APPEND GEN_INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include")
+#list(APPEND GEN_INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/arm-linux-androideabi")
 
 
-#list(APPEND INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include")  
-#list(APPEND INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/sysroot/usr/include")
+#list(APPEND GEN_INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include")  
+#list(APPEND GEN_INCLUDES_DIR_LIST  "${ANDROID_NDK_ROOT}/sysroot/usr/include")
 
 #add_library(native_app_glue STATIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue/android_native_app_glue.c)
 #target_include_directories(native_app_glue PUBLIC ${ANDROID_NDK_ROOT}/sources/android/native_app_glue)

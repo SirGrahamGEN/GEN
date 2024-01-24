@@ -33,7 +33,7 @@ set(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections -T ${LINKER_SCRIPT}")
 
 add_definitions(-D__weak=__attribute__\(\(weak\)\) -D__packed=__attribute__\(\(__packed__\)\) -DUSE_HAL_DRIVER -${SHORT_DEVICE_ID}xx)
 
-file(GLOB_RECURSE SOURCES_MODULES_LIST "startup/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
+file(GLOB_RECURSE GEN_SOURCES_MODULES_LIST "startup/*.*" "Drivers/*.*" "Src/*.*" "Inc/*.*")
 
 include_directories(Inc 
                     Drivers/${SERIES}xx_HAL_Driver/Inc
@@ -41,7 +41,7 @@ include_directories(Inc
                     Drivers/CMSIS/Device/ST/${SERIES}xx/Include
                     Drivers/CMSIS/Include Inc)
 
-add_executable(${PROJECT_NAME}.elf ${SOURCES_MODULES_LIST} ${LINKER_SCRIPT})
+add_executable(${PROJECT_NAME}.elf ${GEN_SOURCES_MODULES_LIST} ${LINKER_SCRIPT})
 target_link_libraries(${PROJECT_NAME}.elf m)
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map")
