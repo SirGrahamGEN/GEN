@@ -1,58 +1,79 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART.CPP
-//
-//  WINDOWS Data Input/Output Stream UART class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamUART.cpp
+* 
+* @class      DIOWINDOWSSTREAMUART
+* @brief      WINDOWS Data Input/Output Stream UART class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUART_ACTIVE)
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSStreamUART.h"
 
 #include "XFactory.h"
 #include "XTimer.h"
 #include "XString.h"
 #include "XBuffer.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 
 #include "DIOStreamXEvent.h"
 
-#include "DIOWINDOWSStreamUART.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:47:09
-//
-//  @return       void :
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 {
   Clean();
@@ -81,19 +102,16 @@ DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
 {
   Close();
@@ -104,17 +122,15 @@ DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::GetConnectStatus
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       DIOSTREAMSTATUS :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetConnectStatus()
 {
   if(hcom==INVALID_HANDLE_VALUE)  return DIOSTREAMSTATUS_DISCONNECTED;
@@ -124,19 +140,15 @@ DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetConnectStatus()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::Open()
 {
   if(!threadconnection)  return false;
@@ -216,7 +228,6 @@ bool DIOWINDOWSSTREAMUART::Open()
 
   return threadconnection->Ini();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -307,24 +318,18 @@ bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::ReadDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:27:09
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
+* @brief      ReadDirect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -382,24 +387,18 @@ XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::WriteDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:26:58
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
+* @brief      WriteDirect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -448,20 +447,15 @@ XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::Close()
 {
   if(threadconnection) threadconnection->End();
@@ -477,17 +471,15 @@ bool DIOWINDOWSSTREAMUART::Close()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::GetCTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::GetCTS()
+* @brief      GetCTS
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetCTS()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -503,19 +495,15 @@ bool DIOWINDOWSSTREAMUART::GetCTS()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::GetDSR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::GetDSR()
+* @brief      GetDSR
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetDSR()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -531,18 +519,15 @@ bool DIOWINDOWSSTREAMUART::GetDSR()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::GetRing
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::GetRing()
+* @brief      GetRing
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRing()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -558,17 +543,15 @@ bool DIOWINDOWSSTREAMUART::GetRing()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::GetRing
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::GetRLSD()
+* @brief      GetRLSD
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRLSD()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -584,20 +567,17 @@ bool DIOWINDOWSSTREAMUART::GetRLSD()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::SetRTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
+* @brief      SetRTS
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -608,18 +588,17 @@ bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::SetDTR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
+* @brief      SetDTR
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -630,18 +609,16 @@ bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::CleanBuffers
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::CleanBuffers()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::CleanBuffers()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -656,46 +633,17 @@ bool DIOWINDOWSSTREAMUART::CleanBuffers()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOWINDOWSSTREAMUART::Clean()
-{
-  threadconnection = NULL;
-
-  hcom            = INVALID_HANDLE_VALUE;
-  hevent          = NULL;
-
-  memset(&ovi,0,sizeof(ovi));
-
-  readtimeout  = 3000;
-  writetimeout = 3000;
-}
-
-
-
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::SetMask
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        mask :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
+* @brief      SetMask
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -712,19 +660,15 @@ bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::SetReadouts
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        type :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUART::SetTimeouts()
+* @brief      SetTimeouts
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetTimeouts()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -755,21 +699,17 @@ bool DIOWINDOWSSTREAMUART::SetTimeouts()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUART::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2012 13:56:19
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMUART* diostream = (DIOWINDOWSSTREAMUART*)data;
@@ -850,6 +790,32 @@ void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUART::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOWINDOWSSTREAMUART::Clean()
+{
+  threadconnection = NULL;
+
+  hcom            = INVALID_HANDLE_VALUE;
+  hevent          = NULL;
+
+  memset(&ovi,0,sizeof(ovi));
+
+  readtimeout  = 3000;
+  writetimeout = 3000;
+}
+
+#pragma endregion
+
 
 #endif
+
 

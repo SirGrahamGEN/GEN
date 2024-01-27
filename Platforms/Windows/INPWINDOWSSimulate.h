@@ -3,8 +3,8 @@
 * @file       INPWINDOWSSimulate.h
 * 
 * @class      INPWINDOWSSIMULATE
-* @brief      Input WINDOWS Simulate
-* @ingroup    INPUT
+* @brief      WINDOWS Input Simulate class
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -47,6 +47,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class INPWINDOWSSIMULATE : public INPSIMULATE
 {
   public:
@@ -73,6 +74,7 @@ class INPWINDOWSSIMULATE : public INPSIMULATE
 
     void            Clean                   ();
 };
+
 
 #pragma endregion
 

@@ -3,7 +3,7 @@
 * @file       GRPWINDOWSScreen.h
 * 
 * @class      GRPWINDOWSSCREEN
-* @brief      Graphics WINDOWS Screen class
+* @brief      WINDOWS Graphics Screen class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -32,11 +32,13 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+
 #include <Windows.h>
 #include <winuser.h>
 
 #include "XString.h"
 #include "GRPScreen.h"
+
 
 #pragma endregion
 

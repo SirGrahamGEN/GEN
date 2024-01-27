@@ -3,7 +3,7 @@
 * @file       INPWINDOWSFactory.h
 * 
 * @class      INPWINDOWSFACTORY
-* @brief      INPUT WINDOWS factory 
+* @brief      WINDOWS Input factory class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -49,6 +49,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class INPWINDOWSFACTORY : public INPFACTORY
 {
   public:
@@ -67,6 +68,7 @@ class INPWINDOWSFACTORY : public INPFACTORY
     #endif
 
 };
+
 
 #pragma endregion
 

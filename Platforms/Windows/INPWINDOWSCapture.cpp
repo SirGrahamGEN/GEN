@@ -3,7 +3,7 @@
 * @file       INPWINDOWSCapture.cpp
 * 
 * @class      INPWINDOWSCAPTURE
-* @brief      Input WINDOWS Capture class
+* @brief      WINDOWS Input Capture class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -67,13 +67,6 @@ INPWINDOWSCAPTURE* INPWINDOWSCAPTURE::capture = NULL;
 #pragma region CLASS_MEMBERS
 
 
-
-#pragma endregion
-
-
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPWINDOWSCAPTURE::INPWINDOWSCAPTURE()
@@ -105,7 +98,6 @@ INPWINDOWSCAPTURE::~INPWINDOWSCAPTURE()
 {
   Deactivate();
   Clean();
-
 }
 
 
@@ -245,4 +237,7 @@ void INPWINDOWSCAPTURE::Clean()
   keyhook             = NULL;
   capture             = NULL;
 }
+
+
+#pragma endregion
 

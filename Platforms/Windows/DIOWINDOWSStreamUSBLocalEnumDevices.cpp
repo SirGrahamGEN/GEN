@@ -1,40 +1,47 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWINDOWSStreamUSBLocalEnumDevices.cpp
-*
+* 
 * @class      DIOWINDOWSSTREAMUSBLOCALENUMDEVICES
-* @brief      Data Input/Output Stream WINDOWS USB Local Enum Devices class
+* @brief      WINDOWS Data Input/Output Stream USB Local Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include <windows.h>
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSStreamUSBLocalEnumDevices.h"
+
 #include <tchar.h>
 #include <initguid.h>
 #include <stdio.h>
@@ -42,24 +49,26 @@
 #include <cfgmgr32.h>
 #include <usbioctl.h>
 
-
 #include "XTrace.h"
 
 #include "DIOStreamDeviceUSB.h"
 
-#include "DIOWINDOWSStreamUSBLocalEnumDevices.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 //This is the GUID for the USB device class
-//DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE           , 0xA5DCBF10L, 0x6530, 0x11D2, 0x90, 0x1F, 0x00, 0xC0, 0x4F, 0xB9, 0x51, 0xED); // (A5DCBF10-6530-11D2-901F-00C04FB951ED)
-DEFINE_GUID(GUID_DEVINTERFACE_USB_PRINT            , 0x28D78FAD , 0x5A12, 0x11D1, 0xAE, 0x5B, 0x00, 0x00, 0xF8, 0x03, 0xA8, 0xC2);
+DEFINE_GUID(GUID_DEVINTERFACE_USB_PRINT, 0x28D78FAD , 0x5A12, 0x11D1, 0xAE, 0x5B, 0x00, 0x00, 0xF8, 0x03, 0xA8, 0xC2);
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,7 +86,6 @@ DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::DIOWINDOWSSTREAMUSBLOCALENUMDEVICES() : DIO
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::~DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
@@ -92,7 +100,6 @@ DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::~DIOWINDOWSSTREAMUSBLOCALENUMDEVICES()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,8 +122,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Search()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -216,7 +221,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchGUID(const GUID* interfaceclassg
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -337,8 +341,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetInfoFromRegistry(DIOSTREAMDEVICEUSB
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO* hdevinfo, int memberindex, DIOSTREAMDEVICEUSB* device)
@@ -433,7 +435,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO& hdevinfo, i
 
               delete [] buffer;
             }
-
         }
 
       CloseHandle(handle);
@@ -441,7 +442,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::GetUSBDescriptor(HDEVINFO& hdevinfo, i
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,7 +494,6 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Clean()
@@ -506,12 +505,13 @@ bool DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUSBLOCALENUMDEVICES::Clean()
-
 {
 
 }
 
 
+#pragma endregion
 
 
 #endif
+

@@ -1,43 +1,51 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWINDOWSStreamWifiRemoteEnumDevices.cpp
-*
+* 
 * @class      DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES
-* @brief      Data Input/Output Stream WINDOWS Wi-Fi remote Enum Devices class
+* @brief      WINDOWS Data Input/Output Stream Wi-Fi remote Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMTWIFI_ACTIVE)
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
 
 #pragma comment(lib, "wlanapi.lib")
 #pragma comment(lib, "ole32.lib")
 #pragma comment(lib, "Rpcrt4.lib")
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#include "DIOWINDOWSStreamWifiRemoteEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,17 +57,23 @@
 #include "DIOStream.h"
 #include "DIOStreamDeviceWifi.h"
 
-#include "DIOWINDOWSStreamWifiRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
 
 void    WLanCallback      (WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context);
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,9 +88,7 @@ void    WLanCallback      (WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID c
 DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMWIFIREMOTEENUMDEVICES()
 {
   Clean();
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -97,7 +109,6 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
@@ -107,265 +118,17 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
 bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 {
   HANDLE                        handleclient      = NULL;
   DWORD                         max_client        = 2;
   DWORD                         current_version   = 0;
   DWORD                         result            = 0;
-  DWORD                         returnval         = 0;
   WCHAR                         GUIDstring[39]    = { 0 };
   PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
   PWLAN_INTERFACE_INFO          interfacelinfo    = NULL;
-  PWLAN_AVAILABLE_NETWORK_LIST  networklist       = NULL;
-  PWLAN_AVAILABLE_NETWORK       networkentry      = NULL;
-  XSTRING                       line;
-  int                           RSSI              = 0;
-  int                           ireturn           = 0;
-
-  result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
-  if(result != ERROR_SUCCESS)
-    {
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Wi-Fi enum] WlanOpenHandle failed with error: %u"), result);
-      return false;
-    }
-
-  result = WlanEnumInterfaces(handleclient, NULL, &interfacelist);
-  if(result != ERROR_SUCCESS)
-    {
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Wi-Fi enum] WlanEnumInterfaces failed with error: %u"), result);
-      return false;
-    }
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Num Entries   : %lu"), interfacelist->dwNumberOfItems);
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Current Index : %lu"), interfacelist->dwIndex);
-
-  for(int i = 0; i < (int) interfacelist->dwNumberOfItems; i++)
-    {
-      interfacelinfo = (WLAN_INTERFACE_INFO *) &interfacelist->InterfaceInfo[i];
-
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Interface Index[%u]:\t %lu"), i, i);
-
-      ireturn = StringFromGUID2(interfacelinfo->InterfaceGuid, (LPOLESTR) &GUIDstring, sizeof(GUIDstring)/sizeof(*GUIDstring));
-
-      // For c rather than C++ source code, the above line needs to be
-
-      //if(ireturn == 0)
-      //  {
-      //    XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Wi-Fi enum] StringFromGUID2 failed"));
-      //  }
-      //else
-      //  {
-      //    XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] InterfaceGUID[%d]: %s"), i, GUIDstring);
-      // }
-
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Interface Description[%d]: %ws"), i, interfacelinfo->strInterfaceDescription);
-
-      //switch (interfacelinfo->isState)
-      //  {
-      //    case wlan_interface_state_not_ready               : line = __L("Not ready");                                                      break;
-      //    case wlan_interface_state_connected               : line = __L("Connected");                                                      break;
-      //    case wlan_interface_state_ad_hoc_network_formed   : line = __L("First node in a ad hoc network");                                 break;
-      //    case wlan_interface_state_disconnecting           : line = __L("Disconnecting");                                                  break;
-      //    case wlan_interface_state_disconnected            : line = __L("Not connected");                                                  break;
-      //    case wlan_interface_state_associating             : line = __L("Attempting to associate with a network");                         break;
-      //    case wlan_interface_state_discovering             : line = __L("Auto configuration is discovering settings for the network");     break;
-      //    case wlan_interface_state_authenticating          : line = __L("In process of authenticating");                                   break;
-      //                                    default           : line.Format(__L("Unknown state %ld"), interfacelinfo->isState);               break;
-      //  }
-
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Interface State[%d]: %s"), i, line.Get());
-
-      result = WlanGetAvailableNetworkList(handleclient, &interfacelinfo->InterfaceGuid, 0, NULL, &networklist);
-
-      if(result != ERROR_SUCCESS)
-        {
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Wi-Fi enum] WlanGetAvailableNetworkList failed with error: %u"), result);
-          returnval = 1;
-        }
-       else
-        {
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] ------------------------------------------------------------"));
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] WLAN_AVAILABLE_NETWORK_LIST for this interface"));
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Num Entries: %lu\n"), networklist->dwNumberOfItems);
-
-          for(XDWORD j = 0; j < networklist->dwNumberOfItems; j++)
-            {
-              networkentry = (WLAN_AVAILABLE_NETWORK *)&networklist->Network[j];
-
-              if(networkentry)
-                {
-                  DIOSTREAMDEVICEWIFI* wifidevice = new DIOSTREAMDEVICEWIFI();
-                  if(wifidevice)
-                    {
-                      wifidevice->SetIndex(j);
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Profile [%d] --------------------------------------------------"), j);
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Profile Name                     : %s"), networkentry->strProfileName);
-
-                      //------------------------------------------------------------------------------------------
-
-                      line.Empty();
-                      if(networkentry->dot11Ssid.uSSIDLength)
-                        {
-                          for(XDWORD k=0; k<networkentry->dot11Ssid.uSSIDLength; k++)
-                            {
-                              line += (XCHAR)networkentry->dot11Ssid.ucSSID[k];
-                            }
-                        }
-
-                      wifidevice->GetName()->Set(line);
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] SSID                             : %s"), line.Get());
-
-                      //------------------------------------------------------------------------------------------
-
-                      //line.Empty();
-                      //switch (networkentry->dot11BssType)
-                      //  {
-                      //    case dot11_BSS_type_infrastructure   : line.Format(__L("[Wi-Fi enum] Infrastructure (%u)"), networkentry->dot11BssType);   break;
-                      //   case dot11_BSS_type_independent      : line.Format(__L("[Wi-Fi enum] Infrastructure (%u)"), networkentry->dot11BssType);   break;
-                      //                              default    : line.Format(__L("Other (%lu)"), networkentry->dot11BssType);                        break;
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] BSS Network type                 : %s"), line.Get());
-
-                      //------------------------------------------------------------------------------------------
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Number of BSSIDs                 : %u"), networkentry->uNumberOfBssids);
-
-                      //------------------------------------------------------------------------------------------
-
-                      //line.Empty();
-
-                      //if(networkentry->bNetworkConnectable)
-                      //  {
-                      //    line = __L("Yes");
-                      //  }
-                      // else
-                      //  {
-                      //    line.Format(__L("No. Not connectable WLAN_REASON_CODE value: %u"), networkentry->wlanNotConnectableReason);
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Connectable                      : %s "), line.Get());
-
-
-                      //------------------------------------------------------------------------------------------
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Number of PHY types supported    : %u"), networkentry->uNumberOfPhyTypes);
-
-                      //------------------------------------------------------------------------------------------
-
-                      if(networkentry->wlanSignalQuality == 0)  RSSI = -100;
-                            else if(networkentry->wlanSignalQuality == 100)  RSSI = -50;
-                                    else RSSI = -100 + (networkentry->wlanSignalQuality/2);
-
-                      wifidevice->SetTransmisionPower(RSSI);
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Signal Quality                   : %u (RSSI: %i dBm)"), networkentry->wlanSignalQuality, RSSI);
-
-                      //------------------------------------------------------------------------------------------
-
-                      //if(networkentry->bSecurityEnabled)
-                      //  {
-                      //    line = __L("Yes");
-                      //  }
-                      // else
-                      //  {
-                      //    line =  __L("No");
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Security Enabled                 : %s"), line.Get());
-
-
-                      wifidevice->SetHasSecurity(networkentry->bSecurityEnabled?true:false);
-
-                      //------------------------------------------------------------------------------------------
-
-                      //switch (networkentry->dot11DefaultAuthAlgorithm)
-                      //  {
-                      //    case DOT11_AUTH_ALGO_80211_OPEN         : line.Format(__L("802.11 Open (%u)"), networkentry->dot11DefaultAuthAlgorithm);       break;
-                      //    case DOT11_AUTH_ALGO_80211_SHARED_KEY   : line.Format(__L("802.11 Shared (%u)"), networkentry->dot11DefaultAuthAlgorithm);     break;
-                      //    case DOT11_AUTH_ALGO_WPA                : line.Format(__L("WPA (%u)"), networkentry->dot11DefaultAuthAlgorithm);               break;
-                      //    case DOT11_AUTH_ALGO_WPA_PSK            : line.Format(__L("WPA-PSK (%u)"), networkentry->dot11DefaultAuthAlgorithm);           break;
-                      //    case DOT11_AUTH_ALGO_WPA_NONE           : line.Format(__L("WPA-None (%u)"), networkentry->dot11DefaultAuthAlgorithm);          break;
-                      //    case DOT11_AUTH_ALGO_RSNA               : line.Format(__L("RSNA (%u)"), networkentry->dot11DefaultAuthAlgorithm);              break;
-                      //    case DOT11_AUTH_ALGO_RSNA_PSK           : line.Format(__L("RSNA with PSK(%u)"), networkentry->dot11DefaultAuthAlgorithm);      break;
-                      //                              default       : line.Format(__L("Other (%lu)"), networkentry->dot11DefaultAuthAlgorithm);            break;
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Default AuthAlgorithm            : %s"), line.Get());
-
-                      //------------------------------------------------------------------------------------------
-
-                      //switch (networkentry->dot11DefaultCipherAlgorithm)
-                      //  {
-                      //    case DOT11_CIPHER_ALGO_NONE             : line.Format(__L("None (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);      break;
-                      //    case DOT11_CIPHER_ALGO_WEP40            : line.Format(__L("WEP-40 (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);    break;
-                      //    case DOT11_CIPHER_ALGO_TKIP             : line.Format(__L("TKIP (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);      break;
-                      //    case DOT11_CIPHER_ALGO_CCMP             : line.Format(__L("CCMP (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);      break;
-                      //    case DOT11_CIPHER_ALGO_WEP104           : line.Format(__L("WEP-104 (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);   break;
-                      //    case DOT11_CIPHER_ALGO_WEP              : line.Format(__L("WEP (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);       break;
-                      //                          default           : line.Format(__L("Other (0x%x)"), networkentry->dot11DefaultCipherAlgorithm);     break;
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Default CipherAlgorithm          : %s"), line.Get());
-
-                      //------------------------------------------------------------------------------------------
-
-                      //line.Empty();
-
-                      //if(networkentry->dwFlags)
-                      //  {
-                      //    if (networkentry->dwFlags & WLAN_AVAILABLE_NETWORK_CONNECTED)    line += __L(" - Currently connected");
-                      //    if (networkentry->dwFlags & WLAN_AVAILABLE_NETWORK_HAS_PROFILE)  line += __L(" - Has profile");
-                      //  }
-
-                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Wi-Fi enum] Flags                            : 0x%x %s"), networkentry->dwFlags, line.Get());
-
-                      //------------------------------------------------------------------------------------------
-
-                      AddDevice(wifidevice);
-
-                    }
-                }
-            }
-        }
-    }
-
-  if(networklist != NULL)
-    {
-      WlanFreeMemory(networklist);
-      networklist = NULL;
-    }
-
-  if(interfacelist != NULL)
-    {
-      WlanFreeMemory(interfacelist);
-      interfacelist = NULL;
-    }
-
-  return returnval;
-}
-*/
-
-
-bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
-{
-  HANDLE                        handleclient      = NULL;
-  DWORD                         max_client        = 2;
-  DWORD                         current_version   = 0;
-  DWORD                         result            = 0;
-//DWORD                         returnval         = 0;
-  WCHAR                         GUIDstring[39]    = { 0 };
-  PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
-  PWLAN_INTERFACE_INFO          interfacelinfo    = NULL;
-//PWLAN_AVAILABLE_NETWORK_LIST  networklist       = NULL;
-//PWLAN_AVAILABLE_NETWORK       networkentry      = NULL;
   PWLAN_BSS_LIST                bsslist           = NULL;
   PWLAN_BSS_ENTRY               bssentry          = NULL;
-//int                           ireturn;
   bool                          status            = false;
 
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
@@ -513,9 +276,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Search()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool automaticmodeactive)
@@ -533,15 +293,12 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
   DWORD                         max_client        = 2;
   DWORD                         current_version   = 0;
   DWORD                         result            = 0;
-//DWORD                         returnval         = 0;
   WCHAR                         GUIDstring[39]    = { 0 };
   PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
   PWLAN_INTERFACE_INFO          interfacelinfo    = NULL;
   PWLAN_PROFILE_INFO_LIST       profilelist       = NULL;
   PWLAN_PROFILE_INFO            profileinfo       = NULL;
   XSTRING                       line;
-//int                           RSSI              = 0;
-//int                           ireturn;
 
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
   if(result != ERROR_SUCCESS) return false;
@@ -627,8 +384,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionInAutomaticMode(bool
 
   return result?false:true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -740,7 +495,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::SetAllConnectionStatus(bool activate
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
@@ -760,7 +514,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 };
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
@@ -774,7 +527,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 {
   return issearching;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -848,7 +600,6 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WLanCallback(WLAN_NOTIFICATION_DATA*scannotificationdata, PVOID context)
@@ -890,9 +641,6 @@ void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Clean()
@@ -908,6 +656,8 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Clean()
   issearching = false;
 }
 
+
+#pragma endregion
 
 
 #endif

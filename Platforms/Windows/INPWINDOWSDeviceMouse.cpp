@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPWINDOWSDeviceMouse.cpp
-*
+* 
 * @class      INPWINDOWSDEVICEMOUSE
-* @brief      WINDOWS INPUT Device Mouse class
+* @brief      WINDOWS Input Device Mouse class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPWINDOWSDeviceMouse.h"
 
 #include <windows.h>
 
@@ -40,13 +46,19 @@
 #include "INPButton.h"
 #include "INPCursor.h"
 
-#include "INPWINDOWSDeviceMouse.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -76,8 +88,6 @@ INPWINDOWSDEVICEMOUSE::INPWINDOWSDEVICEMOUSE(): INPDEVICE()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
@@ -98,7 +108,6 @@ INPWINDOWSDEVICEMOUSE::~INPWINDOWSDEVICEMOUSE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -145,7 +154,6 @@ bool INPWINDOWSDEVICEMOUSE::Update()
             }
         }
     }
-
   
   for(XDWORD c=0; c<buttons.GetSize(); c++)
     {
@@ -202,8 +210,6 @@ bool INPWINDOWSDEVICEMOUSE::Update()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPWINDOWSDEVICEMOUSE::Clean()
@@ -218,8 +224,6 @@ void INPWINDOWSDEVICEMOUSE::Clean()
 {
 
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -255,7 +259,6 @@ bool INPWINDOWSDEVICEMOUSE::GetWindowPosition(int& screenx,int& screeny,int& scr
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
@@ -274,7 +277,6 @@ bool INPWINDOWSDEVICEMOUSE::CreateAllButtons()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -303,4 +305,5 @@ bool INPWINDOWSDEVICEMOUSE::CreateAllCursors()
 }
 
 
+#pragma endregion
 

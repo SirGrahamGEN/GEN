@@ -3,7 +3,7 @@
 * @file       INPWINDOWSFactory.cpp
 * 
 * @class      INPWINDOWSFACTORY
-* @brief      INPUT WINDOWS factory 
+* @brief      WINDOWS Input factory class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

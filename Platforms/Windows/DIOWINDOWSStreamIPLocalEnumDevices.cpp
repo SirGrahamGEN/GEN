@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamIPLocalEnumDevices.cpp
 * 
 * @class      DIOWINDOWSSTREAMIPLOCALENUMDEVICES
-* @brief      Data Input/Output WINDOWS Stream IP Local Enum Devices class
+* @brief      WINDOWS Data Input/Output Stream IP Local Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,37 +26,46 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <winsock2.h>
 #include <iphlpapi.h>
 #include <ws2tcpip.h>
 
-#include "DIOStreamDeviceIP.h"
-
 #include "DIOWINDOWSStreamIPLocalEnumDevices.h"
+
+#include "DIOStreamDeviceIP.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOWINDOWSSTREAMIPLOCALENUMDEVICES::DIOWINDOWSSTREAMIPLOCALENUMDEVICES() : DIOSTREAMIPLOCALENUMDEVICES()
+* @fn         DIOWINDOWSSTREAMIPLOCALENUMDEVICES::DIOWINDOWSSTREAMIPLOCALENUMDEVICES()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @param[in]  ) : 
 * 
 * @return     Does not return anything. 
 * 
@@ -284,3 +293,7 @@ void DIOWINDOWSSTREAMIPLOCALENUMDEVICES::Clean()
 {
 
 }
+
+
+#pragma endregion
+

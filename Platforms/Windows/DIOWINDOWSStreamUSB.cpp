@@ -1,57 +1,77 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB.CPP
-//
-//  WINDOWS Data IO Stream USB class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamUSB.cpp
+* 
+* @class      DIOWINDOWSSTREAMUSB
+* @brief      WINDOWS Data Input/Output Stream USB class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSStreamUSB.h"
 
 #include "XFactory.h"
 #include "XString.h"
 #include "XBuffer.h"
-#include "XThreadCollected.h"
 
 #include "DIOStreamXEvent.h"
 
-#include "DIOWINDOWSStreamUSB.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:47:09
-//
-//  @return       void :
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB() : DIOSTREAMUSB() , XFSMACHINE(0)
 {
   Clean();
@@ -83,18 +103,18 @@ DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB() : DIOSTREAMUSB() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB()
+
 {
   Close();
 
@@ -104,17 +124,15 @@ DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::GetConnectStatus
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       DIOSTREAMSTATUS :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetConnectStatus()
 {
   if(handle==INVALID_HANDLE_VALUE)  return DIOSTREAMSTATUS_DISCONNECTED;
@@ -124,18 +142,15 @@ DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetConnectStatus()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUSB::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSB::Open()
 {
   if(!threadconnection)  return false;
@@ -173,18 +188,15 @@ bool DIOWINDOWSSTREAMUSB::Open()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUSB::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSB::Close()
 {
   if(!threadconnection) return false;
@@ -201,19 +213,16 @@ bool DIOWINDOWSSTREAMUSB::Close()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::CleanBuffers
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMUSB::CleanBuffers()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSB::CleanBuffers()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -222,49 +231,17 @@ bool DIOWINDOWSSTREAMUSB::CleanBuffers()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOWINDOWSSTREAMUSB::Clean()
-{
-  threadconnection = NULL;
-
-  handle           = INVALID_HANDLE_VALUE;
-  hevent           = NULL;
-
-  memset(&ovi,0,sizeof(ovi));
-
-  readtimeout      = 3000;
-  writetimeout     = 3000;
-}
-
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2012 13:56:19
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMUSB* diostream = (DIOWINDOWSSTREAMUSB*)data;
@@ -349,83 +326,21 @@ void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
             }
         }
     }
-
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::ReadBuffer
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       XDWORD :
-//  @param        buffer :
-//  @param        size :
-*/
-//------------------------------------------------------------------
-/*
-XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
-{
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
-  if(size == 0)                                        return 0;
-
-  DWORD br    = 0;
-  bool status = true;
-
-  if(!hevent)
-    {
-      hevent = CreateEvent(0,TRUE,FALSE,0);
-      if(!hevent) return 0;
-
-      ovi.hEvent = hevent;
-
-      if(!ReadFile(handle,buffer,size,&br,&ovi))
-        {
-          if(GetLastError()!=ERROR_IO_PENDING)
-            {
-              status = false;
-            }
-           else return ReadBuffer(buffer,size);
-        }
-    }
-   else
-    {
-      switch(WaitForSingleObject(ovi.hEvent,readtimeout))
-        {
-          case WAIT_OBJECT_0: if(!GetOverlappedResult(handle,&ovi,&br,FALSE))
-                                     status = false;
-                                else status = true;
-                              break;
-
-          case WAIT_TIMEOUT : CancelIo(handle);
-                              status=false;
-                              break;
-
-                   default  : status=false;
-                              break;
-
-         }
-     }
-
-  memset(&ovi,0,sizeof(ovi));
-
-  if(hevent)
-    {
-      CloseHandle(hevent);
-      hevent = NULL;
-    }
-
-  if(!status) return 0;
-
-  return (XDWORD)br;
-}
-*/
-
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
+* @brief      ReadBuffer
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -437,27 +352,23 @@ XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
   status = ReadFile(handle, buffer, size, &br, NULL)?true:false;
 
   if(!status) return 0;
-  return (XDWORD)br;
 
+  return (XDWORD)br;
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMUSB::Write
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       XDWORD :
-//  @param        buffer :
-//  @param        size :
-*/
-//--------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
+* @brief      WriteBuffer
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -506,23 +417,32 @@ XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 }
 
 
-/*
-XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMUSB::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOWINDOWSSTREAMUSB::Clean()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
-  if(size == 0)                                        return 0;
+  threadconnection = NULL;
 
-  DWORD bw    = 0;
-  bool status = true;
+  handle           = INVALID_HANDLE_VALUE;
+  hevent           = NULL;
 
-  status = WriteFile(handle, buffer, size, &bw, NULL)?true:false;
+  memset(&ovi,0,sizeof(ovi));
 
-  if(!status) return 0;
-
-  return (XDWORD)bw;
+  readtimeout      = 3000;
+  writetimeout     = 3000;
 }
-*/
 
+
+#pragma endregion
 
 
 #endif
+

@@ -1,24 +1,44 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH.CPP
-//
-//  WINDOWS Data IO Stream Bluetooth class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamBluetooth.cpp
+* 
+* @class      DIOWINDOWSSTREAMBLUETOOTH
+* @brief      WINDOWS Data Input/Output Bluetooth class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <winsock2.h>
 #include <windows.h>
@@ -30,6 +50,8 @@
 #include <stdlib.h>
 #include <errno.h>
 
+#include "DIOWINDOWSStreamBluetooth.h"
+
 #include "XFactory.h"
 #include "XTrace.h"
 #include "XBuffer.h"
@@ -37,32 +59,31 @@
 
 #include "DIOStreamBluetoothConfig.h"
 
-#include "DIOWINDOWSStreamBluetooth.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH
-*/
-/**
-//
-//
-//  ""
-//  @version      21/06/2011 16:38:21
-//
-//  @return
+#pragma endregion
 
 
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSMACHINE(0)
 {
   Clean();
@@ -105,18 +126,16 @@ DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , 
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
 {
   if(threadconnection)
@@ -129,17 +148,15 @@ DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTH::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTH::Open()
 {
   if(!threadconnection) return false;
@@ -153,18 +170,15 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTH::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTH::Disconnect()
 {
   if(!IsConnected()) return false;
@@ -184,17 +198,15 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTH::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTH::Close()
 {
   if(!threadconnection) return false;
@@ -239,19 +251,17 @@ bool DIOWINDOWSSTREAMBLUETOOTH::Close()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect
-*/
-/**
-//
-//
-//  ""
-//  @version      05/05/2013 11:40:25
-//
-//  @return       int :
-//  @param        socket :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
 {
   struct timeval  tv;
@@ -288,25 +298,22 @@ int DIOWINDOWSSTREAMBLUETOOTH::IsReadyConnect(SOCKET socket)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService
-/**
-//
-//
-//  ""
-//  @version      06/04/2006 12:40:43
-//
-//  @return       bool :
-//  @param        reg :
-//  @param        service_name :
-//  @param        service_dsc :
-//  @param        service_prov :
-//  @param        addr :
-*/
-//-------------------------------------------------------------------
-bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg,char* service_name,char* service_dsc,char* service_prov,void* addr)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg, char* service_name, char* service_dsc, char* service_prov, void* addr)
+* @brief      SDP_RegisterService
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  reg : 
+* @param[in]  service_name : 
+* @param[in]  service_dsc : 
+* @param[in]  service_prov : 
+* @param[in]  addr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg, char* service_name, char* service_dsc, char* service_prov, void* addr)
 {
   CSADDR_INFO csaddr;
   memset(&csaddr, 0, sizeof(csaddr));
@@ -345,45 +352,38 @@ bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg,char* service_name,
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMBLUETOOTH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTH::Clean()
 {
-  threadconnection         = NULL;
-  status                  = DIOSTREAMSTATUS_DISCONNECTED;
+  threadconnection    = NULL;
+  status              = DIOSTREAMSTATUS_DISCONNECTED;
 
-  addr                    = NULL;
-  handlesocket            = INVALID_SOCKET;
-  handleserver            = INVALID_SOCKET;
+  addr                = NULL;
+  handlesocket        = INVALID_SOCKET;
+  handleserver        = INVALID_SOCKET;
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 12:12:27
-//
-//  @return       void :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)
 {
   DIOWINDOWSSTREAMBLUETOOTH* diostream = (DIOWINDOWSSTREAMBLUETOOTH*)param;
@@ -648,6 +648,9 @@ void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)
         }
     }
 }
+
+
+#pragma endregion
 
 
 #endif

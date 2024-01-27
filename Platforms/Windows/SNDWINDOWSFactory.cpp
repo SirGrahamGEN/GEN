@@ -4,7 +4,7 @@
 * 
 * @class      SNDWINDOWSFACTORY
 * @brief      WINDOWS Sound Factory class
-* @ingroup    SOUND
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

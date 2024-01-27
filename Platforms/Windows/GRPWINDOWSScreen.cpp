@@ -3,7 +3,7 @@
 * @file       GRPWINDOWSScreen.cpp
 * 
 * @class      GRPWINDOWSSCREEN
-* @brief      Graphics WINDOWS Screen class
+* @brief      WINDOWS Graphics Screen class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,6 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+
 #include "GRPWINDOWSScreen.h"
 
 #include "XTrace.h"
@@ -49,6 +50,7 @@
 #include "GRPBitmap.h"
 
 #include "XMemory_Control.h"
+
 
 #pragma endregion
 
@@ -111,8 +113,6 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 {
-  //Delete();
-
   Clean();
 }
 

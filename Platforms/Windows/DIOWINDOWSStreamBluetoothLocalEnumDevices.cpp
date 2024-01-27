@@ -1,94 +1,109 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP.CPP
-//
-//  WINDOWS Data IO Stream Bluetooth Local Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamBluetoothLocalEnumDevices.cpp
+* 
+* @class      DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES
+* @brief      WINDOWS Data Input/Output Stream Bluetooth Local Enum Devices class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSStreamBluetoothLocalEnumDevices.h"
 
 #include <windows.h>
 #include <iphlpapi.h>
 #include <bluetoothapis.h>
 
 #include "DIOStreamDeviceBluetooth.h"
-#include "DIOWINDOWSStreamBluetoothLocalEnumDevices.h"
 
 #include "XMemory_Control.h"
 
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPLOCALENUMDEVICES::DIOWINDOWSSTREAMTCPIPLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
-
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPLOCALENUMDEVICES::~DIOWINDOWSSTREAMTCPIPLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPLOCALENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -158,5 +173,8 @@ bool DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::Search()
   return true;
 }
 
+#pragma endregion
+
 
 #endif
+

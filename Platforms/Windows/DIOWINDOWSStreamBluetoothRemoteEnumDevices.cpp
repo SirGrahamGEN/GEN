@@ -1,24 +1,44 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES.CPP
-//
-//  WINDOWS Data IO Stream Bluetooth Remote Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamBluetoothRemoteEnumDevices.cpp
+* 
+* @class      DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES
+* @brief      WINDOWS Data Input/Output Stream Bluetooth Remote Enum Devices class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <winsock2.h>
 #include <windows.h>
@@ -26,6 +46,8 @@
 #include <bthsdpdef.h>
 #include <bluetoothapis.h>
 #include <tchar.h>
+
+#include "DIOWINDOWSStreamBluetoothRemoteEnumDevices.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -35,32 +57,30 @@
 #include "DIOStream.h"
 #include "DIOStreamDeviceBluetooth.h"
 
-#include "DIOWINDOWSStreamBluetoothRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPREMOTEENUMDEVICES::DIOWINDOWSSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHREMOTEENUMDEVICES(), XFSMACHINE(0)
 {
   Clean();
@@ -85,23 +105,19 @@ DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMD
 
   threadenumdevices = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, __L("DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES"), ThreadEnumDevices, (void*)this);
   if(threadenumdevices) threadenumdevices->Ini();
-
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPREMOTEENUMDEVICES::~DIOWINDOWSSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -112,24 +128,19 @@ DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHREMOTEENUM
       DELETEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, threadenumdevices);
     }
 
-
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIPREMOTEENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 {
   if(!threadenumdevices)       return false;
@@ -158,20 +169,17 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:35
-//
-//  @return       bool :
-//  @param        waitend :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
+* @brief      StopSearch
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  waitend : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(!IsSearching()) return false;
@@ -191,23 +199,18 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
   Sleep(10);
 
   return true;
-};
+}
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:40
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
+* @brief      IsSearching
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices) return false;
@@ -217,45 +220,20 @@ bool DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
   if((GetCurrentState() == DIOWINDOWSBTENUMFSMSTATE_SEARCHMAC) || (GetCurrentState() == DIOWINDOWSBTENUMFSMSTATE_SEARCHSERVICES)) return true;
 
   return false;
-};
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:25:03
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
-{
-  threadenumdevices = NULL;
-
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:31:49
-//
-//  @return       void :
-//  @param        thread :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
+* @brief      ThreadEnumDevices
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
 {
   DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES* enumeration = (DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES*)data;
@@ -374,19 +352,15 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* data)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices
-*/
-/**
-//
-//
-//  ""
-//  @version      08/05/2013 23:16:48
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
+* @brief      SearchServices
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
 {
   for(int c=0;c<(int)devices.GetSize();c++)
@@ -475,22 +449,20 @@ void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::SearchServices()
 }
 
 
-/*-------------------------------------------------------------------
-//  SDP_ServiceCallback
-*/
-/**
-//
-//
-//  ""
-//  @version      09/05/2013 22:17:25
-//
-//  @return       BOOL :
-//  @param        attribID :
-//  @param        valuestream :
-//  @param        cbstreamsize :
-//  @param        vparam :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         BOOL __stdcall SDP_ServiceCallback(ULONG attribID, LPBYTE valuestream, ULONG cbstreamsize, LPVOID vparam)
+* @brief      _stdcall SDP_ServiceCallback
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  attribID : 
+* @param[in]  valuestream : 
+* @param[in]  cbstreamsize : 
+* @param[in]  vparam : 
+* 
+* @return     BOOL : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 BOOL __stdcall SDP_ServiceCallback(ULONG attribID, LPBYTE valuestream, ULONG cbstreamsize, LPVOID vparam)
 {
   DIOSTREAMDEVICEBLUETOOTHSDPSERVICE* service = (DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*)vparam;
@@ -655,5 +627,25 @@ BOOL __stdcall SDP_ServiceCallback(ULONG attribID, LPBYTE valuestream, ULONG cbs
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOWINDOWSSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
+{
+  threadenumdevices = NULL;
+}
+
+
+#pragma endregion
+
+
 #endif
+
 

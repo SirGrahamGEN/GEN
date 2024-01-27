@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamIPLocalEnumDevices.h
 * 
 * @class      DIOWINDOWSSTREAMIPLOCALENUMDEVICES
-* @brief      Data Input/Output WINDOWS Stream IP Local Enum Devices class
+* @brief      WINDOWS Data Input/Output Stream IP Local Enum Devices class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,13 +30,23 @@
 #define _DIOWINDOWSSTREAMIPLOCALENUMDEVICES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOStreamIPLocalEnumDevices.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOWINDOWSSTREAMIPLOCALENUMDEVICES :  public DIOSTREAMIPLOCALENUMDEVICES
 {
@@ -53,6 +63,16 @@ class DIOWINDOWSSTREAMIPLOCALENUMDEVICES :  public DIOSTREAMIPLOCALENUMDEVICES
     void            Clean                                 ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

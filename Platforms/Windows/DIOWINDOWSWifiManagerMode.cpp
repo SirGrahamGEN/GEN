@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWINDOWSWifiManagerMode.cpp
-*
+* 
 * @class      DIOWINDOWSWIFIMANAGERMODE
-* @brief      Data Input/Output WINDOWS Wifi Manager Mode
-* @ingroup    DATAIO
-*
+* @brief      WINDOWS Data Input/Output Wifi Manager Mode
+* @ingroup    PLATFORM_WINDOWS
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSWifiManagerMode.h"
 
 #include <windows.h>
 
@@ -57,14 +63,19 @@
 #include "XTimer.h"
 #include "XFileXML.h"
 
-#include "DIOWINDOWSWifiManagerMode.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +93,6 @@ DIOWINDOWSWIFIMANAGERMODE::DIOWINDOWSWIFIMANAGERMODE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWINDOWSWIFIMANAGERMODE::~DIOWINDOWSWIFIMANAGERMODE()
@@ -97,8 +107,6 @@ DIOWINDOWSWIFIMANAGERMODE::~DIOWINDOWSWIFIMANAGERMODE()
 { 
   Clean();                            
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -243,7 +251,6 @@ bool DIOWINDOWSWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, boo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSWIFIMANAGERMODE::IsDisconnected()
@@ -311,8 +318,6 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsDisconnected()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSWIFIMANAGERMODE::Disconnect()
@@ -330,8 +335,7 @@ bool DIOWINDOWSWIFIMANAGERMODE::Disconnect()
   PWLAN_INTERFACE_INFO_LIST     interfacelist     = NULL;
   PWLAN_INTERFACE_INFO          interfaceinfo     = NULL;
   DWORD                         result            = 1;
-  
-  
+   
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
   if(result != ERROR_SUCCESS) return false;
 
@@ -359,8 +363,6 @@ bool DIOWINDOWSWIFIMANAGERMODE::Disconnect()
 }  
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
@@ -382,12 +384,10 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
 
   result = WlanOpenHandle(max_client, NULL, &current_version, &handleclient);
   if(result != ERROR_SUCCESS) return false;
-    
-
+   
   result = WlanEnumInterfaces(handleclient, NULL, &interfacelist);
   if(result != ERROR_SUCCESS) return false;
     
-
   for(int i = 0; i < (int)interfacelist->dwNumberOfItems; i++)
     {
       interfacelinfo = (WLAN_INTERFACE_INFO *) &interfacelist->InterfaceInfo[i];
@@ -411,8 +411,7 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
         {          
           status = true;
           break;
-        }
-      
+        }      
     }
 
   if(interfacelist != NULL)
@@ -431,7 +430,6 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSWIFIMANAGERMODE::Clean()
@@ -445,5 +443,8 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
 void DIOWINDOWSWIFIMANAGERMODE::Clean()
 {
 
-
 }
+
+
+#pragma endregion
+

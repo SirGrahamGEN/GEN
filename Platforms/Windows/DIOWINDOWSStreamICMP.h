@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamICMP.h
 * 
 * @class      DIOWINDOWSSTREAMICMP
-* @brief      Data Input/Output WINDOWS Stream ICMP class
+* @brief      WINDOWS Data Input/Output Stream ICMP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -29,11 +29,12 @@
 #ifndef _DIOWINDOWSSTREAMICMP_H_
 #define _DIOWINDOWSSTREAMICMP_H_
 
-#if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
 
 #include <winsock2.h>
 #include <windows.h>
@@ -44,6 +45,7 @@
 #include "XThreadCollected.h"
 
 #include "DIOStreamICMP.h"
+
 
 #pragma endregion
 
@@ -84,10 +86,6 @@ enum DIOWINDOWSICMPFSMSTATES
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XFACTORY;
-class DIOFACTORY;
-class XPUBLISHER;
-class XTHREADCOLLECTED;
 
 class DIOWINDOWSSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
 {
@@ -112,6 +110,7 @@ class DIOWINDOWSSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
     SOCKET                    handle;    
 };
 
+
 #pragma endregion
 
 
@@ -126,3 +125,4 @@ class DIOWINDOWSSTREAMICMP : public DIOSTREAMICMP , public XFSMACHINE
 
 
 #endif
+

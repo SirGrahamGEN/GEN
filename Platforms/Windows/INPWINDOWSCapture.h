@@ -3,7 +3,7 @@
 * @file       INPWINDOWSCapture.h
 * 
 * @class      INPWINDOWSCAPTURE
-* @brief      Input WINDOWS Capture class
+* @brief      WINDOWS Input Capture class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamUDP.h
 * 
 * @class      DIOWINDOWSSTREAMUDP
-* @brief      Data Input/Output WINDOWS Stream UDP class
+* @brief      WINDOWS Data Input/Output Stream UDP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

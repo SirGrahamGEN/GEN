@@ -1,72 +1,95 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C.CPP
-//
-//  WINDOWS Data IO Stream I2C class
-//
-//
-//  ""
-//  @version 12/3/2003
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamI2C.cpp
+* 
+* @class      DIOWINDOWSSTREAMI2C
+* @brief      WINDOWS Data Input/Output Stream I2C class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWINDOWSStreamI2C.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
-#include "XThreadCollected.h"
 
 #include "DIOFactory.h"
 #include "DIOStreamXEvent.h"
 #include "DIOStreamI2CConfig.h"
 
-#include "DIOWINDOWSStreamI2C.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
+
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:51:23
-//
-//  @return
+#pragma endregion
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C() : DIOSTREAMI2C()
 {
   threadconnection = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMI2C, __L("DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C"), ThreadConnection, (void*)this);
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:33
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C()
 {
   if(threadconnection)
@@ -78,21 +101,15 @@ DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C::Open
-*/
-/**
-//
-//
-//  ""
-//  @version      07/10/2012 10:03:42
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMI2C::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMI2C::Open()
 {
   if(!config) return false;
@@ -107,20 +124,15 @@ bool DIOWINDOWSSTREAMI2C::Open()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C::Close
-*/
-/**
-//
-//
-//  ""
-//  @version      07/10/2012 10:03:47
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMI2C::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMI2C::Close()
 {
   if(!threadconnection) return false;
@@ -131,20 +143,17 @@ bool DIOWINDOWSSTREAMI2C::Close()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMI2C::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      22/09/2012 16:59:27
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMI2C::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMI2C::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMI2C* diostream = (DIOWINDOWSSTREAMI2C*)data;

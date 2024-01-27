@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       SNDFactory.h
+* @file       SNDWINDOWSFactory.h
 * 
 * @class      SNDWINDOWSFACTORY
 * @brief      WINDOWS Sound Factory class
-* @ingroup    SOUND
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -25,7 +25,6 @@
 * @endcond
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-
 
 #ifndef _SNDWINDOWSFACTORY_H_
 #define _SNDWINDOWSFACTORY_H_

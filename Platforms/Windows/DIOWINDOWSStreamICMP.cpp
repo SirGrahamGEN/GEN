@@ -3,7 +3,7 @@
 * @file       DIOWINDOWSStreamICMP.cpp
 * 
 * @class      DIOWINDOWSSTREAMICMP
-* @brief      Data Input/Output WINDOWS Stream ICMP class
+* @brief      WINDOWS Data Input/Output Stream ICMP class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

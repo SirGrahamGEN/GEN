@@ -1,86 +1,103 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMSPI.CPP
-//
-//  Windows Data IO Stream SPI class
-//
-//
-//  ""
-//  @version 12/3/2003
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamSPI.cpp
+* 
+* @class      DIOWINDOWSSTREAMSPI
+* @brief      WINDOWS Data Input/Output Stream SPI class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
-#include <intrin.h>
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOWINDOWSStreamSPI.h"
 
+#include <intrin.h>
+
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMSPI::DIOWINDOWSSTREAMSPI
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:52:28
-//
-//  @return
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-//  @param        cipher :
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMSPI::DIOWINDOWSSTREAMSPI()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMSPI::DIOWINDOWSSTREAMSPI() : DIOSTREAMSPI()
 {
   Clean();
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMSPI::~DIOWINDOWSSTREAMSPI
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:33
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMSPI::~DIOWINDOWSSTREAMSPI()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMSPI::~DIOWINDOWSSTREAMSPI()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMSPI::Sleep
-*/
-/**
-//
-//
-//  ""
-//  @version      28/10/2012 12:50:33
-//
-//  @return       void :
-//  @param        count :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMSPI::Sleep(int count)
+* @brief      Sleep
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  count : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMSPI::Sleep(int count)
 {
   for(int i=0;i<count;i++)
@@ -90,19 +107,24 @@ void DIOWINDOWSSTREAMSPI::Sleep(int count)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMSPI::Clean
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:50
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMSPI::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMSPI::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+
 

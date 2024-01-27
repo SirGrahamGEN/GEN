@@ -3,8 +3,8 @@
 * @file       INPWindowsSimulate.cpp
 * 
 * @class      INPWINDOWSSIMULATE
-* @brief      Input WINDOWS Simulate
-* @ingroup    INPUT
+* @brief      WINDOWS Input Simulate class
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -57,6 +57,7 @@
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 

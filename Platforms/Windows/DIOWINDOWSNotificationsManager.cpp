@@ -1,59 +1,67 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWINDOWSNotificationsManager.cpp
-*
+* 
 * @class      DIOWINDOWSNOTIFICATIONSMANAGER
-* @brief      WINDOWS Data IO Notifications manager class
+* @brief      WINDOWS Data Input/Output Notifications manager class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOWINDOWSNotificationsManager.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-*  @fn         DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
-*  @brief      Constructor
-*  @ingroup    DATAIO
-*
-*  ""
-*  ""
-*
-*  @return     Does not return anything.
-*
+* 
+* @fn         DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
 {
@@ -61,16 +69,15 @@ DIOWINDOWSNOTIFICATIONSMANAGER::DIOWINDOWSNOTIFICATIONSMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOWINDOWSNOTIFICATIONSMANAGER::~DIOWINDOWSNOTIFICATIONSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSNOTIFICATIONSMANAGER::~DIOWINDOWSNOTIFICATIONSMANAGER()
 {
@@ -78,24 +85,22 @@ DIOWINDOWSNOTIFICATIONSMANAGER::~DIOWINDOWSNOTIFICATIONSMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* pathexec, XCHAR* genericapp)
+* 
+* @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  titleowner :
-* @param[in]  genericapp :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  titleowner : 
+* @param[in]  genericapp : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 {
 
   #if(_MSC_VER >= 1700) && defined(_USING_V110_SDK71_)
-
 
   #else
 
@@ -124,17 +129,16 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIOWINDOWSNOTIFICATION& notification)
+* 
+* @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 * @brief      Do
-* @ingroup    DATAIO
-*
-* @param[in]  notification :
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  notification : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 {
@@ -143,7 +147,6 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
   ShowBaloon(notification->Get_Title()->Get(), notification->Get_Message()->Get(), (HWND)notification->GetWindowHandle(), (HICON)notification->GetApplicationIcon());
 
   #else
-
 
   XSTRING payload;
 
@@ -154,16 +157,11 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 
   payload += __L("</binding></visual></toast>");
 
-
-
-
-
   HRESULT hr = toast.Create(payload.Get());
   if(FAILED(hr))
     {
       return false;
     }
-
 
   //Show the toast
   hr = manager.Show(toast, this);
@@ -178,20 +176,18 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Do(DIONOTIFICATION* notification)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOWINDOWSNOTIFICATIONSMANAGER::End()
 * @brief      End
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSNOTIFICATIONSMANAGER::End()
 {
   #if(_MSC_VER >= 1700) && defined(_USING_V110_SDK71_)
-
 
   #else
 
@@ -210,18 +206,18 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::End()
 #if(_MSC_VER >= 1700) && defined(_USING_V110_SDK71_)
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWND hwnd, HICON hicon)
 * @brief      ShowBaloon
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  title :
-* @param[in]  text :
-* @param[in]  hwnd :
-* @param[in]  hicon :
-*
-* @return     BOOL :
-*
+* 
+* @param[in]  title : 
+* @param[in]  text : 
+* @param[in]  hwnd : 
+* @param[in]  hicon : 
+* 
+* @return     BOOL : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWND hwnd, HICON hicon)
 {
@@ -253,6 +249,7 @@ BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWN
 
 #else
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::RegisterCOMServer(_In_z_ PCWSTR pszExePath)
@@ -271,7 +268,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterCOMServer(_In_z_ PCWSTR pszExeP
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         HRESULT DIOWINDOWSNOTIFICATIONSMANAGER::UnRegisterCOMServer()
@@ -288,7 +284,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::UnRegisterCOMServer()
 
   return HRESULT_FROM_WIN32(::RegDeleteKey(HKEY_CURRENT_USER, _T("SOFTWARE\\Classes\\CLSID\\{383803B6-AFDA-4220-BFC3-0DBF810106BF}")));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -316,7 +311,6 @@ HRESULT  DIOWINDOWSNOTIFICATIONSMANAGER::RegisterActivator()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
@@ -331,7 +325,6 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
   //Microsoft::WRL::Module<Microsoft::WRL::OutOfProc>::GetModule().DecrementObjectCount();  
   //Microsoft::WRL::Module<Microsoft::WRL::OutOfProc>::GetModule().UnregisterObjects();  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -350,10 +343,8 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
 * --------------------------------------------------------------------------------------------------------------------*/
 HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
 {
-
   return S_OK;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -392,7 +383,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI:
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ ABI::Windows::UI::Notifications::ToastDismissalReason reason)
@@ -409,7 +399,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI:
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -430,8 +419,8 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::No
 }
 
 
-
 #endif
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -452,3 +441,7 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::Clean()
 
   #endif
 }
+
+
+#pragma endregion
+

@@ -1,87 +1,103 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPWINDOWSContext.cpp
+* 
+* @class      GRPWINDOWSCONTEXT
+* @brief      WINDOWS Graphics context class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT.CPP
-//
-//  Windows Graphics Context
-//
-//  Author            : Imanol Celaya Ruiz de Alegria
-//  Date Of Creation  : 04/04/2016 17:13:57
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "GRPWINDOWSContext.h"
+
 #include "GRPWINDOWSScreen.h"
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT
-*/
-/**
-//
-//  Class Constructor GRPWINDOWSCONTEXT
-//
-//  ""
-//  @version      02/05/2016 6:52:43
-//
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT() : GRPCONTEXT()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT
-*/
-/**
-//
-//   Class Destructor GRPWINDOWSCONTEXT
-//
-//  ""
-//  @version      02/05/2016 6:53:09
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT::Create
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      02/05/2016 6:53:14
-//
-//  @return       bool :
-//
-//  @param        handle :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSCONTEXT::Create(void* handle)
+* @brief      Create
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  handle : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSCONTEXT::Create(void* handle)
 {
   // deal with weird windows context creation
@@ -171,21 +187,15 @@ bool GRPWINDOWSCONTEXT::Create(void* handle)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT::IsLost
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      02/05/2016 6:53:27
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSCONTEXT::IsLost()
+* @brief      IsLost
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSCONTEXT::IsLost()
 {
   #ifdef GRP_OPENGL_ACTIVE
@@ -200,21 +210,15 @@ bool GRPWINDOWSCONTEXT::IsLost()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  GRPWINDOWSCONTEXT::Destroy
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      02/05/2016 6:53:21
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSCONTEXT::Destroy()
+* @brief      Destroy
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSCONTEXT::Destroy()
 {
   #ifdef GRP_OPENGL_ACTIVE
@@ -227,16 +231,15 @@ bool GRPWINDOWSCONTEXT::Destroy()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void GRPWINDOWSCONTEXT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSCONTEXT::Clean()
 {
@@ -244,3 +247,7 @@ void GRPWINDOWSCONTEXT::Clean()
 
   #endif
 }
+
+
+#pragma endregion
+

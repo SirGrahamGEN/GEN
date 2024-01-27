@@ -1,26 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP.CPP
-//
-//  WINDOWS Data Input/Output Stream TCP/IP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOWINDOWSStreamTCPIP.cpp
+* 
+* @class      DIOWINDOWSSTREAMTCPIP
+* @brief      WINDOWS Data Input/Output Stream TCP/IP class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <winsock2.h>
 #include <ws2tcpip.h>
 #include <iphlpapi.h>
+#include <windows.h>
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -29,36 +49,38 @@
 #include "XString.h"
 #include "XTrace.h"
 
+#include "DIOWINDOWSStreamTCPIP.h"
+
 #include "DIOIP.h"
 #include "DIOURL.h"
 #include "DIOStreamXEvent.h"
 #include "DIOStreamEnumServers.h"
 #include "DIOStreamTCPIPConfig.h"
 
-#include "DIOWINDOWSStreamTCPIP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:48:15
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 {
   Clean();
@@ -101,19 +123,16 @@ DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP()
 {
   if(threadconnection)
@@ -125,17 +144,15 @@ DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::Open()
 {
   if(!threadconnection)  return false;
@@ -154,18 +171,15 @@ bool DIOWINDOWSSTREAMTCPIP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::Disconnect()
 {
   if((GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED)          ||
@@ -190,18 +204,15 @@ bool DIOWINDOWSSTREAMTCPIP::Disconnect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::Close()
 {
   if(!threadconnection)  return false;
@@ -244,22 +255,20 @@ bool DIOWINDOWSSTREAMTCPIP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::Accept
-/**
-//
-//
-//  ""
-//  @version      09/04/2007 11:31:55
-//
-//  @return       int :
-//  @param        socket :
-//  @param        addr :
-//  @param        addrlen :
-//  @param        sec :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, XDWORD usec)
+* @brief      Accept
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* @param[in]  addr : 
+* @param[in]  addrlen : 
+* @param[in]  usec : 
+* 
+* @return     SOCKET : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, XDWORD usec)
 {
   fd_set         fds;
@@ -283,19 +292,17 @@ SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, X
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
 {
   if(socket==INVALID_SOCKET) return -1;
@@ -347,23 +354,17 @@ int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::SetPropertysHandle
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/05/2016 15:59:09
-//
-//  @return       bool :
-//
-//  @param        socket :
-//  @param        isserver :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::SetPropertysHandle(SOCKET socket)
+* @brief      SetPropertysHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  socket : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool DIOWINDOWSSTREAMTCPIP::SetPropertysHandle(SOCKET socket)
 {
@@ -383,22 +384,15 @@ bool DIOWINDOWSSTREAMTCPIP::SetPropertysHandle(SOCKET socket)
 */
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::GetHandleServer
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      19/04/2016 13:36:53
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
+* @brief      GetHandleServer
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
 {
   SOCKET       handleserver = (SOCKET)config->GetHandleMultiServer();
@@ -535,21 +529,15 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::GetHandleClient
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      19/04/2016 13:35:33
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
+* @brief      GetHandleClient
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
 {
   if(config->GetRemoteURL()->IsEmpty())
@@ -661,21 +649,17 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOWINDOWSSTREAMTCPIP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
 {
   DIOWINDOWSSTREAMTCPIP* diostream = (DIOWINDOWSSTREAMTCPIP*)data;
@@ -851,3 +835,6 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
         }
     }
 }
+
+
+#pragma endregion
