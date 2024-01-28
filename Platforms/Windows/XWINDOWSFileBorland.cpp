@@ -1,22 +1,43 @@
-//------------------------------------------------------------------------------------------
-//  XWINDOWSFILE.CPP
-//
-//  WINDOWS file class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 13/03/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       XWINDOWSFileBorland.cpp
+* 
+* @class      XWINDOWSFILEBORLAND
+* @brief      WINDOWS eXtended Utils Borland file class
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSFileBorland.h"
 
 #include <windows.h>
 #include <io.h>
@@ -31,69 +52,63 @@
 
 #include "Cipher.h"
 
-#include "XWINDOWSFileBorland.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::XWINDOWSFILE
-/**
-//
-//
-//  ""
-//  @version      10/01/2001 17:06:59
-//
-//  @return
-//  @param        void :
-*/
-//-------------------------------------------------------------------
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWINDOWSFILE::XWINDOWSFILE()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 {
   Clean();
 }
 
 
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::~XWINDOWSFILE
-/**
-//
-//
-//  ""
-//  @version      10/01/2001 17:09:50
-//
-//  @return       void :
-//  @param        void :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XWINDOWSFILE::~XWINDOWSFILE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::~XWINDOWSFILE()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::Exist
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:21:58
-//
-//  @return       bool :
-//
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Exist(XCHAR* xpath)
+* @brief      Exist
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Exist(XCHAR* xpath)
 {
   bool status = Open(xpath, true);
@@ -103,69 +118,52 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::Open
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:27:07
-//
-//  @return       bool :
-//
-//  @param        xpath :
-//  @param        isreadonly :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpath : 
+* @param[in]  isreadonly : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
 {
   return ExtendedOpen(xpath, (isreadonly)? __L("rb") : __L("r+b"));
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::Create
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:39:47
-//
-//  @return       bool :
-//
-//  @param        xpath :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Create(XCHAR* xpath)
+* @brief      Create
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Create(XCHAR* xpath)
 {
   return ExtendedOpen(xpath, __L("w+b"));
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::SetSize
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:21:28
-//
-//  @return       bool :
-//
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::SetSize(XQWORD size)
+* @brief      SetSize
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::SetSize(XQWORD size)
 {
   if(!isopen)       return false;
@@ -183,23 +181,17 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::GetPosition
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:58:56
-//
-//  @return       bool :
-//
-//  @param        position :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::GetPosition(XQWORD& position)
+* @brief      GetPosition
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  position : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::GetPosition(XQWORD& position)
 {
   if(!isopen)     return false;
@@ -213,23 +205,17 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::SetPosition
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 17:11:15
-//
-//  @return       bool :
-//
-//  @param        position :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::SetPosition(XQWORD position)
+* @brief      SetPosition
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  position : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::SetPosition(XQWORD position)
 {
   if(!isopen)     return false;
@@ -248,22 +234,19 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Read
-/**
-//
-//
-//  ""
-//  @version      10/07/2002 13:15:07
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-//  @param        cipher :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @brief      Read
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  cipher : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -280,23 +263,19 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Read
-/**
-//
-//
-//  ""
-//  @version      10/07/2002 13:16:17
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-//  @param        cipher :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
+* @brief      Read
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  cipher : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -324,23 +303,19 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Write
-/**
-//
-//
-//  ""
-//  @version      10/07/2002 13:16:40
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        size :
-//  @param        cipher :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @brief      Write
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* @param[in]  cipher : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
@@ -362,18 +337,15 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 }
 
 
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Flush
-/**
-//
-//
-//  ""
-//  @version      07/04/2000 12:25:42
-//
-//  @return       bool :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Flush()
+* @brief      Flush
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Flush()
 {
   if(!isopen)       return false;
@@ -385,19 +357,15 @@ bool XWINDOWSFILE::Flush()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Close
-/**
-//
-//
-//  ""
-//  @version      10/01/2001 17:12:38
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Close()
+* @brief      Close
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Close()
 {
   if(!isopen)       return false;
@@ -420,21 +388,18 @@ bool XWINDOWSFILE::Close()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  XWINDOWSFILE::Erase
-/**
-//
-//
-//  ""
-//  @version      10/01/2001 17:10:52
-//
-//  @return       bool :
-//  @param        pathname :
-//  @param        overwrite :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
+* @brief      Erase
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpath : 
+* @param[in]  overwrite : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 {
   bool status=true;
@@ -449,23 +414,18 @@ bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::Rename
-*/
-/**
-//
-//
-//  ""
-//  @version      11/04/2011 10:09:39
-//
-//  @return       bool :
-//  @param        xpathold :
-//  @param        xpathnew :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
+* @brief      Rename
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpathold : 
+* @param[in]  xpathnew : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 {
   if(!_wrename(xpathold, xpathnew)) return true;
@@ -474,21 +434,15 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::ActualizeSize
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 17:59:09
-//
-//  @return       int :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::ActualizeSize()
+* @brief      ActualizeSize
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::ActualizeSize()
 {
   if(!isopen)       return false;
@@ -506,25 +460,18 @@ bool XWINDOWSFILE::ActualizeSize()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  XWINDOWSFILE::ExtendedOpen
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/06/2014 16:55:39
-//
-//  @return       bool :
-//
-//  @param        xpath :
-//  @param        mode :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
+* @brief      ExtendedOpen
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  xpath : 
+* @param[in]  mode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
 {
   if(isopen) Close();
@@ -555,5 +502,5 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
 }
 
 
-
+#pragma endregion
 

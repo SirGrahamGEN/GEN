@@ -3,7 +3,7 @@
 * @file       XWINDOWSSystem.cpp
 * 
 * @class      XWINDOWSSYSTEM
-* @brief      WINDOWS eXtended System class
+* @brief      WINDOWS eXtended Utils System class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

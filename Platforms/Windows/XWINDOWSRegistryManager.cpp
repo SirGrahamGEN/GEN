@@ -3,7 +3,7 @@
 * @file       XWINDOWSRegistryManager.cpp
 * 
 * @class      XWINDOWSREGISTRYMANAGER
-* @brief      WINDOWS eXtended Registry Manager class
+* @brief      WINDOWS eXtended Utils Registry Manager class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -41,8 +41,6 @@
 #pragma region INCLUDES
 
 #include "XWINDOWSRegistryManager.h"
-
-#include <Windows.h>
 
 #include "XString.h"
 #include "XPath.h"

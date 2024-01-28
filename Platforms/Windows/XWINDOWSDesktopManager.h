@@ -3,7 +3,7 @@
 * @file       XWINDOWSDesktopManager.h
 * 
 * @class      XWINDOWSDESKTOPMANAGER
-* @brief      eXtended WINDOWS Desktop Manager class
+* @brief      WINDOWS eXtended Utils Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.

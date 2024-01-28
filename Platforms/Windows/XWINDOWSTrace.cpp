@@ -1,64 +1,63 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file       XWiNDOWSTrace.cpp
-*
+* 
+* @file       XWINDOWSTrace.cpp
+* 
 * @class      XWINDOWSTRACE
-* @brief      eXtended WINDOWS debug trace class
+* @brief      WINDOWS eXtended Utils debug trace class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #ifdef XTRACE_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
-#include <winsock2.h>
-#include <windows.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
-
-#include <stdio.h>
-#include <string.h>
-#include <io.h>
+#include "XWINDOWSTrace.h"
 
 #include "XBuffer.h"
 #include "XString.h"
 #include "XWINDOWSSystem.h"
 #include "XWINDOWSDateTime.h"
 
-#include "XWINDOWSTrace.h"
+#pragma endregion
 
-//#include "XMemory_Control.h"
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -78,8 +77,7 @@ XWINDOWSTRACE::XWINDOWSTRACE()
 
   mutexhandle = (XQWORD)CreateMutex( NULL, FALSE, NULL);
   if(!mutexhandle) return;
-};
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +110,6 @@ XWINDOWSTRACE::~XWINDOWSTRACE()
 
   XTRACE::instance = NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -171,7 +168,6 @@ void XWINDOWSTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* stri
 
   UnLock();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -273,7 +269,6 @@ void XWINDOWSTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -314,7 +309,6 @@ void XWINDOWSTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 
   #endif
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +352,6 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
       addr.sin_addr.s_addr  = inet_addr(target->GetIP());
       #endif
     }
- 
 
   connect(handle,(LPSOCKADDR)&addr,sizeof(SOCKADDR_IN));
 
@@ -370,7 +363,6 @@ bool XWINDOWSTRACE::GetHandleNet(XTRACE_TARGET* target)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -400,7 +392,6 @@ bool XWINDOWSTRACE::CloseHandleNet(XTRACE_TARGET* target)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTRACE::Lock()
@@ -418,7 +409,6 @@ bool XWINDOWSTRACE::Lock()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -440,7 +430,6 @@ bool XWINDOWSTRACE::UnLock()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTRACE::Clean()
@@ -457,5 +446,9 @@ void XWINDOWSTRACE::Clean()
 }
 
 
+#pragma endregion
+
 
 #endif
+
+

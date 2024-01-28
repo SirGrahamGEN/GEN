@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSDir.cpp
-*
+* 
 * @class      XWINDOWSDIR
-* @brief      eXtended WINDOWS Directory class
+* @brief      WINDOWS eXtended Utils Directory class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSDir.h"
 
 #include <stdio.h>
 
@@ -39,14 +45,19 @@
 #include "XPath.h"
 #include "XTrace.h"
 
-#include "XWINDOWSDir.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +75,6 @@ XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSDIR::~XWINDOWSDIR()
@@ -79,7 +89,6 @@ XWINDOWSDIR::~XWINDOWSDIR()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,7 +134,6 @@ bool XWINDOWSDIR::Exist(XCHAR* path)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -195,7 +203,6 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::ChangeTo(XCHAR* path)
@@ -216,7 +223,6 @@ bool XWINDOWSDIR::ChangeTo(XCHAR* path)
 
   return result?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -262,7 +268,6 @@ bool XWINDOWSDIR::Delete(XCHAR* path,bool all)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::GetActual(XPATH& xpath)
@@ -286,7 +291,6 @@ bool XWINDOWSDIR::GetActual(XPATH& xpath)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -347,7 +351,6 @@ bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* sea
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
@@ -388,7 +391,6 @@ bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
@@ -416,7 +418,6 @@ bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -464,40 +465,9 @@ bool XWINDOWSDIR::SetFileDate(XDIRELEMENT* searchelement)
           datetimefile->SetMilliSeconds(st.wMilliseconds);
         }
     }
-
-  /*
-  WIN32_FIND_DATA*  search                    = (WIN32_FIND_DATA*)searchelement->GetFindFileData();
-  XQWORD            datetime_nanosec100       = 0;
-  XQWORD            datetime_sec_1601         = 0;
-  XQWORD            datetime_nanosec100_rest  = 0;
-  XDATETIME*        datetimefile              = NULL;
-
-  datetimefile = searchelement->GetDateTimeFile();
- 
-  datetime_nanosec100 = search->ftLastWriteTime.dwHighDateTime;
-  datetime_nanosec100 <<= 32;
-  datetime_nanosec100 |= search->ftLastWriteTime.dwLowDateTime;
-   
-  datetimefile->SetYear(1601);
-  datetimefile->SetMonth(1);
-  datetimefile->SetDay(1);
-  datetimefile->SetHourToZero();
-
-  datetime_sec_1601  = datetimefile->GetSeconsFromDate(false);
-  
-  searchelement->GetDateTimeFile()->AddSeconds(datetime_nanosec100/10000000);
-
-  datetime_nanosec100_rest = datetime_nanosec100 - ((datetimefile->GetSeconsFromDate(false) - datetime_sec_1601) * 10000000);  
-
-  datetime_nanosec100_rest /= 10000;
-
-  datetimefile->SetMilliSeconds(datetime_nanosec100_rest);
-
-  */
  
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -514,4 +484,8 @@ void XWINDOWSDIR::Clean()
 {
 
 }
+
+
+#pragma endregion
+
 

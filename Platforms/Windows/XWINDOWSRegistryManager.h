@@ -3,7 +3,7 @@
 * @file       XWINDOWSRegistryManager.h
 * 
 * @class      XWINDOWSREGISTRYMANAGER
-* @brief      WINDOWS eXtended  Registry Manager class
+* @brief      WINDOWS eXtended Utils Registry Manager class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -34,7 +34,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "Windows.h"
+#include <Windows.h>
 
 #include "XVariant.h"
 
@@ -92,7 +92,6 @@ class XWINDOWSREGISTRYKEY
 
 };
 
-
 class XWINDOWSREGISTRYMANAGER
 {
   public:
@@ -117,6 +116,7 @@ class XWINDOWSREGISTRYMANAGER
     void                        Clean                     ();
 
 };
+
 
 #pragma endregion
 

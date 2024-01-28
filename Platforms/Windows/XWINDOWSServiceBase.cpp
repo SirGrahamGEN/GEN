@@ -1,49 +1,56 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSServiceBase.cpp
-*
+* 
 * @class      XWINDOWSSERVICEBASE
-* @brief      eXtended WINDOWS Service Base class
+* @brief      WINDOWS eXtended Utils Service Base class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include <assert.h>
-
+#pragma region INCLUDES
 
 #include "XWINDOWSServiceBase.h"
+
+#include <assert.h>
 
 #include "XTrace.h"
 #include "XLog.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 XWINDOWSSERVICEBASE*        XWINDOWSSERVICEBASE::service                  = NULL;
 
@@ -52,7 +59,11 @@ LPSERVICE_DESCRIPTION       XWINDOWSSERVICEBASE::service_description      = NULL
 LPSERVICE_FAILURE_ACTIONS   XWINDOWSSERVICEBASE::service_failureactions   = NULL;
 
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -80,7 +91,6 @@ XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
@@ -98,7 +108,6 @@ XWINDOWSSERVICEBASE::~XWINDOWSSERVICEBASE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -136,7 +145,6 @@ void XWINDOWSSERVICEBASE::Setup(bool can_stop, bool can_shutdown, bool can_pause
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::Run(XWINDOWSSERVICEBASE& service)
@@ -158,7 +166,6 @@ bool XWINDOWSSERVICEBASE::Run(XWINDOWSSERVICEBASE& t_service)
 
   return StartServiceCtrlDispatcher(servicetable)?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -190,7 +197,6 @@ void XWINDOWSSERVICEBASE::Stop()
         SetServiceStatus(originalstate);
       }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -335,7 +341,6 @@ bool XWINDOWSSERVICEBASE::Uninstall(XCHAR* servicename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
@@ -376,7 +381,6 @@ bool XWINDOWSSERVICEBASE::Start(XCHAR* servicename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
@@ -410,7 +414,6 @@ bool XWINDOWSSERVICEBASE::Stopped(XCHAR* servicename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         LPQUERY_SERVICE_CONFIG XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
@@ -427,7 +430,6 @@ LPQUERY_SERVICE_CONFIG  XWINDOWSSERVICEBASE::GetConfig(XCHAR* servicename)
   if(!GetServiceConfig(servicename)) return NULL;
 
   return service_config;
-
 }
 
 
@@ -450,8 +452,6 @@ LPSERVICE_DESCRIPTION  XWINDOWSSERVICEBASE::GetDescription(XCHAR* servicename)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicename)
@@ -471,8 +471,6 @@ LPSERVICE_FAILURE_ACTIONS XWINDOWSSERVICEBASE::GetFailureActions(XCHAR* servicen
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
@@ -486,7 +484,6 @@ XCHAR* XWINDOWSSERVICEBASE::GetServiceName()
 {
   return servicename;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -507,7 +504,6 @@ void XWINDOWSSERVICEBASE::On_Start(DWORD argc, XCHAR** args)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Stop()
@@ -521,7 +517,6 @@ void XWINDOWSSERVICEBASE::On_Stop()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -539,7 +534,6 @@ void XWINDOWSSERVICEBASE::On_Pause()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::On_Continue()
@@ -553,7 +547,6 @@ void XWINDOWSSERVICEBASE::On_Continue()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -586,7 +579,6 @@ void XWINDOWSSERVICEBASE::On_PowerEvent(DWORD eventtype)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -634,8 +626,6 @@ void XWINDOWSSERVICEBASE::SetServiceStatus(XDWORD currentstate, XDWORD win32exit
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
@@ -673,7 +663,6 @@ void XWINDOWSSERVICEBASE::WriteEventLogEntry(XCHAR* message, XWORD type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
@@ -694,7 +683,6 @@ void XWINDOWSSERVICEBASE::WriteErrorLogEntry(XCHAR* function, XDWORD error)
 
   WriteEventLogEntry(message.Get(), EVENTLOG_ERROR_TYPE);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -751,8 +739,6 @@ bool XWINDOWSSERVICEBASE::GetServiceConfig(XCHAR* servicename)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD starttype, XDWORD errorcontrol)
@@ -793,8 +779,6 @@ bool XWINDOWSSERVICEBASE::SetConfig(XCHAR* servicename, XDWORD type, XDWORD star
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -851,8 +835,6 @@ bool XWINDOWSSERVICEBASE::GetServiceDescription(XCHAR* servicename)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTION description)
@@ -881,8 +863,6 @@ bool XWINDOWSSERVICEBASE::SetDescription(XCHAR* servicename, LPSERVICE_DESCRIPTI
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -939,9 +919,6 @@ bool XWINDOWSSERVICEBASE::GetServiceFaiilureActions(XCHAR* servicename)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILURE_ACTIONS failureactions)
@@ -972,9 +949,6 @@ bool XWINDOWSSERVICEBASE::SetFailureActions(XCHAR* servicename, LPSERVICE_FAILUR
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINAPI XWINDOWSSERVICEBASE::ServiceMain(XDWORD argc, XCHAR** args)
@@ -1002,7 +976,6 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceMain(DWORD argc, LPWSTR* argv)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(XDWORD ctrl)
@@ -1028,7 +1001,6 @@ void WINAPI XWINDOWSSERVICEBASE::ServiceCtrlHandler(DWORD control, DWORD eventty
                           default         : break;
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1068,7 +1040,6 @@ void XWINDOWSSERVICEBASE::Start(XDWORD argc,  XCHAR** args)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSSERVICEBASE::Pause()
@@ -1085,18 +1056,7 @@ void XWINDOWSSERVICEBASE::Pause()
         On_Pause();
 
         SetServiceStatus(SERVICE_PAUSED);
-      }
-    /*
-    catch(DWORD error)
-      {
-        #ifdef XLOG_ACTIVE
-        GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to pause Error[%08X]."), servicename, error);
-        #else
-        //error++;
-        #endif
-        SetServiceStatus(SERVICE_RUNNING);
-      }
-    */
+      }    
     catch(...)
       {
         #ifdef XLOG_ACTIVE
@@ -1123,18 +1083,7 @@ void XWINDOWSSERVICEBASE::Continue()
 
         On_Continue();
         SetServiceStatus(SERVICE_RUNNING);
-      }
-    /*
-    catch(DWORD error)
-      {
-        #ifdef XLOG_ACTIVE
-        GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to continue Error[%08X]."), servicename, error);
-        #else
-        //error++;
-        #endif
-        SetServiceStatus(SERVICE_PAUSED);
-      }
-    */
+      }   
     catch(...)
       {
         #ifdef XLOG_ACTIVE
@@ -1161,16 +1110,6 @@ void XWINDOWSSERVICEBASE::Shutdown()
 
         SetServiceStatus(SERVICE_STOPPED);
       }
-     /*
-     catch (DWORD error)
-      {
-        #ifdef XLOG_ACTIVE
-        GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, XWINDOWSSERVICEBASE_LOG_SECTIONID_SERVICE, false, __L("%s: Service failed to shutdown Error[%08X]."), servicename, error);
-        #else
-        //error++;
-        #endif
-      }
-     */
      catch (...)
       {
         #ifdef XLOG_ACTIVE
@@ -1239,9 +1178,7 @@ void XWINDOWSSERVICEBASE::Clean()
 
   service_config        = NULL; 
   service_description   = NULL;
-
-
 }
 
 
-
+#pragma endregion

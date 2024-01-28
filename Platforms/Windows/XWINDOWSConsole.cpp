@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file        XWINDOWSConsole.cpp
-*
-* @class       XWINDOWSCONSOLE
-* @brief       eXtended WINDOWS Console class
-* @ingroup     PLATFORM_WINDOWS
-*
+* 
+* @file       XWINDOWSConsole.cpp
+* 
+* @class      XWINDOWSCONSOLE
+* @brief      WINDOWS eXtended Utils Console class
+* @ingroup    PLATFORM_WINDOWS
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSConsole.h"
 
 #include <windows.h>
 #include <iostream>
@@ -44,14 +50,19 @@
 #include "XString.h"
 #include "XFileTXT.h"
 
-#include "XWINDOWSConsole.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,9 +82,7 @@ XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
   GetConsoleCursorInfo(hconsole, &cursorinfo);
   cursorinfo.bVisible = false; // set the cursor visibility
   SetConsoleCursorInfo(hconsole, &cursorinfo);
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -90,7 +99,6 @@ XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 {
   
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +128,6 @@ bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -154,7 +161,6 @@ bool XWINDOWSCONSOLE::SetSize(int width, int height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
@@ -178,8 +184,6 @@ bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -213,7 +217,6 @@ bool XWINDOWSCONSOLE::Maximize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::Minimize()
@@ -245,7 +248,6 @@ bool XWINDOWSCONSOLE::Minimize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::Hide()
@@ -266,8 +268,6 @@ bool XWINDOWSCONSOLE::Hide()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSCONSOLE::IsHide()
@@ -284,7 +284,6 @@ bool XWINDOWSCONSOLE::IsHide()
 
   return (IsWindowVisible(hwindow))?false:true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -346,49 +345,8 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 {
   system("cls");
 
-  return true;
-
-  /*
-
-  COORD                      coordscreen   = { 0, 0 };                         // Home for the cursor
-  DWORD                      ccharswritten = 0;
-  CONSOLE_SCREEN_BUFFER_INFO csbi;
-  DWORD                      dwconsize;  
-  HANDLE                     hconsole    = GetStdHandle(STD_OUTPUT_HANDLE);   // Get the number of character cells in the current buffer.
-
-  if(IsHide()) return false;
-
-  
-  //GetConsoleScreenBufferInfo(hconsole, &csbi);
-
-  //dwconsize = csbi.dwSize.X * csbi.dwSize.Y;
-
-  //FillConsoleOutputCharacter(hconsole, (TCHAR) ' ', dwconsize, coordscreen, &ccharswritten);          // Fill the entire screen with blanks.
-  //GetConsoleScreenBufferInfo(hconsole, &csbi );                                                       // Get the current text attribute.
-
-  //FillConsoleOutputAttribute(hconsole, csbi.wAttributes,dwconsize, coordscreen, &ccharswritten );     // Set the buffer's attributes accordingly.
-  //SetConsoleCursorPosition  (hconsole, coordscreen );                                                 // Put the cursor at its home coordinates.
-  
-  
-  if(fill)
-    {
-      GetConsoleScreenBufferInfo(hconsole, &csbi);
-      dwconsize = csbi.dwSize.X * csbi.dwSize.Y;
-      FillConsoleOutputCharacter(hconsole, (TCHAR) ' ', dwconsize, coordscreen, &ccharswritten);        // Fill the entire screen with blanks.
-  
-      GetConsoleScreenBufferInfo(hconsole, &csbi );                                                     // Get the current text attribute.
-      FillConsoleOutputAttribute(hconsole, csbi.wAttributes, dwconsize, coordscreen, &ccharswritten );  // Set the buffer's attributes accordingly.
-    }
-    
-
-  SetConsoleCursorPosition  (hconsole, coordscreen );                                                   // Put the cursor at its home coordinates.
-
-  return true;
-
-  */
+  return true;  
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -412,7 +370,6 @@ bool XWINDOWSCONSOLE::KBHit(void)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XWINDOWSCONSOLE::GetChar()
@@ -428,5 +385,8 @@ int XWINDOWSCONSOLE::GetChar()
 
   return _getch();
 }
+
+
+#pragma endregion
 
 

@@ -3,9 +3,9 @@
 * @file       XWINDOWSEEPROMMemoryManager.cpp
 * 
 * @class      XWINDOWSEEPROMMEMORYMANAGER
-* @brief      eXtended WINDOWS EEPROM Memory Manager class
+* @brief      WINDOWS eXtended Utils EEPROM Memory Manager class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,26 +24,37 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSEEPROMMemoryManager.h"
 
 #include <stdio.h>
 #include <string.h>
 
-#include "XWINDOWSEEPROMMemoryManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -59,7 +70,6 @@ XWINDOWSEEPROMMEMORYMANAGER::XWINDOWSEEPROMMEMORYMANAGER()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -78,7 +88,6 @@ XWINDOWSEEPROMMEMORYMANAGER::~XWINDOWSEEPROMMEMORYMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
@@ -94,7 +103,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::End()
@@ -108,7 +116,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::End()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -129,7 +136,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
@@ -148,7 +154,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XWORD& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
@@ -165,7 +170,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XDWORD& data)
 {
   return Read(offset, (XBYTE*)&data, sizeof(XDWORD));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -187,7 +191,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Read(XDWORD offset, XBYTE* data, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
@@ -204,7 +207,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XBYTE data)
 {
   return Write(offset, (XBYTE*)&data, sizeof(XBYTE));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -225,7 +227,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
@@ -242,8 +243,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::Write(XDWORD offset, XDWORD data)
 {
   return Write(offset,(XBYTE*)&data, sizeof(XDWORD));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -280,7 +279,6 @@ bool XWINDOWSEEPROMMEMORYMANAGER::EraseAll()
 }
 
 
-
-
+#pragma endregion
 
 

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file        XWINDOWSThread.cpp
-*
-* @class       XWINDOWSTHREAD
-* @brief       eXtended WINDOWS Thread class
-* @ingroup     PLATFORM_WINDOWS
-*
+* 
+* @file       XWINDOWSThread.cpp
+* 
+* @class      XWINDOWSTHREAD
+* @brief      WINDOWS eXtended Utils Thread class
+* @ingroup    PLATFORM_WINDOWS
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSThread.h"
 
 #include <windows.h>
 #include <process.h>
@@ -43,13 +49,22 @@
 #include "MainProcWINDOWS.h"
 #endif
 
-#include "XWINDOWSThread.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_XWINDOWSMUTEX
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +82,6 @@ XWINDOWSMUTEX::XWINDOWSMUTEX()
 
   mxhandle = CreateMutex( NULL, FALSE, NULL );
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -89,7 +103,6 @@ XWINDOWSMUTEX::~XWINDOWSMUTEX()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,7 +128,6 @@ bool XWINDOWSMUTEX::Lock()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -145,7 +157,6 @@ bool XWINDOWSMUTEX::UnLock()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSMUTEX::Clean()
@@ -160,8 +171,6 @@ void XWINDOWSMUTEX::Clean()
 {
   mxhandle = 0;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -184,12 +193,10 @@ XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 }
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* XWINDOWSTHREAD                                                                                                      */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_XWINDOWSTHREAD
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -208,7 +215,6 @@ XWINDOWSTHREAD::~XWINDOWSTHREAD()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,7 +262,6 @@ bool XWINDOWSTHREAD::Ini(bool run)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSTHREAD::Wait(int miliseconds)
@@ -276,8 +281,6 @@ bool XWINDOWSTHREAD::Wait(int miliseconds)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -305,8 +308,6 @@ bool XWINDOWSTHREAD::End()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -387,8 +388,6 @@ DWORD WINAPI XWINDOWSTHREAD::Callback(LPVOID thread)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSTHREAD::Clean()
@@ -403,5 +402,12 @@ void XWINDOWSTHREAD::Clean()
 {
   thhandle = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
 
 
