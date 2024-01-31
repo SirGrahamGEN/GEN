@@ -81,7 +81,8 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XSTRING*                        GetAllLocalIP                   ();
     XSTRING*                        GetPublicIP                     ();
 
-    bool                            ChangeCadenceCheckInternet      (bool faster);
+    bool                            ChangeCadenceCheck              (APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds);
+
     bool                            ForceCheckIPs                   ();
     bool                            DeactiveCheckIPs                ();
 

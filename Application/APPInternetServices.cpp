@@ -105,6 +105,10 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
 
   GEN_XFACTORY_CREATE(xdatetime_UTC, CreateDateTime())
   if(xdatetime_UTC) xdatetime_UTC->Read();
+
+  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+  dyndnsmanager = new DIODYNDNS_MANAGER();
+  #endif  
 }
 
 
@@ -152,6 +156,15 @@ APPINTERNETSERVICES::~APPINTERNETSERVICES()
   DeRegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_CHECKINTERNETCONNEXION);
   DeRegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);
   DeRegisterEvent(APPINTERNETSERVICES_XEVENT_TYPE_ADJUSTDATETIME);
+
+
+  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+  if(dyndnsmanager)
+    {
+      delete dyndnsmanager;
+      dyndnsmanager = NULL;
+    }
+  #endif  
 
   Clean();
 }
@@ -235,14 +248,12 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           xscheduler->Task_Add(xtask);      
            
           #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-          dyndnsmanager = new DIODYNDNS_MANAGER();
           if(dyndnsmanager)
             {
               for(XDWORD c=0; c<cfg->DNSManager_GetURLs()->GetSize(); c++)
                 {
                   dyndnsmanager->AddDNS((*cfg->DNSManager_GetURL(c)));
                 }
-
             }
            else return true;
           #endif  
@@ -376,16 +387,17 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
-* @brief      ChangeCadenceCheckInternet
+* @fn         bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds)
+* @brief      ChangeCadenceCheck
 * @ingroup    APPLICATION
 * 
-* @param[in]  faster : 
+* @param[in]  taskID : 
+* @param[in]  timecadenceseconds : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
+bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds)
 {
   if(xscheduler)
     {
@@ -401,7 +413,7 @@ bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
 
   xscheduler->GetMutexScheduler()->Lock();
 
-  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET);        
+  task = xscheduler->Task_GetForID(taskID);        
   if(task) 
     {
       XDATETIME xdatetimecadence;
@@ -410,7 +422,7 @@ bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
       xdatetimecadence.SetToZero();
 
       xtimercadence.Reset();
-      xtimercadence.AddSeconds(faster?10:cfg->InternetServices_GetCheckInternetStatusCadence());
+      xtimercadence.AddSeconds(timecadenceseconds);
 
       xtimercadence.GetMeasureToDate(&xdatetimecadence);
 
@@ -425,6 +437,7 @@ bool APPINTERNETSERVICES::ChangeCadenceCheckInternet(bool faster)
 
   return task?true:false;
 }
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -679,14 +692,6 @@ bool APPINTERNETSERVICES::End()
       xscheduler = NULL;
     }
 
-  #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-  if(dyndnsmanager)
-    {
-      delete dyndnsmanager;
-      dyndnsmanager = NULL;
-    }
-  #endif
-
   if(scraperwebpublicIP)
     {
       delete scraperwebpublicIP;
@@ -766,7 +771,9 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
               xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_RESTORE);
               xevent.SetInternetConnextionCut(connectioncut);
 
-              ChangeCadenceCheckInternet(false);              
+              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, cfg->InternetServices_GetCheckInternetStatusCadence());     
+
+              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, 30);                        
             }
            else
             {
@@ -776,7 +783,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
        else
         {
           xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CUT);
-          ChangeCadenceCheckInternet(true);          
+          ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10);                       
         }              
     }
    else
@@ -1035,9 +1042,13 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                         #endif  
 
                                                                         #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-                                                                        UpdateDynDNSURLs(actualpublicIP);
+                                                                        UpdateDynDNSURLs(actualpublicIP);                                                                        
                                                                         #endif
                                                                       }
+
+                                                                    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+                                                                    ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, cfg->InternetServices_GetCheckIPsChangeCadence()); 
+                                                                    #endif
                                                                   }
                                                                 break;
 

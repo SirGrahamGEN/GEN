@@ -33,11 +33,12 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
-#include "XThreadCollected.h"
+#include "XFactory.h"
 
-#include "DIONode.h"
 
 #include "DIONodeManager.h"
+
+#include "DIONode.h"
 
 #include "XMemory_Control.h"
 
