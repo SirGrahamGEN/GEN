@@ -92,7 +92,7 @@
 #define APP_CFG_SECTION_INTERNETSERVICES                                          __L("internet services")
 #define APP_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE                       __L("checkinternetstatuscadenceseconds")
 #define APP_CFG_INTERNETSERVICES_DONOTLETINTERNETCONNECTIONMATTER                 __L("donotletinternetconnectionmatter")  
-#define APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                            __L("checkipschangecadenceminutes")
+#define APP_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                            __L("checkipschangecadenceseconds")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                           __L("updatetimebyntpcadencehours")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER                              __L("updatetimentpserver")
 #define APP_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE                  __L("updatetimentpmeridiandifference")

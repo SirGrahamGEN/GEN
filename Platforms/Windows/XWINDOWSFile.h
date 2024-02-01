@@ -34,6 +34,8 @@
 
 #include <stdio.h>
 
+#include <Windows.h>
+
 #include "XBase.h"
 #include "XFile.h"
 #include "XPath.h"

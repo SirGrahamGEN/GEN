@@ -198,7 +198,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
   //-------------------------------------------------------------------
 
   
-  if(cfg->InternetServices_GetCheckInternetStatusCadence() > 0)
+  if(cfg->InternetServices_GetCheckInternetStatusCadence())
     {
       xtask = new XSCHEDULERTASK( xscheduler);
       if(!xtask) return false;
@@ -223,7 +223,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
   //-------------------------------------------------------------------
 
-  if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
+  if(cfg->InternetServices_GetCheckIPsChangeCadence())
     {
       scraperwebpublicIP = new DIOSCRAPERWEBPUBLICIP();
       status = (scraperwebpublicIP?true:false);
@@ -236,13 +236,13 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           xdatetimecadence.SetToZero();
 
           xtimercadence.Reset();
-          xtimercadence.AddSeconds(cfg->InternetServices_GetCheckIPsChangeCadence());
+          xtimercadence.AddSeconds(5); // Only to Start
 
           xtimercadence.GetMeasureToDate(&xdatetimecadence);
 
           xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
           xtask->SetID(APPINTERNETSERVICES_TASKID_GETIPS);
-          xtask->SetIsStartImmediatelyCycles(true);
+          xtask->SetIsStartImmediatelyCycles(false);
           xtask->SetIsActive(true);
 
           xscheduler->Task_Add(xtask);      
@@ -263,7 +263,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
   //-------------------------------------------------------------------
   
-  if(cfg->InternetServices_GetUpdateTimeByNTPCadence() > 0)
+  if(cfg->InternetServices_GetUpdateTimeByNTPCadence())
     {       
       for(XDWORD c=0; c<cfg->InternetServices_GetUpdateTimeNTPServers()->GetSize(); c++)
         {
@@ -387,24 +387,25 @@ XSTRING* APPINTERNETSERVICES::GetPublicIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds)
+* @fn         bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds, bool startimmediatelycycles)
 * @brief      ChangeCadenceCheck
 * @ingroup    APPLICATION
 * 
 * @param[in]  taskID : 
 * @param[in]  timecadenceseconds : 
+* @param[in]  startimmediatelycycles : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds)
+bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds, bool startimmediatelycycles)
 {
-  if(xscheduler)
+  if(!xscheduler)
     {
       return false;
     } 
 
-  if(cfg->InternetServices_GetCheckInternetStatusCadence() > 0)    
+  if(!timecadenceseconds)    
     {
       return false;
     }
@@ -427,7 +428,7 @@ bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, 
       xtimercadence.GetMeasureToDate(&xdatetimecadence);
 
       task->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
-      task->SetIsStartImmediatelyCycles(true);
+      task->SetIsStartImmediatelyCycles(startimmediatelycycles);
       task->SetIsActive(true);      
 
       task->ResetCondition();
@@ -436,82 +437,6 @@ bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, 
   xscheduler->GetMutexScheduler()->UnLock();       
 
   return task?true:false;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool APPINTERNETSERVICES::ForceCheckIPs()
-* @brief      ForceCheckIPs
-* @ingroup    APPLICATION
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool APPINTERNETSERVICES::ForceCheckIPs()
-{
-  if(xscheduler)
-    {
-      return false;
-    } 
-
-  if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
-    {
-      return false;
-    }
-
-  XSCHEDULERTASK* task = NULL; 
-
-  xscheduler->GetMutexScheduler()->Lock();
-  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETIPS);  
-  xscheduler->GetMutexScheduler()->UnLock();
-      
-  if(task) 
-    {
-      task->SetIsActive(true);
-      task->StartConditionImmediately();       
-      return true;
-    }
-          
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool APPINTERNETSERVICES::DeactiveCheckIPs()
-* @brief      DeactiveCheckIPs
-* @ingroup    APPLICATION
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool APPINTERNETSERVICES::DeactiveCheckIPs()
-{
-  if(xscheduler)
-    {
-      return false;
-    } 
-
-  if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
-    {
-      return false;
-    }
-
-  XSCHEDULERTASK* task = NULL; 
-
-  xscheduler->GetMutexScheduler()->Lock();
-  task = xscheduler->Task_GetForID(APPINTERNETSERVICES_TASKID_GETIPS);  
-  xscheduler->GetMutexScheduler()->UnLock();
-      
-  if(task) 
-    {
-      task->SetIsActive(false);      
-      return true;
-    }
-          
-  return false;
 }
 
 
@@ -771,9 +696,15 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
               xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_RESTORE);
               xevent.SetInternetConnextionCut(connectioncut);
 
-              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, cfg->InternetServices_GetCheckInternetStatusCadence());     
+              if(cfg->InternetServices_GetCheckInternetStatusCadence())
+                {
+                  ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, cfg->InternetServices_GetCheckInternetStatusCadence());     
+                }
 
-              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, 30);                        
+              if(cfg->InternetServices_GetCheckIPsChangeCadence())
+                {
+                  ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, 30);                        
+                }
             }
            else
             {
@@ -783,7 +714,11 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
        else
         {
           xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CUT);
-          ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10);                       
+
+          if(cfg->InternetServices_GetCheckInternetStatusCadence())
+            {
+              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10);                       
+            }
         }              
     }
    else

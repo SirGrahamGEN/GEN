@@ -205,7 +205,12 @@ endif()
 if(GOOGLETEST_FEATURE)
 
   include(GoogleTest)
-  gtest_discover_tests(${CMAKE_PROJECT_NAME})
+
+  if(GOOGLETEST_EXECFORDISCOVER_FEATURE)
+
+    gtest_discover_tests(${CMAKE_PROJECT_NAME})
+
+  endif()
 
 endif()
 

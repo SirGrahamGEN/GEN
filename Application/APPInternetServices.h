@@ -81,11 +81,8 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XSTRING*                        GetAllLocalIP                   ();
     XSTRING*                        GetPublicIP                     ();
 
-    bool                            ChangeCadenceCheck              (APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds);
-
-    bool                            ForceCheckIPs                   ();
-    bool                            DeactiveCheckIPs                ();
-
+    bool                            ChangeCadenceCheck              (APPINTERNETSERVICES_TASKID taskID, int timecadenceseconds, bool startimmediatelycycles = false);
+    
     XDATETIME*                      DateTime_GetLocal               (bool active_daylightsave =  true, bool active_meridian = true);
     XDATETIME*                      DateTime_GetUTC                 ();
     int                             DateTime_GetMeridian            ();
@@ -105,7 +102,9 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     bool                            CheckInternetStatus             ();
     
     bool                            UpdateIPs                       (XSTRING& actualpublicIP);
+    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
     bool                            UpdateDynDNSURLs                (XSTRING& actualpublicIP);
+    #endif
     bool                            AdjustTimerByNTP                (XVECTOR<XSTRING*>* servers);
 
     void                            HandleEvent_Scheduler           (XSCHEDULER_XEVENT* xevent);

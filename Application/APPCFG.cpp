@@ -344,7 +344,7 @@ bool APPCFG::DoDefault()
   #ifdef APP_CFG_INTERNETSERVICES_ACTIVE
   internetservices_checkinternetstatuscadence       = 30;
   internetservices_donotletinternetconnectionmatter = false;
-  internetservices_checkipschangecadence            = 60;
+  internetservices_checkipschangecadence            = 3600;
   internetservices_updatetimebyntpcadence           = 4;
   internetservices_updatetimentpservers.Get(0)->Set(__L("1.es.pool.ntp.org")); 
   internetservices_updatetimentpservers.Get(1)->Set(__L("1.europe.pool.ntp.org")); 
@@ -759,7 +759,7 @@ bool APPCFG::InternetServices_DoNotLetInternetConnectionMatter()
 * --------------------------------------------------------------------------------------------------------------------*/
 int APPCFG::InternetServices_GetCheckIPsChangeCadence()
 {
-  return (internetservices_checkipschangecadence*60);
+  return internetservices_checkipschangecadence;
 }
 
 
