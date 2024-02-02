@@ -1,36 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXGPIO.cpp
-*
+* 
 * @class      DIOLINUXGPIO
-* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) 
+* @brief      LINUX Data Input/Output GPIO (General Purpose Input/Output) 
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXGPIO.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,20 +49,24 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/ioctl.h>
-//#include <sys/io.h>
 
 #include "XFactory.h"
 #include "XTrace.h"
 #include "XFile.h"
 
-#include "DIOLINUXGPIO.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,7 +82,6 @@ DIOLINUXGPIO::DIOLINUXGPIO() : DIOGPIO()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -90,7 +100,6 @@ DIOLINUXGPIO::~DIOLINUXGPIO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::Ini(XPATH* xpath)
@@ -102,10 +111,8 @@ DIOLINUXGPIO::~DIOLINUXGPIO()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::Ini()
 {
-
   return true;
 }
-
    
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -138,7 +145,6 @@ bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
@@ -158,7 +164,6 @@ bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
 
 	return GPIO_GetData(entry->GetGPIO());	
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -181,7 +186,6 @@ bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 
   return GPIO_SetData(entry->GetGPIO(), value);	
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -211,7 +215,6 @@ bool DIOLINUXGPIO::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
@@ -229,7 +232,6 @@ bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 
   return GPIOexports.Add(GPIO);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -255,7 +257,6 @@ bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
@@ -269,7 +270,6 @@ XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 {
   return &GPIOexports;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -289,7 +289,6 @@ bool DIOLINUXGPIO::GPIOExport_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -336,8 +335,6 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
@@ -380,8 +377,6 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 
 	return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -428,7 +423,6 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
@@ -473,9 +467,6 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXGPIO::Clean()
@@ -490,4 +481,12 @@ void DIOLINUXGPIO::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+
+
+
 

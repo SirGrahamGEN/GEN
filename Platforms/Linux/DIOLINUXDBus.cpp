@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXDBus.cpp
-*
+* 
 * @class      DIOLINUXDBUS
-* @brief      Data Input/Output LINUX DBus class
+* @brief      LINUX Data Input/Output DBus class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXDBus.h"
 
 #include "XFactory.h"
 #include "XTrace.h"
@@ -39,19 +45,23 @@
 #include "XSleep.h"
 
 #include "DIOLINUXDBus_XEvent.h"
-#include "DIOLINUXDBus.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOLINUXDBUS_MESSAGE                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_DIOLINUXDBUS_MESSAGE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +77,6 @@ DIOLINUXDBUS_MESSAGE::DIOLINUXDBUS_MESSAGE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -88,7 +97,6 @@ DIOLINUXDBUS_MESSAGE::~DIOLINUXDBUS_MESSAGE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetDestination()
@@ -102,7 +110,6 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetDestination()
 {
   return &destination;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +127,6 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetPath()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLINUXDBUS_MESSAGE::GetIFace()
@@ -134,7 +140,6 @@ XSTRING* DIOLINUXDBUS_MESSAGE::GetIFace()
 {
   return &iface;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -190,7 +195,6 @@ bool DIOLINUXDBUS_MESSAGE::Create()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DBusMessage* DIOLINUXDBUS_MESSAGE::GetHandler()
@@ -204,7 +208,6 @@ DBusMessage* DIOLINUXDBUS_MESSAGE::GetHandler()
 {
   return handler;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -226,7 +229,6 @@ bool DIOLINUXDBUS_MESSAGE::SetHandler(DBusMessage* handler)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXDBUS_MESSAGE::Delete()
@@ -245,7 +247,6 @@ bool DIOLINUXDBUS_MESSAGE::Delete()
   
   return true;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +284,6 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XDWORD& result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXDBUS_MESSAGE::GetResult(XSTRING& result)
@@ -319,7 +319,6 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XSTRING& result)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -368,7 +367,6 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XVECTOR<XSTRING*>& result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXDBUS_MESSAGE::Clean()
@@ -390,10 +388,10 @@ void DIOLINUXDBUS_MESSAGE::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOLINUXDBUS_ARGUMENTS                                                                                            */
-/*--------------------------------------------------------------------------------------------------------------------*/
+
+#pragma region CLASS_DIOLINUXDBUS_ARGUMENTS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -427,7 +425,6 @@ DIOLINUXDBUS_ARGUMENTS::DIOLINUXDBUS_ARGUMENTS(bool in, DIOLINUXDBUS_MESSAGE* me
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_ARGUMENTS::~DIOLINUXDBUS_ARGUMENTS()
@@ -444,7 +441,6 @@ DIOLINUXDBUS_ARGUMENTS::~DIOLINUXDBUS_ARGUMENTS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DBusMessageIter* DIOLINUXDBUS_ARGUMENTS::GetHandler()
@@ -458,7 +454,6 @@ DBusMessageIter* DIOLINUXDBUS_ARGUMENTS::GetHandler()
 {
   return &iter;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -486,7 +481,6 @@ bool DIOLINUXDBUS_ARGUMENTS::Append(bool value)
   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,7 +514,6 @@ bool DIOLINUXDBUS_ARGUMENTS::Append(XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(bool value)
@@ -547,7 +540,6 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(bool value)
   return status;
 }
  
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -578,7 +570,6 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(XCHAR* value)
 
   return dbus_message_iter_append_basic(&iter, DBUS_TYPE_STRING, &charstr2);  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -630,7 +621,6 @@ bool DIOLINUXDBUS_ARGUMENTS::GetResultInteractor(XVARIANT& result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXDBUS_ARGUMENTS::Clean()
@@ -648,10 +638,10 @@ void DIOLINUXDBUS_ARGUMENTS::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOLINUXDBUS_SIGNAL                                                                                               */
-/*--------------------------------------------------------------------------------------------------------------------*/
+
+#pragma region CLASS_DIOLINUXDBUS_SIGNAL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -685,7 +675,6 @@ DIOLINUXDBUS_SIGNAL::~DIOLINUXDBUS_SIGNAL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLINUXDBUS_SIGNAL::GetType()
@@ -701,7 +690,6 @@ XSTRING* DIOLINUXDBUS_SIGNAL::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOLINUXDBUS_SIGNAL::GetName()
@@ -715,7 +703,6 @@ XSTRING* DIOLINUXDBUS_SIGNAL::GetName()
 {
   return &name;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -735,11 +722,10 @@ void DIOLINUXDBUS_SIGNAL::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOLINUXDBUS                                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOLINUXDBUS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -757,7 +743,6 @@ DIOLINUXDBUS::DIOLINUXDBUS()
 
   RegisterEvent(DIOLINUXDBUS_XEVENT_TYPE_SIGNAL);                          
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -778,7 +763,6 @@ DIOLINUXDBUS::~DIOLINUXDBUS()
 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -817,7 +801,6 @@ bool DIOLINUXDBUS::Ini(DBusBusType type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXDBUS::IsConnected()
@@ -833,7 +816,6 @@ bool DIOLINUXDBUS::IsConnected()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -876,8 +858,6 @@ bool DIOLINUXDBUS::CallMethod(DIOLINUXDBUS_MESSAGE& message, DIOLINUXDBUS_MESSAG
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -936,8 +916,7 @@ bool DIOLINUXDBUS::Signal_Add(XCHAR* type, XCHAR* name)
 
   return status;
 }
-    
-
+ 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -955,7 +934,6 @@ bool DIOLINUXDBUS::Signal_Add(XSTRING& type, XSTRING& name)
 {
   return Signal_Add(type.Get(), name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -985,7 +963,6 @@ bool DIOLINUXDBUS::Signal_IsTypeAdd(XCHAR* type)
   return false;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -1005,7 +982,6 @@ bool DIOLINUXDBUS::Signal_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1039,7 +1015,6 @@ bool DIOLINUXDBUS::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXDBUS::TraceError(DBusError error)
@@ -1065,7 +1040,6 @@ bool DIOLINUXDBUS::TraceError(DBusError& error)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1156,7 +1130,6 @@ void DIOLINUXDBUS::Thread_Signals(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXDBUS::Clean()
@@ -1174,4 +1147,10 @@ void DIOLINUXDBUS::Clean()
 
   thread_signals  = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

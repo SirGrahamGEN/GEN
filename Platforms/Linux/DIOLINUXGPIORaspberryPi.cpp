@@ -1,66 +1,67 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXGPIORaspberryPi.cpp
-*
+* 
 * @class      DIOLINUXGPIORASPBERRYPI
-* @brief      Data Input/Output LINUX GPIO (General Purpose Input/Output) Raspberry Pi
+* @brief      LINUX Data Input/Output GPIO (General Purpose Input/Output) Raspberry Pi class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
+
 
 #ifdef HW_RASPBERRYPI
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <fcntl.h>
-#include <ctype.h>
-#include <unistd.h>
-#include <sys/mman.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/ioctl.h>
+#include "DIOLINUXGPIORaspberryPi.h"
 
 #include "XTrace.h"
 #include "XSleep.h"
 #include "XFileTXT.h"
 #include "XTrace.h"
 
-#include "DIOLINUXGPIORaspberryPi.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 static uint32_t* RPI_gpio;
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -78,7 +79,6 @@ DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
@@ -93,7 +93,6 @@ DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -170,7 +169,6 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
@@ -187,7 +185,6 @@ bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 {
   if(!entry) return false;
   if(entry->GetGPIO() == DIOGPIO_INVALID) return false;
- 
 
   bool isinput = true;
 
@@ -196,7 +193,6 @@ bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 
   return RPI_GPIOMode(entry->GetGPIO(), isinput);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -217,7 +213,6 @@ bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
   
   return RPI_GPIORead(entry->GetGPIO());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -241,7 +236,6 @@ bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIORASPBERRYPI::End()
@@ -255,7 +249,6 @@ bool DIOLINUXGPIORASPBERRYPI::End()
 {
   return RPI_End();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -357,7 +350,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
@@ -380,7 +372,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_End()
@@ -401,7 +392,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
@@ -419,7 +409,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -470,7 +459,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
@@ -500,7 +488,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -580,5 +567,8 @@ void DIOLINUXGPIORASPBERRYPI::Clean()
 }
 
 
+#pragma endregion
+
 
 #endif
+

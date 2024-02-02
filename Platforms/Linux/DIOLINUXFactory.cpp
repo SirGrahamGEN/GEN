@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXFactory.cpp
-*
+* 
 * @class      DIOLINUXFACTORY
-* @brief      Linux Data Input/Output eXtended class
+* @brief      LINUX Data Input/Output eXtended Factory class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXFactory.h"
 
 #include "XFactoryMacros.h"
 #include "XTrace.h"
@@ -125,18 +131,23 @@
 
 #endif
 
-
-#include "DIOLINUXFactory.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 #ifdef ANYTYPEOFDIOSTREAMIO
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -188,9 +199,7 @@ DIOSTREAMENUMDEVICES* DIOLINUXFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE
   if(_class) _class->SetType(type);
 
   return _class;
-};
-
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -212,7 +221,6 @@ bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -280,7 +288,6 @@ DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
@@ -305,7 +312,6 @@ bool DIOLINUXFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 #endif
 
 
-
 #ifdef DIO_WIFIMANAGERMODE_ACTIVE
 
 CREATEFUNC(DIOLINUXFACTORY, DIOWIFIMANAGERMODE  , DIOLINUXWIFIMANAGERMODE    , CreateWifiManagerMode)
@@ -314,14 +320,12 @@ DELETEFUNC(DIOLINUXFACTORY, DIOWIFIMANAGERMODE  , DIOLINUXWIFIMANAGERMODE    , D
 #endif
 
 
-
 #ifdef DIO_PCAP_ACTIVE
 
 CREATEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , CreatePCap)
 DELETEFUNC(DIOLINUXFACTORY, DIOPCAP   , DIOLINUXPCAP    , DeletePCap)
 
 #endif
-
 
 
 #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
@@ -344,9 +348,7 @@ DIOLEDNEOPIXELWS2812B* DIOLINUXFACTORY::CreateLedNeopixelWS2812B()
   DIOLEDNEOPIXELWS2812B* ledneopixelws2812b = new DIOLEDNEOPIXELWS2812B();
   return ledneopixelws2812b;
   #endif
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -373,4 +375,6 @@ bool DIOLINUXFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixe
 
 #endif
 
+
+#pragma endregion
 
