@@ -533,7 +533,7 @@ bool DIOWEBPAGEHTMLCREATOR::Printf(XCHAR* mask,...)
 
   //--------------------------------------------------
   // To See better the sorce code of WEB page
-  #ifdef XDEBUG
+  #ifdef GEN_DEBUG
   //Add(__L("\n"));
   #endif
 
@@ -559,7 +559,7 @@ bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 
   //--------------------------------------------------
   // To See better the sorce code of WEB page
-  #ifdef XDEBUG
+  #ifdef GEN_DEBUG
   //Add(__L("\n"));
   #endif
 

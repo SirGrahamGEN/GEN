@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamI2C.h
 * 
 * @class      DIOLINUXSTREAMI2C
-* @brief      Linux Data Input/Output Stream I2C class
+* @brief      LINUX Data Input/Output Stream I2C class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,12 +30,19 @@
 #define _DIOLINUXSTREAMI2C_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
 
 #include "DIOStreamI2C.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 #define DIOLINUXSTREAMI2C_MSG_TEN                       0x10
 #define DIOLINUXSTREAMI2C_MSG_RD                        0x01
@@ -102,6 +109,12 @@
 #define DIOLINUXSTREAMI2C_SMBUS                         0x0720    // SMBus transfer
 
 
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 typedef struct
 {
@@ -113,14 +126,12 @@ typedef struct
 } DIOLINUXSTREAMI2C_MSG;
 
 
-
 union DIOLINUXSTREAMI2C_SMBUS_TICKET
 {
   XBYTE                                 byte;
   XWORD                                 word;
   XBYTE                                 block[DIOLINUXSTREAMI2C_SMBUS_BLOCK_MAX+2] ;  // block [0] is used for length + one more for PEC
 };
-
 
 
 typedef struct
@@ -133,15 +144,12 @@ typedef struct
 } DIOLINUXSTREAMI2C_SMBUS_IOCTL_TICKET;
 
 
-
 typedef struct
 {
   DIOLINUXSTREAMI2C_MSG*                msgs;
   XDWORD                                nmsgs;
 
 } DIOLINUXSTREAMI2C_RDWR_IOCTL_TICKET;
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
 
 class DIOLINUXSTREAMI2C : public DIOSTREAMI2C
@@ -169,6 +177,16 @@ class DIOLINUXSTREAMI2C : public DIOSTREAMI2C
     XWORD                         sizeread;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

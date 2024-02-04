@@ -1,23 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI.CPP
-//
-//  Data Input/Output Stream SPI class
-//
-//
-//  ""
-//  @version 12/3/2003
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamSPI.cpp
+* 
+* @class      DIOLINUXSTREAMSPI
+* @brief      LINUX Data Input/Output Stream SPI class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMSPI_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamSPI.h"
 
 #include <stdint.h>
 #include <unistd.h>
@@ -33,66 +56,62 @@
 #include "XTrace.h"
 #include "DIOStreamSPIConfig.h"
 
-#include "DIOLINUXStreamSPI.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:14:54
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI() : DIOSTREAMSPI()
 {
   Clean();
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:33
-//
-//  @return
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI()
 {
   Clean();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::Open
-*/
-/**
-//
-//
-//  ""
-//  @version      20/09/2012 15:33:40
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMSPI::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMSPI::Open()
 {
   if(!config) return false;
@@ -124,19 +143,15 @@ bool DIOLINUXSTREAMSPI::Open()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::Close
-*/
-/**
-//
-//
-//  ""
-//  @version      20/09/2012 15:33:45
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMSPI::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMSPI::Close()
 {
   bool status = DIOSTREAMSPI::Close();
@@ -151,23 +166,19 @@ bool DIOLINUXSTREAMSPI::Close()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::TransferBuffer
-*/
-/**
-//
-//
-//  ""
-//  @version      16/12/2012 0:53:13
-//
-//  @return       bool :
-//  @param        bufferread :
-//  @param        bufferwrite :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size)
+* @brief      TransferBuffer
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  bufferread : 
+* @param[in]  bufferwrite : 
+* @param[in]  size : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size)
 {
   struct spi_ioc_transfer transf;
@@ -200,50 +211,44 @@ bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XD
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::Sleep
-*/
-/**
-//
-//
-//  ""
-//  @version      13/02/2013 19:09:26
-//
-//  @return       void :
-//  @param        count :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMSPI::Sleep(int count)
+* @brief      Sleep
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  count : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMSPI::Sleep(int count)
 {
   for(int i=0; i<count; i++)
     {
       asm("nop");
     }
-
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI::Clean
-/**
-//
-//
-//  ""
-//  @version      20/11/2003 10:19:50
-//
-//  @return       void :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMSPI::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMSPI::Clean()
 {
   handle = -1;
 }
 
 
-#endif
+#pragma endregion
 
+
+#endif
 

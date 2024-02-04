@@ -1,60 +1,85 @@
-/*------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMSPI.H
-*/
-/**
-// \class
-//
-//  Data Input/Output Stream SPI class
-//
-//  ""
-//  @version 20/09/2012 14:31:53
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamSPI.h
+* 
+* @class      DIOLINUXSTREAMSPI
+* @brief      LINUX Data Input/Output Stream SPI class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOLINUXSTREAMSPI_H_
 #define _DIOLINUXSTREAMSPI_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBuffer.h"
-#include "XLINUXThread.h"
 
 #include "DIOStreamSPI.h"
 
+#include "XLINUXThread.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+#pragma endregion
 
 
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
-/*---- CLASS -----------------------------------------------------------------------------*/
 
-class XBUFFER;
-class XFACTORY;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class DIOLINUXSTREAMSPI : public DIOSTREAMSPI
 {
   public:
-                                  DIOLINUXSTREAMSPI                   ();
-    virtual                      ~DIOLINUXSTREAMSPI                   ();
+                        DIOLINUXSTREAMSPI          ();
+    virtual            ~DIOLINUXSTREAMSPI          ();
 
-    bool                          Open                                ();
-    bool                          Close                               ();
-    bool                          TransferBuffer                      (XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size);
+    bool                Open                       ();
+    bool                Close                      ();
+    bool                TransferBuffer             (XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size);
 
-    void                          Sleep                               (int count);
+    void                Sleep                      (int count);
 
   private:
 
-    void                          Clean                               ();
+    void                Clean                      ();
 
-    int                           handle;
+    int                 handle;
 };
 
 
-//---- INLINE FUNCTIONS --------------------------------------------------------------------
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+#pragma endregion
+
 
 #endif
 

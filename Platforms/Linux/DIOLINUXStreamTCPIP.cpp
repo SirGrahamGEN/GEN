@@ -1,21 +1,43 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP.CPP
-//
-//  LINUX Data Input/Output Stream TCP/IP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamTCPIP.cpp
+* 
+* @class      DIOLINUXSTREAMTCPIP
+* @brief      LINUX Data Input/Output Stream TCP/IP class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamTCPIP.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,11 +59,6 @@
 #include <sys/fcntl.h>
 #endif
 #include <sys/time.h>
-/*
-#ifndef HW_PC_OLD
-#include <sys/epoll.h>
-#endif
-*/
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
@@ -63,30 +80,30 @@
 #include "DIOStreamEnumServers.h"
 #include "DIOStreamTCPIPConfig.h"
 
-#include "DIOLINUXStreamTCPIP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:48:15
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 {
   Clean();
@@ -129,19 +146,16 @@ DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
 {
   if(threadconnection)
@@ -153,17 +167,15 @@ DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMTCPIP::Open()
 {
   if(!threadconnection)  return false;
@@ -181,18 +193,15 @@ bool DIOLINUXSTREAMTCPIP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMTCPIP::Disconnect()
 {
   XTIMER* GEN_XFACTORY_CREATE(timerout, CreateTimer())
@@ -227,18 +236,15 @@ bool DIOLINUXSTREAMTCPIP::Disconnect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMTCPIP::Close()
 {
   if(!threadconnection)  return false;
@@ -281,22 +287,20 @@ bool DIOLINUXSTREAMTCPIP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::Accept
-/**
-//
-//
-//  ""
-//  @version      09/04/2007 11:31:55
-//
-//  @return       int :
-//  @param        socket :
-//  @param        addr :
-//  @param        addrlen :
-//  @param        sec :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD usec)
+* @brief      Accept
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  socket : 
+* @param[in]  addr : 
+* @param[in]  addrlen : 
+* @param[in]  usec : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD usec)
 {
   fd_set         fds;
@@ -320,19 +324,17 @@ int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD us
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
 {
   if(socket==-1) return -1;
@@ -385,23 +387,17 @@ int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::SetPropertysHandle
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/05/2016 16:35:02
-//
-//  @return       bool :
-//
-//  @param        socket :
-//  @param        isserver :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
+* @brief      SetPropertysHandle
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  socket : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 /*
 bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
 {
@@ -426,22 +422,15 @@ bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
 */
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::GetHandleServer
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      19/04/2016 13:36:53
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::GetHandleServer()
+* @brief      GetHandleServer
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 {
   int                 handleserver = (int)config->GetHandleMultiServer();
@@ -580,21 +569,15 @@ bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::GetHandleClient
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      19/04/2016 13:35:33
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMTCPIP::GetHandleClient()
+* @brief      GetHandleClient
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 {
   if(config->GetRemoteURL()->IsEmpty())
@@ -689,21 +672,17 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
 {
   DIOLINUXSTREAMTCPIP* diostream = (DIOLINUXSTREAMTCPIP*)data;
@@ -876,3 +855,27 @@ void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
         }
     }
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMTCPIP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMTCPIP::Clean()
+{
+  threadconnection   = NULL;
+  handlesocket      = -1;
+}
+
+
+#pragma endregion
+
+
+
+

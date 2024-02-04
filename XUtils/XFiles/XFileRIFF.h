@@ -86,9 +86,11 @@ class XFILERIFF_LIST
     XDWORD                          typelist;
     XQWORD                          positionfiledata;
 
-    #ifdef _DEBUG    
+    #ifdef GEN_DEBUG 
+    
     char                            typestr[5];
     char                            typeliststr[5];
+    
     #endif
 };
 

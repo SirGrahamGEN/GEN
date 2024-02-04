@@ -527,7 +527,7 @@ DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD app
   this->applicationname             = applicationname;
   this->xpathrootapp                = xpathrootapp;
 
-  #ifndef _DEBUG
+  #ifndef GEN_DEBUG
   DeleteFilesRenamed(xpathrootapp);
   #endif
 

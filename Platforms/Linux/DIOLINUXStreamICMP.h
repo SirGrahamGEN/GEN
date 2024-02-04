@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamICMP.h
 * 
 * @class      DIOLINUXSTREAMICMP
-* @brief      Data Input/Output LINUX Stream UDP class
+* @brief      LINUX Data Input/Output Stream UDP class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -122,12 +122,14 @@ void XFILERIFF_LIST::SetType(XDWORD type)
 {
   this->type = type; 
 
-  #ifdef _DEBUG    
+  #ifdef GEN_DEBUG    
+  
   typestr[0] = (type & 0x000000FF);
   typestr[1] = (type & 0x0000FF00) >> 8;
   typestr[2] = (type & 0x00FF0000) >> 16;
   typestr[3] = (type & 0xFF000000) >> 24;
   typestr[4] = 0;  
+  
   #endif
 
 } 
@@ -214,12 +216,14 @@ void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
 {
   this->typelist = typelist;  
 
-  #ifdef _DEBUG    
+  #ifdef GEN_DEBUG    
+  
   typeliststr[0] = (typelist & 0x000000FF);
   typeliststr[1] = (typelist & 0x0000FF00) >> 8;
   typeliststr[2] = (typelist & 0x00FF0000) >> 16;
   typeliststr[3] = (typelist & 0xFF000000) >> 24;
   typeliststr[4] = 0;  
+  
   #endif
 }
      
@@ -273,9 +277,11 @@ void XFILERIFF_LIST::Clean()
   typelist          = 0;  
   positionfiledata  = 0;
 
-  #ifdef _DEBUG    
+  #ifdef GEN_DEBUG    
+  
   memset(typestr      , 0, 5);
   memset(typeliststr  , 0, 5);  
+  
   #endif
 }
 

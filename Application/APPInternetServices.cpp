@@ -191,8 +191,6 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
   xscheduler = new XSCHEDULER();
   if(!xscheduler) return false;
 
-  XDATETIME       xdatetimecadence;
-  XTIMER          xtimercadence;
   XSCHEDULERTASK* xtask;
   
   //-------------------------------------------------------------------
@@ -202,15 +200,8 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
     {
       xtask = new XSCHEDULERTASK( xscheduler);
       if(!xtask) return false;
-
-      xdatetimecadence.SetToZero();
-
-      xtimercadence.Reset();
-      xtimercadence.AddSeconds(cfg->InternetServices_GetCheckInternetStatusCadence());
-
-      xtimercadence.GetMeasureToDate(&xdatetimecadence);
-
-      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
+      
+      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, cfg->InternetServices_GetCheckInternetStatusCadence());
       xtask->SetID(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET);
       xtask->SetIsStartImmediatelyCycles(true);
       xtask->SetIsActive(true);
@@ -233,14 +224,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
           xtask = new XSCHEDULERTASK(xscheduler);
           if(!xtask) return false;
 
-          xdatetimecadence.SetToZero();
-
-          xtimercadence.Reset();
-          xtimercadence.AddSeconds(5); // Only to Start
-
-          xtimercadence.GetMeasureToDate(&xdatetimecadence);
-
-          xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
+          xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, 5);  // Get IP first time
           xtask->SetID(APPINTERNETSERVICES_TASKID_GETIPS);
           xtask->SetIsStartImmediatelyCycles(false);
           xtask->SetIsActive(true);
@@ -280,14 +264,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
       xtask = new XSCHEDULERTASK( xscheduler);
       if(!xtask) return false;
 
-      xdatetimecadence.SetToZero();
-
-      xtimercadence.Reset();
-      xtimercadence.AddSeconds(cfg->InternetServices_GetUpdateTimeByNTPCadence());
-
-      xtimercadence.GetMeasureToDate(&xdatetimecadence);
-
-      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
+      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, cfg->InternetServices_GetUpdateTimeByNTPCadence());
       xtask->SetID(APPINTERNETSERVICES_TASKID_CHECKNTPDATETIME);
       xtask->SetIsStartImmediatelyCycles(true);
       xtask->SetIsActive(true);
@@ -416,18 +393,8 @@ bool APPINTERNETSERVICES::ChangeCadenceCheck(APPINTERNETSERVICES_TASKID taskID, 
 
   task = xscheduler->Task_GetForID(taskID);        
   if(task) 
-    {
-      XDATETIME xdatetimecadence;
-      XTIMER    xtimercadence;
-
-      xdatetimecadence.SetToZero();
-
-      xtimercadence.Reset();
-      xtimercadence.AddSeconds(timecadenceseconds);
-
-      xtimercadence.GetMeasureToDate(&xdatetimecadence);
-
-      task->SetNCycles(XSCHEDULER_CYCLEFOREVER, &xdatetimecadence);
+    {      
+      task->SetNCycles(XSCHEDULER_CYCLEFOREVER, timecadenceseconds);
       task->SetIsStartImmediatelyCycles(startimmediatelycycles);
       task->SetIsActive(true);      
 
@@ -698,12 +665,16 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 
               if(cfg->InternetServices_GetCheckInternetStatusCadence())
                 {
+                  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get Internet Services cadence %d]"), cfg->InternetServices_GetCheckInternetStatusCadence());
+
                   ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, cfg->InternetServices_GetCheckInternetStatusCadence());     
                 }
 
               if(cfg->InternetServices_GetCheckIPsChangeCadence())
                 {
-                  ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, 30);                        
+                  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get IPs ajust to 30 seconds]"));
+
+                  ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, 30, false);                        
                 }
             }
            else
@@ -717,7 +688,9 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 
           if(cfg->InternetServices_GetCheckInternetStatusCadence())
             {
-              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10);                       
+              // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get Internet Services cadence 10]"));    
+
+              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10, false);                       
             }
         }              
     }
@@ -750,7 +723,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
       
   APPINTERNETSERVICES_XEVENT    xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
 
-  // APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
                                                                 
   if(enumdevices)
     {
@@ -785,7 +758,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
       GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
     }
 
-  // APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
+  APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
 
   if(status)
     {
@@ -803,7 +776,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           sendchangeevent   = true;
         }                                                                         
       
-      // APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
 
       if(scraperwebpublicIP->Get(ip, 5, NULL, false)) 
         {
@@ -825,7 +798,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           status = true;    
         }
 
-      // APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
+      APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
     }
 
   if(sendchangeevent)
@@ -966,12 +939,21 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
       case APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET : CheckInternetStatus();                                                                  
                                                                 break;
 
-      case APPINTERNETSERVICES_TASKID_GETIPS                  : if(CheckInternetConnection()) 
-                                                                  {
-                                                                    XSTRING actualpublicIP;
+      case APPINTERNETSERVICES_TASKID_GETIPS                  : // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Check Get IPs..."));    
+
+                                                                if(CheckInternetConnection()) 
+                                                                  { 
+                                                                    XSTRING actualpublicIP; 
+
+                                                                    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE                                                                  
+                                                                    // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get IPs ajust to %d seconds]"), cfg->InternetServices_GetCheckIPsChangeCadence());
+                                                                    ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, cfg->InternetServices_GetCheckIPsChangeCadence());   
+                                                                    #endif                                                                   
 
                                                                     if(UpdateIPs(actualpublicIP))
                                                                       {  
+                                                                        // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Update public IP"));    
+  
                                                                         #ifdef XTRACE_ACTIVE                                                                   
                                                                         XTRACE_RESOLVEALLRESOURCES; 
                                                                         #endif  
@@ -979,11 +961,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                         #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
                                                                         UpdateDynDNSURLs(actualpublicIP);                                                                        
                                                                         #endif
-                                                                      }
-
-                                                                    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-                                                                    ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, cfg->InternetServices_GetCheckIPsChangeCadence()); 
-                                                                    #endif
+                                                                      }                                                                                                                                   
                                                                   }
                                                                 break;
 

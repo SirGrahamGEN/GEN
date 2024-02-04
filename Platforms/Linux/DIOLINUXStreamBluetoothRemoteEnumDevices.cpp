@@ -1,40 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXStreamBluetoothRemoteEnumDevices.cpp
-*
+* 
 * @class      DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamBluetoothRemoteEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,22 +65,26 @@
 #include "XSleep.h"
 #include "XVector.h"
 #include "XString.h"
-#include "XThreadCollected.h"
 
 #include "DIOStream.h"
 #include "DIOStreamDeviceBluetooth.h"
 
-#include "DIOLINUXStreamBluetoothRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*  SDP_lastservice = NULL;
 static char                          UUID_str[MAX_LEN_UUID_STR];
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 extern "C"
@@ -87,10 +97,6 @@ extern "C"
   void                print_access_protos       (void* value, void* userData);
   void                print_service_attr        (sdp_record_t* rec);
 }
-
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -129,8 +135,6 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVIC
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES()
@@ -153,7 +157,6 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVI
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -193,7 +196,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
@@ -224,9 +226,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
   sleep(1000);
 
   return true;
-};
-
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -247,9 +247,7 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
   if((GetCurrentState() == DIOLINUXBTENUMFSMSTATE_SEARCHMAC) || (GetCurrentState() == DIOLINUXBTENUMFSMSTATE_SEARCHSERVICES)) return true;
 
   return false;
-};
-
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -280,8 +278,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int locald
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -329,8 +325,6 @@ int DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 
   return 0;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -393,8 +387,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVI
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBLUETOOTH* device)
@@ -445,7 +437,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBL
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOSTREAMDEVICE*>* devices)
@@ -491,7 +482,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOST
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -613,7 +603,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
@@ -667,9 +656,7 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
            }
         }
     }
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -688,9 +675,6 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 }
 
 
-
-
-
 extern "C"
 {
 
@@ -701,7 +685,6 @@ extern "C"
   * @brief      rint_service_class
   * @ingroup    PLATFORM_LINUX
   *
-      *
   * @param[in]  value : 
   * @param[in]  userData : 
   *
@@ -724,18 +707,16 @@ extern "C"
   }
 
 
-
   /**-------------------------------------------------------------------------------------------------------------------
   *
   * @fn         void print_service_desc(void* value, void* user)
   * @brief      rint_service_desc
   * @ingroup    PLATFORM_LINUX  
   *
-      *
-  *  @param[in]  value : 
+  * @param[in]  value : 
   * @param[in]  user : 
   *
-  *  @return     void : does not return anything. 
+  * @return     void : does not return anything. 
   *
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_desc(void* value, void* user)
@@ -775,15 +756,12 @@ extern "C"
   }
 
 
-
-
   /**-------------------------------------------------------------------------------------------------------------------
   *
   * @fn         void print_access_protos(void* value, void* userData)
   * @brief      oid print_access_protos
   * @ingroup    PLATFORM_LINUX
   *
-      *
   * @param[in]  value : 
   * @param[in]  userData :  
   *
@@ -802,4 +780,8 @@ extern "C"
 }
 
 
+#pragma endregion
+
+
 #endif
+

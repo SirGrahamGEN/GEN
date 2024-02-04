@@ -1,25 +1,44 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMUART.CPP
-//
-//  LINUX Data Input/Output Stream UART class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamUART.cpp
+* 
+* @class      DIOLINUXSTREAMUART
+* @brief      LINUX Data Input/Output Stream UART class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUART_ACTIVE)
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <unistd.h>
@@ -36,6 +55,8 @@
 #include <sys/ioctl.h>
 #include <sys/wait.h>
 
+#include "DIOLINUXStreamUART.h"
+
 #include "XBase.h"
 #include "XFactory.h"
 #include "XString.h"
@@ -45,31 +66,30 @@
 #include "DIOStreamXEvent.h"
 #include "DIOStreamUARTConfig.h"
 
-#include "DIOLINUXStreamUART.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::DIOLINUXSTREAMUART
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:11:51
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUART::DIOLINUXSTREAMUART()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUART::DIOLINUXSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 {
   Clean();
@@ -100,17 +120,16 @@ DIOLINUXSTREAMUART::DIOLINUXSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
 {
   Close();
@@ -121,20 +140,15 @@ DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::GetConnectStatus
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       DIOSTREAMSTATUS :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
@@ -144,17 +158,15 @@ DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::Open()
 {
   if(!config) return false;
@@ -187,7 +199,6 @@ bool DIOLINUXSTREAMUART::Open()
   fcntl(fd, F_SETFL, O_NONBLOCK);
   #endif
 
-  //if(!Config()) return false;
   Config();
 
   SetEvent(DIOLINUXUARTFSMEVENT_CONNECTED);
@@ -201,22 +212,17 @@ bool DIOLINUXSTREAMUART::Open()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::Config
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      01/11/2014 12:37:49
-//
-//  @return       bool :
-//
-//  @param        mask :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::Config(XWORD mask)
+* @brief      Config
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::Config(XWORD mask)
 {
   if(fd<0) return false;
@@ -344,23 +350,18 @@ bool DIOLINUXSTREAMUART::Config(XWORD mask)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::ReadDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:25:13
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
+* @brief      ReadDirect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
@@ -402,24 +403,18 @@ XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::WriteDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:25:02
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
+* @brief      WriteDirect
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
@@ -446,18 +441,15 @@ XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::Close()
 {
   if(threadconnection) threadconnection->End();
@@ -473,17 +465,15 @@ bool DIOLINUXSTREAMUART::Close()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::GetCTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::GetCTS()
+* @brief      GetCTS
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::GetCTS()
 {
   if(fd<0) return false;
@@ -496,18 +486,15 @@ bool DIOLINUXSTREAMUART::GetCTS()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::GetDSR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::GetDSR()
+* @brief      GetDSR
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::GetDSR()
 {
   if(fd<0) return false;
@@ -520,19 +507,15 @@ bool DIOLINUXSTREAMUART::GetDSR()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::GetRing
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::GetRing()
+* @brief      GetRing
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::GetRing()
 {
   if(fd<0) return false;
@@ -545,22 +528,15 @@ bool DIOLINUXSTREAMUART::GetRing()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::GetRLSD
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/11/2014 17:29:42
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::GetRLSD()
+* @brief      GetRLSD
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::GetRLSD()
 {
   if(fd<0) return false;
@@ -569,20 +545,17 @@ bool DIOLINUXSTREAMUART::GetRLSD()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::SetRTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::SetRTS(bool on)
+* @brief      SetRTS
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::SetRTS(bool on)
 {
   if(fd<0) return false;
@@ -599,20 +572,17 @@ bool DIOLINUXSTREAMUART::SetRTS(bool on)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::SetDTR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::SetDTR(bool on)
+* @brief      SetDTR
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::SetDTR(bool on)
 {
   if(fd<0) return false;
@@ -629,18 +599,16 @@ bool DIOLINUXSTREAMUART::SetDTR(bool on)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::CleanBuffers
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUART::CleanBuffers()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUART::CleanBuffers()
 {
   if(fd<0) return false;
@@ -651,40 +619,17 @@ bool DIOLINUXSTREAMUART::CleanBuffers()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOLINUXSTREAMUART::Clean()
-{
-  fd            = -1;
-  readtimeout   = 3000;
-  writetimeout  = 3000;
-}
-
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUART::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2012 13:56:19
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUART::ThreadConnection(void* param)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUART::ThreadConnection(void* param)
 {
   DIOLINUXSTREAMUART* diostream = (DIOLINUXSTREAMUART*)param;
@@ -771,4 +716,26 @@ void DIOLINUXSTREAMUART::ThreadConnection(void* param)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUART::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMUART::Clean()
+{
+  fd            = -1;
+  readtimeout   = 3000;
+  writetimeout  = 3000;
+}
+
+
+#pragma endregion
+
+
 #endif
+

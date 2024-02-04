@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamIPLocalEnumDevices.cpp
 * 
 * @class      DIOLINUXSTREAMIPLOCALENUMDEVICES
-* @brief      Data Input/Output LINUX Stream IP Local Enum Devices class
+* @brief      LINUX Data Input/OutputStream IP Local Enum Devices class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,19 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#include "DIOLINUXStreamIPLocalEnumDevices.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -43,19 +50,23 @@
 #include <linux/if_ether.h>
 #include <arpa/inet.h>
 
-
 #include "XTrace.h"
 #include "DIOStreamDeviceIP.h"
-
-#include "DIOLINUXStreamIPLocalEnumDevices.h"
 
 #include "XMemory_Control.h"
 
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -195,5 +206,5 @@ bool DIOLINUXSTREAMIPLOCALENUMDEVICES::Search()
 }
 
 
-
+#pragma endregion
 

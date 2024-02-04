@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXLedNeoPixelWS2812BRaspberryPi.cpp
-*
+* 
 * @class      DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI
-* @brief      Data Input/Output LINUX Led Neopixel WS2812B Raspberry Pi
-* @ingroup    PLATFORM_STM32
-*
+* @brief      LINUX Data Input/Output Led Neopixel WS2812B Raspberry Pi class
+* @ingroup    PLATFORM_LINUX
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXLedNeoPixelWS2812BRaspberryPi.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -58,14 +64,19 @@
 #include "XSleep.h"
 #include "XBuffer.h"
 
-#include "DIOLINUXLedNeoPixelWS2812BRaspberryPi.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -80,7 +91,6 @@
 DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 {
   Clean();
-
 
   memset(&config, 0, sizeof(config));
 
@@ -97,7 +107,6 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
   config.channel[1].count      = 0;
   config.channel[1].invert     = 0;
   config.channel[1].brightness = 0;  
-  
 }
 
 
@@ -115,7 +124,6 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -140,7 +148,6 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,8 +242,6 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
@@ -254,8 +259,6 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Clean()
@@ -270,3 +273,7 @@ void DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Clean()
 {
   
 }
+
+
+#pragma endregion
+

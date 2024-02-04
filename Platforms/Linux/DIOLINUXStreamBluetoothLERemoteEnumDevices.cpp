@@ -1,61 +1,69 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXStreamBluetoothLERemoteEnumDevices.cpp
-*
+* 
 * @class      DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES
 * @brief      LINUX Data Input/Output Stream Bluetooth Remote Enum Devices class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
 
-/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamBluetoothLERemoteEnumDevices.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
 #include "XVector.h"
 #include "XString.h"
-#include "XThreadCollected.h"
 
 #include "DIOStreamDeviceBluetoothLE.h"
 
 #include "DIOStreamBluetoothLERemoteEnumDevices_XEvent.h"
 
-#include "DIOLINUXStreamBluetoothLERemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +81,6 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMD
   
   RegisterEvent(DIOSTREAMBLUETOOTH_XEVENT_TYPE_ENUMREMOTEBLUETOOTHLE_DEVICEFOUND);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,7 +103,6 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUM
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
@@ -106,90 +112,6 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUM
 * @return     bool : true if is succesful. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
-{
-  bool status = false;
-
-  if(threadenumdevices)      return false;  
-  if(threadenumdevicesevent) return false;  
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[LE Remote Search] start...."));
-
-  DelAllDevices();
-
-  memset(&hcidevinfo, 0x00, sizeof(hcidevinfo));
-
- if(GetDeviceSelect() == DIOSTREAMENUMBLUETOOTHDEVICES_DEVICENOTDEFINED)
-   {  
-     hcideviceID =  hci_get_route(NULL);
-     if(hcideviceID < 0) hcideviceID = 0;        // use device 0, if device id is invalid
-
-     SetDeviceSelect(hcideviceID);
-   }
-    
-  hcisocket = hci_open_dev(hcideviceID);
-  if(hcisocket == -1) 
-    {    
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Blueooth LE enum Remote]  error to hci_copen_dev ..."));
-      return false;
-    }
-
-  hcidevinfo.dev_id = hcideviceID;
-
-  // get old HCI filter
-  socklen_t sizefilter = sizeof(old_hcifilter);
-  getsockopt(hcisocket, SOL_HCI, HCI_FILTER, &old_hcifilter, &sizefilter);
-
-  // setup new HCI filter
-  hci_filter_clear(&new_hcifilter);
-  hci_filter_set_ptype(HCI_EVENT_PKT, &new_hcifilter);
-  hci_filter_set_event(EVT_LE_META_EVENT, &new_hcifilter);
-
-  setsockopt(hcisocket, SOL_HCI, HCI_FILTER, &new_hcifilter, sizeof(new_hcifilter));
-
-  
-  //  hci_le_set_scan_parameters(hciSocket, 0x01, htobs(0x0010), htobs(0x0010), 0x00, 0, 1000);
-  hci_le_set_scan_parameters(hcisocket, 0x00, htobs(0x0010), htobs(0x0010), 0x00, 0, 1000);
-  
-  //  hci_le_set_scan_enable(hciSocket, 0x00, 0, 1000);
-  hci_le_set_scan_enable(hcisocket, 0x01, 0, 1000);
-  
-
-
-  
-  //hci_le_set_scan_enable(hcisocket, 0x00, 0, 1000);
-
-  //hci_le_set_scan_parameters(hcisocket, 0x00, htobs(0x0010), htobs(0x0010), 0x00, 0, 10);
-  //hci_le_set_scan_parameters(hcisocket, 0x01, htobs(0x0010), htobs(0x0010), 0x00, 0, 10);
-  
-  //hci_le_set_scan_enable(hcisocket, 0x01, 0, 1000);
-  
-  
-  GEN_XFACTORY_CREATE(xmutexdevicesevent, Create_Mutex())
-  if(!xmutexdevicesevent) return false;
-  
-  threadenumdevices = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, __L("DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES"), ThreadEnumDevices, (void*)this);
-  if(!threadenumdevices)  return false;
-
-  threadenumdevices->SetPriority(XTHREADPRIORITY_REALTIME);
-
-  status = threadenumdevices->Ini();
-
-  if(GetSearchMode() & DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_SEARCHMODE_EVENT)
-    {
-      threadenumdevicesevent = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMBLUETOOTH, __L("DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES_EVENT"), ThreadEnumDevicesEvent, (void*)this);
-      if(!threadenumdevicesevent)  return false;
-
-      //threadenumdevicesevent->SetPriority(XTHREADPRIORITY_HIGH);
-      
-      status = threadenumdevicesevent->Ini();
-    }
-
-  return status;
-}
-*/
-
 bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 {
   bool status = false;
@@ -293,12 +215,6 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Search()
 }
 
 
-
-
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
@@ -352,7 +268,6 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::StopSearch(bool waitend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
@@ -370,7 +285,6 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -464,7 +378,6 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* param)
@@ -514,8 +427,6 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* pa
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
@@ -538,4 +449,9 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()
 
 }
 
+
+#pragma endregion
+
+
 #endif
+

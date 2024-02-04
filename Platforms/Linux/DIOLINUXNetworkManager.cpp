@@ -3,9 +3,9 @@
 * @file       DIOLINUXNetworkManager.cpp
 * 
 * @class      DIOLINUXNETWORKMANAGER
-* @brief      Data Input/Output LINUX Network Manager class
+* @brief      LINUX Data Input/Output Network Manager class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXNetworkManager.h"
 
 #include <NetworkManager.h>
 
@@ -40,13 +46,19 @@
 #include "DIOLINUXDBus_XEvent.h"
 #include "DIOLINUXDBus.h"
 
-#include "DIOLINUXNetworkManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +79,6 @@ DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXNETWORKMANAGER::~DIOLINUXNETWORKMANAGER()
@@ -84,8 +95,6 @@ DIOLINUXNETWORKMANAGER::~DIOLINUXNETWORKMANAGER()
 
   Clean();                            
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +121,6 @@ bool DIOLINUXNETWORKMANAGER::Ini()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -164,7 +172,6 @@ bool DIOLINUXNETWORKMANAGER::Enable(bool on)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -225,7 +232,6 @@ DIOLINUXNETWORKMANAGER_STATE DIOLINUXNETWORKMANAGER::GetConnectionState()
 
   return state;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -341,9 +347,7 @@ bool DIOLINUXNETWORKMANAGER::GetDevices(XVECTOR<DIOSTREAMDEVICEIP*>& devices)
   pathdevices.DeleteAll();
 
   return true;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -367,7 +371,6 @@ bool DIOLINUXNETWORKMANAGER::Signal_Add(XCHAR* type, XCHAR* name)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXNETWORKMANAGER::Signal_Add(XSTRING& type, XSTRING& name)
@@ -384,7 +387,6 @@ bool DIOLINUXNETWORKMANAGER::Signal_Add(XSTRING& type, XSTRING& name)
 {
   return Signal_Add(type.Get(), name.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -410,7 +412,6 @@ bool DIOLINUXNETWORKMANAGER::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -465,7 +466,6 @@ bool DIOLINUXNETWORKMANAGER::GetDevicePathList(XVECTOR<XSTRING*>& pathdevices)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -548,8 +548,6 @@ bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR*
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
@@ -606,7 +604,6 @@ void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
     }
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -625,3 +622,9 @@ void DIOLINUXNETWORKMANAGER::Clean()
   dbus_destination.Empty();
   dbus_path.Empty();
 }
+
+
+#pragma endregion
+
+
+

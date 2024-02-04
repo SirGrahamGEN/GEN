@@ -1,57 +1,68 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXStreamBluetooth.cpp
-*
+* 
 * @class      DIOLINUXSTREAMBLUETOOTH
 * @brief      LINUX Data Input/Output Stream Bluetooth class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DIO_ACTIVE) && (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamBluetooth.h"
 
 #include "XFactory.h"
 #include "XDir.h"
 #include "XFileTXT.h"
-#include "XThreadCollected.h"
 #include "XTrace.h"
 
 #include "DIOStreamBluetoothConfig.h"
 #include "DIOStreamDeviceBluetooth.h"
 
-#include "DIOLINUXStreamBluetooth.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -103,8 +114,6 @@ DIOLINUXSTREAMBLUETOOTH::DIOLINUXSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSM
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
@@ -127,7 +136,6 @@ DIOLINUXSTREAMBLUETOOTH::~DIOLINUXSTREAMBLUETOOTH()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXSTREAMBLUETOOTH::Open()
@@ -148,7 +156,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Open()
 
   return threadconnection->Ini();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -175,7 +182,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Disconnect()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -215,8 +221,6 @@ bool DIOLINUXSTREAMBLUETOOTH::Close()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -264,8 +268,6 @@ int DIOLINUXSTREAMBLUETOOTH::IsReadyConnect(int socket)
 
   return 0;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -351,30 +353,6 @@ sdp_session_t* DIOLINUXSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,c
 
   return session;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIOLINUXSTREAMBLUETOOTH::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOLINUXSTREAMBLUETOOTH::Clean()
-{
-  threadconnection   = NULL;
-  status            = DIOSTREAMSTATUS_DISCONNECTED;
-
-  handlesocket      = -1;
-  sdpserversession  = NULL;
-  handleserver      = -1;
-}
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -487,8 +465,6 @@ bool DIOLINUXSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstri
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -777,6 +753,31 @@ void DIOLINUXSTREAMBLUETOOTH::ThreadRunFunction(void* param)
         }
     }
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOLINUXSTREAMBLUETOOTH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+*
+* @return     void : does not return anything. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMBLUETOOTH::Clean()
+{
+  threadconnection   = NULL;
+  status            = DIOSTREAMSTATUS_DISCONNECTED;
+
+  handlesocket      = -1;
+  sdpserversession  = NULL;
+  handleserver      = -1;
+}
+
+
+#pragma endregion
+
 
 #endif
 

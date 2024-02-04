@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamICMP.cpp
 * 
 * @class      DIOLINUXSTREAMICMP
-* @brief      Data Input/Output LINUX Stream ICMP class
+* @brief      LINUX Data Input/Output Stream ICMP class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.

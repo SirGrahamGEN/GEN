@@ -743,7 +743,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                         }
                                                                                     }
 
-                                                                                  #ifdef _DEBUG 
+                                                                                  #ifdef GEN_DEBUG 
                                                                                   //Debug_Draw(x, y, bitmap->GetWidth(), bitmap->GetHeight());
                                                                                   #endif  
                                                                                 }
@@ -764,7 +764,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                         }
                                                                                     }
 
-                                                                                  #ifdef _DEBUG 
+                                                                                  #ifdef GEN_DEBUG 
                                                                                   //Debug_Draw(x, y, bitmap->GetWidth(), bitmap->GetHeight());
                                                                                   #endif  
                                                                                 }
@@ -785,7 +785,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                         }
                                                                                     }
 
-                                                                                  #ifdef _DEBUG 
+                                                                                  #ifdef GEN_DEBUG 
                                                                                   //Debug_Draw(x, y, bitmap->GetWidth(), bitmap->GetHeight());
                                                                                   #endif  
                                                                                 }
@@ -1270,7 +1270,7 @@ class GRPCANVASAGG: public GRPCANVAS
 
 
 
-    #ifdef _DEBUG 
+    #ifdef GEN_DEBUG 
     bool                                                                        Debug_Draw                        (double originx, double originy, double width, double height)
                                                                                 {
                                                                                   GRP2DCOLOR_RGBA8  colorred(255, 0, 0);

@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamIPLocalEnumDevices.h
 * 
 * @class      DIOLINUXSTREAMIPLOCALENUMDEVICES
-* @brief      Data Input/Output LINUX Stream IP Local Enum Devices class
+* @brief      LINUX Data Input/Output Stream IP Local Enum Devices class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,24 +30,44 @@
 #define _DIOLINUXSTREAMIPLOCALENUMDEVICES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOStreamIPLocalEnumDevices.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOLINUXSTREAMIPLOCALENUMDEVICES_MAXIFS   64
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOLINUXSTREAMIPLOCALENUMDEVICES :  public DIOSTREAMIPLOCALENUMDEVICES
 {
   public:
-                              DIOLINUXSTREAMIPLOCALENUMDEVICES      ();
-    virtual                  ~DIOLINUXSTREAMIPLOCALENUMDEVICES      ();
+                      DIOLINUXSTREAMIPLOCALENUMDEVICES      ();
+    virtual          ~DIOLINUXSTREAMIPLOCALENUMDEVICES      ();
 
-    bool                      Search                                ();
+    bool              Search                                ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

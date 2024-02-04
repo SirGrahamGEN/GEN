@@ -3,7 +3,7 @@
 * @file       DIOLINUXStreamI2C.cpp
 * 
 * @class      DIOLINUXSTREAMI2C
-* @brief      Linux Data Input/Output Stream I2C class
+* @brief      LINUX Data Input/Output Stream I2C class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamI2C.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,7 +50,6 @@
 #include <getopt.h>
 #include <linux/types.h>
 
-
 #include "XFactory.h"
 #include "XBuffer.h"
 #include "XThreadCollected.h"
@@ -55,15 +60,19 @@
 #include "DIOStreamXEvent.h"
 #include "DIOStreamI2CConfig.h"
 
-#include "DIOLINUXStreamI2C.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -243,7 +252,6 @@ XDWORD DIOLINUXSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
   //XTRACE_PRINTCOLOR(1, __L("Write [Addr %04X, size:%d]  status: %s"), address, size, status?__L("true"):__L("false"));
 
   return bw;
-
 }
 
 
@@ -268,25 +276,7 @@ bool DIOLINUXSTREAMI2C::Close()
       handle  = -1;
     }
 
-
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOLINUXSTREAMI2C::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOLINUXSTREAMI2C::Clean()
-{
-  handle   = -1;
-  sizeread = 0;
 }
 
 
@@ -396,4 +386,23 @@ void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
     }
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMI2C::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMI2C::Clean()
+{
+  handle   = -1;
+  sizeread = 0;
+}
+
+
+#pragma endregion
 

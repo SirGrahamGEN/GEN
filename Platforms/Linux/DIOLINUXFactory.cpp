@@ -3,7 +3,7 @@
 * @file       DIOLINUXFactory.cpp
 * 
 * @class      DIOLINUXFACTORY
-* @brief      LINUX Data Input/Output eXtended Factory class
+* @brief      LINUX Data Input/Output Factory class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.

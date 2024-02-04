@@ -284,7 +284,7 @@ bool VERSIONFRAMEWORK::GetAppVersionStatus(XDWORD app_version, XDWORD app_subver
   if((app_version < 1) && (app_subversion <  1)) statusstr += __L(" (Alpha)");
   if((app_version < 1) && (app_subversion >= 1)) statusstr += __L(" (Beta)");
       
-  #ifdef _DEBUG
+  #ifdef GEN_DEBUG
   statusstr += __L(" [Debug]");
   #endif
 
@@ -315,7 +315,7 @@ bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, 
   if((app_version < 1) && (app_subversion <  1)) statusstr += __L(" (Alpha)");
   if((app_version < 1) && (app_subversion >= 1)) statusstr += __L(" (Beta)");
       
-  #ifdef _DEBUG
+  #ifdef GEN_DEBUG
   statusstr += __L(" [Debug]");
   #endif
 

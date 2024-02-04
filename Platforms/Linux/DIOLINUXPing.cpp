@@ -3,7 +3,7 @@
 * @file       DIOLINUXPing.cpp
 * 
 * @class      DIOLINUXPING
-* @brief      LINUX Data IO Ping class
+* @brief      LINUX Data Input/Output Ping class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
