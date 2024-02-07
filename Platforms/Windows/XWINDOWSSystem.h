@@ -407,7 +407,9 @@ class XWINDOWSSYSTEM : public XSYSTEM
 
     XDWORD																			GetLanguageSO																			();
 
-    XSTRING*																		GetSerialNumber																		();
+    XSTRING*																		GetSerialNumberBIOS																();
+
+		XSTRING*																		GetSerialNumberCPU																();
 
     bool																				GetMemoryInfo																			(XDWORD& total,XDWORD& free);
 		

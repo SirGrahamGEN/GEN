@@ -292,22 +292,37 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
-* @brief      GetSerialNumber
+* @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumberBIOS()
+* @brief      GetSerialNumberBIOS
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XWINDOWSSYSTEM::GetSerialNumber()
+XSTRING* XWINDOWSSYSTEM::GetSerialNumberBIOS()
 {
   #ifndef BUILDER
   XWINDOWSWMIINTERFACE wmiinterface;
 
-  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), serialnumber);
+  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), serialnumberBIOS);
   #endif
 
-  return &serialnumber;
+  return &serialnumberBIOS;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumberCPU()
+* @brief      GetSerialNumberCPU
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XWINDOWSSYSTEM::GetSerialNumberCPU()
+{
+   return &serialnumberCPU;
 }
 
 
