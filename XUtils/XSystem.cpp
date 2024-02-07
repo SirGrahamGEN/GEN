@@ -291,17 +291,32 @@ XDWORD XSYSTEM::GetLanguageSO()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XSTRING* XSYSTEM::GetSerialNumber()
-* @brief      GetSerialNumber
+* 
+* @fn         XSTRING* XSYSTEM::GetSerialNumberBIOS()
+* @brief      GetSerialNumberBIOS
 * @ingroup    XUTILS
-*
-* @return     XSTRING* :
-*
+* 
+* @return     XSTRING* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XSYSTEM::GetSerialNumber()
+XSTRING* XSYSTEM::GetSerialNumberBIOS()
 {
-  return &serialnumber;
+  return &serialnumberBIOS;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XSYSTEM::GetSerialNumberCPU()
+* @brief      GetSerialNumberCPU
+* @ingroup    XUTILS
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XSYSTEM::GetSerialNumberCPU()
+{
+  return &serialnumberCPU;
 }
 
 

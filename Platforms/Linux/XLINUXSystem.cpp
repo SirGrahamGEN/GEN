@@ -344,6 +344,35 @@ XDWORD XLINUXSYSTEM::GetLanguageSO()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XLINUXSYSTEM::GetSerialNumberBIOS()
+* @brief      GetSerialNumberBIOS
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XLINUXSYSTEM::GetSerialNumberBIOS()
+{
+  return &serialnumberBIOS;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* XLINUXSYSTEM::GetSerialNumberCPU()
+* @brief      GetSerialNumberCPU
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* XLINUXSYSTEM::GetSerialNumberCPU()
+{
+  return &serialnumberCPU;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -466,65 +495,6 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
-{  
-  XSTRING   params;
-  XSTRING   in;  
-  XSTRING   out;
-  int       returncode;
-  double    cpuusagef = 0.0f;
-  int       cpuusage  = 0;
-  bool      status;
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  params.Format(__L("-C %s -o %%cpu"), processname);  
-  //in.Format(__L("| tail -n 1"));
-  
-  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
-
-  if(!status) 
-    {
-      if(xmutexcheckCPUusage)
-        {
-          xmutexcheckCPUusage->UnLock();
-        }
-
-      return -1;
-    }
-
-  out.DeleteCharacter(__C('\n'));
-  out.DeleteCharacter(__C('\r'));
-  out.DeleteCharacter(__C(' '));
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] read 1 : [%s]"), out.Get());  
-
-  int index = out.Find(__L("CPU"), true);
-  if(index != XSTRING_NOTFOUND) 
-    { 
-      out.DeleteCharacters(index, 3);
-      out.DeleteCharacters(0, 1);
-    }
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] app read 2 : [%s]"), out.Get());  
-     
-  cpuusagef = out.ConvertToFloat();
-  cpuusage  = (int)cpuusagef;     
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-    
-  return cpuusage;  
-}
-*/
-
 int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {  
   XSTRING command;
@@ -573,64 +543,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
-{
-  XSTRING   params;
-  XSTRING   in;  
-  XSTRING   out;
-  int       returncode;
-  double    cpuusagef = 0.0f;
-  int       cpuusage  = 0;
-  bool      status;
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  params.Format(__L("-C -p %d -o %%cpu"), processID);  
-  in.Format(__L("| tail -n 1"));
-  
-  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
-
-  if(!status) 
-    {
-      if(xmutexcheckCPUusage)
-        {
-          xmutexcheckCPUusage->UnLock();
-        }
-
-      return -1;
-    }
-
-  out.DeleteCharacter(__C('\n'));
-  out.DeleteCharacter(__C('\r'));
-  out.DeleteCharacter(__C(' '));
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] read 1 : [%s]"), out.Get());  
-
-  int index = out.Find(__L("CPU"), true);
-  if(index != XSTRING_NOTFOUND) 
-    { 
-      out.DeleteCharacters(index, 3);
-      out.DeleteCharacters(0, 1);
-    }
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] app read 2 : [%s]"), out.Get());  
-     
-  cpuusagef = out.ConvertToFloat();
-  cpuusage  = (int)cpuusagef;     
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-    
-  return cpuusage;  
-}
-*/
 int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
   XSTRING command;

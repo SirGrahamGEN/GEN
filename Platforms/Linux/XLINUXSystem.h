@@ -60,6 +60,10 @@ class XLINUXSYSTEM : public XSYSTEM
 
     XDWORD                      GetLanguageSO                 ();
 
+    XSTRING*                    GetSerialNumberBIOS           ();
+
+    XSTRING*                    GetSerialNumberCPU            ();
+
     bool                        GetMemoryInfo                 (XDWORD& total,XDWORD& free);
     bool                        FreeCacheMemory               ();
 
