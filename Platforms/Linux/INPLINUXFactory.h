@@ -3,7 +3,7 @@
 * @file       INPLINUXFactory.h
 * 
 * @class      INPLINUXFACTORY
-* @brief      INPUT WINDOWS factory
+* @brief      LINUX Input factory class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -32,6 +32,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+
 #include "XString.h"
 #include "XVector.h"
 
@@ -39,6 +40,7 @@
 #include "INPLINUXDeviceID.h"
 
 #include "INPFactory.h"
+
 
 #pragma endregion
 
@@ -52,6 +54,7 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
+
 
 class INPDEVICE;
 
@@ -69,6 +72,7 @@ class INPLINUXFACTORY : public INPFACTORY
     bool                        DeleteSimulator           (INPSIMULATE* inputsimulated);
     #endif
 };
+
 
 #pragma endregion
 

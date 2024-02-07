@@ -1,45 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPLINUXDeviceID.cpp
-*
+* 
 * @class      INPLINUXDEVICEID
-* @brief      Linux Input device ID
+* @brief      LINUX Input device ID class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "INPLINUXDeviceID.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -55,7 +67,6 @@ INPLINUXDEVICEID::INPLINUXDEVICEID()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,7 +85,6 @@ INPLINUXDEVICEID::~INPLINUXDEVICEID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
@@ -88,7 +98,6 @@ INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 {
  return type;
 }
-
     
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -123,7 +132,6 @@ XSTRING* INPLINUXDEVICEID::GetName()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int INPLINUXDEVICEID::GetEventIndex()
@@ -137,8 +145,7 @@ int INPLINUXDEVICEID::GetEventIndex()
 {
   return eventindex;
 }
-    
-
+  
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -157,7 +164,6 @@ void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPLINUXDEVICEID::GetFileDescriptor()
@@ -171,7 +177,6 @@ int INPLINUXDEVICEID::GetFileDescriptor()
 {
   return filedescriptor;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -191,9 +196,6 @@ void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEID::Clean()
@@ -210,4 +212,7 @@ void INPLINUXDEVICEID::Clean()
   eventindex      = INPLINUXDEVICEID_INVALID;
   filedescriptor  = INPLINUXDEVICEID_INVALID;
 }
+
+
+#pragma endregion
 

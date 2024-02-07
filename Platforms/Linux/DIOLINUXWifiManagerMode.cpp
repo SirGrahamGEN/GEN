@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLINUXWifiManagerMode.cpp
-*
+* 
 * @class      DIOLINUXWIFIMANAGERMODE
-* @brief      Data Input/Output LINUX Wifi Manager Mode
-* @ingroup    DATAIO
-*
+* @brief      LINUX Data Input/Output Wifi Manager Mode class
+* @ingroup    PLATFORM_LINUX
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXWifiManagerMode.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -54,14 +60,19 @@
 #include "DIOStreamDeviceIP.h"
 #include "DIOStreamEnumDevices.h"
 
-#include "DIOLINUXWifiManagerMode.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -79,7 +90,6 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
@@ -94,8 +104,6 @@ DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 { 
   Clean();                            
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,8 +127,6 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_AP(XCHAR* SSID, XCHAR* password, bool seri
   
   return WPA_SetMode(2, SSID, password, -1, serialize);                                                                                                                      
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -155,7 +161,6 @@ bool DIOLINUXWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool 
 }    
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::IsDisconnected()
@@ -177,7 +182,6 @@ bool DIOLINUXWIFIMANAGERMODE::IsDisconnected()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -203,7 +207,6 @@ bool DIOLINUXWIFIMANAGERMODE::Disconnect()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::APList_Reload()
@@ -217,7 +220,6 @@ bool DIOLINUXWIFIMANAGERMODE::APList_Reload()
 {
   return WPA_GetListRemoteAP(nameAPs);                                                                                                                          
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -289,7 +291,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 
   command.Format(__L("%s reconnect"), prefixcommand.Get(), indexnet);
   status = WPA_CLI_Command(command, output);
-
  
   if(mode == 0)
     {
@@ -326,13 +327,11 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
           GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &input, &output, &returncode);
         }
 
-
       for(int c=0; c<10; c++)
         {          
           GEN_XPROCESSMANAGER.MakeSystemCommand(__L("killall -9 dhcpcd"));                
         }
     }  
- 
 
   /*
   if(mode == 0)
@@ -370,7 +369,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
     }  
   */
 
-
   if(serialize)
     {
       if(status)
@@ -388,7 +386,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
   
   return status;
 }    
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -435,7 +432,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_IsDisconnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
@@ -461,7 +457,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_Disconnect()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,7 +489,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
   return status;
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -534,7 +528,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue, XSTRING& value)
@@ -552,8 +545,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue,
 {
   return WPA_SetValue(indexnetwork, namevalue.Get(), value.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -630,7 +621,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_GetListRemoteAP(XVECTOR<XSTRING*>& nameAPs)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
@@ -663,7 +653,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
     
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -723,7 +712,6 @@ bool DIOLINUXWIFIMANAGERMODE::NM_SetMode(int mode, XCHAR* SSID, XCHAR* password,
 } 
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
@@ -750,7 +738,6 @@ bool DIOLINUXWIFIMANAGERMODE::NM_IsDisconnected()
     
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -808,7 +795,6 @@ bool DIOLINUXWIFIMANAGERMODE::NM_Disconnect()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
@@ -840,8 +826,6 @@ bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLINUXWIFIMANAGERMODE::Clean()
@@ -857,3 +841,10 @@ void DIOLINUXWIFIMANAGERMODE::Clean()
 
 
 }
+
+
+#pragma endregion
+
+
+
+

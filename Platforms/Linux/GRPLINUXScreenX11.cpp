@@ -1,55 +1,64 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       GRPLINUXScreenX11.cpp
-*
+* 
 * @class      GRPLINUXSCREENX11
-* @brief      LINUX X11 Screen class
+* @brief      LINUX Graphics X11 Screen class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #ifdef LINUX_X11_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
-
+#include "GRPLINUXScreenX11.h"
 
 #include "XTrace.h"
 
 #include "GRPCanvas.h"
-#include "GRPLINUXScreenX11.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +102,6 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
@@ -119,7 +127,6 @@ GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
  
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -180,7 +187,6 @@ bool GRPLINUXSCREENX11::Create(bool show)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::Update()
@@ -194,7 +200,6 @@ bool GRPLINUXSCREENX11::Update()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -249,7 +254,6 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::Delete()
@@ -274,8 +278,6 @@ bool GRPLINUXSCREENX11::Delete()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::Resize(int width, int height)
@@ -296,8 +298,6 @@ bool GRPLINUXSCREENX11::Resize(int width, int height)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPLINUXSCREENX11::Show(bool active)
@@ -315,7 +315,6 @@ bool GRPLINUXSCREENX11::Show(bool active)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +357,6 @@ bool GRPLINUXSCREENX11::ShowCursor(bool active)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* GRPLINUXSCREENX11::GetHandle()
@@ -375,24 +373,19 @@ void* GRPLINUXSCREENX11::GetHandle()
 }
 
 
-
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         bool GRPLINUXSCREENX11::IsDesktop()
- *  @brief      Is Desktop
- *  @ingroup    PLATFORM_LINUX
- *
- *  ""
- *  ""
- *
- *  @return     bool : true if is succesful.
- *
- * --------------------------------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPLINUXSCREENX11::IsDesktop()
+* @brief      IsDesktop
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool  GRPLINUXSCREENX11::IsDesktop()
 {
   return isdesktop;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -410,7 +403,6 @@ void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
 {
   this->isdesktop = isdesktop;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -435,9 +427,6 @@ bool GRPLINUXSCREENX11::HasFocus()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         Display* GRPLINUXSCREENX11::GetDisplay()
@@ -453,7 +442,6 @@ Display* GRPLINUXSCREENX11::GetDisplay()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         Window* GRPLINUXSCREENX11::GetWindow()
@@ -467,8 +455,6 @@ Window* GRPLINUXSCREENX11::GetWindow()
 {
   return &window;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -594,10 +580,8 @@ int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window  root, int xsz,
 
   if(result == 0) return 0;
 
-
   return -1;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -695,13 +679,13 @@ XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         int GRPLINUXSCREENX11::GetByteOrder()
 * @brief      GetByteOrder
 * @ingroup    PLATFORM_LINUX
-*
-* @return     int :
-*
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int GRPLINUXSCREENX11::GetByteOrder()
 {
@@ -724,7 +708,6 @@ int GRPLINUXSCREENX11::GetByteOrder()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPLINUXSCREENX11::Clean()
@@ -742,6 +725,9 @@ void GRPLINUXSCREENX11::Clean()
 
   isdesktop = false;
 }
+
+
+#pragma endregion
 
 
 #endif

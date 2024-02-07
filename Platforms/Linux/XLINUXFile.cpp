@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXFile.cpp
-*
+* 
 * @class      XLINUXFILE
-* @brief      eXtended LINUX File class
+* @brief      LINUX eXtended Utils File class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXFile.h"
 
 #include <unistd.h>
 #include <locale.h>
@@ -49,14 +55,19 @@
 
 #include "XLINUXFactory.h"
 
-#include "XLINUXFile.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -72,7 +83,6 @@ XLINUXFILE::XLINUXFILE(): XFILE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -91,7 +101,6 @@ XLINUXFILE::~XLINUXFILE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -114,7 +123,6 @@ bool XLINUXFILE::Exist(XCHAR* xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Open(XCHAR* xpath, bool isreadonly)
@@ -133,7 +141,6 @@ bool XLINUXFILE::Open(XCHAR* xpath, bool isreadonly)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Create(XCHAR* xpath)
@@ -149,7 +156,6 @@ bool XLINUXFILE::Create(XCHAR* xpath)
 {
   return ExtendedOpen(xpath, __L("w+b"));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -176,7 +182,6 @@ bool XLINUXFILE::SetSize(XQWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::GetPosition(XDWORD& position)
@@ -198,7 +203,6 @@ bool XLINUXFILE::GetPosition(XQWORD& position)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -227,7 +231,6 @@ bool XLINUXFILE::SetPosition(XQWORD position)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -259,7 +262,6 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
@@ -278,7 +280,7 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
   if(!isopen)       return false;
   if(!filehandle)   return false;
 
-   int   _size;
+  int  _size;
   bool status = true;
 
   _size=(int)fread((void *)buffer, (size_t)1, (size_t)(*size), filehandle);
@@ -298,7 +300,6 @@ bool XLINUXFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -335,7 +336,6 @@ bool XLINUXFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Flush()
@@ -354,7 +354,6 @@ bool XLINUXFILE::Flush()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -389,7 +388,6 @@ bool XLINUXFILE::Close()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::Erase(XCHAR* xpath,bool overwrite)
@@ -421,7 +419,6 @@ bool XLINUXFILE::Erase(XCHAR* xpath,bool overwrite)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -463,7 +460,6 @@ bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         FILE* XLINUXFILE::CreateStructHandle()
@@ -476,8 +472,7 @@ bool XLINUXFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 FILE* XLINUXFILE::CreateStructHandle()
 { 
   return filehandle;    
-};
-
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -493,7 +488,6 @@ bool XLINUXFILE::DeleteStructHandle()
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -528,7 +522,6 @@ void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXFILE::ActualizeSize()
@@ -555,7 +548,6 @@ bool XLINUXFILE::ActualizeSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXFILE::Clean()
@@ -570,8 +562,6 @@ void XLINUXFILE::Clean()
 {
   filehandle  = NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -623,5 +613,5 @@ bool XLINUXFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
 }
 
 
-
+#pragma endregion
 

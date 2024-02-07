@@ -1,25 +1,44 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB.CPP
-//
-//  LINUX Data Input/Output Stream USB class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamUSB.cpp
+* 
+* @class      DIOLINUXSTREAMUSB
+* @brief      LINUX Data Input/Output Stream USB class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 #include <unistd.h>
@@ -33,40 +52,40 @@
 #include <errno.h>
 #include <termios.h>
 
+#include "DIOLINUXStreamUSB.h"
+
 #include "XFactory.h"
 #include "XBase.h"
 #include "XString.h"
 #include "XTrace.h"
-#include "XThreadCollected.h"
 
 #include "DIOStreamXEvent.h"
 #include "DIOStreamUSBConfig.h"
 
-#include "DIOLINUXStreamUSB.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:11:51
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 {
   Clean();
@@ -98,17 +117,16 @@ DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB()
 {
   Close();
@@ -119,19 +137,15 @@ DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::GetConnectStatus
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       DIOSTREAMSTATUS :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetConnectStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
@@ -141,17 +155,15 @@ DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetConnectStatus()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSB::Open()
+* @brief      Open
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSB::Open()
 {
   if(!config) return false;
@@ -177,19 +189,30 @@ bool DIOLINUXSTREAMUSB::Open()
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSB::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOLINUXSTREAMUSB::Disconnect()                                
+{ 
+  return false; 
+}
 
 
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSB::Close()
+* @brief      Close
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSB::Close()
 {
   if(!threadconnection) return false;
@@ -208,20 +231,16 @@ bool DIOLINUXSTREAMUSB::Close()
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::CleanBuffers
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSB::CleanBuffers()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSB::CleanBuffers()
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
@@ -230,40 +249,17 @@ bool DIOLINUXSTREAMUSB::CleanBuffers()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOLINUXSTREAMUSB::Clean()
-{
-  fd            = -1;
-  readtimeout   = 3000;
-  writetimeout  = 3000;
-}
-
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2012 13:56:19
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUSB::ThreadConnection(void* data)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUSB::ThreadConnection(void* data)
 {
   DIOLINUXSTREAMUSB* diostream = (DIOLINUXSTREAMUSB*)data;
@@ -358,22 +354,18 @@ void DIOLINUXSTREAMUSB::ThreadConnection(void* data)
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::ReadBuffer
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       XDWORD :
-//  @param        buffer :
-//  @param        size :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
+* @brief      ReadBuffer
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -403,21 +395,18 @@ XDWORD DIOLINUXSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSB::Write
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       XDWORD :
-//  @param        buffer :
-//  @param        size :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOLINUXSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
+* @brief      WriteBuffer
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 {
   if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
@@ -442,6 +431,26 @@ XDWORD DIOLINUXSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
   return (XDWORD)bw;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMUSB::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMUSB::Clean()
+{
+  fd            = -1;
+  readtimeout   = 3000;
+  writetimeout  = 3000;
+}
+
+
+#pragma endregion
 
 
 #endif

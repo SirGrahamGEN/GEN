@@ -3,7 +3,7 @@
 * @file       INPLINUXFactory.cpp
 * 
 * @class      INPLINUXFACTORY
-* @brief      INPUT LINUX factory
+* @brief      LINUX Input factory class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -58,12 +58,12 @@
 
 #include "XMemory_Control.h"
 
+
 #pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
-
 
 #pragma endregion
 

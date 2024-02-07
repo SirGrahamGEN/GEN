@@ -36,7 +36,8 @@ SOFTWARE.
 #include "XObserver.h"
 #include "XSubject.h"
 #include "XFileXML.h"
-#include "XFileZip.h"
+#include "XString.h"
+#include "XFileZIP.h"
 
 #include "UI_XEvent.h"
 #include "UI_Element.h"

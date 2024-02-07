@@ -1,25 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES.CPP
-//
-//  LINUX Data Input/Output Stream Wifi Remote Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamWifiRemoteEnumDevices.cpp
+* 
+* @class      DIOLINUXSTREAMWIFIREMOTEENUMDEVICES
+* @brief      LINUX Data Input/Output Stream Wifi Remote Enum Devices class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMTWIFI_ACTIVE)
 
 
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
+#include "DIOLINUXStreamWifiRemoteEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -41,34 +62,30 @@
 #include "DIOStream.h"
 #include "DIOStreamDeviceWifi.h"
 
-#include "DIOLINUXStreamWifiRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      31/01/2014 19:22:27
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMWIFIREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
   Clean();
@@ -91,19 +108,16 @@ DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::DIOLINUXSTREAMWIFIREMOTEENUMDEVICES() : DIO
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIPREMOTEENUMDEVICES::~DIOLINUXSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::~DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::~DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -118,19 +132,15 @@ DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::~DIOLINUXSTREAMWIFIREMOTEENUMDEVICES()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMTCPIPREMOTEENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Search()
 {
   if(!threadenumdevices)       return false;
@@ -147,20 +157,17 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Search()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:35
-//
-//  @return       bool :
-//  @param        waitend :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
+* @brief      StopSearch
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  waitend : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(IsSearching())
@@ -184,20 +191,15 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 };
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:40
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
+* @brief      IsSearching
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices)              return false;
@@ -209,41 +211,17 @@ bool DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 };
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:25:03
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Clean()
-{
-  threadenumdevices = NULL;
-
-}
-
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 17:02:14
-//
-//  @return       void :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
+* @brief      ThreadEnumDevices
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
   DIOLINUXSTREAMWIFIREMOTEENUMDEVICES* enumeration = (DIOLINUXSTREAMWIFIREMOTEENUMDEVICES*)param;
@@ -259,8 +237,6 @@ void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
                                                           break;
 
           case DIOLINUXWIFIENUMFSMSTATE_SEARCHEND       : break;
-
-
         }
     }
    else
@@ -318,8 +294,26 @@ void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
            }
         }
     }
-
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMWIFIREMOTEENUMDEVICES::Clean()
+{
+  threadenumdevices = NULL;
+}
+
+
+#pragma endregion
 
 
 #endif

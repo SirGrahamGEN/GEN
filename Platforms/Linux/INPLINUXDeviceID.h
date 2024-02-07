@@ -3,7 +3,7 @@
 * @file       INPLINUXDeviceID.h
 *
 * @class      INPLINUXDEVICEID
-* @brief      Linux Input device ID
+* @brief      LINUX Input device ID class
 * @ingroup    PLATFORM_LINUX
 *
 * @copyright  GEN Group. All rights reserved.
@@ -41,6 +41,7 @@
 #define INPLINUXDEVICEID_INVALID      -1
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+
 
 class INPLINUXDEVICEID
 {

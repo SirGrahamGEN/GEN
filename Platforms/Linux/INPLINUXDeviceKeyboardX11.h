@@ -69,6 +69,8 @@ class INPLINUXDEVICEKEYBOARDX11 : public INPDEVICE
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
+
 #endif
+
 
 #endif

@@ -32,11 +32,22 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XFactory.h"
+#include "XThread.h"
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
+class XTIMER;
+class XDATETIME;
+class XRAND;
+class XFILE;
+class XDIR;
+class XSYSTEM;
+#ifdef XCONSOLE_ACTIVE
+class XCONSOLE;
+#endif
 
 class XANDROIDFACTORY : public XFACTORY
 {
@@ -57,8 +68,10 @@ class XANDROIDFACTORY : public XFACTORY
     XDIR*               Create_Dir              ();
     bool                Delete_Dir              (XDIR* dir);
 
+    #ifdef XCONSOLE_ACTIVE
     XCONSOLE*           CreateConsole           ();
     bool                DeleteConsole           (XCONSOLE* xconsole);
+    #endif
 
     XMUTEX*             Create_Mutex            ();
     bool                Delete_Mutex            (XMUTEX* phone);

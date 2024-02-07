@@ -1,38 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXConsole.cpp
-*
+* 
 * @class      XLINUXCONSOLE
-* @brief      eXtended LINUX Console class
+* @brief      LINUX eXtended Utils Console class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXConsole.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,13 +48,19 @@
 
 #include "XTrace.h"
 
-#include "XLINUXConsole.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +78,6 @@ XLINUXCONSOLE::XLINUXCONSOLE(): XCONSOLE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXCONSOLE::~XLINUXCONSOLE()
@@ -82,7 +92,6 @@ XLINUXCONSOLE::~XLINUXCONSOLE()
 {
   RawModeDisable();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -111,7 +120,6 @@ bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::Maximize()
@@ -129,7 +137,6 @@ bool XLINUXCONSOLE::Maximize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::Minimize()
@@ -143,7 +150,6 @@ bool XLINUXCONSOLE::Minimize()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -161,7 +167,6 @@ bool XLINUXCONSOLE::Hide()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXCONSOLE::IsHide()
@@ -175,7 +180,6 @@ bool XLINUXCONSOLE::IsHide()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -205,10 +209,8 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
   
   fflush(stdout);
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -237,7 +239,6 @@ bool XLINUXCONSOLE::Clear(bool fill)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -291,19 +292,15 @@ bool XLINUXCONSOLE::KBHit(void)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  XLINUXCONSOLE::GetChar
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2009 08:51:46 p.m.
-//
-//  @return       int :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int XLINUXCONSOLE::GetChar()
+* @brief      GetChar
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXCONSOLE::GetChar()
 {
   struct termios oldt, newt;
@@ -322,9 +319,6 @@ int XLINUXCONSOLE::GetChar()
 
   return ch;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -346,8 +340,6 @@ void XLINUXCONSOLE::RawModeEnable()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXCONSOLE::RawModeDisable()
@@ -365,3 +357,8 @@ void XLINUXCONSOLE::RawModeDisable()
   term.c_lflag |= ICANON | ECHO;
   tcsetattr(0, TCSANOW, &term);
 }
+
+
+#pragma endregion
+
+

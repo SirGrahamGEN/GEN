@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPLINUXDeviceTouchScreenDirect.cpp
-*
+* 
 * @class      INPLINUXDEVICETOUCHSCREENDIRECT
-* @brief      LINUX direct input device mouse class
+* @brief      LINUX Input device touch screen direct class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPLINUXDeviceTouchScreenDirect.h"
 
 #include <unistd.h>
 #include <locale.h>
@@ -50,13 +56,19 @@
 
 #include "INPLINUXFactory.h"
 
-#include "INPLINUXDeviceTouchScreenDirect.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -90,7 +102,6 @@ INPLINUXDEVICETOUCHSCREENDIRECT::INPLINUXDEVICETOUCHSCREENDIRECT(): INPDEVICE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICETOUCHSCREENDIRECT::~INPLINUXDEVICETOUCHSCREENDIRECT()
@@ -118,7 +129,6 @@ INPLINUXDEVICETOUCHSCREENDIRECT::~INPLINUXDEVICETOUCHSCREENDIRECT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
@@ -138,25 +148,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
   int                 bytesread = 0;
 
   //--------------- clean up old states
-
-  /*
-  for(XDWORD c=0; c<buttons.GetSize(); c++)
-    {
-      INPBUTTON* button=buttons.Get(c);
-      if(button)
-        {
-          if(button->GetState() == INPBUTTON_STATE_RELEASED)
-            {
-              button->SetState(INPBUTTON_STATE_UP);
-            }
-           else
-            {
-              if(button->GetState() == INPBUTTON_STATE_PRESSED) button->SetState(INPBUTTON_STATE_HOLD);
-           }
-        }
-    }
-    */
-
 
   INPBUTTON* button = GetButton(INPBUTTON_ID_TOUCHSCREEN);  
   if(button) 
@@ -235,8 +226,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllButtons()
@@ -248,16 +237,10 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllButtons()
 {
-
-//INPBUTTON::CreateButton( &buttons, BTN_RIGHT    , INPBUTTON_ID_TOUCHSCREEN_RIGHT        , __C('\x0'));
-//INPBUTTON::CreateButton( &buttons, BTN_LEFT     , INPBUTTON_ID_TOUCHSCREEN_LEFT         , __C('\x0'));
-//INPBUTTON::CreateButton( &buttons, BTN_MIDDLE   , INPBUTTON_ID_TOUCHSCREEN_MIDDLE       , __C('\x0'));
   INPBUTTON::CreateButton( &buttons, BTN_TOUCH    , INPBUTTON_ID_TOUCHSCREEN              , __C('\x0'));
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -282,7 +265,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CreateAllCursors()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -341,7 +323,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::OpenAllDevicesID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICETOUCHSCREENDIRECT::CloseAllDevicesID()
@@ -366,7 +347,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::CloseAllDevicesID()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -408,7 +388,6 @@ bool INPLINUXDEVICETOUCHSCREENDIRECT::UpdateTouchScreenData()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICETOUCHSCREENDIRECT::Clean()
@@ -424,3 +403,14 @@ void INPLINUXDEVICETOUCHSCREENDIRECT::Clean()
   touchscr_x  = -1;
   touchscr_y  = -1;
 }
+
+
+#pragma endregion
+
+
+
+
+
+
+
+

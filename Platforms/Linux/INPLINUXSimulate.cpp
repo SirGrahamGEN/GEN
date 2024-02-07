@@ -3,7 +3,7 @@
 * @file       INPLINUXSimulate.cpp
 * 
 * @class      INPLINUXSIMULATE
-* @brief      Input LINUX Simulate
+* @brief      LINUX Input Simulate
 * @ingroup    INPUT
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXDir.cpp
-*
+* 
 * @class      XLINUXDIR
-* @brief      LINUX Directory class
+* @brief      LINUX eXtended Utils Directory class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXDir.h"
 
 #include <stdio.h>
 #include <time.h>       
@@ -46,18 +52,23 @@
 
 #include "XPath.h"
 #include "XBuffer.h"
+#include "XTrace.h"
 
 #include "XLINUXFactory.h"
 
-#include "XLINUXDir.h"
-
-#include "XTrace.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -75,8 +86,6 @@ XLINUXDIR::XLINUXDIR(): XDIR()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXDIR::~XLINUXDIR()
@@ -91,7 +100,6 @@ XLINUXDIR::~XLINUXDIR()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,8 +150,6 @@ bool XLINUXDIR::Exist(XCHAR* path)
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -228,8 +234,6 @@ bool XLINUXDIR::Make(XCHAR* path, bool recursive)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::ChangeTo(XCHAR* path)
@@ -254,8 +258,6 @@ bool XLINUXDIR::ChangeTo(XCHAR* path)
 
   return (!status)?true:false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -310,7 +312,6 @@ bool XLINUXDIR::Delete(XCHAR* path,bool all)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXDIR::GetActual(XPATH& path)
@@ -332,7 +333,6 @@ bool XLINUXDIR::GetActual(XPATH& path)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -382,7 +382,6 @@ bool XLINUXDIR::FirstSearch(XCHAR* path, XCHAR* patternsearch, XDIRELEMENT* sear
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -440,25 +439,6 @@ bool XLINUXDIR::NextSearch(XDIRELEMENT* searchelement)
 
   return status;
 }
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLINUXDIR::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XLINUXDIR::Clean()
-{
-
-}
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -559,4 +539,23 @@ XDIRELEMENTTYPE XLINUXDIR::TypeOfEntry(XCHAR* path, XDIRELEMENT* searchelement)
 
   return type;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XLINUXDIR::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void XLINUXDIR::Clean()
+{
+
+}
+
+
+#pragma endregion
 

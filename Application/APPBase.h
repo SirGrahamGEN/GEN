@@ -38,6 +38,7 @@
 #include "XTrace.h"
 #include "XSystem.h"
 #include "XSubject.h"
+#include "XVector.h"
 
 #pragma endregion
 

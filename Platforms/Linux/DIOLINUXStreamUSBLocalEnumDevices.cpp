@@ -1,24 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES.CPP
-//
-//  LINUX Data Input/Output Stream USB Local Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOLINUXStreamUSBLocalEnumDevices.cpp
+* 
+* @class      DIOLINUXSTREAMUSBLOCALENUMDEVICES
+* @brief      LINUX Data Input/Output Stream USB Local Enum Devices class
+* @ingroup    PLATFORM_LINUX
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLINUXStreamUSBLocalEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,75 +49,66 @@
 #include <libudev.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-//#include <libusb-1.0/libusb.h>
 
 #include "XTrace.h"
 #include "XPath.h"
 #include "DIOStreamDeviceUSB.h"
 
-#include "DIOLINUXStreamUSBLocalEnumDevices.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES::DIOLINUXSTREAMUSBLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
+#pragma endregion
 
 
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUSBLOCALENUMDEVICES::DIOLINUXSTREAMUSBLOCALENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSBLOCALENUMDEVICES::DIOLINUXSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMUSBLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES::~DIOLINUXSTREAMUSBLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOLINUXSTREAMUSBLOCALENUMDEVICES::~DIOLINUXSTREAMUSBLOCALENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSBLOCALENUMDEVICES::~DIOLINUXSTREAMUSBLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -222,29 +235,21 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::Search()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:32
-//
-//  @return       bool :
-//  @param        resource :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
+* @brief      IsDeviceAvailable
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  resource : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
-
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,33 +266,9 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::GetDescriptor(struct udev_device* udevdevice, DIOSTREAMDEVICEUSB_DESCRIPTOR* descriptor)
 {
-
-/*
-typedef struct _USB_DEVICE_DESCRIPTOR
-{
-  UCHAR  bLength;
-  UCHAR  bDescriptorType;
-
-  USHORT bcdUSB;
-  UCHAR  bDeviceClass;
-  UCHAR  bDeviceSubClass;
-  UCHAR  bDeviceProtocol;
-  UCHAR  bMaxPacketSize0;
-  USHORT idVendor;
-  USHORT idProduct;
-  USHORT bcdDevice;
-  UCHAR  iManufacturer;
-  UCHAR  iProduct;
-  UCHAR  iSerialNumber;
-  UCHAR  bNumConfigurations;
-
-} USB_DEVICE_DESCRIPTOR, *PUSB_DEVICE_DESCRIPTOR;
-*/
-
    XSTRING  string;
    XWORD    dataword = 0;
    XBYTE    databyte = 0;
-
 
  //string = udev_device_get_sysattr_value(udevdevice, "bcdusb");              string.UnFormat(__L("%04X"), &dataword);   descriptor->SetBCDUSB(dataword);
    string = udev_device_get_sysattr_value(udevdevice, "bDeviceClass");        string.UnFormat(__L("%02X"), &databyte);   descriptor->SetDeviceClass(databyte);
@@ -309,30 +290,21 @@ typedef struct _USB_DEVICE_DESCRIPTOR
 
    //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("USB serial [%s]"), string.Get());
 
-
-
-
    string = udev_device_get_sysattr_value(udevdevice, "bNumConfigurations");  string.UnFormat(__L("%02X"), &databyte);   descriptor->SetNumConfigurations(databyte);
 
    return true;
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOLINUXSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      11/11/2014 13:41:56
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
+* @brief      SearchAndDeleteEqualDevices
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 {
   if(devices.IsEmpty()) return false;
@@ -372,6 +344,9 @@ bool DIOLINUXSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 
   return true;
 }
+
+
+#pragma endregion
 
 
 #endif

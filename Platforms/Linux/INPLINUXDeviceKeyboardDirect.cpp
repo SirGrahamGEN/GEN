@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPLINUXDeviceKeyboardDirect.cpp
-*
+* 
 * @class      INPLINUXDEVICEKEYBOARDDIRECT
 * @brief      LINUX direct input device keyboard class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPLINUXDeviceKeyboardDirect.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,13 +61,19 @@
 
 #include "INPLINUXFactory.h"
 
-#include "INPLINUXDeviceKeyboardDirect.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -90,7 +102,6 @@ INPLINUXDEVICEKEYBOARDDIRECT::INPLINUXDEVICEKEYBOARDDIRECT(): INPDEVICE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
@@ -116,7 +127,6 @@ INPLINUXDEVICEKEYBOARDDIRECT::~INPLINUXDEVICEKEYBOARDDIRECT()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -237,7 +247,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
@@ -252,7 +261,6 @@ void INPLINUXDEVICEKEYBOARDDIRECT::Clean()
 {
   old_fd = -1;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -331,7 +339,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
   INPBUTTON::CreateButton( &buttons, KEY_Y                , INPBUTTON_ID_Y                  , __C('Y' ));
   INPBUTTON::CreateButton( &buttons, KEY_Z                , INPBUTTON_ID_Z                  , __C('Z' ));
 
-
   INPBUTTON::CreateButton( &buttons, KEY_1                , INPBUTTON_ID_1                  , __C('1' ));
   INPBUTTON::CreateButton( &buttons, KEY_2                , INPBUTTON_ID_2                  , __C('2' ));
   INPBUTTON::CreateButton( &buttons, KEY_3                , INPBUTTON_ID_3                  , __C('3' ));
@@ -367,7 +374,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateAllButtons()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -427,8 +433,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::CreateDevices()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
@@ -475,8 +479,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_CreateDevices()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
@@ -500,7 +502,6 @@ bool INPLINUXDEVICEKEYBOARDDIRECT::Old_DeleteTerminalConfig()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
@@ -520,8 +521,6 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 
   return (ioctl(fd, KDGKBTYPE, &arg) == 0 && ((arg == KB_101) || (arg == KB_84)));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -556,7 +555,6 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 
   return fd;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -603,4 +601,6 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_GetFD(const char *fnam)
   return -1;
 }
 
+
+#pragma endregion
 

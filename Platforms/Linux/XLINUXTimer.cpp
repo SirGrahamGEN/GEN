@@ -1,36 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXTimer.cpp
-*
+* 
 * @class      XLINUXTIMER
-* @brief      eXtended LINUX Timer class
+* @brief      LINUX eXtended Utils Timer class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXTimer.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,17 +53,20 @@
 #include <linux/rtc.h>
 
 #include "XTrace.h"
-#include "XLINUXFile.h"
-
-#include "XLINUXTimer.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,7 +84,6 @@ XLINUXTIMER::XLINUXTIMER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXTIMER::~XLINUXTIMER()
@@ -86,11 +95,9 @@ XLINUXTIMER::XLINUXTIMER()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTIMER::~XLINUXTIMER()
-
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -103,19 +110,7 @@ XLINUXTIMER::~XLINUXTIMER()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XQWORD XLINUXTIMER::GetMicroSecondsTickCounter()
-{
-  /*
-  struct timeval t1;
-  XQWORD         elapsedtime;
-
-  gettimeofday(&t1, NULL);
-
-  elapsedtime  = (t1.tv_sec * 1000000.0);    // sec to ms
-  elapsedtime += (t1.tv_usec / 1000.0);      // us to ms
-
-  return elapsedtime;
-  */
-
+{ 
   XQWORD elapsedtime = 0;
   struct timespec t1;
 
@@ -131,4 +126,5 @@ XQWORD XLINUXTIMER::GetMicroSecondsTickCounter()
 }
 
 
+#pragma endregion
 

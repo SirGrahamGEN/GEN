@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXSystem.cpp
-*
+* 
 * @class      XLINUXSYSTEM
-* @brief      eXtended LINUX System class
+* @brief      LINUX eXtended Utils System class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXSystem.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,17 +79,23 @@
 #include "XLanguage_ISO_639_3.h"
 #include "XProcessManager.h"
 
-#include "XLINUXSystem.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 char*   whom;	
 char	  message[90];
 int	    timeout    = 0;	
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 void    int_handler                     (int code);
@@ -107,7 +119,6 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSYSTEM::~XLINUXSYSTEM()
@@ -120,10 +131,8 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSYSTEM::~XLINUXSYSTEM()
 {
-   Clean();
+  Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -225,8 +234,6 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
@@ -240,7 +247,6 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 * ---------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 {
- 
   #ifdef HW_PC
   if(namestring)  namestring->Set(__L("Linux"));
   return XSYSTEM_PLATFORM_LINUX;
@@ -281,7 +287,6 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
@@ -303,14 +308,13 @@ bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
   if(ret != 0) return false;
 
   ID += details.sysname;      ID += __L(" ");
-  // ID += details.nodename;     ID += __L(" ");
+//ID += details.nodename;     ID += __L(" ");
   ID += details.release;      ID += __L(" ");
   ID += details.version;      ID += __L(" ");
   ID += details.machine;      ID += __L(" ");
   
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,7 +348,6 @@ XDWORD XLINUXSYSTEM::GetLanguageSO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
@@ -364,11 +367,13 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
   if(sysinfo(&meminfo) == -1) return false;
 
   long long totalvirtualmem = meminfo.totalram;
+
   //Add other values in next statement to avoid int overflow on right hand side...
   //totalvirtualmem += meminfo.totalswap;
   totalvirtualmem *= meminfo.mem_unit;
 
   long long virtualmemused = meminfo.totalram - meminfo.freeram;
+
   //Add other values in next statement to avoid int overflow on right hand side...
   //virtualmemused += meminfo.totalswap - meminfo.freeswap;
   virtualmemused *= meminfo.mem_unit;
@@ -378,7 +383,6 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -396,8 +400,6 @@ bool XLINUXSYSTEM::FreeCacheMemory()
 {
   return GEN_XPROCESSMANAGER.MakeSystemCommand(__L("sync && sysctl -w vm.drop_caches=3 > /dev/null"));  
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -466,65 +468,6 @@ int XLINUXSYSTEM::GetCPUUsageTotal()
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
-{  
-  XSTRING   params;
-  XSTRING   in;  
-  XSTRING   out;
-  int       returncode;
-  double    cpuusagef = 0.0f;
-  int       cpuusage  = 0;
-  bool      status;
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  params.Format(__L("-C %s -o %%cpu"), processname);  
-  //in.Format(__L("| tail -n 1"));
-  
-  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
-
-  if(!status) 
-    {
-      if(xmutexcheckCPUusage)
-        {
-          xmutexcheckCPUusage->UnLock();
-        }
-
-      return -1;
-    }
-
-  out.DeleteCharacter(__C('\n'));
-  out.DeleteCharacter(__C('\r'));
-  out.DeleteCharacter(__C(' '));
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] read 1 : [%s]"), out.Get());  
-
-  int index = out.Find(__L("CPU"), true);
-  if(index != XSTRING_NOTFOUND) 
-    { 
-      out.DeleteCharacters(index, 3);
-      out.DeleteCharacters(0, 1);
-    }
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] app read 2 : [%s]"), out.Get());  
-     
-  cpuusagef = out.ConvertToFloat();
-  cpuusage  = (int)cpuusagef;     
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-    
-  return cpuusage;  
-}
-*/
-
 int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {  
   XSTRING command;
@@ -561,7 +504,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
@@ -573,64 +515,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @return     int : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
-int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
-{
-  XSTRING   params;
-  XSTRING   in;  
-  XSTRING   out;
-  int       returncode;
-  double    cpuusagef = 0.0f;
-  int       cpuusage  = 0;
-  bool      status;
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  params.Format(__L("-C -p %d -o %%cpu"), processID);  
-  in.Format(__L("| tail -n 1"));
-  
-  status = GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/ps"), params.Get(), &in, &out, &returncode);
-  if(!status) status = GEN_XPROCESSMANAGER.Application_Execute(__L("/bin/ps"), params.Get(), &in, &out, &returncode); 
-
-  if(!status) 
-    {
-      if(xmutexcheckCPUusage)
-        {
-          xmutexcheckCPUusage->UnLock();
-        }
-
-      return -1;
-    }
-
-  out.DeleteCharacter(__C('\n'));
-  out.DeleteCharacter(__C('\r'));
-  out.DeleteCharacter(__C(' '));
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] read 1 : [%s]"), out.Get());  
-
-  int index = out.Find(__L("CPU"), true);
-  if(index != XSTRING_NOTFOUND) 
-    { 
-      out.DeleteCharacters(index, 3);
-      out.DeleteCharacters(0, 1);
-    }
-
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[CPU usage] app read 2 : [%s]"), out.Get());  
-     
-  cpuusagef = out.ConvertToFloat();
-  cpuusage  = (int)cpuusagef;     
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-    
-  return cpuusage;  
-}
-*/
 int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
   XSTRING command;
@@ -667,7 +551,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
@@ -691,7 +574,6 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
   
   return result.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -726,7 +608,6 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
@@ -752,7 +633,6 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
   
   return status?false:true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -835,7 +715,6 @@ bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXSYSTEM::Sound_GetLevel()
@@ -856,7 +735,6 @@ int XLINUXSYSTEM::Sound_GetLevel()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::Sound_SetLevel(int level)
@@ -874,8 +752,6 @@ bool XLINUXSYSTEM::Sound_SetLevel(int level)
 
   return Sound_SetLevel(false, &_level);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -907,25 +783,6 @@ bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 }
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XLINUXSYSTEM::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XLINUXSYSTEM::Clean()
-{
-
-}
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void int_handler()
@@ -942,7 +799,6 @@ void int_handler(int code)
 
 	exit(1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -989,7 +845,6 @@ void swap_off()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void unmount_disks()
@@ -1034,7 +889,6 @@ void unmount_disks()
 
 	unmount_disks_ourselves();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1086,7 +940,6 @@ void unmount_disks_ourselves()
         }
 	  }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1256,3 +1109,23 @@ bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 
   #endif 
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void XLINUXSYSTEM::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_LINUX
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void XLINUXSYSTEM::Clean()
+{
+
+}
+
+
+#pragma endregion
+
