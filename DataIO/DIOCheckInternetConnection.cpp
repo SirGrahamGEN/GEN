@@ -169,7 +169,16 @@ bool DIOCHECKINTERNETCONNECTION::Check()
   bool        isinternetactive    = false;
   static bool isinternetactiveold = false;
 
-  isinternetactive = checkconnections->Connections_SomeIsConnected();
+  isinternetactive = checkconnections->Connections_SomeIsConnected(); 
+
+  /*
+  static XDWORD     ntests = 0; 
+  ntests++;
+  if( (ntests >= 5) &&  (ntests <= 8))
+    {
+      isinternetactive = false;
+    }
+  */
 
   if(isinternetactiveold != isinternetactive)
     {

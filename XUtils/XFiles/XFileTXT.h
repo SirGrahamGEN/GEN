@@ -35,6 +35,7 @@
 #include "XBase.h"
 #include "XFile.h"
 #include "XString.h"
+#include "XPath.h"
 
 #pragma endregion
 
@@ -91,6 +92,7 @@ class XFILETXT : public XFILECONTAINER
                           XFILETXT                ();
     virtual              ~XFILETXT                ();
 
+    virtual bool          Open                    (XCHAR* xpath,bool readonly = true);
     virtual bool          Open                    (XPATH& xpath,bool readonly = true);
     virtual bool          Create                  (XPATH& xpath,XFILETXTFORMATCHAR formatchar = XFILETXTFORMATCHAR_ASCII ,XFILETXTTYPELF typeLF = XFILETXTTYPELF_DEFAULT);
     virtual bool          IsOpen                  ();

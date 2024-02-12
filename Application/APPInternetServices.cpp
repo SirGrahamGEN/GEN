@@ -778,7 +778,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
       
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
 
-      if(scraperwebpublicIP->Get(ip, 5, NULL, false)) 
+      if(scraperwebpublicIP->Get(ip, 10, NULL, false)) 
         {
           ip.GetXString(actualpublicIP);
         }
@@ -798,7 +798,14 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           status = true;    
         }
 
-      APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
+      if(actualpublicIP.IsEmpty())
+        {
+          APP_LOG_ENTRY(XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: Error not IP!"));                                                                                                                      
+        }
+       else
+        {   
+          APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
+        }
     }
 
   if(sendchangeevent)
@@ -943,12 +950,7 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 
                                                                 if(CheckInternetConnection()) 
                                                                   { 
-                                                                    XSTRING actualpublicIP; 
-
-                                                                    #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE                                                                  
-                                                                    // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get IPs ajust to %d seconds]"), cfg->InternetServices_GetCheckIPsChangeCadence());
-                                                                    ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, cfg->InternetServices_GetCheckIPsChangeCadence());   
-                                                                    #endif                                                                   
+                                                                    XSTRING actualpublicIP;                                                                                                                             
 
                                                                     if(UpdateIPs(actualpublicIP))
                                                                       {  
@@ -961,7 +963,15 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
                                                                         #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
                                                                         UpdateDynDNSURLs(actualpublicIP);                                                                        
                                                                         #endif
-                                                                      }                                                                                                                                   
+                                                                      }   
+
+                                                                    if(!actualpublicIP.IsEmpty())
+                                                                      {
+                                                                        #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE                                                                  
+                                                                        // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get IPs ajust to %d seconds]"), cfg->InternetServices_GetCheckIPsChangeCadence());
+                                                                        ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_GETIPS, cfg->InternetServices_GetCheckIPsChangeCadence());   
+                                                                        #endif                                                                                                                                           
+                                                                      }
                                                                   }
                                                                 break;
 

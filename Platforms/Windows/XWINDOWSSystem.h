@@ -407,9 +407,11 @@ class XWINDOWSSYSTEM : public XSYSTEM
 
     XDWORD																			GetLanguageSO																			();
 
-    XSTRING*																		GetSerialNumberBIOS																();
+    XSTRING*																		GetBIOSSerialNumber																();
 
-		XSTRING*																		GetSerialNumberCPU																();
+		XSTRING*																		GetCPUSerialNumber																();
+
+		float																				GetCPUTemperature																	();
 
     bool																				GetMemoryInfo																			(XDWORD& total,XDWORD& free);
 		

@@ -228,7 +228,7 @@ bool SNDOPENALBUFFER::Assign(XWORD channels, size_t size, XDWORD samplerate)
       format = AL_FORMAT_STEREO16;
     }
 
-  alBufferData(buffer, format, (void*)xbuffer.Get(), size, samplerate);
+  alBufferData(buffer, format, (void*)xbuffer.Get(), (ALsizei)size, samplerate);
 
   return true;
 }

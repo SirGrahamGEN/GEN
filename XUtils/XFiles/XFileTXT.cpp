@@ -103,6 +103,38 @@ XFILETXT::~XFILETXT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILETXT::Open(XCHAR* path,bool readonly)
+* @brief      Open
+* @ingroup    XUTILS
+* 
+* @param[in]  path : 
+* @param[in]  readonly : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILETXT::Open(XCHAR* path,bool readonly)
+{
+  if(!path)
+    {
+      return false;
+    }
+
+  XPATH xpath;
+
+  xpath = path;
+
+  if(xpath.IsEmpty())
+    {
+      return false;
+    }
+
+  return Open(xpath, readonly);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::Open(XPATH& xpath,bool readonly)
 * @brief      Open

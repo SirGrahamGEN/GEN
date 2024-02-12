@@ -146,9 +146,11 @@ class XSYSTEM
 
     virtual XDWORD                  GetLanguageSO                   ();
 
-    virtual XSTRING*                GetSerialNumberBIOS             ();
+    virtual XSTRING*                GetBIOSSerialNumber             ();
 
-    virtual XSTRING*                GetSerialNumberCPU              ();
+    virtual XSTRING*                GetCPUSerialNumber              ();
+
+    virtual float                   GetCPUTemperature               ();
 
     virtual bool                    GetMemoryInfo                   (XDWORD& total,XDWORD& free);
     int                             GetFreeMemoryPercent            ();
@@ -186,8 +188,8 @@ class XSYSTEM
 
   protected:
 
-    XSTRING                         serialnumberBIOS; 
-    XSTRING                         serialnumberCPU; 
+    XSTRING                         BIOSserialnumber; 
+    XSTRING                         CPUserialnumber; 
     XMUTEX*                         xmutexcheckCPUusage;  
 
   private:

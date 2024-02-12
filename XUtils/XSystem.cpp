@@ -292,31 +292,46 @@ XDWORD XSYSTEM::GetLanguageSO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XSYSTEM::GetSerialNumberBIOS()
-* @brief      GetSerialNumberBIOS
+* @fn         XSTRING* XSYSTEM::GetBIOSSerialNumber()
+* @brief      GetBIOSSerialNumber
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XSYSTEM::GetSerialNumberBIOS()
+XSTRING* XSYSTEM::GetBIOSSerialNumber()
 {
-  return &serialnumberBIOS;
+  return &BIOSserialnumber;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XSYSTEM::GetSerialNumberCPU()
-* @brief      GetSerialNumberCPU
+* @fn         XSTRING* XSYSTEM::GetCPUSerialNumber()
+* @brief      GetCPUSerialNumber
 * @ingroup    XUTILS
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XSYSTEM::GetSerialNumberCPU()
+XSTRING* XSYSTEM::GetCPUSerialNumber()
 {
-  return &serialnumberCPU;
+  return &CPUserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float XSYSTEM::GetCPUTemperature()
+* @brief      GetCPUTemperature
+* @ingroup    XUTILS
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float XSYSTEM::GetCPUTemperature()
+{
+  return 0.0f;
 }
 
 

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XLINUXSystem.cpp
-*
+* 
 * @class      XLINUXSYSTEM
-* @brief      eXtended LINUX System class
+* @brief      LINUX eXtended Utils System class
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XLINUXSystem.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,6 +53,9 @@
 #include <ctype.h>
 #include <signal.h>
 #include <termios.h>
+#ifdef HW_PC
+#include <cpuid.h>
+#endif
 #include <mntent.h>
 #include <sys/reboot.h>
 #include <sys/types.h>
@@ -65,6 +74,7 @@
 
 #include "XLINUXFactory.h"
 
+#include "XFactory.h"
 #include "XBuffer.h"
 #include "XFileTXT.h"
 #include "XTrace.h"
@@ -73,18 +83,23 @@
 #include "XLanguage_ISO_639_3.h"
 #include "XProcessManager.h"
 
-#include "XLINUXSystem.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 char*   whom;	
 char	  message[90];
 int	    timeout    = 0;	
 
-/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 void    int_handler                     (int code);
 void    swap_off                        ();
@@ -107,7 +122,6 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLINUXSYSTEM::~XLINUXSYSTEM()
@@ -122,8 +136,6 @@ XLINUXSYSTEM::~XLINUXSYSTEM()
 {
    Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -225,8 +237,6 @@ XSYSTEM_HARDWARETYPE XLINUXSYSTEM::GetTypeHardware(int* revision)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
@@ -281,7 +291,6 @@ XSYSTEM_PLATFORM XLINUXSYSTEM::GetPlatform(XSTRING* namestring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
@@ -310,7 +319,6 @@ bool XLINUXSYSTEM::GetOperativeSystemID(XSTRING& ID)
   
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -346,31 +354,58 @@ XDWORD XLINUXSYSTEM::GetLanguageSO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XLINUXSYSTEM::GetSerialNumberBIOS()
-* @brief      GetSerialNumberBIOS
+* @fn         XSTRING* XLINUXSYSTEM::GetBIOSSerialNumber()
+* @brief      GetBIOSSerialNumber
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLINUXSYSTEM::GetSerialNumberBIOS()
+XSTRING* XLINUXSYSTEM::GetBIOSSerialNumber()
 {
-  return &serialnumberBIOS;
+  return &BIOSserialnumber;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XLINUXSYSTEM::GetSerialNumberCPU()
-* @brief      GetSerialNumberCPU
+* @fn         XSTRING* XLINUXSYSTEM::GetCPUSerialNumber()
+* @brief      GetCPUSerialNumber
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLINUXSYSTEM::GetSerialNumberCPU()
+XSTRING* XLINUXSYSTEM::GetCPUSerialNumber()
 {
-  return &serialnumberCPU;
+  #ifdef HW_PC
+  unsigned int level = 1;
+  unsigned eax = 3 /* processor serial number */, ebx = 0, ecx = 0, edx = 0;
+
+  __get_cpuid(level, &eax, &ebx, &ecx, &edx);
+
+  XDWORD first = eax;
+  XDWORD last  = edx;
+
+  CPUserialnumber.Format(__L("%08X%08X"), last, first);
+  #endif
+
+  return &CPUserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float XLINUXSYSTEM::GetCPUTemperature()
+* @brief      GetCPUTemperature
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float XLINUXSYSTEM::GetCPUTemperature()
+{
+  return 0.0f;
 }
 
 
@@ -409,7 +444,6 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::FreeCacheMemory();
@@ -425,8 +459,6 @@ bool XLINUXSYSTEM::FreeCacheMemory()
 {
   return GEN_XPROCESSMANAGER.MakeSystemCommand(__L("sync && sysctl -w vm.drop_caches=3 > /dev/null"));  
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -531,7 +563,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
@@ -579,7 +610,6 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
@@ -603,7 +633,6 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
   
   return result.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -638,7 +667,6 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
@@ -664,7 +692,6 @@ bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
   
   return status?false:true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -747,7 +774,6 @@ bool XLINUXSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int XLINUXSYSTEM::Sound_GetLevel()
@@ -768,7 +794,6 @@ int XLINUXSYSTEM::Sound_GetLevel()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XLINUXSYSTEM::Sound_SetLevel(int level)
@@ -786,8 +811,6 @@ bool XLINUXSYSTEM::Sound_SetLevel(int level)
 
   return Sound_SetLevel(false, &_level);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -819,8 +842,6 @@ bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XLINUXSYSTEM::Clean()
@@ -835,7 +856,6 @@ void XLINUXSYSTEM::Clean()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -854,7 +874,6 @@ void int_handler(int code)
 
 	exit(1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -901,7 +920,6 @@ void swap_off()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void unmount_disks()
@@ -946,7 +964,6 @@ void unmount_disks()
 
 	unmount_disks_ourselves();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -998,7 +1015,6 @@ void unmount_disks_ourselves()
         }
 	  }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1168,3 +1184,7 @@ bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 
   #endif 
 }
+
+
+#pragma endregion
+

@@ -34,6 +34,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include "XThread.h"
+#include "XTrace.h"
 #include "DIOURL.h"
 
 #include "DIOScraperWebPublicIP.h"
@@ -178,7 +179,7 @@ bool DIOSCRAPERWEBPUBLICIP::Get(DIOIP& IP, int timeoutforurl,  XSTRING* localIP,
   if(xmutexdo) xmutexdo->Lock();
 
   publicIPID = __L("public IP ID");
-
+  
   if(usecache && cache)
     {
       DIOPUBLICIP_RESULT* publicIPresult = (DIOPUBLICIP_RESULT*)cache->Get(publicIPID);
@@ -197,7 +198,7 @@ bool DIOSCRAPERWEBPUBLICIP::Get(DIOIP& IP, int timeoutforurl,  XSTRING* localIP,
     }
 
   if(Load(DIOSCRAPERWEBPUBLICIP_NAMEFILE))
-    {
+    {      
       if(Do(DIOSCRAPERWEBPUBLICIP_NAMESERVICE, timeoutforurl,  localIP))
         {
           XSTRING stringIP;
@@ -208,7 +209,7 @@ bool DIOSCRAPERWEBPUBLICIP::Get(DIOIP& IP, int timeoutforurl,  XSTRING* localIP,
             {
               stringIP.DeleteCharacter(0x20);
               if(!stringIP.IsEmpty())
-                {
+                {       
                   IP.Set(stringIP);
 
                   if(usecache)

@@ -292,37 +292,73 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumberBIOS()
-* @brief      GetSerialNumberBIOS
+* @fn         XSTRING* XWINDOWSSYSTEM::GetBIOSSerialNumber()
+* @brief      GetBIOSSerialNumber
 * @ingroup    PLATFORM_WINDOWS
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XWINDOWSSYSTEM::GetSerialNumberBIOS()
+XSTRING* XWINDOWSSYSTEM::GetBIOSSerialNumber()
 {
   #ifndef BUILDER
   XWINDOWSWMIINTERFACE wmiinterface;
 
-  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), serialnumberBIOS);
+  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), BIOSserialnumber);
   #endif
 
-  return &serialnumberBIOS;
+  return &BIOSserialnumber;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XWINDOWSSYSTEM::GetSerialNumberCPU()
-* @brief      GetSerialNumberCPU
+* @fn         XSTRING* XWINDOWSSYSTEM::GetCPUSerialNumber()
+* @brief      GetCPUSerialNumber
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XWINDOWSSYSTEM::GetSerialNumberCPU()
+XSTRING* XWINDOWSSYSTEM::GetCPUSerialNumber()
 {
-   return &serialnumberCPU;
+  #ifndef BUILDER
+  XWINDOWSWMIINTERFACE wmiinterface;
+
+  wmiinterface.DoQuery(__L("Win32_Processor"), __L("ProcessorId"), CPUserialnumber);
+  #endif
+
+  return &CPUserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float XWINDOWSSYSTEM::GetCPUTemperature()
+* @brief      GetCPUTemperature
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float XWINDOWSSYSTEM::GetCPUTemperature()
+{
+  #ifndef BUILDER
+  XWINDOWSWMIINTERFACE wmiinterface;
+  XSTRING CPUtemperaturestr;
+
+  wmiinterface.DoQuery(__L("Win32_PerfFormattedData_Counters_ThermalZoneInformation"), __L("Temperature"), CPUtemperaturestr);
+  #endif
+
+  int   CPUtemperature = 0;
+  float CPUtemperaturefloat = 0.0f;
+
+  CPUtemperature = CPUtemperaturestr.ConvertToInt();
+
+  CPUtemperaturefloat   = (float)CPUtemperature;
+  CPUtemperaturefloat  -= 273.2f;
+
+  return CPUtemperaturefloat;
 }
 
 
