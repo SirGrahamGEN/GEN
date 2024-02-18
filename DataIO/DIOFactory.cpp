@@ -1,54 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOFactory.cpp
-*
+* 
 * @class      DIOFACTORY
 * @brief      Data Input/Output factory class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #ifdef DIO_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOFactory.h"
 
 #include "DIOGPIO.h"
 #include "DIOLedNeoPixelWS2812B.h"
 
-#include "DIOFactory.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOFACTORY* DIOFACTORY::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +75,6 @@ DIOFACTORY::DIOFACTORY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -99,7 +109,6 @@ bool DIOFACTORY::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOFACTORY& DIOFACTORY::GetInstance()
@@ -116,7 +125,6 @@ DIOFACTORY& DIOFACTORY::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -141,7 +149,6 @@ bool DIOFACTORY::SetInstance(DIOFACTORY* _instance)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DelInstance()
@@ -161,7 +168,6 @@ bool DIOFACTORY::DelInstance()
 
   return true;
 }
-
 
 
 #ifdef ANYTYPEOFDIOSTREAMIO
@@ -184,7 +190,6 @@ DIOSTREAMENUMDEVICES* DIOFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
@@ -203,7 +208,6 @@ bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
@@ -220,7 +224,6 @@ DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -244,8 +247,6 @@ bool DIOFACTORY::DeleteStreamIO(DIOSTREAM* streamio)
 #endif
 
 
-
-
 #ifdef DIO_WIFIMANAGERMODE_ACTIVE
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -261,7 +262,6 @@ DIOWIFIMANAGERMODE* DIOFACTORY::CreateWifiManagerMode()
 {
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -282,7 +282,6 @@ bool DIOFACTORY::DeleteWifiManagerMode(DIOWIFIMANAGERMODE* wifimanagermode)
 
 
 #endif
-
 
 
 #ifdef DIO_PCAP_ACTIVE
@@ -323,7 +322,6 @@ bool DIOFACTORY::DeletePCap(DIOPCAP* pcap)
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
@@ -337,8 +335,6 @@ DIONOTIFICATIONSMANAGER* DIOFACTORY::CreateNotificationsManager()
 {
   return NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -356,7 +352,6 @@ bool DIOFACTORY::DeleteNotificationsManager(DIONOTIFICATIONSMANAGER* notificatio
 {
   return false;
 }
-
 
 
 #ifdef DIO_LEDNEOPIXELWS2812B_ACTIVE 
@@ -403,7 +398,6 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOFACTORY::Clean()
@@ -416,11 +410,10 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOFACTORY::Clean()
 {
-
-
 }
 
 
+#pragma endregion
 
 
 #endif

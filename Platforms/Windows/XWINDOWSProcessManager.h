@@ -79,6 +79,9 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
     static bool             GetMapOfWinProcess                          (MAPWINPROCESS& mapofwinprocess);
 
     void                    Clean                                       ();
+
+    XMUTEX*                 xmutexgetsrunninglist;
+
 };
 
 #pragma endregion

@@ -78,6 +78,8 @@
 XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 {
   Clean();
+
+  xmutexgetsrunninglist = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -93,6 +95,11 @@ XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSPROCESSMANAGER::~XWINDOWSPROCESSMANAGER()
 {
+  if(xmutexgetsrunninglist)
+    {
+       GEN_XFACTORY.Delete_Mutex(xmutexgetsrunninglist);
+    }
+
   Clean();
 }
 
@@ -380,7 +387,15 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
   PROCESSENTRY32 processentry;
   HANDLE         snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
   
-  if(snapshot == INVALID_HANDLE_VALUE) return false;
+  if(snapshot == INVALID_HANDLE_VALUE) 
+    {
+      return false;
+    }
+
+  if(xmutexgetsrunninglist)
+    {   
+      xmutexgetsrunninglist->Lock();
+    }
   
   applist.DeleteContents();
   applist.DeleteAll();
@@ -425,7 +440,8 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
   MAPWINPROCESS mapofwinprocess;
   GetMapOfWinProcess(mapofwinprocess);
 
-  XDWORD c = 0;
+  
+  XDWORD c = 0;   
 
   do{ XPROCESS* xprocess = applist.Get(c);
       if(xprocess)
@@ -440,20 +456,19 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
                   for(XDWORD e=0; e<xprocess->GetProcessIDs()->GetSize(); e++)
                     {                   
                       if(processID == xprocess->GetProcessIDs()->Get(e))
-                        {
-                          XSTRING    title;
-                          GRPRECTINT rect;
+                        {                       
+                          XSTRING     title;
+                          GRPRECTINT  rect;                          
          
-                          GetWindowPropertys(hwnd, title, rect);
-                          
+                          GetWindowPropertys(hwnd, title, rect);                          
+
                           if(!xprocess->GetWindowHandle())                                  
-                            {                         
+                            {                                                           
                               xprocess->SetWindowHandle((void*)hwnd);         
                               xprocess->GetWindowTitle()->Set(title.Get());
                               xprocess->GetWindowRect()->CopyFrom(&rect);
                               xprocess->SetWindowTitleHeight(GetWindowTitleHeight(hwnd));
-                              xprocess->SetWindowBorderWidth(GetWindowBorderWidth(hwnd));
-
+                              xprocess->SetWindowBorderWidth(GetWindowBorderWidth(hwnd));                              
                             }
                            else
                             {                                                                    
@@ -537,6 +552,11 @@ bool XWINDOWSPROCESSMANAGER::Application_GetRunningList(XVECTOR<XPROCESS*>& appl
   #endif  
   */
   //------------------------------------------------------------------------
+
+  if(xmutexgetsrunninglist)
+    {   
+      xmutexgetsrunninglist->UnLock();
+    }
 
   return true;
 }
@@ -782,7 +802,7 @@ bool XWINDOWSPROCESSMANAGER::GetMapOfWinProcess(MAPWINPROCESS& mapofwinprocess)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSPROCESSMANAGER::Clean()
 {
-
+  xmutexgetsrunninglist = NULL;
 }
 
 #pragma endregion

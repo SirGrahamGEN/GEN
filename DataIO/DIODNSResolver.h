@@ -133,9 +133,9 @@ class DIODNSRESOLVER
     XMUTEX*                                 xmutexresolved;    
 
     XVECTOR<DIODNSRESOLVER_DNSSERVER*>      listDNSservers;
-    XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>   listhostresolved;
-    
+    XVECTOR<DIODNSRESOLVER_HOSTRESOLVED*>   listhostresolved;    
 };
+
 
 #pragma endregion
 

@@ -5,7 +5,7 @@
 * @class      DIODEVICESPI
 * @brief      Data Input/Output device SPI class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,24 +24,34 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIODEVICESPI_H_
 #define _DIODEVICESPI_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFactory.h"
+#pragma region INCLUDES
 
 #include "DIODevice.h"
 #include "DIOStreamSPIConfig.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOSTREAMSPICONFIG;
 class DIOSTREAMSPI;
+
 
 class DIODEVICESPI : public DIODEVICE
 {
@@ -72,14 +82,18 @@ class DIODEVICESPI : public DIODEVICE
   private:
 
     void                      Clean                 ();
-
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
 

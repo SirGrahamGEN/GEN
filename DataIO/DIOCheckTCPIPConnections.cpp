@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOCheckTCPIPConnections.cpp
-*
+* 
 * @class      DIOCHECKTCPIPCONNECTIONS
-* @brief       Data Input/Output Check connections TPC/IP class
+* @brief      Data Input/Output Check connections TPC/IP class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOCheckTCPIPConnections.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -45,15 +51,22 @@
 #include "DIOURL.h"
 #include "DIOPing.h"
 
-#include "DIOCheckTCPIPConnections.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
+#pragma region CLASS_DIOCHECKTCPIPCONNECTION_CUT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +86,6 @@ DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
@@ -90,7 +102,6 @@ DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -123,7 +134,6 @@ int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
@@ -139,7 +149,6 @@ void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
 {
   this->nseconds = nseconds;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +176,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::GetMeasureTimeString(XSTRING& measuretime, boo
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connectioncut)
@@ -185,7 +193,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyFrom(DIOCHECKTCPIPCONNECTION_CUT* connecti
 
   return connectioncut->CopyTo(this);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -210,7 +217,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connection
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTION_CUT::Clean()
@@ -228,10 +234,10 @@ void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/*DIOCHECKTCPIPCONNECTION                                                                                                   */
-/* --------------------------------------------------------------------------------------------------------------------*/
+
+#pragma region CLASS_DIOCHECKTCPIPCONNECTION 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -251,7 +257,6 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
   
   GEN_XFACTORY_CREATE(timerconnexion, CreateTimer()) 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -274,7 +279,6 @@ DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetID()
@@ -290,7 +294,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
@@ -304,7 +307,6 @@ DIOURL* DIOCHECKTCPIPCONNECTION::GetURL()
 {
   return url;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -354,7 +356,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
@@ -372,7 +373,6 @@ void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
@@ -386,7 +386,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::IncNChecks()
 {
   return ++nchecks;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -414,7 +413,6 @@ bool DIOCHECKTCPIPCONNECTION::Set(XCHAR* url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
@@ -428,7 +426,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
 {
   return elapsedtime;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -446,7 +443,6 @@ void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
 {
   this->elapsedtime = elapsedtime;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -467,7 +463,6 @@ bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
@@ -482,7 +477,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
   if(!timerconnexion) return 0;
   return timerconnexion->GetMeasureSeconds();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -508,7 +502,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTION::Clean()
@@ -530,12 +523,10 @@ void DIOCHECKTCPIPCONNECTION::Clean()
 }
 
 
+#pragma endregion
 
 
-
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOCHECKTCPIPCONNECTIONS                                                                                                  */
-/* --------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_DIOCHECKTCPIPCONNECTIONS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -551,7 +542,6 @@ DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -570,7 +560,6 @@ DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -605,7 +594,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Ini(int timeconnectionchecks, bool validsomeiscon
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
@@ -624,7 +612,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Run(bool activate)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
@@ -638,7 +625,6 @@ int DIOCHECKTCPIPCONNECTIONS::GetTimeConnectionChecks()
 {
   return timeconnectionchecks;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -656,7 +642,6 @@ bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
@@ -672,7 +657,6 @@ void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnect
 {
   this->ischecktimeconnections = ischecktimeconnections;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -694,7 +678,6 @@ void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisc
   this->validsomeisconnected  = validsomeisconnected;
   this->dispersionmode        = dispersionmode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -736,7 +719,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XCHAR* url, XDWORD& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
@@ -755,7 +737,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(XSTRING& url, XDWORD& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
@@ -772,7 +753,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_Add(DIOURL& url, XDWORD& ID)
 {
   return Connection_Add(url.Get(), ID);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -807,8 +787,6 @@ DIOCHECKTCPIPCONNECTION* DIOCHECKTCPIPCONNECTIONS::Connection_GetByID(XDWORD ID)
 
   return NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -848,7 +826,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connection_IsActive(XDWORD ID, bool& isactive)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -926,7 +903,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsAllChecked()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
@@ -959,7 +935,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_IsSomeChecked()
 
   return ischecksomeconnections;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1010,7 +985,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToAllChecked(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
@@ -1059,7 +1033,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_WaitToSomeIsChecked(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
@@ -1091,7 +1064,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_SomeIsConnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
@@ -1112,7 +1084,6 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1148,10 +1119,8 @@ bool DIOCHECKTCPIPCONNECTIONS::End()
       xtimerfortimeconnectionchecks = NULL;
     }
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1269,7 +1238,6 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCHECKTCPIPCONNECTIONS::Clean()
@@ -1292,4 +1260,13 @@ void DIOCHECKTCPIPCONNECTIONS::Clean()
   xmutexconnections                   = NULL;
   threadcheckconnections              = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+
+
 

@@ -5,7 +5,7 @@
 * @class      DIODEVICEI2C
 * @brief      Data Input/Output device I2C class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIODeviceI2C.h"
 
 #include "XFactory.h"
 
@@ -39,15 +45,19 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-
-#include "DIODeviceI2C.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -111,8 +121,6 @@ bool DIODEVICEI2C::Ini(XCHAR* localdevicename, int remotedeviceaddress, int time
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODEVICEI2C::Ini(int port, int remotedeviceaddress, int timeout)
@@ -139,7 +147,6 @@ bool DIODEVICEI2C::Ini(int port, int remotedeviceaddress, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remotedeviceaddress)
@@ -163,7 +170,6 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(XCHAR* localdevicename, int remot
 
   return diostreamcfg;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -193,29 +199,26 @@ DIOSTREAMI2CCONFIG* DIODEVICEI2C::CreateConfig(int port, int remotedeviceaddress
 }
 
 
-
- /**-------------------------------------------------------------------------------------------------------------------
- * 
- * @fn        bool DIODEVICEI2C::IniDevice()
- * @brief     IniDevice
- * @ingroup   DATAIO
- * 
-   * 
- * @return      bool : true if is succesful. 
- * 
- * ---------------------------------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIODEVICEI2C::IniDevice()
+* @brief      IniDevice
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIODEVICEI2C::IniDevice()
- {
-   diostream = (DIOSTREAMI2C*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
-   if(!diostream)  return false;
+{
+  diostream = (DIOSTREAMI2C*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
+  if(!diostream)  return false;
 
-   diostreamcfg->SetMode(DIOSTREAMMODE_MASTER);
-   diostreamcfg->SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE_7BITS);
+  diostreamcfg->SetMode(DIOSTREAMMODE_MASTER);
+  diostreamcfg->SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE_7BITS);
 
-   return true;
- }
+  return true;
+}
      
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -254,7 +257,6 @@ bool DIODEVICEI2C::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODEVICEI2C::Clean()
@@ -272,3 +274,7 @@ void DIODEVICEI2C::Clean()
   diostreamcfg  = NULL;
   diostream     = NULL;
 }
+
+
+#pragma endregion
+

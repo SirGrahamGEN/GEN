@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOApplicationUpdate.cpp
-*
+* 
 * @class      DIOAPPLICATIONUPDATE
 * @brief      Data Input/Output Application Update class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOApplicationUpdate.h"
 
 #include "XFactory.h"
 #include "XPath.h"
@@ -51,14 +57,22 @@
 #include "DIOWebClient.h"
 #include "DIOApplicationUpdate_XEvent.h"
 
-#include "DIOApplicationUpdate.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_DIOAPPLICATIONUPDATE_VERSIONDATA
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,7 +88,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,7 +106,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::~DIOAPPLICATIONUPDATE_VERSIONDATA()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
@@ -107,7 +119,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
 {
   return version;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -127,7 +138,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
@@ -141,7 +151,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
 {
   return subversion;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -161,7 +170,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
@@ -175,7 +183,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
 {
   return subversionerror;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -195,7 +202,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE_VERSIONDATA::SystemMustBeInit()
@@ -209,7 +215,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::SystemMustBeInit()
 {
   return systemmustbeinit;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -234,7 +239,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyTo(DIOAPPLICATIONUPDATE_VERSIONDATA& 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA* versiondata)
@@ -257,7 +261,6 @@ bool DIOAPPLICATIONUPDATE_VERSIONDATA::CopyFrom(DIOAPPLICATIONUPDATE_VERSIONDATA
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -306,7 +309,6 @@ int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustbeinit)
@@ -322,7 +324,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustb
 {
   this->systemmustbeinit = applicationmustbeinit;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,13 +345,10 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 }
 
 
+#pragma endregion
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOAPPLICATIONUPDATE_FILE                                                                                           */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_DIOAPPLICATIONUPDATE_FILE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -376,7 +374,6 @@ DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
@@ -391,7 +388,6 @@ DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -409,7 +405,6 @@ XPATH* DIOAPPLICATIONUPDATE_FILE::GetXPathFile()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE_FILE::GetCRC32()
@@ -423,7 +418,6 @@ XDWORD DIOAPPLICATIONUPDATE_FILE::GetCRC32()
 {
   return CRC32;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -441,7 +435,6 @@ XQWORD DIOAPPLICATIONUPDATE_FILE::GetSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
@@ -455,7 +448,6 @@ bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
 {
   return specialcontrolupdate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -473,7 +465,6 @@ void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolup
 {
   this->specialcontrolupdate = specialcontrolupdate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,11 +485,10 @@ void DIOAPPLICATIONUPDATE_FILE::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOAPPLICATIONUPDATE                                                                                                */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOAPPLICATIONUPDATE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -545,7 +535,6 @@ DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD app
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
@@ -574,7 +563,6 @@ DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -707,7 +695,6 @@ bool DIOAPPLICATIONUPDATE::GetVersionAvailable(DIOURL& url, int port, DIOAPPLICA
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -911,7 +898,6 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XCHAR* addtargetpath,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XPATH& addtargetpath, DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, int timeout, DIOAPPLICATIONUPDATE_ERROR& error)
@@ -932,7 +918,6 @@ bool DIOAPPLICATIONUPDATE::Download(DIOURL& url, int port, XPATH& addtargetpath,
 {
   return Download(url, port, addtargetpath.Get(), updateversiondata, timeout, error);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1019,7 +1004,6 @@ bool DIOAPPLICATIONUPDATE::CopyOriginalFilesToBackup(XPATH& xpathbackup, DIOAPPL
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1147,7 +1131,6 @@ bool DIOAPPLICATIONUPDATE::CopyUpdateFilesToOriginal(XPATH& xpathupdate, DIOAPPL
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::DeleteFilesRenamed(XPATH& xpathtocheck)
@@ -1207,7 +1190,6 @@ bool DIOAPPLICATIONUPDATE::DeleteFilesRenamed(XPATH& xpathtocheck)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::ChangeFilesFromDownload(DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata, XPATH& xpathupdate, XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
@@ -1257,8 +1239,6 @@ bool DIOAPPLICATIONUPDATE::ChangeFilesFromDownload(DIOAPPLICATIONUPDATE_VERSIOND
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
@@ -1290,9 +1270,6 @@ bool DIOAPPLICATIONUPDATE::RestartApplication(DIOAPPLICATIONUPDATE_ERROR& error)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDATE_VERSIONDATA*> listversiontorestore)
@@ -1313,8 +1290,10 @@ bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDA
   bool        status = true;
 
   GEN_XFACTORY_CREATE(xdir, Create_Dir())
-  if(!xdir) return false;
-
+  if(!xdir) 
+    {
+      return false;
+    }
 
   dir_mask  = DIOAPPLICATIONUPDATE_RESTOREDIR_ID;
   dir_mask += DIOAPPLICATIONUPDATE_RESTOREDIR_MASK;
@@ -1357,9 +1336,7 @@ bool DIOAPPLICATIONUPDATE::GetListOfVersionsToRestore(XVECTOR<DIOAPPLICATIONUPDA
   GEN_XFACTORY.Delete_Dir(xdir);
 
   return status;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1391,7 +1368,10 @@ bool DIOAPPLICATIONUPDATE::GetPreviousVersionToRestore(XVECTOR<DIOAPPLICATIONUPD
         }
     }
 
-  if(!indexversiontorestore.GetSize()) return false;
+  if(!indexversiontorestore.GetSize()) 
+    {
+      return false;
+    }
 
   if(indexversiontorestore.GetSize() == 1)
     {
@@ -1427,7 +1407,6 @@ bool DIOAPPLICATIONUPDATE::GetPreviousVersionToRestore(XVECTOR<DIOAPPLICATIONUPD
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
@@ -1459,7 +1438,6 @@ bool DIOAPPLICATIONUPDATE::RestorePrevious(DIOAPPLICATIONUPDATE_ERROR& error)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1495,7 +1473,6 @@ bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& application
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::RestoreUpdate(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
@@ -1527,7 +1504,6 @@ bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERRO
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1628,7 +1604,6 @@ bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata)
@@ -1661,7 +1636,6 @@ bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& update
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
@@ -1675,7 +1649,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
 {
   return this->applicationversion;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1693,7 +1666,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubversion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubVersionError()
@@ -1707,8 +1679,6 @@ XDWORD DIOAPPLICATIONUPDATE::GetApplicationSubVersionError()
 {
   return this->applicationsubversionerror;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1797,8 +1767,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::FilesToUpdate_EliminateFixedDir(XPATH& xpath)
@@ -1875,7 +1843,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CheckListChangedFiles(XPATH& xpathupdat
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAPPLICATIONUPDATE::FilesToUpdate_DeleteList()
@@ -1894,7 +1861,6 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_DeleteList()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1975,7 +1941,6 @@ bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAPPLICATIONUPDATE::Clean()
@@ -2000,5 +1965,8 @@ void DIOAPPLICATIONUPDATE::Clean()
 }
 
 
+#pragma endregion
 
+
+#pragma endregion
 

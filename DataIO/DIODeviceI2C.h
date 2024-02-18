@@ -5,7 +5,7 @@
 * @class      DIODEVICEI2C
 * @brief      Data Input/Output device I2C class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,23 +24,35 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIODEVICEI2C_H_
 #define _DIODEVICEI2C_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include "XFactory.h"
+#include "XString.h"
 
 #include "DIODevice.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
+class XTIMER;
 class DIOSTREAMI2CCONFIG;
 class DIOSTREAMI2C;
+
 
 class DIODEVICEI2C : public DIODEVICE
 {
@@ -61,7 +73,6 @@ class DIODEVICEI2C : public DIODEVICE
 
     bool                      End                   ();
 
-
   protected:
 
     int                       timeout;
@@ -75,10 +86,15 @@ class DIODEVICEI2C : public DIODEVICE
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
 

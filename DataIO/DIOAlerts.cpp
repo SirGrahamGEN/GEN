@@ -1,39 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOAlerts.cpp
-*
+* 
 * @class      DIOALERTS
 * @brief      Data Input/Output Alerts class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #ifdef DIO_ALERTS_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOAlerts.h"
 
 #include "XDateTime.h"
 #include "XFileTXT.h"
@@ -52,23 +59,24 @@
 #include "DIOATCMDGSM.h"
 #include "DIOWebClient.h"
 
-#include "DIOAlerts.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOALERTS* DIOALERTS::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOALERT_CONDITION                                                                                                 */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOALERT_CONDITION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -88,7 +96,6 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
 }
           
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT_CONDITION::~DIOALERT_CONDITION()
@@ -107,7 +114,6 @@ DIOALERT_CONDITION::~DIOALERT_CONDITION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetTimeLimitForRepeat()
@@ -121,7 +127,6 @@ int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 {
   return timelimitforrepeat;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -141,7 +146,6 @@ void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetEveryNumberOfTimes()
@@ -154,8 +158,7 @@ void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 {
   return everynumberoftimes;
-}
-    
+}  
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -175,7 +178,6 @@ void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
 }
     
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
@@ -191,7 +193,6 @@ XTIMER* DIOALERT_CONDITION::GetLastTimerSend()
 }
     
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetNSended()
@@ -205,7 +206,6 @@ int DIOALERT_CONDITION::GetNSended()
 {
   return nsended;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -225,8 +225,6 @@ void DIOALERT_CONDITION::SetNSended(int nsended)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOALERT_CONDITION::GetNTimesSended()
@@ -240,7 +238,6 @@ int DIOALERT_CONDITION::GetNTimesSended()
 {
   return ntimessended;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -258,7 +255,6 @@ void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 {
   this->ntimessended = ntimessended;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -279,16 +275,13 @@ void DIOALERT_CONDITION::Clean()
   lasttimersend        = NULL;
   nsended              = 0;
   ntimessended         = 0;
-};
+}
 
 
+#pragma endregion
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOALERT                                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -306,7 +299,6 @@ DIOALERT::DIOALERT()
   
   GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +319,6 @@ DIOALERT::~DIOALERT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* DIOALERT::GetDateTime()
@@ -343,7 +334,6 @@ XDATETIME* DIOALERT::GetDateTime()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::GetApplicationID()
@@ -357,7 +347,6 @@ XSTRING* DIOALERT::GetApplicationID()
 {
   return &applicationID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,7 +372,6 @@ bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
@@ -407,7 +395,6 @@ bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD s
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOALERT::GetID()
@@ -421,7 +408,6 @@ XDWORD DIOALERT::GetID()
 {
   return ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -439,7 +425,6 @@ void DIOALERT::SetID(XDWORD ID)
 {
   this->ID = ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -495,8 +480,6 @@ XDWORD DIOALERT::CalculateID(bool withdatetime)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTLEVEL DIOALERT::GetLevel()
@@ -510,7 +493,6 @@ DIOALERTLEVEL DIOALERT::GetLevel()
 {
   return level;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -530,7 +512,6 @@ void DIOALERT::SetLevel(DIOALERTLEVEL level)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::GetOrigin()
@@ -544,7 +525,6 @@ XSTRING* DIOALERT::GetOrigin()
 {
   return &origin;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -562,7 +542,6 @@ XSTRING* DIOALERT::GetTitle()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERT::Get_Message()
@@ -576,7 +555,6 @@ XSTRING* DIOALERT::Get_Message()
 {
   return &message;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -610,7 +588,6 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERT::Clean()
@@ -633,11 +610,10 @@ void DIOALERT::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOALERTS                                                                                                          */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -655,7 +631,6 @@ bool DIOALERTS::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERTS& DIOALERTS::GetInstance()
@@ -671,7 +646,6 @@ DIOALERTS& DIOALERTS::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -692,7 +666,6 @@ bool DIOALERTS::DelInstance()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -745,7 +718,6 @@ bool DIOALERTS::Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERTS::GetApplicationID()
@@ -759,7 +731,6 @@ XSTRING* DIOALERTS::GetApplicationID()
 {
   return &applicationID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -785,7 +756,6 @@ bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::SetApplicationVersion (XDWORD version, XDWORD subversion, XDWORD subversionerr)
@@ -809,7 +779,6 @@ bool DIOALERTS::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOALERTS::GetOrigin()
@@ -825,7 +794,6 @@ XSTRING* DIOALERTS::GetOrigin()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::IsSending()
@@ -839,7 +807,6 @@ bool DIOALERTS::IsSending()
 {
   return issending;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -891,7 +858,6 @@ DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHA
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XSTRING& origin, XSTRING& title, XSTRING& message)
@@ -913,7 +879,6 @@ DIOALERT* DIOALERTS::CreateAlert(XSTRING& applicationID, DIOALERTLEVEL level, XS
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* message)
@@ -933,7 +898,6 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XCHAR* title, XCHAR* messa
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& message)
@@ -951,7 +915,6 @@ DIOALERT* DIOALERTS::CreateAlert(DIOALERTLEVEL level, XSTRING& title, XSTRING& m
 {
   return CreateAlert(applicationID.Get(), level, origin.Get(), title.Get(), message.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1029,7 +992,6 @@ bool DIOALERTS::Sender_SMTPConfig(XCHAR* URL, int port, XCHAR* login, XCHAR* pas
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
@@ -1078,7 +1040,6 @@ bool DIOALERTS::Sender_SMSConfig(DIOSTREAM* diostream, int nrecipients, ...)
 
   return SMSsenderisactive;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1160,7 +1121,6 @@ bool DIOALERTS::Sender_WEBConfig(XCHAR* command, bool isuseget, int nrecipients,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
@@ -1222,9 +1182,6 @@ bool DIOALERTS::Sender_UDPConfig(int port, int nrecipients, ...)
 
   return UDPsenderisactive;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1327,7 +1284,6 @@ int DIOALERTS::Send(DIOALERTSENDER sender, XDWORD conditionID, DIOALERT* alert)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int everynumberoftimes)
@@ -1361,7 +1317,6 @@ bool DIOALERTS::AddCondition(XDWORD conditionID, int timelimitforrepeat, int eve
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT_CONDITION_CFG* DIOALERTS::GetConditionConfig(XDWORD conditionID)
@@ -1377,7 +1332,6 @@ DIOALERT_CONDITION* DIOALERTS::GetCondition(XDWORD conditionID)
 {  
   return conditions.Get(conditionID);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1400,9 +1354,6 @@ bool DIOALERTS::DeleteAllConditions()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::End()
@@ -1413,23 +1364,17 @@ bool DIOALERTS::DeleteAllConditions()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOALERTS::End()
-{
-  //------------------------------------------
-
+{  
   while(issending)
     {
       GEN_XSLEEP.Seconds(100);
     }
-
-  //------------------------------------------
 
   if(xmutexsending)
     {
       GEN_XFACTORY.Delete_Mutex(xmutexsending);
       xmutexsending = NULL; 
     }
-
-  //------------------------------------------
 
   if(SMTP)
     {
@@ -1500,11 +1445,8 @@ bool DIOALERTS::End()
 
   DeleteAllConditions();
 
-  //------------------------------------------
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1520,7 +1462,6 @@ DIOALERTS::DIOALERTS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1539,7 +1480,6 @@ DIOALERTS::~DIOALERTS()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1587,8 +1527,6 @@ bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
 
   return SMTP->Send();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1667,8 +1605,6 @@ bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1797,7 +1733,6 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
@@ -1877,7 +1812,6 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOALERTS::Clean()
@@ -1917,5 +1851,11 @@ void DIOALERTS::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
+
 
 #endif
+

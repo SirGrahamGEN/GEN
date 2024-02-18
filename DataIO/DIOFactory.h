@@ -1,62 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOFactory.h
-*
+* 
 * @class      DIOFACTORY
 * @brief      Data Input/Output factory class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOFACTORY_H_
 #define _DIOFACTORY_H_
 
+
 #ifdef DIO_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
 #include "DIOStreamEnumDevices.h"
 #include "DIOStream.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #if (defined(DIO_STREAMUART_ACTIVE) || defined(DIO_STREAMUSB_ACTIVE) || defined(DIO_STREAMICMP_ACTIVE) || defined(DIO_STREAMUDP_ACTIVE) || defined(DIO_STREAMTCPIP_ACTIVE)  || defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE) || defined(DIO_STREAMSPI_ACTIVE) || defined(DIO_STREAMI2C_ACTIVE))
 #define ANYTYPEOFDIOSTREAMIO
 #endif
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class CIPHER;
-class XFACTORY;
-class XPATHS;
-class XLOG;
-class DIOURL;
-class DIOSTREAM;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class DIOWIFIMANAGERMODE;
-class DIOPING;
 class DIOPCAP;
-class DIOWEBSERVER;
-class DIOGPIO;
 class DIONOTIFICATIONSMANAGER;
 class DIOLEDNEOPIXELWS2812B;
 
@@ -104,12 +107,21 @@ class DIOFACTORY
     void                                  Clean                       ();
 
     static DIOFACTORY*                    instance;
-
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
 
 #endif
 

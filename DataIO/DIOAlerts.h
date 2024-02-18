@@ -1,29 +1,29 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOAlerts.h
-*
+* 
 * @class      DIOALERTS
 * @brief      Data Input/Output Alerts class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOALERTS_H_
@@ -32,7 +32,9 @@
 
 #ifdef DIO_ALERTS_ACTIVE
 
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 #include "XMap.h"
@@ -44,21 +46,12 @@
 
 #include "DIOAlerts_Conditions.h"
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class XFACTORY;
-class XDATETIME;
-class XPUBLISHER;
-class XTHREADCOLLECTED;
-class DIOFACTORY;
-class DIOSTREAMTCPIPCONFIG;
-class DIOSTREAMUDPCONFIG;
-class DIOSTREAMUDPACKNOWLEDGE;
-class DIOIP;
-class DIOSTREAM;
-class DIOSMTP;
-class DIOWEBCLIENT;
-class DIOATCMDGSM;
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOALERTLEVEL
 {
@@ -89,9 +82,22 @@ enum DIOALERTSENDER
 #define DIOALERTS_QSPARAM_MESSAGE         __L("message")
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XTIMER;
+class XDATETIME;
+class DIOSTREAMTCPIPCONFIG;
+class DIOSMTP;
+class DIOWEBCLIENT;
+class DIOURL;
+class DIOSTREAMUDPCONFIG;
+class DIOSTREAMUDPACKNOWLEDGE;
+class DIOIP;
 
 
 class DIOALERT_CONDITION
@@ -125,7 +131,6 @@ class DIOALERT_CONDITION
     int                                             nsended;
     int                                             ntimessended;
 };
-
 
 
 class DIOALERT
@@ -171,7 +176,6 @@ class DIOALERT
 };
 
 
-
 class DIOALERTS
 {
   public:
@@ -208,9 +212,7 @@ class DIOALERTS
     DIOALERT_CONDITION*                             GetCondition                (XDWORD conditionID);
     bool                                            DeleteAllConditions         (); 
 
-
     bool                                            End                         ();
-
 
   private:
                                                     DIOALERTS                   (); 
@@ -225,7 +227,6 @@ class DIOALERTS
     bool                                            Sender_UDPSend              (DIOALERT* alert);
 
     void                                            Clean                       ();
-
 
     static DIOALERTS*                               instance;
 
@@ -261,12 +262,18 @@ class DIOALERTS
     XVECTOR<DIOIP*>                                 UDPrecipients;
   
     XMAP<XDWORD, DIOALERT_CONDITION*>               conditions;
-  
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

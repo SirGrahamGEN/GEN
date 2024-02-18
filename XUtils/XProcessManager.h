@@ -67,13 +67,14 @@ class XPROCESS
 
     void*                           GetWindowHandle                 ();
     void                            SetWindowHandle                 (void* windowhandle);
+    
     XSTRING*                        GetWindowTitle                  ();  
     GRPRECTINT*                     GetWindowRect                   ();      
     int                             GetWindowTitleHeight            ();    
     void                            SetWindowTitleHeight            (int windowtitleheight);    
     int                             GetWindowBorderWidth            (); 
-    void                            SetWindowBorderWidth            (int windowborderwidth);     
-
+    void                            SetWindowBorderWidth            (int windowborderwidth);
+    
     bool                            CopyTo                          (XPROCESS& xprocess);    
     bool                            CopyFrom                        (XPROCESS& xprocess);    
     
@@ -85,7 +86,7 @@ class XPROCESS
     XVECTOR<XDWORD>                 processIDs;    
     XPATH                           path;  
     XSTRING                         name;  
-    void*                           windowhandle;
+    void*                           windowhandle;          
     XSTRING                         windowtitle; 
     GRPRECTINT                      windowrect; 
     int                             windowtitleheight;    
@@ -110,10 +111,12 @@ class XPROCESSMANAGER
     virtual bool                    OpenURL                         (XCHAR* url);
 
     virtual bool                    Application_Execute             (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
-    virtual bool                    Application_IsRunning           (XCHAR* command, XDWORD* ID = NULL);
-    virtual bool                    Application_GetRunningList      (XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow = false);
-    virtual bool                    Application_Terminate           (XDWORD processID, XDWORD  exitcode = 0);
 
+    virtual bool                    Application_IsRunning           (XCHAR* command, XDWORD* ID = NULL);
+
+    virtual bool                    Application_GetRunningList      (XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow = false);
+
+    virtual bool                    Application_Terminate           (XDWORD processID, XDWORD  exitcode = 0);
     bool                            Application_Terminate           (XPROCESS& process, XDWORD exitcode = 0);
     bool                            Application_Terminate           (XCHAR* processname, XDWORD exitcode = 0);
     bool                            Application_Terminate           (XSTRING& processname, XDWORD exitcode = 0);

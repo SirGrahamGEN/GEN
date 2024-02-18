@@ -1,47 +1,72 @@
-/*------------------------------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY.CPP
-//
-//  ANDROID Native Activity class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 28/09/2013 17:06:15
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       ANDROIDNativeActivity.cpp
+* 
+* @class      ANDROIDNATIVEACTIVITY
+* @brief      ANDROID Native Activity class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "ANDROIDNativeActivity.h"
+
 #include "XTrace.h"
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP
-*/
-/**
-//
-//
-//  ""
-//  @version      28/09/2013 17:09:55
-//
-//  @return
-//  @param        app :
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* application)
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  android_app* : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* application)
 {
   Clean();
@@ -54,43 +79,34 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* ap
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP
-*/
-/**
-//
-//
-//  ""
-//  @version      28/09/2013 17:10:10
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
 {
   Clean();
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::Run
-*/
-/**
-//
-//
-//  ""
-//  @version      01/10/2013 23:19:18
-//
-//  @return       void :
-//  @param        activityhandler :
-//  @param        inputhandler :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activityhandler, ANDROIDNATIVEINPUT_HANDLER* inputhandler)
+* @brief      Run
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  activityhandler : 
+* @param[in]  inputhandler : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activityhandler, ANDROIDNATIVEINPUT_HANDLER* inputhandler)
 {
   int32_t               result;
@@ -126,21 +142,15 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activit
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate
-*/
-/**
-//
-//
-//  ""
-//  @version      29/09/2013 0:21:09
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
+* @brief      Activate
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
 {
   // Enables activity only if a window is available.
@@ -161,20 +171,15 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate
-*/
-/**
-//
-//
-//  ""
-//  @version      29/09/2013 0:22:19
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
+* @brief      Deactivate
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
 {
   if(enabled)
@@ -185,23 +190,18 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent
-*/
-/**
-//
-//
-//  ""
-//  @version      27/10/2013 19:56:31
-//
-//  @return       int32_t :
-//  @param        event :
-//  @param        application :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, android_app* application)
+* @brief      ProcessInputEvent
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  event : 
+* @param[in]  application : 
+* 
+* @return     int32_t : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, android_app* application)
 {
   int32_t eventtype = AInputEvent_getType(event);
@@ -224,21 +224,18 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, a
 }
 
 
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent
-*/
-/**
-//
-//
-//  ""
-//  @version      27/10/2013 19:56:17
-//
-//  @return       void :
-//  @param        command :
-//  @param        application :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, android_app* application)
+* @brief      ProcessApplicationEvent
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  command : 
+* @param[in]  application : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, android_app* application)
 {
   this->application = application;
@@ -291,24 +288,20 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, a
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      28/09/2013 17:54:32
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
 {
-  enabled       = false;
-  quit          = false;
+  enabled         = false;
+  quit            = false;
 
   application     = NULL;
   activityhandler = NULL;
@@ -316,22 +309,18 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput
-*/
-/**
-//
-//
-//  ""
-//  @version      01/10/2013 23:08:03
-//
-//  @return       int32_t :
-//  @param        application :
-//  @param        event :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application, AInputEvent* event)
+* @brief      CallbackInput
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  application : 
+* @param[in]  event : 
+* 
+* @return     int32_t : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application, AInputEvent* event)
 {
   ANDROIDNATIVEACTIVITY_EVENTLOOP& eventloop = *(ANDROIDNATIVEACTIVITY_EVENTLOOP*) application->userData;
@@ -340,24 +329,24 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application,
 }
 
 
-
-/*-------------------------------------------------------------------
-//  ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackEvent
-*/
-/**
-//
-//
-//  ""
-//  @version      29/09/2013 0:25:00
-//
-//  @return       void :
-//  @param        application :
-//  @param        command :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackEvent(android_app* application, int32_t command)
+* @brief      CallbackEvent
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  application : 
+* @param[in]  command : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackEvent(android_app* application, int32_t command)
 {
   ANDROIDNATIVEACTIVITY_EVENTLOOP& eventloop = *(ANDROIDNATIVEACTIVITY_EVENTLOOP*)application->userData;
 
   eventloop.ProcessApplicationEvent(command, application);
 }
+
+
+#pragma endregion

@@ -3,9 +3,9 @@
 * @file       DIODevice.h
 * 
 * @class      DIODEVICE
-* @brief      Data Input/Output device Generic class
+* @brief      Data Input/Output device generic class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,16 +24,27 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIODEVICE_H_
 #define _DIODEVICE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class DIODEVICE
@@ -59,7 +70,16 @@ class DIODEVICE
     void                  Clean                 ();                          
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

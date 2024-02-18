@@ -1,92 +1,127 @@
-/*------------------------------------------------------------------------------------------
-//  ANDROIDJNIOBJECT.H
-*/
-/**
-// \file
-//
-//  wrapper around a java class accessed through JNI
-//
-//  ""
-//
-//  Date Of Creation  : 27/04/2016 16:21:44
-//  Last Modification :
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       ANDROIDJNIObject.h
+* 
+* @class      ANDROIDJNIOBJECT
+* @brief      ANDROID JNI Object class 
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _ANDROIDJNIOBJECT_H_
 #define _ANDROIDJNIOBJECT_H_
 
-
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <jni.h>
+
 #include "XString.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 struct ANDROIDJNIMETHOD
 {
-  XSTRING name;
-  XSTRING signature;
+  XSTRING   name;
+  XSTRING   signature;
   jmethodID method;
 };
 
 
 class ANDROIDJNIOBJECT
 {
-public:
+  public:
 
-  ANDROIDJNIOBJECT(XSTRING name, XSTRING constructorsignature, ...);
-  virtual ~ANDROIDJNIOBJECT();
+                                ANDROIDJNIOBJECT        (XSTRING name, XSTRING constructorsignature, ...);
+    virtual                    ~ANDROIDJNIOBJECT        ();
 
-  ANDROIDJNIMETHOD GetClassMethod(XSTRING method, XSTRING signature);
+    ANDROIDJNIMETHOD            GetClassMethod          (XSTRING method, XSTRING signature);
 
-  template<typename T>
-  T CallMethod(ANDROIDJNIMETHOD method, ...);
+    template<typename T>
+    T                           CallMethod              (ANDROIDJNIMETHOD method, ...);
 
-  jobject GetObject() { return jniobject; }
+    jobject                     GetObject               ()                                        
+                                { 
+                                  return jniobject; 
+                                }
 
-  static jstring GetJString(const XSTRING& str);
+    static jstring              GetJString              (const XSTRING& str);
 
-protected:
+  protected:
 
-  jobject     jniobject;
-  jclass      jniclass;
+    jobject                     jniobject;
+    jclass                      jniclass;
 
-private:
-  void Clean()
-  {
-    jniobject = 0;
-    jniclass  = 0;
-  }
+  private:
 
-  ANDROIDJNIOBJECT(const ANDROIDJNIOBJECT& rhs);
-  ANDROIDJNIOBJECT& operator = (const ANDROIDJNIOBJECT& rhs);
+    void                        Clean()
+                                {
+                                  jniobject = 0;
+                                  jniclass  = 0;
+                                }
+
+                                ANDROIDJNIOBJECT        (const ANDROIDJNIOBJECT& rhs);
+  ANDROIDJNIOBJECT&             operator =              (const ANDROIDJNIOBJECT& rhs);
+
 };
+
+
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
+
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
 
-//template<void>
-//void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIOBJECT Method, ...);
-//
-//template<bool>
-//bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIOBJECT Method, ...);
-//
-//template<int>
-//int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIOBJECT Method, ...);
-//
-//template<jobject>
-//jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIOBJECT Method, ...);
-//
-//template<long long>
-//long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIOBJECT Method, ...);
-//
-//template<XSTRING>
-//XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIOBJECT Method, ...);
 
 #endif
 

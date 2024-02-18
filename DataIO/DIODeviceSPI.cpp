@@ -5,7 +5,7 @@
 * @class      DIODEVICESPI
 * @brief      Data Input/Output device SPI class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIODeviceSPI.h"
 
 #include "XFactory.h"
 
@@ -40,14 +46,19 @@
 #include "DIOStreamSPIConfig.h"
 #include "DIOStreamSPI.h"
 
-#include "DIODeviceSPI.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,7 +76,6 @@ DIODEVICESPI::DIODEVICESPI()
 
   GEN_XFACTORY_CREATE(xtimerout, CreateTimer())  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +96,6 @@ DIODEVICESPI::~DIODEVICESPI()
 
   Clean();
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +121,6 @@ bool DIODEVICESPI::Ini(XCHAR* localdevicename, int timeout)
 
   return IniDevice();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -141,7 +149,6 @@ bool DIODEVICESPI::Ini(int port, int chipselect, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
@@ -168,7 +175,6 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(XCHAR* localdevicename)
 
   return diostreamcfg;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,7 +208,6 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIODEVICESPI::IniDevice()
@@ -213,16 +218,15 @@ DIOSTREAMSPICONFIG* DIODEVICESPI::CreateConfig(int port, int chipselect)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIODEVICESPI::IniDevice()
- {
-   diostream = (DIOSTREAMSPI*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
-   if(!diostream)  return false;
+{
+  diostream = (DIOSTREAMSPI*)GEN_DIOFACTORY.CreateStreamIO(diostreamcfg);
+  if(!diostream)  return false;
 
-   diostreamcfg->SetMode(DIOSTREAMMODE_MASTER);
+  diostreamcfg->SetMode(DIOSTREAMMODE_MASTER);
 
-   return true;
- }
+  return true;
+}
      
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -261,7 +265,6 @@ bool DIODEVICESPI::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIODEVICESPI::Clean()
@@ -279,3 +282,7 @@ void DIODEVICESPI::Clean()
   diostreamcfg  = NULL;
   diostream     = NULL;
 }
+
+
+#pragma endregion
+

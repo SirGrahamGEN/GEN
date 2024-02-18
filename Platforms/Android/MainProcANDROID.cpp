@@ -34,12 +34,8 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
 #include <stdlib.h>
-//#include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
-//#include <linux/fb.h>
-//#include <sys/mman.h>
-//#include <sys/ioctl.h>
 
 #include "XANDROIDFactory.h"
 #include "XANDROIDRand.h"
@@ -56,7 +52,7 @@
 #include "INPANDROIDDeviceKeyboard.h"
 #include "INPANDROIDDeviceMouse.h"
 #include "INPManager.h"
-#include "INPFactoryDevices.h"
+#include "INPFactory.h"
 #include "INPANDROIDFactory.h"
 #endif
 

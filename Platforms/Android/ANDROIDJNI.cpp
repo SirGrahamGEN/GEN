@@ -1,114 +1,135 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       ANDROIDJNI.cpp
+* 
+* @class      ANDROIDJNI
+* @brief      ANDROID JNI Interface class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------------------
-//  ANDROIDJNI.CPP
-//
-//  Android JNI interface
-//
-//  Author            : Imanol Celaya Ruiz de Alegria
-//  Date Of Creation  : 27/04/2016 16:06:08
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
-
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "ANDROIDJNI.h"
+
 #include "android_native_app_glue.h"
 
 #include "XTrace.h"
 
-#include <pthread.h>
+//#include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 JavaVM*   ANDROIDJNI::currentjavaVM;
 jint      ANDROIDJNI::currentjavaversion;
 jobject   ANDROIDJNI::ClassLoader;
 jmethodID ANDROIDJNI::FindClassMethod;
 
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::InitializeJNI
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:29:27
-//
-*/
-/*-----------------------------------------------------------------*/
-void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
-{
-  currentjavaVM = application->activity->vm;
-  currentjavaversion = javaversion;
-
-  JNIEnv* env = ANDROIDJNI::GetJNIEnv();
-
-  jobject mainactivity = application->activity->clazz;
-  //jclass MainClass = env->FindClass("gen/endorasoft/com/GENNativeActivity");
-  jclass MainClass = env->GetObjectClass(mainactivity);
-  jclass classClass = env->FindClass("java/lang/Class");
-  jclass classLoaderClass = env->FindClass("java/lang/ClassLoader");
-  jmethodID getClassLoaderMethod = env->GetMethodID(classClass, "getClassLoader", "()Ljava/lang/ClassLoader;");
-  jobject classLoader = env->CallObjectMethod(MainClass, getClassLoaderMethod);
-  ClassLoader = env->NewGlobalRef(classLoader);
-  FindClassMethod = env->GetMethodID(classLoaderClass, "findClass", "(Ljava/lang/String;)Ljava/lang/Class;");
-}
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  JavaEnvDestructor
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:42:49
-//
-//  @return       static :
-//
-//  @param        void* :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         static void JavaEnvDestructor(void*)
+* @brief      oid JavaEnvDestructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  void* : 
+* 
+* @return     static : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 static void JavaEnvDestructor(void*)
 {
   ANDROIDJNI::DetachJNIEnv();
 }
 
 
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::GetJNIEnv
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:10:07
-//
-//  @return       JNIEnv* :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
+* @brief      InitializeJNI
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  application : 
+* @param[in]  javaversion : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
+{
+  currentjavaVM       = application->activity->vm;
+  currentjavaversion  = javaversion;
+
+  JNIEnv* env = ANDROIDJNI::GetJNIEnv();
+  if(!env)
+    {
+      return;
+    }
+
+  jobject   mainactivity  = application->activity->clazz;
+  
+  jclass    MainClass             = env->GetObjectClass(mainactivity);
+  jclass    classClass            = env->FindClass("java/lang/Class");
+  jclass    classLoaderClass      = env->FindClass("java/lang/ClassLoader");
+  jmethodID getClassLoaderMethod  = env->GetMethodID(classClass, "getClassLoader", "()Ljava/lang/ClassLoader;");
+  jobject   classLoader           = env->CallObjectMethod(MainClass, getClassLoaderMethod);
+
+  ClassLoader = env->NewGlobalRef(classLoader);
+
+  FindClassMethod = env->GetMethodID(classLoaderClass, "findClass", "(Ljava/lang/String;)Ljava/lang/Class;");
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         JNIEnv* ANDROIDJNI::GetJNIEnv()
+* @brief      GetJNIEnv
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     JNIEnv* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 JNIEnv* ANDROIDJNI::GetJNIEnv()
 {
   static XDWORD threadslot = 0;
-  if (threadslot == 0)
+  if(!threadslot)
     {
       pthread_key_create((pthread_key_t*)&threadslot, &JavaEnvDestructor);
     }
@@ -116,9 +137,9 @@ JNIEnv* ANDROIDJNI::GetJNIEnv()
   JNIEnv* env = NULL;
 
   if(!currentjavaVM)
-  {
-    XTRACE_PRINTCOLOR(4, __L("No Current Java VM"));
-  }
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[ANDROID] No Current Java VM"));
+    }
 
   jint getenvresult = currentjavaVM->GetEnv((void**)&env, currentjavaversion);
   if(getenvresult == JNI_EDETACHED)
@@ -130,130 +151,106 @@ JNIEnv* ANDROIDJNI::GetJNIEnv()
           return NULL;
         }
     }
-  else if(getenvresult != JNI_OK)
+   else 
     {
-      return NULL;
+      if(getenvresult != JNI_OK)
+        {
+          return NULL;
+        }
     }
 
   return env;
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::DetachJNIEnv
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:29:33
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void ANDROIDJNI::DetachJNIEnv()
+* @brief      DetachJNIEnv
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDJNI::DetachJNIEnv()
 {
   currentjavaVM->DetachCurrentThread();
 }
 
 
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::FindJNIClass
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:29:40
-//
-//  @return       jclass :
-//
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         jclass ANDROIDJNI::FindJNIClass(const XSTRING & name)
+* @brief      FindJNIClass
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  XSTRING & name : 
+* 
+* @return     jclass : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 jclass ANDROIDJNI::FindJNIClass(const XSTRING & name)
 {
   char* cname = NULL;
+
   name.CreateOEM(cname);
+
   return ANDROIDJNI::FindJNIClass(cname);
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::FindJNIClass
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:29:49
-//
-//  @return       jclass :
-//
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
-jclass ANDROIDJNI::FindJNIClass(XSTRING * name)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         jclass ANDROIDJNI::FindJNIClass(XSTRING* name)
+* @brief      FindJNIClass
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  name : 
+* 
+* @return     jclass : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+jclass ANDROIDJNI::FindJNIClass(XSTRING* name)
 {
   return ANDROIDJNI::FindJNIClass(*name);
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::FindJNIClass
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:29:56
-//
-//  @return       jclass :
-//
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
-jclass ANDROIDJNI::FindJNIClass(XCHAR * name)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         jclass ANDROIDJNI::FindJNIClass(XCHAR* name)
+* @brief      FindJNIClass
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  name : 
+* 
+* @return     jclass : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+jclass ANDROIDJNI::FindJNIClass(XCHAR* name)
 {
   return ANDROIDJNI::FindJNIClass(XSTRING(name));
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::FindJNIClass
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:30:03
-//
-//  @return       jclass :
-//
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
-jclass ANDROIDJNI::FindJNIClass(const char * name)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         jclass ANDROIDJNI::FindJNIClass(const char* name)
+* @brief      FindJNIClass
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  char* name : 
+* 
+* @return     jclass : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+jclass ANDROIDJNI::FindJNIClass(const char* name)
 {
   JNIEnv* env = ANDROIDJNI::GetJNIEnv();
-  if (!env)
-  {
-    return NULL;
-  }
+  if(!env)
+    {
+      return NULL;
+    }
 
   jstring ClassNameObj = env->NewStringUTF(name);
   jclass FoundClass = static_cast<jclass>(env->CallObjectMethod(ClassLoader, FindClassMethod, ClassNameObj));
@@ -264,91 +261,56 @@ jclass ANDROIDJNI::FindJNIClass(const char * name)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::FindJNIEnvClassWrapper
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 13:30:47
-//
-//  @return       jclass :
-//
-//  @param        name :
-*/
-/*-----------------------------------------------------------------*/
-jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char * name)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char* name)
+* @brief      FindJNIEnvClassWrapper
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  char* name : 
+* 
+* @return     jclass : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+jclass ANDROIDJNI::FindJNIEnvClassWrapper(const char* name)
 {
   JNIEnv* env = ANDROIDJNI::GetJNIEnv();
-  if (!env)
-  {
-    return NULL;
-  }
+  if(!env)
+    {
+      return NULL;
+    }
 
   return env->FindClass(name);
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  ANDROIDJNI::CheckJavaException
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      27/04/2016 16:11:54
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool ANDROIDJNI::CheckJavaException()
+* @brief      CheckJavaException
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool ANDROIDJNI::CheckJavaException()
 {
   JNIEnv* env = ANDROIDJNI::GetJNIEnv();
-  if (!env)
-  {
-    return true;
-  }
-  if (env->ExceptionCheck())
-  {
-    env->ExceptionDescribe();
+  if(!env)
+    {
+      return true;
+    }
 
-    //jthrowable exception = env->ExceptionOccurred();
-    env->ExceptionClear();
-    //
-    //jclass throwable_class = env->FindClass("java/lang/Throwable");
-    //
-    //jmethodID mid_throwable_getCause =
-    //env->GetMethodID(throwable_class,
-    //                  "getCause",
-    //                  "()Ljava/lang/Throwable;");
-    //jmethodID mid_throwable_getStackTrace =
-    //    env->GetMethodID(throwable_class,
-    //                      "getStackTrace",
-    //                      "()[Ljava/lang/StackTraceElement;");
-    //jmethodID mid_throwable_toString =
-    //    env->GetMethodID(throwable_class,
-    //                      "toString",
-    //                      "()Ljava/lang/String;");
-    //
-    //jclass frame_class = env->FindClass("java/lang/StackTraceElement");
-    //jmethodID mid_frame_toString =
-    //    env->GetMethodID(frame_class,
-    //                      "toString",
-    //                      "()Ljava/lang/String;");
-    //
-    // show the string of the exception
-    //verify(false && "Java JNI call failed with an exception.");
-    return true;
-  }
+  if(env->ExceptionCheck())
+    {
+      env->ExceptionDescribe();
+
+      env->ExceptionClear();
+      return true;
+    }
+
   return false;
 }
 
+
+#pragma endregion
