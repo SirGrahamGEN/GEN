@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWifiManagerMode.cpp
-*
+* 
 * @class      DIOWIFIMANAGERMODE
-* @brief      Data Input/Output Wifi Manager Mode
+* @brief      Data Input/Output Wifi Manager Mode class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWifiManagerMode.h"
 
 #include "XFileTXT.h"
 
@@ -40,14 +46,19 @@
 #include "DIOStreamIPLocalEnumDevices.h"
 #include "DIOIP.h"
 
-#include "DIOWifiManagerMode.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +74,6 @@ DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
 { 
   Clean();                            
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -85,7 +95,6 @@ DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
@@ -105,17 +114,16 @@ bool DIOWIFIMANAGERMODE::GetSelectNetInterface(XSTRING& netinterface)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface);
+* 
+* @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 * @brief      SetSelectNetInterface
 * @ingroup    DATAIO
-*
-* @param[in]  netinterface) : 
-*
+* 
+* @param[in]  netinterface : 
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 {
@@ -125,24 +133,21 @@ bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XCHAR* netinterface)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
 * @brief      SetSelectNetInterface
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  netinterface : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetSelectNetInterface(XSTRING& netinterface)
 {
   return SetSelectNetInterface(netinterface.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -160,7 +165,6 @@ DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
@@ -176,7 +180,6 @@ void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
 {
   this->modetype = modetype;
 }     
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -243,7 +246,6 @@ bool DIOWIFIMANAGERMODE::CheckNetInterface(DIOIP* IP)
 }
     
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::CheckNetInterface(XSTRING* IP)
@@ -309,7 +311,6 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XSTRING& password, bool seria
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool serialize)
@@ -327,7 +328,6 @@ bool DIOWIFIMANAGERMODE::SetMode_AP(XSTRING& SSID, XCHAR* password, bool seriali
 {
   return SetMode_AP(SSID.Get(), password, serialize);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -349,7 +349,6 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool seria
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING password, bool serialize)
@@ -367,7 +366,6 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool s
 {
   return SetMode_Client(SSID.Get(), password.Get(), serialize);      
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -389,7 +387,6 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool ser
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOWIFIMANAGERMODE::IsDisconnected()
@@ -403,7 +400,6 @@ bool DIOWIFIMANAGERMODE::IsDisconnected()
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -421,7 +417,6 @@ bool DIOWIFIMANAGERMODE::Disconnect()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWIFIMANAGERMODE::APList_Reload()
@@ -435,7 +430,6 @@ bool DIOWIFIMANAGERMODE::APList_Reload()
 {  
   return false;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -453,7 +447,6 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWIFIMANAGERMODE::Clean()
@@ -467,5 +460,8 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 void DIOWIFIMANAGERMODE::Clean()
 {
   modetype   = DIOWIFIMANAGER_MODETYPE_DEFAULT;
-
 }
+
+
+#pragma endregion
+

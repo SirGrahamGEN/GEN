@@ -1,55 +1,64 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOGPIO.cpp
-*
+* 
 * @class      DIOGPIO
 * @brief      Data Input/Output GPIO (General Purpose Input/Output)
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XTrace.h"
+#pragma region INCLUDES
 
 #include "DIOGPIO.h"
 
+#include "XTrace.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOGPIO* DIOGPIO::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOGPIO_ENTRY                                                                                                 */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOGPIO_ENTRY
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,7 +74,6 @@ DIOGPIO_ENTRY::DIOGPIO_ENTRY()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -84,7 +92,6 @@ DIOGPIO_ENTRY::~DIOGPIO_ENTRY()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOGPIO_ENTRY::GetID()
@@ -99,7 +106,6 @@ XDWORD DIOGPIO_ENTRY::GetID()
   return ID;
 }
     
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -118,7 +124,6 @@ void DIOGPIO_ENTRY::SetID(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XQWORD DIOGPIO_ENTRY::GetGPIO()
@@ -132,8 +137,7 @@ XQWORD DIOGPIO_ENTRY::GetGPIO()
 {
   return GPIO;
 }
-    
-
+  
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -151,7 +155,6 @@ void DIOGPIO_ENTRY::SetGPIO(XQWORD GPIO)
   this->GPIO = GPIO;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -167,7 +170,6 @@ DIOGPIO_PINSGROUP DIOGPIO_ENTRY::GetGroup()
   return group;
 }
     
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -186,7 +188,6 @@ void DIOGPIO_ENTRY::SetGroup(DIOGPIO_PINSGROUP group)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO_ENTRY::GetPin()
@@ -200,7 +201,6 @@ XWORD DIOGPIO_ENTRY::GetPin()
 {
   return pin;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -220,7 +220,6 @@ void DIOGPIO_ENTRY::SetPin(XWORD pin)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO_ENTRY::GetMode()
@@ -234,7 +233,6 @@ XWORD DIOGPIO_ENTRY::GetMode()
 {
   return mode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -254,7 +252,6 @@ void DIOGPIO_ENTRY::SetMode(XWORD mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_PULLMODE DIOGPIO_ENTRY::GetPullMode()
@@ -268,8 +265,7 @@ DIOGPIO_PULLMODE DIOGPIO_ENTRY::GetPullMode()
 {
   return pullmode;
 }
-
-    
+  
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -288,8 +284,6 @@ void DIOGPIO_ENTRY::SetPullMode(DIOGPIO_PULLMODE pullmode)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_INT_FUNCPTR DIOGPIO_ENTRY::GetIntFunctionPointer()
@@ -303,7 +297,6 @@ DIOGPIO_INT_FUNCPTR DIOGPIO_ENTRY::GetIntFunctionPointer()
 {
   return int_funcptr;
 }
-
 
    
 /**-------------------------------------------------------------------------------------------------------------------
@@ -323,7 +316,6 @@ void DIOGPIO_ENTRY::SetIntFunctionPointer(DIOGPIO_INT_FUNCPTR int_funcptr)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void* DIOGPIO_ENTRY::GetIntParamPointer()
@@ -336,9 +328,7 @@ void DIOGPIO_ENTRY::SetIntFunctionPointer(DIOGPIO_INT_FUNCPTR int_funcptr)
 void* DIOGPIO_ENTRY::GetIntParamPointer()
 {
   return int_paramptr;    
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,8 +348,6 @@ void DIOGPIO_ENTRY::SetIntParamPointer(void* int_paramptr)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOGPIO_ENTRY::GetIntIRQ()
@@ -373,7 +361,6 @@ XDWORD DIOGPIO_ENTRY::GetIntIRQ()
 {
   return int_IRQ;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -392,7 +379,6 @@ void DIOGPIO_ENTRY::SetIntIRQ(XDWORD int_IRQ)
   this->int_IRQ = int_IRQ;
 }
 
-
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -407,7 +393,6 @@ XDWORD DIOGPIO_ENTRY::GetIntPriority()
 {
   return int_priority;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -426,7 +411,6 @@ void DIOGPIO_ENTRY::SetIntPriority(XDWORD int_priority)
   this->int_priority = int_priority;
 }
 
-  
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -450,7 +434,6 @@ void DIOGPIO_ENTRY::DebugTrace()
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Int IRQ       : [%X08]")  , int_IRQ);                                                          
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Int Priority  : [%X08]")  , int_priority);                                                          
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -479,11 +462,10 @@ void DIOGPIO_ENTRY::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOGPIO                                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOGPIO
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -499,7 +481,6 @@ DIOGPIO::DIOGPIO()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,7 +501,6 @@ DIOGPIO::~DIOGPIO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGPIO::GetIsInstanced()
@@ -534,7 +514,6 @@ bool DIOGPIO::GetIsInstanced()
 {
   return instance!=NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -552,7 +531,6 @@ DIOGPIO& DIOGPIO::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -574,7 +552,6 @@ bool DIOGPIO::SetInstance(DIOGPIO* _instance)
 
   return (instance)?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -600,7 +577,6 @@ bool DIOGPIO::DelInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XMAP<XDWORD, DIOGPIO_ENTRY*>* DIOGPIO::GPIOMap_GetAll()
@@ -614,8 +590,6 @@ XVECTOR<DIOGPIO_ENTRY*>* DIOGPIO::GPIOEntry_GetAll()
 {
   return &GPIOentrys;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -647,7 +621,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByPin(XDWORD ID, XWORD pin, DIOGPIO_PINS
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByGPIO(XDWORD ID, XQWORD GPIO)
@@ -674,7 +647,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_CreateByGPIO(XDWORD ID, XQWORD GPIO)
 
   return entry;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -706,7 +678,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_Create(XDWORD ID, XWORD pin, XQWORD GPIO)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByID(XDWORD ID)
@@ -733,8 +704,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByID(XDWORD ID)
 
   return NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -766,7 +735,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByPin(XWORD pin, DIOGPIO_PINSGROUP group)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetInterruptByPin(XWORD pin)
@@ -792,9 +760,7 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetInterruptByPin(XWORD pin)
     }
 
   return NULL;
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -825,7 +791,6 @@ DIOGPIO_ENTRY* DIOGPIO::GPIOEntry_GetByGPIO(XQWORD GPIO)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GPIOEntry_DeleteAll()
@@ -844,7 +809,6 @@ bool DIOGPIO::GPIOEntry_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -871,7 +835,6 @@ bool DIOGPIO::GPIOEntry_SetIDByPin(XDWORD ID, XWORD pin, DIOGPIO_PINSGROUP group
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GPIOEntry_SetIDByGPIO(XDWORD ID, XQWORD GPIO)
@@ -895,7 +858,6 @@ bool DIOGPIO::GPIOEntry_SetIDByGPIO(XDWORD ID, XQWORD GPIO)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGPIO::Ini(XPATH* xpath)
@@ -909,7 +871,6 @@ bool DIOGPIO::Ini()
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -930,7 +891,6 @@ XWORD DIOGPIO::GetMode(XDWORD ID)
 
   return GetMode(entry);  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -956,7 +916,6 @@ bool DIOGPIO::SetMode(XDWORD ID, XWORD mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GetValue(XDWORD ID)
@@ -975,7 +934,6 @@ bool DIOGPIO::GetValue(XDWORD ID)
 
   return GetValue(entry);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -999,7 +957,6 @@ bool DIOGPIO::SetValue(XDWORD ID, bool value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOGPIO::GetMode(DIOGPIO_ENTRY* entry)
@@ -1017,7 +974,6 @@ XWORD DIOGPIO::GetMode(DIOGPIO_ENTRY* entry)
 
   return entry->GetMode();  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1042,7 +998,6 @@ bool DIOGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 }  
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::GetValue(DIOGPIO_ENTRY* entry)
@@ -1058,7 +1013,6 @@ bool DIOGPIO::GetValue(DIOGPIO_ENTRY* entry)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1079,7 +1033,6 @@ bool DIOGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOGPIO::End()
@@ -1097,7 +1050,6 @@ bool DIOGPIO::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOGPIO::Clean()
@@ -1111,5 +1063,11 @@ bool DIOGPIO::End()
 void DIOGPIO::Clean()
 {
   instance            = NULL;
-
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

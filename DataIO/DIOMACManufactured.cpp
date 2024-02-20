@@ -3,7 +3,7 @@
 * @file       DIOMACManufactured.cpp
 * 
 * @class      DIOMACMANUFACTURED
-* @brief      Data Input/Output MAC MANUFACTURED Device class
+* @brief      Data Input/Output MAC Manufactured Device class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOMACManufactured.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -44,14 +50,19 @@
 
 #include "DIOScraperWebMACManufacturer.h"
 
-#include "DIOMACManufactured.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -421,4 +432,5 @@ void DIOMACMANUFACTURED::Clean()
 }
 
 
+#pragma endregion
 

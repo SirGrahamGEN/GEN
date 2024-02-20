@@ -30,6 +30,7 @@
 #define _DIOMODBUSELECTRICMETER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XDateTime.h"
 #include "XTimer.h"
@@ -40,7 +41,11 @@
 #include "DIOIEC60870_5.h"
 #include "DIOModBus_Client.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIOMODBUSELECTRICMETERXEVENT_TYPE
 {
@@ -90,11 +95,18 @@ enum DIOMODBUSELECTRICMETER_REGISTERTYPE
 #define DIOMODBUSELECTRICMETER_CONNECTTIMEOUT            5       // Seconds
 #define DIOMODBUSELECTRICMETER_READTIMEOUT              15       // Seconds
 
+
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XFACTORY;
 class XPUBLISHER;
 class DIOSTREAM;
+
 
 class DIOMODBUSELECTRICMETERXEVENT : public XEVENT
 {
@@ -106,6 +118,7 @@ class DIOMODBUSELECTRICMETERXEVENT : public XEVENT
 
     void                      Clean                               ();
 };
+
 
 class DIOMODBUSELECTRICMETER  : public XSUBJECT
 {
@@ -150,6 +163,16 @@ class DIOMODBUSELECTRICMETER  : public XSUBJECT
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
+

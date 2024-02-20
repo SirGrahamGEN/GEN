@@ -3,7 +3,7 @@
 * @file       DIOMACManufactured.h
 * 
 * @class      DIOMACMANUFACTURED
-* @brief      Data Input/Output MAC MANUFACTURED Device class
+* @brief      Data Input/Output MAC Manufactured Device class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,6 +30,7 @@
 #define _DIOMACMANUFACTURED_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XString.h"
@@ -38,7 +39,12 @@
 #include "DIOWebClient.h"
 #include "DIOScraperWeb.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 #define DIOMACMANUFACTURED_URL             __L("http://standards.ieee.org/develop/regauth/oui/")
 #define DIOMACMANUFACTURED_URLNAMEFILE     __L("oui.txt")
@@ -47,7 +53,13 @@
 #define DIOMACMANUFACTURED_FILE_IDSTRING   __L("[MAC Manufactured ID]")
 #define DIOMACMANUFACTURED_FILE_NAME       __L("macmanufacturedid.dat")
 
+
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOMACMANUFACTURED
 {
@@ -68,6 +80,16 @@ class DIOMACMANUFACTURED
     void                          Clean                           ();    
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

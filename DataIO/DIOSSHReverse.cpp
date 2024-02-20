@@ -3,7 +3,7 @@
 * @file       DIOSSHReverse.cpp
 * 
 * @class      DIOSSHREVERSE
-* @brief      Data Input/Output SSH reverse.
+* @brief      Data Input/Output SSH reverse class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSSHReverse.h"
 
 #include "XThreadCollected.h"
 
@@ -39,15 +45,21 @@
 #include "DIOURL.h"
 #include "DIOWebClient.h"
 
-#include "DIOSSHReverse.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOSSHREVERSE* DIOSSHREVERSE::instance = NULL;
 
+#pragma endregion
+
+
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -649,5 +661,5 @@ void DIOSSHREVERSE::Clean()
 }
 
 
-
+#pragma endregion
 
