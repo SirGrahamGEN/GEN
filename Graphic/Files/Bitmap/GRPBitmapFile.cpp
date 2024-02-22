@@ -46,10 +46,19 @@
 #include "GRPProperties.h"
 #include "GRPBitmap.h"
 #include "GRPBitmapSequence.h"
-#include "GRPBitmapFileJPG.h"
-#include "GRPBitmapFilePNG.h"
-#include "GRPBitmapFileBMP.h"
-#include "GRPBitmapFileTGA.h"
+
+#ifdef GRP_BITMAP_FILE_BMP_ACTIVE
+  #include "GRPBitmapFileBMP.h"
+#endif
+#ifdef GRP_BITMAP_FILE_JPG_ACTIVE
+  #include "GRPBitmapFileJPG.h"
+#endif
+#ifdef GRP_BITMAP_FILE_PNG_ACTIVE
+  #include "GRPBitmapFilePNG.h"
+#endif
+#ifdef GRP_BITMAP_FILE_TGA_ACTIVE
+  #include "GRPBitmapFileTGA.h"
+#endif
 
 #include "XMemory_Control.h"
 
@@ -460,11 +469,28 @@ GRPBITMAP* GRPBITMAPFILE::Load(XCHAR* xpath, GRPPROPERTYMODE forcemode)
 
   switch(type)
     {
-      case GRPBITMAPFILE_TYPE_UNKNOWN : break;
-      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); break;
-      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); break;
-      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); break;
-      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); break;  
+      case GRPBITMAPFILE_TYPE_UNKNOWN : 
+                              default : break;
+
+      #ifdef GRP_BITMAP_FILE_BMP_ACTIVE
+      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_JPG_ACTIVE
+      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_PNG_ACTIVE
+      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_JPG_ACTIVE
+      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); 
+                                        break;  
+      #endif
     }
   
   if(grpfilebase)
@@ -541,11 +567,28 @@ bool GRPBITMAPFILE::Save(XCHAR* xpath, GRPBITMAP* bitmap, int quality)
 
   switch(type)
     {
-      case GRPBITMAPFILE_TYPE_UNKNOWN : break;
-      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); break;
-      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); break;
-      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); break;
-      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); break;  
+      case GRPBITMAPFILE_TYPE_UNKNOWN : 
+                            default   : break;
+
+      #ifdef GRP_BITMAP_FILE_BMP_ACTIVE
+      case GRPBITMAPFILE_TYPE_BMP     : grpfilebase = new GRPBITMAPFILEBMP(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_JPG_ACTIVE
+      case GRPBITMAPFILE_TYPE_JPG     : grpfilebase = new GRPBITMAPFILEJPG(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_PNG_ACTIVE
+      case GRPBITMAPFILE_TYPE_PNG     : grpfilebase = new GRPBITMAPFILEPNG(); 
+                                        break;
+      #endif
+
+      #ifdef GRP_BITMAP_FILE_JPG_ACTIVE
+      case GRPBITMAPFILE_TYPE_TGA     : grpfilebase = new GRPBITMAPFILETGA(); 
+                                        break;  
+      #endif
     }
    
   if(grpfilebase)
