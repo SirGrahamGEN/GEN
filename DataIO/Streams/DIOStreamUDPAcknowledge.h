@@ -3,7 +3,7 @@
 * @file       DIOStreamUDPAcknowledge.h
 * 
 * @class      DIOSTREAMUDPACKNOWLEDGE
-* @brief      Data Input/Output Stream UDP with Acknowledge
+* @brief      Data Input/Output Stream UDP with Acknowledge class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,19 +30,30 @@
 #define _DIOSTREAMUDPACKNOWLEDGE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XThreadCollected.h"
 
 #include "DIOStreamUDP.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT 5
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class XTHREADCOLLECTED;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class HASHCRC32;
 class DIOSTREAMUDPCONFIG;
-class DIOSTREAMUDP;
+
 
 class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
 {
@@ -84,6 +95,16 @@ class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
     XTHREADCOLLECTED*               xthreadconnection;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

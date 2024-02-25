@@ -5,7 +5,7 @@
 * @class      DIOSTREAMI2C
 * @brief      Data Input/Output Stream I2C class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamI2C.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -43,14 +49,19 @@
 
 #include "DIOStreamI2CConfig.h"
 
-#include "DIOStreamI2C.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -92,7 +103,6 @@ DIOSTREAMI2C::DIOSTREAMI2C() : DIOSTREAM() , XFSMACHINE(0)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2C::~DIOSTREAMI2C()
@@ -111,7 +121,6 @@ DIOSTREAMI2C::~DIOSTREAMI2C()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
@@ -125,7 +134,6 @@ DIOSTREAMCONFIG* DIOSTREAMI2C::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -146,7 +154,6 @@ bool DIOSTREAMI2C::SetConfig(DIOSTREAMCONFIG* config)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -171,7 +178,6 @@ bool DIOSTREAMI2C::Open()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
@@ -190,8 +196,6 @@ XDWORD DIOSTREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
@@ -208,7 +212,6 @@ XDWORD DIOSTREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 { 
   return 0;                  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -230,8 +233,6 @@ bool DIOSTREAMI2C::Close()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMI2C::Clean()
@@ -245,9 +246,9 @@ bool DIOSTREAMI2C::Close()
 void DIOSTREAMI2C::Clean()
 {
   config          = NULL;
-
   threadconnection = NULL;
 }
 
 
+#pragma endregion
 

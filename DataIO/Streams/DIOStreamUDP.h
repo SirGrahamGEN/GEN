@@ -51,8 +51,10 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class DIOSTREAMUDPCONFIG;
 class DIOURL;
+
 
 class DIOSTREAMUDPDATAGRAM
 {

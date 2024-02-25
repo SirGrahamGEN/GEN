@@ -5,7 +5,7 @@
 * @class      DIOSTREAMI2C
 * @brief      Data Input/Output Stream I2C class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,18 +24,24 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMI2C_H_
 #define _DIOSTREAMI2C_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
 
 #include "DIOStream.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum  DIOSTREAMI2C_FSMEVENTS
 {
@@ -60,12 +66,14 @@ enum  DIOSTREAMI2C_FSMSTATES
   DIOSTREAMI2C_LASTSTATE
 };
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XBUFFER;
-class XFACTORY;
-class XTHREADCOLLECTED;
 class DIOGPIO;
 class DIOSTREAMI2CCONFIG;
 
@@ -96,9 +104,14 @@ class DIOSTREAMI2C : public DIOSTREAM , public XFSMACHINE
     void                          Clean                                     ();
 };
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-

@@ -51,10 +51,9 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XFACTORY;
+
 class XTIMER;
 class XMUTEX;
-class DIOFACTORY;
 class DIOURL;
 class DIOSTREAMICMPCONFIG;
 

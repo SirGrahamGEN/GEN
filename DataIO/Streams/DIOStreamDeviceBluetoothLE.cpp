@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamDeviceBluetoothLE.cpp
-*
+* 
 * @class      DIOSTREAMDEVICEBLUETOOTHLE
 * @brief      Data Input/Output Stream Device Bluetooth LE class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamDeviceBluetoothLE.h"
 
 #include <string.h>
 
@@ -39,26 +45,31 @@
 #include "XString.h"
 #include "XTimer.h"
 
-#include "DIOStreamDeviceBluetoothLE.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
-* @brief      IOSTREAMDEVICEBLUETOOTH
+* 
+* @fn         DIOSTREAMDEVICEBLUETOOTHLE::DIOSTREAMDEVICEBLUETOOTHLE()
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMDEVICEBLUETOOTHLE:: :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
+DIOSTREAMDEVICEBLUETOOTHLE::DIOSTREAMDEVICEBLUETOOTHLE()
 {
   Clean();
   
@@ -66,19 +77,18 @@ DIOSTREAMDEVICEBLUETOOTHLE:: DIOSTREAMDEVICEBLUETOOTHLE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
-* @brief      IOSTREAMDEVICEBLUETOOTH
+* 
+* @fn         DIOSTREAMDEVICEBLUETOOTHLE::~DIOSTREAMDEVICEBLUETOOTHLE()
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMDEVICEBLUETOOTHLE::~ :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
+DIOSTREAMDEVICEBLUETOOTHLE::~DIOSTREAMDEVICEBLUETOOTHLE()
 {
-
   if(lastscantimer) 
     {
       GEN_XFACTORY.DeleteTimer(lastscantimer);
@@ -87,7 +97,6 @@ DIOSTREAMDEVICEBLUETOOTHLE::~ DIOSTREAMDEVICEBLUETOOTHLE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -105,7 +114,6 @@ XBUFFER* DIOSTREAMDEVICEBLUETOOTHLE::GetAdvertisingData()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
@@ -121,7 +129,6 @@ XTIMER* DIOSTREAMDEVICEBLUETOOTHLE::GetLastScanTimer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
@@ -135,7 +142,6 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
 {
   return isreadlastscan;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -155,8 +161,6 @@ void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
@@ -174,13 +178,11 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
   XSTRING data;
 
   GetMAC()->GetXString(data);
-  line.Format(__L("MAC           : %s") , data.Get());                          XTRACE_PRINTCOLOR(2, line.Get());
-
-
+  line.Format(__L("MAC           : %s") , data.Get());                          
+  XTRACE_PRINTCOLOR(2, line.Get());
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,6 +204,18 @@ void DIOSTREAMDEVICEBLUETOOTHLE::Clean()
   isreadlastscan  = false;
   isvisible       = false;
 }
+
+
+#pragma endregion
+
+
+
+
+
+
+
+
+
 
 
 

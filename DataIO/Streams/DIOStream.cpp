@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStream.cpp
-*
+* 
 * @class      DIOSTREAM
 * @brief      Data Input/Output Stream class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStream.h"
 
 #include <string.h>
 
@@ -41,13 +47,19 @@
 
 #include "DIOStreamXEvent.h"
 
-#include "DIOStream.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -75,7 +87,6 @@ DIOSTREAM::DIOSTREAM()
   RegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
   RegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -138,7 +149,6 @@ DIOSTREAM::~DIOSTREAM()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
@@ -152,7 +162,6 @@ DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
 {
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -172,7 +181,6 @@ bool DIOSTREAM::IsConnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsDisconnected()
@@ -188,7 +196,6 @@ bool DIOSTREAM::IsDisconnected()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -237,7 +244,6 @@ bool DIOSTREAM::WaitToConnected(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToDisconnected(int timeout)
@@ -274,7 +280,6 @@ bool DIOSTREAM::WaitToDisconnected(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::Read(XBYTE* buffer, XDWORD size)
@@ -303,7 +308,6 @@ XDWORD DIOSTREAM::Read(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::Write(XBYTE* buffer, XDWORD size)
@@ -326,7 +330,6 @@ XDWORD DIOSTREAM::Write(XBYTE* buffer, XDWORD size)
 
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -358,7 +361,6 @@ XDWORD DIOSTREAM::Read(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::Write(XBUFFER& xbuffer)
@@ -374,7 +376,6 @@ XDWORD DIOSTREAM::Write(XBUFFER& xbuffer)
 {
   return Write(xbuffer.Get(),xbuffer.GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -428,7 +429,6 @@ bool DIOSTREAM::WaitToFilledReadingBuffer(int filledto, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ReadStr(char* str)
@@ -454,7 +454,6 @@ bool DIOSTREAM::ReadStr(char* str)
   
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -522,7 +521,6 @@ bool DIOSTREAM::ReadStr(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
@@ -560,7 +558,6 @@ bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WriteStr(const char* str)
@@ -580,7 +577,6 @@ bool DIOSTREAM::WriteStr(const char* str)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -606,7 +602,6 @@ bool DIOSTREAM::WriteStr(XCHAR* string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WriteStr(XSTRING& string)
@@ -628,7 +623,6 @@ bool DIOSTREAM::WriteStr(XSTRING& string)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsBlockRead()
@@ -642,7 +636,6 @@ bool DIOSTREAM::IsBlockRead()
 {
   return isblockread;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -662,7 +655,6 @@ void DIOSTREAM::SetIsBlockRead(bool isblockread)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsBlockWrite()
@@ -676,7 +668,6 @@ bool DIOSTREAM::IsBlockWrite()
 {
   return isblockwrite;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -696,7 +687,6 @@ void DIOSTREAM::SetIsBlockWrite(bool isblockwrite)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::Disconnect()
@@ -712,7 +702,6 @@ bool DIOSTREAM::Disconnect()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMTYPE DIOSTREAM::GetType()
@@ -726,7 +715,6 @@ DIOSTREAMTYPE DIOSTREAM::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -746,7 +734,6 @@ void DIOSTREAM::SetType(DIOSTREAMTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAM::GetInXBuffer()
@@ -762,7 +749,6 @@ XBUFFER* DIOSTREAM::GetInXBuffer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOSTREAM::GetOutXBuffer()
@@ -776,7 +762,6 @@ XBUFFER* DIOSTREAM::GetOutXBuffer()
 {
   return outbuffer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -799,7 +784,6 @@ bool DIOSTREAM::ResetXBuffers()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::ResetInXBuffer()
@@ -817,7 +801,6 @@ bool DIOSTREAM::ResetInXBuffer()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -839,7 +822,6 @@ bool DIOSTREAM::ResetOutXBuffer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::IsFlushOutXBuffer()
@@ -857,7 +839,6 @@ bool DIOSTREAM::IsFlushOutXBuffer()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -878,7 +859,6 @@ bool DIOSTREAM::IsFlushXBuffers()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -924,7 +904,6 @@ bool DIOSTREAM::WaitToFlushOutXBuffer(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAM::WaitToFlushXBuffers(int timeout)
@@ -968,7 +947,6 @@ bool DIOSTREAM::WaitToFlushXBuffers(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOSTREAM::GetXTimerConnection()
@@ -982,7 +960,6 @@ XTIMER* DIOSTREAM::GetXTimerConnection()
 {
   return xtimerconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1000,7 +977,6 @@ XTIMER* DIOSTREAM::GetXTimerNotActivity()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::GetNBytesRead()
@@ -1016,7 +992,6 @@ XDWORD DIOSTREAM::GetNBytesRead()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::GetNBytesWrite()
@@ -1030,7 +1005,6 @@ XDWORD DIOSTREAM::GetNBytesWrite()
 {
   return nbyteswrite;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1051,7 +1025,6 @@ DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
@@ -1069,7 +1042,6 @@ void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAM::Wait(int milliseconds)
@@ -1085,7 +1057,6 @@ void DIOSTREAM::Wait(int milliseconds)
 {
   GEN_XSLEEP.MilliSeconds(milliseconds);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1107,7 +1078,6 @@ bool DIOSTREAM::ResetConnectionStatistics()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1142,3 +1112,7 @@ void DIOSTREAM::Clean()
   nbytesread          = 0;
   nbyteswrite         = 0;
 }
+
+
+#pragma endregion
+

@@ -5,7 +5,7 @@
 * @class      DIOSTREAMSPICONFIG
 * @brief      Data Input/Output Stream SPI Config class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,45 +24,53 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamSPIConfig.h"
 
 #include "XFactory.h"
 #include "XSystem.h"
 
-#include "DIOStreamSPIConfig.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG()
-* @brief      DIOSTREAMSPICONFIG
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @param[in]  
 * 
-* @return      
+* @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG() : DIOSTREAMCONFIG()
 {
   Clean();
   type  = DIOSTREAMTYPE_SPI;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -81,7 +89,6 @@ DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMSPICONFIG::GetPort()
@@ -95,7 +102,6 @@ int DIOSTREAMSPICONFIG::GetPort()
 { 
   return port;                                
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,7 +121,6 @@ void DIOSTREAMSPICONFIG::SetPort(int port)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
@@ -129,7 +134,6 @@ XSTRING* DIOSTREAMSPICONFIG::GetLocalDeviceName()
 { 
   return &localdevicename;                    
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +171,6 @@ bool DIOSTREAMSPICONFIG::SetLocalDeviceNameByPort()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMSPICONFIG::GetChipSelect()
@@ -181,7 +184,6 @@ int DIOSTREAMSPICONFIG::GetChipSelect()
 { 
   return chipselect;                          
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,7 +203,6 @@ void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)
 }    
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPICONFIG::IsDirectAccess()
@@ -215,7 +216,6 @@ bool DIOSTREAMSPICONFIG::IsDirectAccess()
 { 
   return isdirectaccess;                      
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -233,7 +233,6 @@ XBYTE DIOSTREAMSPICONFIG::GetSPIMode()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
@@ -247,7 +246,6 @@ XBYTE DIOSTREAMSPICONFIG::GetNBitsWord()
 { 
   return nbitsword;                           
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -265,7 +263,6 @@ XDWORD DIOSTREAMSPICONFIG::GetSpeed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOSTREAMSPICONFIG::GetDelay()
@@ -279,7 +276,6 @@ XWORD DIOSTREAMSPICONFIG::GetDelay()
 { 
   return delay;                               
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -296,7 +292,6 @@ bool DIOSTREAMSPICONFIG::IsOnlyWrite()
   return isonlywrite;                         
 }
 
-
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -311,7 +306,6 @@ XDWORD* DIOSTREAMSPICONFIG::GetPinsDirectAccess()
 { 
   return GPIO_ID;                             
 }  
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -341,7 +335,6 @@ bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
@@ -357,7 +350,6 @@ void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 { 
   this->SPImode = SPImode;                     
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -377,7 +369,6 @@ void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
@@ -393,7 +384,6 @@ void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
 { 
   this->speed = speed;                         
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -413,7 +403,6 @@ void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
@@ -429,7 +418,6 @@ void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
 { 
   this->isonlywrite = isonlywrite;             
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -463,3 +451,7 @@ void DIOSTREAMSPICONFIG::Clean()
   delay             = 0;
   isonlywrite       = false;
 }
+
+
+#pragma endregion
+

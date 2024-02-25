@@ -1,48 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamDevice.cpp
-*
+* 
 * @class      DIOSTREAMDEVICE
 * @brief      Data Input/Output Stream Device class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XTrace.h"
+#pragma region INCLUDES
 
 #include "DIOStreamDevice.h"
 
+#include "XTrace.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -58,7 +69,6 @@ DIOSTREAMDEVICE::DIOSTREAMDEVICE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,8 +87,6 @@ DIOSTREAMDEVICE::~DIOSTREAMDEVICE()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICE::GetIndex()
@@ -92,7 +100,6 @@ int DIOSTREAMDEVICE::GetIndex()
 {
   return index;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -114,7 +121,6 @@ bool DIOSTREAMDEVICE::SetIndex(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
@@ -128,7 +134,6 @@ DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -148,7 +153,6 @@ void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICE::GetName()
@@ -162,7 +166,6 @@ XSTRING* DIOSTREAMDEVICE::GetName()
 {
   return &name;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -180,7 +183,6 @@ XSTRING* DIOSTREAMDEVICE::GetDescription()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICE::GetResource()
@@ -194,7 +196,6 @@ XSTRING* DIOSTREAMDEVICE::GetResource()
 {
   return &resource;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -212,7 +213,6 @@ bool DIOSTREAMDEVICE::CopyFrom(DIOSTREAMDEVICE& device)
 {
   return device.CopyTo((*this));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +235,6 @@ bool DIOSTREAMDEVICE::CopyTo(DIOSTREAMDEVICE& device)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -265,7 +264,6 @@ bool DIOSTREAMDEVICE::DebugPrintInfo()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICE::Clean()
@@ -281,4 +279,7 @@ void DIOSTREAMDEVICE::Clean()
   index = 0;
   type  = DIOSTREAMDEVICE_TYPE_UNKNOWN;
 }
+
+
+#pragma endregion
 

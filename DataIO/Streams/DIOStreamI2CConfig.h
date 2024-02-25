@@ -5,7 +5,7 @@
 * @class      DIOSTREAMI2CCONFIG
 * @brief      Data Input/Output Stream I2C Config class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,17 +24,23 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMI2CCONFIG_H_
 #define _DIOSTREAMI2CCONFIG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "DIOStreamConfig.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOSTREAMI2CCONFIG_ADDRESSSIZE
 {
@@ -46,10 +52,12 @@ enum DIOSTREAMI2CCONFIG_ADDRESSSIZE
 
 #define DIOSTREAMI2CCONFIG_ADDRESSINVALID     -1
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
-class XPUBLISHER;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class DIOSTREAMI2CCONFIG : public DIOSTREAMCONFIG
@@ -88,14 +96,18 @@ class DIOSTREAMI2CCONFIG : public DIOSTREAMCONFIG
   private:
 
     void                              Clean                             ();
-    
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
 

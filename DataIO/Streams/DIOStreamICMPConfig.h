@@ -50,6 +50,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class XFACTORY;
 class XSTRING;
 class DIOFACTORY;

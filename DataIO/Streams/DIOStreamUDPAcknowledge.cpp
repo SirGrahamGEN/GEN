@@ -3,7 +3,7 @@
 * @file       DIOStreamUDPAcknowledge.cpp
 * 
 * @class      DIOSTREAMUDPACKNOWLEDGE
-* @brief      Data Input/Output Stream UDP with Acknowledge
+* @brief      Data Input/Output Stream UDP with Acknowledge class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamUDPAcknowledge.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -44,14 +50,19 @@
 
 #include "HashCRC32.h"
 
-#include "DIOStreamUDPAcknowledge.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,7 +81,6 @@ DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : D
   Clean();
 
   this->config      = config;
-
   timeout           = DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT;
 
   diostream = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO((DIOSTREAMCONFIG*)config);
@@ -486,3 +496,7 @@ void DIOSTREAMUDPACKNOWLEDGE::Clean()
   diostream           = NULL;
   xthreadconnection   = NULL;
 }
+
+
+#pragma endregion
+

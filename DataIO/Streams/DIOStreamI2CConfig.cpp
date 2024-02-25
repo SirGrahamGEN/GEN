@@ -5,7 +5,7 @@
 * @class      DIOSTREAMI2CCONFIG
 * @brief      Data Input/Output Stream I2C Config class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,47 +24,54 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamI2CConfig.h"
 
 #include "XFactory.h"
 #include "XSystem.h"
 
-#include "DIOStreamI2CConfig.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG()
-@brief      DIOSTREAMI2CCONFIG
-@ingroup    DATAIO
-
-""
-""
-
-@return     does not return anything. 
-
----------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG() : DIOSTREAMCONFIG()
 {
   Clean();
 
   type  = DIOSTREAMTYPE_I2C;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,24 +90,51 @@ DIOSTREAMI2CCONFIG::~DIOSTREAMI2CCONFIG()
 }
 
 
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOSTREAMI2CCONFIG::GetPort()
+* @brief      GetPort
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOSTREAMI2CCONFIG::GetPort()                               
 { 
   return port;                               
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAMI2CCONFIG::SetPort(int port)
+* @brief      SetPort
+* @ingroup    DATAIO
+* 
+* @param[in]  port : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetPort(int port)                       
 { 
   this->port = port;                         
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOSTREAMI2CCONFIG::GetLocalDeviceName()
+* @brief      GetLocalDeviceName
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOSTREAMI2CCONFIG::GetLocalDeviceName()                               
 { 
   return &localdevicename;                   
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -133,7 +167,6 @@ bool DIOSTREAMI2CCONFIG::SetLocalDeviceNameByPort()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMI2CCONFIG::GetLocalAddress()
@@ -147,7 +180,6 @@ int DIOSTREAMI2CCONFIG::GetLocalAddress()
 { 
   return localaddress;                       
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -167,7 +199,6 @@ void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         int DIOSTREAMI2CCONFIG::GetRemoteAddress()
@@ -181,7 +212,6 @@ int DIOSTREAMI2CCONFIG::GetRemoteAddress()
 { 
   return remoteaddress;                      
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,7 +231,6 @@ void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
@@ -215,7 +244,6 @@ DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
 { 
   return addresssize;                        
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -235,7 +263,6 @@ void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssi
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMI2CCONFIG::IsStretchActive()
@@ -249,7 +276,6 @@ bool DIOSTREAMI2CCONFIG::IsStretchActive()
 { 
   return isstretchactive;                    
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -267,7 +293,6 @@ void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 { 
   this->isstretchactive = isstretchactive;   
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -291,3 +316,7 @@ void DIOSTREAMI2CCONFIG::Clean()
 
   isstretchactive = false;
 }
+
+
+#pragma endregion
+

@@ -5,7 +5,7 @@
 * @class      DIOSTREAMSPI
 * @brief      Data Input/Output Stream SPI class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamSPI.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -44,28 +50,29 @@
 
 #include "DIOStreamSPIConfig.h"
 
-#include "DIOStreamSPI.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         void DIOSTREAMSPI::DIOSTREAMSPI()
-@brief      DIOSTREAMSPI
-@ingroup    DATAIO
-
-""
-""
-
-@return     does not return anything. 
-
----------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         DIOSTREAMSPI::DIOSTREAMSPI()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 {
   Clean();
@@ -102,7 +109,6 @@ DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMSPI::~DIOSTREAMSPI()
@@ -124,7 +130,6 @@ DIOSTREAMSPI::~DIOSTREAMSPI()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
@@ -138,7 +143,6 @@ DIOSTREAMCONFIG* DIOSTREAMSPI::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -159,7 +163,6 @@ bool DIOSTREAMSPI::SetConfig(DIOSTREAMCONFIG* config)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -232,7 +235,6 @@ bool DIOSTREAMSPI::Open()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSTREAMSPI::Close()
@@ -258,7 +260,6 @@ bool DIOSTREAMSPI::Close()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -316,7 +317,6 @@ bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSTREAMSPI::Sleep(int count)
@@ -346,7 +346,6 @@ void DIOSTREAMSPI::Sleep(int count)
     }
   */
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -380,7 +379,6 @@ void DIOSTREAMSPI::Clean()
   CSline            = false;
   lbsfirst          = false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -442,7 +440,6 @@ bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -534,4 +531,7 @@ void DIOSTREAMSPI::ThreadConnection(void* data)
         }
     }
 }
+
+
+#pragma endregion
 

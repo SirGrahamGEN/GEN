@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamDeviceBluetooth.cpp
-*
+* 
 * @class      DIOSTREAMDEVICEBLUETOOTH
 * @brief      Data Input/Output Stream Device Bluetooth class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamDeviceBluetooth.h"
 
 #include <string.h>
 
@@ -39,19 +45,22 @@
 #include "XString.h"
 #include "XTimer.h"
 
-#include "DIOStreamDeviceBluetooth.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL                                                                         */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +76,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPR
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +94,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::~DIOSTREAMDEVICEBLUETOOTHSDPSERVICEP
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetType()
@@ -100,7 +107,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +126,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetType(XDWORD type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetChannel()
@@ -134,7 +139,6 @@ XWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::GetChannel()
 {
   return channel;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -154,7 +158,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::SetChannel(XWORD channel)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::Clean()
@@ -172,30 +175,25 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL::Clean()
 }
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE                                                                                 */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_DIOSTREAMDEVICEBLUETOOTHSDPSERVICE
 
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
- *  @brief      Constructor
- *  @ingroup    DATAIO
- *
- *  ""
- *  ""
- *
- *  @return     Does not return anything.
- *
- * --------------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -214,7 +212,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::~DIOSTREAMDEVICEBLUETOOTHSDPSERVICE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetID()
@@ -228,7 +225,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetID()
 {
   return ID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -248,7 +244,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetID(XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetRecHandle()
@@ -262,7 +257,6 @@ XDWORD DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetRecHandle()
 {
   return rechandle;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -282,7 +276,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetRecHandle(XDWORD rechandle)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetName()
@@ -296,7 +289,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetName()
 {
   return &name;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -314,7 +306,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetDescription()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetProvider()
@@ -328,7 +319,6 @@ XSTRING* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetProvider()
 {
   return &provider;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -346,7 +336,6 @@ int DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::GetNProtocols()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetNProtocols(int nprotocols)
@@ -362,7 +351,6 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetNProtocols(int nprotocols)
 {
   this->nprotocols = nprotocols;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,7 +371,6 @@ DIOSTREAMDEVICEBLUETOOTHSDPSERVICEPROTOCOL* DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::
 
   return &protocols[index];
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -411,7 +398,6 @@ bool DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::SetProtocol(int index, DIOSTREAMDEVICEB
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::Clean()
@@ -430,45 +416,44 @@ void DIOSTREAMDEVICEBLUETOOTHSDPSERVICE::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSTREAMDEVICEBLUETOOTH                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+
+#pragma region CLASS_DIOSTREAMDEVICEBLUETOOTH 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMDEVICEBLUETOOTH:: DIOSTREAMDEVICEBLUETOOTH()
-* @brief      IOSTREAMDEVICEBLUETOOTH
+* 
+* @fn         DIOSTREAMDEVICEBLUETOOTH::DIOSTREAMDEVICEBLUETOOTH()
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMDEVICEBLUETOOTH:: :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMDEVICEBLUETOOTH:: DIOSTREAMDEVICEBLUETOOTH()
+DIOSTREAMDEVICEBLUETOOTH::DIOSTREAMDEVICEBLUETOOTH()
 {
   Clean();
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMDEVICEBLUETOOTH::~ DIOSTREAMDEVICEBLUETOOTH()
-* @brief      IOSTREAMDEVICEBLUETOOTH
+* 
+* @fn         DIOSTREAMDEVICEBLUETOOTH::~DIOSTREAMDEVICEBLUETOOTH()
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMDEVICEBLUETOOTH::~ :
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMDEVICEBLUETOOTH::~ DIOSTREAMDEVICEBLUETOOTH()
+DIOSTREAMDEVICEBLUETOOTH::~DIOSTREAMDEVICEBLUETOOTH()
 {
   Service_DeleteAll();
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -486,7 +471,6 @@ DIOMAC* DIOSTREAMDEVICEBLUETOOTH::GetMAC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetRSSI()
@@ -500,7 +484,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetRSSI()
 {
   return rssi;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -520,7 +503,6 @@ void DIOSTREAMDEVICEBLUETOOTH::SetRSSI(int rssi)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::IsVisible()
@@ -534,7 +516,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::IsVisible()
 {
   return isvisible;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -571,7 +552,6 @@ DIOGUID* DIOSTREAMDEVICEBLUETOOTH::GetServiceClass()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMDEVICEBLUETOOTH::Service_Add(DIOSTREAMDEVICEBLUETOOTHSDPSERVICE* service)
@@ -593,7 +573,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::Service_Add(DIOSTREAMDEVICEBLUETOOTHSDPSERVICE* s
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*>* DIOSTREAMDEVICEBLUETOOTH::Service_GetAll()
@@ -607,7 +586,6 @@ XVECTOR<DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*>* DIOSTREAMDEVICEBLUETOOTH::Service_
 {
   return &services;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -629,7 +607,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::Service_DeleteAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -669,7 +646,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannel(XWORD servicetype)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetChannelSerialPort()
@@ -683,7 +659,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelSerialPort()
 {
   return GetChannel(DIOSTREAMDEVICEBLUETOOTHSERVICETYPE_SERIALPORT);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -701,7 +676,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelObexPush()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetChannelDialUpNetworking()
@@ -717,7 +691,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelDialUpNetworking()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMDEVICEBLUETOOTH::GetChannelHID()
@@ -731,7 +704,6 @@ int DIOSTREAMDEVICEBLUETOOTH::GetChannelHID()
 {
   return GetChannel(DIOSTREAMDEVICEBLUETOOTHSERVICETYPE_HUMANINTERFACEDEVICESERVICE);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -805,7 +777,6 @@ bool DIOSTREAMDEVICEBLUETOOTH::DebugPrintInfo()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMDEVICEBLUETOOTH::Clean()
@@ -825,4 +796,8 @@ void DIOSTREAMDEVICEBLUETOOTH::Clean()
 }
 
 
+#pragma endregion
+
+
+#pragma endregion
 

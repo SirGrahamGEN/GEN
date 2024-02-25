@@ -1,47 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamUART.cpp
-*
+* 
 * @class      DIOSTREAMUART
 * @brief      Data Input/Output Stream UART class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamUART.h"
 
 #include "XFactory.h"
-#include "DIOStreamUART.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -59,7 +71,6 @@ DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
 
   GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -80,7 +91,6 @@ DIOSTREAMUART::~DIOSTREAMUART()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOSTREAMUART::GetConfig()
@@ -94,8 +104,6 @@ DIOSTREAMCONFIG* DIOSTREAMUART::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,7 +127,6 @@ bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSTATUS DIOSTREAMUART::GetConnectStatus()
@@ -133,7 +140,6 @@ DIOSTREAMSTATUS DIOSTREAMUART::GetConnectStatus()
 {
   return  DIOSTREAMSTATUS_DISCONNECTED;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -151,7 +157,6 @@ bool DIOSTREAMUART::Open()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::Config(XWORD mask)
@@ -167,7 +172,6 @@ bool DIOSTREAMUART::Config(XWORD mask)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,7 +192,6 @@ XDWORD DIOSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
@@ -207,7 +210,6 @@ XDWORD DIOSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::Close()
@@ -221,7 +223,6 @@ bool DIOSTREAMUART::Close()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -239,7 +240,6 @@ bool DIOSTREAMUART::GetCTS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetDSR()
@@ -253,7 +253,6 @@ bool DIOSTREAMUART::GetDSR()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -271,7 +270,6 @@ bool DIOSTREAMUART::GetRing()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::GetRLSD()
@@ -285,7 +283,6 @@ bool DIOSTREAMUART::GetRLSD()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -305,7 +302,6 @@ bool DIOSTREAMUART::SetRTS(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUART::SetDTR(bool on)
@@ -321,7 +317,6 @@ bool DIOSTREAMUART::SetDTR(bool on)
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -340,7 +335,6 @@ bool DIOSTREAMUART::CleanBuffers()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSTREAMUART::Clean()
@@ -356,4 +350,7 @@ void DIOSTREAMUART::Clean()
   config   = NULL;
   xtimer   = NULL;
 }
+
+
+#pragma endregion
 

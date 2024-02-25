@@ -5,7 +5,7 @@
 * @class      DIOSTREAMSPI
 * @brief      Data Input/Output Stream SPI class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,19 +24,25 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSTREAMSPI_H_
 #define _DIOSTREAMSPI_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
 
 #include "DIOStream.h"
 #include "DIOStreamSPIConfig.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 
 enum  DIOSTREAMSPI_FSMEVENTS
@@ -68,11 +74,14 @@ enum  DIOSTREAMSPI_FSMSTATES
 #define DIOSTREAMSPI_SLEEPDOUBLE          Sleep(timedelaydouble)
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XBUFFER;
-class XFACTORY;
-class XTHREADCOLLECTED;
 class DIOGPIO;
 class DIOSTREAMSPICONFIG;
 
@@ -91,8 +100,6 @@ class DIOSTREAMSPI : public DIOSTREAM , public XFSMACHINE
     virtual bool                  TransferBuffer                            (XBYTE* bufferread, XBYTE* bufferwrite, XDWORD size);
 
     virtual void                  Sleep                                     (int count);
-
-    
 
  protected:
 
@@ -121,6 +128,15 @@ class DIOSTREAMSPI : public DIOSTREAM , public XFSMACHINE
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

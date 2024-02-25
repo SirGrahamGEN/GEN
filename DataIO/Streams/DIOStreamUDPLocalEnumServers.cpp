@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOStreamUDPLocalEnumServers.cpp
-*
+* 
 * @class      DIOSTREAMUDPLOCALENUMSERVERS
 * @brief      Data Input/Output Stream UDP Local Enum Servers class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOStreamUDPLocalEnumServers.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -44,17 +50,19 @@
 #include "DIOStreamUDPConfig.h"
 #include "DIOStreamUDP.h"
 
-#include "DIOStreamUDPLocalEnumServers.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -76,7 +84,6 @@ DIOSTREAMUDPLOCALENUMSERVERS::DIOSTREAMUDPLOCALENUMSERVERS(): DIOSTREAMENUMSERVE
   diostreamudpcfg = new DIOSTREAMUDPCONFIG();
   diostreamudp    = (DIOSTREAMUDP*)GEN_DIOFACTORY.CreateStreamIO(diostreamudpcfg);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -104,7 +111,6 @@ DIOSTREAMUDPLOCALENUMSERVERS::~DIOSTREAMUDPLOCALENUMSERVERS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
@@ -125,7 +131,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::Search()
 
   return xthread->Run(true);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -152,7 +157,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::StopSearch(bool waitend)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -188,7 +192,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::IsDeviceAvailable(XCHAR* resource)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
@@ -204,7 +207,6 @@ DIOSTREAMUDPCONFIG* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDPCFG()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
@@ -218,7 +220,6 @@ DIOSTREAMUDP* DIOSTREAMUDPLOCALENUMSERVERS::GetDIOStreamUDP()
 {
   return diostreamudp;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,7 +267,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SendSignal()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
@@ -280,7 +280,6 @@ int DIOSTREAMUDPLOCALENUMSERVERS::GetPort()
 {
   return port;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -300,33 +299,6 @@ bool DIOSTREAMUDPLOCALENUMSERVERS::SetPort(int port)
 
   return true;
 }
-
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
-{
-  type             = DIOSTREAMENUMTYPE_TCPIP_LOCAL_SERVERS;
-
-  diostreamudpcfg  = NULL;
-  diostreamudp     = NULL;
-
-  port             = 0;
-
-  xthread          = NULL;
-}
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -426,7 +398,29 @@ void DIOSTREAMUDPLOCALENUMSERVERS::ThreadDiscoveryLocalServer(void* data)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+*
+* @return     void : does not return anything.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAMUDPLOCALENUMSERVERS::Clean()
+{
+  type             = DIOSTREAMENUMTYPE_TCPIP_LOCAL_SERVERS;
+
+  diostreamudpcfg  = NULL;
+  diostreamudp     = NULL;
+
+  port             = 0;
+
+  xthread          = NULL;
+}
 
 
+#pragma endregion
 
 
