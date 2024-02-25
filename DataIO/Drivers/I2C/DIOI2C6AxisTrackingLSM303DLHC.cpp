@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2C6AxisTrackingLSM303DLHC.cpp
-*
+* 
 * @class      DIOI2C6AXISTRACKINGLSM303DLHC
-* @brief      Data Input/Output I2C 6 axis tracking LSM303DLHC
+* @brief      Data Input/Output I2C 6 axis tracking LSM303DLHC class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2C6AxisTrackingLSM303DLHC.h"
 
 #include <math.h>
 
@@ -43,20 +49,22 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-#include "DIOI2C6AxisTrackingLSM303DLHC.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOI2CLSM303DLHCVECTOR                                                                                            */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOI2CLSM303DLHCVECTOR
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -74,7 +82,6 @@ DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
@@ -89,7 +96,6 @@ DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -113,7 +119,6 @@ void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2C
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CLSM303DLHCVECTOR& b)
@@ -130,7 +135,6 @@ float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CL
 {
   return a.x * b.x + a.y * b.y + a.z * b.z;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -154,7 +158,6 @@ void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLSM303DLHCVECTOR::Clean()
@@ -173,10 +176,12 @@ void DIOI2CLSM303DLHCVECTOR::Clean()
 }
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOI2CLSM303DLHC                                                                                                  */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+
+#pragma endregion
+
+
+#pragma region CLASS_DIOI2CLSM303DLHC
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -192,7 +197,6 @@ DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -213,7 +217,6 @@ DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::End()
@@ -229,7 +232,6 @@ bool DIOI2CLSM303DLHC::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -288,7 +290,6 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XBYTE& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
@@ -320,7 +321,6 @@ bool DIOI2CLSM303DLHC::ReadRegister(XBYTE reg, XWORD& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
@@ -350,7 +350,6 @@ bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLSM303DLHC::Clean()
@@ -367,12 +366,10 @@ void DIOI2CLSM303DLHC::Clean()
 }
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOI2C3DCOMPASSLSM303DLHC                                                                                         */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOI2C3DCOMPASSLSM303DLHC
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -390,7 +387,6 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
@@ -402,11 +398,9 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
-
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -440,7 +434,6 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Configure()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
@@ -470,13 +463,10 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 }
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOI2C3DACCELEROMETERLSM303DLHC                                                                                    */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_DIOI2C3DACCELEROMETERLSM303DLHC
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,7 +484,6 @@ DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
@@ -509,7 +498,6 @@ DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -571,12 +559,10 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
   return true;
 }
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOI2C3DACCELEROMETERLSM303DLHC                                                                                    */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOI2C3DACCELEROMETERLSM303DLHC
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -597,7 +583,6 @@ DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
@@ -615,7 +600,6 @@ DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -645,7 +629,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(XCHAR* localdevicename, int remotedevice
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -680,7 +663,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccele
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
@@ -702,7 +684,6 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
@@ -722,7 +703,6 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
   scale_y = y;
   scale_z = z;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -753,7 +733,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z, XWO
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -821,7 +800,6 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
@@ -867,7 +845,6 @@ float DIOI2C6AXISTRACKINGLSM303DLHC::Heading(DIOI2CLSM303DLHCVECTOR& from)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
@@ -887,7 +864,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -917,3 +893,11 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::Clean()
   filter_ay       = 0;
   filter_az       = 0;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+

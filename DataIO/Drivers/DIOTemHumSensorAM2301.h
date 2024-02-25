@@ -30,24 +30,31 @@
 #define _DIOTEMHUMSENSORAM2301_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
+#include "XThreadCollected.h"
 
 #include "DIODevice.h"
 #include "DIOGPIO.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOTEMHUMSENSORAM2301_HIGH    true
 #define DIOTEMHUMSENSORAM2301_LOW     false
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class XFACTORY;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 class XTIMER;
-class XTHREADCOLLECTED;
 class XMUTEX;
-class DIOGPIO;
 
 
 class DIOTEMHUMSENSORAM2301 : public DIODEVICE
@@ -86,6 +93,16 @@ class DIOTEMHUMSENSORAM2301 : public DIODEVICE
     float                         humiditycache;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

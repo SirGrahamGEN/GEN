@@ -3,7 +3,7 @@
 * @file       DIOIEC60870_5.h
 * 
 * @class      DIOIEC60870_5
-* @brief      Data Input/Output IEC 60870_5 (electric meters)
+* @brief      Data Input/Output IEC 60870_5 (electric meters) protocol class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,20 +30,26 @@
 #define _DIOIEC60870_5_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XFSMachine.h"
 #include "XEvent.h"
 #include "XSubject.h"
 
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-enum DIOIEC60870_5XEVENT_TYPE
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+enum DIOIEC60870_5_XEVENT_TYPE
 {
-  DIOIEC60870_5XEVENT_TYPE_UNKNOWN                   = XEVENT_TYPE_DIOIEC60870_5  ,
-  DIOIEC60870_5XEVENT_TYPE_C_AC_NA_2_INISESSION                                  ,
-  DIOIEC60870_5XEVENT_TYPE_C_CI_NU_2_READVALUE                                   ,
-  DIOIEC60870_5XEVENT_TYPE_C_TR_AA_READVALUES                                    ,
-  DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION
+  DIOIEC60870_5_XEVENT_TYPE_UNKNOWN                   = XEVENT_TYPE_DIOIEC60870_5  ,
+  DIOIEC60870_5_XEVENT_TYPE_C_AC_NA_2_INISESSION                                  ,
+  DIOIEC60870_5_XEVENT_TYPE_C_CI_NU_2_READVALUE                                   ,
+  DIOIEC60870_5_XEVENT_TYPE_C_TR_AA_READVALUES                                    ,
+  DIOIEC60870_5_XEVENT_TYPE_C_FS_NA_2_ENDSESSION
 };
 
 #define DIOIEC60870_5_CONNECTTIMEOUT                            5        // Seconds
@@ -96,24 +102,30 @@ enum DIOIEC60870_5XEVENT_TYPE
 #define DIOIEC60870_5_ASDUCAUSETRANS_OBJECTINFOUNKNOWN          17
 #define DIOIEC60870_5_ASDUCAUSETRANS_INTEGRPEROIDNOTAVAILABLE   18
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class XDATETIME;
 class XTIMER;
-class XPUBLISHER;
 class DIOSTREAM;
 
-class DIOIEC60870_5XEVENT : public XEVENT
+
+class DIOIEC60870_5_XEVENT : public XEVENT
 {
   public:
-                              DIOIEC60870_5XEVENT                 (XSUBJECT* subject, XDWORD type = DIOIEC60870_5XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_DIOIEC60870_5);
-    virtual                  ~DIOIEC60870_5XEVENT                 ();
+                              DIOIEC60870_5_XEVENT                 (XSUBJECT* subject, XDWORD type = DIOIEC60870_5_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_DIOIEC60870_5);
+    virtual                  ~DIOIEC60870_5_XEVENT                 ();
 
   private:
 
     void                      Clean                               ();
 };
+
 
 class DIO_C_CI_NU_2_RESULT
 {
@@ -134,6 +146,7 @@ class DIO_C_CI_NU_2_RESULT
     XVECTOR<XDWORD>           indexvalues;
     XVECTOR<XDWORD>           values;
 };
+
 
 class DIO_C_TR_AA_RESULT
 {
@@ -190,6 +203,7 @@ class DIO_C_TR_AA_RESULT
     float                     voltagephase[3];
     float                     currentphase[3];
 };
+
 
 class DIOIEC60870_5  : public XSUBJECT
 {
@@ -257,6 +271,16 @@ class DIOIEC60870_5  : public XSUBJECT
     bool                      canceloperations;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

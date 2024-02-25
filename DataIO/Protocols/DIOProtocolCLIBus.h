@@ -3,13 +3,26 @@
 * @file       DIOProtocolCLIBus.h
 * 
 * @class      DIOPROTOCOLCLIBUS
-* @brief      Home Server Sensors Protocol
-* @ingroup    
+* @brief      Data Input/Output protocol in CLI Bus class
+* @ingroup    DATAIO
 * 
-* @author     Abraham J. Velez 
-* @date       23/06/2022 17:42:05
+* @copyright  GEN Group. All rights reserved.
 * 
-* @copyright  EndoraSoft S.L.  All rights reserved.
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
@@ -17,13 +30,19 @@
 #define _DIOPROTOCOLCLIBUS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XVector.h"
+#include "XThreadCollected.h"
 
 #include "DIOProtocolCLI.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME     30
 #define DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES     3
@@ -33,7 +52,12 @@
 #define DIOPROTOCOLCLIBUS_COMMAND_ENUM  			    __L("enum")
 #define DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST     __L("enumrequest")
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
 {
@@ -85,6 +109,15 @@ class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
     XTHREADCOLLECTED*				threadsendenumrequest;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif

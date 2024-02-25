@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPITouchScreenSTMPE610.cpp
-*
+* 
 * @class      DIOSPITOUCHSCREENSTMPE610
 * @brief      Data Input/Output SPI STMPE610 (Touch Screen) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSPITouchScreenSTMPE610.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -42,15 +48,19 @@
 #include "DIOStreamSPIConfig.h"
 #include "DIOStreamSPI.h"
 
-#include "DIOSPITouchScreenSTMPE610.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,8 +80,6 @@ DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
   
   databuffer = new XBUFFER();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -102,8 +110,6 @@ DIOSPITOUCHSCREENSTMPE610::~DIOSPITOUCHSCREENSTMPE610()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -155,7 +161,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IniDevice(int chipselect, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOSPITOUCHSCREENSTMPE610::GetVersion()
@@ -183,7 +188,6 @@ XWORD DIOSPITOUCHSCREENSTMPE610::GetVersion()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::IsTouched()
@@ -206,7 +210,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IsTouched()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -233,7 +236,6 @@ bool DIOSPITOUCHSCREENSTMPE610::IsBufferEmpty()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOSPITOUCHSCREENSTMPE610::GetBufferSize()
@@ -253,7 +255,6 @@ XBYTE DIOSPITOUCHSCREENSTMPE610::GetBufferSize()
 
   return data;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -309,10 +310,8 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadPosition(XWORD& x, XWORD& y, XBYTE& z)
 
   if(IsBufferEmpty()) WriteRegister(DIOSPITOUCHSCREENSTMPE610_REG_INT_STA, 0xFF);
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -349,7 +348,6 @@ bool DIOSPITOUCHSCREENSTMPE610::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
@@ -363,8 +361,6 @@ DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
 {
   return diostreamSPI;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,8 +379,6 @@ void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
   this->diostreamSPI     = diostreamSPI;
   isdiostreamSPIexternal = true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -426,7 +420,6 @@ bool DIOSPITOUCHSCREENSTMPE610::TouchScreen_Ini()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::ReadRegister(XBYTE reg, XBYTE& data)
@@ -458,7 +451,6 @@ bool DIOSPITOUCHSCREENSTMPE610::ReadRegister(XBYTE reg, XBYTE& data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
@@ -486,7 +478,6 @@ bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPITOUCHSCREENSTMPE610::Clean()
@@ -508,3 +499,7 @@ void DIOSPITOUCHSCREENSTMPE610::Clean()
   diostreamSPI            = NULL;
   isdiostreamSPIexternal  = false;
 }
+
+
+#pragma endregion
+

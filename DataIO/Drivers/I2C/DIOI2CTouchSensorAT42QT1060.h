@@ -5,7 +5,7 @@
 * @class      DIOI2CTOUCHSENSORAT42QT1060
 * @brief      Data Input/Output I2C Touch Sensor AT42QT1060 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,22 +24,27 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CTOUCHSENSORAT42QT1060_H_
 #define _DIOI2CTOUCHSENSORAT42QT1060_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 
 #include "DIODeviceI2C.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 #define DIOI2CTOUCHSENSORAT42QT1060_ADDR 				                    0x12
 #define DIOI2CTOUCHSENSORAT42QT1060_HW_ID   		                    0x31
-
 
 #define DIOI2CTOUCHSENSORAT42QT1060_CHIP_ID_REG 										0
 #define DIOI2CTOUCHSENSORAT42QT1060_VERSION_CHIP_REG								1
@@ -92,7 +97,11 @@
 #define DIOI2CTOUCHSENSORAT42QT1060_KEY_5_REFERENCE_MSB_REG					63
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class DIOI2CTOUCHSENSORAT42QT1060: public DIODEVICEI2C
@@ -138,7 +147,15 @@ class DIOI2CTOUCHSENSORAT42QT1060: public DIODEVICEI2C
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

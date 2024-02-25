@@ -3,7 +3,7 @@
 * @file       DIOPing_XEvent.cpp
 * 
 * @class      DIOPING_XEVENT
-* @brief      Data Input/Output Ping eXtended Event class
+* @brief      Data Input/Output Ping protocol eXtended Event class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.

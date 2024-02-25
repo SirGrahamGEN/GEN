@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2COLEDDisplaySSD1306.h
-*
+* 
 * @class      DIOI2COLEDDISPLAYSSD1306
 * @brief      Data Input/Output I2C OLED Display SSD1306 class 
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2COLEDDISPLAYSSD1306_H_
 #define _DIOI2COLEDDISPLAYSSD1306_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
@@ -38,7 +39,12 @@
 #include "DIODeviceI2C.h"
 #include "DIODisplayDevice.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOI2COLEDDISPLAYSSD1306_DISPLAYSIZE
 {
@@ -49,12 +55,12 @@ enum DIOI2COLEDDISPLAYSSD1306_DISPLAYSIZE
 };
 
 
-#define DIOI2COLEDDISPLAYSSD1306_ADDR            0x3C
+#define DIOI2COLEDDISPLAYSSD1306_ADDR                                        0x3C
 
-#define DIOI2COLEDDISPLAYSSD1306_RW              0
-#define DIOI2COLEDDISPLAYSSD1306_SA0             1
-#define DIOI2COLEDDISPLAYSSD1306_DC              6
-#define DIOI2COLEDDISPLAYSSD1306_CO              7
+#define DIOI2COLEDDISPLAYSSD1306_RW                                          0
+#define DIOI2COLEDDISPLAYSSD1306_SA0                                         1
+#define DIOI2COLEDDISPLAYSSD1306_DC                                          6
+#define DIOI2COLEDDISPLAYSSD1306_CO                                          7
 
 
 //---------------------------------------------------------------------------------
@@ -109,8 +115,8 @@ enum DIOI2COLEDDISPLAYSSD1306_DISPLAYSIZE
 #define DIOI2COLEDDISPLAYSSD1306_COMMAND_CHARGE_PUMP_SET                     0x8D
 
 
-#define DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINE_HEIGHT                          8
-#define DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINES                                (width / DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINE_HEIGHT)
+#define DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINE_HEIGHT                         8
+#define DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINES                               (width / DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINE_HEIGHT)
 
 #define DIOI2COLEDDISPLAYSSD1306_POINTER(x, y)                               (x + ((y / DIOI2COLEDDISPLAYSSD1306_DISPLAY_LINE_HEIGHT) * width))
 
@@ -120,16 +126,11 @@ enum DIOI2COLEDDISPLAYSSD1306_DISPLAYSIZE
 #define DIOI2COLEDDISPLAYSSD1306_BITCHECK(x, y)                              (x & (1UL<<y) ? 1 : 0)
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-
-class XFACTORY;
-class XPUBLISHER;
-class XTIMER;
-class DIOFACTORY;
-class DIOSTREAMI2CCONFIG;
-class DIOSTREAMI2C;
-class DIOGPIO;
+#pragma region CLASS
 
 
 class DIOI2COLEDDISPLAYSSD1306 : public DIODISPLAYDEVICE, public DIODEVICEI2C
@@ -174,11 +175,15 @@ class DIOI2COLEDDISPLAYSSD1306 : public DIODISPLAYDEVICE, public DIODEVICEI2C
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
 

@@ -1,53 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOScraperWebSexName.cpp
-*
+* 
 * @class      DIOSCRAPERWEBSEXNAME
 * @brief      Data Input/Output Scraper Web Sex Name class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XThread.h"
+#pragma region INCLUDES
 
 #include "DIOScraperWebSexName.h"
 
+#include "XThread.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSEXNAME_RESULT                                                                                                  */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOSEXNAME_RESULT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +72,6 @@ DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +90,6 @@ DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBSEXNAMETYPE DIOSEXNAME_RESULT::Get()
@@ -96,7 +103,6 @@ DIOSCRAPERWEBSEXNAMETYPE DIOSEXNAME_RESULT::Get()
 {
   return sex;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -118,7 +124,6 @@ bool DIOSEXNAME_RESULT::Set(DIOSCRAPERWEBSEXNAMETYPE sex)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSEXNAME_RESULT::GetNameClear()
@@ -132,7 +137,6 @@ XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 {
   return &nameclear;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -151,11 +155,10 @@ void DIOSEXNAME_RESULT::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSCRAPERWEBSEXNAME                                                                                               */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOSCRAPERWEBSEXNAME
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -173,7 +176,6 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
@@ -185,11 +187,9 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
-
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -210,7 +210,6 @@ bool DIOSCRAPERWEBSEXNAME::ChangeURL(XCHAR* maskurl, DIOURL& url)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -297,7 +296,6 @@ bool DIOSCRAPERWEBSEXNAME::Get(XCHAR* name, DIOSCRAPERWEBSEXNAMETYPE& sexnametyp
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnametype, XSTRING* nameclear, int timeoutforurl, XSTRING* localIP, bool usecache)
@@ -320,8 +318,6 @@ bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnamet
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBSEXNAME::Clean()
@@ -337,4 +333,9 @@ void DIOSCRAPERWEBSEXNAME::Clean()
 
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

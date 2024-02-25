@@ -3,7 +3,7 @@
 * @file       DIONodeItemHandler.cpp
 * 
 * @class      DIONODEITEMHANDLER
-* @brief      Data Input/Output Node Item Handler
+* @brief      Data Input/Output Node Item Handler class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,24 +26,34 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "DIONode_XEvent.h"
+#pragma region INCLUDES
 
 #include "DIONodeItemHandler.h"
 
+#include "DIONode_XEvent.h"
+
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,7 +70,6 @@ DIONODEITEMHANDLER::DIONODEITEMHANDLER()
   Clean();
 
   RegisterEvent(DIONODE_XEVENT_TYPE_UPDATEVALUE);
-
 }
 
 
@@ -249,3 +258,7 @@ void DIONODEITEMHANDLER::Clean()
 
   nodeitem    = NULL;
 }
+
+
+#pragma endregion
+

@@ -3,7 +3,7 @@
 * @file       DIODNSProtocol.h
 * 
 * @class      DIODNSPROTOCOL
-* @brief      Data Input/Output Domain Network System (DNS) protocol
+* @brief      Data Input/Output Domain Network System (DNS) protocol structs
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.

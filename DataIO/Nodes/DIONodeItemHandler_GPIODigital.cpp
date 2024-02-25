@@ -3,7 +3,7 @@
 * @file       DIONodeItemHandler_GPIODigital.cpp
 * 
 * @class      DIONODEITEMHANDLER_GPIODIGITAL
-* @brief      Data Input/Output Node Item Handler GPIO Digital
+* @brief      Data Input/Output Node Item Handler GPIO Digital class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIONodeItemHandler_GPIODigital.h"
 
 #include "XFactory.h"
 #include "XTimer.h"
@@ -39,20 +45,22 @@
 #include "DIOGPIO.h"
 #include "DIONode_XEvent.h"
 
-#include "DIONodeItemHandler_GPIODigital.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIONODEITEMHANDLER_ENTRYGPIO                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_DIONODEITEMHANDLER_ENTRYGPIO
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -199,6 +207,7 @@ int DIONODEITEMHANDLER_ENTRYGPIO::GetGPIO()
 {
   return GPIO;
 }
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -406,10 +415,10 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 }
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIONODEITEMHANDLER_GPIODIGITAL                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+#pragma region CLASS_DIONODEITEMHANDLER_GPIODIGITAL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -675,3 +684,9 @@ void DIONODEITEMHANDLER_GPIODIGITAL::Clean()
 {
   
 }
+
+
+#pragma endregion
+
+
+#pragma endregion

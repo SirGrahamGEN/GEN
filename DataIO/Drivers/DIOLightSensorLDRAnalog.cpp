@@ -27,27 +27,37 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLightSensorLDRAnalog.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
 #include "XThreadCollected.h"
 #include "XTimer.h"
 
-#include "DIOLightSensorLDRAnalog.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -135,6 +145,21 @@ bool DIOLIGHTSENSORLDRANALOG::Ini()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         int DIOLIGHTSENSORLDRANALOG::GetPinData()
+* @brief      GetPinData
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOLIGHTSENSORLDRANALOG::GetPinData()
+{ 
+  return pindata;                   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOLIGHTSENSORLDRANALOG::ReadFromCache(XDWORD& level)
 * @brief      ReadFromCache
 * @ingroup    DATAIO
@@ -159,7 +184,6 @@ bool DIOLIGHTSENSORLDRANALOG::ReadFromCache(XDWORD& level)
   xmutexread->UnLock();
 
   return true;
-
 }
 
 
@@ -274,7 +298,7 @@ void DIOLIGHTSENSORLDRANALOG::ThreadRunFunction(void* param)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLIGHTSENSORLDRANALOG::Clean()
 {
-  diogpio       = NULL;
+  diogpio           = NULL;
   pindata           = DIOGPIO_PINNOTUSE;
 
   xtimer            = NULL;
@@ -284,3 +308,7 @@ void DIOLIGHTSENSORLDRANALOG::Clean()
   nreads            = 0;
   levelcache        = 0;
 }
+
+
+#pragma endregion
+

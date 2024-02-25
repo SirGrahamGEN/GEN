@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @file       DIOIEC60870_5.cpp
@@ -57,11 +70,15 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-#pragma region DIOIEC60870_5XEVENT
+#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_DIOIEC60870_5_XEVENT
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @fn         DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
@@ -72,7 +89,7 @@
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
+DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }
@@ -80,7 +97,7 @@ DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
+* @fn         DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
@@ -88,7 +105,7 @@ DIOIEC60870_5XEVENT::DIOIEC60870_5XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
+DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
 {
   Clean();
 }
@@ -96,7 +113,7 @@ DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOIEC60870_5XEVENT::Clean()
+* @fn         void DIOIEC60870_5_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -104,15 +121,16 @@ DIOIEC60870_5XEVENT::~DIOIEC60870_5XEVENT()
 * @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOIEC60870_5XEVENT::Clean()
+void DIOIEC60870_5_XEVENT::Clean()
 {
 
 }
 
+
 #pragma endregion
 
 
-#pragma region DIO_C_CI_NU_2_RESULT
+#pragma region CLASS_DIO_C_CI_NU_2_RESULT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -702,7 +720,7 @@ void DIO_C_TR_AA_RESULT::Clean()
 #pragma endregion
 
 
-#pragma region DIOIEC60870_5
+#pragma region CLASS_DIOIEC60870_5
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -722,10 +740,10 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 
   this->diostream   = diostream;
 
-  RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_AC_NA_2_INISESSION);
-  RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_TR_AA_READVALUES);
-  RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_CI_NU_2_READVALUE);
-  RegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
+  RegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_AC_NA_2_INISESSION);
+  RegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_TR_AA_READVALUES);
+  RegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_CI_NU_2_READVALUE);
+  RegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
 
   GEN_XFACTORY_CREATE(xtimer, CreateTimer())
 }
@@ -747,10 +765,10 @@ DIOIEC60870_5::~DIOIEC60870_5()
 
   Disconnect();
 
-  DeRegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_AC_NA_2_INISESSION);
-  DeRegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_TR_AA_READVALUES);
-  DeRegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_CI_NU_2_READVALUE);
-  DeRegisterEvent(DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
+  DeRegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_AC_NA_2_INISESSION);
+  DeRegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_TR_AA_READVALUES);
+  DeRegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_CI_NU_2_READVALUE);
+  DeRegisterEvent(DIOIEC60870_5_XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
 
   Clean();
 }
@@ -790,11 +808,7 @@ bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bo
                        default :  break;
     }
 
-
-
-
   #endif
-
 
   if(!diostream->Open())  return false;
 
@@ -989,7 +1003,7 @@ bool DIOIEC60870_5::CMD_C_AC_NA_2_IniSession(int timeout)
           if(buffer[0]!=DIOIEC60870_5_ASDUID_C_AC_NA_2_SESSIONINI)      return false;
           if(buffer[2]!=DIOIEC60870_5_ASDUCAUSETRANS_CONFIRMACTIVATION) return false;
 
-          DIOIEC60870_5XEVENT xevent(this,DIOIEC60870_5XEVENT_TYPE_C_AC_NA_2_INISESSION);
+          DIOIEC60870_5_XEVENT xevent(this,DIOIEC60870_5_XEVENT_TYPE_C_AC_NA_2_INISESSION);
           PostEvent(&xevent);
 
           return true;
@@ -1043,7 +1057,7 @@ bool DIOIEC60870_5::CMD_C_FS_NA_2_EndSession(int timeout)
           if(buffer[0]!=DIOIEC60870_5_ASDUID_C_FS_NA_2_SESSIONEND)      return false;
           if(buffer[2]!=DIOIEC60870_5_ASDUCAUSETRANS_CONFIRMACTIVATION) return false;
 
-          DIOIEC60870_5XEVENT xevent(this, DIOIEC60870_5XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
+          DIOIEC60870_5_XEVENT xevent(this, DIOIEC60870_5_XEVENT_TYPE_C_FS_NA_2_ENDSESSION);
           PostEvent(&xevent);
 
           return true;
@@ -1130,7 +1144,7 @@ bool DIOIEC60870_5::CMD_C_CI_NU_2_Read(DIO_C_CI_NU_2_RESULT* result,int timeout)
 
   if(!CMD_RequestUserDataClass2(&retasdu,timeout)) return false;
 
-  DIOIEC60870_5XEVENT xevent(this,DIOIEC60870_5XEVENT_TYPE_C_CI_NU_2_READVALUE);
+  DIOIEC60870_5_XEVENT xevent(this,DIOIEC60870_5_XEVENT_TYPE_C_CI_NU_2_READVALUE);
   PostEvent(&xevent);
 
   XBYTE* buffer = retasdu.Get();
@@ -1360,7 +1374,7 @@ bool DIOIEC60870_5::CMD_C_TR_AA_ReadValues(DIO_C_TR_AA_RESULT* result,int timeou
 
                     } else status = false;
 
-                  DIOIEC60870_5XEVENT xevent(this,DIOIEC60870_5XEVENT_TYPE_C_TR_AA_READVALUES);
+                  DIOIEC60870_5_XEVENT xevent(this,DIOIEC60870_5_XEVENT_TYPE_C_TR_AA_READVALUES);
                   PostEvent(&xevent);
 
                   if(!CMD_C_FS_NA_2_EndSession(timeout)) status = false;
@@ -1992,3 +2006,7 @@ void DIOIEC60870_5::Clean()
 
 
 #pragma endregion
+
+
+#pragma endregion
+

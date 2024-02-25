@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOATCMDGSM.cpp
-*
+* 
 * @class      DIOATCMDGSM
-* @brief      Data Input/Output AT command for GSM class
+* @brief      Data Input/Output AT command for GSM protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOATCMDGSM.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -43,14 +49,22 @@
 
 #include "DIOStream.h"
 
-#include "DIOATCMDGSM.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
+
+#pragma region CLASS_DIOATCMDGSM_ALPHABET_8859_1
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,7 +97,6 @@ DIOATCMDGSM_ALPHABET_8859_1::~DIOATCMDGSM_ALPHABET_8859_1()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -137,7 +150,6 @@ bool DIOATCMDGSM_ALPHABET_8859_1::CreateTable()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
@@ -188,7 +200,6 @@ XWORD DIOATCMDGSM_ALPHABET_8859_1::Traslate(bool from, XWORD data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDGSM_ALPHABET_8859_1::Clean()
@@ -205,12 +216,10 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 }
 
 
+#pragma endregion
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOATCMDGSM                                                                                                         */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOATCMDGSM
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -246,7 +255,6 @@ DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMDGSM::~DIOATCMDGSM()
@@ -261,8 +269,6 @@ DIOATCMDGSM::~DIOATCMDGSM()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,8 +289,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetManufactured(XSTRING& manufactured, int timeout)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
@@ -303,7 +307,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetModel(XSTRING& model, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
@@ -320,8 +323,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMEI(XSTRING& IMEI, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETSERIAL, IMEI, NULL, timeout);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -373,7 +374,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetVersion(XSTRING& version, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
@@ -416,7 +416,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSignalQuality(int& RSSI, int& BER, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
@@ -452,7 +451,6 @@ DIOATCMD_ERROR DIOATCMDGSM::IsAvailableServiceGSM(bool& available, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
@@ -469,7 +467,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetIMSI(XSTRING& IMSI, int timeout)
 {
   return MakeCommandWithSimpleAnswer(DIOATCMD_TYPE_GSMGETIMSI, IMSI, NULL, timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -507,7 +504,6 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Is(bool& isresolved, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
@@ -543,8 +539,6 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Enter(XCHAR* PIN, bool& isenter, int timeout)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
@@ -575,8 +569,6 @@ DIOATCMD_ERROR DIOATCMDGSM::PIN_Activate(XCHAR* PIN, bool activate, int timeout)
   return DIOATCMD_ERROR_NONE;
 }
  
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -627,7 +619,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSSupport(XBYTE& support, int timeout)
 
   return DIOATCMD_ERROR_NONE;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -695,7 +686,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSFormat(XBYTE& format,bool support, int timeout
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
@@ -723,7 +713,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSFormat(XBYTE format, int timeout)
 
   return WaitToProcessAnswer(timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -775,7 +764,6 @@ DIOATCMD_ERROR DIOATCMDGSM::GetSMSCenter(XSTRING& SMScenter, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
@@ -799,7 +787,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SetSMSCenter(XCHAR* smscenter, int timeout)
 
   return WaitToProcessAnswer(timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -883,7 +870,6 @@ DIOATCMD_ERROR DIOATCMDGSM::SendSMS(XCHAR* number, XCHAR* message, int* mrID, in
 
   return error;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1020,9 +1006,6 @@ bool DIOATCMDGSM::CodecPDUFormat(XCHAR* number, XCHAR* message, bool inoctets, i
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDGSM::Clean()
@@ -1037,4 +1020,10 @@ void DIOATCMDGSM::Clean()
 {
 
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
 

@@ -1,53 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOScraperWebCache.cpp
-*
+* 
 * @class      DIOSCRAPERWEBCACHE
 * @brief      Data Input/Output Scraper Web cache class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFactory.h"
+#pragma region INCLUDES
 
 #include "DIOScraperWebCache.h"
 
+#include "XFactory.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOSCRAPERWEBCACHE_RESULT                                                                                         */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_DIOSCRAPERWEBCACHE_RESULT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +72,6 @@ DIOSCRAPERWEBCACHE_RESULT::DIOSCRAPERWEBCACHE_RESULT()
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -99,7 +107,6 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
@@ -117,13 +124,10 @@ bool DIOSCRAPERWEBCACHE_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 }
 
 
+#pragma endregion
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOSCRAPERWEBCACHE                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_DIOSCRAPERWEBCACHE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -143,7 +147,6 @@ DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE::~DIOSCRAPERWEBCACHE()
@@ -155,13 +158,11 @@ DIOSCRAPERWEBCACHE::DIOSCRAPERWEBCACHE()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBCACHE::~DIOSCRAPERWEBCACHE()
-
 {
   GEN_XFACTORY.Delete_Mutex(xmutexlist);
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -202,7 +203,6 @@ bool DIOSCRAPERWEBCACHE::Add(XSTRING& ask, DIOSCRAPERWEBCACHE_RESULT* result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBCACHE_RESULT* DIOSCRAPERWEBCACHE::Get(XSTRING& ask)
@@ -241,7 +241,6 @@ DIOSCRAPERWEBCACHE_RESULT* DIOSCRAPERWEBCACHE::Get(XSTRING& ask)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBCACHE::DeleteAll()
@@ -267,7 +266,6 @@ bool DIOSCRAPERWEBCACHE::DeleteAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBCACHE::Clean()
@@ -282,3 +280,10 @@ void DIOSCRAPERWEBCACHE::Clean()
 {
   xmutexlist = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+

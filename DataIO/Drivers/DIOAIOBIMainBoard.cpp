@@ -1,45 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @file        DIOAIOBIMainBoard.cpp
-*
-* @class       DIOAIOBIMAINBOARD
-* @brief       Data IO AIOBI Main board class
-* @ingroup     DATAIO
-*
+* 
+* @file       DIOAIOBIMainBoard.cpp
+* 
+* @class      DIOAIOBIMAINBOARD
+* @brief      Data Input/Output AIOBI Main board class
+* @ingroup    DATAIO
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOAIOBIMainBoard.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -52,11 +64,9 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
-
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +83,6 @@ DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -157,8 +166,6 @@ bool DIOAIOBIMAINBOARD::Ini()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsIni()
@@ -172,7 +179,6 @@ bool DIOAIOBIMAINBOARD::IsIni()
 {
   return isini;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -233,7 +239,6 @@ bool DIOAIOBIMAINBOARD::SetModeHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pi
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int pin)
@@ -289,7 +294,6 @@ bool DIOAIOBIMAINBOARD::GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -350,7 +354,6 @@ bool DIOAIOBIMAINBOARD::SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER header, int 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
@@ -378,7 +381,6 @@ bool DIOAIOBIMAINBOARD::SetP4HeaderForExternalButton(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsButtonAPressed()
@@ -395,7 +397,6 @@ bool DIOAIOBIMAINBOARD::IsButtonAPressed()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::IsButtonBPressed()
@@ -410,7 +411,6 @@ bool DIOAIOBIMAINBOARD::IsButtonBPressed()
   if(!issetp24forexternalbutton) return false;
   return GetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER_P24, 3);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -431,7 +431,6 @@ bool DIOAIOBIMAINBOARD::SetLedA(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SetLedB(bool on)
@@ -448,7 +447,6 @@ bool DIOAIOBIMAINBOARD::SetLedB(bool on)
   if(!issetp24forexternalbutton) return false;
   return SetStatusHeaderPin(DIOAIOBIMAINBOARD_HEADER_P24, 5, on);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -469,7 +467,6 @@ bool DIOAIOBIMAINBOARD::GetDigitalInput(XBYTE& data)
 
   return pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_IN]->Read(data);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -504,7 +501,6 @@ bool DIOAIOBIMAINBOARD::SetDigitalOutput(XBYTE bit, bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
@@ -527,7 +523,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK1(bool on)
   value = on?(value|0x01):(value&~0x01);
   return pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_RELAYS]->Write(value);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -554,7 +549,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK2(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
@@ -577,7 +571,6 @@ bool DIOAIOBIMAINBOARD::SwitchReleK3(bool on)
   value = on?(value|0x04):(value&~0x04);
   return pcf8574[DIOAIOBIMAINBOARD_I2CDIGIGPIO_RELAYS]->Write(value);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -607,7 +600,6 @@ bool DIOAIOBIMAINBOARD::EEProm(bool write, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
@@ -621,7 +613,6 @@ DIOGPIO* DIOAIOBIMAINBOARD::GetGPIO()
 {
   return gpio;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -643,7 +634,6 @@ bool DIOAIOBIMAINBOARD::SetPWM(XBYTE channel, XWORD on, XWORD off, bool wait)
   if(!pca9685) return false;
   return pca9685->SetPWM(channel, on, off, wait);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -673,7 +663,6 @@ bool DIOAIOBIMAINBOARD::ResetMicroControler()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -728,7 +717,6 @@ bool DIOAIOBIMAINBOARD::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOAIOBIMAINBOARD::Clean()
@@ -757,3 +745,7 @@ void DIOAIOBIMAINBOARD::Clean()
 
   outputdigitaldata          = 0;
 }
+
+
+#pragma endregion
+

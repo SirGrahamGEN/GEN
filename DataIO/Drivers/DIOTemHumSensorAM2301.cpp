@@ -3,7 +3,7 @@
 * @file       DIOTemHumSensorAM2301.cpp
 * 
 * @class      DIOTEMHUMSENSORAM2301
-* @brief      Data Input/Output AOSONG AM2301 Sensor (Temperature and humidity module) class 
+* @brief      Data Input/Output AOSONG AM2301 Sensor (Temperature and humidity module) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOTemHumSensorAM2301.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,14 +50,19 @@
 
 #include "DIOGPIO.h"
 
-#include "DIOTemHumSensorAM2301.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -403,4 +414,5 @@ void DIOTEMHUMSENSORAM2301::Clean()
 }
 
 
+#pragma endregion
 

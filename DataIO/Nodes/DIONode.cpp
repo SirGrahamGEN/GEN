@@ -3,7 +3,7 @@
 * @file       DIONode.cpp
 * 
 * @class      DIONODE
-* @brief      Data Input/Output NODE (Base class for a control of nodes)
+* @brief      Data Input/Output NODE (Base class for a control of nodes) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,24 +26,34 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "DIONodeItem.h"
+#pragma region INCLUDES
 
 #include "DIONode.h"
 
+#include "DIONodeItem.h"
+
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -96,7 +106,7 @@ XUUID& DIONODE::GetID()
   return UUID;
 }
 
-    
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIONODE::SetID(XUUID& UUID)
@@ -231,7 +241,6 @@ bool DIONODE::GetSubGroups(XVECTOR<XSTRING*>& listsubgroups)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::GetSubGroup(XDWORD level, XSTRING& subgroup)
@@ -333,7 +342,6 @@ bool DIONODE::CreateJSONSerialization()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIONODE::Serialize()
@@ -395,3 +403,7 @@ void DIONODE::Clean()
   islocal = false;
   
 }
+
+
+#pragma endregion
+

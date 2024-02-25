@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOProtocol.h
-*
+* 
 * @class      DIOPROTOCOL
 * @brief      Data Input/Output Generic Binary Protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOPROTOCOL_H_
 #define _DIOPROTOCOL_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XDir.h"
@@ -38,14 +39,19 @@
 #include "XSubject.h"
 #include "XFactory.h"
 #include "XBuffer.h"
+#include "XThreadCollected.h"
 
 #include "DIOStream.h"
 #ifdef DIO_ALERTS_ACTIVE
 #include "DIOAlerts.h"
 #endif
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOPROTOCOL_CMDTYPE
 {
@@ -78,6 +84,7 @@ enum DIOPROTOCOL_DIRECTION
   DIOPROTOCOL_DIRECTION_GET                         ,
   DIOPROTOCOL_DIRECTION_SEND                        ,
 };
+
 
 enum DIOPROTOCOL_RESULT
 {
@@ -135,15 +142,18 @@ enum DIOPROTOCOL_XEVENT_TYPE
 
 #define DIOPROTOCOL_ERRORRECEIVED              -1
 
-
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
 class DIOPROTOCOL_COMMAND;
 class DIOPROTOCOL;
 
 typedef int (*DIOPROTOCOL_RECEIVEDFUNC)   (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& buffer, XDWORD rID, XDWORD& param);
 
-class XBUFFER;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class XRAND;
 class XDATETIME;
 class XTIMER;
@@ -152,12 +162,8 @@ class XDIR;
 class XDIRELEMENT;
 class XFILE;
 class XFACTORY;
-class XPUBLISHER;
-class XTHREADCOLLECTED;
-class XMUTEX;
 class HASHCRC32;
 class CIPHER;
-class DIOFACTORY;
 class DIOPROTOCOL_XEVENT;
 class DIOALERT;
 
@@ -180,7 +186,6 @@ class DIOPROTOCOL_ANSWER
     XDWORD                                    ID;
     XBUFFER                                   xbuffer;
 };
-
 
 
 class DIOPROTOCOL_COMMAND
@@ -212,7 +217,6 @@ class DIOPROTOCOL_COMMAND
     DIOPROTOCOL_RECEIVEDFUNC                  receivedfunc;
     XSTRING                                   description;
 };
-
 
 
 class DIOPROTOCOL_FILE
@@ -276,7 +280,6 @@ class DIOPROTOCOL_FILE
 
     void                                      Clean                           ();
 };
-
 
 
 class DIOPROTOCOL : public XSUBJECT
@@ -438,7 +441,6 @@ class DIOPROTOCOL : public XSUBJECT
 
      DIOPROTOCOL_FILE*                        fileprogress;
 
-
   private:
 
      void                                     Clean                           ();
@@ -482,9 +484,15 @@ class DIOPROTOCOL : public XSUBJECT
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

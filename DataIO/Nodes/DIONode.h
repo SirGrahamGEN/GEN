@@ -3,7 +3,7 @@
 * @file       DIONode.h
 * 
 * @class      DIONODE
-* @brief      Data Input/Output NODE (Base class for a control of nodes)
+* @brief      Data Input/Output NODE (Base class for a control of nodes) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,17 +30,28 @@
 #define _DIONODE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 #include "XUUID.h"
 #include "XSerializable.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIONODEITEM;
+
 
 class DIONODE : public XSERIALIZABLE
 {
@@ -81,6 +92,15 @@ class DIONODE : public XSERIALIZABLE
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

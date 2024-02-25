@@ -3,7 +3,7 @@
 * @file       DIOPing.cpp
 * 
 * @class      DIOPING
-* @brief      Data Input/Output Ping class
+* @brief      Data Input/Output Ping protocol class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.

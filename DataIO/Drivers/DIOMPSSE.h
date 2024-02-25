@@ -1,37 +1,45 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOMPSSE.h
-*
+* 
 * @class      DIOMPSSE
 * @brief      Data Input/Output Multi-Protocol Synchronous Serial Engine (MPSSE) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOMPSSE_H_
 #define _DIOMPSSE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XString.h"
+
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOMPSSE_CHIP_TYPE
 {
@@ -47,7 +55,6 @@ enum DIOMPSSE_CHIP_TYPE
 };
 
 
-//----------------------------------------------------------------------------------
 // Definitions for flow control
 #define DIOMPSSE_SIO_RESET                        0   // Reset the port
 #define DIOMPSSE_SIO_MODEM_CTRL                   1   // Set the modem control register
@@ -56,7 +63,6 @@ enum DIOMPSSE_CHIP_TYPE
 #define DIOMPSSE_SIO_SET_DATA                     4   // Set the data characteristics of the port
 
 
-//----------------------------------------------------------------------------------
 // Requests
 #define DIOMPSSE_SIO_RESET_REQUEST                DIOMPSSE_SIO_RESET
 #define DIOMPSSE_SIO_SET_BAUDRATE_REQUEST         DIOMPSSE_SIO_SET_BAUD_RATE
@@ -75,12 +81,18 @@ enum DIOMPSSE_CHIP_TYPE
 #define DIOMPSSE_SIO_ERASE_EEPROM_REQUEST         0x92
 
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOSTREAMUSBLOCALENUMDEVICES;
 class DIOSTREAMUSBCONFIG;
+class DIOSTREAMDEVICEUSB;
 class DIOSTREAM;
+
 
 class DIOMPSSE
 {
@@ -118,9 +130,15 @@ class DIOMPSSE
 };
 
 
+#pragma endregion
+
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

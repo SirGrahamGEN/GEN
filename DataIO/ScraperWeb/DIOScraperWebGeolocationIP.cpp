@@ -1,54 +1,63 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOScraperWebGeolocationIP.cpp
-*
+* 
 * @class      DIOSCRAPERWEBGEOLOCATIONIP
 * @brief      Data Input/Output Scraper Web Geolocation IP class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XThread.h"
+#pragma region INCLUDES
 
 #include "DIOScraperWebGeolocationIP.h"
 
+#include "XThread.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOGEOLOCATIONIP_RESULT                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOGEOLOCATIONIP_RESULT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +73,6 @@ DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,7 +91,6 @@ DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
@@ -97,7 +104,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCountry()
 {
   return country.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,7 +121,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetState()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
@@ -129,7 +134,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetCity()
 {
   return city.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -147,8 +151,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetISP()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
@@ -162,7 +164,6 @@ XCHAR* DIOGEOLOCATIONIP_RESULT::GetOrganization()
 {
   return organization.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -180,7 +181,6 @@ float DIOGEOLOCATIONIP_RESULT::GetLatitude()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOGEOLOCATIONIP_RESULT::GetLongitude()
@@ -194,7 +194,6 @@ float DIOGEOLOCATIONIP_RESULT::GetLongitude()
 {
   return longitude;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -212,7 +211,6 @@ bool DIOGEOLOCATIONIP_RESULT::IsEmpty()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -247,7 +245,6 @@ bool DIOGEOLOCATIONIP_RESULT::CopyFrom(DIOSCRAPERWEBCACHE_RESULT* result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
@@ -279,7 +276,6 @@ bool DIOGEOLOCATIONIP_RESULT::CopyTo(DIOSCRAPERWEBCACHE_RESULT* result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::Set(XSTRING& country, XSTRING& state, XSTRING& city, XSTRING& ISP, XSTRING& organization)
@@ -299,8 +295,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XSTRING& country, XSTRING& state, XSTRING& cit
 {
   return Set(country.Get(), state.Get(), city.Get(), ISP.Get(), organization.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -341,7 +335,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(XCHAR* country, XCHAR* state, XCHAR* city, XCH
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
@@ -363,8 +356,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOGEOLOCATIONIP_RESULT::Clean()
@@ -382,11 +373,10 @@ void DIOGEOLOCATIONIP_RESULT::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/*  DIOSCRAPERWEBGEOLOCATIONIP                                                                                        */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOSCRAPERWEBGEOLOCATIONIP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -406,7 +396,6 @@ DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient):
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
@@ -421,7 +410,6 @@ DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -446,7 +434,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -474,7 +461,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geoloca
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
@@ -494,7 +480,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolo
 {
   return Get(IP.Get(), geolocationIPresult, timeoutforurl, localIP, usecache);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -591,7 +576,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geoloca
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBGEOLOCATIONIP::Clean()
@@ -607,4 +591,9 @@ void DIOSCRAPERWEBGEOLOCATIONIP::Clean()
 
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

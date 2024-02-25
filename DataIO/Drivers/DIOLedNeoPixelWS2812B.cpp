@@ -1,49 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOLedNeoPixelWS2812B.cpp
-*
+* 
 * @class      DIOLEDNEOPIXELWS2812B
-* @brief      Data Input/Output Led Neopixel WS2812B
+* @brief      Data Input/Output Led Neopixel WS2812B class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOLedNeoPixelWS2812B.h"
 
 #include "XTrace.h"
 #include "XSleep.h"
 
-#include "DIOLedNeoPixelWS2812B.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,7 +88,6 @@ DIOLEDNEOPIXELWS2812B::~DIOLEDNEOPIXELWS2812B()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::Ini(DIOGPIO* diogpio, int nled, int datapin, DIOGPIO_PINSGROUP datapingroup)
@@ -104,7 +114,6 @@ bool DIOLEDNEOPIXELWS2812B::Ini(XDWORD nled)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
@@ -118,7 +127,6 @@ XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
 {
   return GPIOentryID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -136,7 +144,6 @@ void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
 {
   this->GPIOentryID = GPIOentryID;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -166,7 +173,6 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
@@ -180,7 +186,6 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 {
   return brightnessLevel;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -200,7 +205,6 @@ void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::SendData(XBUFFER* data)
@@ -216,7 +220,6 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBUFFER* data)
 {
   return SendData(data->Get(), data->GetSize());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -269,7 +272,6 @@ bool DIOLEDNEOPIXELWS2812B::Send()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOLEDNEOPIXELWS2812B::End()
@@ -291,7 +293,6 @@ bool DIOLEDNEOPIXELWS2812B::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOLEDNEOPIXELWS2812B::Clean()
@@ -309,3 +310,7 @@ void DIOLEDNEOPIXELWS2812B::Clean()
 
   brightnessLevel   = 255;
 }
+
+
+#pragma endregion
+

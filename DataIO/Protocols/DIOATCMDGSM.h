@@ -1,39 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOATCMDGSM.h
-*
+* 
 * @class      DIOATCMDGSM
-* @brief      Data Input/Output AT command for GSM class
+* @brief      Data Input/Output AT command for GSM protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOATCMDGSM_H_
 #define _DIOATCMDGSM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
+#include "XBase.h"
 #include "DIOATCMDS.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum
 {
@@ -62,11 +69,11 @@ enum
 #define DIOATCMDGSM_SMSFORMAT_TXT                   0x02
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class XFACTORY;
-class DIOSTREAM;
-
+#pragma region CLASS
 
 
 class DIOATCMDGSM_ALPHABET
@@ -75,7 +82,6 @@ class DIOATCMDGSM_ALPHABET
 
     virtual XWORD           Traslate                      (bool from, XWORD data) = 0;
 };
-
 
 
 class DIOATCMDGSM_ALPHABET_8859_1 : public DIOATCMDGSM_ALPHABET
@@ -111,7 +117,7 @@ class DIOATCMDGSM  : public DIOATCMDS
     DIOATCMD_ERROR          IsAvailableServiceGSM         (bool& available, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          GetIMSI                       (XSTRING& IMSI, int timeout = DIOATCMDS_TIMEOUT);
 
-    DIOATCMD_ERROR          PIN_Is                (bool& isresolved, int timeout = DIOATCMDS_TIMEOUT);
+    DIOATCMD_ERROR          PIN_Is                        (bool& isresolved, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          PIN_Enter                     (XCHAR* PIN, bool& isenter, int timeout = DIOATCMDS_TIMEOUT);
     DIOATCMD_ERROR          PIN_Activate                  (XCHAR* PIN, bool activate, int timeout = DIOATCMDS_TIMEOUT);
  
@@ -129,8 +135,16 @@ class DIOATCMDGSM  : public DIOATCMDS
 
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
 

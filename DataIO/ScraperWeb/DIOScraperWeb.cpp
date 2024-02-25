@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOScraperWeb.cpp
-*
+* 
 * @class      DIOSCRAPERWEB
 * @brief      Data Input/Output Scraper Web class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOScraperWeb.h"
 
 #include "XFactory.h"
 #include "XTimer.h"
@@ -50,14 +56,19 @@
 #include "DIOWebClient.h"
 #include "DIOCheckInternetConnection.h"
 
-#include "DIOScraperWeb.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -87,7 +98,6 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
 
   URLdownload = new DIOURL();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -127,7 +137,6 @@ DIOSCRAPERWEB::~DIOSCRAPERWEB()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -177,7 +186,6 @@ bool DIOSCRAPERWEB::Load(XCHAR* namefile)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::Load(XPATH& namefile)
@@ -195,7 +203,6 @@ bool DIOSCRAPERWEB::Load(XPATH& namefile)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOURL* DIOSCRAPERWEB::GetURLDownload()
@@ -209,7 +216,6 @@ DIOURL* DIOSCRAPERWEB::GetURLDownload()
 {
   return URLdownload;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -244,7 +250,6 @@ bool DIOSCRAPERWEB::Download(DIOURL& URL, XPATH& xpath)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -456,7 +461,6 @@ bool DIOSCRAPERWEB::Do(XCHAR* namewebservice, int timeoutforurl, XSTRING* localI
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* localIP)
@@ -474,7 +478,6 @@ bool DIOSCRAPERWEB::Do(XSTRING& namewebservice, int timeoutforurl, XSTRING* loca
 {
   return Do(namewebservice.Get(), timeoutforurl, localIP);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -497,7 +500,6 @@ bool DIOSCRAPERWEB::ChangeURL(XCHAR* maskurl, DIOURL& url)
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -534,7 +536,6 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
@@ -551,7 +552,6 @@ bool DIOSCRAPERWEB::AddValue(XCHAR* name, XSTRING& value)
 {
   return AddValue(name, value.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -572,7 +572,6 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name,XCHAR*  value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
@@ -591,20 +590,17 @@ bool DIOSCRAPERWEB::AddValue(XSTRING& name, XSTRING& value)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOSCRAPERWEB::GetValue
-*/
-/**
-//
-//
-//  ""
-//  @version      28/03/2013 12:36:07
-//
-//  @return       XCHAR* :
-//  @param        namevalue :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
+* @brief      GetValue
+* @ingroup    DATAIO
+* 
+* @param[in]  namevalue : 
+* 
+* @return     XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
 {
   for(XDWORD c=0;c<values.GetSize();c++)
@@ -631,7 +627,6 @@ XCHAR* DIOSCRAPERWEB::GetValue(XCHAR* namevalue)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
@@ -647,7 +642,6 @@ XCHAR* DIOSCRAPERWEB::GetValue(XSTRING& namevalue)
 {
   return DIOSCRAPERWEB::GetValue(namevalue.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -671,7 +665,6 @@ bool DIOSCRAPERWEB::DeleteAllValues()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
@@ -685,7 +678,6 @@ DIOWEBCLIENT* DIOSCRAPERWEB::GetWebClient()
 {
   return webclient;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -717,7 +709,6 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XCHAR* searchend,XBUFFER* xbu
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini,XSTRING& searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
@@ -745,7 +736,6 @@ bool DIOSCRAPERWEB::ExtractString(XCHAR* searchini, XSTRING& searchend, XBUFFER*
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* xbuffer,bool usebufferpos,XSTRING& result)
@@ -770,9 +760,7 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini,XCHAR* searchend,XBUFFER* x
   _searchend = searchend;
 
   return ExtractString(searchini,_searchend,xbuffer,usebufferpos,result);
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -825,7 +813,6 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
@@ -842,7 +829,6 @@ void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 {
   if(!xevent) return;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -865,3 +851,7 @@ void DIOSCRAPERWEB::Clean()
 
   xml                     = NULL;
 }
+
+
+#pragma endregion
+

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPIGPIOMCP23S17.cpp
-*
+* 
 * @class      DIOSPIGPIOMCP23S17
-* @brief      Data Input/Output SPI GPIO Extender MCP23S17 (Microchip)
+* @brief      Data Input/Output SPI GPIO Extender MCP23S17 (Microchip) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSPIGPIOMCP23S17.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -41,33 +47,34 @@
 #include "DIOStreamSPIConfig.h"
 #include "DIOStreamSPI.h"
 
-#include "DIOSPIGPIOMCP23S17.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
+* 
+* @fn         DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @param[in]  ) :
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,8 +93,6 @@ DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -138,8 +143,6 @@ bool DIOSPIGPIOMCP23S17::IniDevice()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Configure()
@@ -174,8 +177,6 @@ bool DIOSPIGPIOMCP23S17::Configure()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
@@ -205,8 +206,6 @@ bool DIOSPIGPIOMCP23S17::Read_Register(XBYTE reg, XBYTE addr, XBYTE& data)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
@@ -228,8 +227,6 @@ bool DIOSPIGPIOMCP23S17::Write_Register(XBYTE reg, XBYTE addr, XBYTE data)
 
   return diostream->TransferBuffer(rx_buffer, tx_buffer, sizeof(tx_buffer));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -255,8 +252,6 @@ bool DIOSPIGPIOMCP23S17::Read_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE& da
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -290,8 +285,6 @@ bool DIOSPIGPIOMCP23S17::Write_Bit(XBYTE reg, XBYTE addr, XBYTE bitnum, XBYTE da
 
   return Write_Register(reg, addr, reg_data);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -328,7 +321,6 @@ bool DIOSPIGPIOMCP23S17::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
@@ -344,7 +336,6 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
@@ -358,10 +349,9 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 {
-  this->diostream     = diostream;
-  isdiostreamSPIexternal = true;
+  this->diostream         = diostream;
+  isdiostreamSPIexternal  = true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -384,7 +374,6 @@ XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIGPIOMCP23S17::Clean()
@@ -404,3 +393,7 @@ void DIOSPIGPIOMCP23S17::Clean()
 
   isdiostreamSPIexternal  = false;
 }
+
+
+#pragma endregion
+

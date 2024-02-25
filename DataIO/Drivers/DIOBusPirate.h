@@ -30,10 +30,17 @@
 #define _DIOBUSPIRATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
+#include "XString.h"
+
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOBUSPIRATETYPEPROCOTOL
 {
@@ -82,13 +89,17 @@ enum DIOBUSPIRATESPEEDNOSNIFFER
 
 #define DIOBUSPIRATE_DEFAULTTIMEOUT  5
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
-class XPUBLISHER;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class XTIMER;
-class DIOFACTORY;
-class DIOSTREAMUARTCONFIG;
+class DIOSTREAM;
+
 
 class DIOBUSPIRATE
 {
@@ -118,6 +129,16 @@ class DIOBUSPIRATE
     XTIMER*                     xtimerout;     
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

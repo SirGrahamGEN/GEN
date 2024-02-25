@@ -2,8 +2,8 @@
 * 
 * @file       DIONodeManager.cpp
 * 
-* @class      DIODIONODEMANAGER
-* @brief      Data Input/Output Node manager (for managing base nodes)
+* @class      DIONODEMANAGER
+* @brief      Data Input/Output Node manager (for managing base nodes) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,27 +26,36 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFactory.h"
-
+#pragma region INCLUDES
 
 #include "DIONodeManager.h"
+
+#include "XFactory.h"
 
 #include "DIONode.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -197,4 +206,5 @@ void DIONODEMANAGER::Clean()
 }
 
 
+#pragma endregion
 

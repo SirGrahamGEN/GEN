@@ -30,13 +30,28 @@
 #define _DIOOBEXPUSH_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
+#include "XBuffer.h"
 #include "XString.h"
 #include "XPath.h"
 #include "XFSMachine.h"
+#include "XThreadCollected.h"
+
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 enum DIOOBEXPUSHERROR
 {
@@ -81,14 +96,17 @@ enum DIOOBEXPUSHXFSMSTATES
 
 #define DIOOBEXPUSH_MAXANSWER       32
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
-class XBUFFER;
-class XTHREADCOLLECTED;
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
 class XTIMER;
 class DIOSTREAM;
-class BTIDDEVICE;
+
 
 class DIOOBEXPUSHFILE
 {
@@ -121,8 +139,8 @@ class DIOOBEXPUSHFILE
     XBYTE                           sendpercent;
     XQWORD                          sendtimeelapsed;
     DIOOBEXPUSHERROR                error;
-
 };
+
 
 class DIOOBEXPUSH : public XFSMACHINE
 {
@@ -191,9 +209,11 @@ class DIOOBEXPUSH : public XFSMACHINE
     bool                            haveerror;
 
     XTHREADCOLLECTED*               xthreadobex;
-
 };
 
-/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+
+#pragma endregion
+
 
 #endif
+

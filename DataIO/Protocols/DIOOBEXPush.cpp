@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOOBEXPush.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -48,16 +54,22 @@
 
 #include "DIOStreamBluetooth.h"
 
-#include "DIOOBEXPush.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-#pragma region DIOOBEXPUSHFILE
+
+#pragma region CLASS_DIOOBEXPUSHFILE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -310,10 +322,11 @@ void DIOOBEXPUSHFILE::Clean()
   error            = DIOOBEXPUSHERROR_NONE;
 }
 
+
 #pragma endregion
 
 
-#pragma region DIOOBEXPUSH
+#pragma region CLASS_DIOOBEXPUSH
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -399,7 +412,6 @@ DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::~DIOOBEXPUSH()
-
 {
   End();
 
@@ -1219,6 +1231,9 @@ void DIOOBEXPUSH::Clean()
 
   xthreadobex         = NULL;
 }
+
+
+#pragma endregion
 
 
 #pragma endregion

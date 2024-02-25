@@ -1,54 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOScraperWebTranslation.cpp
-*
+* 
 * @class      DIOSCRAPERWEBTRANSLATION
 * @brief      Data Input/Output Scraper Web Translation class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XThread.h"
+#pragma region INCLUDES
 
 #include "DIOScraperWebTranslation.h"
 
+#include "XThread.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOTRANSLATION_RESULT                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOTRANSLATION_RESULT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +72,6 @@ DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,7 +90,6 @@ DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
@@ -97,7 +103,6 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTextCode()
 {
   return languagetextcode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,7 +124,6 @@ bool DIOTRANSLATION_RESULT::SetLanguageTextCode(XLANGUAGE_CODE code)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
@@ -133,7 +137,6 @@ XLANGUAGE_CODE DIOTRANSLATION_RESULT::GetLanguageTranslationCode()
 {
   return languagetranslationcode;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -155,8 +158,6 @@ bool DIOTRANSLATION_RESULT::SetLanguageTranslationCode(XLANGUAGE_CODE code)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
@@ -170,7 +171,6 @@ XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 {
   return &translation;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -190,11 +190,10 @@ void DIOTRANSLATION_RESULT::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOSCRAPERWEBTRANSLATION                                                                                           */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOSCRAPERWEBTRANSLATION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -212,7 +211,6 @@ DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
@@ -227,7 +225,6 @@ DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -271,8 +268,6 @@ bool DIOSCRAPERWEBTRANSLATION::ChangeURL(XCHAR* maskurl, DIOURL& url)
 
   return false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -348,7 +343,6 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XCHAR* text, XLANGUAGE_CODE languagetextcode,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcode, XLANGUAGE_CODE languagetranslationcode, XSTRING& translation, int timeoutforurl, XSTRING* localIP, bool usecache)
@@ -370,7 +364,6 @@ bool DIOSCRAPERWEBTRANSLATION::Get(XSTRING& text, XLANGUAGE_CODE languagetextcod
 {
   return Get(text.Get(), languagetextcode, languagetranslationcode, translation, timeoutforurl, localIP, usecache);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -582,7 +575,6 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSCRAPERWEBTRANSLATION::Clean()
@@ -598,4 +590,9 @@ void DIOSCRAPERWEBTRANSLATION::Clean()
 
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

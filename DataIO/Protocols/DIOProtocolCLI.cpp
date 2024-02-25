@@ -26,12 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOProtocolCLI.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -48,18 +54,23 @@
 
 #include "HashCRC32.h"
 
-#include "DIOProtocolCLI.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 #pragma region DIOPROTOCOLCLICOMMAND
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -159,10 +170,12 @@ void DIOPROTOCOLCLICOMMAND::Clean()
   nparams = 0;
 }
 
+
 #pragma endregion
 
 
 #pragma region DIOPROTOCOLCLIANSWER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -255,6 +268,7 @@ void DIOPROTOCOLCLIANSWER::Clean()
   command.Empty();
   answer.Empty();
 }
+
 
 #pragma endregion
 
@@ -531,7 +545,6 @@ bool DIOPROTOCOLCLI::SendCommandArg(XCHAR* command, XSTRING* target, XSTRING* an
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1140,4 +1153,9 @@ void DIOPROTOCOLCLI::Clean()
   xmutexanswers         = NULL;
 }
 
+
 #pragma endregion
+
+
+#pragma endregion
+

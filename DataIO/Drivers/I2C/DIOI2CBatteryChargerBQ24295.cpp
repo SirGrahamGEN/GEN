@@ -5,7 +5,7 @@
 * @class      DIOI2CBATTERYCHARGERBQ24295
 * @brief      Data Input/output Battery Charger BQ24295 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CBatteryChargerBQ24295.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -47,32 +53,34 @@
 
 #include "DIOGPIO.h"
 
-#include "DIOI2CBatteryChargerBQ24295.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
+* @fn         DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295()
 * @brief      Constructor
-* @ingroup    
-*
-* @param[in]  ) : 
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -93,8 +101,6 @@ DIOI2CBATTERYCHARGERBQ24295::~DIOI2CBATTERYCHARGERBQ24295()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2CBATTERYCHARGERBQ24295::GetGPIOEntryID(int indexentry)
@@ -113,7 +119,6 @@ XDWORD DIOI2CBATTERYCHARGERBQ24295::GetGPIOEntryID(int indexentry)
     
   return GPIOentryID[indexentry];
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -137,7 +142,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::SetGPIOEntryID(int indexentry, XDWORD GPIOentr
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -165,8 +169,6 @@ void DIOI2CBATTERYCHARGERBQ24295::Update()
         
   if(((read_reg_status >> 4) & 0x03) == 0x03) fullycharge = true;          
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -197,8 +199,6 @@ void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
@@ -215,8 +215,6 @@ void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
   // Shipping Mode On
   GEN_DIOGPIO.SetValue(GPIOentryID[DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_QON]      , true);     
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -248,7 +246,6 @@ void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::IsBatteryFullyCharged()
@@ -262,8 +259,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::IsBatteryFullyCharged()
 {
   return fullycharge;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -281,8 +276,6 @@ XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::End()
@@ -298,9 +291,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::End()
 
   return true;
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -330,7 +320,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
@@ -342,7 +331,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
 {
-
   // Charger GPIO Inputs
   GEN_DIOGPIO.SetMode(GPIOentryID[DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_STAT]  , DIOGPIO_MODE_INPUT);          
             
@@ -358,7 +346,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
       interrupt->SetIntParamPointer((void*)this);      
       GEN_DIOGPIO.SetMode(GPIOentryID[DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_INT], DIOGPIO_MODE_INTERRUPT); 
     }
- 
           
   // Charger disabled
   GEN_DIOGPIO.SetValue(GPIOentryID[DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_CE]  , true);                     
@@ -380,8 +367,7 @@ bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
   read_reg |= 0x02;
           
   if(!WriteRegister(DIOI2CBATTERYCHARGERBQ24295_INPUT_SRC_CTRL_REG00, read_reg))        return false;
-          
-          
+                   
   // Disable the charger watchdog timer and the safety timer
   if(!ReadRegister(DIOI2CBATTERYCHARGERBQ24295_CHRG_TERM_TIMER_CTRL_REG05, read_reg))   return false;
           
@@ -391,9 +377,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
                                 
   return true;  
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -412,9 +395,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -448,9 +428,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
@@ -467,8 +444,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -501,7 +476,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
@@ -517,7 +491,6 @@ void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 {
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -543,21 +516,5 @@ void DIOI2CBATTERYCHARGERBQ24295::Clean()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pragma endregion
 

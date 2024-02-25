@@ -31,32 +31,41 @@
 #define _DIOLIGHTSENSORLDRANALOG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
+#include "XTreadCollected.h"
 
 #include "DIODevice.h"
 #include "DIOGPIO.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
-class XFACTORY;
+
 class XTIMER;
-class XTHREADCOLLECTED;
 class XMUTEX;
 class DIOGPIO;
 
 class DIOLIGHTSENSORLDRANALOG :  public DIODEVICE
 {
   public:
-                          DIOLIGHTSENSORLDRANALOG       ( DIOGPIO* diogpio, int pindata, bool activatecache);
+                          DIOLIGHTSENSORLDRANALOG       (DIOGPIO* diogpio, int pindata, bool activatecache);
     virtual              ~DIOLIGHTSENSORLDRANALOG       ();
 
     bool                  Ini                           ();
 
-    int                   GetPinData                    ()                                { return pindata;                   }
+    int                   GetPinData                    ();
 
     bool                  ReadFromCache                 (XDWORD& level);
     bool                  ReadDirect                    (XDWORD& level);
@@ -65,7 +74,7 @@ class DIOLIGHTSENSORLDRANALOG :  public DIODEVICE
 
   private:
  
-    static void           ThreadRunFunction           (void* param);
+    static void           ThreadRunFunction             (void* param);
     
     void                  Clean                         ();
 
@@ -80,6 +89,16 @@ class DIOLIGHTSENSORLDRANALOG :  public DIODEVICE
     XDWORD                levelcache;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

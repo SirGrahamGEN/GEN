@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOProtocol.cpp
-*
+* 
 * @class      DIOPROTOCOL
 * @brief      Data Input/Output Generic Binary Protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOProtocol.h"
 
 #include <stdarg.h>
 #include <string.h>
@@ -58,20 +64,22 @@
 #include "DIOProtocol_ApplicationData.h"
 #include "DIOProtocol_XEvent.h"
 
-#include "DIOProtocol.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL_ANSWER                                                                                                 */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOPROTOCOL_ANSWER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -95,9 +103,7 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
   this->ID      = ID;
 
   if(!xbuffer.IsEmpty()) this->xbuffer.Add(xbuffer);
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -116,7 +122,6 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_ANSWER::GetType()
@@ -130,7 +135,6 @@ XDWORD DIOPROTOCOL_ANSWER::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -148,7 +152,6 @@ XDWORD DIOPROTOCOL_ANSWER::GetID()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
@@ -162,7 +165,6 @@ XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
 {
   return xbuffer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -182,14 +184,11 @@ void DIOPROTOCOL_ANSWER::Clean()
 }
 
 
-
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL_COMMAND                                                                                                */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
 
+#pragma region CLASS_DIOPROTOCOL_COMMAND
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -220,25 +219,20 @@ DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outm
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-*  @fn         DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
-*  @brief      Destructor
-*  @note       VIRTUAL
-*  @ingroup    DATAIO
-*
-*  ""
-*  ""
-*
-*  @return     Does not return anything.
-*
+* 
+* @fn         DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -256,7 +250,6 @@ XDWORD DIOPROTOCOL_COMMAND::GetType()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
@@ -270,7 +263,6 @@ XCHAR* DIOPROTOCOL_COMMAND::GetINMask()
 {
   return inmask.Get();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -288,7 +280,6 @@ XCHAR* DIOPROTOCOL_COMMAND::GetOUTMask()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
@@ -302,7 +293,6 @@ DIOPROTOCOL_RECEIVEDFUNC DIOPROTOCOL_COMMAND::GetReceivedFunc()
 {
   return receivedfunc;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -350,7 +340,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSOUTMask()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
@@ -364,7 +353,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
 {
   return &description;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -390,12 +378,10 @@ void DIOPROTOCOL_COMMAND::Clean()
 }
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL_FILE                                                                                                   */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_DIOPROTOCOL_FILE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -413,7 +399,6 @@ DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
 
   GEN_XFACTORY_CREATE(xfile, Create_File())
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -434,7 +419,6 @@ DIOPROTOCOL_FILE::~DIOPROTOCOL_FILE()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::IsActive()
@@ -448,7 +432,6 @@ bool DIOPROTOCOL_FILE::IsActive()
 {
   return isactive;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -468,7 +451,6 @@ void DIOPROTOCOL_FILE::SetActive(bool isactive)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
@@ -482,7 +464,6 @@ DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
 {
   return direction;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -502,7 +483,6 @@ void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_FILE::GetSourceName()
@@ -516,7 +496,6 @@ XPATH* DIOPROTOCOL_FILE::GetSourceName()
 {
   return &sourcename;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -538,7 +517,6 @@ bool DIOPROTOCOL_FILE::SetSourceName(XCHAR* sourcename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetSourceName(XSTRING& sourcename)
@@ -556,7 +534,6 @@ bool DIOPROTOCOL_FILE::SetSourceName(XSTRING& sourcename)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_FILE::GetTargetName()
@@ -570,7 +547,6 @@ XPATH* DIOPROTOCOL_FILE::GetTargetName()
 {
   return &targetname;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -592,7 +568,6 @@ bool DIOPROTOCOL_FILE::SetTargetName(XCHAR* targetname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_FILE::SetTargetName(XSTRING& targetname)
@@ -610,7 +585,6 @@ bool DIOPROTOCOL_FILE::SetTargetName(XSTRING& targetname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_FILE::GetSize()
@@ -624,7 +598,6 @@ XQWORD DIOPROTOCOL_FILE::GetSize()
 {
   return size;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -644,7 +617,6 @@ void DIOPROTOCOL_FILE::SetSize(XQWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_FILE::GetCRC32()
@@ -658,7 +630,6 @@ XDWORD DIOPROTOCOL_FILE::GetCRC32()
 {
   return crc32;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -678,7 +649,6 @@ void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_FILE::GetSizeBlock()
@@ -692,7 +662,6 @@ int DIOPROTOCOL_FILE::GetSizeBlock()
 {
   return sizeblock;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -712,7 +681,6 @@ void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_FILE::GetPosition()
@@ -726,7 +694,6 @@ XQWORD DIOPROTOCOL_FILE::GetPosition()
 {
   return position;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -746,7 +713,6 @@ void DIOPROTOCOL_FILE::SetPosition(XQWORD position)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOPROTOCOL_FILE::GetPercent()
@@ -760,7 +726,6 @@ XBYTE DIOPROTOCOL_FILE::GetPercent()
 {
   return percent;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -778,7 +743,6 @@ void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
 {
   this->percent = percent;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -821,21 +785,17 @@ bool DIOPROTOCOL_FILE::ReadBlock(XBYTE* buffer)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL_FILE::WriteBlock
-*/
-/**
-//
-//
-//  ""
-//  @version      18/01/2008 17:52:23
-//
-//  @return       bool :
-//  @param        buffer :
-//  @param        init :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL_FILE::WriteBlock(XBYTE* buffer)
+* @brief      WriteBlock
+* @ingroup    DATAIO
+* 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_FILE::WriteBlock(XBYTE* buffer)
 {
   if(!xfile)         return false;
@@ -873,20 +833,15 @@ bool DIOPROTOCOL_FILE::WriteBlock(XBYTE* buffer)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL_FILE::Erase
-*/
-/**
-//
-//
-//  ""
-//  @version      19/01/2008 10:45:17
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL_FILE::Erase()
+* @brief      Erase
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_FILE::Erase()
 {
   if(!xfile)         return false;
@@ -896,7 +851,6 @@ bool DIOPROTOCOL_FILE::Erase()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -917,7 +871,6 @@ void DIOPROTOCOL_FILE::Reset()
   position        = 0;
   percent         = 0;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -945,12 +898,10 @@ void DIOPROTOCOL_FILE::Clean()
 }
 
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL                                                                                                        */
-/*--------------------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
 
+#pragma region CLASS_DIOPROTOCOL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1037,7 +988,6 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL::~DIOPROTOCOL()
@@ -1094,41 +1044,30 @@ DIOPROTOCOL::~DIOPROTOCOL()
 }
 
 
-
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         XSTRING* DIOPROTOCOL::GetDescription()
- *  @brief      GetDescription
- *  @ingroup    DATAIO
- *
- *  ""
- *  ""
- *
- *  @return     XSTRING* :
- *
- * --------------------------------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOPROTOCOL::GetDescription()
+* @brief      GetDescription
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* DIOPROTOCOL::GetDescription()
- {
-   return &description;
- }
+{
+  return &description;
+}
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL::Connect
-*/
-/**
-//
-//
-//  ""
-//  @version      28/01/2008 10:01:11
-//
-//  @return       bool :
-//  @param        password :
-//  @param        cipher :
-//  @param        authenticatekey :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::Connect()
+* @brief      Connect
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::Connect()
 {
   if(!diostream)              return false;
@@ -1140,18 +1079,15 @@ bool DIOPROTOCOL::Connect()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOPROTOCOL::Disconnect
-/**
-//
-//
-//  ""
-//  @version      16/04/2006 12:53:44
-//
-//  @return       bool :
-//  */
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::Disconnect()
+* @brief      Disconnect
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::Disconnect()
 {
   if(!diostream) return false;
@@ -1162,19 +1098,15 @@ bool DIOPROTOCOL::Disconnect()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL::Reset
-*/
-/**
-//
-//
-//  ""
-//  @version      15/02/2008 11:01:45
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::Reset()
+* @brief      Reset
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::Reset()
 {
   if(!Disconnect()) return false;
@@ -1183,20 +1115,15 @@ bool DIOPROTOCOL::Reset()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL::IsConnected
-*/
-/**
-//
-//
-//  ""
-//  @version      15/01/2008 19:49:37
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsConnected()
+* @brief      IsConnected
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsConnected()
 {
   if(!diostream)                                                    return false;
@@ -1206,19 +1133,15 @@ bool DIOPROTOCOL::IsConnected()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL::IsConnecting
-*/
-/**
-//
-//
-//  ""
-//  @version      17/01/2008 10:20:50
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsConnecting()
+* @brief      IsConnecting
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsConnecting()
 {
   if(!diostream)                                                       return false;
@@ -1228,19 +1151,15 @@ bool DIOPROTOCOL::IsConnecting()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOPROTOCOL::IsDisconnected
-*/
-/**
-//
-//
-//  ""
-//  @version      15/02/2008 10:52:21
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsDisconnected()
+* @brief      IsDisconnected
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsDisconnected()
 {
   if(!diostream)                                                      return false;
@@ -1250,22 +1169,62 @@ bool DIOPROTOCOL::IsDisconnected()
 }
 
 
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsInitialized()
+* @brief      IsInitialized
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsInitialized()
 {
   return isinitialized;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOPROTOCOL::SetIsInitialized(bool isinitialized)
+* @brief      SetIsInitialized
+* @ingroup    DATAIO
+* 
+* @param[in]  isinitialized : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetIsInitialized(bool isinitialized)
 {
   this->isinitialized = isinitialized;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsServerInitialized()
+* @brief      IsServerInitialized
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsServerInitialized()
 {
   return isserverinitialized;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOPROTOCOL::IsOperational()
+* @brief      IsOperational
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL::IsOperational()
 {
   if(!IsConnected())    return false;
@@ -1273,7 +1232,6 @@ bool DIOPROTOCOL::IsOperational()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1289,7 +1247,6 @@ XDWORD DIOPROTOCOL::GetMaskID()
 {
   return maskID;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1310,7 +1267,6 @@ bool DIOPROTOCOL::SetMaskID(XDWORD maskID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetConnectionsManager()
@@ -1324,7 +1280,6 @@ void* DIOPROTOCOL::GetConnectionsManager()
 {
   return connectionsmanager;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1344,7 +1299,6 @@ void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetConnection()
@@ -1358,7 +1312,6 @@ void* DIOPROTOCOL::GetConnection()
 {
   return connection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1378,7 +1331,6 @@ void DIOPROTOCOL::SetConnection(void* connection)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL::GetApplicationData()
@@ -1392,7 +1344,6 @@ void* DIOPROTOCOL::GetApplicationData()
 {
   return applicationdata;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1412,7 +1363,6 @@ void DIOPROTOCOL::SetApplicationData(void* applicationdata)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::IsOwnApplicationData()
@@ -1426,7 +1376,6 @@ bool DIOPROTOCOL::IsOwnApplicationData()
 {
   return isownapplicationdata;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1446,7 +1395,6 @@ void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOPROTOCOL::GetDIOStream()
@@ -1462,7 +1410,6 @@ DIOSTREAM* DIOPROTOCOL::GetDIOStream()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDATETIME* DIOPROTOCOL::GetDateTime()
@@ -1476,7 +1423,6 @@ XDATETIME* DIOPROTOCOL::GetDateTime()
 {
   return xdatetime;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1505,7 +1451,6 @@ bool DIOPROTOCOL::AddCommand(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROT
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_COMMAND* DIOPROTOCOL::GetCommand(XDWORD type)
@@ -1532,7 +1477,6 @@ DIOPROTOCOL_COMMAND* DIOPROTOCOL::GetCommand(XDWORD type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAnswer(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
@@ -1557,7 +1501,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAnswer(XDWORD type, XDWORD ID, XBUFFER& xbuf
 
   return answer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1591,7 +1534,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAnswer(XDWORD type, XDWORD ID)
 
   return answer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1631,7 +1573,6 @@ bool DIOPROTOCOL::DeleteAnswer(XDWORD type, XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllAnswers()
@@ -1661,7 +1602,6 @@ bool DIOPROTOCOL::DeleteAllAnswers()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAsk(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
@@ -1688,7 +1628,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::AddAsk(XDWORD type, XDWORD ID, XBUFFER& xbuffer
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAsk(XDWORD index)
@@ -1710,7 +1649,6 @@ DIOPROTOCOL_ANSWER* DIOPROTOCOL::GetAsk(XDWORD index)
 
   return ask;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1741,7 +1679,6 @@ bool DIOPROTOCOL::DeleteAsk(XDWORD index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllAsks()
@@ -1769,7 +1706,6 @@ bool DIOPROTOCOL::DeleteAllAsks()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1861,7 +1797,6 @@ int DIOPROTOCOL::ReadCommand(XDWORD& type, XDWORD& ID, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_RESULT DIOPROTOCOL::Received()
@@ -1921,7 +1856,6 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::Received()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_RESULT DIOPROTOCOL::ReceivedHandle(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
@@ -1972,7 +1906,6 @@ DIOPROTOCOL_RESULT DIOPROTOCOL::ReceivedHandle(XDWORD type, XDWORD ID, XBUFFER& 
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2056,7 +1989,6 @@ bool DIOPROTOCOL::SendCommand(XDWORD type, XDWORD& ID, XBUFFER& xbuffer)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2158,7 +2090,6 @@ bool DIOPROTOCOL::Command(XDWORD type, XBUFFER& xbuffer, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendEvent(DIOPROTOCOL_XEVENT_TYPE type, DIOPROTOCOL* protocol)
@@ -2180,7 +2111,6 @@ bool DIOPROTOCOL::SendEvent(DIOPROTOCOL_XEVENT_TYPE type, DIOPROTOCOL* protocol)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2217,7 +2147,6 @@ bool DIOPROTOCOL::SendEventCommand(DIOPROTOCOL* protocol, DIOPROTOCOL_DIRECTION 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fileissend, XPATH* filesource, XPATH* filetarget, int filepercent, void* param)
@@ -2252,7 +2181,6 @@ bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fil
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
@@ -2272,7 +2200,6 @@ void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD
   subversion      = this->protocolsubversion;
   subversionerr   = this->protocolsubversionerr;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2296,7 +2223,6 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
@@ -2316,7 +2242,6 @@ void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDW
   subversion      = this->applicationsubversion;
   subversionerr   = this->applicationsubversionerr;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2340,7 +2265,6 @@ void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL::GetApplicationName()
@@ -2354,7 +2278,6 @@ XSTRING* DIOPROTOCOL::GetApplicationName()
 {
   return &applicationname;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2395,7 +2318,6 @@ bool DIOPROTOCOL::SetFileProgress(DIOPROTOCOL_DIRECTION direction, XPATH& source
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILE* DIOPROTOCOL::GetFileProgress()
@@ -2409,7 +2331,6 @@ DIOPROTOCOL_FILE* DIOPROTOCOL::GetFileProgress()
 {
   return fileprogress;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2427,7 +2348,6 @@ XPATH* DIOPROTOCOL::GetPathSearch()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIRELEMENT* DIOPROTOCOL::GetSearchElement()
@@ -2443,7 +2363,6 @@ XDIRELEMENT* DIOPROTOCOL::GetSearchElement()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDIR* DIOPROTOCOL::GetXDir()
@@ -2457,7 +2376,6 @@ XDIR* DIOPROTOCOL::GetXDir()
 {
   return xdir;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2496,7 +2414,6 @@ bool DIOPROTOCOL::CMD_GetProtocolVersion(XWORD& version, XWORD& subversion, XWOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2518,7 +2435,6 @@ int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 
   return xbuffer.AddWithMask(cmd->GetSOUTMask(),  protocol->protocolversion,  protocol->protocolsubversion,  protocol->protocolsubversionerr);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2557,7 +2473,6 @@ bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, X
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2579,7 +2494,6 @@ int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_CO
 
   return xbuffer.AddWithMask(cmd->GetSOUTMask(),  protocol->applicationversion,  protocol->applicationsubversion,  protocol->applicationsubversionerr);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2613,7 +2527,6 @@ bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetApplicationName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2634,7 +2547,6 @@ int DIOPROTOCOL::RCV_GetApplicationName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), &protocol->applicationname);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2674,7 +2586,6 @@ bool DIOPROTOCOL::CMD_Ping(XDWORD& milliseconds, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_Ping(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2698,7 +2609,6 @@ int DIOPROTOCOL::RCV_Ping(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFF
 
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), result);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2732,8 +2642,6 @@ bool DIOPROTOCOL::CMD_SendIsInitServerProtocol(bool isinit)
 
   return result;
 }
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -2769,7 +2677,6 @@ int DIOPROTOCOL::RCV_SendIsInitServerProtocol(DIOPROTOCOL* protocol, DIOPROTOCOL
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_GetDateTime(XSTRING& datestring)
@@ -2802,7 +2709,6 @@ bool DIOPROTOCOL::CMD_GetDateTime(XSTRING& datestring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2828,7 +2734,6 @@ int DIOPROTOCOL::RCV_GetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), &datestring);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2868,7 +2773,6 @@ bool DIOPROTOCOL::CMD_SetDateTime(XCHAR* datestring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_SetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -2900,7 +2804,6 @@ int DIOPROTOCOL::RCV_SetDateTime(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), result);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2986,7 +2889,6 @@ bool DIOPROTOCOL::CMD_File(DIOPROTOCOL_DIRECTION direction, XCHAR* sourcename, X
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::CMD_DeleteFile(XCHAR* namefile, bool overwrite)
@@ -3026,7 +2928,6 @@ bool DIOPROTOCOL::CMD_DeleteFile(XCHAR* namefile, bool overwrite)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_DeleteFile(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -3061,7 +2962,6 @@ int DIOPROTOCOL::RCV_DeleteFile(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd,
 
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), result);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3102,7 +3002,6 @@ bool DIOPROTOCOL::CMD_MakeDir(XCHAR* namedir)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_MakeDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -3130,8 +3029,6 @@ int DIOPROTOCOL::RCV_MakeDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XB
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), result);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3173,7 +3070,6 @@ bool DIOPROTOCOL::CMD_DeleteDir(XCHAR* namedir, bool all)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_DeleteDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -3202,7 +3098,6 @@ int DIOPROTOCOL::RCV_DeleteDir(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), 0, result);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3254,7 +3149,6 @@ bool DIOPROTOCOL::CMD_GetDirElement(XCHAR* pathsearch, XCHAR* mask, XPATH& namef
 
   return result?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3319,7 +3213,6 @@ int DIOPROTOCOL::RCV_GetDirElement(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL::DeleteAllCommands()
@@ -3338,7 +3231,6 @@ bool DIOPROTOCOL::DeleteAllCommands()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3378,7 +3270,6 @@ XDWORD DIOPROTOCOL::CRC32OfFile(XPATH& xpath)
 
   return value;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3422,7 +3313,6 @@ bool DIOPROTOCOL::CMD_InitFileBlock(DIOPROTOCOL_FILE* fp)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_InitFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -3460,7 +3350,6 @@ int DIOPROTOCOL::RCV_InitFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), result);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3533,7 +3422,6 @@ bool DIOPROTOCOL::CMD_GetFileBlock(DIOPROTOCOL_FILE* fp)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL::RCV_GetFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
@@ -3599,7 +3487,6 @@ int DIOPROTOCOL::RCV_GetFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cm
 
   return ssize;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3670,7 +3557,6 @@ bool DIOPROTOCOL::CMD_SendFileBlock(DIOPROTOCOL_FILE* fp)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3748,9 +3634,7 @@ int DIOPROTOCOL::RCV_SendFileBlock(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* c
 }
 
 
-
 #ifdef DIO_ALERTS_ACTIVE
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -3800,7 +3684,6 @@ bool DIOPROTOCOL::CMD_SendAlert(DIOALERT* alert)
 
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3895,7 +3778,6 @@ int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL::ThreadReceived(void* param)
@@ -3925,7 +3807,6 @@ void DIOPROTOCOL::ThreadReceived(void* param)
         }
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -3968,7 +3849,6 @@ void DIOPROTOCOL::ThreadAsks(void* param)
         }
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -4027,4 +3907,9 @@ void DIOPROTOCOL::Clean()
   xthreadasks                   = NULL;
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2CAirQualityCCS811.cpp
-*
+* 
 * @class      DIOI2CAIRQUALITYCCS811
-* @brief      Data Input/Output I2C Sensor CCS811 class (Air Quality)
+* @brief      Data Input/Output I2C Sensor CCS811 (Air Quality) class 
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CAirQualityCCS811.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -45,14 +51,19 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-#include "DIOI2CAirQualityCCS811.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,7 +82,6 @@ DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
@@ -88,7 +98,6 @@ DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -112,7 +121,6 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_ID(XBYTE& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
@@ -132,8 +140,6 @@ bool DIOI2CAIRQUALITYCCS811::GetHW_Version(XBYTE& hwversion)
 
   return ReadRegister(DIOI2CAIRQUALITYCCS811_OFFSET_HW_VERSION, hwversion);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -165,7 +171,6 @@ bool DIOI2CAIRQUALITYCCS811::GetBoot_Version(XWORD& bootversion)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
@@ -195,7 +200,6 @@ bool DIOI2CAIRQUALITYCCS811::GetApp_Version(XWORD& appversion)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::ResetDevice()
@@ -220,7 +224,6 @@ bool DIOI2CAIRQUALITYCCS811::ResetDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBYTE DIOI2CAIRQUALITYCCS811::GetStatus()
@@ -241,7 +244,6 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatus(XBYTE& sensorstatus)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::IsAppValid()
@@ -259,7 +261,6 @@ bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 
   return (sensorstatus & (0x01 << 4))?true:false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +284,6 @@ bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
@@ -301,8 +301,6 @@ bool DIOI2CAIRQUALITYCCS811::HaveStatusError()
 
   return (sensorstatus & (0x01 << 0))?true:false;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -323,8 +321,6 @@ XBYTE DIOI2CAIRQUALITYCCS811::GetStatusErrorCode()
 
   return value;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -349,8 +345,6 @@ XWORD DIOI2CAIRQUALITYCCS811::GetBaseline()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
@@ -371,7 +365,6 @@ bool DIOI2CAIRQUALITYCCS811::SetBaseline(XWORD baseline)
 
   return WriteRegister(DIOI2CAIRQUALITYCCS811_OFFSET_SW_RESET, data, sizeof(data));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -405,7 +398,6 @@ bool DIOI2CAIRQUALITYCCS811::SetDriveMode(XBYTE mode)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -462,7 +454,6 @@ bool DIOI2CAIRQUALITYCCS811::SetEnvironmentalData(float relativehumidity, float 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
@@ -476,7 +467,6 @@ float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 {
   return referenceresistance;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -494,7 +484,6 @@ void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 {
   this->referenceresistance = referenceresistance;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -529,7 +518,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -568,7 +556,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool active)
@@ -602,7 +589,6 @@ bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::End()
@@ -618,8 +604,6 @@ bool DIOI2CAIRQUALITYCCS811::End()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -657,7 +641,6 @@ bool DIOI2CAIRQUALITYCCS811::IniDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE data)
@@ -674,7 +657,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -708,8 +690,6 @@ bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE* data, XDWORD size
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
@@ -726,7 +706,6 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -759,7 +738,6 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD siz
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CAIRQUALITYCCS811::Clean()
@@ -776,21 +754,5 @@ void DIOI2CAIRQUALITYCCS811::Clean()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pragma endregion
 

@@ -3,7 +3,7 @@
 * @file       DIONodeItemValue.h
 * 
 * @class      DIONODEITEMVALUE
-* @brief      Data Input/Output Node Item Value 
+* @brief      Data Input/Output Node Item Value class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,13 +30,18 @@
 #define _DIONODEITEMVALUE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVariant.h"
 #include "XSerializable.h"
 
 #include "DIONodeItemValueUnitFormat.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIONODEITEMVALUE_MODE
 {
@@ -60,7 +65,13 @@ enum DIONODEITEMVALUE_TYPE
   DIONODEITEMVALUE_TYPE_OWNER                 ,
 };
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+class XDATETIME;
 
 class DIONODEITEMVALUE : public XSERIALIZABLE
 {
@@ -109,10 +120,18 @@ class DIONODEITEMVALUE : public XSERIALIZABLE
     DIONODEITEMVALUEUNITFORMAT          unitformat;
     
     XDATETIME*                          datetime;
-
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPILCDDisplayPCF8833.cpp
-*
+* 
 * @class      DIOSPILCDDISPLAYPCF8833
-* @brief      Data Input/Output SPI Display LCD Philips PCF8833
+* @brief      Data Input/Output SPI Display LCD Philips PCF8833 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSPILCDDisplayPCF8833.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -41,26 +47,32 @@
 #include "DIOStreamSPIConfig.h"
 #include "DIOStreamSPI.h"
 
-#include "DIOSPILCDDisplayPCF8833.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833() : DIODEVICESPI()
+* 
+* @fn         DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type)
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-* @param[in]  ) :
-*
-* @return     Does not return anything.
-*
+* 
+* @param[in]  DIOSPILCDDISPLAYPCF8833_TYPE : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type) : DIODEVICESPI()
 {
@@ -68,7 +80,6 @@ DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE ty
 
   this->type = type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -87,7 +98,6 @@ DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,7 +152,6 @@ bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
@@ -156,7 +165,6 @@ bool DIOSPILCDDISPLAYPCF8833::IniDevice()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 {
-
   if(!IsInitialized()) return false;
 
   for(XDWORD i = 0; i <height; i++)
@@ -195,9 +203,7 @@ bool DIOSPILCDDISPLAYPCF8833::Clear(XWORD color)
 
   return Buffer_Send(databuffer);
   */
-
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -234,7 +240,6 @@ bool DIOSPILCDDISPLAYPCF8833::Update(XBYTE* buffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
@@ -265,7 +270,6 @@ bool DIOSPILCDDISPLAYPCF8833::PutPixel(XWORD x, XWORD y, XWORD color)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::End()
@@ -283,7 +287,6 @@ bool DIOSPILCDDISPLAYPCF8833::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -429,7 +432,6 @@ bool DIOSPILCDDISPLAYPCF8833::Initializate()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Reset()
@@ -451,7 +453,6 @@ bool DIOSPILCDDISPLAYPCF8833::Reset()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -510,9 +511,6 @@ bool DIOSPILCDDISPLAYPCF8833::SetWindow(XWORD x0, XWORD y0, XWORD x1, XWORD y1)
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD color)
@@ -548,8 +546,6 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD co
 
   return Buffer_Send(databuffer);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -592,7 +588,6 @@ bool DIOSPILCDDISPLAYPCF8833::Draw_HLine(XBYTE x, XBYTE y, XBYTE width, XWORD* b
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
@@ -612,7 +607,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_AjustWithNOP(XBUFFER& databuffer)
 
   return nbitsfree?false:true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -639,7 +633,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Send(XBUFFER& databuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete()
@@ -659,8 +652,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPILCDDISPLAYPCF8833::Clean()
@@ -675,3 +666,7 @@ void DIOSPILCDDISPLAYPCF8833::Clean()
 {
   type        = DIOSPILCDDISPLAYPCF8833_UNKNOWN;
 }
+
+
+#pragma endregion
+

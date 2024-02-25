@@ -3,7 +3,7 @@
 * @file       DIONodeItemHandler_GPIODigital.h
 * 
 * @class      DIONODEITEMHANDLER_GPIODIGITAL
-* @brief      Data Input/Output Node Item Handler GPIO Digital
+* @brief      Data Input/Output Node Item Handler GPIO Digital class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,16 +30,27 @@
 #define _DIONODEITEMHANDLER_GPIODIGITAL_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "DIONodeItemHandler.h"
-
-/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XList.h"
+#include "DIONodeItemHandler.h"
+
+#pragma endregion
+
+
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XTIMER;
+
 
 class DIONODEITEMHANDLER_ENTRYGPIO
 {
@@ -109,7 +120,18 @@ class DIONODEITEMHANDLER_GPIODIGITAL : public DIONODEITEMHANDLER
     XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>    entrysGPIO;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
+
 

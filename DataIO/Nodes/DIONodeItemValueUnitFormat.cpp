@@ -3,7 +3,7 @@
 * @file       DIONodeItemValueUnitFormat.cpp
 * 
 * @class      DIONODEITEMVALUEUNITFORMAT
-* @brief      Data Input/Output Node Item value unit format
+* @brief      Data Input/Output Node Item value unit format class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,22 +26,32 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIONodeItemValueUnitFormat.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -277,3 +287,7 @@ void DIONODEITEMVALUEUNITFORMAT::Clean()
 {
   type = DIONODEITEMVALUE_UNITSFORMAT_TYPE_UNKNOWN;
 }
+
+
+#pragma endregion
+

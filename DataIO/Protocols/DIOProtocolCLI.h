@@ -30,12 +30,18 @@
 #define _DIOPROTOCOLCLI_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XTimer.h"
 #include "XFSMachine.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOPROTOCOLCLI_ERROR
 {
@@ -63,9 +69,14 @@ enum DIOPROTOCOLCLI_ERROR
 
 #define DIOPROTOCOLCLI_TIMEOUT              5  //Seconds
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class DIOSTREAM;
 
 
@@ -166,6 +177,17 @@ class DIOPROTOCOLCLI
     XSTRING                               laststringreceived;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
+

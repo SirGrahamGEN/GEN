@@ -3,7 +3,7 @@
 * @file       DIONodeItemValue.cpp
 * 
 * @class      DIONODEITEMVALUE
-* @brief      Data Input/Output Node Item Value
+* @brief      Data Input/Output Node Item Value class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,24 +26,34 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFactory.h"
+#pragma region INCLUDES
 
 #include "DIONodeItemValue.h"
 
+#include "XFactory.h"
+
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -60,7 +70,6 @@ DIONODEITEMVALUE::DIONODEITEMVALUE()
   Clean();
 
   datetime = GEN_XFACTORY.CreateDateTime();
- 
 }
 
 
@@ -458,3 +467,7 @@ void DIONODEITEMVALUE::Clean()
 
   datetime    = NULL;
 }
+
+
+#pragma endregion
+

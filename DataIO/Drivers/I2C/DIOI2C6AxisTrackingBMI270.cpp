@@ -3,9 +3,9 @@
 * @file       DIOI2C6AxisTrackingBMI270.cpp
 * 
 * @class      DIOI2C6AXISTRACKINGBMI270
-* @brief      
+* @brief      Data Input/Output I2C 6 AXIS Tracking BMI270 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,15 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
+#include "DIOI2C6AxisTrackingBMI270.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -47,11 +52,13 @@
 #include "DIOStreamI2C.h"
 #include "DIOGPIO.h"
 
-#include "DIOI2C6AxisTrackingBMI270.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 
 /*! @name  Global array that stores the feature input configuration of BMI270 */
@@ -540,21 +547,22 @@ const XBYTE bmi270_config_file[]                                                
                                                                                                 0x2e, 0x00, 0xc1
                                                                                             };
 
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
+* @fn         DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270()
 * @brief      Constructor
-* @ingroup    
-*
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 {
   Clean();
@@ -566,18 +574,17 @@ DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 * @fn         DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
 {
   End();
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -593,8 +600,6 @@ XDWORD DIOI2C6AXISTRACKINGBMI270::GetGPIOInterruptEntryID()
 {
   return GPIOinterruptentryID;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -614,7 +619,6 @@ bool DIOI2C6AXISTRACKINGBMI270::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -649,17 +653,15 @@ void DIOI2C6AXISTRACKINGBMI270::SetIsNecessaryUpdate(bool isnecessaryupdate)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOI2C6AXISTRACKINGBMI270::Update()
-* @brief      UpdateDevice
-* @ingroup    
-*
-* @return     void : does not return anything. 
+* @fn         XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
+* @brief      Update
+* @ingroup    DATAIO
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
 {
   XBYTE ret_value = 0xFF;
@@ -677,8 +679,10 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
   rslt = bmi2_get_int_status(&int_status, &bmi2_dev);
   bmi2_error_codes_print_result(rslt);
 	
-	
-  if(prev_status != -1 && int_status == prev_status || (int_status&0xFF) == 0)  return ret_value;
+  if(prev_status != -1 && int_status == prev_status || (int_status&0xFF) == 0)  
+    {
+      return ret_value;
+    }
 
   // To check the interrupt status of any-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_ANY_MOT_STATUS_MASK)
@@ -686,29 +690,29 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Any-motion interrupt is generated"));         
       any_motion          = 1;       
     }
-    else
+   else
     {
       any_motion          = 0;       
     }	    
     
-  /* To check the interrupt status of no-motion. */
+  // To check the interrupt status of no-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_NO_MOT_STATUS_MASK)
     {      
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] No-motion interrupt is generated"));       
       no_motion           = 1;      
     }
-    else
+   else
     {
       no_motion           = 0;          
     }		
     
-  /* To check the interrupt status of no-motion. */
+  // To check the interrupt status of no-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_SIG_MOT_STATUS_MASK)
     {
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Significant motion interrupt is generated"));  
       sig_motion          = 1;      
     }
-    else
+   else
     {
       sig_motion          = 0;      
     }		
@@ -718,7 +722,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
       XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Counter interrupt is generated"));       
       step_event          = 1;      
     }
-    else
+   else
     {
       step_event          = 0;      
     }		
@@ -736,77 +740,72 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
 * @brief      GetSetAnyMove
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetSetAnyMove()
 {
   XBYTE any_motion_ = any_motion;
   
   if(any_motion)
+    {
       any_motion          = 0;  
+    }
   
-  return any_motion_;
-  
+  return any_motion_; 
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
 * @brief      GetSignificantMotion
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetSignificantMotion()
 {
   XBYTE sig_motion_ = sig_motion;
   
   if(sig_motion)
-  {
-    sig_motion            = 0;  
-    any_motion            = 0;
-  }
-      
-  
-  return sig_motion_;  
-  
+    {
+      sig_motion            = 0;  
+      any_motion            = 0;
+    }
+        
+  return sig_motion_;    
 }
+
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
 * @brief      GetStep_AddOne
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
-{
-  
+{  
   XBYTE step_event_ = step_event;
   
   if(step_event)
-  {
+    {
       step_event          = 0;
       any_motion          = 0;
-  }        
+    }        
   
   return step_event_; 
-
 }
 
 
@@ -814,67 +813,60 @@ bool DIOI2C6AXISTRACKINGBMI270::GetStep_AddOne()
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
 * @brief      GetTap_AddOne
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetTap_AddOne()
 {
 
   XBYTE tap_event_ = tap_event;
   
   if(tap_event)
-  {
+    {
       any_motion          = 0;    
       tap_event           = 0;  
-  }
-  
-  
-  return tap_event_;     
+    }
     
+  return tap_event_;         
 }
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
 * @brief      GetHighGMotion
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetHighGMotion()
-{
-  
+{  
   XBYTE highGmotion_ = highGmotion;
   
   if(highGmotion)
-  {
+    {
       any_motion          = 0;    
       highGmotion         = 0;  
-  }
-  
-  
-  return highGmotion_;    
-  
+    }
+    
+  return highGmotion_;      
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 * @brief      GetLowGMotion
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 {
-
   XBYTE lowGmotion_ = lowGmotion;
   
   if(lowGmotion)
@@ -883,9 +875,7 @@ bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
       lowGmotion            = 0;  
     }
       
-  
-  return lowGmotion_;   
-  
+  return lowGmotion_;     
 }
 
 
@@ -893,21 +883,21 @@ bool DIOI2C6AXISTRACKINGBMI270::GetLowGMotion()
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
 * @brief      GetNotMove
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::GetNotMove()
 {
-//  XBYTE no_motion_ = no_motion;
-//  
-//  if(no_motion)
-//      no_motion           = 0;  
-//  
-//  return no_motion_;    
-  return 0;    
-  
+  //  XBYTE no_motion_ = no_motion;
+  //  
+  //  if(no_motion)
+  //      no_motion           = 0;  
+  //  
+  //  return no_motion_;    
+
+  return 0;      
 }
  
 
@@ -926,8 +916,6 @@ bool DIOI2C6AXISTRACKINGBMI270::End()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -957,8 +945,6 @@ bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
@@ -970,11 +956,10 @@ bool DIOI2C6AXISTRACKINGBMI270::IniDevice()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
 {
-
-  /* Status of api are returned to this variable. */
+  // Status of api are returned to this variable. 
   XBYTE rslt;
 
-  /* Accel sensor and any-motion feature are listed in array. */
+  // Accel sensor and any-motion feature are listed in array. 
   sens_list[0] = BMI2_ACCEL;
   sens_list[1] = BMI2_NO_MOTION;
   sens_list[2] = BMI2_SIG_MOTION;
@@ -982,35 +967,35 @@ bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
   sens_list[4] = BMI2_STEP_DETECTOR;
   
 
-  /* Variable to get any-motion interrupt status. */
+  // Variable to get any-motion interrupt status. 
   //XWORD int_status = 0;
 
-  /* Interface reference is given as a parameter
-   * For I2C : BMI2_I2C_INTF
-   * For SPI : BMI2_SPI_INTF
-   */
+  // Interface reference is given as a parameter
+  // For I2C : BMI2_I2C_INTF
+  // For SPI : BMI2_SPI_INTF
+   
   rslt = bmi2_interface_init(&bmi2_dev, BMI2_I2C_INTF);
   bmi2_error_codes_print_result(rslt);
 
-  /* Initialize bmi270. */
+  // Initialize bmi270. 
   rslt = bmi270_init(&bmi2_dev);
   bmi2_error_codes_print_result(rslt);
 
-  if (rslt == BMI2_OK)
+  if(rslt == BMI2_OK)
     {
-        /* Enable the selected sensors. */
+        // Enable the selected sensors. 
         rslt = bmi270_sensor_enable(sens_list, 5, &bmi2_dev);        
         bmi2_error_codes_print_result(rslt);
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
           {
-              /* Set feature configurations */
+              // Set feature configurations 
               rslt = SetFeatureConfig(&bmi2_dev);
               bmi2_error_codes_print_result(rslt);
 
-              if (rslt == BMI2_OK)
+              if(rslt == BMI2_OK)
                 {
-                    /* Map the feature interrupt. */
+                    // Map the feature interrupt. 
                     rslt = bmi270_map_feat_int(sens_int, 4, &bmi2_dev);
                     bmi2_error_codes_print_result(rslt);
                     
@@ -1028,30 +1013,24 @@ bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
   no_motion            = 0;
 
   //Enable interrupt pin
-  
-
-  
+   
   return rslt;
-
 }
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -1059,31 +1038,39 @@ bool DIOI2C6AXISTRACKINGBMI270::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
   bool status;
 
   status = diostream->Write(&offset, 1)?true:false;
-  if(status) status = diostream->WaitToFlushOutXBuffer(timeout);
+  if(status) 
+    {
+      status = diostream->WaitToFlushOutXBuffer(timeout);
+    }
 
-  if(!status) return false;
+  if(!status) 
+    {
+      return false;
+    }
 
   status = diostream->WaitToFilledReadingBuffer(sizedata, timeout);
-  if(status) status = (diostream->Read(data, sizedata) == sizedata)?true:false;
+  if(status) 
+    {
+      status = (diostream->Read(data, sizedata) == sizedata)?true:false;
+    }
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -1099,7 +1086,6 @@ bool DIOI2C6AXISTRACKINGBMI270::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1122,7 +1108,6 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_read(XBYTE reg_addr, X
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, const XBYTE* reg_data, XDWORD len, void* intf_ptr)
@@ -1143,33 +1128,27 @@ BMI2_INTF_RETURN_TYPE DIOI2C6AXISTRACKINGBMI270::bmi2_i2c_write(XBYTE reg_addr, 
 }
 
 
-
-
-
-
-/*!
- * @brief This internal API is used to set configurations for any-motion.
- */
- /**-------------------------------------------------------------------------------------------------------------------
- * 
- * @fn        XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev*bmi2_dev)
- * @brief     SetFeatureConfig
- * @ingroup   DATAIO
- * 
-   * 
- * @param[in] bmi2_dev*bmi2_dev : 
- * 
- * @return    XBYTESIG : 
- * 
- * ---------------------------------------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev*bmi2_dev)
+* @brief      SetFeatureConfig
+*             This internal API is used to set configurations for any-motion.
+*
+* @ingroup    DATAIO
+* 
+* @param[in]  bmi2_dev*bmi2_dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 {
 
-    /* Status of api are returned to this variable. */
-    XBYTESIG rslt;
+  /* Status of api are returned to this variable. */
+  XBYTESIG rslt;
 
-    /* Structure to define the type of sensor and its configurations. */
-    struct bmi2_sens_config config;
+  /* Structure to define the type of sensor and its configurations. */
+  struct bmi2_sens_config config;
     
 
     /**********************************************************************/    
@@ -1180,7 +1159,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 //    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
 //    bmi2_error_codes_print_result(rslt);
 //
-//    if (rslt == BMI2_OK)
+//    if(rslt == BMI2_OK)
 //      {
 //          /* NOTE: The user can change the following configuration parameters according to their requirement. */
 //          /* Set Output Data Rate */
@@ -1213,104 +1192,97 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 //      }
 //        
     
-		/**********************************************************************/
-    /* Configure the type of feature. */
-    config.type = BMI2_ANY_MOTION;
+	/**********************************************************************/
+  /* Configure the type of feature. */
+  config.type = BMI2_ANY_MOTION;
 
-    /* Get default configurations for the type of feature selected. */
-    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
-    bmi2_error_codes_print_result(rslt);
-    if (rslt == BMI2_OK)
-      {
-          /* NOTE: The user can change the following configuration parameters according to their requirement. */
-          /* 1LSB equals 20ms. Default is 100ms, setting to 80ms. */
-          config.cfg.any_motion.duration = 0x0A;//0x04;
+  /* Get default configurations for the type of feature selected. */
+  rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
+  bmi2_error_codes_print_result(rslt);
+  if(rslt == BMI2_OK)
+    {
+        /* NOTE: The user can change the following configuration parameters according to their requirement. */
+        /* 1LSB equals 20ms. Default is 100ms, setting to 80ms. */
+        config.cfg.any_motion.duration = 0x0A;//0x04;
 
-          /* 1LSB equals to 0.48mg. Default is 83mg, setting to 50mg. */
-          config.cfg.any_motion.threshold = 0x9C;//0x68;
+        /* 1LSB equals to 0.48mg. Default is 83mg, setting to 50mg. */
+        config.cfg.any_motion.threshold = 0x9C;//0x68;
 
-          /* Set new configurations. */
-          rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
-          bmi2_error_codes_print_result(rslt);
-      }
-		/**********************************************************************/		
-		/* Configure the type of feature. */
-    config.type = BMI2_NO_MOTION;
+        /* Set new configurations. */
+        rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
+        bmi2_error_codes_print_result(rslt);
+    }
+	/**********************************************************************/		
+	/* Configure the type of feature. */
+  config.type = BMI2_NO_MOTION;
 
-    /* Get default configurations for the type of feature selected. */
-    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
-    bmi2_error_codes_print_result(rslt);
-    if (rslt == BMI2_OK)
-      {
-          /* NOTE: The user can change the following configuration parameters according to their requirement. */
-          /* 1LSB equals 20ms. Default is 100ms, setting to 80ms. */
-          config.cfg.no_motion.duration = 0x04;
+  /* Get default configurations for the type of feature selected. */
+  rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
+  bmi2_error_codes_print_result(rslt);
+  if(rslt == BMI2_OK)
+    {
+        /* NOTE: The user can change the following configuration parameters according to their requirement. */
+        /* 1LSB equals 20ms. Default is 100ms, setting to 80ms. */
+        config.cfg.no_motion.duration = 0x04;
 
-          /* 1LSB equals to 0.48mg. Default is 83mg, setting to 50mg. */
-          config.cfg.no_motion.threshold = 0x68;
+        /* 1LSB equals to 0.48mg. Default is 83mg, setting to 50mg. */
+        config.cfg.no_motion.threshold = 0x68;
 
-          /* Set new configurations. */
-          rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
-          bmi2_error_codes_print_result(rslt);
-      }		
-		/**********************************************************************/		
-		/* Configure the type of feature. */
-    config.type = BMI2_STEP_DETECTOR;
+        /* Set new configurations. */
+        rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
+        bmi2_error_codes_print_result(rslt);
+    }		
+	/**********************************************************************/		
+	/* Configure the type of feature. */
+  config.type = BMI2_STEP_DETECTOR;
 
-    /* Get default configurations for the type of feature selected. */
-    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
-    bmi2_error_codes_print_result(rslt);
-    if (rslt == BMI2_OK)
-      {
-        //config.cfg.step_counter_params
+  /* Get default configurations for the type of feature selected. */
+  rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
+  bmi2_error_codes_print_result(rslt);
+  if(rslt == BMI2_OK)
+    {
+      //config.cfg.step_counter_params
 
-          /* Set new configurations. */
-          //rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
-          //bmi2_error_codes_print_result(rslt);
-      }				
+        /* Set new configurations. */
+        //rslt = bmi270_set_sensor_config(&config, 1, bmi2_dev);
+        //bmi2_error_codes_print_result(rslt);
+    }				
 		
-		/**********************************************************************/		
-		/* Configure the type of feature. */
-    config.type = BMI2_SIG_MOTION;
+	/**********************************************************************/		
+	/* Configure the type of feature. */
+  config.type = BMI2_SIG_MOTION;
 
-    /* Get default configurations for the type of feature selected. */
-    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
-    bmi2_error_codes_print_result(rslt);
-    if (rslt == BMI2_OK)
-      {
+  /* Get default configurations for the type of feature selected. */
+  rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
+  bmi2_error_codes_print_result(rslt);
+  if(rslt == BMI2_OK)
+    {
 
-      }		
+    }		
     
-		/**********************************************************************/		
-		/* Configure the type of feature. */
-//    config.type = BMI2_LOW_G;
-//
-//    /* Get default configurations for the type of feature selected. */
-//    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
-//    bmi2_error_codes_print_result(rslt); 
-//    if (rslt == BMI2_OK)
-//      {
-////        config.cfg.low_g.duration
-////        config.cfg.low_g.hysteresis
-////        config.cfg.low_g.threshold         
-//      
-//      }		
+	/**********************************************************************/		
+	/* Configure the type of feature. */
+  //    config.type = BMI2_LOW_G;
+  //
+  //    /* Get default configurations for the type of feature selected. */
+  //    rslt = bmi270_get_sensor_config(&config, 1, bmi2_dev);
+  //    bmi2_error_codes_print_result(rslt); 
+  //    if(rslt == BMI2_OK)
+  //      {
+  ////        config.cfg.low_g.duration
+  ////        config.cfg.low_g.hysteresis
+  ////        config.cfg.low_g.threshold         
+  //      
+  //      }		
 
-
-    return rslt;
+  return rslt;
 }
 
-
-
-
- /*!
- * Delay function map to COINES platform
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void*intf_ptr)
-* @brief      bmi2_delay_us
+* @brief      bmi2_delay_us: Delay function map to COINES platform
 * @ingroup    DATAIO
 *
 * @param[in]  period : 
@@ -1329,14 +1301,11 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void *intf_ptr)
 	
 }
 
-/*!
- *  @brief Function to select the interface between SPI and I2C.
- *  Also to initialize coines platform
- */
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev*bmi, XBYTE intf)
-* @brief      bmi2_interface_init
+* @brief      bmi2_interface_init: select the interface between SPI and I2C. Also to initialize coines platform
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*bmi : 
@@ -1347,56 +1316,51 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void *intf_ptr)
 * ---------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev *bmi, XBYTE intf)
 {
-    XBYTESIG rslt = BMI2_OK;
-		//struct coines_board_info board_info;
+  XBYTESIG rslt = BMI2_OK;
+	//struct coines_board_info board_info;
 
-    if (bmi != NULL)
+  if(bmi != NULL)
+    {
+      GEN_XSLEEP.MilliSeconds(200);
+
+      /* Bus configuration : I2C */
+      if(intf == BMI2_I2C_INTF)
       {
-          GEN_XSLEEP.MilliSeconds(200);
-
-          /* Bus configuration : I2C */
-          if (intf == BMI2_I2C_INTF)
-          {
-              /* To initialize the user I2C function */
-              dev_addr = BMI2_I2C_SEC_ADDR;
-              bmi->intf = BMI2_I2C_INTF;
+          /* To initialize the user I2C function */
+          dev_addr = BMI2_I2C_SEC_ADDR;
+          bmi->intf = BMI2_I2C_INTF;
               
-              //bmi->read = (bmi2_read_fptr_t)bmi2_i2c_read;
-              //bmi->write = (bmi2_write_fptr_t)bmi2_i2c_write;            					
-          }
-
-          /* Assign device address to interface pointer */
-          bmi->intf_ptr = &dev_addr;
-
-          /* Configure delay in microseconds */
-          //bmi->delay_us = (bmi2_delay_fptr_t)bmi2_delay_us;
-
-          /* Configure max read/write length (in bytes) ( Supported length depends on target machine) */
-          bmi->read_write_len = READ_WRITE_LEN;
-
-          /* Assign to NULL to load the default config file. */
-          bmi->config_file_ptr = NULL;
-
-          GEN_XSLEEP.MilliSeconds(10);
-
-      }
-    else
-      {
-          rslt = BMI2_E_NULL_PTR;
+          //bmi->read = (bmi2_read_fptr_t)bmi2_i2c_read;
+          //bmi->write = (bmi2_write_fptr_t)bmi2_i2c_write;            					
       }
 
-    return rslt;
+      /* Assign device address to interface pointer */
+      bmi->intf_ptr = &dev_addr;
 
+      /* Configure delay in microseconds */
+      //bmi->delay_us = (bmi2_delay_fptr_t)bmi2_delay_us;
+
+      /* Configure max read/write length (in bytes) ( Supported length depends on target machine) */
+      bmi->read_write_len = READ_WRITE_LEN;
+
+      /* Assign to NULL to load the default config file. */
+      bmi->config_file_ptr = NULL;
+
+      GEN_XSLEEP.MilliSeconds(10);
+    }
+   else
+    {
+      rslt = BMI2_E_NULL_PTR;
+    }
+
+  return rslt;
 }
 
-/*!
- *  @brief Prints the execution status of the APIs.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
-* @brief      bmi2_error_codes_print_result
+* @brief      bmi2_error_codes_print_result: Prints the execution status of the APIs.
 * @ingroup    DATAIO
 *
 * @param[in]  rslt : 
@@ -1407,165 +1371,50 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev *bmi, XB
 void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
 {
 	
-    switch (rslt)
+  switch (rslt)
     {
-        case BMI2_OK:
-
-            /* Do nothing */
-            break;
-
-        case BMI2_W_FIFO_EMPTY:            
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Warning [%d] : FIFO empty]"),rslt);              						
-            break;
-            
-        case BMI2_W_PARTIAL_READ:           
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Warning [%d] : FIFO partial read"),rslt);              
-            break;
-            
-        case BMI2_E_NULL_PTR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Null pointer error. It occurs when the user tries to assign value (not address) to a pointer, which has been initialized to NULL."),rslt);              
-            break;
-
-        case BMI2_E_COM_FAIL:            
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Communication failure error. It occurs due to read/write operation failure and also due " "to power failure during communication"),rslt);              
-            break;
-
-        case BMI2_E_DEV_NOT_FOUND:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Device not found error. It occurs when the device chip id is incorrectly read"),rslt);              
-            break;
-
-        case BMI2_E_INVALID_SENSOR:            
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid sensor error. It occurs when there is a mismatch in the requested feature with the " "available one "),rslt);              
-            break;
-
-        case BMI2_E_SELF_TEST_FAIL: 
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test failed error. It occurs when the validation of accel self-test data is " "not satisfied "),rslt);              
-            break;
-
-        case BMI2_E_INVALID_INT_PIN:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid interrupt pin error. It occurs when the user tries to configure interrupt pins " "apart from INT1 and INT2 "),rslt);              
-            break;
-
-        case BMI2_E_OUT_OF_RANGE:
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Out of range error. It occurs when the data exceeds from filtered or unfiltered data from " "fifo and also when the range exceeds the maximum range for accel and gyro while performing FOC "),rslt);              
-            break;
-
-        case BMI2_E_ACC_INVALID_CFG:
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Accel configuration error. It occurs when there is an error in accel configuration" " register which could be one among range, BW or filter performance in reg address 0x40"),rslt);              
-            break;
-
-        case BMI2_E_GYRO_INVALID_CFG:
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Gyro configuration error. It occurs when there is a error in gyro configuration" "register which could be one among range, BW or filter performance in reg address 0x42 "),rslt);              
-            break;
-
-        case BMI2_E_ACC_GYR_INVALID_CFG:            
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Accel-Gyro configuration error. It occurs when there is a error in accel and gyro" " configuration registers which could be one among range, BW or filter performance in reg address 0x40 " "and 0x42"),rslt);              
-            break;
-
-        case BMI2_E_CONFIG_LOAD:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Configuration load error. It occurs when failure observed while loading the configuration " "into the sensor "),rslt);              
-            break;
-
-        case BMI2_E_INVALID_PAGE:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid page error. It occurs due to failure in writing the correct feature configuration " "from selected page "),rslt);              
-            break;
-
-        case BMI2_E_SET_APS_FAIL:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : APS failure error. It occurs due to failure in write of advance power mode configuration " "register "),rslt);              
-            break;
-
-        case BMI2_E_AUX_INVALID_CFG:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid AUX configuration error. It occurs when the auxiliary interface settings are not " "enabled properly "),rslt);              
-            break;
-
-        case BMI2_E_AUX_BUSY:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : AUX busy error. It occurs when the auxiliary interface buses are engaged while configuring" " the AUX "),rslt);              
-            break;
-
-        case BMI2_E_REMAP_ERROR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Remap error. It occurs due to failure in assigning the remap axes data for all the axes " "after change in axis position "),rslt);              
-            break;
-
-        case BMI2_E_GYR_USER_GAIN_UPD_FAIL:					
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Gyro user gain update fail error. It occurs when the reading of user gain update status " "fails "),rslt);              
-            break;
-
-        case BMI2_E_SELF_TEST_NOT_DONE:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test not done error. It occurs when the self-test process is ongoing or not " "completed "),rslt);				
-            break;
-
-        case BMI2_E_INVALID_INPUT:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid input error. It occurs when the sensor input validity fails "),rslt);
-            break;
-
-        case BMI2_E_INVALID_STATUS:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid status error. It occurs when the feature/sensor validity fails "),rslt);				
-            break;
-
-        case BMI2_E_CRT_ERROR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : CRT error. It occurs when the CRT test has failed "),rslt);				
-            break;
-
-        case BMI2_E_ST_ALREADY_RUNNING:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test already running error. It occurs when the self-test is already running and " "another has been initiated "),rslt);				
-            break;
-
-        case BMI2_E_CRT_READY_FOR_DL_FAIL_ABORT:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : CRT ready for download fail abort error. It occurs when download in CRT fails due to wrong " "address location "),rslt);				
-            break;
-
-        case BMI2_E_DL_ERROR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Download error. It occurs when write length exceeds that of the maximum burst length "),rslt);				
-            break;
-
-        case BMI2_E_PRECON_ERROR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Pre-conditional error. It occurs when precondition to start the feature was not " "completed "),rslt);				
-            break;
-
-        case BMI2_E_ABORT_ERROR:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Abort error. It occurs when the device was shaken during CRT test "),rslt);				
-            break;
-
-        case BMI2_E_WRITE_CYCLE_ONGOING:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Write cycle ongoing error. It occurs when the write cycle is already running and another " "has been initiated "),rslt);				
-            break;
-
-        case BMI2_E_ST_NOT_RUNING:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test is not running error. It occurs when self-test running is disabled while it's " "running "),rslt);				
-            break;
-
-        case BMI2_E_DATA_RDY_INT_FAILED:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Data ready interrupt error. It occurs when the sample count exceeds the FOC sample limit " "and data ready status is not updated "),rslt);				
-            break;
-
-        case BMI2_E_INVALID_FOC_POSITION:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid FOC position error. It occurs when average FOC data is obtained for the wrong" " axes "),rslt);				
-            break;
-
-        default:
-						XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Unknown error code "),rslt);
-            break;
+      case BMI2_OK                            :                                                                                                                                                                                                                                                                                 break;
+      case BMI2_W_FIFO_EMPTY                  : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Warning [%d] : FIFO empty]"),rslt);              						                                                                                                                                                                        break;            
+      case BMI2_W_PARTIAL_READ                : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Warning [%d] : FIFO partial read"),rslt);                                                                                                                                                                                             break;            
+      case BMI2_E_NULL_PTR                    : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Null pointer error. It occurs when the user tries to assign value (not address) to a pointer, which has been initialized to NULL."),rslt);                                                                               break;
+      case BMI2_E_COM_FAIL                    : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Communication failure error. It occurs due to read/write operation failure and also due " "to power failure during communication"),rslt);                                                                                break;
+      case BMI2_E_DEV_NOT_FOUND               : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Device not found error. It occurs when the device chip id is incorrectly read"),rslt);                                                                                                                                   break;
+      case BMI2_E_INVALID_SENSOR              : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid sensor error. It occurs when there is a mismatch in the requested feature with the " "available one "),rslt);                                                                                                    break;
+      case BMI2_E_SELF_TEST_FAIL              : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test failed error. It occurs when the validation of accel self-test data is " "not satisfied "),rslt);                                                                                                              break;
+      case BMI2_E_INVALID_INT_PIN             : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid interrupt pin error. It occurs when the user tries to configure interrupt pins " "apart from INT1 and INT2 "),rslt);                                                                                             break;
+      case BMI2_E_OUT_OF_RANGE                : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Out of range error. It occurs when the data exceeds from filtered or unfiltered data from " "fifo and also when the range exceeds the maximum range for accel and gyro while performing FOC "),rslt);                    break;
+      case BMI2_E_ACC_INVALID_CFG             : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Accel configuration error. It occurs when there is an error in accel configuration" " register which could be one among range, BW or filter performance in reg address 0x40"),rslt);                             break;
+      case BMI2_E_GYRO_INVALID_CFG            : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Gyro configuration error. It occurs when there is a error in gyro configuration" "register which could be one among range, BW or filter performance in reg address 0x42 "),rslt);                                break;
+      case BMI2_E_ACC_GYR_INVALID_CFG         : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid Accel-Gyro configuration error. It occurs when there is a error in accel and gyro" " configuration registers which could be one among range, BW or filter performance in reg address 0x40 " "and 0x42"),rslt);   break;
+      case BMI2_E_CONFIG_LOAD                 : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Configuration load error. It occurs when failure observed while loading the configuration " "into the sensor "),rslt);                                                                                                   break;
+      case BMI2_E_INVALID_PAGE                : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid page error. It occurs due to failure in writing the correct feature configuration " "from selected page "),rslt);                                                                                                break;
+      case BMI2_E_SET_APS_FAIL                : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : APS failure error. It occurs due to failure in write of advance power mode configuration " "register "),rslt);                                                                                                           break;
+      case BMI2_E_AUX_INVALID_CFG             : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid AUX configuration error. It occurs when the auxiliary interface settings are not " "enabled properly "),rslt);                                                                                                   break;
+      case BMI2_E_AUX_BUSY                    : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : AUX busy error. It occurs when the auxiliary interface buses are engaged while configuring" " the AUX "),rslt);                                                                                                          break;
+      case BMI2_E_REMAP_ERROR                 : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Remap error. It occurs due to failure in assigning the remap axes data for all the axes " "after change in axis position "),rslt);                                                                                       break;
+      case BMI2_E_GYR_USER_GAIN_UPD_FAIL      :	XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Gyro user gain update fail error. It occurs when the reading of user gain update status " "fails "),rslt);                                                                                                               break;
+      case BMI2_E_SELF_TEST_NOT_DONE          : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test not done error. It occurs when the self-test process is ongoing or not " "completed "),rslt);			                                                                                                            break;
+      case BMI2_E_INVALID_INPUT               : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid input error. It occurs when the sensor input validity fails "),rslt);                                                                                                                                            break;
+      case BMI2_E_INVALID_STATUS              : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid status error. It occurs when the feature/sensor validity fails "),rslt);                                                                                                                                       	break;
+      case BMI2_E_CRT_ERROR                   : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : CRT error. It occurs when the CRT test has failed "),rslt);	                                                                                                                                                            break;
+      case BMI2_E_ST_ALREADY_RUNNING          : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test already running error. It occurs when the self-test is already running and " "another has been initiated "),rslt);		                                                                                          break;
+      case BMI2_E_CRT_READY_FOR_DL_FAIL_ABORT : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : CRT ready for download fail abort error. It occurs when download in CRT fails due to wrong " "address location "),rslt);	                                                                                                break;
+      case BMI2_E_DL_ERROR                    : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Download error. It occurs when write length exceeds that of the maximum burst length "),rslt);				                                                                                                                    break;
+      case BMI2_E_PRECON_ERROR                : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Pre-conditional error. It occurs when precondition to start the feature was not " "completed "), rslt);                                                                                                                  break;
+      case BMI2_E_ABORT_ERROR                 : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Abort error. It occurs when the device was shaken during CRT test "),rslt);				                                                                                                                                      break;
+      case BMI2_E_WRITE_CYCLE_ONGOING         : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Write cycle ongoing error. It occurs when the write cycle is already running and another " "has been initiated "),rslt);	                                                                                                break;
+      case BMI2_E_ST_NOT_RUNING               : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Self-test is not running error. It occurs when self-test running is disabled while it's " "running "),rslt);				                                                                                                      break;
+      case BMI2_E_DATA_RDY_INT_FAILED         : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Data ready interrupt error. It occurs when the sample count exceeds the FOC sample limit " "and data ready status is not updated "),rslt);	                                                                              break;
+      case BMI2_E_INVALID_FOC_POSITION        : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Invalid FOC position error. It occurs when average FOC data is obtained for the wrong" " axes "),rslt);	                                                                                                                break;
+                                   default    : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Error [%d] : Unknown error code "),rslt);                                                                                                                                                                                             break;
     }
 }
-
-
-
-
-/******************************************************************************/
-/*!  @name      User Interface Definitions                            */
-/******************************************************************************/
-
-/*!
- * @brief This API is the entry point for bmi2 sensor. It selects between
- * I2C/SPI interface, based on user selection. It reads and validates the
- * chip-id of the sensor.
- */
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev*dev)
-* @brief      bmi2_sec_init
+* @brief      bmi2_sec_init: is the entry point for bmi2 sensor. It selects between I2C/SPI interface, based on user selection. It reads and validates the chip-id of the sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*dev : 
@@ -1575,73 +1424,67 @@ void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
 * ---------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev *dev)
 {
-    /* Variable to define error */
-    XBYTESIG rslt;
+  /* Variable to define error */
+  XBYTESIG rslt;
 
-    /* Variable to assign chip id */
-    XBYTE chip_id = 0;
+  /* Variable to assign chip id */
+  XBYTE chip_id = 0;
 
-    /* Structure to define the default values for axes re-mapping */
-    struct bmi2_axes_remap axes_remap = { BMI2_MAP_X_AXIS, BMI2_MAP_Y_AXIS,BMI2_MAP_Z_AXIS, BMI2_POS_SIGN, BMI2_POS_SIGN, BMI2_POS_SIGN };
+  /* Structure to define the default values for axes re-mapping */
+  struct bmi2_axes_remap axes_remap = { BMI2_MAP_X_AXIS, BMI2_MAP_Y_AXIS,BMI2_MAP_Z_AXIS, BMI2_POS_SIGN, BMI2_POS_SIGN, BMI2_POS_SIGN };
 
-    /* Null-pointer check */
-    rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
-    {
-        /* Perform soft-reset to bring all register values to their
-         * default values
-         */
-        rslt = bmi2_soft_reset(dev);
+  /* Null-pointer check */
+  rslt = null_ptr_check(dev);
+  if(rslt == BMI2_OK)
+  {
+      /* Perform soft-reset to bring all register values to their
+        * default values
+        */
+      rslt = bmi2_soft_reset(dev);
 
-        if (rslt == BMI2_OK)
-        {
-            /* Read chip-id of the BMI2 sensor */
-            rslt = bmi2_get_regs(BMI2_CHIP_ID_ADDR, &chip_id, 1, dev);
+      if(rslt == BMI2_OK)
+      {
+          /* Read chip-id of the BMI2 sensor */
+          rslt = bmi2_get_regs(BMI2_CHIP_ID_ADDR, &chip_id, 1, dev);
 
-            if (rslt == BMI2_OK)
-            {
-                /* Validate chip-id */
-                if (chip_id == dev->chip_id)
-                {
-                    /* Assign resolution to the structure */
-                    dev->resolution = 16;
+          if(rslt == BMI2_OK)
+          {
+              /* Validate chip-id */
+              if(chip_id == dev->chip_id)
+              {
+                  /* Assign resolution to the structure */
+                  dev->resolution = 16;
 
-                    /* Set manual enable flag */
-                    dev->aux_man_en = 1;
+                  /* Set manual enable flag */
+                  dev->aux_man_en = 1;
 
-                    /* Set the default values for axis
-                     *  re-mapping in the device structure
-                     */
-                    dev->remap = axes_remap;
-                }
-                else
-                {
-                    /* Storing the chip-id value read from
-                     * the register to identify the sensor
-                     */
-                    dev->chip_id = chip_id;
-                    rslt = BMI2_E_DEV_NOT_FOUND;
-                }
-            }
-        }
-    }
+                  /* Set the default values for axis
+                    *  re-mapping in the device structure
+                    */
+                  dev->remap = axes_remap;
+              }
+              else
+              {
+                  /* Storing the chip-id value read from
+                    * the register to identify the sensor
+                    */
+                  dev->chip_id = chip_id;
+                  rslt = BMI2_E_DEV_NOT_FOUND;
+              }
+          }
+      }
+  }
 
-    return rslt;
+  return rslt;
 }
 
-/*!
- * @brief This API reads the data from the given register address of bmi2
- * sensor.
- *
- * @note For most of the registers auto address increment applies, with the
- * exception of a few special registers, which trap the address. For e.g.,
- * Register address - 0x26, 0x5E.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE*data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_get_regs
+* @brief      bmi2_get_regs: reads the data from the given register address of bmi2 sensor.
+* @note       For most of the registers auto address increment applies, with the exception of a few special registers, which trap the address. 
+              For e.g., Register address - 0x26, 0x5E.
 * @ingroup    DATAIO
 *
 * @param[in]  reg_addr : 
@@ -1654,74 +1497,70 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sec_init(struct bmi2_dev *dev)
 * ---------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_regs(XBYTE reg_addr, XBYTE *data, XWORD len, struct bmi2_dev *dev)
 {
-    /* Variable to define error */
-    XBYTESIG rslt;
+  // Variable to define error 
+  XBYTESIG rslt;
 
-    /* Variable to define loop */
-    XWORD index = 0;
+  // Variable to define loop 
+  XWORD index = 0;
     
-    XBYTE temp_buf[200]; 
+  XBYTE temp_buf[200]; 
 
-    /* Null-pointer check */
-    rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (data != NULL))
+  // Null-pointer check 
+  rslt = null_ptr_check(dev);
+  if((rslt == BMI2_OK) && (data != NULL))
     {
-        /* Variable to define temporary length */
-        XWORD temp_len = len + dev->dummy_byte;        
+      // Variable to define temporary length 
+      XWORD temp_len = len + dev->dummy_byte;        
         
-        if(temp_len > 200)
-          return BMI2_E_NULL_PTR;
+      if(temp_len > 200)
+        return BMI2_E_NULL_PTR;
 
-        /* Configuring reg_addr for SPI Interface */
-        if (dev->intf == BMI2_SPI_INTF)
+      // Configuring reg_addr for SPI Interface 
+      if(dev->intf == BMI2_SPI_INTF)
         {
-            reg_addr = (reg_addr | BMI2_SPI_RD_MASK);
-        }
-
-        dev->intf_rslt = bmi2_i2c_read(reg_addr, temp_buf, temp_len, dev->intf_ptr);
-
-        if (dev->aps_status == BMI2_ENABLE)
-        {
-            //dev->delay_us(450, dev->intf_ptr);
-            bmi2_delay_us(450, dev->intf_ptr);
-        }
-        else
-        {
-            //dev->delay_us(2, dev->intf_ptr);
-           bmi2_delay_us(2, dev->intf_ptr);
+          reg_addr = (reg_addr | BMI2_SPI_RD_MASK);
         }
 
-        if (dev->intf_rslt == BMI2_INTF_RET_SUCCESS)
+      dev->intf_rslt = bmi2_i2c_read(reg_addr, temp_buf, temp_len, dev->intf_ptr);
+
+      if(dev->aps_status == BMI2_ENABLE)
         {
-            /* Read the data from the position next to dummy byte */
-            while (index < len)
-            {
-                data[index] = temp_buf[index + dev->dummy_byte];
-                index++;
-            }
+          //dev->delay_us(450, dev->intf_ptr);
+          bmi2_delay_us(450, dev->intf_ptr);
         }
-        else
+       else
         {
-            rslt = BMI2_E_COM_FAIL;
+          //dev->delay_us(2, dev->intf_ptr);
+          bmi2_delay_us(2, dev->intf_ptr);
         }
-    }
-    else
-    {
-        rslt = BMI2_E_NULL_PTR;
-    }
+
+      if(dev->intf_rslt == BMI2_INTF_RET_SUCCESS)
+      {
+          /* Read the data from the position next to dummy byte */
+          while (index < len)
+          {
+              data[index] = temp_buf[index + dev->dummy_byte];
+              index++;
+          }
+      }
+      else
+      {
+          rslt = BMI2_E_COM_FAIL;
+      }
+  }
+  else
+  {
+      rslt = BMI2_E_NULL_PTR;
+  }
     
-    return rslt;
+  return rslt;
 }
-
-/*!
- * @brief This API writes data to the given register address of bmi2 sensor.
- */
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE*data, XWORD len, struct bmi2_dev*dev)
-* @brief      bmi2_set_regs
+* @brief      bmi2_set_regs: writes data to the given register address of bmi2 sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  reg_addr : 
@@ -1739,10 +1578,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (data != NULL))
+    if((rslt == BMI2_OK) && (data != NULL))
     {
         /* Configuring reg_addr for SPI Interface */
-        if (dev->intf == BMI2_SPI_INTF)
+        if(dev->intf == BMI2_SPI_INTF)
         {
             reg_addr = (reg_addr & BMI2_SPI_WR_MASK);
         }
@@ -1751,7 +1590,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
         dev->intf_rslt = bmi2_i2c_write(reg_addr, data, len, dev->intf_ptr);
 
         /* Delay for Low power mode of the sensor is 450 us */
-        if (dev->aps_status == BMI2_ENABLE)
+        if(dev->aps_status == BMI2_ENABLE)
         {
             //dev->delay_us(450, dev->intf_ptr);
            bmi2_delay_us(450, dev->intf_ptr);
@@ -1764,9 +1603,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
         }
 
         /* updating the advance power saver flag */
-        if (reg_addr == BMI2_PWR_CONF_ADDR)
+        if(reg_addr == BMI2_PWR_CONF_ADDR)
         {
-            if (*data & BMI2_ADV_POW_EN_MASK)
+            if(*data & BMI2_ADV_POW_EN_MASK)
             {
                 dev->aps_status = BMI2_ENABLE;
             }
@@ -1776,7 +1615,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
             }
         }
 
-        if (dev->intf_rslt != BMI2_INTF_RET_SUCCESS)
+        if(dev->intf_rslt != BMI2_INTF_RET_SUCCESS)
         {
             rslt = BMI2_E_COM_FAIL;
         }
@@ -1789,10 +1628,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_regs(XBYTE reg_addr, const XBYTE *d
     return rslt;
 }
 
-/*!
- * @brief This API resets bmi2 sensor. All registers are overwritten with
- * their default values.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev*dev)
+* @brief      bmi2_soft_reset: resets bmi2 sensor. All registers are overwritten with their default values.
+* @ingroup    DATAIO
+* 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -1806,7 +1653,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Reset bmi2 device */
         rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &data, 1, dev);
@@ -1819,19 +1666,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
         /* Performing a dummy read to bring interface back to SPI from
          * I2C after a soft-reset
          */
-        if ((rslt == BMI2_OK) && (dev->intf == BMI2_SPI_INTF))
+        if((rslt == BMI2_OK) && (dev->intf == BMI2_SPI_INTF))
         {
             rslt = bmi2_get_regs(BMI2_CHIP_ID_ADDR, &dummy_read, 1, dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Write the configuration file */
             rslt = bmi2_write_config_file(dev);
         }
 
         /* Reset the sensor status flag in the device structure */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             dev->sens_en_stat = 0;
         }
@@ -1840,14 +1687,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_soft_reset(struct bmi2_dev *dev)
     return rslt;
 }
 
-/*!
- * @brief This API is used to get the config file major and minor version information.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE*config_major, XBYTE*config_minor, struct bmi2_dev*dev)
-* @brief      bmi2_get_config_file_version
+* @brief      bmi2_get_config_file_version: used to get the config file major and minor version information.
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*config_major : 
@@ -1864,7 +1708,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE *config_m
 
     /* NULL pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (config_major != NULL) && (config_minor != NULL))
+    if((rslt == BMI2_OK) && (config_major != NULL) && (config_minor != NULL))
     {
         /* Extract the config file identification from the dmr page and get the major and minor version */
         rslt = extract_config_file(config_major, config_minor, dev);
@@ -1877,14 +1721,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_config_file_version(XBYTE *config_m
     return rslt;
 }
 
-/*!
- * @brief This API enables/disables the advance power save mode in the sensor.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct bmi2_dev*dev)
-* @brief      bmi2_set_adv_power_save
+* @brief      bmi2_set_adv_power_save: enables/disables the advance power save mode in the sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  enable : 
@@ -1903,21 +1744,21 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_get_regs(BMI2_PWR_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             reg_data = BMI2_SET_BIT_POS0(reg_data, BMI2_ADV_POW_EN, enable);
             rslt = bmi2_set_regs(BMI2_PWR_CONF_ADDR, &reg_data, 1, dev);
 
-            if (rslt != BMI2_OK)
+            if(rslt != BMI2_OK)
             {
                 /* Return error if enable/disable APS fails */
                 rslt = BMI2_E_SET_APS_FAIL;
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 dev->aps_status = BMI2_GET_BIT_POS0(reg_data, BMI2_ADV_POW_EN);
             }
@@ -1927,14 +1768,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_adv_power_save(XBYTE enable, struct
     return rslt;
 }
 
-/*!
- * @brief This API gets the status of advance power save mode in the sensor.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE*aps_status, struct bmi2_dev*dev)
-* @brief      bmi2_get_adv_power_save
+* @brief      bmi2_get_adv_power_save: gets the status of advance power save mode in the sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*aps_status : 
@@ -1953,10 +1791,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE *aps_status, s
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (aps_status != NULL))
+    if((rslt == BMI2_OK) && (aps_status != NULL))
     {
         rslt = bmi2_get_regs(BMI2_PWR_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             *aps_status = BMI2_GET_BIT_POS0(reg_data, BMI2_ADV_POW_EN);
             dev->aps_status = *aps_status;
@@ -1970,14 +1808,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_adv_power_save(XBYTE *aps_status, s
     return rslt;
 }
 
-/*!
- * @brief This API loads the configuration file into the bmi2 sensor.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev*dev)
-* @brief      bmi2_write_config_file
+* @brief      bmi2_write_config_file: loads the configuration file into the bmi2 sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_dev*dev : 
@@ -1995,28 +1830,28 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev *dev)
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (dev->config_size != 0))
+    if((rslt == BMI2_OK) && (dev->config_size != 0))
     {
         /* Bytes written are multiples of 2 */
-        if ((dev->read_write_len % 2) != 0)
+        if((dev->read_write_len % 2) != 0)
         {
             dev->read_write_len = dev->read_write_len - 1;
         }
 
-        if (dev->read_write_len < 2)
+        if(dev->read_write_len < 2)
         {
             dev->read_write_len = 2;
         }
 
         /* Write the configuration file */
         rslt = write_config_file(dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Check the configuration load status */
             rslt = bmi2_get_internal_status(&load_status, dev);
 
             /* Return error if loading not successful */
-            if ((rslt == BMI2_OK) && (!(load_status & BMI2_CONFIG_LOAD_SUCCESS)))
+            if((rslt == BMI2_OK) && (!(load_status & BMI2_CONFIG_LOAD_SUCCESS)))
             {
                 rslt = BMI2_E_CONFIG_LOAD;
             }
@@ -2030,17 +1865,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_config_file(struct bmi2_dev *dev)
     return rslt;
 }
 
-/*!
- * @brief This API sets:
- *        1) The input output configuration of the selected interrupt pin:
- *           INT1 or INT2.
- *        2) The interrupt mode: permanently latched or non-latched.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
-* @brief      bmi2_set_int_pin_config
+* @brief      bmi2_set_int_pin_config: 1) input output configuration of the selected interrupt pin:INT1 or INT2.
+*                                      2)The interrupt mode: permanently latched or non-latched.
 * @ingroup    DATAIO
 *
 * @param[in]  struct bmi2_int_pin_config*int_cfg : 
@@ -2065,18 +1895,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_in
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (int_cfg != NULL))
+    if((rslt == BMI2_OK) && (int_cfg != NULL))
     {
         /* Copy the pin type to a local variable */
         int_pin = int_cfg->pin_type;
-        if ((int_pin > BMI2_INT_NONE) && (int_pin < BMI2_INT_PIN_MAX))
+        if((int_pin > BMI2_INT_NONE) && (int_pin < BMI2_INT_PIN_MAX))
         {
             /* Get the previous configuration data */
             rslt = bmi2_get_regs(BMI2_INT1_IO_CTRL_ADDR, data_array, 3, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Set interrupt pin 1 configuration */
-                if ((int_pin == BMI2_INT1) || (int_pin == BMI2_INT_BOTH))
+                if((int_pin == BMI2_INT1) || (int_pin == BMI2_INT_BOTH))
                 {
                     /* Configure active low or high */
                     reg_data = BMI2_SET_BITS(data_array[0], BMI2_INT_LEVEL, int_cfg->pin_cfg[0].lvl);
@@ -2095,7 +1925,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_in
                 }
 
                 /* Set interrupt pin 2 configuration */
-                if ((int_pin == BMI2_INT2) || (int_pin == BMI2_INT_BOTH))
+                if((int_pin == BMI2_INT2) || (int_pin == BMI2_INT_BOTH))
                 {
                     /* Configure active low or high */
                     reg_data = BMI2_SET_BITS(data_array[1], BMI2_INT_LEVEL, int_cfg->pin_cfg[1].lvl);
@@ -2136,17 +1966,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_int_pin_config(const struct bmi2_in
     return rslt;
 }
 
-/*!
- * @brief This API gets:
- *        1) The input output configuration of the selected interrupt pin:
- *           INT1 or INT2.
- *        2) The interrupt mode: permanently latched or non-latched.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_config*int_cfg, struct bmi2_dev*dev)
-* @brief      bmi2_get_int_pin_config
+* @brief      bmi2_get_int_pin_config:  gets:
+*                                       1) The input output configuration of the selected interrupt pin: INT1 or INT2.
+*                                       2) The interrupt mode: permanently latched or non-latched.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_int_pin_config*int_cfg : 
@@ -2168,17 +1994,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (int_cfg != NULL))
+    if((rslt == BMI2_OK) && (int_cfg != NULL))
     {
         /* Copy the pin type to a local variable */
         int_pin = int_cfg->pin_type;
 
         /* Get the previous configuration data */
         rslt = bmi2_get_regs(BMI2_INT1_IO_CTRL_ADDR, data_array, 3, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get interrupt pin 1 configuration */
-            if ((int_pin == BMI2_INT1) || (int_pin == BMI2_INT_BOTH))
+            if((int_pin == BMI2_INT1) || (int_pin == BMI2_INT_BOTH))
             {
                 /* Get active low or high */
                 int_cfg->pin_cfg[0].lvl = BMI2_GET_BITS(data_array[0], BMI2_INT_LEVEL);
@@ -2194,7 +2020,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_
             }
 
             /* Get interrupt pin 2 configuration */
-            if ((int_pin == BMI2_INT2) || (int_pin == BMI2_INT_BOTH))
+            if((int_pin == BMI2_INT2) || (int_pin == BMI2_INT_BOTH))
             {
                 /* Get active low or high */
                 int_cfg->pin_cfg[1].lvl = BMI2_GET_BITS(data_array[1], BMI2_INT_LEVEL);
@@ -2221,15 +2047,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_pin_config(struct bmi2_int_pin_
     return rslt;
 }
 
-/*!
- * @brief This API gets the interrupt status of both feature and data
- * interrupts
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD*int_status, struct bmi2_dev*dev)
-* @brief      bmi2_get_int_status
+* @brief      bmi2_get_int_status: gets the interrupt status of both feature and data
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD*int_status : 
@@ -2248,11 +2070,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD *int_status, struc
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (int_status != NULL))
+    if((rslt == BMI2_OK) && (int_status != NULL))
     {
         /* Get the interrupt status */
         rslt = bmi2_get_regs(BMI2_INT_STATUS_0_ADDR, data_array, 2, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             *int_status = (XWORD) data_array[0] | ((XWORD) data_array[1] << 8);
         }
@@ -2265,14 +2087,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_int_status(XWORD *int_status, struc
     return rslt;
 }
 
-/*!
- * @brief This API selects the sensors/features to be enabled.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_sensor_enable
+* @brief      bmi2_sensor_enable: selects the sensors/features to be enabled.
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*sens_list : 
@@ -2292,11 +2111,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE *sens_list, X
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_list != NULL))
+    if((rslt == BMI2_OK) && (sens_list != NULL))
     {
         /* Get the selected sensors */
         rslt = select_sensor(sens_list, n_sens, &sensor_sel);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Enable the selected sensors */
             rslt = sensor_enable(sensor_sel, dev);
@@ -2310,14 +2129,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_enable(const XBYTE *sens_list, X
     return rslt;
 }
 
-/*!
- * @brief This API selects the sensors/features to be disabled.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE*sens_list, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_sensor_disable
+* @brief      bmi2_sensor_disable: selects the sensors/features to be disabled.
 * @ingroup    DATAIO
 *
 * @param[in]  XBYTE*sens_list : 
@@ -2337,11 +2153,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE *sens_list, 
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_list != NULL))
+    if((rslt == BMI2_OK) && (sens_list != NULL))
     {
         /* Get the selected sensors */
         rslt = select_sensor(sens_list, n_sens, &sensor_sel);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Disable the selected sensors */
             rslt = sensor_disable(sensor_sel, dev);
@@ -2355,14 +2171,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_sensor_disable(const XBYTE *sens_list, 
     return rslt;
 }
 
-/*!
- * @brief This API sets the sensor/feature configuration.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_set_sensor_config
+* @brief      bmi2_set_sensor_config: sets the sensor/feature configuration.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sens_config*sens_cfg : 
@@ -2385,7 +2198,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_cfg != NULL))
+    if((rslt == BMI2_OK) && (sens_cfg != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
@@ -2395,7 +2208,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
             /* Disable Advance power save if enabled for auxiliary
              * and feature configurations
              */
-            if (aps_stat == BMI2_ENABLE)
+            if(aps_stat == BMI2_ENABLE)
             {
                 /* Disable advance power save if
                  * enabled
@@ -2403,7 +2216,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 switch (sens_cfg[loop].type)
                 {
@@ -2434,7 +2247,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
             }
 
             /* Return error if any of the set configurations fail */
-            if (rslt != BMI2_OK)
+            if(rslt != BMI2_OK)
             {
                 break;
             }
@@ -2443,7 +2256,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -2456,14 +2269,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_sensor_config(struct bmi2_sens_conf
     return rslt;
 }
 
-/*!
- * @brief This API gets the sensor/feature configuration.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_config*sens_cfg, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_get_sensor_config
+* @brief      bmi2_get_sensor_config: gets the sensor/feature configuration.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sens_config*sens_cfg : 
@@ -2486,7 +2296,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_cfg != NULL))
+    if((rslt == BMI2_OK) && (sens_cfg != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
@@ -2495,10 +2305,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
             /* Disable Advance power save if enabled for auxiliary
              * and feature configurations
              */
-            if ((sens_cfg[loop].type >= BMI2_MAIN_SENS_MAX_NUM) || (sens_cfg[loop].type == BMI2_AUX))
+            if((sens_cfg[loop].type >= BMI2_MAIN_SENS_MAX_NUM) || (sens_cfg[loop].type == BMI2_AUX))
             {
 
-                if (aps_stat == BMI2_ENABLE)
+                if(aps_stat == BMI2_ENABLE)
                 {
                     /* Disable advance power save if
                      * enabled
@@ -2507,7 +2317,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
                 }
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 switch (sens_cfg[loop].type)
                 {
@@ -2538,7 +2348,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
             }
 
             /* Return error if any of the get configurations fail */
-            if (rslt != BMI2_OK)
+            if(rslt != BMI2_OK)
             {
                 break;
             }
@@ -2547,7 +2357,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -2560,16 +2370,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_config(struct bmi2_sens_conf
     return rslt;
 }
 
-/*!
- * @brief This API gets the sensor/feature data for accelerometer, gyroscope,
- * auxiliary sensor, step counter, high-g, gyroscope user-gain update,
- * orientation, gyroscope cross sensitivity and error status for NVM and VFRM.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data*sensor_data, XBYTE n_sens, struct bmi2_dev*dev)
-* @brief      bmi2_get_sensor_data
+* @brief      bmi2_get_sensor_data: gets the sensor/feature data for accelerometer, gyroscope,
+*                                   auxiliary sensor, step counter, high-g, gyroscope user-gain update,
+*                                   orientation, gyroscope cross sensitivity and error status for NVM and VFRM.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sensor_data*sensor_data : 
@@ -2592,7 +2399,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sensor_data != NULL))
+    if((rslt == BMI2_OK) && (sensor_data != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
@@ -2601,9 +2408,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
             /* Disable Advance power save if enabled for feature
              * configurations
              */
-            if (sensor_data[loop].type >= BMI2_MAIN_SENS_MAX_NUM)
+            if(sensor_data[loop].type >= BMI2_MAIN_SENS_MAX_NUM)
             {
-                if (aps_stat == BMI2_ENABLE)
+                if(aps_stat == BMI2_ENABLE)
                 {
                     /* Disable advance power save if
                      * enabled
@@ -2612,7 +2419,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
                 }
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 switch (sensor_data[loop].type)
                 {
@@ -2649,7 +2456,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
                 }
 
                 /* Return error if any of the get sensor data fails */
-                if (rslt != BMI2_OK)
+                if(rslt != BMI2_OK)
                 {
                     break;
                 }
@@ -2658,7 +2465,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
             /* Enable Advance power save if disabled while
              * configuring and not when already disabled
              */
-            if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+            if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -2672,14 +2479,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_sensor_data(struct bmi2_sensor_data
     return rslt;
 }
 
-/*!
- * @brief This API sets the FIFO configuration in the sensor.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE enable, struct bmi2_dev*dev)
-* @brief      bmi2_set_fifo_config
+* @brief      bmi2_set_fifo_config: sets the FIFO configuration in the sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  config : 
@@ -2702,15 +2506,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
     XBYTE fifo_config_1 = (XBYTE)((config & BMI2_FIFO_CONFIG_1_MASK) >> 8);
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_get_regs(BMI2_FIFO_CONFIG_0_ADDR, data, BMI2_FIFO_CONFIG_LENGTH, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get data to set FIFO configuration register 0 */
-            if (fifo_config_0 > 0)
+            if(fifo_config_0 > 0)
             {
-                if (enable == BMI2_ENABLE)
+                if(enable == BMI2_ENABLE)
                 {
                     data[0] = data[0] | fifo_config_0;
                 }
@@ -2721,10 +2525,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
             }
 
             /* Get data to set FIFO configuration register 1 */
-            if (enable == BMI2_ENABLE)
+            if(enable == BMI2_ENABLE)
             {
                 data[1] = data[1] | fifo_config_1;
-                if (dev->variant_feature & BMI2_CRT_RTOSK_ENABLE)
+                if(dev->variant_feature & BMI2_CRT_RTOSK_ENABLE)
                 {
 
                     /* Burst length is needed for CRT
@@ -2732,7 +2536,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
                      *  So configure the max burst length again.
                      */
                     rslt = get_maxburst_len(&max_burst_len, dev);
-                    if (rslt == BMI2_OK && max_burst_len == 0)
+                    if(rslt == BMI2_OK && max_burst_len == 0)
                     {
                         rslt = set_maxburst_len(BMI2_CRT_MIN_BURST_WORD_LENGTH, dev);
                     }
@@ -2744,7 +2548,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
             }
 
             /* Set the FIFO configurations */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = bmi2_set_regs(BMI2_FIFO_CONFIG_0_ADDR, data, 2, dev);
             }
@@ -2754,14 +2558,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_config(XWORD config, XBYTE ena
     return rslt;
 }
 
-/*!
- * @brief This API reads the FIFO configuration from the sensor.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD*fifo_config, struct bmi2_dev*dev)
-* @brief      bmi2_get_fifo_config
+* @brief      bmi2_get_fifo_config: reads the FIFO configuration from the sensor.
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD*fifo_config : 
@@ -2780,11 +2581,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD *fifo_config, str
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_config != NULL))
+    if((rslt == BMI2_OK) && (fifo_config != NULL))
     {
         /* Get the FIFO configuration value */
         rslt = bmi2_get_regs(BMI2_FIFO_CONFIG_0_ADDR, data, BMI2_FIFO_CONFIG_LENGTH, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             (*fifo_config) = (XWORD)((XWORD) data[0] & BMI2_FIFO_CONFIG_0_MASK);
             (*fifo_config) |= (XWORD)(((XWORD) data[1] << 8) & BMI2_FIFO_CONFIG_1_MASK);
@@ -2798,14 +2599,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_config(XWORD *fifo_config, str
     return rslt;
 }
 
-/*!
- * @brief This API reads the FIFO data.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame*fifo, struct bmi2_dev*dev)
-* @brief      bmi2_read_fifo_data
+* @brief      bmi2_read_fifo_data: reads the FIFO data.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_fifo_frame*fifo : 
@@ -2827,7 +2625,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame *
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo != NULL))
+    if((rslt == BMI2_OK) && (fifo != NULL))
     {
         /* Clear the FIFO data structure */
         reset_fifo_frame_structure(fifo, dev);
@@ -2835,12 +2633,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame *
         /* Read FIFO data */
         rslt = bmi2_get_regs(addr, fifo->data, fifo->length, dev);
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
 
             /* Get the set FIFO frame configurations */
             rslt = bmi2_get_regs(BMI2_FIFO_CONFIG_0_ADDR, config_data, 2, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Get FIFO header status */
                 fifo->header_enable = (XBYTE)((config_data[1]) & (BMI2_FIFO_HEADER_EN >> 8));
@@ -2863,16 +2661,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_fifo_data(struct bmi2_fifo_frame *
     return rslt;
 }
 
-/*!
- * @brief This API parses and extracts the accelerometer frames from FIFO data
- * read by the "bmi2_read_fifo_data" API and stores it in the "accel_data"
- * structure instance.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_data* accel_data, XWORD* accel_length, struct bmi2_fifo_frame* fifo, const struct bmi2_dev* dev)
-* @brief      bmi2_extract_accel
+* @brief      bmi2_extract_accel: parses and extracts the accelerometer frames from FIFO data
+*                                 read by the "bmi2_read_fifo_data" API and stores it in the "accel_data"
+*                                 structure instance.
 * @ingroup    DATAIO
 *
 * @param[in]  accel_data : 
@@ -2902,10 +2697,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_dat
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (accel_data != NULL) && (accel_length != NULL) && (fifo != NULL))
+    if((rslt == BMI2_OK) && (accel_data != NULL) && (accel_length != NULL) && (fifo != NULL))
     {
         /* Parsing the FIFO data in header-less mode */
-        if (fifo->header_enable == 0)
+        if(fifo->header_enable == 0)
         {
 
             /* Get the number of accelerometer bytes to be read */
@@ -2918,7 +2713,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_dat
                 /* Unpack frame to get the accelerometer data */
                 rslt = unpack_accel_frame(accel_data, &data_index, &accel_index, data_enable, fifo, dev);
 
-                if (rslt != BMI2_W_FIFO_EMPTY)
+                if(rslt != BMI2_W_FIFO_EMPTY)
                 {
                     /* Check for the availability of next two bytes of FIFO data */
                     rslt = check_empty_fifo(&data_index, fifo);
@@ -2945,16 +2740,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_accel(struct bmi2_sens_axes_dat
     return rslt;
 }
 
-/*!
- * @brief This API parses and extracts the gyroscope frames from FIFO data
- * read by the "bmi2_read_fifo_data" API and stores it in the "gyro_data"
- * structure instance.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data*gyro_data, XWORD*gyro_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
-* @brief      bmi2_extract_gyro
+* @brief      bmi2_extract_gyro:  parses and extracts the gyroscope frames from FIFO data
+*                                 read by the "bmi2_read_fifo_data" API and stores it in the "gyro_data"
+*                                 structure instance.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_sens_axes_data*gyro_data : 
@@ -2984,10 +2776,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (gyro_data != NULL) && (gyro_length != NULL) && (fifo != NULL))
+    if((rslt == BMI2_OK) && (gyro_data != NULL) && (gyro_length != NULL) && (fifo != NULL))
     {
         /* Parsing the FIFO data in header-less mode */
-        if (fifo->header_enable == 0)
+        if(fifo->header_enable == 0)
         {
             /* Get the number of gyro bytes to be read */
             rslt = parse_fifo_gyro_len(&data_index, &data_read_length, gyro_length, fifo);
@@ -2998,7 +2790,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data
             {
                 /* Unpack frame to get gyroscope data */
                 rslt = unpack_gyro_frame(gyro_data, &data_index, &gyro_index, data_enable, fifo, dev);
-                if (rslt != BMI2_W_FIFO_EMPTY)
+                if(rslt != BMI2_W_FIFO_EMPTY)
                 {
                     /* Check for the availability of next two bytes of FIFO data */
                     rslt = check_empty_fifo(&data_index, fifo);
@@ -3025,15 +2817,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_gyro(struct bmi2_sens_axes_data
     return rslt;
 }
 
-/*!
- * @brief This API parses and extracts the auxiliary frames from FIFO data
- * read by the "bmi2_read_fifo_data" API and stores it in "aux_data" buffer.
- */
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data*aux, XWORD*aux_length, struct bmi2_fifo_frame*fifo, const struct bmi2_dev*dev)
-* @brief      bmi2_extract_aux
+* @brief      bmi2_extract_aux:  parses and extracts the auxiliary frames from FIFO data
+*                                read by the "bmi2_read_fifo_data" API and stores it in "aux_data" buffer.
 * @ingroup    DATAIO
 *
 * @param[in]  bmi2_aux_fifo_data*aux : 
@@ -3063,10 +2852,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data *
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (aux != NULL) && (aux_length != NULL) && (fifo != NULL))
+    if((rslt == BMI2_OK) && (aux != NULL) && (aux_length != NULL) && (fifo != NULL))
     {
         /* Parsing the FIFO data in header-less mode */
-        if (fifo->header_enable == 0)
+        if(fifo->header_enable == 0)
         {
             rslt = parse_fifo_aux_len(&data_index, &data_read_length, aux_length, fifo);
 
@@ -3078,7 +2867,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data *
             {
                 /* Unpack frame to get auxiliary data */
                 rslt = unpack_aux_frame(aux, &data_index, &aux_index, data_enable, fifo, dev);
-                if (rslt != BMI2_W_FIFO_EMPTY)
+                if(rslt != BMI2_W_FIFO_EMPTY)
                 {
                     /* Check for the availability of next
                      * two bytes of FIFO data
@@ -3107,9 +2896,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_extract_aux(struct bmi2_aux_fifo_data *
     return rslt;
 }
 
-/*!
- * @brief This API writes the available sensor specific commands to the sensor.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, struct bmi2_dev*dev)
+* @brief      bmi2_set_command_register: writes the available sensor specific commands to the sensor.
+* @ingroup    DATAIO
+* 
+* @param[in]  command : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3117,7 +2916,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, str
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set the command in the command register */
         rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &command, 1, dev);
@@ -3126,9 +2925,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_command_register(XBYTE command, str
     return rslt;
 }
 
-/*
- * @brief This API sets the FIFO self wake up functionality in the sensor.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_wake_up, struct bmi2_dev*dev)
+* @brief      bmi2_set_fifo_self_wake_up: sets the FIFO self wake up functionality in the sensor.
+* @ingroup    DATAIO
+* 
+* @param[in]  fifo_self_wake_up : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_wake_up, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3139,11 +2948,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_w
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set FIFO self wake-up */
         rslt = bmi2_get_regs(BMI2_PWR_CONF_ADDR, &data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             data = BMI2_SET_BITS(data, BMI2_FIFO_SELF_WAKE_UP, fifo_self_wake_up);
             rslt = bmi2_set_regs(BMI2_PWR_CONF_ADDR, &data, 1, dev);
@@ -3153,10 +2962,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_self_wake_up(XBYTE fifo_self_w
     return rslt;
 }
 
-/*!
- * @brief This API gets the status of FIFO self wake up functionality from
- * the sensor.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE*fifo_self_wake_up, struct bmi2_dev*dev)
+* @brief      bmi2_get_fifo_self_wake_up: gets the status of FIFO self wake up functionality from
+* @ingroup    DATAIO
+* 
+* @param[in]  XBYTE*fifo_self_wake_up : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE *fifo_self_wake_up, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3167,11 +2985,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE *fifo_self_
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_self_wake_up != NULL))
+    if((rslt == BMI2_OK) && (fifo_self_wake_up != NULL))
     {
         /* Get the status of FIFO self wake-up */
         rslt = bmi2_get_regs(BMI2_PWR_CONF_ADDR, &data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             (*fifo_self_wake_up) = BMI2_GET_BITS(data, BMI2_FIFO_SELF_WAKE_UP);
         }
@@ -3184,9 +3002,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_self_wake_up(XBYTE *fifo_self_
     return rslt;
 }
 
-/*!
- * @brief This API sets the FIFO water-mark level in the sensor.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_dev*dev)
+* @brief      bmi2_set_fifo_wm: sets the FIFO water-mark level in the sensor.
+* @ingroup    DATAIO
+* 
+* @param[in]  fifo_wm : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3197,7 +3025,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get LSB value of FIFO water-mark */
         data[0] = BMI2_GET_LSB(fifo_wm);
@@ -3212,9 +3040,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_wm(XWORD fifo_wm, struct bmi2_
     return rslt;
 }
 
-/*!
- * @brief This API reads the FIFO water mark level set in the sensor.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD*fifo_wm, struct bmi2_dev*dev)
+* @brief      bmi2_get_fifo_wm: reads the FIFO water mark level set in the sensor.
+* @ingroup    DATAIO
+* 
+* @param[in]  XWORD*fifo_wm : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD *fifo_wm, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3225,11 +3063,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD *fifo_wm, struct bmi2
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_wm != NULL))
+    if((rslt == BMI2_OK) && (fifo_wm != NULL))
     {
         /* Read the FIFO water mark level */
         rslt = bmi2_get_regs(BMI2_FIFO_WTM_0_ADDR, data, BMI2_FIFO_WM_LENGTH, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             (*fifo_wm) = (XWORD)((XWORD) data[1] << 8) | (data[0]);
         }
@@ -3242,10 +3080,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_wm(XWORD *fifo_wm, struct bmi2
     return rslt;
 }
 
-/*!
- * @brief This API sets either filtered or un-filtered FIFO accelerometer or
- * gyroscope data.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XBYTE fifo_filter_data, struct bmi2_dev*dev)
+* @brief      bmi2_set_fifo_filter_data: sets either filtered or un-filtered FIFO accelerometer or gyroscope data.
+* @ingroup    DATAIO
+* 
+* @param[in]  sens_sel : 
+* @param[in]  fifo_filter_data : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XBYTE fifo_filter_data, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3256,18 +3104,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XB
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         switch (sens_sel)
         {
             case BMI2_ACCEL:
 
                 /* Validate filter mode */
-                if (fifo_filter_data <= BMI2_MAX_VALUE_FIFO_FILTER)
+                if(fifo_filter_data <= BMI2_MAX_VALUE_FIFO_FILTER)
                 {
                     /* Set the accelerometer FIFO filter data */
                     rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         data = BMI2_SET_BITS(data, BMI2_ACC_FIFO_FILT_DATA, fifo_filter_data);
                         rslt = bmi2_set_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
@@ -3282,11 +3130,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XB
             case BMI2_GYRO:
 
                 /* Validate filter mode */
-                if (fifo_filter_data <= BMI2_MAX_VALUE_FIFO_FILTER)
+                if(fifo_filter_data <= BMI2_MAX_VALUE_FIFO_FILTER)
                 {
                     /* Set the gyroscope FIFO filter data */
                     rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         data = BMI2_SET_BITS(data, BMI2_GYR_FIFO_FILT_DATA, fifo_filter_data);
                         rslt = bmi2_set_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
@@ -3307,9 +3155,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_filter_data(XBYTE sens_sel, XB
     return rslt;
 }
 
-/*!
- * @brief This API gets the FIFO accelerometer or gyroscope filter data.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XBYTE*fifo_filter_data, struct bmi2_dev*dev)
+* @brief      bmi2_get_fifo_filter_data: gets the FIFO accelerometer or gyroscope filter data.
+* @ingroup    DATAIO
+* 
+* @param[in]  sens_sel : 
+* @param[in]  XBYTE*fifo_filter_data : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XBYTE *fifo_filter_data, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3320,7 +3179,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XB
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_filter_data != NULL))
+    if((rslt == BMI2_OK) && (fifo_filter_data != NULL))
     {
         switch (sens_sel)
         {
@@ -3328,7 +3187,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XB
 
                 /* Read the accelerometer FIFO filter data */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     (*fifo_filter_data) = BMI2_GET_BITS(data, BMI2_ACC_FIFO_FILT_DATA);
                 }
@@ -3338,7 +3197,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XB
 
                 /* Read the gyroscope FIFO filter data */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     (*fifo_filter_data) = BMI2_GET_BITS(data, BMI2_GYR_FIFO_FILT_DATA);
                 }
@@ -3357,10 +3216,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_filter_data(XBYTE sens_sel, XB
     return rslt;
 }
 
-/*!
- * @brief This API sets the down-sampling rates for accelerometer or gyroscope
- * FIFO data.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XBYTE fifo_down_samp, struct bmi2_dev*dev)
+* @brief      bmi2_set_fifo_down_sample: sets the down-sampling rates for accelerometer or gyroscope FIFO data.
+* @ingroup    DATAIO
+* 
+* @param[in]  sens_sel : 
+* @param[in]  fifo_down_samp : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XBYTE fifo_down_samp, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3371,7 +3240,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XB
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         switch (sens_sel)
         {
@@ -3379,7 +3248,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XB
 
                 /* Set the accelerometer FIFO down sampling rate */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     data = BMI2_SET_BITS(data, BMI2_ACC_FIFO_DOWNS, fifo_down_samp);
                     rslt = bmi2_set_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
@@ -3390,7 +3259,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XB
 
                 /* Set the gyroscope FIFO down sampling rate */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     data = BMI2_SET_BIT_POS0(data, BMI2_GYR_FIFO_DOWNS, fifo_down_samp);
                     rslt = bmi2_set_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
@@ -3406,10 +3275,21 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_fifo_down_sample(XBYTE sens_sel, XB
     return rslt;
 }
 
-/*!
- * @brief This API reads the down sampling rates which is configured for
- * accelerometer or gyroscope FIFO data.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XBYTE*fifo_down_samp, struct bmi2_dev*dev)
+* @brief      bmi2_get_fifo_down_sample: reads the down sampling rates which is configured for
+*                                        accelerometer or gyroscope FIFO data.
+* @ingroup    DATAIO
+* 
+* @param[in]  sens_sel : 
+* @param[in]  XBYTE*fifo_down_samp : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XBYTE *fifo_down_samp, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3420,7 +3300,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XB
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_down_samp != NULL))
+    if((rslt == BMI2_OK) && (fifo_down_samp != NULL))
     {
         switch (sens_sel)
         {
@@ -3428,7 +3308,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XB
 
                 /* Read the accelerometer FIFO down data sampling rate */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     (*fifo_down_samp) = BMI2_GET_BITS(data, BMI2_ACC_FIFO_DOWNS);
                 }
@@ -3438,7 +3318,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XB
 
                 /* Read the gyroscope FIFO down data sampling rate */
                 rslt = bmi2_get_regs(BMI2_FIFO_DOWNS_ADDR, &data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     (*fifo_down_samp) = BMI2_GET_BIT_POS0(data, BMI2_GYR_FIFO_DOWNS);
                 }
@@ -3457,10 +3337,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_down_sample(XBYTE sens_sel, XB
     return rslt;
 }
 
-/*!
- * @brief This API gets the length of FIFO data available in the sensor in
- * bytes.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD*fifo_length, struct bmi2_dev*dev)
+* @brief      bmi2_get_fifo_length: gets the length of FIFO data available in the sensor in bytes.
+* @ingroup    DATAIO
+* 
+* @param[in]  XWORD*fifo_length : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD *fifo_length, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3474,11 +3363,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD *fifo_length, str
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (fifo_length != NULL))
+    if((rslt == BMI2_OK) && (fifo_length != NULL))
     {
         /* Read FIFO length */
         rslt = bmi2_get_regs(BMI2_FIFO_LENGTH_0_ADDR, data, BMI2_FIFO_DATA_LENGTH, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the MSB byte index */
             index = BMI2_FIFO_LENGTH_MSB_BYTE;
@@ -3498,12 +3387,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_fifo_length(XWORD *fifo_length, str
     return rslt;
 }
 
-/*!
- * @brief This API reads the user-defined bytes of data from the given register
- * address of auxiliary sensor in manual mode.
- *
- * @note Change of BMI2_AUX_RD_ADDR is only allowed if AUX is not busy.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
+* @brief      bmi2_read_aux_man_mode: reads the user-defined bytes of data from the given register
+*                                     address of auxiliary sensor in manual mode.
+* @note       Change of BMI2_AUX_RD_ADDR is only allowed if AUX is not busy.
+* @ingroup    DATAIO
+* 
+* @param[in]  reg_addr : 
+* @param[in]  XBYTE*aux_data : 
+* @param[in]  len : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE *aux_data, XWORD len, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3517,26 +3417,26 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (aux_data != NULL))
+    if((rslt == BMI2_OK) && (aux_data != NULL))
     {
         /* Validate if manual mode */
-        if (dev->aux_man_en)
+        if(dev->aux_man_en)
         {
             /* Get status of advance power save mode */
             aps_stat = dev->aps_status;
-            if (aps_stat == BMI2_ENABLE)
+            if(aps_stat == BMI2_ENABLE)
             {
                 /* Disable APS if enabled */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Map the register value set to that of burst
                  * length
                  */
                 rslt = map_read_len(&burst_len, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Read auxiliary data */
                     rslt = read_aux_data(reg_addr, aux_data, len, burst_len, dev);
@@ -3546,7 +3446,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE
             /* Enable Advance power save if disabled for reading
              * data and not when already disabled
              */
-            if ((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
+            if((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -3564,12 +3464,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_aux_man_mode(XBYTE reg_addr, XBYTE
     return rslt;
 }
 
-/*!
- * @brief This API writes the user-defined bytes of data and the address of
- * auxiliary sensor where data is to be written in manual mode.
- *
- * @note Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, const XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
+* @brief      bmi2_write_aux_man_mode: writes the user-defined bytes of data and the address of
+*                                     auxiliary sensor where data is to be written in manual mode.
+* @note       Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy. 
+* @ingroup    DATAIO
+* 
+* @param[in]  reg_addr : 
+* @param[in]  XBYTE*aux_data : 
+* @param[in]  len : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, const XBYTE *aux_data, XWORD len, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3583,21 +3494,21 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, cons
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (aux_data != NULL))
+    if((rslt == BMI2_OK) && (aux_data != NULL))
     {
         /* Validate if manual mode */
-        if (dev->aux_man_en)
+        if(dev->aux_man_en)
         {
             /* Get status of advance power save mode */
             aps_stat = dev->aps_status;
-            if (aps_stat == BMI2_ENABLE)
+            if(aps_stat == BMI2_ENABLE)
             {
                 /* Disable APS if enabled */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
             }
 
             /* Byte write data in the corresponding address */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 for (; ((loop < len) && (rslt == BMI2_OK)); loop++)
                 {
@@ -3610,7 +3521,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, cons
             /* Enable Advance power save if disabled for writing
              * data and not when already disabled
              */
-            if ((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
+            if((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -3628,13 +3539,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_man_mode(XBYTE reg_addr, cons
     return rslt;
 }
 
-/*!
- * @brief This API writes the user-defined bytes of data and the address of
- * auxiliary sensor where data is to be written, from an interleaved input,
- * in manual mode.
- *
- * @note Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, const XBYTE*aux_data, XWORD len, struct bmi2_dev*dev)
+* @brief      bmi2_write_aux_interleaved: writes the user-defined bytes of data and the address of
+*                                         auxiliary sensor where data is to be written, from an interleaved input, in manual mode.
+* @note       Change of BMI2_AUX_WR_ADDR is only allowed if AUX is not busy.
+* @ingroup    DATAIO
+* 
+* @param[in]  reg_addr : 
+* @param[in]  XBYTE*aux_data : 
+* @param[in]  len : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, const XBYTE *aux_data, XWORD len, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3648,20 +3569,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, c
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (aux_data != NULL))
+    if((rslt == BMI2_OK) && (aux_data != NULL))
     {
         /* Validate if manual mode */
-        if (dev->aux_man_en)
+        if(dev->aux_man_en)
         {
             /* Get status of advance power save mode */
             aps_stat = dev->aps_status;
-            if (aps_stat == BMI2_ENABLE)
+            if(aps_stat == BMI2_ENABLE)
             {
                 /* Disable APS if enabled */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Write the start register address extracted
                  * from the interleaved data
@@ -3682,7 +3603,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, c
                 /* Enable Advance power save if disabled for
                  * writing data and not when already disabled
                  */
-                if ((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
+                if((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
                 {
                     rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
                 }
@@ -3701,10 +3622,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_aux_interleaved(XBYTE reg_addr, c
     return rslt;
 }
 
-/*!
- * @brief This API gets the data ready status of accelerometer, gyroscope,
- * auxiliary, command decoder and busy status of auxiliary.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE*status, struct bmi2_dev*dev)
+* @brief      bmi2_get_status gets the data ready status of accelerometer, gyroscope,
+*                             auxiliary, command decoder and busy status of auxiliary.
+* @ingroup    DATAIO
+* 
+* @param[in]  XBYTE*status : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE *status, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3712,7 +3643,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE *status, struct bmi2_d
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (status != NULL))
+    if((rslt == BMI2_OK) && (status != NULL))
     {
         rslt = bmi2_get_regs(BMI2_STATUS_ADDR, status, 1, dev);
     }
@@ -3724,9 +3655,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_status(XBYTE *status, struct bmi2_d
     return rslt;
 }
 
-/*!
- * @brief This API enables/disables OIS interface.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_ois_interface(XBYTE enable, struct bmi2_dev*dev)
+* @brief      bmi2_set_ois_interface: enables/disables OIS interface.
+* @ingroup    DATAIO
+* 
+* @param[in]  enable : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_ois_interface(XBYTE enable, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -3737,14 +3678,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_ois_interface(XBYTE enable, struct 
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_get_regs(BMI2_IF_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Enable/Disable OIS interface */
             reg_data = BMI2_SET_BITS(reg_data, BMI2_OIS_IF_EN, enable);
-            if (enable)
+            if(enable)
             {
                 /* Disable auxiliary interface if OIS is enabled */
                 reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_AUX_IF_EN);
@@ -3769,7 +3710,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_sync_commands(const XBYTE *comman
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (command != NULL))
+    if((rslt == BMI2_OK) && (command != NULL))
     {
         rslt = bmi2_set_regs(BMI2_SYNC_COMMAND_ADDR, command, n_comm, dev);
     }
@@ -3810,7 +3751,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Sets the configuration required before enabling self-test */
         rslt = pre_self_test_config(dev);
@@ -3819,7 +3760,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
         //dev->delay_us(3000, dev->intf_ptr);
         bmi2_delay_us(3000, dev->intf_ptr);
         
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             do
             {
@@ -3827,20 +3768,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
                  * after enabling self-test
                  */
                 rslt = self_test_config((XBYTE) sign, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Wait for greater than 50 milli-sec */
                     //dev->delay_us(51000, dev->intf_ptr);
                   bmi2_delay_us(51000, dev->intf_ptr);                        
 
                     /* If polarity is positive */
-                    if (sign == BMI2_ENABLE)
+                    if(sign == BMI2_ENABLE)
                     {
                         /* Read and store positive acceleration value */
                         rslt = read_accel_xyz(&positive, dev);
                     }
                     /* If polarity is negative */
-                    else if (sign == BMI2_DISABLE)
+                    else if(sign == BMI2_DISABLE)
                     {
                         /* Read and store negative acceleration value */
                         rslt = read_accel_xyz(&negative, dev);
@@ -3853,7 +3794,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
                 }
 
                 /* Break if error */
-                if (rslt != BMI2_OK)
+                if(rslt != BMI2_OK)
                 {
                     break;
                 }
@@ -3861,7 +3802,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
                 /* Turn the polarity of self-test negative */
                 sign--;
             } while (sign >= 0);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Subtract -ve acceleration values from that of +ve values */
                 accel_data_diff.x = (positive.x) - (negative.x);
@@ -3882,7 +3823,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_self_test(struct bmi2_dev
                 rslt = bmi2_soft_reset(dev);
 
                 /* Return the self-test result */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = st_rslt;
                 }
@@ -3912,12 +3853,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_map_feat_int(XBYTE type, enum bmi2_hw_i
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Read interrupt map1 and map2 and register */
         rslt = bmi2_get_regs(BMI2_INT1_MAP_FEAT_ADDR, data_array, 2, dev);
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the value of the feature interrupt to be mapped */
             extract_feat_int_map(&map_int, type, dev);
@@ -3928,10 +3869,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_map_feat_int(XBYTE type, enum bmi2_hw_i
             rslt = map_feat_int(data_array, hw_int_pin, feat_int);
 
             /* Map the interrupts to INT1 and INT2 map register */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = bmi2_set_regs(BMI2_INT1_MAP_FEAT_ADDR, &data_array[0], 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = bmi2_set_regs(BMI2_INT2_MAP_FEAT_ADDR, &data_array[1], 1, dev);
                 }
@@ -3965,9 +3906,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_map_data_int(XBYTE data_int, enum bmi2_
 
     /* Read interrupt map1 and map2 and register */
     rslt = bmi2_get_regs(BMI2_INT_MAP_DATA_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
-        if (int_pin < BMI2_INT_PIN_MAX)
+        if(int_pin < BMI2_INT_PIN_MAX)
         {
             switch (int_pin)
             {
@@ -4030,11 +3971,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_remap_axes(struct bmi2_remap *remap
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (remapped_axis != NULL))
+    if((rslt == BMI2_OK) && (remapped_axis != NULL))
     {
         /* Get the re-mapped axes from the sensor */
         rslt = get_remap_axes(&remap, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Store the re-mapped x-axis value in device structure
              * and its user-value in the interface structure
@@ -4066,7 +4007,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_remap_axes(struct bmi2_remap *remap
             /* Store the re-mapped x-axis sign in device structure
              * and its user-value in the interface structure
              */
-            if (remap.x_axis_sign)
+            if(remap.x_axis_sign)
             {
                 /* If x-axis is mapped to -ve sign */
                 dev->remap.x_axis_sign = BMI2_NEG_SIGN;
@@ -4107,7 +4048,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_remap_axes(struct bmi2_remap *remap
             /* Store the re-mapped y-axis sign in device structure
              * and its user-value in the interface structure
              */
-            if (remap.y_axis_sign)
+            if(remap.y_axis_sign)
             {
                 /* If y-axis is mapped to -ve sign */
                 dev->remap.y_axis_sign = BMI2_NEG_SIGN;
@@ -4148,7 +4089,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_remap_axes(struct bmi2_remap *remap
             /* Store the re-mapped z-axis sign in device structure
              * and its user-value in the interface structure
              */
-            if (remap.z_axis_sign)
+            if(remap.z_axis_sign)
             {
                 /* If z-axis is mapped to -ve sign */
                 dev->remap.z_axis_sign = BMI2_NEG_SIGN;
@@ -4194,13 +4135,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_remap_axes(const struct bmi2_remap 
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (remapped_axis != NULL))
+    if((rslt == BMI2_OK) && (remapped_axis != NULL))
     {
         /* Check whether all the axes are re-mapped */
         remap_axes = remapped_axis->x | remapped_axis->y | remapped_axis->z;
 
         /* If all the axes are re-mapped */
-        if ((remap_axes & BMI2_AXIS_MASK) == BMI2_AXIS_MASK)
+        if((remap_axes & BMI2_AXIS_MASK) == BMI2_AXIS_MASK)
         {
             /* Get the re-mapped value of x, y and z axis */
             remap_x = remapped_axis->x & BMI2_AXIS_MASK;
@@ -4237,7 +4178,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_remap_axes(const struct bmi2_remap 
             /* Store the re-mapped x-axis sign in the device
              * structure and its value in local structure
              */
-            if (remapped_axis->x & BMI2_AXIS_SIGN)
+            if(remapped_axis->x & BMI2_AXIS_SIGN)
             {
                 /* If x-axis is mapped to -ve sign */
                 dev->remap.x_axis_sign = BMI2_NEG_SIGN;
@@ -4279,7 +4220,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_remap_axes(const struct bmi2_remap 
             /* Store the re-mapped y-axis sign in the device
              * structure and its value in local structure
              */
-            if (remapped_axis->y & BMI2_AXIS_SIGN)
+            if(remapped_axis->y & BMI2_AXIS_SIGN)
             {
                 /* If y-axis is mapped to -ve sign */
                 dev->remap.y_axis_sign = BMI2_NEG_SIGN;
@@ -4321,7 +4262,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_remap_axes(const struct bmi2_remap 
             /* Store the re-mapped z-axis sign in the device
              * structure and its value in local structure
              */
-            if (remapped_axis->z & BMI2_AXIS_SIGN)
+            if(remapped_axis->z & BMI2_AXIS_SIGN)
             {
                 /* If z-axis is mapped to -ve sign */
                 dev->remap.z_axis_sign = BMI2_NEG_SIGN;
@@ -4363,11 +4304,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_set_gyro_offset_comp(XBYTE enable, stru
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get the status of gyroscope offset enable */
         rslt = bmi2_get_regs(BMI2_GYR_OFF_COMP_6_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             reg_data = BMI2_SET_BITS(reg_data, BMI2_GYR_OFF_COMP_EN, enable);
 
@@ -4415,11 +4356,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_read_gyro_offset_comp_axes(struct bmi2_
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (gyr_off_comp_axes != NULL))
+    if((rslt == BMI2_OK) && (gyr_off_comp_axes != NULL))
     {
         /* Get the gyroscope compensated offset values */
         rslt = bmi2_get_regs(BMI2_GYR_OFF_COMP_3_ADDR, reg_data, 4, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get LSB and MSB values of offset compensation for
              * x, y and z axis
@@ -4472,11 +4413,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_write_gyro_offset_comp_axes(const struc
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (gyr_off_comp_axes != NULL))
+    if((rslt == BMI2_OK) && (gyr_off_comp_axes != NULL))
     {
         /* Get the MSB values of gyroscope compensated offset values */
         rslt = bmi2_get_regs(BMI2_GYR_OFF_COMP_6_ADDR, &reg_data[3], 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get MSB value of x-axis from user-input */
             gyr_off_msb_x = (XBYTE)((gyr_off_comp_axes->x & BMI2_GYR_OFF_COMP_MSB_MASK) >> 8);
@@ -4528,17 +4469,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_gyro_cross_sense(struct bmi2_dev *d
     struct bmi2_sensor_data data;
 
     /* Check if the feature is supported by this variant */
-    if (dev->variant_feature & BMI2_GYRO_CROSS_SENS_ENABLE)
+    if(dev->variant_feature & BMI2_GYRO_CROSS_SENS_ENABLE)
     {
         rslt = null_ptr_check(dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Select the feature whose data is to be acquired */
             data.type = BMI2_GYRO_CROSS_SENSE;
 
             /* Get the respective data */
             rslt = bmi2_get_sensor_data(&data, 1, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Update the gyroscope cross sense value of z axis
                  * in the device structure
@@ -4565,7 +4506,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_internal_status(XBYTE *int_stat, st
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (int_stat != NULL))
+    if((rslt == BMI2_OK) && (int_stat != NULL))
     {
         /* Delay to read the internal status */
         bmi2_delay_us(20000, dev->intf_ptr);              
@@ -4600,31 +4541,31 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::verify_foc_position(XBYTE sens_list,
     struct bmi2_foc_temp_value temp_foc_data = { 0 };
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Enable sensor */
         rslt = bmi2_sensor_enable(&sens_list, 1, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
 
         rslt = get_average_of_sensor_data(sens_list, &temp_foc_data, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
-            if (sens_list == BMI2_ACCEL)
+            if(sens_list == BMI2_ACCEL)
             {
 
                 /* Taking modulus to make negative values as positive */
-                if ((accel_g_axis->x == 1) && (accel_g_axis->sign == 1))
+                if((accel_g_axis->x == 1) && (accel_g_axis->sign == 1))
                 {
                     temp_foc_data.x = temp_foc_data.x * -1;
                 }
-                else if ((accel_g_axis->y == 1) && (accel_g_axis->sign == 1))
+                else if((accel_g_axis->y == 1) && (accel_g_axis->sign == 1))
                 {
                     temp_foc_data.y = temp_foc_data.y * -1;
                 }
-                else if ((accel_g_axis->z == 1) && (accel_g_axis->sign == 1))
+                else if((accel_g_axis->z == 1) && (accel_g_axis->sign == 1))
                 {
                     temp_foc_data.z = temp_foc_data.z * -1;
                 }
@@ -4663,14 +4604,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_foc(const struct bmi2_acc
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (accel_g_value != NULL))
+    if((rslt == BMI2_OK) && (accel_g_value != NULL))
     {
         /* Check for input validity */
-        if ((((BMI2_ABS(accel_g_value->x)) + (BMI2_ABS(accel_g_value->y)) + (BMI2_ABS(accel_g_value->z))) == 1) &&
+        if((((BMI2_ABS(accel_g_value->x)) + (BMI2_ABS(accel_g_value->y)) + (BMI2_ABS(accel_g_value->z))) == 1) &&
             ((accel_g_value->sign == 1) || (accel_g_value->sign == 0)))
         {
             rslt = verify_foc_position(BMI2_ACCEL, accel_g_value, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
 
                 /* Save accelerometer configurations, accelerometer
@@ -4680,19 +4621,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_accel_foc(const struct bmi2_acc
             }
 
             /* Set configurations for FOC */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = set_accel_foc_config(dev);
             }
 
             /* Perform accelerometer FOC */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = perform_accel_foc(accel_g_value, &acc_cfg, dev);
             }
 
             /* Restore the saved configurations */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = restore_accel_foc_config(&acc_cfg, aps, acc_en, dev);
             }
@@ -4744,11 +4685,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_gyro_foc(struct bmi2_dev *dev)
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Argument2 is not applicable for gyro */
         rslt = verify_foc_position(BMI2_GYRO, 0, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Save gyroscope configurations, gyroscope enable
              * status and advance power save status
@@ -4756,13 +4697,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_gyro_foc(struct bmi2_dev *dev)
             rslt = save_gyro_config(&gyr_cfg, &aps, &gyr_en, dev);
 
             /* Set configurations for gyroscope FOC */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = set_gyro_foc_config(dev);
             }
 
             /* Perform FOC */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 for (loop = 0; loop < 128; loop++)
                 {
@@ -4773,10 +4714,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_gyro_foc(struct bmi2_dev *dev)
                     rslt = bmi2_get_status(&reg_status, dev);
 
                     /* Read 128 samples of gyroscope data on data ready interrupt */
-                    if ((rslt == BMI2_OK) && (reg_status & BMI2_DRDY_GYR))
+                    if((rslt == BMI2_OK) && (reg_status & BMI2_DRDY_GYR))
                     {
                         rslt = read_gyro_xyz(&gyr_value[loop], dev);
-                        if (rslt == BMI2_OK)
+                        if(rslt == BMI2_OK)
                         {
                             /* Store the data in a temporary structure */
                             temp.x = temp.x + (XDWORDSIG)gyr_value[loop].x;
@@ -4785,18 +4726,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_gyro_foc(struct bmi2_dev *dev)
                         }
                     }
 
-                    if (rslt != BMI2_OK)
+                    if(rslt != BMI2_OK)
                     {
                         break;
                     }
-                    else if ((reg_status & BMI2_DRDY_GYR) != BMI2_DRDY_GYR)
+                    else if((reg_status & BMI2_DRDY_GYR) != BMI2_DRDY_GYR)
                     {
                         rslt = BMI2_E_INVALID_STATUS;
                         break;
                     }
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Take average of x, y and z data for lesser
                      * noise. It is same as offset data since lsb/dps
@@ -4822,13 +4763,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_perform_gyro_foc(struct bmi2_dev *dev)
                 }
 
                 /* Enable gyroscope offset compensation */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = bmi2_set_gyro_offset_comp(BMI2_ENABLE, dev);
                 }
 
                 /* Restore the saved gyroscope configurations */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = restore_gyro_config(&gyr_cfg, aps, gyr_en, dev);
                 }
@@ -4860,30 +4801,30 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_feat_config(XBYTE sw_page, XBYTE *f
     /* Variable to define index */
     XBYTE index = 0;
 
-    if ((feat_config == NULL) || (dev == NULL))
+    if((feat_config == NULL) || (dev == NULL))
     {
         rslt = BMI2_E_NULL_PTR;
     }
     else
     {
         /* Check whether the page is valid */
-        if (sw_page < dev->page_max)
+        if(sw_page < dev->page_max)
         {
             /* Switch page */
             rslt = bmi2_set_regs(BMI2_FEAT_PAGE_ADDR, &sw_page, 1, dev);
 
             /* If user length is less than feature length */
-            if ((rslt == BMI2_OK) && (dev->read_write_len < BMI2_FEAT_SIZE_IN_BYTES))
+            if((rslt == BMI2_OK) && (dev->read_write_len < BMI2_FEAT_SIZE_IN_BYTES))
             {
                 /* Read-write should be even */
-                if ((dev->read_write_len % 2) != 0)
+                if((dev->read_write_len % 2) != 0)
                 {
                     dev->read_write_len--;
                 }
 
                 while (bytes_remain > 0)
                 {
-                    if (bytes_remain >= dev->read_write_len)
+                    if(bytes_remain >= dev->read_write_len)
                     {
                         /* Read from the page */
                         rslt = bmi2_get_regs(addr, &feat_config[index], dev->read_write_len, dev);
@@ -4909,13 +4850,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_feat_config(XBYTE sw_page, XBYTE *f
                     /* Remaining bytes */
                     bytes_remain = BMI2_FEAT_SIZE_IN_BYTES - read_write_len;
 
-                    if (rslt != BMI2_OK)
+                    if(rslt != BMI2_OK)
                     {
                         break;
                     }
                 }
             }
-            else if (rslt == BMI2_OK)
+            else if(rslt == BMI2_OK)
             {
                 /* Get configuration from the page */
                 rslt = bmi2_get_regs(BMI2_FEATURES_REG_ADDR, feat_config, BMI2_FEAT_SIZE_IN_BYTES, dev);
@@ -4946,7 +4887,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::bmi2_extract_input_feat_config(struct bmi2_feat
     /* Search for the input feature from the input configuration array */
     while (loop < dev->input_sens)
     {
-        if (dev->feat_config[loop].type == type)
+        if(dev->feat_config[loop].type == type)
         {
             *feat_config = dev->feat_config[loop];
             feat_found = BMI2_TRUE;
@@ -4995,13 +4936,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_config_file(struct bmi2_dev *dev)
 
     /* Disable advanced power save mode */
     rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Disable loading of the configuration */
         rslt = set_config_load(BMI2_DISABLE, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
-            if (!remain)
+            if(!remain)
             {
                 /* Write the configuration file */
                 for (index = 0; (index < config_size) && (rslt == BMI2_OK); index += dev->read_write_len)
@@ -5020,7 +4961,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_config_file(struct bmi2_dev *dev)
                     rslt = upload_file((dev->config_file_ptr + index), index, dev->read_write_len, dev);
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Update length in a temporary variable */
                     read_write_len = dev->read_write_len;
@@ -5041,7 +4982,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_config_file(struct bmi2_dev *dev)
                 }
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Enable loading of the configuration */
                 rslt = set_config_load(BMI2_ENABLE, dev);
@@ -5049,7 +4990,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_config_file(struct bmi2_dev *dev)
                 /* Wait till ASIC is initialized */
                 bmi2_delay_us(150000, dev->intf_ptr);
                 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Enable advanced power save mode */
                     rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
@@ -5074,7 +5015,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_config_load(XBYTE enable, struct bmi2_de
     XBYTE reg_data = 0;
 
     rslt = bmi2_get_regs(BMI2_INIT_CTRL_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         reg_data = BMI2_SET_BIT_POS0(reg_data, BMI2_CONF_LOAD_EN, enable);
         rslt = bmi2_set_regs(BMI2_INIT_CTRL_ADDR, &reg_data, 1, dev);
@@ -5094,7 +5035,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::upload_file(const XBYTE *config_data, XWORD 
     /* Array to store address */
     XBYTE addr_array[2] = { 0 };
 
-    if (config_data != NULL)
+    if(config_data != NULL)
     {
         /* Store 0 to 3 bits of address in first byte */
         addr_array[0] = (XBYTE)((index / 2) & 0x0F);
@@ -5104,7 +5045,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::upload_file(const XBYTE *config_data, XWORD 
 
         /* Write the 2 bytes of address in consecutive locations */
         rslt = bmi2_set_regs(BMI2_INIT_ADDR_0, addr_array, 2, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Burst write configuration file data corresponding to user set length */
             rslt = bmi2_set_regs(BMI2_INIT_DATA_ADDR, (XBYTE *)config_data, write_len, dev);
@@ -5129,10 +5070,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_bw_perf_mode(XBYTE *bandwidth, XBYT
 
     /* Validate and auto-correct performance mode */
     rslt = check_boundary_val(perf_mode, BMI2_POWER_OPT_MODE, BMI2_PERF_OPT_MODE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Validate and auto-correct bandwidth parameter */
-        if (*perf_mode == BMI2_PERF_OPT_MODE)
+        if(*perf_mode == BMI2_PERF_OPT_MODE)
         {
             /* Validate for continuous filter mode */
             rslt = check_boundary_val(bandwidth, BMI2_ACC_OSR4_AVG1, BMI2_ACC_CIC_AVG8, dev);
@@ -5158,7 +5099,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_bw_perf_mode(XBYTE *bandwidth, XBYT
 
     /* Validate and auto correct ODR */
     rslt = check_boundary_val(odr, BMI2_ACC_ODR_0_78HZ, BMI2_ACC_ODR_1600HZ, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Validate and auto correct Range */
         rslt = check_boundary_val(range, BMI2_ACC_RANGE_2G, BMI2_ACC_RANGE_16G, dev);
@@ -5178,23 +5119,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_gyro_config(struct bmi2_gyro_config
 
     /* Validate and auto-correct performance mode */
     rslt = check_boundary_val(&config->filter_perf, BMI2_POWER_OPT_MODE, BMI2_PERF_OPT_MODE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Validate and auto-correct bandwidth parameter */
         rslt = check_boundary_val(&config->bwp, BMI2_GYR_OSR4_MODE, BMI2_GYR_CIC_MODE, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Validate and auto-correct low power/high-performance parameter */
             rslt = check_boundary_val(&config->noise_perf, BMI2_POWER_OPT_MODE, BMI2_PERF_OPT_MODE, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Validate and auto-correct ODR parameter */
                 rslt = check_boundary_val(&config->odr, BMI2_GYR_ODR_25HZ, BMI2_GYR_ODR_3200HZ, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Validate and auto-correct OIS range */
                     rslt = check_boundary_val(&config->ois_range, BMI2_GYR_OIS_250, BMI2_GYR_OIS_2000, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         /* Validate and auto-correct range parameter */
                         rslt = check_boundary_val(&config->range, BMI2_GYR_RANGE_2000, BMI2_GYR_RANGE_125, dev);
@@ -5221,7 +5162,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::cfg_error_status(struct bmi2_dev *dev)
 
     /* Get error status of the set sensor configuration */
     rslt = bmi2_get_regs(BMI2_EVENT_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         reg_data = BMI2_GET_BITS(reg_data, BMI2_EVENT_FLAG);
         switch (reg_data)
@@ -5261,15 +5202,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_aux_config(struct bmi2_aux_config *confi
 
     /* Validate auxiliary configurations */
     rslt = validate_aux_config(config, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Enable/Disable auxiliary interface */
         rslt = set_aux_interface(config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Set the auxiliary interface configurations */
             rslt = config_aux_interface(config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Set read out offset and ODR */
                 rslt = config_aux(config, dev);
@@ -5309,11 +5250,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_user_gain_config(const struct bmi2_
 
     /* Search for user-gain feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&user_gain_config, BMI2_GYRO_GAIN_UPDATE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where user-gain feature resides */
         rslt = bmi2_get_feat_config(user_gain_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for user-gain select */
             idx = user_gain_config.start_addr;
@@ -5373,7 +5314,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_aux_interface(const struct bmi2_aux_conf
     XBYTE reg_data;
 
     rslt = bmi2_get_regs(BMI2_IF_CONF_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         reg_data = BMI2_SET_BITS(reg_data, BMI2_AUX_IF_EN, config->aux_en);
 
@@ -5406,7 +5347,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::config_aux_interface(const struct bmi2_aux_c
     XBYTE count = 0;
 
     rslt = bmi2_get_regs(BMI2_AUX_DEV_ID_ADDR, reg_data, 2, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set I2C address for AUX sensor */
         reg_data[0] = BMI2_SET_BITS(reg_data[0], BMI2_AUX_SET_I2C_ADDR, config->i2c_device_addr);
@@ -5426,16 +5367,16 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::config_aux_interface(const struct bmi2_aux_c
         {
             /* Check if auxiliary sensor is busy */
             rslt = bmi2_get_status(&status, dev);
-            if ((rslt == BMI2_OK) && (!(status & BMI2_AUX_BUSY)))
+            if((rslt == BMI2_OK) && (!(status & BMI2_AUX_BUSY)))
             {
                 /* Set the configurations if AUX is not busy */
                 rslt = bmi2_set_regs(BMI2_AUX_DEV_ID_ADDR, reg_data, 2, dev);
                 bmi2_delay_us(1000, dev->intf_ptr);
                 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* If data mode */
-                    if (!config->manual_en)
+                    if(!config->manual_en)
                     {
                         /* Disable manual enable flag in device structure */
                         dev->aux_man_en = 0;
@@ -5464,7 +5405,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::config_aux_interface(const struct bmi2_aux_c
             count++;
 
             /* Break after 2 seconds if AUX still busy - since slowest ODR is 0.78Hz*/
-            if (count > 20)
+            if(count > 20)
             {
                 rslt = BMI2_E_AUX_BUSY;
                 break;
@@ -5488,7 +5429,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::config_aux(const struct bmi2_aux_config *con
     XBYTE reg_data;
 
     rslt = bmi2_get_regs(BMI2_AUX_CONF_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Trigger read out offset */
         reg_data = BMI2_SET_BITS(reg_data, BMI2_AUX_OFFSET_READ_OUT, config->offset);
@@ -5525,7 +5466,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_if_aux_not_busy(XBYTE reg_addr, XBYTE re
         rslt = bmi2_get_status(&status, dev);
 
         /* Set the registers if not busy */
-        if ((rslt == BMI2_OK) && (!(status & BMI2_AUX_BUSY)))
+        if((rslt == BMI2_OK) && (!(status & BMI2_AUX_BUSY)))
         {
             rslt = bmi2_set_regs(reg_addr, &reg_data, 1, dev);
             bmi2_delay_us(1000, dev->intf_ptr);
@@ -5539,7 +5480,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_if_aux_not_busy(XBYTE reg_addr, XBYTE re
         count++;
 
         /* Break after 2 seconds if AUX still busy - since slowest ODR is 0.78Hz*/
-        if (count > 20)
+        if(count > 20)
         {
             rslt = BMI2_E_AUX_BUSY;
             break;
@@ -5577,11 +5518,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_accel_config(struct bmi2_accel_config *c
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (config != NULL))
+    if((rslt == BMI2_OK) && (config != NULL))
     {
         /* Read the sensor configuration details */
         rslt = bmi2_get_regs(BMI2_ACC_CONF_ADDR, data_array, 2, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get accelerometer performance mode */
             config->filter_perf = BMI2_GET_BITS(data_array[0], BMI2_ACC_FILTER_PERF_MODE);
@@ -5618,11 +5559,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_config(struct bmi2_gyro_config *con
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (config != NULL))
+    if((rslt == BMI2_OK) && (config != NULL))
     {
         /* Read the sensor configuration details */
         rslt = bmi2_get_regs(BMI2_GYR_CONF_ADDR, data_array, 2, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get gyroscope performance mode */
             config->filter_perf = BMI2_GET_BITS(data_array[0], BMI2_GYR_FILTER_PERF_MODE);
@@ -5666,15 +5607,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_aux_config(struct bmi2_aux_config *confi
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (config != NULL))
+    if((rslt == BMI2_OK) && (config != NULL))
     {
         /* Get enable status of auxiliary interface */
         rslt = get_aux_interface(config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the auxiliary interface configurations */
             rslt = get_aux_interface_config(config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Get read out offset and ODR */
                 rslt = get_aux_cfg(config, dev);
@@ -5721,11 +5662,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_gain_update_config(struct bmi2_gyro
 
     /* Search for user-gain feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&user_gain_config, BMI2_GYRO_GAIN_UPDATE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where user-gain feature resides */
         rslt = bmi2_get_feat_config(user_gain_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for user-gain select */
             idx = user_gain_config.start_addr;
@@ -5776,7 +5717,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_aux_interface(struct bmi2_aux_config *co
 
     /* Get the enable status of auxiliary interface */
     rslt = bmi2_get_regs(BMI2_IF_CONF_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         config->aux_en = BMI2_GET_BITS(reg_data, BMI2_AUX_IF_EN);
     }
@@ -5797,7 +5738,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_aux_interface_config(struct bmi2_aux_con
     XBYTE reg_data[2] = { 0 };
 
     rslt = bmi2_get_regs(BMI2_AUX_DEV_ID_ADDR, reg_data, 2, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get I2C address for auxiliary sensor */
         config->i2c_device_addr = BMI2_GET_BITS(reg_data[0], BMI2_AUX_SET_I2C_ADDR);
@@ -5815,7 +5756,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_aux_interface_config(struct bmi2_aux_con
         config->aux_rd_burst = BMI2_GET_BIT_POS0(reg_data[1], BMI2_AUX_READ_BURST);
 
         /* If data mode, get the read address of the auxiliary sensor from where data is to be read */
-        if (!config->manual_en)
+        if(!config->manual_en)
         {
             rslt = bmi2_get_regs(BMI2_AUX_RD_ADDR, &config->read_addr, 1, dev);
         }
@@ -5837,7 +5778,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_aux_cfg(struct bmi2_aux_config *config, 
     XBYTE reg_data;
 
     rslt = bmi2_get_regs(BMI2_AUX_CONF_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get read out offset */
         config->offset = BMI2_GET_BITS(reg_data, BMI2_AUX_OFFSET_READ_OUT);
@@ -5859,10 +5800,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::map_feat_int(XBYTE *reg_data_array, enum bmi
     XBYTESIG rslt = BMI2_OK;
 
     /* Check for NULL error */
-    if (reg_data_array != NULL)
+    if(reg_data_array != NULL)
     {
         /* Check validity on interrupt pin selection */
-        if (int_pin < BMI2_INT_PIN_MAX)
+        if(int_pin < BMI2_INT_PIN_MAX)
         {
             switch (int_pin)
             {
@@ -5925,7 +5866,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_accel_sensor_data(struct bmi2_sens_axes_
 
     /* Read the sensor data */
     rslt = bmi2_get_regs(reg_addr, reg_data, BMI2_ACC_GYR_NUM_BYTES, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get accelerometer data from the register */
         get_acc_gyr_data(data, reg_data);
@@ -5950,7 +5891,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_sensor_data(struct bmi2_sens_axes_d
 
     /* Read the sensor data */
     rslt = bmi2_get_regs(reg_addr, reg_data, BMI2_ACC_GYR_NUM_BYTES, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get gyroscope data from the register */
         get_acc_gyr_data(data, reg_data);
@@ -6018,7 +5959,7 @@ void DIOI2C6AXISTRACKINGBMI270::get_remapped_data(struct bmi2_sens_axes_data *da
     remap_data[2] = data->z;
 
     /* Get the re-mapped x axis data */
-    if (dev->remap.x_axis_sign == BMI2_POS_SIGN)
+    if(dev->remap.x_axis_sign == BMI2_POS_SIGN)
     {
         data->x = (XWORDSIG)(remap_data[dev->remap.x_axis] * pos_multiplier);
     }
@@ -6028,7 +5969,7 @@ void DIOI2C6AXISTRACKINGBMI270::get_remapped_data(struct bmi2_sens_axes_data *da
     }
 
     /* Get the re-mapped y axis data */
-    if (dev->remap.y_axis_sign == BMI2_POS_SIGN)
+    if(dev->remap.y_axis_sign == BMI2_POS_SIGN)
     {
         data->y = (XWORDSIG)(remap_data[dev->remap.y_axis] * pos_multiplier);
     }
@@ -6038,7 +5979,7 @@ void DIOI2C6AXISTRACKINGBMI270::get_remapped_data(struct bmi2_sens_axes_data *da
     }
 
     /* Get the re-mapped z axis data */
-    if (dev->remap.z_axis_sign == BMI2_POS_SIGN)
+    if(dev->remap.z_axis_sign == BMI2_POS_SIGN)
     {
         data->z = (XWORDSIG)(remap_data[dev->remap.z_axis] * pos_multiplier);
     }
@@ -6076,15 +6017,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::read_aux_data(XBYTE reg_addr, XBYTE *aux_dat
     {
         /* Set the read address if AUX is not busy */
         rslt = set_if_aux_not_busy(BMI2_AUX_RD_ADDR, reg_addr, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Read data from bmi2 data register */
             rslt = bmi2_get_regs(BMI2_AUX_X_LSB_ADDR, reg_data, (XWORD) burst_len, dev);
             bmi2_delay_us(1000, dev->intf_ptr);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Get number of bytes to be read */
-                if (len < burst_len)
+                if(len < burst_len)
                 {
                     read_length = (XBYTE) len;
                 }
@@ -6128,7 +6069,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_aux_data(XBYTE reg_addr, XBYTE reg_dat
 
     /* Write data to be written to the AUX sensor in bmi2 register */
     rslt = bmi2_set_regs(BMI2_AUX_WR_DATA_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Write the AUX address where data is to be stored when AUX is not busy */
         rslt = set_if_aux_not_busy(BMI2_AUX_WR_ADDR, reg_addr, dev);
@@ -6156,11 +6097,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::read_aux_data_mode(XBYTE *aux_data, struct b
     XBYTE reg_data[BMI2_AUX_NUM_BYTES] = { 0 };
 
     /* Check if data mode */
-    if (!dev->aux_man_en)
+    if(!dev->aux_man_en)
     {
         /* Read the auxiliary sensor data */
         rslt = bmi2_get_regs(BMI2_AUX_X_LSB_ADDR, reg_data, BMI2_AUX_NUM_BYTES, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the 8 bytes of auxiliary data */
             do
@@ -6225,25 +6166,25 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_accel_len(XWORD *start_idx,
     (*start_idx) = fifo->acc_byte_start_idx;
 
     /* If only accelerometer is enabled */
-    if (fifo->data_enable == BMI2_FIFO_ACC_EN)
+    if(fifo->data_enable == BMI2_FIFO_ACC_EN)
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*acc_count) * BMI2_FIFO_ACC_LENGTH);
     }
     /* If only accelerometer and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_AUX_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_AUX_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*acc_count) * BMI2_FIFO_ACC_AUX_LENGTH);
     }
     /* If only accelerometer and gyroscope are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*acc_count) * BMI2_FIFO_ACC_GYR_LENGTH);
     }
     /* If only accelerometer, gyroscope and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*acc_count) * BMI2_FIFO_ALL_LENGTH);
@@ -6260,7 +6201,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_accel_len(XWORD *start_idx,
     }
 
     /* If more data is requested than available */
-    if ((*len) > fifo->length)
+    if((*len) > fifo->length)
     {
         (*len) = fifo->length;
     }
@@ -6367,7 +6308,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::extract_accel_header_mode(struct bmi2_sens_a
         }
 
         /* Break if Number of frames to be read is complete or FIFO is mpty */
-        if ((frame_to_read == accel_index) || (rslt == BMI2_W_FIFO_EMPTY))
+        if((frame_to_read == accel_index) || (rslt == BMI2_W_FIFO_EMPTY))
         {
             break;
         }
@@ -6404,7 +6345,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
         case BMI2_FIFO_HEAD_LESS_ACC_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->acc_frm_len) > fifo->length)
+            if(((*idx) + fifo->acc_frm_len) > fifo->length)
             {
                 /* Update the data index as complete*/
                 (*idx) = fifo->length;
@@ -6421,7 +6362,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
             (*idx) = (*idx) + BMI2_FIFO_ACC_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&acc[(*acc_idx)], idx, fifo);
             }
@@ -6438,7 +6379,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
         case BMI2_FIFO_HEAD_LESS_GYR_ACC_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->acc_gyr_frm_len) > fifo->length)
+            if(((*idx) + fifo->acc_gyr_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6455,7 +6396,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
             (*idx) = (*idx) + BMI2_FIFO_ACC_GYR_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&acc[(*acc_idx)], idx, fifo);
             }
@@ -6472,7 +6413,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
         case BMI2_FIFO_HEAD_LESS_AUX_ACC_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->acc_aux_frm_len) > fifo->length)
+            if(((*idx) + fifo->acc_aux_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6489,7 +6430,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
             (*idx) = (*idx) + BMI2_FIFO_ACC_AUX_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&acc[(*acc_idx)], idx, fifo);
             }
@@ -6506,7 +6447,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
         case BMI2_FIFO_HEAD_LESS_ALL_FRM:
 
             /* Partially read, then skip the data*/
-            if ((*idx + fifo->all_frm_len) > fifo->length)
+            if((*idx + fifo->all_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6523,7 +6464,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_accel_frame(struct bmi2_sens_axes_dat
             (*idx) = (*idx) + BMI2_FIFO_ALL_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&acc[(*acc_idx)], idx, fifo);
             }
@@ -6630,25 +6571,25 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_gyro_len(XWORD *start_idx,
     (*start_idx) = fifo->gyr_byte_start_idx;
 
     /* If only gyroscope is enabled */
-    if (fifo->data_enable == BMI2_FIFO_GYR_EN)
+    if(fifo->data_enable == BMI2_FIFO_GYR_EN)
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*gyr_count) * BMI2_FIFO_GYR_LENGTH);
     }
     /* If only gyroscope and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*gyr_count) * BMI2_FIFO_GYR_AUX_LENGTH);
     }
     /* If only accelerometer and gyroscope are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_ACC_EN | BMI2_FIFO_GYR_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*gyr_count) * BMI2_FIFO_ACC_GYR_LENGTH);
     }
     /* If only accelerometer, gyroscope and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN | BMI2_FIFO_ACC_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_GYR_EN | BMI2_FIFO_AUX_EN | BMI2_FIFO_ACC_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*gyr_count) * BMI2_FIFO_ALL_LENGTH);
@@ -6665,7 +6606,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_gyro_len(XWORD *start_idx,
     }
 
     /* If more data is requested than available */
-    if (((*len)) > fifo->length)
+    if(((*len)) > fifo->length)
     {
         (*len) = fifo->length;
     }
@@ -6772,7 +6713,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::extract_gyro_header_mode(struct bmi2_sens_ax
         }
 
         /* Break if number of frames to be read is complete or FIFO is empty */
-        if ((frame_to_read == gyro_index) || (rslt == BMI2_W_FIFO_EMPTY))
+        if((frame_to_read == gyro_index) || (rslt == BMI2_W_FIFO_EMPTY))
         {
             break;
         }
@@ -6809,7 +6750,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
         case BMI2_FIFO_HEAD_LESS_GYR_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->gyr_frm_len) > fifo->length)
+            if(((*idx) + fifo->gyr_frm_len) > fifo->length)
             {
                 /* Update the data index as complete*/
                 (*idx) = fifo->length;
@@ -6826,7 +6767,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
             (*idx) = (*idx) + BMI2_FIFO_GYR_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&gyr[(*gyr_idx)], idx, fifo);
             }
@@ -6843,7 +6784,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
         case BMI2_FIFO_HEAD_LESS_GYR_ACC_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->acc_gyr_frm_len) > fifo->length)
+            if(((*idx) + fifo->acc_gyr_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6860,7 +6801,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
             (*idx) = (*idx) + BMI2_FIFO_ACC_GYR_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&gyr[(*gyr_idx)], idx, fifo);
             }
@@ -6877,7 +6818,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
         case BMI2_FIFO_HEAD_LESS_GYR_AUX_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->aux_gyr_frm_len) > fifo->length)
+            if(((*idx) + fifo->aux_gyr_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6894,7 +6835,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
             (*idx) = (*idx) + BMI2_FIFO_GYR_AUX_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&gyr[(*gyr_idx)], idx, fifo);
             }
@@ -6911,7 +6852,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
         case BMI2_FIFO_HEAD_LESS_ALL_FRM:
 
             /* Partially read, then skip the data*/
-            if ((*idx + fifo->all_frm_len) > fifo->length)
+            if((*idx + fifo->all_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -6928,7 +6869,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_gyro_frame(struct bmi2_sens_axes_data
             (*idx) = (*idx) + BMI2_FIFO_ALL_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_sensor_time(&gyr[(*gyr_idx)], idx, fifo);
             }
@@ -7037,25 +6978,25 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_aux_len(XWORD *start_idx,
     *start_idx = fifo->aux_byte_start_idx;
 
     /* If only auxiliary is enabled */
-    if (fifo->data_enable == BMI2_FIFO_AUX_EN)
+    if(fifo->data_enable == BMI2_FIFO_AUX_EN)
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*aux_count) * BMI2_FIFO_AUX_LENGTH);
     }
     /* If only accelerometer and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_ACC_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_ACC_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*aux_count) * BMI2_FIFO_ACC_AUX_LENGTH);
     }
     /* If only accelerometer and gyroscope are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_GYR_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_GYR_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*aux_count) * BMI2_FIFO_GYR_AUX_LENGTH);
     }
     /* If only accelerometer, gyroscope and auxiliary are enabled */
-    else if (fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_GYR_EN | BMI2_FIFO_ACC_EN))
+    else if(fifo->data_enable == (BMI2_FIFO_AUX_EN | BMI2_FIFO_GYR_EN | BMI2_FIFO_ACC_EN))
     {
         /* Number of bytes to be read */
         (*len) = (XWORD)((*aux_count) * BMI2_FIFO_ALL_LENGTH);
@@ -7072,7 +7013,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::parse_fifo_aux_len(XWORD *start_idx,
     }
 
     /* If more data is requested than available */
-    if (((*len)) > fifo->length)
+    if(((*len)) > fifo->length)
     {
         (*len) = fifo->length;
     }
@@ -7183,7 +7124,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::extract_aux_header_mode(struct bmi2_aux_fifo
         /* Break if number of frames to be read is complete or FIFO is
          * empty
          */
-        if ((frame_to_read == aux_index) || (rslt == BMI2_W_FIFO_EMPTY))
+        if((frame_to_read == aux_index) || (rslt == BMI2_W_FIFO_EMPTY))
         {
             break;
         }
@@ -7220,7 +7161,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
         case BMI2_FIFO_HEAD_LESS_AUX_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->aux_frm_len) > fifo->length)
+            if(((*idx) + fifo->aux_frm_len) > fifo->length)
             {
                 /* Update the data index as complete*/
                 (*idx) = fifo->length;
@@ -7237,7 +7178,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
             (*idx) = (*idx) + BMI2_FIFO_AUX_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_aux_sensor_time(&aux[(*aux_idx)], idx, fifo);
             }
@@ -7254,7 +7195,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
         case BMI2_FIFO_HEAD_LESS_AUX_ACC_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->acc_aux_frm_len) > fifo->length)
+            if(((*idx) + fifo->acc_aux_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -7271,7 +7212,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
             (*idx) = (*idx) + BMI2_FIFO_ACC_AUX_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_aux_sensor_time(&aux[(*aux_idx)], idx, fifo);
             }
@@ -7288,7 +7229,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
         case BMI2_FIFO_HEAD_LESS_GYR_AUX_FRM:
 
             /* Partially read, then skip the data */
-            if (((*idx) + fifo->aux_gyr_frm_len) > fifo->length)
+            if(((*idx) + fifo->aux_gyr_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -7305,7 +7246,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
             (*idx) = (*idx) + BMI2_FIFO_GYR_AUX_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_aux_sensor_time(&aux[(*aux_idx)], idx, fifo);
             }
@@ -7322,7 +7263,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
         case BMI2_FIFO_HEAD_LESS_ALL_FRM:
 
             /* Partially read, then skip the data */
-            if ((*idx + fifo->all_frm_len) > fifo->length)
+            if((*idx + fifo->all_frm_len) > fifo->length)
             {
                 /* Move the data index to the last byte */
                 (*idx) = fifo->length;
@@ -7339,7 +7280,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_aux_frame(struct bmi2_aux_fifo_data *
             (*idx) = (*idx) + BMI2_FIFO_ALL_LENGTH;
 
             /* Get virtual sensor time if S4S is enabled */
-            if (dev->sens_en_stat & BMI2_EXT_SENS_SEL)
+            if(dev->sens_en_stat & BMI2_EXT_SENS_SEL)
             {
                 unpack_virt_aux_sensor_time(&aux[(*aux_idx)], idx, fifo);
             }
@@ -7427,10 +7368,10 @@ void DIOI2C6AXISTRACKINGBMI270::parse_if_virtual_header(XBYTE *frame_header, XWO
     virtual_header_mode = BMI2_GET_BITS(*frame_header, BMI2_FIFO_VIRT_FRM_MODE);
 
     /* If the extracted header byte is a virtual header */
-    if (virtual_header_mode == BMI2_FIFO_VIRT_FRM_MODE)
+    if(virtual_header_mode == BMI2_FIFO_VIRT_FRM_MODE)
     {
         /* If frame header is not activity recognition header */
-        if (*frame_header != 0xC8)
+        if(*frame_header != 0xC8)
         {
             /* Index shifted to next byte where sensor frame is present */
             (*data_index) = (*data_index) + 1;
@@ -7504,7 +7445,7 @@ void DIOI2C6AXISTRACKINGBMI270::reset_fifo_frame_structure(struct bmi2_fifo_fram
     fifo->act_recog_byte_start_idx = 0;
 
     /* If S4S is enabled */
-    if ((dev->sens_en_stat & BMI2_EXT_SENS_SEL) == BMI2_EXT_SENS_SEL)
+    if((dev->sens_en_stat & BMI2_EXT_SENS_SEL) == BMI2_EXT_SENS_SEL)
     {
         fifo->acc_frm_len = BMI2_FIFO_VIRT_ACC_LENGTH;
         fifo->gyr_frm_len = BMI2_FIFO_VIRT_GYR_LENGTH;
@@ -7538,10 +7479,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::check_empty_fifo(XWORD *data_index, const st
     XBYTESIG rslt = BMI2_OK;
 
     /* Validate data index */
-    if (((*data_index) + 6) < fifo->length)
+    if(((*data_index) + 6) < fifo->length)
     {
         /* Check if FIFO is empty */
-        if (((fifo->data[(*data_index)] == BMI2_FIFO_MSB_CONFIG_CHECK) &&
+        if(((fifo->data[(*data_index)] == BMI2_FIFO_MSB_CONFIG_CHECK) &&
              (fifo->data[(*data_index) + 1] == BMI2_FIFO_LSB_CONFIG_CHECK)) &&
             ((fifo->data[(*data_index) + 2] == BMI2_FIFO_MSB_CONFIG_CHECK) &&
              (fifo->data[(*data_index) + 3] == BMI2_FIFO_LSB_CONFIG_CHECK)) &&
@@ -7575,7 +7516,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::move_next_frame(XWORD *data_index, XBYTE cur
     XBYTESIG rslt = BMI2_OK;
 
     /* Validate data index */
-    if (((*data_index) + current_frame_length) > fifo->length)
+    if(((*data_index) + current_frame_length) > fifo->length)
     {
         /* Move the data index to the last byte */
         (*data_index) = fifo->length;
@@ -7610,7 +7551,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_sensortime_frame(XWORD *data_index, s
     XBYTE sensor_time_byte1 = 0;
 
     /* Validate data index */
-    if (((*data_index) + BMI2_SENSOR_TIME_LENGTH) > fifo->length)
+    if(((*data_index) + BMI2_SENSOR_TIME_LENGTH) > fifo->length)
     {
         /* Move the data index to the last byte */
         (*data_index) = fifo->length;
@@ -7648,7 +7589,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::unpack_skipped_frame(XWORD *data_index, stru
     XBYTESIG rslt = BMI2_OK;
 
     /* Validate data index */
-    if ((*data_index) >= fifo->length)
+    if((*data_index) >= fifo->length)
     {
         /* Update the data index to the last byte */
         (*data_index) = fifo->length;
@@ -7691,19 +7632,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::pre_self_test_config(struct bmi2_dev *dev)
     bmi2_delay_us(1000, dev->intf_ptr);
 
     /* Enable self-test amplitude */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = set_accel_self_test_amp(BMI2_ENABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Select accelerometer for sensor configurations */
         sens_cfg.type = BMI2_ACCEL;
 
         /* Get the default values */
         rslt = bmi2_get_sensor_config(&sens_cfg, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Set the configurations required for self-test */
             sens_cfg.cfg.acc.odr = BMI2_ACC_ODR_1600HZ;
@@ -7730,7 +7671,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::self_test_config(XBYTE sign, struct bmi2_dev
 
     /* Enable the accelerometer self-test feature */
     rslt = set_accel_self_test_enable(BMI2_ENABLE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Selects the sign of accelerometer self-test excitation */
         rslt = set_acc_self_test_sign(sign, dev);
@@ -7753,7 +7694,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_self_test_enable(XBYTE enable, str
 
     /* Enable/Disable self-test feature */
     rslt = bmi2_get_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         data = BMI2_SET_BIT_POS0(data, BMI2_ACC_SELF_TEST_EN, enable);
         rslt = bmi2_set_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
@@ -7776,7 +7717,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_acc_self_test_sign(XBYTE sign, struct bm
 
     /* Select the sign for self-test excitation */
     rslt = bmi2_get_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         data = BMI2_SET_BITS(data, BMI2_ACC_SELF_TEST_SIGN, sign);
         rslt = bmi2_set_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
@@ -7799,7 +7740,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_self_test_amp(XBYTE amp, struct bm
 
     /* Select amplitude of the self-test deflection */
     rslt = bmi2_get_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         data = BMI2_SET_BITS(data, BMI2_ACC_SELF_TEST_AMP, amp);
         rslt = bmi2_set_regs(BMI2_ACC_SELF_TEST_ADDR, &data, 1, dev);
@@ -7827,7 +7768,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::read_accel_xyz(struct bmi2_sens_axes_data *a
     XBYTE data[BMI2_ACC_GYR_NUM_BYTES] = { 0 };
 
     rslt = bmi2_get_regs(BMI2_ACC_X_LSB_ADDR, data, BMI2_ACC_GYR_NUM_BYTES, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Accelerometer data x axis */
         msb = data[1];
@@ -7867,7 +7808,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::read_gyro_xyz(struct bmi2_sens_axes_data *gy
     XBYTE data[BMI2_ACC_GYR_NUM_BYTES] = { 0 };
 
     rslt = bmi2_get_regs(BMI2_GYR_X_LSB_ADDR, data, BMI2_ACC_GYR_NUM_BYTES, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Gyroscope data x axis */
         msb = data[1];
@@ -7946,7 +7887,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_self_test(const struct bmi2_selftes
     /* As per the data sheet, The actually measured signal differences should be significantly
      * larger than the minimum differences for each axis in order for the self-test to pass.
      */
-    if ((accel_data_diff->x > BMI2_ST_ACC_X_SIG_MIN_DIFF) && (accel_data_diff->y < BMI2_ST_ACC_Y_SIG_MIN_DIFF) &&
+    if((accel_data_diff->x > BMI2_ST_ACC_X_SIG_MIN_DIFF) && (accel_data_diff->y < BMI2_ST_ACC_Y_SIG_MIN_DIFF) &&
         (accel_data_diff->z > BMI2_ST_ACC_Z_SIG_MIN_DIFF))
     {
         /* Self-test pass */
@@ -7986,20 +7927,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_remap_axes(struct bmi2_axes_remap *remap
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Search for axis re-mapping and extract its configuration details */
         feat_found = bmi2_extract_input_feat_config(&remap_config, BMI2_AXIS_MAP, dev);
-        if (feat_found)
+        if(feat_found)
         {
             rslt = bmi2_get_feat_config(remap_config.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset for axis re-mapping */
                 idx = remap_config.start_addr;
@@ -8034,7 +7975,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_remap_axes(struct bmi2_axes_remap *remap
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -8089,21 +8030,21 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_remap_axes(const struct bmi2_axes_remap 
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Search for axis-re-mapping and extract its configuration details */
         feat_found = bmi2_extract_input_feat_config(&remap_config, BMI2_AXIS_MAP, dev);
-        if (feat_found)
+        if(feat_found)
         {
             /* Get the configuration from the page where axis re-mapping feature resides */
             rslt = bmi2_get_feat_config(remap_config.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset in bytes */
                 idx = remap_config.start_addr;
@@ -8152,7 +8093,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_remap_axes(const struct bmi2_axes_remap 
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -8179,10 +8120,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::check_boundary_val(XBYTE *val, XBYTE min, XB
     /* Variable to define error */
     XBYTESIG rslt = BMI2_OK;
 
-    if (val != NULL)
+    if(val != NULL)
     {
         /* Check if value is below minimum value */
-        if (*val < min)
+        if(*val < min)
         {
             /* Auto correct the invalid value to minimum value */
             *val = min;
@@ -8190,7 +8131,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::check_boundary_val(XBYTE *val, XBYTE min, XB
         }
 
         /* Check if value is above maximum value */
-        if (*val > max)
+        if(*val > max)
         {
             /* Auto correct the invalid value to maximum value */
             *val = max;
@@ -8221,14 +8162,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::save_accel_foc_config(struct bmi2_accel_conf
 
     /* Get accelerometer configurations to be saved */
     rslt = get_accel_config(acc_cfg, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get accelerometer enable status to be saved */
         rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
         *acc_en = BMI2_GET_BITS(pwr_ctrl_data, BMI2_ACC_EN);
 
         /* Get advance power save mode to be saved */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = bmi2_get_adv_power_save(aps, dev);
         }
@@ -8253,16 +8194,16 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_foc_config(struct bmi2_dev *dev)
 
     /* Disabling offset compensation */
     rslt = set_accel_offset_comp(BMI2_DISABLE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set accelerometer configurations to 50Hz, continuous mode, CIC mode */
         rslt = bmi2_set_regs(BMI2_ACC_CONF_ADDR, &acc_conf_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Set accelerometer to normal mode by enabling it */
             rslt = bmi2_sensor_enable(&sens_list, 1, dev);
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Disable advance power save mode */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
@@ -8324,17 +8265,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::perform_accel_foc(const struct bmi2_accel_fo
             try_cnt--;
         }
 
-        if ((rslt == BMI2_OK) && (reg_status & BMI2_DRDY_ACC))
+        if((rslt == BMI2_OK) && (reg_status & BMI2_DRDY_ACC))
         {
             rslt = read_accel_xyz(&accel_value[loop], dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = read_accel_xyz(&accel_value[loop], dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Store the data in a temporary structure */
             temp.x = temp.x + (XDWORDSIG)accel_value[loop].x;
@@ -8347,7 +8288,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::perform_accel_foc(const struct bmi2_accel_fo
         }
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Take average of x, y and z data for lesser noise */
         accel_avg.x = (XWORDSIG)(temp.x / 128);
@@ -8374,7 +8315,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::perform_accel_foc(const struct bmi2_accel_fo
         rslt = write_accel_offset(&offset, dev);
 
         /* Enable offset compensation */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = set_accel_offset_comp(BMI2_ENABLE, dev);
         }
@@ -8397,7 +8338,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_offset_comp(XBYTE offset_en, struc
 
     /* Enable/Disable offset compensation */
     rslt = bmi2_get_regs(BMI2_NV_CONF_ADDR, &data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         data = BMI2_SET_BITS(data, BMI2_NV_ACC_OFFSET, offset_en);
         rslt = bmi2_set_regs(BMI2_NV_CONF_ADDR, &data, 1, dev);
@@ -8574,17 +8515,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::restore_accel_foc_config(struct bmi2_accel_c
 
     /* Restore the saved accelerometer configurations */
     rslt = set_accel_config(acc_cfg, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Restore the saved accelerometer enable status */
         rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             pwr_ctrl_data = BMI2_SET_BITS(pwr_ctrl_data, BMI2_ACC_EN, acc_en);
             rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
 
             /* Restore the saved advance power save */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = bmi2_set_adv_power_save(aps, dev);
             }
@@ -8613,11 +8554,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_config(struct bmi2_accel_config *c
 
     /* Validate bandwidth and performance mode */
     rslt = validate_bw_perf_mode(&config->bwp, &config->filter_perf, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Validate ODR and range */
         rslt = validate_odr_range(&config->odr, &config->range, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Set accelerometer performance mode */
             reg_data = BMI2_SET_BITS(data_array[0], BMI2_ACC_FILTER_PERF_MODE, config->filter_perf);
@@ -8643,7 +8584,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_accel_config(struct bmi2_accel_config *c
             rslt = bmi2_set_regs(BMI2_ACC_CONF_ADDR, data_array, 2, dev);
 
             /* Get error status to check for invalid configurations */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = cfg_error_status(dev);
             }
@@ -8671,7 +8612,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_config(struct bmi2_gyro_config *con
 
     /* Validate gyroscope configurations */
     rslt = validate_gyro_config(config, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set gyroscope performance mode */
         reg_data = BMI2_SET_BITS(data_array[0], BMI2_GYR_FILTER_PERF_MODE, config->filter_perf);
@@ -8703,7 +8644,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_config(struct bmi2_gyro_config *con
         rslt = bmi2_set_regs(BMI2_GYR_CONF_ADDR, data_array, 2, dev);
 
         /* Get error status to check for invalid configurations */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = cfg_error_status(dev);
         }
@@ -8726,14 +8667,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::save_gyro_config(struct bmi2_gyro_config *gy
 
     /* Get gyroscope configurations to be saved */
     rslt = get_gyro_config(gyr_cfg, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get gyroscope enable status to be saved */
         rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
         *gyr_en = BMI2_GET_BITS(pwr_ctrl_data, BMI2_GYR_EN);
 
         /* Get advance power save mode to be saved */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = bmi2_get_adv_power_save(aps, dev);
         }
@@ -8759,18 +8700,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_foc_config(struct bmi2_dev *dev)
 
     /* Disabling gyroscope offset compensation */
     rslt = bmi2_set_gyro_offset_comp(BMI2_DISABLE, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Set gyroscope configurations to 25Hz, continuous mode,
          * CIC mode, and 2000 dps range
          */
         rslt = bmi2_set_regs(BMI2_GYR_CONF_ADDR, gyr_conf_data, 2, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Set gyroscope to normal mode by enabling it */
             rslt = bmi2_sensor_enable(&sens_list, 1, dev);
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Disable advance power save mode */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
@@ -8803,17 +8744,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::restore_gyro_config(struct bmi2_gyro_config 
 
     /* Restore the saved gyroscope configurations */
     rslt = set_gyro_config(gyr_cfg, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Restore the saved gyroscope enable status */
         rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             pwr_ctrl_data = BMI2_SET_BITS(pwr_ctrl_data, BMI2_GYR_EN, gyr_en);
             rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &pwr_ctrl_data, 1, dev);
 
             /* Restore the saved advance power save */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = bmi2_set_adv_power_save(aps, dev);
             }
@@ -8829,32 +8770,32 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::restore_gyro_config(struct bmi2_gyro_config 
  */
 void DIOI2C6AXISTRACKINGBMI270::saturate_gyro_data(struct bmi2_sens_axes_data *gyr_off)
 {
-    if (gyr_off->x > 511)
+    if(gyr_off->x > 511)
     {
         gyr_off->x = 511;
     }
 
-    if (gyr_off->x < -512)
+    if(gyr_off->x < -512)
     {
         gyr_off->x = -512;
     }
 
-    if (gyr_off->y > 511)
+    if(gyr_off->y > 511)
     {
         gyr_off->y = 511;
     }
 
-    if (gyr_off->y < -512)
+    if(gyr_off->y < -512)
     {
         gyr_off->y = -512;
     }
 
-    if (gyr_off->z > 511)
+    if(gyr_off->z > 511)
     {
         gyr_off->z = 511;
     }
 
-    if (gyr_off->z < -512)
+    if(gyr_off->z < -512)
     {
         gyr_off->z = -512;
     }
@@ -8868,7 +8809,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::null_ptr_check(const struct bmi2_dev *dev)
 {
     XBYTESIG rslt = BMI2_OK;
 
-    if ((dev == NULL) /*|| (dev->read == NULL) || (dev->write == NULL) || (dev->delay_us == NULL)*/)
+    if((dev == NULL) /*|| (dev->read == NULL) || (dev->write == NULL) || (dev->delay_us == NULL)*/)
     {
         /* Device structure pointer is not valid */
         rslt = BMI2_E_NULL_PTR;
@@ -8886,11 +8827,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_st_running(XBYTE *st_status, struct bmi2
     XBYTE reg_data = 0;
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get the status of crt running */
         rslt = bmi2_get_regs(BMI2_GYR_CRT_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             (*st_status) = BMI2_GET_BITS(reg_data, BMI2_GYR_CRT_RUNNING);
         }
@@ -8912,10 +8853,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_st_running(XBYTE st_status, struct bmi2_
     XBYTE reg_data = 0;
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_get_regs(BMI2_GYR_CRT_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             reg_data = BMI2_SET_BITS(reg_data, BMI2_GYR_CRT_RUNNING, st_status);
             rslt = bmi2_set_regs(BMI2_GYR_CRT_CONF_ADDR, &reg_data, 1, dev);
@@ -8934,11 +8875,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_rdy_for_dl(XBYTE *rdy_for_dl, struct bmi
     XBYTE reg_data = 0;
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Get the status of rdy_fo_dl */
         rslt = bmi2_get_regs(BMI2_GYR_CRT_CONF_ADDR, &reg_data, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             (*rdy_for_dl) = BMI2_GET_BITS(reg_data, BMI2_GYR_RDY_FOR_DL);
         }
@@ -8961,18 +8902,18 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::process_crt_download(XBYTE last_byte_flag, s
     XBYTE cmd = BMI2_G_TRIGGER_CMD;
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = get_rdy_for_dl(&rdy_for_dl, dev);
     }
 
     /* Trigger next CRT command */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &cmd, 1, dev);
     }
 
-    if ((!last_byte_flag) && (rslt == BMI2_OK))
+    if((!last_byte_flag) && (rslt == BMI2_OK))
     {
         rslt = wait_rdy_for_dl_toggle(BMI2_CRT_READY_FOR_DOWNLOAD_RETRY, rdy_for_dl, dev);
     }
@@ -8994,7 +8935,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_crt_config_file(XWORD write_len,
     XBYTE remain = (XBYTE)(config_file_size % write_len);
     XWORD balance_byte = 0;
 
-    if (!remain)
+    if(!remain)
     {
 
         /* Write the configuration file */
@@ -9003,12 +8944,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_crt_config_file(XWORD write_len,
              index += write_len)
         {
             rslt = upload_file((dev->config_file_ptr + index), index, write_len, dev);
-            if (index >= ((start_index + config_file_size) - (write_len)))
+            if(index >= ((start_index + config_file_size) - (write_len)))
             {
                 last_byte_flag = 1;
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = process_crt_download(last_byte_flag, dev);
             }
@@ -9023,13 +8964,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_crt_config_file(XWORD write_len,
         for (index = start_index; (index < balance_byte) && (rslt == BMI2_OK); index += write_len)
         {
             rslt = upload_file((dev->config_file_ptr + index), index, write_len, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = process_crt_download(last_byte_flag, dev);
             }
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Write the remaining bytes in 2 bytes length */
             write_len = 2;
@@ -9041,12 +8982,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::write_crt_config_file(XWORD write_len,
                  index += write_len)
             {
                 rslt = upload_file((dev->config_file_ptr + index), index, write_len, dev);
-                if (index < ((start_index + config_file_size) - write_len))
+                if(index < ((start_index + config_file_size) - write_len))
                 {
                     last_byte_flag = 1;
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = process_crt_download(last_byte_flag, dev);
                 }
@@ -9069,7 +9010,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::wait_rdy_for_dl_toggle(XBYTE retry_complete,
     while ((rslt == BMI2_OK) && (retry_complete--))
     {
         rslt = get_rdy_for_dl(&dl_ready, dev);
-        if (download_ready != dl_ready)
+        if(download_ready != dl_ready)
         {
             break;
         }
@@ -9077,15 +9018,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::wait_rdy_for_dl_toggle(XBYTE retry_complete,
         bmi2_delay_us(BMI2_CRT_READY_FOR_DOWNLOAD_US, dev->intf_ptr);
     }
 
-    if ((rslt == BMI2_OK) && (download_ready == dl_ready))
+    if((rslt == BMI2_OK) && (download_ready == dl_ready))
     {
         rslt = BMI2_E_CRT_READY_FOR_DL_FAIL_ABORT;
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = get_st_running(&st_status, dev);
-        if ((rslt == BMI2_OK) && (st_status == 0))
+        if((rslt == BMI2_OK) && (st_status == 0))
         {
             rslt = BMI2_E_ST_ALREADY_RUNNING;
         }
@@ -9105,7 +9046,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::wait_st_running(XBYTE retry_complete, struct
     while (retry_complete--)
     {
         rslt = get_st_running(&st_status, dev);
-        if ((rslt == BMI2_OK) && (st_status == 0))
+        if((rslt == BMI2_OK) && (st_status == 0))
         {
             break;
         }
@@ -9113,7 +9054,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::wait_st_running(XBYTE retry_complete, struct
         bmi2_delay_us(BMI2_CRT_WAIT_RUNNING_US, dev->intf_ptr);
     }
 
-    if ((rslt == BMI2_OK) && (st_status == 1))
+    if((rslt == BMI2_OK) && (st_status == 1))
     {
         rslt = BMI2_E_ST_ALREADY_RUNNING;
     }
@@ -9162,63 +9103,63 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::do_gtrigger_test(XBYTE gyro_st_crt, struct b
     XBYTE aps_stat = 0;
 
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Check if the variant supports this feature */
-        if (dev->variant_feature & BMI2_CRT_RTOSK_ENABLE)
+        if(dev->variant_feature & BMI2_CRT_RTOSK_ENABLE)
         {
             /* Get status of advance power save mode */
             aps_stat = dev->aps_status;
-            if (aps_stat == BMI2_ENABLE)
+            if(aps_stat == BMI2_ENABLE)
             {
                 /* Disable advance power save if enabled */
                 rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
             }
 
             /* Get max burst length */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = get_maxburst_len(&max_burst_length, dev);
             }
 
             /* Checking for CRT running status */
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 rslt = get_st_running(&st_status, dev);
             }
 
             /* CRT is not running  and Max burst length is zero */
-            if (st_status == 0)
+            if(st_status == 0)
             {
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = set_st_running(BMI2_ENABLE, dev);
                 }
 
                 /* Preparing the setup */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = crt_prepare_setup(dev);
                 }
 
                 /* Enable the gyro self-test, CRT */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = select_self_test(gyro_st_crt, dev);
                 }
 
                 /* Check if FIFO is unchanged by checking the max burst length */
-                if ((rslt == BMI2_OK) && (max_burst_length == 0))
+                if((rslt == BMI2_OK) && (max_burst_length == 0))
                 {
                     /* Trigger CRT */
                     rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &cmd, 1, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         /* Wait until st_status = 0 or time out is 2 seconds */
                         rslt = wait_st_running(BMI2_CRT_WAIT_RUNNING_RETRY_EXECUTION, dev);
 
                         /* CRT Running wait & check is successful */
-                        if (rslt == BMI2_OK)
+                        if(rslt == BMI2_OK)
                         {
                             rslt = crt_gyro_st_update_result(dev);
                         }
@@ -9227,14 +9168,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::do_gtrigger_test(XBYTE gyro_st_crt, struct b
                 else
                 {
                     /* FIFO may be used */
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
-                        if (dev->read_write_len < 2)
+                        if(dev->read_write_len < 2)
                         {
                             dev->read_write_len = 2;
                         }
 
-                        if (dev->read_write_len > (BMI2_CRT_MAX_BURST_WORD_LENGTH * 2))
+                        if(dev->read_write_len > (BMI2_CRT_MAX_BURST_WORD_LENGTH * 2))
                         {
                             dev->read_write_len = BMI2_CRT_MAX_BURST_WORD_LENGTH * 2;
                         }
@@ -9243,31 +9184,31 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::do_gtrigger_test(XBYTE gyro_st_crt, struct b
                         rslt = set_maxburst_len(dev->read_write_len, dev);
                     }
 
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         rslt = get_rdy_for_dl(&download_ready, dev);
                     }
 
                     /* Trigger CRT  */
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &cmd, 1, dev);
                     }
 
                     /* Wait till either ready for download toggle or crt running = 0 */
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         rslt = wait_rdy_for_dl_toggle(BMI2_CRT_READY_FOR_DOWNLOAD_RETRY, download_ready, dev);
-                        if (rslt == BMI2_OK)
+                        if(rslt == BMI2_OK)
                         {
                             rslt = write_crt_config_file(dev->read_write_len, BMI2_CRT_CONFIG_FILE_SIZE, 0x1800, dev);
                         }
 
-                        if (rslt == BMI2_OK)
+                        if(rslt == BMI2_OK)
                         {
                             rslt = wait_st_running(BMI2_CRT_WAIT_RUNNING_RETRY_EXECUTION, dev);
                             rslt_crt = crt_gyro_st_update_result(dev);
-                            if (rslt == BMI2_OK)
+                            if(rslt == BMI2_OK)
                             {
                                 rslt = rslt_crt;
                             }
@@ -9280,9 +9221,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::do_gtrigger_test(XBYTE gyro_st_crt, struct b
                 rslt = BMI2_E_ST_ALREADY_RUNNING;
             }
 
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
-                if (gyro_st_crt == BMI2_SELECT_GYRO_SELF_TEST)
+                if(gyro_st_crt == BMI2_SELECT_GYRO_SELF_TEST)
                 {
                     rslt = gyro_self_test_completed(&gyro_st_result, dev);
                 }
@@ -9291,7 +9232,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::do_gtrigger_test(XBYTE gyro_st_crt, struct b
             /* Enable Advance power save if disabled while configuring and
              * not when already disabled
              */
-            if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+            if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -9313,26 +9254,26 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_prepare_setup(struct bmi2_dev *dev)
 
     rslt = null_ptr_check(dev);
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Disable gyroscope */
         rslt = bmi2_sensor_disable(&sens_list, 1, dev);
     }
 
     /* Disable FIFO for all sensors */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_set_fifo_config(BMI2_FIFO_ALL_EN, BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Enable accelerometer */
         sens_list = BMI2_ACCEL;
         rslt = bmi2_sensor_enable(&sens_list, 1, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Disable Abort after 1 msec */
         bmi2_delay_us(1000, dev->intf_ptr);
@@ -9353,12 +9294,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
     rslt = null_ptr_check(dev);
 
     /* CRT status has to be read from the config register map */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = get_gyro_gain_update_status(&user_gain_stat, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         switch (user_gain_stat.g_trigger_status)
         {
@@ -9372,7 +9313,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
 
                 /* CRT is Download Error - Keep non zero value for Max Burst Length */
                 rslt = set_maxburst_len(dev->read_write_len, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = BMI2_E_DL_ERROR;
                 }
@@ -9384,7 +9325,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
                  * detection. Keep non zero value for Max Burst Length
                  */
                 rslt = set_maxburst_len(dev->read_write_len, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     rslt = BMI2_E_ABORT_ERROR;
                 }
@@ -9419,7 +9360,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
     struct bmi2_feature_config maxburst_length_bytes = { 0, 0, 0 };
     XBYTE aps_stat;
 
-    if ((dev->variant_feature & BMI2_CRT_IN_FIFO_NOT_REQ) != 0)
+    if((dev->variant_feature & BMI2_CRT_IN_FIFO_NOT_REQ) != 0)
     {
         *max_burst_len = 0;
 
@@ -9428,20 +9369,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Search for max burst length */
         feat_found = bmi2_extract_input_feat_config(&maxburst_length_bytes, BMI2_MAX_BURST_LEN, dev);
-        if (feat_found)
+        if(feat_found)
         {
             rslt = bmi2_get_feat_config(maxburst_length_bytes.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset for max burst length */
                 idx = maxburst_length_bytes.start_addr;
@@ -9458,7 +9399,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::crt_gyro_st_update_result(struct bmi2_dev *d
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -9483,13 +9424,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_maxburst_len(const XWORD write_len_byte,
     XWORD burst_len = write_len_byte / 2;
 
     /* for variant that support crt outside fifo, do not modify the max burst len */
-    if ((dev->variant_feature & BMI2_CRT_IN_FIFO_NOT_REQ) != 0)
+    if((dev->variant_feature & BMI2_CRT_IN_FIFO_NOT_REQ) != 0)
     {
         return BMI2_OK;
     }
 
     /* Max burst length is only 1 byte */
-    if (burst_len > BMI2_CRT_MAX_BURST_WORD_LENGTH)
+    if(burst_len > BMI2_CRT_MAX_BURST_WORD_LENGTH)
     {
         max_burst_len = UINT8_C(0xFF);
     }
@@ -9500,23 +9441,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_maxburst_len(const XWORD write_len_byte,
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Search for axis-re-mapping and extract its configuration details */
         feat_found = bmi2_extract_input_feat_config(&maxburst_length_bytes, BMI2_MAX_BURST_LEN, dev);
-        if (feat_found)
+        if(feat_found)
         {
             /* Get the configuration from the page where axis
              * re-mapping feature resides
              */
             rslt = bmi2_get_feat_config(maxburst_length_bytes.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset in bytes */
                 idx = maxburst_length_bytes.start_addr;
@@ -9539,7 +9480,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_maxburst_len(const XWORD write_len_byte,
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -9573,12 +9514,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_nvm_prep_prog(XBYTE nvm_prep, struct bmi
      * present in the same Word and extract its configuration details
      */
     feat_found = bmi2_extract_input_feat_config(&nvm_config, BMI2_NVM_PROG_PREP, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where nvm preparation feature enable feature
          * resides */
         rslt = bmi2_get_feat_config(nvm_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for nvm preparation feature enable */
             idx = nvm_config.start_addr;
@@ -9619,12 +9560,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::select_self_test(XBYTE gyro_st_crt, struct b
 
     /* Search for bmi2 crt gyro self-test feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&gyro_self_test_crt_config, BMI2_CRT_GYRO_SELF_TEST, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where gyro self-test and crt enable feature
          * resides */
         rslt = bmi2_get_feat_config(gyro_self_test_crt_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes */
             idx = gyro_self_test_crt_config.start_addr;
@@ -9659,48 +9600,48 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_abort_crt_gyro_st(struct bmi2_dev *dev)
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
     /* Checking for ST running status */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = get_st_running(&st_running, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* ST is not running  */
-            if (st_running == 0)
+            if(st_running == 0)
             {
                 rslt = BMI2_E_ST_NOT_RUNING;
             }
         }
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = abort_bmi2(BMI2_ENABLE, dev);
     }
 
     /* send the g trigger command */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_set_regs(BMI2_CMD_REG_ADDR, &cmd, 1, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* wait until st_status = 0 or time out is 2 seconds */
         rslt = wait_st_running(BMI2_CRT_WAIT_RUNNING_RETRY_EXECUTION, dev);
     }
 
     /* Check G trigger status for error */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = crt_gyro_st_update_result(dev);
-        if (rslt == BMI2_E_ABORT_ERROR)
+        if(rslt == BMI2_E_ABORT_ERROR)
         {
             rslt = BMI2_OK;
         }
@@ -9713,7 +9654,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_abort_crt_gyro_st(struct bmi2_dev *dev)
     /* Enable Advance power save if disabled while configuring and
      * not when already disabled
      */
-    if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+    if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
     {
         rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
     }
@@ -9744,11 +9685,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::abort_bmi2(XBYTE abort_enable, struct bmi2_d
 
     /* Search for bmi2 Abort feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&block_config, BMI2_ABORT_CRT_GYRO_SELF_TEST, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where abort(block) feature resides */
         rslt = bmi2_get_feat_config(block_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes */
             idx = block_config.start_addr;
@@ -9781,10 +9722,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::gyro_self_test_completed(struct bmi2_gyro_se
     XBYTE reg_data;
 
     rslt = bmi2_get_regs(BMI2_GYR_SELF_TEST_AXES_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         gyro_st_result->gyr_st_axes_done = BMI2_GET_BIT_POS0(reg_data, BMI2_GYR_ST_AXES_DONE);
-        if (gyro_st_result->gyr_st_axes_done == 0x01)
+        if(gyro_st_result->gyr_st_axes_done == 0x01)
         {
             gyro_st_result->gyr_axis_x_ok = BMI2_GET_BITS(reg_data, BMI2_GYR_AXIS_X_OK);
             gyro_st_result->gyr_axis_y_ok = BMI2_GET_BITS(reg_data, BMI2_GYR_AXIS_Y_OK);
@@ -9809,13 +9750,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_foc_position(XBYTE sens_list,
 {
     XBYTESIG rslt = BMI2_E_INVALID_INPUT;
 
-    if (sens_list == BMI2_ACCEL)
+    if(sens_list == BMI2_ACCEL)
     {
-        if (accel_g_axis->x == 1)
+        if(accel_g_axis->x == 1)
         {
             rslt = validate_foc_accel_axis(avg_foc_data.x, dev);
         }
-        else if (accel_g_axis->y == 1)
+        else if(accel_g_axis->y == 1)
         {
             rslt = validate_foc_accel_axis(avg_foc_data.y, dev);
         }
@@ -9824,9 +9765,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_foc_position(XBYTE sens_list,
             rslt = validate_foc_accel_axis(avg_foc_data.z, dev);
         }
     }
-    else if (sens_list == BMI2_GYRO)
+    else if(sens_list == BMI2_GYRO)
     {
-        if (((avg_foc_data.x >= BMI2_GYRO_FOC_NOISE_LIMIT_NEGATIVE) &&
+        if(((avg_foc_data.x >= BMI2_GYRO_FOC_NOISE_LIMIT_NEGATIVE) &&
              (avg_foc_data.x <= BMI2_GYRO_FOC_NOISE_LIMIT_POSITIVE)) &&
             ((avg_foc_data.y >= BMI2_GYRO_FOC_NOISE_LIMIT_NEGATIVE) &&
              (avg_foc_data.y <= BMI2_GYRO_FOC_NOISE_LIMIT_POSITIVE)) &&
@@ -9858,25 +9799,25 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::validate_foc_accel_axis(XWORDSIG avg_foc_dat
     range = sens_cfg.cfg.acc.range;
 
     /* reference LSB value of 16G */
-    if ((range == BMI2_ACC_RANGE_2G) && (avg_foc_data > BMI2_ACC_2G_MIN_NOISE_LIMIT) &&
+    if((range == BMI2_ACC_RANGE_2G) && (avg_foc_data > BMI2_ACC_2G_MIN_NOISE_LIMIT) &&
         (avg_foc_data < BMI2_ACC_2G_MAX_NOISE_LIMIT))
     {
         rslt = BMI2_OK;
     }
     /* reference LSB value of 16G */
-    else if ((range == BMI2_ACC_RANGE_4G) && (avg_foc_data > BMI2_ACC_4G_MIN_NOISE_LIMIT) &&
+    else if((range == BMI2_ACC_RANGE_4G) && (avg_foc_data > BMI2_ACC_4G_MIN_NOISE_LIMIT) &&
              (avg_foc_data < BMI2_ACC_4G_MAX_NOISE_LIMIT))
     {
         rslt = BMI2_OK;
     }
     /* reference LSB value of 16G */
-    else if ((range == BMI2_ACC_RANGE_8G) && (avg_foc_data > BMI2_ACC_8G_MIN_NOISE_LIMIT) &&
+    else if((range == BMI2_ACC_RANGE_8G) && (avg_foc_data > BMI2_ACC_8G_MIN_NOISE_LIMIT) &&
              (avg_foc_data < BMI2_ACC_8G_MAX_NOISE_LIMIT))
     {
         rslt = BMI2_OK;
     }
     /* reference LSB value of 16G */
-    else if ((range == BMI2_ACC_RANGE_16G) && (avg_foc_data > BMI2_ACC_16G_MIN_NOISE_LIMIT) &&
+    else if((range == BMI2_ACC_RANGE_16G) && (avg_foc_data > BMI2_ACC_16G_MIN_NOISE_LIMIT) &&
              (avg_foc_data < BMI2_ACC_16G_MAX_NOISE_LIMIT))
     {
         rslt = BMI2_OK;
@@ -9903,22 +9844,22 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_nvm_prog(struct bmi2_dev *dev)
 
     /* Get status of advance power save mode */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
     /* Check the Write status and proceed only if there is no ongoing write cycle */
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         rslt = bmi2_get_status(&status, dev);
 
         cmd_rdy = BMI2_GET_BITS(status, BMI2_CMD_RDY);
-        if (cmd_rdy)
+        if(cmd_rdy)
         {
             rslt = set_nvm_prep_prog(BMI2_ENABLE, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 bmi2_delay_us(40000, dev->intf_ptr);
 
@@ -9926,7 +9867,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_nvm_prog(struct bmi2_dev *dev)
                  * programming */
                 reg_data = BMI2_NVM_UNLOCK_ENABLE;
                 rslt = bmi2_set_regs(BMI2_NVM_CONF_ADDR, &reg_data, 1, dev);
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     /* Send NVM prog command to command register */
                     reg_data = BMI2_NVM_PROG_CMD;
@@ -9934,17 +9875,17 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_nvm_prog(struct bmi2_dev *dev)
                 }
 
                 /* Wait till write operation is completed */
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     while (write_timeout--)
                     {
                         rslt = bmi2_get_status(&status, dev);
-                        if (rslt == BMI2_OK)
+                        if(rslt == BMI2_OK)
                         {
                             cmd_rdy = BMI2_GET_BITS(status, BMI2_CMD_RDY);
 
                             /* Nvm is complete once cmd_rdy is 1, break if 1 */
-                            if (cmd_rdy)
+                            if(cmd_rdy)
                             {
                                 break;
                             }
@@ -9956,7 +9897,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_nvm_prog(struct bmi2_dev *dev)
                     }
                 }
 
-                if ((rslt == BMI2_OK) && (cmd_rdy != BMI2_TRUE))
+                if((rslt == BMI2_OK) && (cmd_rdy != BMI2_TRUE))
                 {
                     rslt = BMI2_E_WRITE_CYCLE_ONGOING;
                 }
@@ -9968,14 +9909,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_nvm_prog(struct bmi2_dev *dev)
         }
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* perform soft reset */
         rslt = bmi2_soft_reset(dev);
     }
 
     /* Enable Advance power save if disabled while configuring and not when already disabled */
-    if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+    if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
     {
         rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
     }
@@ -9999,7 +9940,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_average_of_sensor_data(XBYTE sens_list,
     XBYTE sensor_drdy = 0;
 
     sensor_data.type = sens_list;
-    if (sens_list == BMI2_ACCEL)
+    if(sens_list == BMI2_ACCEL)
     {
         sensor_drdy = BMI2_DRDY_ACC;
     }
@@ -10019,7 +9960,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_average_of_sensor_data(XBYTE sens_list,
             datardy_try_cnt--;
         } while ((rslt == BMI2_OK) && (!(drdy_status & sensor_drdy)) && (datardy_try_cnt));
 
-        if ((rslt != BMI2_OK) || (datardy_try_cnt == 0))
+        if((rslt != BMI2_OK) || (datardy_try_cnt == 0))
         {
             rslt = BMI2_E_DATA_RDY_INT_FAILED;
             break;
@@ -10027,15 +9968,15 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_average_of_sensor_data(XBYTE sens_list,
 
         rslt = bmi2_get_sensor_data(&sensor_data, 1, dev);
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
-            if (sensor_data.type == BMI2_ACCEL)
+            if(sensor_data.type == BMI2_ACCEL)
             {
                 temp_foc_data->x += sensor_data.sens_data.acc.x;
                 temp_foc_data->y += sensor_data.sens_data.acc.y;
                 temp_foc_data->z += sensor_data.sens_data.acc.z;
             }
-            else if (sensor_data.type == BMI2_GYRO)
+            else if(sensor_data.type == BMI2_GYRO)
             {
                 temp_foc_data->x += sensor_data.sens_data.gyr.x;
                 temp_foc_data->y += sensor_data.sens_data.gyr.y;
@@ -10050,7 +9991,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_average_of_sensor_data(XBYTE sens_list,
         sample_count++;
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         temp_foc_data->x = (temp_foc_data->x / BMI2_FOC_SAMPLE_LIMIT);
         temp_foc_data->y = (temp_foc_data->y / BMI2_FOC_SAMPLE_LIMIT);
@@ -10095,23 +10036,23 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::extract_config_file(XBYTE *config_major, XBY
 
     /* Check the power mode status */
     aps_stat = dev->aps_status;
-    if (aps_stat == BMI2_ENABLE)
+    if(aps_stat == BMI2_ENABLE)
     {
         /* Disable advance power save if enabled */
         rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
     }
 
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Search for config file identification feature and extract its configuration
          * details */
         feat_found = bmi2_extract_input_feat_config(&config_id, BMI2_CONFIG_ID, dev);
-        if (feat_found)
+        if(feat_found)
         {
             /* Get the configuration from the page where config file identification
              * feature resides */
             rslt = bmi2_get_feat_config(config_id.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset for config file identification */
                 idx = config_id.start_addr;
@@ -10130,7 +10071,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::extract_config_file(XBYTE *config_major, XBY
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -10154,7 +10095,7 @@ void DIOI2C6AXISTRACKINGBMI270::extract_feat_int_map(struct bmi2_map_int *map_in
     /* Search for the interrupts from the input configuration array */
     while (loop < dev->sens_int_map)
     {
-        if (dev->map_int[loop].type == type)
+        if(dev->map_int[loop].type == type)
         {
             *map_int = dev->map_int[loop];
             break;
@@ -10189,11 +10130,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_gain_update_status(struct bmi2_gyr_
      * configuration details
      */
     feat_found = extract_output_feat_config(&user_gain_cfg, BMI2_GYRO_GAIN_UPDATE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for gyroscope user gain  status */
         rslt = bmi2_get_feat_config(user_gain_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for gyroscope user gain status */
             idx = user_gain_cfg.start_addr;
@@ -10236,7 +10177,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::extract_output_feat_config(struct bmi2_feature_
     /* Search for the output feature from the output configuration array */
     while (loop < dev->out_sens)
     {
-        if (dev->feat_output[loop].type == type)
+        if(dev->feat_output[loop].type == type)
         {
             *feat_output = dev->feat_output[loop];
             feat_found = BMI2_TRUE;
@@ -10273,14 +10214,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_cross_sense(XWORDSIG *cross_sense, 
     /* Initialize feature output for gyroscope cross sensitivity */
     struct bmi2_feature_config cross_sense_out_config = { 0, 0, 0 };
 
-    if (dev->variant_feature & BMI2_MAXIMUM_FIFO_VARIANT)
+    if(dev->variant_feature & BMI2_MAXIMUM_FIFO_VARIANT)
     {
         /* For maximum_fifo variant fetch the correction factor from GPIO0 */
         rslt = bmi2_get_regs(BMI2_GYR_CAS_GPIO0_ADDR, &corr_fact_zx, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the gyroscope cross sensitivity coefficient */
-            if (corr_fact_zx & BMI2_GYRO_CROSS_AXES_SENSE_SIGN_BIT_MASK)
+            if(corr_fact_zx & BMI2_GYRO_CROSS_AXES_SENSE_SIGN_BIT_MASK)
             {
                 *cross_sense = (XWORDSIG)(((XWORDSIG)corr_fact_zx) - 128);
             }
@@ -10294,12 +10235,12 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_cross_sense(XWORDSIG *cross_sense, 
     {
         /* Search for gyroscope cross sensitivity feature and extract its configuration details */
         feat_found = extract_output_feat_config(&cross_sense_out_config, BMI2_GYRO_CROSS_SENSE, dev);
-        if (feat_found)
+        if(feat_found)
         {
             /* Get the feature output configuration for gyroscope cross sensitivity
              * feature */
             rslt = bmi2_get_feat_config(cross_sense_out_config.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset in bytes for gyroscope cross sensitivity output */
                 idx = cross_sense_out_config.start_addr;
@@ -10308,7 +10249,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_cross_sense(XWORDSIG *cross_sense, 
                 feat_config[idx] = feat_config[idx] & BMI2_GYRO_CROSS_AXES_SENSE_MASK;
 
                 /* Get the gyroscope cross sensitivity coefficient */
-                if (feat_config[idx] & BMI2_GYRO_CROSS_AXES_SENSE_SIGN_BIT_MASK)
+                if(feat_config[idx] & BMI2_GYRO_CROSS_AXES_SENSE_SIGN_BIT_MASK)
                 {
                     *cross_sense = (XWORDSIG)(((XWORDSIG)feat_config[idx]) - 128);
                 }
@@ -10376,34 +10317,34 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_cross_sense(XWORDSIG *cross_sense, 
 //    XBYTE reg_data = 0;
 //
 //    rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
-//    if (rslt == BMI2_OK)
+//    if(rslt == BMI2_OK)
 //    {
 //        /* Enable accelerometer */
-//        if (sensor_sel & BMI2_ACCEL_SENS_SEL)
+//        if(sensor_sel & BMI2_ACCEL_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BITS(reg_data, BMI2_ACC_EN, BMI2_ENABLE);
 //        }
 //
 //        /* Enable gyroscope */
-//        if (sensor_sel & BMI2_GYRO_SENS_SEL)
+//        if(sensor_sel & BMI2_GYRO_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BITS(reg_data, BMI2_GYR_EN, BMI2_ENABLE);
 //        }
 //
 //        /* Enable auxiliary sensor */
-//        if (sensor_sel & BMI2_AUX_SENS_SEL)
+//        if(sensor_sel & BMI2_AUX_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BIT_POS0(reg_data, BMI2_AUX_EN, BMI2_ENABLE);
 //        }
 //
 //        /* Enable temperature sensor */
-//        if (sensor_sel & BMI2_TEMP_SENS_SEL)
+//        if(sensor_sel & BMI2_TEMP_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BITS(reg_data, BMI2_TEMP_EN, BMI2_ENABLE);
 //        }
 //
 //        /* Enable the sensors that are set in the power control register */
-//        if (sensor_sel & BMI2_MAIN_SENSORS)
+//        if(sensor_sel & BMI2_MAIN_SENSORS)
 //        {
 //            rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
 //        }
@@ -10424,34 +10365,34 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_gyro_cross_sense(XWORDSIG *cross_sense, 
 //    XBYTE reg_data = 0;
 //
 //    rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
-//    if (rslt == BMI2_OK)
+//    if(rslt == BMI2_OK)
 //    {
 //        /* Disable accelerometer */
-//        if (sensor_sel & BMI2_ACCEL_SENS_SEL)
+//        if(sensor_sel & BMI2_ACCEL_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_ACC_EN);
 //        }
 //
 //        /* Disable gyroscope */
-//        if (sensor_sel & BMI2_GYRO_SENS_SEL)
+//        if(sensor_sel & BMI2_GYRO_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_GYR_EN);
 //        }
 //
 //        /* Disable auxiliary sensor */
-//        if (sensor_sel & BMI2_AUX_SENS_SEL)
+//        if(sensor_sel & BMI2_AUX_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_AUX_EN);
 //        }
 //
 //        /* Disable temperature sensor */
-//        if (sensor_sel & BMI2_TEMP_SENS_SEL)
+//        if(sensor_sel & BMI2_TEMP_SENS_SEL)
 //        {
 //            reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_TEMP_EN);
 //        }
 //
 //        /* Enable the sensors that are set in the power control register */
-//        if (sensor_sel & BMI2_MAIN_SENSORS)
+//        if(sensor_sel & BMI2_MAIN_SENSORS)
 //        {
 //            rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
 //        }
@@ -10481,7 +10422,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_init(struct bmi2_dev *dev)
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Assign chip id of BMI270 */
         dev->chip_id = DIOI2C6AXISTRACKINGBMI270_CHIP_ID;
@@ -10493,7 +10434,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_init(struct bmi2_dev *dev)
         dev->variant_feature = BMI2_GYRO_CROSS_SENS_ENABLE | BMI2_CRT_RTOSK_ENABLE;
 
         /* An extra dummy byte is read during SPI read */
-        if (dev->intf == BMI2_SPI_INTF)
+        if(dev->intf == BMI2_SPI_INTF)
         {
             dev->dummy_byte = 1;
         }
@@ -10503,7 +10444,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_init(struct bmi2_dev *dev)
         }
 
         /* If configuration file pointer is not assigned any address */
-        if (!dev->config_file_ptr)
+        if(!dev->config_file_ptr)
         {
             /* Give the address of the configuration file array to
              * the device pointer
@@ -10513,7 +10454,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_init(struct bmi2_dev *dev)
 
         /* Initialize BMI2 sensor */
         rslt = bmi2_sec_init(dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Assign the offsets of the feature input
              * configuration to the device structure
@@ -10571,11 +10512,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_sensor_enable(const XBYTE *sens_list,
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_list != NULL))
+    if((rslt == BMI2_OK) && (sens_list != NULL))
     {
         /* Get the selected sensors */
         rslt = select_sensor(sens_list, n_sens, &sensor_sel);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Enable the selected sensors */
             rslt = sensor_enable(sensor_sel, dev);
@@ -10602,11 +10543,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_sensor_disable(const XBYTE *sens_list
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_list != NULL))
+    if((rslt == BMI2_OK) && (sens_list != NULL))
     {
         /* Get the selected sensors */
         rslt = select_sensor(sens_list, n_sens, &sensor_sel);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Disable the selected sensors */
             rslt = sensor_disable(sensor_sel, dev);
@@ -10636,14 +10577,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_set_sensor_config(struct bmi2_sens_co
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_cfg != NULL))
+    if((rslt == BMI2_OK) && (sens_cfg != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
 
         for (loop = 0; loop < n_sens; loop++)
         {
-            if ((sens_cfg[loop].type == BMI2_ACCEL) || (sens_cfg[loop].type == BMI2_GYRO) ||
+            if((sens_cfg[loop].type == BMI2_ACCEL) || (sens_cfg[loop].type == BMI2_GYRO) ||
                 (sens_cfg[loop].type == BMI2_AUX) || (sens_cfg[loop].type == BMI2_GYRO_GAIN_UPDATE))
             {
                 rslt = bmi2_set_sensor_config(&sens_cfg[loop], 1, dev);
@@ -10653,7 +10594,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_set_sensor_config(struct bmi2_sens_co
                 /* Disable Advance power save if enabled for auxiliary
                  * and feature configurations
                  */
-                if (aps_stat == BMI2_ENABLE)
+                if(aps_stat == BMI2_ENABLE)
                 {
                     /* Disable advance power save if
                      * enabled
@@ -10661,7 +10602,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_set_sensor_config(struct bmi2_sens_co
                     rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     switch (sens_cfg[loop].type)
                     {
@@ -10709,7 +10650,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_set_sensor_config(struct bmi2_sens_co
                 }
 
                 /* Return error if any of the set configurations fail */
-                if (rslt != BMI2_OK)
+                if(rslt != BMI2_OK)
                 {
                     break;
                 }
@@ -10719,7 +10660,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_set_sensor_config(struct bmi2_sens_co
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -10748,13 +10689,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_config(struct bmi2_sens_co
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_cfg != NULL))
+    if((rslt == BMI2_OK) && (sens_cfg != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
         for (loop = 0; loop < n_sens; loop++)
         {
-            if ((sens_cfg[loop].type == BMI2_ACCEL) || (sens_cfg[loop].type == BMI2_GYRO) ||
+            if((sens_cfg[loop].type == BMI2_ACCEL) || (sens_cfg[loop].type == BMI2_GYRO) ||
                 (sens_cfg[loop].type == BMI2_AUX) || (sens_cfg[loop].type == BMI2_GYRO_GAIN_UPDATE))
             {
                 rslt = bmi2_get_sensor_config(&sens_cfg[loop], 1, dev);
@@ -10764,10 +10705,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_config(struct bmi2_sens_co
                 /* Disable Advance power save if enabled for auxiliary
                  * and feature configurations
                  */
-                if ((sens_cfg[loop].type >= BMI2_MAIN_SENS_MAX_NUM) || (sens_cfg[loop].type == BMI2_AUX))
+                if((sens_cfg[loop].type >= BMI2_MAIN_SENS_MAX_NUM) || (sens_cfg[loop].type == BMI2_AUX))
                 {
 
-                    if (aps_stat == BMI2_ENABLE)
+                    if(aps_stat == BMI2_ENABLE)
                     {
                         /* Disable advance power save if
                          * enabled
@@ -10776,7 +10717,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_config(struct bmi2_sens_co
                     }
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     switch (sens_cfg[loop].type)
                     {
@@ -10824,7 +10765,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_config(struct bmi2_sens_co
                 }
 
                 /* Return error if any of the get configurations fail */
-                if (rslt != BMI2_OK)
+                if(rslt != BMI2_OK)
                 {
                     break;
                 }
@@ -10834,7 +10775,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_config(struct bmi2_sens_co
         /* Enable Advance power save if disabled while configuring and
          * not when already disabled
          */
-        if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+        if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
         {
             rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
         }
@@ -10865,13 +10806,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_data(struct bmi2_sensor_da
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sensor_data != NULL))
+    if((rslt == BMI2_OK) && (sensor_data != NULL))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
         for (loop = 0; loop < n_sens; loop++)
         {
-            if ((sensor_data[loop].type == BMI2_ACCEL) || (sensor_data[loop].type == BMI2_GYRO) ||
+            if((sensor_data[loop].type == BMI2_ACCEL) || (sensor_data[loop].type == BMI2_GYRO) ||
                 (sensor_data[loop].type == BMI2_AUX) || (sensor_data[loop].type == BMI2_GYRO_GAIN_UPDATE) ||
                 (sensor_data[loop].type == BMI2_GYRO_CROSS_SENSE))
             {
@@ -10882,9 +10823,9 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_data(struct bmi2_sensor_da
                 /* Disable Advance power save if enabled for feature
                  * configurations
                  */
-                if (sensor_data[loop].type >= BMI2_MAIN_SENS_MAX_NUM)
+                if(sensor_data[loop].type >= BMI2_MAIN_SENS_MAX_NUM)
                 {
-                    if (aps_stat == BMI2_ENABLE)
+                    if(aps_stat == BMI2_ENABLE)
                     {
                         /* Disable advance power save if
                          * enabled
@@ -10893,7 +10834,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_data(struct bmi2_sensor_da
                     }
                 }
 
-                if (rslt == BMI2_OK)
+                if(rslt == BMI2_OK)
                 {
                     switch (sensor_data[loop].type)
                     {
@@ -10928,7 +10869,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_data(struct bmi2_sensor_da
                     }
 
                     /* Return error if any of the get sensor data fails */
-                    if (rslt != BMI2_OK)
+                    if(rslt != BMI2_OK)
                     {
                         break;
                     }
@@ -10938,7 +10879,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_get_sensor_data(struct bmi2_sensor_da
             /* Enable Advance power save if disabled while
              * configuring and not when already disabled
              */
-            if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+            if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -10974,14 +10915,14 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_update_gyro_user_gain(const struct bm
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (user_gain != NULL))
+    if((rslt == BMI2_OK) && (user_gain != NULL))
     {
         /* Select type of feature */
         sens_cfg.type = BMI2_GYRO_GAIN_UPDATE;
 
         /* Get the user gain configurations */
         rslt = bmi270_get_sensor_config(&sens_cfg, 1, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the user-defined ratio */
             sens_cfg.cfg.gyro_gain_update = *user_gain;
@@ -10991,30 +10932,30 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_update_gyro_user_gain(const struct bm
         }
 
         /* Disable gyroscope */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = bmi270_sensor_disable(&sens_sel[0], 1, dev);
         }
 
         /* Enable gyroscope user-gain update module */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = bmi270_sensor_enable(&sens_sel[1], 1, dev);
         }
 
         /* Set the command to trigger the computation */
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             rslt = bmi2_set_command_register(BMI2_USR_GAIN_CMD, dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Poll until enable bit of user-gain update is 0 */
             while (count--)
             {
                 rslt = get_user_gain_upd_status(&status, dev);
-                if ((rslt == BMI2_OK) && (status == 0))
+                if((rslt == BMI2_OK) && (status == 0))
                 {
                     /* Enable compensation of gain defined
                      * in the GAIN register
@@ -11022,7 +10963,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_update_gyro_user_gain(const struct bm
                     rslt = enable_gyro_gain(BMI2_ENABLE, dev);
 
                     /* Enable gyroscope */
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         rslt = bmi270_sensor_enable(&sens_sel[0], 1, dev);
                     }
@@ -11034,7 +10975,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_update_gyro_user_gain(const struct bm
             }
 
             /* Return error if user-gain update is failed */
-            if ((rslt == BMI2_OK) && (status != 0))
+            if((rslt == BMI2_OK) && (status != 0))
             {
                 rslt = BMI2_E_GYR_USER_GAIN_UPD_FAIL;
             }
@@ -11061,11 +11002,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_read_gyro_user_gain(struct bmi2_gyro_
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (gyr_usr_gain != NULL))
+    if((rslt == BMI2_OK) && (gyr_usr_gain != NULL))
     {
         /* Get the gyroscope compensated gain values */
         rslt = bmi2_get_regs(BMI2_GYR_USR_GAIN_0_ADDR, reg_data, 3, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Gyroscope user gain correction X-axis */
             gyr_usr_gain->x = (XBYTESIG)BMI2_GET_BIT_POS0(reg_data[0], BMI2_GYR_USR_GAIN_X);
@@ -11098,7 +11039,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_map_feat_int(const struct bmi2_sens_i
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
-    if ((rslt == BMI2_OK) && (sens_int != NULL))
+    if((rslt == BMI2_OK) && (sens_int != NULL))
     {
         for (loop = 0; loop < n_sens; loop++)
         {
@@ -11121,7 +11062,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi270_map_feat_int(const struct bmi2_sens_i
             }
 
             /* Return error if interrupt mapping fails */
-            if (rslt != BMI2_OK)
+            if(rslt != BMI2_OK)
             {
                 break;
             }
@@ -11224,58 +11165,58 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
     XBYTE aps_stat = 0;
 
     rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Enable accelerometer */
-        if (sensor_sel & BMI2_ACCEL_SENS_SEL)
+        if(sensor_sel & BMI2_ACCEL_SENS_SEL)
         {
             reg_data = BMI2_SET_BITS(reg_data, BMI2_ACC_EN, BMI2_ENABLE);
         }
 
         /* Enable gyroscope */
-        if (sensor_sel & BMI2_GYRO_SENS_SEL)
+        if(sensor_sel & BMI2_GYRO_SENS_SEL)
         {
             reg_data = BMI2_SET_BITS(reg_data, BMI2_GYR_EN, BMI2_ENABLE);
         }
 
         /* Enable auxiliary sensor */
-        if (sensor_sel & BMI2_AUX_SENS_SEL)
+        if(sensor_sel & BMI2_AUX_SENS_SEL)
         {
             reg_data = BMI2_SET_BIT_POS0(reg_data, BMI2_AUX_EN, BMI2_ENABLE);
         }
 
         /* Enable temperature sensor */
-        if (sensor_sel & BMI2_TEMP_SENS_SEL)
+        if(sensor_sel & BMI2_TEMP_SENS_SEL)
         {
             reg_data = BMI2_SET_BITS(reg_data, BMI2_TEMP_EN, BMI2_ENABLE);
         }
 
         /* Enable the sensors that are set in the power control register */
-        if (sensor_sel & BMI2_MAIN_SENSORS)
+        if(sensor_sel & BMI2_MAIN_SENSORS)
         {
             rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
         }
     }
 
-    if ((rslt == BMI2_OK) && (sensor_sel & ~(BMI2_MAIN_SENSORS)))
+    if((rslt == BMI2_OK) && (sensor_sel & ~(BMI2_MAIN_SENSORS)))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
-        if (aps_stat == BMI2_ENABLE)
+        if(aps_stat == BMI2_ENABLE)
         {
             /* Disable advance power save if enabled */
             rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             while (loop--)
             {
                 /* Enable sig-motion feature */
-                if (sensor_sel & BMI2_SIG_MOTION_SEL)
+                if(sensor_sel & BMI2_SIG_MOTION_SEL)
                 {
                     rslt = set_sig_motion(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_SIG_MOTION_SEL;
                     }
@@ -11286,10 +11227,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable any motion feature */
-                if (sensor_sel & BMI2_ANY_MOT_SEL)
+                if(sensor_sel & BMI2_ANY_MOT_SEL)
                 {
                     rslt = set_any_motion(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_ANY_MOT_SEL;
                     }
@@ -11300,10 +11241,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable no motion feature */
-                if (sensor_sel & BMI2_NO_MOT_SEL)
+                if(sensor_sel & BMI2_NO_MOT_SEL)
                 {
                     rslt = set_no_motion(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_NO_MOT_SEL;
                     }
@@ -11314,10 +11255,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable step detector feature */
-                if (sensor_sel & BMI2_STEP_DETECT_SEL)
+                if(sensor_sel & BMI2_STEP_DETECT_SEL)
                 {
                     rslt = set_step_detector(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_STEP_DETECT_SEL;
                     }
@@ -11328,10 +11269,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable step counter feature */
-                if (sensor_sel & BMI2_STEP_COUNT_SEL)
+                if(sensor_sel & BMI2_STEP_COUNT_SEL)
                 {
                     rslt = set_step_counter(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_STEP_COUNT_SEL;
                     }
@@ -11342,10 +11283,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable step activity feature */
-                if (sensor_sel & BMI2_STEP_ACT_SEL)
+                if(sensor_sel & BMI2_STEP_ACT_SEL)
                 {
                     rslt = set_step_activity(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_STEP_ACT_SEL;
                     }
@@ -11356,10 +11297,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable gyroscope user gain */
-                if (sensor_sel & BMI2_GYRO_GAIN_UPDATE_SEL)
+                if(sensor_sel & BMI2_GYRO_GAIN_UPDATE_SEL)
                 {
                     rslt = set_gyro_user_gain(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_GYRO_GAIN_UPDATE_SEL;
                     }
@@ -11370,10 +11311,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable gyroscope self-offset correction feature */
-                if (sensor_sel & BMI2_GYRO_SELF_OFF_SEL)
+                if(sensor_sel & BMI2_GYRO_SELF_OFF_SEL)
                 {
                     rslt = set_gyro_self_offset_corr(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_GYRO_SELF_OFF_SEL;
                     }
@@ -11384,10 +11325,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable wrist gesture feature for wearable variant */
-                if (sensor_sel & BMI2_WRIST_GEST_SEL)
+                if(sensor_sel & BMI2_WRIST_GEST_SEL)
                 {
                     rslt = set_wrist_gesture(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_WRIST_GEST_SEL;
                     }
@@ -11398,10 +11339,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
                 }
 
                 /* Enable wrist wear wake-up feature */
-                if (sensor_sel & BMI2_WRIST_WEAR_WAKE_UP_SEL)
+                if(sensor_sel & BMI2_WRIST_WEAR_WAKE_UP_SEL)
                 {
                     rslt = set_wrist_wear_wake_up(BMI2_ENABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat |= BMI2_WRIST_WEAR_WAKE_UP_SEL;
                     }
@@ -11415,7 +11356,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_enable(XQWORD sensor_sel, struct bmi2
             /* Enable Advance power save if disabled while
              * configuring and not when already disabled
              */
-            if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+            if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
             {
                 rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
             }
@@ -11443,58 +11384,58 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
     XBYTE aps_stat = 0;
 
     rslt = bmi2_get_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         /* Disable accelerometer */
-        if (sensor_sel & BMI2_ACCEL_SENS_SEL)
+        if(sensor_sel & BMI2_ACCEL_SENS_SEL)
         {
             reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_ACC_EN);
         }
 
         /* Disable gyroscope */
-        if (sensor_sel & BMI2_GYRO_SENS_SEL)
+        if(sensor_sel & BMI2_GYRO_SENS_SEL)
         {
             reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_GYR_EN);
         }
 
         /* Disable auxiliary sensor */
-        if (sensor_sel & BMI2_AUX_SENS_SEL)
+        if(sensor_sel & BMI2_AUX_SENS_SEL)
         {
             reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_AUX_EN);
         }
 
         /* Disable temperature sensor */
-        if (sensor_sel & BMI2_TEMP_SENS_SEL)
+        if(sensor_sel & BMI2_TEMP_SENS_SEL)
         {
             reg_data = BMI2_SET_BIT_VAL0(reg_data, BMI2_TEMP_EN);
         }
 
         /* Disable the sensors that are set in the power control register */
-        if (sensor_sel & BMI2_MAIN_SENSORS)
+        if(sensor_sel & BMI2_MAIN_SENSORS)
         {
             rslt = bmi2_set_regs(BMI2_PWR_CTRL_ADDR, &reg_data, 1, dev);
         }
     }
 
-    if ((rslt == BMI2_OK) && (sensor_sel & ~(BMI2_MAIN_SENSORS)))
+    if((rslt == BMI2_OK) && (sensor_sel & ~(BMI2_MAIN_SENSORS)))
     {
         /* Get status of advance power save mode */
         aps_stat = dev->aps_status;
-        if (aps_stat == BMI2_ENABLE)
+        if(aps_stat == BMI2_ENABLE)
         {
             /* Disable advance power save if enabled */
             rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             while (loop--)
             {
                 /* Disable sig-motion feature */
-                if (sensor_sel & BMI2_SIG_MOTION_SEL)
+                if(sensor_sel & BMI2_SIG_MOTION_SEL)
                 {
                     rslt = set_sig_motion(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_SIG_MOTION_SEL;
                     }
@@ -11505,10 +11446,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable any-motion feature */
-                if (sensor_sel & BMI2_ANY_MOT_SEL)
+                if(sensor_sel & BMI2_ANY_MOT_SEL)
                 {
                     rslt = set_any_motion(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_ANY_MOT_SEL;
                     }
@@ -11519,10 +11460,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable no-motion feature */
-                if (sensor_sel & BMI2_NO_MOT_SEL)
+                if(sensor_sel & BMI2_NO_MOT_SEL)
                 {
                     rslt = set_no_motion(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_NO_MOT_SEL;
                     }
@@ -11533,10 +11474,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable step detector feature */
-                if (sensor_sel & BMI2_STEP_DETECT_SEL)
+                if(sensor_sel & BMI2_STEP_DETECT_SEL)
                 {
                     rslt = set_step_detector(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_STEP_DETECT_SEL;
                     }
@@ -11547,10 +11488,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable step counter feature */
-                if (sensor_sel & BMI2_STEP_COUNT_SEL)
+                if(sensor_sel & BMI2_STEP_COUNT_SEL)
                 {
                     rslt = set_step_counter(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_STEP_COUNT_SEL;
                     }
@@ -11561,10 +11502,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable step activity feature */
-                if (sensor_sel & BMI2_STEP_ACT_SEL)
+                if(sensor_sel & BMI2_STEP_ACT_SEL)
                 {
                     rslt = set_step_activity(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_STEP_ACT_SEL;
                     }
@@ -11575,10 +11516,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable gyroscope user gain */
-                if (sensor_sel & BMI2_GYRO_GAIN_UPDATE_SEL)
+                if(sensor_sel & BMI2_GYRO_GAIN_UPDATE_SEL)
                 {
                     rslt = set_gyro_user_gain(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_GYRO_GAIN_UPDATE_SEL;
                     }
@@ -11589,10 +11530,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable gyroscope self-offset correction feature */
-                if (sensor_sel & BMI2_GYRO_SELF_OFF_SEL)
+                if(sensor_sel & BMI2_GYRO_SELF_OFF_SEL)
                 {
                     rslt = set_gyro_self_offset_corr(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_GYRO_SELF_OFF_SEL;
                     }
@@ -11603,10 +11544,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Disable wrist gesture feature for wearable variant*/
-                if (sensor_sel & BMI2_WRIST_GEST_SEL)
+                if(sensor_sel & BMI2_WRIST_GEST_SEL)
                 {
                     rslt = set_wrist_gesture(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_WRIST_GEST_SEL;
                     }
@@ -11617,10 +11558,10 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 }
 
                 /* Enable wrist wear wake-up feature */
-                if (sensor_sel & BMI2_WRIST_WEAR_WAKE_UP_SEL)
+                if(sensor_sel & BMI2_WRIST_WEAR_WAKE_UP_SEL)
                 {
                     rslt = set_wrist_wear_wake_up(BMI2_DISABLE, dev);
-                    if (rslt == BMI2_OK)
+                    if(rslt == BMI2_OK)
                     {
                         dev->sens_en_stat &= ~BMI2_WRIST_WEAR_WAKE_UP_SEL;
                     }
@@ -11633,7 +11574,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::sensor_disable(XQWORD sensor_sel, struct bmi
                 /* Enable Advance power save if disabled while
                  * configuring and not when already disabled
                  */
-                if ((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
+                if((aps_stat == BMI2_ENABLE) && (rslt == BMI2_OK))
                 {
                     rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
                 }
@@ -11666,11 +11607,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_any_motion(XBYTE enable, struct bmi2_dev
 
     /* Search for any-motion feature and extract its configurations details */
     feat_found = bmi2_extract_input_feat_config(&any_mot_config, BMI2_ANY_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where any-motion feature resides */
         rslt = bmi2_get_feat_config(any_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of any-motion axes */
             idx = any_mot_config.start_addr + BMI2_ANY_MOT_FEAT_EN_OFFSET;
@@ -11712,11 +11653,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_no_motion(XBYTE enable, struct bmi2_dev 
 
     /* Search for no-motion feature and extract its configurations details */
     feat_found = bmi2_extract_input_feat_config(&no_mot_config, BMI2_NO_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where any/no-motion feature resides */
         rslt = bmi2_get_feat_config(no_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of no-motion axes */
             idx = no_mot_config.start_addr + BMI2_NO_MOT_FEAT_EN_OFFSET;
@@ -11758,11 +11699,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_detector(XBYTE enable, struct bmi2_
 
     /* Search for step detector feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_det_config, BMI2_STEP_DETECTOR, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where step detector feature resides */
         rslt = bmi2_get_feat_config(step_det_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of step detector */
             idx = step_det_config.start_addr + BMI2_STEP_COUNT_FEAT_EN_OFFSET;
@@ -11804,11 +11745,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_counter(XBYTE enable, struct bmi2_d
 
     /* Search for step counter feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_count_config, BMI2_STEP_COUNTER, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where step-counter feature resides */
         rslt = bmi2_get_feat_config(step_count_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of step counter */
             idx = step_count_config.start_addr + BMI2_STEP_COUNT_FEAT_EN_OFFSET;
@@ -11850,11 +11791,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_sig_motion(XBYTE enable, struct bmi2_dev
 
     /* Search for sig-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&sig_mot_config, BMI2_SIG_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where sig-motion feature resides */
         rslt = bmi2_get_feat_config(sig_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of sig-motion */
             idx = sig_mot_config.start_addr + BMI2_SIG_MOT_FEAT_EN_OFFSET;
@@ -11896,13 +11837,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_activity(XBYTE enable, struct bmi2_
 
     /* Search for step activity feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_act_config, BMI2_STEP_ACTIVITY, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where step-activity
          * feature resides
          */
         rslt = bmi2_get_feat_config(step_act_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of step activity */
             idx = step_act_config.start_addr + BMI2_STEP_COUNT_FEAT_EN_OFFSET;
@@ -11945,13 +11886,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_self_offset_corr(XBYTE enable, stru
 
     /* Search for self-offset correction and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&self_off_corr_cfg, BMI2_GYRO_SELF_OFF, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where self-offset
          * correction feature resides
          */
         rslt = bmi2_get_feat_config(self_off_corr_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of self-offset correction */
             idx = self_off_corr_cfg.start_addr;
@@ -11993,11 +11934,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_wrist_gesture(XBYTE enable, struct bmi2_
 
     /* Search for wrist gesture and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_gest_cfg, BMI2_WRIST_GESTURE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist gesture feature resides */
         rslt = bmi2_get_feat_config(wrist_gest_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of wrist gesture */
             idx = wrist_gest_cfg.start_addr;
@@ -12039,13 +11980,13 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_wrist_wear_wake_up(XBYTE enable, struct 
 
     /* Search for wrist wear wake up and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_wake_up_cfg, BMI2_WRIST_WEAR_WAKE_UP, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist wear wake up
          * feature resides
          */
         rslt = bmi2_get_feat_config(wrist_wake_up_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of wrist wear wake up */
             idx = wrist_wake_up_cfg.start_addr;
@@ -12088,11 +12029,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_gyro_user_gain(XBYTE enable, struct bmi2
 
     /* Search for user gain feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&gyr_user_gain_cfg, BMI2_GYRO_GAIN_UPDATE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where user gain feature resides */
         rslt = bmi2_get_feat_config(gyr_user_gain_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for enable/disable of user gain */
             idx = gyr_user_gain_cfg.start_addr + BMI2_GYR_USER_GAIN_FEAT_EN_OFFSET;
@@ -12141,11 +12082,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_any_motion_config(const struct bmi2_any_
 
     /* Search for any-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&any_mot_config, BMI2_ANY_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where any-motion feature resides */
         rslt = bmi2_get_feat_config(any_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for any-motion select */
             idx = any_mot_config.start_addr;
@@ -12225,11 +12166,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_no_motion_config(const struct bmi2_no_mo
 
     /* Search for no-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&no_mot_config, BMI2_NO_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where no-motion feature resides */
         rslt = bmi2_get_feat_config(no_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for no-motion select */
             idx = no_mot_config.start_addr;
@@ -12309,11 +12250,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_sig_motion_config(const struct bmi2_sig_
 
     /* Search for sig-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&sig_mot_config, BMI2_SIG_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where sig-motion feature resides */
         rslt = bmi2_get_feat_config(sig_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for sig-motion select */
             idx = sig_mot_config.start_addr;
@@ -12428,7 +12369,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_count_params_config(const XWORD *st
 
     /* Search for step counter parameter feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_params_config, BMI2_STEP_COUNTER_PARAMS, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the start page for the step counter parameters */
         start_page = step_params_config.page;
@@ -12445,16 +12386,16 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_count_params_config(const XWORD *st
         {
             /* Get the configuration from the respective page */
             rslt = bmi2_get_feat_config(page_idx, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Start from address 0x00 when switched to next page */
-                if (page_idx > start_page)
+                if(page_idx > start_page)
                 {
                     start_addr = 0;
                 }
 
                 /* Remaining number of words to be read in the page  */
-                if (page_idx == end_page)
+                if(page_idx == end_page)
                 {
                     max_len = (remain_len / 2);
                 }
@@ -12526,11 +12467,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_step_config(const struct bmi2_step_confi
 
     /* Search for step counter feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_count_config, BMI2_STEP_COUNTER, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where step counter resides */
         rslt = bmi2_get_feat_config(step_count_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes */
             idx = step_count_config.start_addr;
@@ -12606,11 +12547,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_wrist_gest_config(const struct bmi2_wris
 
     /* Search for wrist gesture feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_gest_config, BMI2_WRIST_GESTURE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist gesture feature resides */
         rslt = bmi2_get_feat_config(wrist_gest_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for gesture select */
             idx = wrist_gest_config.start_addr;
@@ -12687,11 +12628,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::set_wrist_wear_wake_up_config(const struct b
 
     /* Search for wrist wear wake-up feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_wake_up_config, BMI2_WRIST_WEAR_WAKE_UP, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist wear wake-up feature resides */
         rslt = bmi2_get_feat_config(wrist_wake_up_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for wrist wear wake-up select */
             idx = wrist_wake_up_config.start_addr;
@@ -12778,11 +12719,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_any_motion_config(struct bmi2_any_motion
 
     /* Search for any-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&any_mot_config, BMI2_ANY_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where any-motion feature resides */
         rslt = bmi2_get_feat_config(any_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for feature enable for any-motion */
             idx = any_mot_config.start_addr;
@@ -12853,11 +12794,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_no_motion_config(struct bmi2_no_motion_c
 
     /* Search for no-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&no_mot_config, BMI2_NO_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where no-motion feature resides */
         rslt = bmi2_get_feat_config(no_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for feature enable for no-motion */
             idx = no_mot_config.start_addr;
@@ -12928,11 +12869,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_sig_motion_config(struct bmi2_sig_motion
 
     /* Search for sig-motion feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&sig_mot_config, BMI2_SIG_MOTION, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where sig-motion feature resides */
         rslt = bmi2_get_feat_config(sig_mot_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for feature enable for sig-motion */
             idx = sig_mot_config.start_addr;
@@ -13044,7 +12985,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_count_params_config(XWORD *step_cou
 
     /* Search for step counter parameter feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_params_config, BMI2_STEP_COUNTER_PARAMS, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the start page for the step counter parameters */
         start_page = step_params_config.page;
@@ -13061,16 +13002,16 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_count_params_config(XWORD *step_cou
         {
             /* Get the configuration from the respective page */
             rslt = bmi2_get_feat_config(page_idx, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Start from address 0x00 when switched to next page */
-                if (page_idx > start_page)
+                if(page_idx > start_page)
                 {
                     start_addr = 0;
                 }
 
                 /* Remaining number of bytes to be read in the page  */
-                if (page_idx == end_page)
+                if(page_idx == end_page)
                 {
                     max_len = remain_len;
                 }
@@ -13081,7 +13022,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_count_params_config(XWORD *step_cou
                 {
                     /* Get word to calculate the parameter*/
                     lsb = (XWORD) feat_config[page_byte_idx++];
-                    if (page_byte_idx < max_len)
+                    if(page_byte_idx < max_len)
                     {
                         msb = ((XWORD) feat_config[page_byte_idx++] << 8);
                     }
@@ -13136,11 +13077,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_config(struct bmi2_step_config *con
 
     /* Search for step counter 4 feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&step_count_config, BMI2_STEP_COUNTER, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where step counter 4 parameter resides */
         rslt = bmi2_get_feat_config(step_count_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset for feature enable for step counter/detector/activity */
             idx = step_count_config.start_addr;
@@ -13198,11 +13139,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_wrist_gest_config(struct bmi2_wrist_gest
 
     /* Search for wrist gesture feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_gest_config, BMI2_WRIST_GESTURE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist gesture feature  resides */
         rslt = bmi2_get_feat_config(wrist_gest_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for wrist gesture select */
             idx = wrist_gest_config.start_addr;
@@ -13260,11 +13201,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_wrist_wear_wake_up_config(struct bmi2_wr
 
     /* Search for wrist wear wake-up feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&wrist_wake_up_config, BMI2_WRIST_WEAR_WAKE_UP, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the configuration from the page where wrist wear wake-up feature  resides */
         rslt = bmi2_get_feat_config(wrist_wake_up_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for wrist wear wake-up select */
             idx = wrist_wake_up_config.start_addr;
@@ -13326,11 +13267,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_wrist_gest_status(XBYTE *wrist_gest, str
 
     /* Search for wrist gesture feature and extract its configuration details */
     feat_found = extract_output_feat_config(&wrist_gest_out_config, BMI2_WRIST_GESTURE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for wrist gesture */
         rslt = bmi2_get_feat_config(wrist_gest_out_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for wrist gesture output */
             idx = wrist_gest_out_config.start_addr;
@@ -13369,11 +13310,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_counter_output(XDWORD *step_count, 
 
     /* Search for step counter output feature and extract its configuration details */
     feat_found = extract_output_feat_config(&step_cnt_out_config, BMI2_STEP_COUNTER, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for step-counter */
         rslt = bmi2_get_feat_config(step_cnt_out_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for step counter output */
             idx = step_cnt_out_config.start_addr;
@@ -13415,11 +13356,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_nvm_error_status(struct bmi2_nvm_err_sta
 
     /* Search for NVM error status feature and extract its configuration details */
     feat_found = extract_output_feat_config(&nvm_err_cfg, BMI2_NVM_STATUS, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for NVM error status */
         rslt = bmi2_get_feat_config(nvm_err_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for NVM error status */
             idx = nvm_err_cfg.start_addr;
@@ -13451,10 +13392,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_nvm_error_status(struct bmi2_nvm_err_sta
     return rslt;
 }
 
-/*!
- * @brief This internal API is used to get enable status of gyroscope user gain
- * update.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE*status, struct bmi2_dev*dev)
+* @brief      get_user_gain_upd_status: used to get enable status of gyroscope user gain
+* @ingroup    DATAIO
+* 
+* @param[in]  XBYTE*status : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE *status, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -13477,20 +13427,20 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE *status, stru
 
     /* Search for user gain feature and extract its configuration details */
     feat_found = bmi2_extract_input_feat_config(&gyr_user_gain_cfg, BMI2_GYRO_GAIN_UPDATE, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Disable advance power save */
         aps_stat = dev->aps_status;
-        if (aps_stat == BMI2_ENABLE)
+        if(aps_stat == BMI2_ENABLE)
         {
             rslt = bmi2_set_adv_power_save(BMI2_DISABLE, dev);
         }
 
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Get the configuration from the page where user gain feature resides */
             rslt = bmi2_get_feat_config(gyr_user_gain_cfg.page, feat_config, dev);
-            if (rslt == BMI2_OK)
+            if(rslt == BMI2_OK)
             {
                 /* Define the offset for enable/disable of user gain */
                 idx = gyr_user_gain_cfg.start_addr + BMI2_GYR_USER_GAIN_FEAT_EN_OFFSET;
@@ -13506,7 +13456,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE *status, stru
     }
 
     /* Enable Advance power save if disabled while configuring and not when already disabled */
-    if ((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
+    if((rslt == BMI2_OK) && (aps_stat == BMI2_ENABLE))
     {
         rslt = bmi2_set_adv_power_save(BMI2_ENABLE, dev);
     }
@@ -13514,9 +13464,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_user_gain_upd_status(XBYTE *status, stru
     return rslt;
 }
 
-/*!
- * @brief This internal API gets the output values of step activity.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE*step_act, struct bmi2_dev*dev)
+* @brief      get_step_activity_output: gets the output values of step activity.
+* @ingroup    DATAIO
+* 
+* @param[in]  XBYTE*step_act : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE *step_act, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -13536,11 +13496,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE *step_act, st
 
     /* Search for step activity output feature and extract its configuration details */
     feat_found = extract_output_feat_config(&step_act_out_config, BMI2_STEP_ACTIVITY, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for step-activity */
         rslt = bmi2_get_feat_config(step_act_out_config.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for step activity output */
             idx = step_act_out_config.start_addr;
@@ -13557,9 +13517,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_step_activity_output(XBYTE *step_act, st
     return rslt;
 }
 
-/*!
- * @brief This internal API gets the error status related to virtual frames.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_status*vfrm_err_stat, struct bmi2_dev*dev)
+* @brief      get_vfrm_error_status: gets the error status related to virtual frames.
+* @ingroup    DATAIO
+* 
+* @param[in]  bmi2_vfrm_err_status*vfrm_err_stat : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_status *vfrm_err_stat, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -13579,11 +13549,11 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_s
 
     /* Search for VFRM error status feature and extract its configuration details */
     feat_found = extract_output_feat_config(&vfrm_err_cfg, BMI2_VFRM_STATUS, dev);
-    if (feat_found)
+    if(feat_found)
     {
         /* Get the feature output configuration for VFRM error status */
         rslt = bmi2_get_feat_config(vfrm_err_cfg.page, feat_config, dev);
-        if (rslt == BMI2_OK)
+        if(rslt == BMI2_OK)
         {
             /* Define the offset in bytes for VFRM error status */
             idx = vfrm_err_cfg.start_addr;
@@ -13609,10 +13579,19 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::get_vfrm_error_status(struct bmi2_vfrm_err_s
     return rslt;
 }
 
-/*!
- * @brief This internal API enables/disables compensation of the gain defined
- * in the GAIN register.
- */
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_dev*dev)
+* @brief      enable_gyro_gain: enables/disables compensation of the gain defined in the GAIN register.
+* @ingroup    DATAIO
+* 
+* @param[in]  enable : 
+* @param[in]  bmi2_dev*dev : 
+* 
+* @return     XBYTESIG : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_dev *dev)
 {
     /* Variable to define error */
@@ -13622,7 +13601,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
     XBYTE reg_data = 0;
 
     rslt = bmi2_get_regs(BMI2_GYR_OFF_COMP_6_ADDR, &reg_data, 1, dev);
-    if (rslt == BMI2_OK)
+    if(rslt == BMI2_OK)
     {
         reg_data = BMI2_SET_BITS(reg_data, BMI2_GYR_GAIN_EN, enable);
         rslt = bmi2_set_regs(BMI2_GYR_OFF_COMP_6_ADDR, &reg_data, 1, dev);
@@ -13630,6 +13609,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
 
     return rslt;
 }
+
 
 /*!
  * @brief This internal API is used to extract the output feature configuration
@@ -13648,7 +13628,7 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
 //    /* Search for the output feature from the output configuration array */
 //    while (loop < dev->out_sens)
 //    {
-//        if (dev->feat_output[loop].type == type)
+//        if(dev->feat_output[loop].type == type)
 //        {
 //            *feat_output = dev->feat_output[loop];
 //            feat_found = BMI2_TRUE;
@@ -13716,3 +13696,4 @@ void DIOI2C6AXISTRACKINGBMI270::Clean()
 }
 
 
+#pragma endregion

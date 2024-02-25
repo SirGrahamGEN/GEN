@@ -3,7 +3,7 @@
 * @file       DIONodeItemHandler.h
 * 
 * @class      DIONODEITEMHANDLER
-* @brief      Data Input/Output Node Item Handler
+* @brief      Data Input/Output Node Item Handler class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,6 +30,7 @@
 #define _DIONODEITEMHANDLER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 #include "XVector.h"
@@ -37,7 +38,11 @@
 
 #include "DIONodeItem.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIONODEITEMHANDLER_TYPE
 {
@@ -49,9 +54,14 @@ enum DIONODEITEMHANDLER_TYPE
   DIONODEITEMHANDLER_TYPE_OWNER                          
 };
 
-#define DIONODEITEMHANDLER_INVALIDPARAM    -1 
+#define DIONODEITEMHANDLER_INVALIDPARAM     -1 
+
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIONODEITEMHANDLER : public XSUBJECT
 {
@@ -87,7 +97,16 @@ class DIONODEITEMHANDLER : public XSUBJECT
     DIONODEITEM*                  nodeitem;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

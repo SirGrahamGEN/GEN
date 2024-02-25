@@ -1,37 +1,43 @@
-/**-------------------------------------------------------------------------------------------------------------------/
-*
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @file       DIOI2CLightSensorTSL2561.cpp
-*
+* 
 * @class      DIOI2CLIGHTSENSORTSL2561
-* @brief       Data IO I2C Sensor AOSONG AM2315  class (Temperature and humidity module)
+* @brief      Data Input/Output I2C Sensor Light TSL2561 (Luminosity Sensor) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CLightSensorTSL2561.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -41,14 +47,19 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-#include "DIOI2CLightSensorTSL2561.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +75,6 @@ DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -83,7 +93,6 @@ DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -114,8 +123,6 @@ bool DIOI2CLIGHTSENSORTSL2561::SetIntegrationTime(DIOI2CLIGHTSENSORTSL2561INTEGR
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
@@ -142,7 +149,6 @@ bool DIOI2CLIGHTSENSORTSL2561::SetGain(DIOI2CLIGHTSENSORTSL2561GAIN gain)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -251,7 +257,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Get(XWORD& fullspectrum, XWORD& infrared, XDWORD&
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::End()
@@ -267,7 +272,6 @@ bool DIOI2CLIGHTSENSORTSL2561::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -303,7 +307,6 @@ bool DIOI2CLIGHTSENSORTSL2561::IniDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
@@ -331,7 +334,6 @@ bool DIOI2CLIGHTSENSORTSL2561::WriteReg(XBYTE reg, XBYTE value, int timeout)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -372,7 +374,6 @@ bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
@@ -411,7 +412,6 @@ bool DIOI2CLIGHTSENSORTSL2561::GetData(XWORD& fullspectrum, XWORD& infrared)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::Activate()
@@ -427,7 +427,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Activate()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
@@ -441,7 +440,6 @@ bool DIOI2CLIGHTSENSORTSL2561::Deactivate()
 {
   return WriteReg(DIOI2CLIGHTSENSORTSL2561REGISTER_CONTROL, DIOI2CLIGHTSENSORTSL2561_CONTROL_POWEROFF, timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -555,7 +553,6 @@ XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CLIGHTSENSORTSL2561::Clean()
@@ -571,3 +568,7 @@ void DIOI2CLIGHTSENSORTSL2561::Clean()
   integrationtime   = DIOI2CLIGHTSENSORTSL2561INTEGRATIONTIME_402MS;
   gain              = DIOI2CLIGHTSENSORTSL2561GAIN_16X;
 }
+
+
+#pragma endregion
+

@@ -5,7 +5,7 @@
 * @class      DIOI2CBATTERYCHARGERBQ24295
 * @brief      Data Input/output Battery Charger BQ24295 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,18 +24,23 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CBATTERYCHARGERBQ24295_H_
 #define _DIOI2CBATTERYCHARGERBQ24295_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 
 #include "DIODeviceI2C.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIOI2CBATTERYCHARGERBQ24295_GPIOENTRY
 {
@@ -47,7 +52,6 @@ enum DIOI2CBATTERYCHARGERBQ24295_GPIOENTRY
 
   DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_END           ,
 };
-
 
 
 #define DIOI2CBATTERYCHARGERBQ24295_ADDR                                      0x6B
@@ -65,15 +69,11 @@ enum DIOI2CBATTERYCHARGERBQ24295_GPIOENTRY
 #define DIOI2CBATTERYCHARGERBQ24295_FAULT_REG_REG09                           0x09
 #define DIOI2CBATTERYCHARGERBQ24295_VENDOR_PART_REVISION_REG0A                0x0A
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
-
-class XFACTORY;
-class XPUBLISHER;
-class XTIMER;
-class DIOFACTORY;
-class DIOSTREAMI2CCONFIG;
-class DIOSTREAMI2C;
+#pragma region CLASS
 
 
 class DIOI2CBATTERYCHARGERBQ24295: public DIODEVICEI2C
@@ -119,14 +119,18 @@ class DIOI2CBATTERYCHARGERBQ24295: public DIODEVICEI2C
     bool                      charging;    
     XBYTE                     fault;
     bool                      fullycharge;    
-
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
-
 

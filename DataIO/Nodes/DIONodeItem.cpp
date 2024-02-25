@@ -3,7 +3,7 @@
 * @file       DIONodeItem.cpp
 * 
 * @class      DIONODEITEM
-* @brief      Data Input/Output Node Item (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
+* @brief      Data Input/Output Node item (Base for DIONODESENSOR, DIONODEACTUATOR, ...) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,26 +26,36 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIONodeItem.h"
 
 #include "XFactory.h"
 
 #include "DIONodeItemHandler.h"
 
-#include "DIONodeItem.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -531,3 +541,7 @@ void DIONODEITEM::Clean()
   timetoupdate  = 0;
   updatetimer   = NULL;
 }
+
+
+#pragma endregion
+

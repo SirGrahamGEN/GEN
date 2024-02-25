@@ -3,7 +3,7 @@
 * @file       DIONodeManager.h
 * 
 * @class      DIONODEMANAGER
-* @brief      Data Input/Output Node manager (for managing base nodes)
+* @brief      Data Input/Output Node manager (for managing base nodes) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,17 +30,28 @@
 #define _DIONODEMANAGER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XVector.h"
 #include "XThreadCollected.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class XMUTEX;
 class DIONODE;
+
 
 class DIONODEMANAGER
 {
@@ -67,7 +78,16 @@ class DIONODEMANAGER
 
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

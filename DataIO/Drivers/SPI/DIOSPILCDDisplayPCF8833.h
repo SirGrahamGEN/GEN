@@ -1,35 +1,36 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPILCDDisplayPCF8833.h
-*
+* 
 * @class      DIOSPILCDDISPLAYPCF8833
-* @brief      Data Input/Output SPI Display LCD Philips PCF8833
+* @brief      Data Input/Output SPI Display LCD Philips PCF8833 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSPILCDDISPLAYPCF8833_H_
 #define _DIOSPILCDDISPLAYPCF8833_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
@@ -38,8 +39,12 @@
 
 #include "DIODisplayDevice.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOSPILCDDISPLAYPCF8833_TYPE
 {
@@ -134,7 +139,6 @@ enum DIOSPILCDDISPLAYPCF8833_TYPE
 #define DIOSPILCDDISPLAYPCF8833_PHILLIPS_CMD_RDID2               0xDB    // read ID2
 #define DIOSPILCDDISPLAYPCF8833_PHILLIPS_CMD_RDID3               0xDC    // read ID3
 
-
 #define DIOSPILCDDISPLAYPCF8833_ADDCOMMAND(buffer, command)      buffer.Bit_AddData((XWORD)(command & (~0x0100)))
 #define DIOSPILCDDISPLAYPCF8833_ADDDATA(buffer, data)            buffer.Bit_AddData((XWORD)(data    |   0x0100))
 
@@ -142,7 +146,6 @@ enum DIOSPILCDDISPLAYPCF8833_TYPE
 #define DIOSPILCDDISPLAYPCF8833_COL_HEIGHT                       132
 
 // 12-bit color definitions
-
 
 #define DIOSPILCDDISPLAYPCF8833_RGB444(r,g,b)                    (((r&0xF0)<<4) | (g&0xF0) | (b>>4))
 
@@ -173,18 +176,18 @@ enum DIOSPILCDDISPLAYPCF8833_TYPE
 */
 
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-class XTIMER;
-class XPUBLISHER;
-class DIOFACTORY;
-class DIOSTREAMSPI;
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOSPILCDDISPLAYPCF8833 : public DIODISPLAYDEVICE, public DIODEVICESPI
 {
   public:
-                                  DIOSPILCDDISPLAYPCF8833          (DIOSPILCDDISPLAYPCF8833_TYPE type);
-    virtual                      ~DIOSPILCDDISPLAYPCF8833          ();
+                                  DIOSPILCDDISPLAYPCF8833         (DIOSPILCDDISPLAYPCF8833_TYPE type);
+    virtual                      ~DIOSPILCDDISPLAYPCF8833         ();
 
     bool                          IniDevice                       ();
 
@@ -211,11 +214,18 @@ class DIOSPILCDDISPLAYPCF8833 : public DIODISPLAYDEVICE, public DIODEVICESPI
     void                          Clean                           ();
 
     DIOSPILCDDISPLAYPCF8833_TYPE  type;
- 
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

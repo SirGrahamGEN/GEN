@@ -30,17 +30,27 @@
 #define _DIOPIFACE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
 #include "DIOSPIGPIOMCP23S17.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOPIFACE_OUTPUTPORT      DIOSPIGPIOMCP23S17_GPIOA
 #define DIOPIFACE_INPUTPORT       DIOSPIGPIOMCP23S17_GPIOB
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOPIFACE : public DIOSPIGPIOMCP23S17
 {
@@ -57,6 +67,16 @@ class DIOPIFACE : public DIOSPIGPIOMCP23S17
     bool                      End                   ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+

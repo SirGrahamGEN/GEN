@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPIOLEDDisplaySSD1331.cpp
-*
+* 
 * @class      DIOSPIOLEDDISPLAYSSD1331
-* @brief      Data Input/Output SPI Display OLED SSD 1331
+* @brief      Data Input/Output SPI Display OLED SSD 1331 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSPIOLEDDisplaySSD1331.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -41,13 +47,19 @@
 #include "DIOStreamSPIConfig.h"
 #include "DIOStreamSPI.h"
 
-#include "DIOSPIOLEDDisplaySSD1331.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +75,6 @@ DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +93,6 @@ DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -137,7 +147,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::IniDevice()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::Clear(XWORD color)
@@ -161,7 +170,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Clear(XWORD color)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
@@ -182,7 +190,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Update(XBYTE* buffer)
 
   return SendData(buffer, sizebuffer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -215,7 +222,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::PutPixel(XWORD x, XWORD y, XWORD color)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::End()
@@ -235,7 +241,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +288,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Initializate()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::Reset()
@@ -311,7 +315,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Reset()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
@@ -327,8 +330,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::Active(bool on)
 {
   return SendCommand((on?DIOSPIOLEDDISPLAYSSD1331_CMD_DISPLAYON:DIOSPIOLEDDISPLAYSSD1331_CMD_DISPLAYOFF));
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -352,7 +353,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableFillMode(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
@@ -374,7 +374,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableLockMode(bool on)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
@@ -390,7 +389,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::EnableScrollMode(bool on)
 {
   return SendCommand((on?DIOSPIOLEDDISPLAYSSD1331_CMD_ACTIVESCROLLING:DIOSPIOLEDDISPLAYSSD1331_CMD_DEACTIVESCROLLING));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -415,8 +413,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SetScrollMode(XWORD horizontal, XWORD vertical)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
@@ -439,7 +435,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::ClearDisplay()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
@@ -455,7 +450,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::MaxWindow()
 
   return SendCommand(cmd, sizeof(cmd));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -511,7 +505,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::FillRect(XBYTE x0, XBYTE y0, XBYTE x1, XBYTE y1, 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
@@ -535,7 +528,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE command, int timeout)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -564,7 +556,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendCommand(XBYTE* command, XDWORD size, int time
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
@@ -588,7 +579,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE data, int timeout)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -617,7 +607,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPIOLEDDISPLAYSSD1331::Clean()
@@ -632,5 +621,27 @@ void DIOSPIOLEDDISPLAYSSD1331::Clean()
 {
   isdirectconnection      = false;
 }
+
+
+#pragma endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

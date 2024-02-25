@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2CEEprom24XXX.cpp
-*
+* 
 * @class      DIOI2CEEPROM24XXX
-* @brief      Data Input/Output I2C EEPROM 24XXX class.
+* @brief      Data Input/Output I2C EEPROM 24XXX class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CEEprom24XXX.h"
 
 #include "XFactory.h"
 #include "XBuffer.h"
@@ -41,15 +47,19 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-#include "DIOI2CEEprom24XXX.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -65,7 +75,6 @@ DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +95,6 @@ DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
@@ -100,7 +108,6 @@ DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
 { 
   return type;                                   
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +127,6 @@ void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2CEEPROM24XXX::GetSize()
@@ -134,7 +140,6 @@ XDWORD DIOI2CEEPROM24XXX::GetSize()
 { 
   return maxsize;                                
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -180,7 +185,6 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CEEPROM24XXX::Read(XDWORD address, XDWORD size, XBUFFER& xbuffer)
@@ -201,7 +205,6 @@ bool DIOI2CEEPROM24XXX::Read(XDWORD address, XDWORD size, XBUFFER& xbuffer)
 
   return Read(address, xbuffer.Get(), size);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -238,7 +241,6 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBYTE* buffer, XDWORD size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBUFFER& xbuffer)
@@ -257,7 +259,6 @@ bool DIOI2CEEPROM24XXX::Write(XDWORD address, XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CEEPROM24XXX::End()
@@ -273,7 +274,6 @@ bool DIOI2CEEPROM24XXX::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -336,24 +336,18 @@ bool DIOI2CEEPROM24XXX::IniDevice()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOI2CEEPROM24XXX::ReadBYTE
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      18/05/2014 23:48:54
-//
-//  @return       bool :
-//
-//  @param        address :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
+* @brief      ReadBYTE
+* @ingroup    DATAIO
+* 
+* @param[in]  address : 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 {
   if(!diostream)        return false;
@@ -401,7 +395,6 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -463,8 +456,6 @@ bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CEEPROM24XXX::Clean()
@@ -485,3 +476,7 @@ void DIOI2CEEPROM24XXX::Clean()
   maxsizepage   = 0;
   maxsizechunk  = 0;
 }
+
+
+#pragma endregion
+

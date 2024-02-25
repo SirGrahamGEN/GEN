@@ -3,9 +3,9 @@
 * @file       DIOI2C6AxisTrackingBMI270.h
 * 
 * @class      DIOI2C6AXISTRACKINGBMI270
-* @brief      
+* @brief      Data Input/Output I2C 6 AXIS Tracking BMI270 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,12 +24,13 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2C6AXISTRACKINGBMI270_H_
 #define _DIOI2C6AXISTRACKINGBMI270_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdint.h>
 #include <stddef.h>
@@ -37,7 +38,11 @@
 #include "XBase.h"
 #include "DIODeviceI2C.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 #define DIOI2C6AXISTRACKINGBMI270_ADDR1                         0x68
 #define DIOI2C6AXISTRACKINGBMI270_ADDR2                         0x69
@@ -2001,7 +2006,11 @@ struct bmi2_accel_offset
 };
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 class DIOI2C6AXISTRACKINGBMI270: public DIODEVICEI2C
@@ -2280,8 +2289,17 @@ class DIOI2C6AXISTRACKINGBMI270: public DIODEVICEI2C
 };
 
 
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
+
+

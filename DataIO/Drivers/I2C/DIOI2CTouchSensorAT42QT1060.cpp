@@ -5,7 +5,7 @@
 * @class      DIOI2CTOUCHSENSORAT42QT1060
 * @brief      Data Input/Output I2C Touch Sensor AT42QT1060 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,14 +24,20 @@
 * SOFTWARE.
 * @endcond
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CTouchSensorAT42QT1060.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -46,34 +52,34 @@
 #include "DIOStreamI2C.h"
 #include "DIOGPIO.h"
 
-#include "DIOI2CTouchSensorAT42QT1060.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
+* @fn         DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060()
 * @brief      Constructor
-* @ingroup    
-*
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -94,7 +100,6 @@ DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
@@ -108,8 +113,6 @@ XDWORD DIOI2CTOUCHSENSORAT42QT1060::GetGPIOInterruptEntryID()
 {
   return GPIOinterruptentryID;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -129,8 +132,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -160,7 +161,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
@@ -174,7 +174,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
 {
   return isnecessaryupdate;
 }
-
 
     
 /**-------------------------------------------------------------------------------------------------------------------
@@ -192,7 +191,6 @@ void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
 {
   this->isnecessaryupdate = isnecessaryupdate;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -221,7 +219,6 @@ XBYTE DIOI2CTOUCHSENSORAT42QT1060::GetStatus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::End()
@@ -237,8 +234,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::End()
   
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -266,7 +261,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IniDevice()
 
   return false;  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +321,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::Initializate()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
@@ -344,8 +337,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -379,8 +370,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
@@ -397,8 +386,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -450,7 +437,6 @@ void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::Clean()
@@ -469,4 +455,5 @@ void DIOI2CTOUCHSENSORAT42QT1060::Clean()
 }
 
 
+#pragma endregion
 

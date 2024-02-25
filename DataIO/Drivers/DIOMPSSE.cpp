@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOMPSSE.cpp
-*
+* 
 * @class      DIOMPSSE
 * @brief      Data Input/Output Multi-Protocol Synchronous Serial Engine (MPSSE) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOMPSSE.h"
 
 #include "DIOFactory.h"
 #include "DIOStreamConfig.h"
@@ -40,14 +46,19 @@
 #include "DIOStreamUSBLocalEnumDevices.h"
 #include "DIOStream.h"
 
-#include "DIOMPSSE.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,7 +77,6 @@ DIOMPSSE::DIOMPSSE()
   dioenumUSBdevices  = (DIOSTREAMUSBLOCALENUMDEVICES*)GEN_DIOFACTORY.CreateStreamEnumDevices(DIOSTREAMENUMTYPE_USB_LOCAL);
   if(dioenumUSBdevices)  diostreamUSBcfg = new DIOSTREAMUSBCONFIG();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -89,8 +99,6 @@ DIOMPSSE::~DIOMPSSE()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOMPSSE_CHIP_TYPE DIOMPSSE::GetChipType()
@@ -104,7 +112,6 @@ DIOMPSSE_CHIP_TYPE DIOMPSSE::GetChipType()
 {
   return chiptype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -132,7 +139,6 @@ XCHAR* DIOMPSSE::GetChipTypeName()
 
   return NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -195,7 +201,6 @@ bool DIOMPSSE::Open(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::IsOpen()
@@ -211,10 +216,7 @@ bool DIOMPSSE::IsOpen()
 }
 
 
-
-
 /*
-
 int API_EXPORTED libusb_control_transfer(libusb_device_handle *dev_handle, uint8_t bmRequestType, uint8_t bRequest, uint16_t wValue, uint16_t wIndex, unsigned char *data, uint16_t wLength, unsigned int timeout)
 {
   struct libusb_transfer *transfer = libusb_alloc_transfer(0);
@@ -291,10 +293,7 @@ int API_EXPORTED libusb_control_transfer(libusb_device_handle *dev_handle, uint8
   libusb_free_transfer(transfer);
   return r;
 }
-
 */
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -337,7 +336,6 @@ bool DIOMPSSE::Reset()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::Close()
@@ -361,7 +359,6 @@ bool DIOMPSSE::Close()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -409,7 +406,6 @@ bool DIOMPSSE::EnumDevices()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::SendCommand(XBYTE command, XBUFFER& buffer)
@@ -447,7 +443,6 @@ bool DIOMPSSE::SendCommand(XBYTE command, XBUFFER& buffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOMPSSE::ReadResponse(XBUFFER& xbuffer, int timeout)
@@ -471,7 +466,6 @@ bool DIOMPSSE::ReadResponse(XBUFFER& xbuffer, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOMPSSE::Clean()
@@ -492,4 +486,7 @@ void DIOMPSSE::Clean()
   USBdevice         = NULL;
   diostreambase     = NULL;
 }
+
+
+#pragma endregion
 

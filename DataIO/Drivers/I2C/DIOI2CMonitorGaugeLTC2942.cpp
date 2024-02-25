@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2CMonitorGaugeLTC2942.cpp
-*
+* 
 * @class      DIOI2CMONITORGAUGELTC2942
-* @brief      Data Input\Output I2C Monitor Gauge LTC2942 
+* @brief      Data Input\Output I2C Monitor Gauge LTC2942 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOI2CMonitorGaugeLTC2942.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -45,14 +51,19 @@
 #include "DIOStreamI2CConfig.h"
 #include "DIOStreamI2C.h"
 
-#include "DIOI2CMonitorGaugeLTC2942.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -71,7 +82,6 @@ DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
@@ -88,8 +98,6 @@ DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -125,7 +133,6 @@ float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
@@ -159,8 +166,6 @@ bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
@@ -181,11 +186,8 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
   
   AC_value = buffer[1] | (buffer[0] << 8);
 
-  return AC_value;
-  
+  return AC_value;  
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -205,8 +207,6 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::End()
@@ -222,8 +222,6 @@ bool DIOI2CMONITORGAUGELTC2942::End()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -251,7 +249,6 @@ bool DIOI2CMONITORGAUGELTC2942::IniDevice()
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -313,8 +310,6 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE data)
@@ -331,8 +326,6 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -366,8 +359,6 @@ bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE* data, XDWORD s
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
@@ -384,7 +375,6 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -417,8 +407,6 @@ bool DIOI2CMONITORGAUGELTC2942::WriteRegister(XBYTE offset, XBYTE* data, XDWORD 
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOI2CMONITORGAUGELTC2942::Clean()
@@ -435,21 +423,5 @@ void DIOI2CMONITORGAUGELTC2942::Clean()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pragma endregion
 

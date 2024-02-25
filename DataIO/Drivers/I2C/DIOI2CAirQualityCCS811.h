@@ -1,42 +1,47 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOI2CAirQualityCCS811.h
-*
+* 
 * @class      DIOI2CAIRQUALITYCCS811
-* @brief      Data Input/Output I2C Sensor CCS811 class (Air Quality)
+* @brief      Data Input/Output I2C Sensor CCS811 (Air Quality) class 
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOI2CAIRQUALITYCCS811_H_
 #define _DIOI2CAIRQUALITYCCS811_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBase.h"
 
 #include "DIODeviceI2C.h"
 
+#pragma endregion
+
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum  DIOI2CAIRQUALITYCCS811_ERRORS
 {
@@ -49,7 +54,6 @@ enum  DIOI2CAIRQUALITYCCS811_ERRORS
   DIOI2CAIRQUALITYCCS811_ERROR_RESERVED1                  , // Reserved for Future Use
   DIOI2CAIRQUALITYCCS811_ERROR_RESERVED2                    // Reserved for Future Use
 };
-
 
 #define DIOI2CAIRQUALITYCCS811_ADDR1                    0x5A
 #define DIOI2CAIRQUALITYCCS811_ADDR2                    0x5B
@@ -70,17 +74,15 @@ enum  DIOI2CAIRQUALITYCCS811_ERRORS
 #define DIOI2CAIRQUALITYCCS811_OFFSET_APP_START         0xF4
 #define DIOI2CAIRQUALITYCCS811_OFFSET_SW_RESET          0xFF
 
-
 #define DIOI2CAIRQUALITYCCS811_HW_ID                    0x81
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
-class XPUBLISHER;
-class XTIMER;
-class DIOFACTORY;
-class DIOSTREAMI2CCONFIG;
-class DIOSTREAMI2C;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOI2CAIRQUALITYCCS811: public DIODEVICEI2C
 {
@@ -138,7 +140,15 @@ class DIOI2CAIRQUALITYCCS811: public DIODEVICEI2C
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

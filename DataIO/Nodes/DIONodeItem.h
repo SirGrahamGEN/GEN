@@ -3,7 +3,7 @@
 * @file       DIONodeItem.h
 * 
 * @class      DIONODEITEM
-* @brief      Data Input/Output Node item (Base for DIONODESENSOR, DIONODEACTUATOR, ...)
+* @brief      Data Input/Output Node item (Base for DIONODESENSOR, DIONODEACTUATOR, ...) class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,13 +30,18 @@
 #define _DIONODEITEM_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XUUID.h"
 #include "XSerializable.h"
 
 #include "DIONodeItemValue.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIONODEITEM_CATEGORY
 {
@@ -47,10 +52,15 @@ enum DIONODEITEM_CATEGORY
   DIONODEITEM_CATEGORY_OWER
 };
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIONODEITEMHANDLER;
+
 
 class DIONODEITEM : public XSERIALIZABLE
 {
@@ -103,7 +113,16 @@ class DIONODEITEM : public XSERIALIZABLE
     void                          Clean                         ();     
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
 

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSMTP.cpp
-*
+* 
 * @class      DIOSMTP
 * @brief      Data Input/Output SMTP (Simple Mail Transfer Protocol) class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSMTP.h"
 
 #include "XBuffer.h"
 #include "XFileTXT.h"
@@ -42,19 +48,22 @@
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOStreamTCPIP.h"
 
-#include "DIOSMTP.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOSMTPRECIPIENT                                                                                                    */
-/* --------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOSMTPRECIPIENT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -70,7 +79,6 @@ DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -89,7 +97,6 @@ DIOSMTPRECIPIENT::~DIOSMTPRECIPIENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
@@ -103,7 +110,6 @@ DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -123,7 +129,6 @@ void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTPRECIPIENT::GetName()
@@ -139,7 +144,6 @@ XSTRING* DIOSMTPRECIPIENT::GetName()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
@@ -153,7 +157,6 @@ DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
 {
   return &email;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -172,11 +175,10 @@ void DIOSMTPRECIPIENT::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOSMTPATTACHMENT                                                                                                   */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOSMTPATTACHMENT
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -192,7 +194,6 @@ DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -211,7 +212,6 @@ DIOSMTPATTACHMENT::~DIOSMTPATTACHMENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOSMTPATTACHMENT::GetXPath()
@@ -225,7 +225,6 @@ XPATH* DIOSMTPATTACHMENT::GetXPath()
 {
   return &xpath;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -259,7 +258,6 @@ bool DIOSMTPATTACHMENT::FileExists(XQWORD* size)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSMTPATTACHMENT::GetSize()
@@ -276,7 +274,6 @@ XQWORD DIOSMTPATTACHMENT::GetSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTPATTACHMENT::GetSizeLimit()
@@ -290,7 +287,6 @@ XQWORD DIOSMTPATTACHMENT::GetSizeLimit()
 {
   return sizelimit;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -310,7 +306,6 @@ void DIOSMTPATTACHMENT::SetSizeLimit(XQWORD sizelimit)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTPATTACHMENT::Clean()
@@ -328,11 +323,10 @@ void DIOSMTPATTACHMENT::Clean()
 }
 
 
+#pragma endregion
 
-/* --------------------------------------------------------------------------------------------------------------------*/
-/* DIOSMTP                                                                                                             */
-/* --------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOSMTP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -354,7 +348,6 @@ DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSMTP::~DIOSMTP()
@@ -369,8 +362,6 @@ DIOSMTP::~DIOSMTP()
 {
   Clean();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -411,7 +402,6 @@ DIOURL* DIOSMTP::Server_GetURL()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::Server_GetPort()
@@ -425,7 +415,6 @@ int DIOSMTP::Server_GetPort()
 {
   return serverport;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -445,7 +434,6 @@ void DIOSMTP::Server_SetPort(int port)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::Server_GetLogin()
@@ -459,7 +447,6 @@ XSTRING* DIOSMTP::Server_GetLogin()
 {
   return &serverlogin;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -477,7 +464,6 @@ XSTRING* DIOSMTP::Server_GetPassword()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::Server_GetConnectionTimeout()
@@ -491,7 +477,6 @@ int DIOSMTP::Server_GetConnectionTimeout()
 {
   return serverconnectiontimeout;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -511,7 +496,6 @@ void DIOSMTP::Server_SetConnectionTimeout(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::Server_GetConnectionLocalIP()
@@ -525,7 +509,6 @@ XSTRING* DIOSMTP::Server_GetConnectionLocalIP()
 {
   return serverconnectionlocalIP;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -560,7 +543,6 @@ bool DIOSMTP::Server_IsAvailable()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
@@ -574,7 +556,6 @@ DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
 {
   return contenttype;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -594,7 +575,6 @@ void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::GetSenderName()
@@ -608,7 +588,6 @@ XSTRING* DIOSMTP::GetSenderName()
 {
   return &sendername;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -626,7 +605,6 @@ DIOEMAILADDRESS* DIOSMTP::GetSenderEmail()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOEMAILADDRESS* DIOSMTP::GetReplytoEmail()
@@ -642,7 +620,6 @@ DIOEMAILADDRESS* DIOSMTP::GetReplytoEmail()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<DIOSMTPRECIPIENT*>* DIOSMTP::GetRecipients()
@@ -656,7 +633,6 @@ XVECTOR<DIOSMTPRECIPIENT*>* DIOSMTP::GetRecipients()
 {
   return &recipients;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -695,7 +671,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, XCHAR* email,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, XSTRING& email, bool check)
@@ -714,7 +689,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, XSTRING& em
 {
   return AddRecipient(type, name.Get(), email.Get(), check);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -737,7 +711,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XCHAR* name, DIOEMAILADDRE
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, DIOEMAILADDRESS& email, bool check)
@@ -756,7 +729,6 @@ bool DIOSMTP::AddRecipient(DIOSMTPRECIPIENTTYPE type, XSTRING& name, DIOEMAILADD
 {
   return AddRecipient(type, name.Get(), email.Get(), check);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -793,7 +765,6 @@ bool DIOSMTP::DelRecipient(DIOEMAILADDRESS& email)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAllRecipients()
@@ -814,7 +785,6 @@ bool DIOSMTP::DelAllRecipients()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOSMTP::GetXMailer()
@@ -828,7 +798,6 @@ XSTRING* DIOSMTP::GetXMailer()
 {
   return &xmailer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -846,7 +815,6 @@ XSTRING* DIOSMTP::GetSubject()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XFILETXT* DIOSMTP::GetMessage()
@@ -860,7 +828,6 @@ XFILETXT* DIOSMTP::GetMessage()
 {
   return message;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -878,7 +845,6 @@ DIOSMTPXPRIORITY DIOSMTP::GetXPriority()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
@@ -894,7 +860,6 @@ void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
 {
   this->xpriority = xpriority;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -940,7 +905,6 @@ bool DIOSMTP::AddAttachment(XCHAR* path, bool check, XDWORD sizelimit)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::AddAttachment(XPATH& xpath, bool check, XDWORD sizelimit)
@@ -958,7 +922,6 @@ bool DIOSMTP::AddAttachment(XPATH& xpath, bool check, XDWORD sizelimit)
 {
   return AddAttachment(xpath.Get(), check, sizelimit);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -995,7 +958,6 @@ bool DIOSMTP::DelAttachment(XCHAR* path)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::DelAttachment(XPATH& xpath)
@@ -1011,7 +973,6 @@ bool DIOSMTP::DelAttachment(XPATH& xpath)
 {
   return DelAttachment(xpath.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1030,7 +991,6 @@ bool DIOSMTP::DelAllAttachments()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1332,7 +1292,6 @@ bool DIOSMTP::Send()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSMTP::End()
@@ -1356,7 +1315,6 @@ bool DIOSMTP::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1384,7 +1342,6 @@ bool DIOSMTP::UpdateConnectionConfig()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOSMTP::GetCodeResult(XSTRING& answer)
@@ -1407,7 +1364,6 @@ int DIOSMTP::GetCodeResult(XSTRING& answer)
 
   return code;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1436,7 +1392,6 @@ bool DIOSMTP::SendResponse(XSTRING& response, int codevalid)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1480,7 +1435,6 @@ bool DIOSMTP::SendResponseAndWait(XSTRING& response, int codevalid, int codecont
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1653,7 +1607,6 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSMTP::Clean()
@@ -1681,4 +1634,9 @@ void DIOSMTP::Clean()
   xpriority                 = DIOSMTPXPRIORITY_UNKNOWN;
 }
 
+
+#pragma endregion
+
+
+#pragma endregion
 

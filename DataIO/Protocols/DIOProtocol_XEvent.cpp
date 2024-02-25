@@ -1,47 +1,59 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOProtocol_XEvent.cpp
-*
+* 
 * @class      DIOPROTOCOL_XEVENT
 * @brief      Data Input/Output eXtended event Generic Binary Protocol eXtended Event class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "DIOAlerts.h"
+#pragma region INCLUDES
 
 #include "DIOProtocol_XEvent.h"
 
+#include "DIOAlerts.h"
+
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +75,6 @@ DIOPROTOCOL_XEVENT::DIOPROTOCOL_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fa
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
@@ -80,7 +91,6 @@ DIOPROTOCOL_XEVENT::~DIOPROTOCOL_XEVENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
@@ -94,7 +104,6 @@ DIOPROTOCOL* DIOPROTOCOL_XEVENT::GetProtocol()
 {
   return protocol;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -117,7 +126,6 @@ bool DIOPROTOCOL_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_DIRECTION DIOPROTOCOL_XEVENT::GetDirection()
@@ -131,7 +139,6 @@ DIOPROTOCOL_DIRECTION  DIOPROTOCOL_XEVENT::GetDirection()
 {
   return direction;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -151,7 +158,6 @@ void DIOPROTOCOL_XEVENT::SetDirection(DIOPROTOCOL_DIRECTION direction)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_XEVENT::GetType()
@@ -165,7 +171,6 @@ XDWORD DIOPROTOCOL_XEVENT::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -185,7 +190,6 @@ void DIOPROTOCOL_XEVENT::SetType(XDWORD type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::GetResult()
@@ -199,7 +203,6 @@ bool DIOPROTOCOL_XEVENT::GetResult()
 {
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -219,7 +222,6 @@ void DIOPROTOCOL_XEVENT::SetResult(bool result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
@@ -233,7 +235,6 @@ DIOPROTOCOL_FILESTATUS DIOPROTOCOL_XEVENT::GetFileStatus()
 {
   return filestatus;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -253,7 +254,6 @@ void DIOPROTOCOL_XEVENT::SetFileStatus(DIOPROTOCOL_FILESTATUS filestatus)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_XEVENT::FileIsSend()
@@ -267,7 +267,6 @@ bool DIOPROTOCOL_XEVENT::FileIsSend()
 {
   return fileissend;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -287,7 +286,6 @@ void DIOPROTOCOL_XEVENT::SetFileIsSend(bool fileissend)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
@@ -301,7 +299,6 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileSource()
 {
   return &filesource;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -323,7 +320,6 @@ bool DIOPROTOCOL_XEVENT::SetFileSource(XCHAR* filesource)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
@@ -337,7 +333,6 @@ XPATH* DIOPROTOCOL_XEVENT::GetFileTarget()
 {
   return &filetarget;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -359,7 +354,6 @@ bool DIOPROTOCOL_XEVENT::SetFileTarget(XCHAR* filetarget)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_XEVENT::GetFilePercent()
@@ -373,7 +367,6 @@ int DIOPROTOCOL_XEVENT::GetFilePercent()
 {
   return filepercent;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -393,7 +386,6 @@ void DIOPROTOCOL_XEVENT::SetFilePercent(int filepercent)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void* DIOPROTOCOL_XEVENT::GetParam1()
@@ -407,7 +399,6 @@ void* DIOPROTOCOL_XEVENT::GetParam1()
 {
   return param1;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -427,7 +418,6 @@ void DIOPROTOCOL_XEVENT::SetParam1(void* param1)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOPROTOCOL_XEVENT::GetParam2()
@@ -441,7 +431,6 @@ XDWORD DIOPROTOCOL_XEVENT::GetParam2()
 {
   return param2;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -461,7 +450,6 @@ void DIOPROTOCOL_XEVENT::SetParam2(XDWORD param2)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
@@ -475,7 +463,6 @@ DIOALERT* DIOPROTOCOL_XEVENT::GetAlert()
 {
   return alert;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -493,7 +480,6 @@ void DIOPROTOCOL_XEVENT::SetAlert(DIOALERT* alert)
 {
   this->alert = alert;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -528,5 +514,5 @@ void DIOPROTOCOL_XEVENT::Clean()
 }
 
 
-
+#pragma endregion
 

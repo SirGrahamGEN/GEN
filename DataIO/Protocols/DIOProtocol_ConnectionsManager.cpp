@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOProtocol_ConnectionsManager.cpp
-*
+* 
 * @class      DIOPROTOCOL_CONNECTIONSMANAGER
-* @brief      Data Input/Output  Protocol Connections Manager class
+* @brief      Data Input/Output Protocol Connections Manager class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOProtocol_ConnectionsManager.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -49,19 +55,22 @@
 #include "DIOStreamTCPIP.h"
 #include "DIOProtocolConnectionsInUseDefinitions.h"
 
-#include "DIOProtocol_ConnectionsManager.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL_CONNECTION                                                                                              */
-/*--------------------------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_DIOPROTOCOL_CONNECTION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -87,7 +96,6 @@ DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
@@ -106,7 +114,6 @@ DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
@@ -122,7 +129,6 @@ DIOSTREAMCONFIG* DIOPROTOCOL_CONNECTION::GetDIOStreamConfig()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
@@ -136,7 +142,6 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 {
   return dioprotocol;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -156,7 +161,6 @@ void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::Connect()
@@ -172,8 +176,6 @@ bool DIOPROTOCOL_CONNECTION::Connect()
 
   return dioprotocol->Connect();
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -196,7 +198,6 @@ bool DIOPROTOCOL_CONNECTION::Disconected()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -227,7 +228,6 @@ bool DIOPROTOCOL_CONNECTION::SetInUse(bool inuse, XDWORD ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::IsInUse()
@@ -251,7 +251,6 @@ bool DIOPROTOCOL_CONNECTION::IsInUse()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
@@ -265,7 +264,6 @@ bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 {
   return issendeventconnected;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +281,6 @@ void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 {
   this->issendeventconnected = issendeventconnected;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -306,11 +303,10 @@ void DIOPROTOCOL_CONNECTION::Clean()
 }
 
 
+#pragma endregion
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* DIOPROTOCOL_CONNECTIONSMANAGER                                                                                      */
-/*--------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_DIOPROTOCOL_CONNECTIONSMANAGER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -334,7 +330,6 @@ DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
@@ -353,7 +348,6 @@ DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -402,7 +396,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostre
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -461,7 +454,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
@@ -475,7 +467,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_GetNTargets()
 {
   return targetURLs.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -504,7 +495,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XCHAR* URL)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
@@ -520,7 +510,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(XSTRING& URL)
 {
   return TargetURL_Add(URL.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -540,7 +529,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Add(DIOURL& URL)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
@@ -556,7 +544,6 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Get(int index)
 {
   return (XSTRING*)targetURLs.Get(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -583,7 +570,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_Delete(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
@@ -604,7 +590,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::TargetURL_DeleteAll()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
@@ -618,7 +603,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 {
   return protocolconnectionsnlimit;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -638,7 +622,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolc
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
@@ -652,7 +635,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 {
   return protocolconnections.GetSize();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -686,7 +668,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
 
   return protocolconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -733,7 +714,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstOperative()
@@ -776,7 +756,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 
   return protocolconnection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -823,7 +802,6 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int index)
@@ -864,7 +842,6 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
@@ -901,7 +878,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
@@ -936,7 +912,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 
   return nconnections;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -980,7 +955,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1031,7 +1005,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
@@ -1079,7 +1052,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
@@ -1123,7 +1095,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
@@ -1164,7 +1135,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1212,7 +1182,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1296,7 +1265,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeout)
@@ -1355,7 +1323,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeou
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE type, DIOPROTOCOL_CONNECTION* protocolconnection)
@@ -1384,7 +1351,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
@@ -1404,7 +1370,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
   subversion      = this->applicationsubversion;
   subversionerr   = this->applicationsubversionerr;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1428,7 +1393,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWOR
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
@@ -1442,7 +1406,6 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
 {
   return &applicationname;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1512,7 +1475,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
         }
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1679,7 +1641,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
@@ -1790,7 +1751,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()
@@ -1820,4 +1780,12 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()
 
   xmutexprocotolconnections       = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+
 

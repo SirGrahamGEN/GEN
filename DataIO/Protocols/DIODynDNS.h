@@ -1,41 +1,50 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIODynDNS.h
-*
+* 
 * @class      DIODYNDNS
-* @brief      Data Input/Output DYNDNS entry class
+* @brief      Data Input/Output DynDNS API protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIODYNDNS_H_
 #define _DIODYNDNS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include <stdio.h>
 
 #include "XString.h"
 
+#include "DIOURL.h"
+#include "DIOIP.h"
+
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIODYNDNS_STATUSCODE
 {
@@ -56,49 +65,55 @@ enum DIODYNDNS_STATUSCODE
   DIODYNDNS_STATUSCODE_911                ,   // "911"          There is a serious problem on our side, such as a database or DNS server failure. The client should stop updating until notified via the status page that the service is back up.
 };
 
-
 #define DIODYNDNS_DEFAULTTIMEOUT  10
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 
-class XFACTORY;
-class DIOFACTORY;
-class XPUBLISHER;
-class DIOURL;
-class DIOIP;
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
+
 class DIOWEBCLIENT;
+
 
 class DIODYNDNS
 {
   public:
 
-                            DIODYNDNS           ();
-    virtual                ~DIODYNDNS           ();
+                                DIODYNDNS               ();
+    virtual                    ~DIODYNDNS               ();
 
-    XSTRING*                GetLogin            ();
-    XSTRING*                GetPassword         ();
+    XSTRING*                    GetLogin                ();
+    XSTRING*                    GetPassword             ();
 
-    bool                    GetPublicIP         (DIOIP& publicIP, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL) ;
-    bool                    IsChangedPublicIP   (DIOURL& url, bool& ischanged, DIOIP* newpublicip = NULL, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL);
+    bool                        GetPublicIP             (DIOIP& publicIP, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL) ;
+    bool                        IsChangedPublicIP       (DIOURL& url, bool& ischanged, DIOIP* newpublicip = NULL, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL);
 
-    DIODYNDNS_STATUSCODE    Update              (DIOURL& url, DIOIP& newpublicip, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL);
+    DIODYNDNS_STATUSCODE        Update                  (DIOURL& url, DIOIP& newpublicip, int timeout = DIODYNDNS_DEFAULTTIMEOUT, XSTRING* IPlocal = NULL);
 
   private:
 
-    DIODYNDNS_STATUSCODE    GetError            (XSTRING& result);
-    void                    Clean               ();
+    DIODYNDNS_STATUSCODE        GetError                (XSTRING& result);
+    void                        Clean                   ();
 
-    DIOWEBCLIENT*           webclient;
+    DIOWEBCLIENT*               webclient;
 
-    XSTRING                 login;
-    XSTRING                 password;
-
+    XSTRING                     login;
+    XSTRING                     password;
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
 

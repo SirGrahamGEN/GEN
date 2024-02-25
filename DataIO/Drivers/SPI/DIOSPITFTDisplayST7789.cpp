@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOSPITFTDisplayST7789.cpp
-*
+* 
 * @class      DIOSPITFTDISPLAYST7789
-* @brief      Data Input/Output SPI Display TFT ILI9341 (Ilitek)
+* @brief      Data Input/Output SPI Display TFT ST7789 class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOSPITFTDisplayST7789.h"
 
 #include "XBuffer.h"
 #include "XTrace.h"
@@ -39,14 +45,19 @@
 #include "DIOFactory.h"
 #include "DIOStreamSPI.h"
 
-#include "DIOSPITFTDisplayST7789.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -72,7 +83,6 @@ DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
@@ -89,7 +99,6 @@ DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -145,11 +154,9 @@ bool DIOSPITFTDISPLAYST7789::IniDevice()
         }
     }
 
- 
 
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -189,7 +196,6 @@ bool DIOSPITFTDISPLAYST7789::Clear(XWORD color)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYST7789::Update(XBYTE* buffer)
@@ -214,7 +220,6 @@ bool DIOSPITFTDISPLAYST7789::Update(XBYTE* buffer)
 
   return SendData();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -242,7 +247,6 @@ bool DIOSPITFTDISPLAYST7789::PutPixel(XWORD x, XWORD y, XWORD color)
 }  
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYST7789::End()
@@ -260,7 +264,6 @@ bool DIOSPITFTDISPLAYST7789::End()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -340,7 +343,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_Init()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYST7789::TFT_Reset()
@@ -365,7 +367,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_Reset()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -425,10 +426,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 }
 
 
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
@@ -471,7 +468,6 @@ void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYST7789::SendCommand(XBYTE command)
@@ -496,7 +492,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommand(XBYTE command)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOSPITFTDISPLAYST7789::SendData()
@@ -517,7 +512,6 @@ bool DIOSPITFTDISPLAYST7789::SendData()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -544,7 +538,17 @@ bool DIOSPITFTDISPLAYST7789::SendData(XBYTE data)
 }
 
 
-
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
+* @brief      SendData
+* @ingroup    DATAIO
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
 {
   bool status;
@@ -556,8 +560,6 @@ bool DIOSPITFTDISPLAYST7789::SendData(XWORD data)
 
   return status;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -597,10 +599,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 }
 
 
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOSPITFTDISPLAYST7789::Clean()
@@ -617,3 +615,7 @@ void DIOSPITFTDISPLAYST7789::Clean()
   
   rotation  = 0;
 }
+
+
+#pragma endregion
+

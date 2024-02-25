@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOATCMDS.cpp
-*
+* 
 * @class      DIOATCMDS
-* @brief      Data Input/Output AT commands class
+* @brief      Data Input/Output AT commands protocol class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOATCMDS.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -44,14 +50,19 @@
 #include "DIOStreamUARTConfig.h"
 #include "DIOStreamUART.h"
 
-#include "DIOATCMDS.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +78,6 @@ DIOATCMD::DIOATCMD()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -86,7 +96,6 @@ DIOATCMD::~DIOATCMD()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOATCMD::GetType()
@@ -100,7 +109,6 @@ XDWORD DIOATCMD::GetType()
 {
   return type;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -118,7 +126,6 @@ XCHAR* DIOATCMD::GetCommand()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOATCMD::GetCommandString()
@@ -132,7 +139,6 @@ XSTRING* DIOATCMD::GetCommandString()
 {
   return &command;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -158,7 +164,6 @@ bool DIOATCMD::Set(XDWORD type, XCHAR* command, bool isunsolicited)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMD::IsUnSolicited()
@@ -172,7 +177,6 @@ bool DIOATCMD::IsUnSolicited()
 {
   return isunsolicited;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -190,7 +194,6 @@ void DIOATCMD::Clean()
   type          = DIOATCMD_ERROR_NONE;
   isunsolicited = false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -222,7 +225,6 @@ DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
   AddCommand(DIOATCMD_TYPE_VERBOSE    , __L("V"));
   AddCommand(DIOATCMD_TYPE_BAUDRATE   , __L("+IPR"));
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -265,8 +267,6 @@ DIOATCMDS::~DIOATCMDS()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOSTREAM* DIOATCMDS::GetDIOStream()
@@ -282,7 +282,6 @@ DIOSTREAM* DIOATCMDS::GetDIOStream()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTIMER* DIOATCMDS::GetXTimer()
@@ -296,7 +295,6 @@ XTIMER* DIOATCMDS::GetXTimer()
 {
   return xtimer;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -374,7 +372,6 @@ bool DIOATCMDS::Ini(int timeout, bool echomode, bool verbosemode, int minimumbau
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::Basic(int timeout)
@@ -390,7 +387,6 @@ DIOATCMD_ERROR DIOATCMDS::Basic(int timeout)
 {
   return MakeSimpleCommand(DIOATCMD_TYPE_BASIC,NULL,timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -433,7 +429,6 @@ DIOATCMD_ERROR DIOATCMDS::GetCharacter(DIOATCMD_CODECHARACTER code,XBYTE& charac
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::Reset(int timeout)
@@ -449,7 +444,6 @@ DIOATCMD_ERROR DIOATCMDS::Reset(int timeout)
 {
   return MakeSimpleCommand(DIOATCMD_TYPE_RESET,NULL,timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -475,7 +469,6 @@ DIOATCMD_ERROR DIOATCMDS::SetEchoMode(bool echomode, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::SetVerboseMode(bool verbosemode , int timeout)
@@ -497,7 +490,6 @@ DIOATCMD_ERROR DIOATCMDS::SetVerboseMode(bool verbosemode  , int timeout)
 
   return WaitToProcessAnswer(timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -535,7 +527,6 @@ DIOATCMD_ERROR DIOATCMDS::GetBaudRate(int& baudrate, int timeout)
 
   return error;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -579,7 +570,6 @@ DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDS::End()
@@ -597,7 +587,6 @@ void DIOATCMDS::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::AdditionalInitialization(int timeout)
@@ -613,7 +602,6 @@ bool DIOATCMDS::AdditionalInitialization(int timeout)
 {
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -636,7 +624,6 @@ bool DIOATCMDS::UnsolicitedCommandAddtionalSize(XDWORD type, XSTRING& param, DIO
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::UnsolicitedCommand(XDWORD type, XSTRING& param, XBUFFER& additionalparamint)
@@ -654,7 +641,6 @@ bool DIOATCMDS::UnsolicitedCommand(XDWORD type, XSTRING& param, XBUFFER& additio
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -704,14 +690,12 @@ int DIOATCMDS::CalculeBaudRateStreamUART(int timeout)
           if(baudrate) break;
 
         }
-
     }
 
   diostream->Close();
 
   return baudrate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -743,7 +727,6 @@ bool DIOATCMDS::AddCommand(XDWORD type, XCHAR* command,bool isunsolicited)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD* DIOATCMDS::GetCommand(XDWORD type)
@@ -772,7 +755,6 @@ DIOATCMD* DIOATCMDS::GetCommand(XDWORD type)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOATCMDS::GetCommandString(XDWORD type)
@@ -791,7 +773,6 @@ XCHAR* DIOATCMDS::GetCommandString(XDWORD type)
 
   return command->GetCommand();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -813,7 +794,6 @@ bool DIOATCMDS::DeleteAllCommand()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -860,7 +840,6 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XCHAR* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type,XSTRING& param)
@@ -877,8 +856,6 @@ DIOATCMD_ERROR DIOATCMDS::SendCommand(XDWORD type, XSTRING& param)
 {
   return DIOATCMDS::SendCommand(type,param.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -919,7 +896,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XCHAR* param)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
@@ -945,7 +921,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 
   if(!status) return DIOATCMD_ERROR_WRITECMD;
 
-
   /*
   #ifdef XTRACE_ACTIVE
   XSTRING string;
@@ -963,7 +938,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::SendParam(XSTRING& param)
@@ -979,7 +953,6 @@ DIOATCMD_ERROR DIOATCMDS::SendParam(XSTRING& param)
 {
   return DIOATCMDS::SendParam(param.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1013,7 +986,6 @@ bool DIOATCMDS::AddSendCommand(XSTRING* sendcommand)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::AddSendCommand(XBUFFER& xbuffer)
@@ -1035,7 +1007,6 @@ bool DIOATCMDS::AddSendCommand(XBUFFER& xbuffer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOATCMDS::GetSendCommand(int index)
@@ -1054,7 +1025,6 @@ XSTRING* DIOATCMDS::GetSendCommand(int index)
 
   return sendcommand;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1083,7 +1053,6 @@ int DIOATCMDS::SearchSendCommand(XSTRING* sendcommand)
 
   return DIOATCMDS_COMMANDNOTFOUND;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1128,7 +1097,6 @@ bool DIOATCMDS::DeleteAllSendCommand()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1216,7 +1184,6 @@ bool DIOATCMDS::ReadAnswer(XSTRING& answer,int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::ReadAnswerWithOutEndChar(XSTRING& answer, int timeout)
@@ -1293,7 +1260,6 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XSTRING& answer, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::ReadAnswerWithOutEndChar(XCHAR* answer, int timeout)
@@ -1314,7 +1280,6 @@ bool DIOATCMDS::ReadAnswerWithOutEndChar(XCHAR* answer, int timeout)
 
   return ReadAnswerWithOutEndChar(_answer,timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1353,7 +1318,6 @@ XSTRING* DIOATCMDS::GetLastAnswer()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOATCMDS::DeleteAnswer(int index)
@@ -1375,7 +1339,6 @@ bool DIOATCMDS::DeleteAnswer(int index)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1403,7 +1366,6 @@ bool DIOATCMDS::DeleteLastAnswer()
   return true;
 
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1440,7 +1402,6 @@ XVECTOR<XSTRING*>* DIOATCMDS::GetAnswers()
 {
   return &answers;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1486,8 +1447,6 @@ int DIOATCMDS::SearchInAnswers(XCHAR* string, int timeout)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOATCMDS::SearchInAnswers(XDWORD typecommand,int timeout)
@@ -1512,7 +1471,6 @@ int DIOATCMDS::SearchInAnswers(XDWORD typecommand,int timeout)
 
   return SearchInAnswers(string.Get(),timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1566,8 +1524,6 @@ DIOATCMD_ERROR DIOATCMDS::WaitToProcessAnswer(int timeout, int* index)
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::WaitToOneAnswerMore(int timeout)
@@ -1599,7 +1555,6 @@ DIOATCMD_ERROR DIOATCMDS::WaitToOneAnswerMore(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOATCMD_ERROR DIOATCMDS::MakeSimpleCommand(XDWORD type,XCHAR* param,int timeout)
@@ -1620,7 +1575,6 @@ DIOATCMD_ERROR DIOATCMDS::MakeSimpleCommand(XDWORD type,XCHAR* param,int timeout
 
   return WaitToProcessAnswer(timeout);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1656,7 +1610,6 @@ DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type, XSTRING& answ
 
   return DIOATCMD_ERROR_NONE;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1720,7 +1673,6 @@ void DIOATCMDS::ThreadConnection(void* param)
         }
     }
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1801,7 +1753,6 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOATCMDS::Clean()
@@ -1828,4 +1779,7 @@ void DIOATCMDS::Clean()
   answerchar              = 10;
   delchar                 =  8;
 }
+
+
+#pragma endregion
 
