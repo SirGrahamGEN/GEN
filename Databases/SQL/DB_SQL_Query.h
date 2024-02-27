@@ -4,7 +4,7 @@
 *
 * @class      DB_SQL_QUERY
 * @brief      DataBase SQL Query Abstract class
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @copyright  GEN Group. All rights reserved.
 *

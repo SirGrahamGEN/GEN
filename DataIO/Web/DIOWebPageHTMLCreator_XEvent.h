@@ -1,41 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWebPageHTMLCreator_XEvent.h
-*
+* 
 * @class      DIOWEBPAGEHTMLCREATOR_XEVENT
 * @brief      Data Input/Output Web Page HTML Create eXtended Event class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOWEBPAGEHTMLCREATOR_XEVENT_H_
 #define _DIOWEBPAGEHTMLCREATOR_XEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XPath.h"
 #include "XEvent.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
 enum DIOWEBPAGEHTMLCREATOR_XEVENT_TYPE
 {
@@ -43,10 +48,15 @@ enum DIOWEBPAGEHTMLCREATOR_XEVENT_TYPE
   DIOWEBPAGEHTMLCREATOR_XEVENT_TYPE_XTAGFOUND
 };
 
+#pragma endregion
+
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOWEBPAGEHTMLCREATOR;
+
 
 class DIOWEBPAGEHTMLCREATOR_XEVENT : public XEVENT
 {
@@ -69,9 +79,15 @@ class DIOWEBPAGEHTMLCREATOR_XEVENT : public XEVENT
 };
 
 
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
 

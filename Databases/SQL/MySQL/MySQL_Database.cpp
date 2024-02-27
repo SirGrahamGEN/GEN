@@ -64,7 +64,7 @@
 *
 * @fn         MYSQL_DATABASE::MYSQL_DATABASE()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -83,7 +83,7 @@ MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 * @fn         MYSQL_DATABASE::~MYSQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -98,7 +98,7 @@ MYSQL_DATABASE::~MYSQL_DATABASE()
 *
 * @fn         DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 * @brief      GetType
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_DATABASE_TYPE :
 *
@@ -113,7 +113,7 @@ DB_SQL_DATABASE_TYPE MYSQL_DATABASE::GetType()
 *
 * @fn         XCHAR* MYSQL_DATABASE::GetTypeName()
 * @brief      GetTypeName
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XCHAR* :
 *
@@ -128,7 +128,7 @@ XCHAR* MYSQL_DATABASE::GetTypeName()
 *
 * @fn         DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 * @brief      CreateVariant
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_VARIANT* :
 *
@@ -143,7 +143,7 @@ DB_SQL_VARIANT* MYSQL_DATABASE::CreateVariant()
 *
 * @fn         bool MYSQL_DATABASE::Transaction()
 * @brief      Transaction
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -171,7 +171,7 @@ bool MYSQL_DATABASE::Transaction()
 *
 * @fn         bool MYSQL_DATABASE::Commit()
 * @brief      Commit
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -205,7 +205,7 @@ bool MYSQL_DATABASE::Commit()
 *
 * @fn         bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 * @brief      Rollback
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  savepointname :
 *
@@ -256,7 +256,7 @@ bool MYSQL_DATABASE::Rollback(XCHAR* savepointname)
 *
 * @fn         bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 * @brief      Savepoint
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  savepoint :
 *
@@ -291,7 +291,7 @@ bool MYSQL_DATABASE::Savepoint(XCHAR* savepoint)
 *
 * @fn         bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 * @brief      ReleaseSavepoint
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  savepoint :
 *
@@ -325,7 +325,7 @@ bool MYSQL_DATABASE::ReleaseSavepoint(XCHAR* savepoint)
 *
 * @fn         DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 * @brief      CreateQuery
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_QUERY* :
 *
@@ -341,7 +341,7 @@ DB_SQL_QUERY* MYSQL_DATABASE::CreateQuery()
 *
 * @fn         DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
 * @brief      CreateConnection
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_CONNECTION* :
 *
@@ -357,7 +357,7 @@ DB_SQL_CONNECTION* MYSQL_DATABASE::CreateConnection()
 *
 * @fn         bool MYSQL_DATABASE::GetTables()
 * @brief      GetTables
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -420,7 +420,7 @@ bool MYSQL_DATABASE::GetTables()
 *
 * @fn         DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 * @brief      GetDatabaseEncoding
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_DATABASE_ENCODING :
 *
@@ -446,7 +446,7 @@ DB_SQL_DATABASE_ENCODING MYSQL_DATABASE::GetDatabaseEncoding()
 *
 * @fn         bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 * @brief      SetDatabaseEncoding
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  encodingtouse :
 *
@@ -518,7 +518,7 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 * @fn         void MYSQL_DATABASE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

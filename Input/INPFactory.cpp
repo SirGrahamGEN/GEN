@@ -103,14 +103,13 @@ bool INPFACTORY::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         INPFACTORY& INPFACTORY::GetInstance()
-* @brief      Get Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     INPFACTORY& :
-*
+* @brief      GetInstance
+* @ingroup    INPUT
+* 
+* @return     INPFACTORY& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORY& INPFACTORY::GetInstance()
 {
@@ -121,16 +120,15 @@ INPFACTORY& INPFACTORY::GetInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool INPFACTORY::SetInstance(INPFACTORY* instance)
-* @brief      Set Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @param[in]  _instance : new instance
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @fn         bool INPFACTORY::SetInstance(INPFACTORY* _instance)
+* @brief      SetInstance
+* @ingroup    INPUT
+* 
+* @param[in]  _instance : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORY::SetInstance(INPFACTORY* _instance)
 {
@@ -143,14 +141,13 @@ bool INPFACTORY::SetInstance(INPFACTORY* _instance)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool INPFACTORY::DelInstance()
-* @brief      Delete Instance of INPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @brief      DelInstance
+* @ingroup    INPUT
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPFACTORY::DelInstance()
 {
@@ -196,6 +193,7 @@ bool INPFACTORY::DeleteDevice(INPDEVICE* device)
 {
   return false;
 }
+
 
 #ifdef INP_SIMULATE_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------

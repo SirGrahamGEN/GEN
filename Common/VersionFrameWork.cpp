@@ -60,13 +60,13 @@ VERSIONFRAMEWORK* VERSIONFRAMEWORK::instance = NULL;
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool VERSIONFRAMEWORK::GetIsInstanced()
 * @brief      GetIsInstanced
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool VERSIONFRAMEWORK::GetIsInstanced()
 {
@@ -75,13 +75,13 @@ bool VERSIONFRAMEWORK::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 * @brief      GetInstance
-* @ingroup    XUTILS
-*
-* @return     VERSIONFRAMEWORK& :
-*
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     VERSIONFRAMEWORK& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 {
@@ -92,13 +92,13 @@ VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool VERSIONFRAMEWORK::DelInstance()
 * @brief      DelInstance
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool VERSIONFRAMEWORK::DelInstance()
 {

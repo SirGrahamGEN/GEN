@@ -66,7 +66,7 @@
 *
 * @fn         GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
 * @brief      Constructor
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     Does not return anything.
 *
@@ -84,7 +84,7 @@ GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
 * @fn         GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     Does not return anything.
 *
@@ -107,7 +107,7 @@ GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
 * 
 * @fn         bool GRPVIDEOFILEAVI::Open(XCHAR* path)
 * @brief      Open
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  path : 
 * 
@@ -177,7 +177,7 @@ bool GRPVIDEOFILEAVI::Open(XCHAR* path)
 * 
 * @fn         bool GRPVIDEOFILEAVI::Create(XCHAR* path, GRPVIDEOFILE_PROPERTYS& propertys)
 * @brief      Create
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  path : 
 * @param[in]  propertys : 
@@ -340,7 +340,7 @@ bool GRPVIDEOFILEAVI::Create(XCHAR* path, GRPVIDEOFILE_PROPERTYS& propertys)
 * 
 * @fn         XBYTE* GRPVIDEOFILEAVI::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * @brief      GetDataFrame
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  index_frame : 
 * @param[in]  sizeframe : 
@@ -391,7 +391,7 @@ XBYTE* GRPVIDEOFILEAVI::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * 
 * @fn         bool GRPVIDEOFILEAVI::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * @brief      AddFrame  
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  dataframe : 
 * @param[in]  dataframesize : 
@@ -447,7 +447,7 @@ bool GRPVIDEOFILEAVI::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * 
 * @fn         bool GRPVIDEOFILEAVI::Close()
 * @brief      Close
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     bool : true if is succesful. 
 * 
@@ -484,7 +484,7 @@ bool GRPVIDEOFILEAVI::Close()
 * 
 * @fn         bool GRPVIDEOFILEAVI::CreateAndWriteJUNK(XFILERIFF_LIST_NODE* father_node, XDWORD datasize)
 * @brief      CreateAndWriteJUNK
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  father_node : 
 * @param[in]  datasize : 
@@ -519,7 +519,7 @@ bool GRPVIDEOFILEAVI::CreateAndWriteJUNK(XFILERIFF_LIST_NODE* father_node, XDWOR
 * 
 * @fn         bool GRPVIDEOFILEAVI::CreateIndexofFrames()
 * @brief      CreateIndexofFrames
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     bool : true if is succesful. 
 * 
@@ -556,7 +556,7 @@ bool GRPVIDEOFILEAVI::CreateIndexofFrames()
 * @fn         void GRPVIDEOFILEAVI::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     void : does not return anything.
 *

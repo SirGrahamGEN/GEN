@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWebHeader.cpp
-*
+* 
 * @class      DIOWEBHEADER
 * @brief      Data Input/Output Web Server Header class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWebHeader.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -41,13 +47,19 @@
 #include "DIOStreamTCPIP.h"
 #include "DIOWebServer.h"
 
-#include "DIOWebHeader.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -63,7 +75,6 @@ DIOWEBHEADER::DIOWEBHEADER()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -82,7 +93,6 @@ DIOWEBHEADER::~DIOWEBHEADER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -142,7 +152,6 @@ bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
@@ -180,7 +189,6 @@ bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::AddLine(XCHAR* line)
@@ -207,7 +215,6 @@ bool DIOWEBHEADER::AddLine(XCHAR* line)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBHEADER::AddLine(XSTRING& line)
@@ -225,7 +232,6 @@ bool DIOWEBHEADER::AddLine(XSTRING& line)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XSTRING*>* DIOWEBHEADER::GetLines()
@@ -239,7 +245,6 @@ XVECTOR<XSTRING*>* DIOWEBHEADER::GetLines()
 {
   return &lines;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -271,7 +276,6 @@ bool DIOWEBHEADER::GetLines(XSTRING& result)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -306,7 +310,6 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XCHAR* field)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XCHAR* DIOWEBHEADER::GetFieldValue(XSTRING& field)
@@ -322,7 +325,6 @@ XCHAR* DIOWEBHEADER::GetFieldValue(XSTRING& field)
 {
   return GetFieldValue(field.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -344,7 +346,6 @@ bool DIOWEBHEADER::DeleteAllLines()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -416,7 +417,6 @@ bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBHEADER::Clean()
@@ -431,4 +431,7 @@ void DIOWEBHEADER::Clean()
 {
 
 }
+
+
+#pragma endregion
 

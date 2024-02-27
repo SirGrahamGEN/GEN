@@ -55,17 +55,17 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    XUTILS
-*
-* @param[in]  subject :
-* @param[in]  type :
-* @param[in]  family :
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]  XDWORD type : 
+* @param[in]  XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -74,14 +74,14 @@ APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* sub
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
 {
@@ -194,14 +194,14 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()
 {

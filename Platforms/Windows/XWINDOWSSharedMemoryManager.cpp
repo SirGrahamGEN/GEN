@@ -171,20 +171,18 @@ XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Create(XCHAR* ID, XDWORD size, bool ispublic
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-*  @fn         XWINDOWSSHAREDMEMORYMANAGER::Open
-*  @brief      Open Shared Memory, created by other process
-*  @ingroup    PLATFORM_WINDOWS
-*
-*  ""
-*  ""
-*
-*  @param[in]  ID : Identificador unique of the shared memory
-*  @param[out] size : return size of this shared memory
-*
-*  @return     XBYTE* : Pointer to shared memory
-*
+* 
+* @fn         XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
+* @brief      Open
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  ID : 
+* @param[in]  size : 
+* 
+* @return     XBYTE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE* XWINDOWSSHAREDMEMORYMANAGER::Open(XCHAR* ID, XDWORD& size)
 {

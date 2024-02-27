@@ -61,7 +61,7 @@
 *
 * @fn         MYSQL_VARIANT::MYSQL_VARIANT()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -77,7 +77,7 @@ MYSQL_VARIANT::MYSQL_VARIANT()  : DB_SQL_VARIANT()
 * @fn         MYSQL_VARIANT::~MYSQL_VARIANT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -92,7 +92,7 @@ MYSQL_VARIANT::~MYSQL_VARIANT()
 *
 * @fn         DB_SQL_VARIANT& MYSQL_VARIANT::operator =(DB_SQL_DATETIME& datetime)
 * @brief      operator =
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  datetime :
 *
@@ -122,7 +122,7 @@ DB_SQL_VARIANT& MYSQL_VARIANT::operator =(DB_SQL_DATETIME& datetime)
 *
 * @fn         MYSQL_VARIANT::operator DB_SQL_DATETIME()
 * @brief      BSQLDATETIME
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     MYSQL_VARIANT::operator :
 *
@@ -147,7 +147,7 @@ MYSQL_VARIANT::operator DB_SQL_DATETIME()
 *
 * @fn         XDWORD MYSQL_VARIANT::GetSize()
 * @brief      GetSize
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XDWORD :
 *
@@ -164,7 +164,7 @@ XDWORD MYSQL_VARIANT::GetSize()
 *
 * @fn         void* MYSQL_VARIANT::GetData()
 * @brief      GetData
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void* :
 *
@@ -180,7 +180,7 @@ void* MYSQL_VARIANT::GetData()
 * @fn         void MYSQL_VARIANT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

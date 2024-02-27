@@ -1,48 +1,60 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWebServer_XEvent.cpp
-*
+* 
 * @class      DIOWEBSERVER_XEVENT
 * @brief      Data Input/Output Web Server eXtended Event class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWebServer_XEvent.h"
 
 #include "XEvent.h"
 #include "XString.h"
 
-#include "DIOWebServer_XEvent.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -64,7 +76,6 @@ DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
@@ -81,7 +92,6 @@ DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
@@ -95,7 +105,6 @@ DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 {
   return server;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -115,7 +124,6 @@ void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
@@ -129,7 +137,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 {
   return connection;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -149,7 +156,6 @@ void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
@@ -163,7 +169,6 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 {
   return request;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -183,7 +188,6 @@ void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_XEVENT::GetTimeOut()
@@ -197,7 +201,6 @@ int DIOWEBSERVER_XEVENT::GetTimeOut()
 {
   return timeout;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -217,7 +220,6 @@ void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBSERVER_QUERYSTRINGS* DIOWEBSERVER_XEVENT::GetQueryString()
@@ -231,7 +233,6 @@ DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 {
   return querystring;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -251,7 +252,6 @@ void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
@@ -265,7 +265,6 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 {
   return &readdatawebsocket;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -283,7 +282,6 @@ XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
@@ -297,7 +295,6 @@ bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 {
   return isrequestauthenticate;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -317,7 +314,6 @@ void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
@@ -331,7 +327,6 @@ DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 {
   return result;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -351,7 +346,6 @@ void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_XEVENT::GetStatus()
@@ -365,7 +359,6 @@ bool DIOWEBSERVER_XEVENT::GetStatus()
 {
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -383,7 +376,6 @@ void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 {
   this->status = status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -410,6 +402,9 @@ void DIOWEBSERVER_XEVENT::Clean()
 
   status                 = false;
 }
+
+
+#pragma endregion
 
 
 

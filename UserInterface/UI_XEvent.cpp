@@ -58,7 +58,7 @@
 *
 * @fn         UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @param[in]  subject :
 * @param[in]  type :
@@ -78,7 +78,7 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 * @fn         UI_XEVENT::~UI_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @return     Does not return anything.
 *
@@ -290,7 +290,7 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 * @fn         void UI_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @return     void : does not return anything.
 *

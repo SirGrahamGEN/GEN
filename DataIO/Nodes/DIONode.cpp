@@ -60,12 +60,13 @@
 * 
 * @fn         DIONODE::DIONODE()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE::DIONODE()
+
 {
   Clean();
   
@@ -78,7 +79,7 @@ DIONODE::DIONODE()
 * @fn         DIONODE::~DIONODE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -393,7 +394,7 @@ bool DIONODE::Deserialize()
 * @fn         void DIONODE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 

@@ -55,17 +55,17 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
-* @ingroup    XUTILS
-*
-* @param[in]  subject :
-* @param[in]  type :
-* @param[in]  family :
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]  XDWORD type : 
+* @param[in]  XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -74,14 +74,14 @@ APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
 {
@@ -260,14 +260,14 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void APPINTERNETSERVICES_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::Clean()
 {

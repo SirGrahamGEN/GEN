@@ -59,15 +59,16 @@
 #pragma region CLASS_MEMBERS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         SNDFILEOGG::SNDFILEOGG()
-@brief      Constructor
-@ingroup    SOUND
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         SNDFILEOGG::SNDFILEOGG()
+* @brief      Constructor
+* @ingroup    SOUND
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 {
   Clean();

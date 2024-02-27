@@ -88,6 +88,7 @@ MAINPROC::MAINPROC()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROC::~MAINPROC()
+
 {
   End();
 
@@ -148,13 +149,13 @@ bool MAINPROC::End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void* MAINPROC::GetHandle()
 * @brief      GetHandle
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     void* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void* MAINPROC::GetHandle()
 {
@@ -164,17 +165,18 @@ void* MAINPROC::GetHandle()
 
 #ifndef MICROCONTROLLER
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::CreateParams(int nparams, char* params[])
 * @brief      CreateParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @param[in]  nparams : 
 * @param[in]  params[] : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::CreateParams(int nparams, char* params[])
 {
@@ -193,16 +195,16 @@ bool MAINPROC::CreateParams(int nparams, char* params[])
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
 * @brief      CreateParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @param[in]  nparams : 
 * @param[in]  params[] : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
 {
@@ -221,16 +223,16 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params[])
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 * @brief      CreateParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @param[in]  nparams : 
 * @param[in]  params : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 {
@@ -249,15 +251,15 @@ bool MAINPROC::CreateParams(int nparams, XCHAR* params)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::CreateParams(XCHAR* commandline)
 * @brief      CreateParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @param[in]  commandline : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::CreateParams(XCHAR* commandline)
 {
@@ -289,15 +291,15 @@ bool MAINPROC::CreateParams(XCHAR* commandline)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void MAINPROC::SetHandle(void* handle)
 * @brief      SetHandle
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @param[in]  handle : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROC::SetHandle(void* handle)
 {
@@ -306,13 +308,13 @@ void MAINPROC::SetHandle(void* handle)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XPATH* MAINPROC::GetXPathExec()
 * @brief      GetXPathExec
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     XPATH* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* MAINPROC::GetXPathExec()
 {
@@ -324,13 +326,13 @@ XPATH* MAINPROC::GetXPathExec()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::Factorys_Ini()
 * @brief      Factorys_Ini
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::Factorys_Ini()
 {
@@ -339,13 +341,13 @@ bool MAINPROC::Factorys_Ini()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::Factorys_End()
 * @brief      Factorys_End
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::Factorys_End()
 {
@@ -354,13 +356,13 @@ bool MAINPROC::Factorys_End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPMAIN* MAINPROC::GetAppMain()
 * @brief      GetAppMain
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     APPMAIN* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPMAIN* MAINPROC::GetAppMain()
 {
@@ -372,13 +374,13 @@ APPMAIN* MAINPROC::GetAppMain()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XVECTOR<XSTRING*>* MAINPROC::GetExecParams()
 * @brief      GetExecParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     XVECTOR<XSTRING*>* : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* MAINPROC::GetExecParams()
 {
@@ -387,13 +389,13 @@ XVECTOR<XSTRING*>* MAINPROC::GetExecParams()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool MAINPROC::DeleteAllExecParams()
 * @brief      DeleteAllExecParams
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROC::DeleteAllExecParams()
 {
@@ -411,14 +413,14 @@ bool MAINPROC::DeleteAllExecParams()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void MAINPROC::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    MAIN
-*
+* @ingroup    MAIN PROCEDURE
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROC::Clean()
 {  

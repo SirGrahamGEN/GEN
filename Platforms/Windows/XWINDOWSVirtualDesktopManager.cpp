@@ -1,56 +1,65 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XWINDOWSVirtualDesktopManager.cpp
-*
+* 
 * @class      XWINDOWSVIRTUALDESKTOPMANAGER
-* @brief      eXtended WINDOWS Virtual Desktop Manager class
+* @brief      WINDOWS eXtended Utils Virtual Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XWINDOWSVirtualDesktopManager.h"
 
 #include "XPath.h"
 #include "XTrace.h"
 
-#include "XWINDOWSVirtualDesktopManager.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-XWINDOWSVIRTUALDESKTOPMANAGER* XWINDOWSVIRTUALDESKTOPMANAGER::instance = NULL;
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+XWINDOWSVIRTUALDESKTOPMANAGER*     XWINDOWSVIRTUALDESKTOPMANAGER::instance = NULL;
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-/*-------------------------------------------------------------------------------------------------------------------*/
-/* XWINDOWSVIRTUALDESKTOP                                                                                                   */
-/*-------------------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_XWINDOWSVIRTUALDESKTOP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -66,7 +75,6 @@ XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -85,7 +93,6 @@ XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
@@ -99,7 +106,6 @@ XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 {
   return &name;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -118,11 +124,10 @@ void XWINDOWSVIRTUALDESKTOP::Clean()
 }
 
 
+#pragma endregion
 
-/*-------------------------------------------------------------------------------------------------------------------*/
-/* XWINDOWSVIRTUALDESKTOPMANAGER                                                                                            */
-/*-------------------------------------------------------------------------------------------------------------------*/
 
+#pragma region CLASS_XWINDOWSVIRTUALDESKTOPMANAGER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -140,7 +145,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::GetIsInstanced()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
@@ -156,7 +160,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER& XWINDOWSVIRTUALDESKTOPMANAGER::GetInstance()
 
   return (*instance);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -182,7 +185,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops(HWINSTA handle)
@@ -205,7 +207,6 @@ XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops
 
   return &listdesktops;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -286,7 +287,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XCHAR* name, bool addexplor
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexplorer)
@@ -303,7 +303,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::CreateNewDesktop(XSTRING& name, bool addexpl
 {
   return CreateNewDesktop(name.Get(), addexplorer);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -339,7 +338,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XCHAR* desktopname, bool inher
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inherit)
@@ -356,8 +354,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchDesktop(XSTRING& desktopname, bool inh
 {
   return SwitchDesktop(desktopname.Get(), inherit);
 }
-
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -384,7 +380,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XCHAR* desktopname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
@@ -400,8 +395,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsCurrentDesktop(XSTRING& desktopname)
 {
   return IsCurrentDesktop(desktopname.Get());
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -431,7 +424,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XCHAR* desktopname)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
@@ -447,7 +439,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsDesktopCreated(XSTRING& desktopname)
 {
   return IsDesktopCreated(desktopname.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -490,7 +481,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XCHAR* desktop
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& desktopname)
@@ -506,7 +496,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::SwitchProcessSpecifiedDesktop(XSTRING& deskt
 {
   return SwitchProcessSpecifiedDesktop(desktopname.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -535,7 +524,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
@@ -555,7 +543,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
@@ -573,7 +560,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -625,9 +611,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::LaunchApplication(XCHAR* applicationfilepath
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR desktop, LPARAM param)
@@ -655,8 +638,6 @@ BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XWINDOWSVIRTUALDESKTOPMANAGER::Clean()
@@ -671,6 +652,14 @@ void XWINDOWSVIRTUALDESKTOPMANAGER::Clean()
 {
   enumdesktopfunc     = NULL;
 }
+
+
+#pragma endregion
+
+
+#pragma endregion
+
+
 
 
 

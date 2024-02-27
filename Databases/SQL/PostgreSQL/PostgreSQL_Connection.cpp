@@ -61,7 +61,7 @@
 *
 * @fn         POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECTION(database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -79,7 +79,7 @@ POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL
 * @fn         POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -94,7 +94,7 @@ POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
 *
 * @fn         bool POSTGRESQL_CONNECTION::Connect()
 * @brief      Connect
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -208,7 +208,7 @@ bool POSTGRESQL_CONNECTION::Connect()
 *
 * @fn         bool POSTGRESQL_CONNECTION::Disconnect()
 * @brief      Disconnect
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -226,7 +226,7 @@ bool POSTGRESQL_CONNECTION::Disconnect()
 * @fn         void POSTGRESQL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

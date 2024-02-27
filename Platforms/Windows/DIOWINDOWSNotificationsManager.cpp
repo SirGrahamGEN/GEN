@@ -422,15 +422,16 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::No
 #endif
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSNOTIFICATIONSMANAGER::Clean()
 {

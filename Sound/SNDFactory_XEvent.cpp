@@ -55,18 +55,18 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-@brief      Constructor
-@ingroup    SOUND
-
-@param[in]  XSUBJECT* : 
-@param[in]   XDWORD type : 
-@param[in]   XDWORD family : 
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @brief      Constructor
+* @ingroup    SOUND
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]   XDWORD type : 
+* @param[in]   XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();

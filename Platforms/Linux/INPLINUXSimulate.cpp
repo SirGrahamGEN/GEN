@@ -4,7 +4,7 @@
 * 
 * @class      INPLINUXSIMULATE
 * @brief      LINUX Input Simulate
-* @ingroup    INPUT
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

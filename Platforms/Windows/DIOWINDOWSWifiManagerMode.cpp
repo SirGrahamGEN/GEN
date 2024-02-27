@@ -82,7 +82,7 @@
 *
 * @fn         DIOWINDOWSWIFIMANAGERMODE::DIOWINDOWSWIFIMANAGERMODE()
 * @brief      Constructor
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     Does not return anything. 
 *
@@ -98,7 +98,7 @@ DIOWINDOWSWIFIMANAGERMODE::DIOWINDOWSWIFIMANAGERMODE()
 * @fn         DIOWINDOWSWIFIMANAGERMODE::~DIOWINDOWSWIFIMANAGERMODE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     Does not return anything. 
 *
@@ -435,7 +435,7 @@ bool DIOWINDOWSWIFIMANAGERMODE::IsConnected()
 * @fn         void DIOWINDOWSWIFIMANAGERMODE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
+* @ingroup    PLATFORM_WINDOWS
 *
 * @return     void : does not return anything. 
 *

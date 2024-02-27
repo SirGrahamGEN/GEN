@@ -583,13 +583,14 @@ bool XFILECFG::DoDefault()
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          bool XFILECFG::LoadReadjustment()
-* @brief       LoadReadjustment
-* @ingroup     XUTILS
+* @fn         bool XFILECFG::LoadReadjustment()
+* @brief      LoadReadjustment
+* @ingroup    XUTILS
 * 
-* @return      bool : true if is succesful. 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECFG::LoadReadjustment()
@@ -827,11 +828,11 @@ bool XFILECFG::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          XPATH* XFILECFG::GetPathFile()
-* @brief       GetPathFile
-* @ingroup     XUTILS
+* @fn         XPATH* XFILECFG::GetPathFile()
+* @brief      GetPathFile
+* @ingroup    XUTILS
 * 
-* @return      XPATH* : 
+* @return     XPATH* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* XFILECFG::GetPathFile()
@@ -880,11 +881,11 @@ XFILECFGVALUE* XFILECFG::AddValue(XFILECFG_VALUETYPE type, XCHAR* group, XCHAR* 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
-* @brief       GetValues
-* @ingroup     UTILS
+* @fn         XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
+* @brief      GetValues
+* @ingroup    XUTILS
 * 
-* @return      XVECTOR<XFILECFGVALUE*>* : 
+* @return     XVECTOR<XFILECFGVALUE*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XFILECFGVALUE*>* XFILECFG::GetValues()
@@ -1184,11 +1185,11 @@ bool XFILECFG::AddRemark(XCHAR* group, XCHAR* ID, XCHAR* text, XDWORD xpos, XDWO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
-* @brief       GetRemarks
-* @ingroup     UTILS
+* @fn         XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()
+* @brief      GetRemarks
+* @ingroup    XUTILS
 * 
-* @return      XVECTOR<XFILEINIREMARK*>* : 
+* @return     XVECTOR<XFILEINIREMARK*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XFILEINIREMARK*>* XFILECFG::GetRemarks()

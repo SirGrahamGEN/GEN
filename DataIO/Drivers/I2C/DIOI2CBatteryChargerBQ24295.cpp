@@ -88,11 +88,11 @@ DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 * @fn         DIOI2CBATTERYCHARGERBQ24295::~DIOI2CBATTERYCHARGERBQ24295()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CBATTERYCHARGERBQ24295::~DIOI2CBATTERYCHARGERBQ24295()
 {
   End();
@@ -148,11 +148,11 @@ bool DIOI2CBATTERYCHARGERBQ24295::SetGPIOEntryID(int indexentry, XDWORD GPIOentr
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::Update()
 * @brief      Update
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::Update()
 {  
   if(!charging) return;
@@ -175,13 +175,13 @@ void DIOI2CBATTERYCHARGERBQ24295::Update()
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 * @brief      SetChargerEnable
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 {
   if(enable)
@@ -203,13 +203,13 @@ void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 * @brief      SetShippingModeEnable
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 {
   // Shipping Mode On
@@ -221,13 +221,13 @@ void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 * 
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
 * @brief      SetIsCharging
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  enable : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
 {  
   if(charging != (enable?1:0))
@@ -264,12 +264,12 @@ bool DIOI2CBATTERYCHARGERBQ24295::IsBatteryFullyCharged()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
-* @brief      Detects a Fault during the charge
-* @ingroup    
-*
+* @brief      GetFaultDetection
+* @ingroup    DATAIO
+* 
 * @return     XBYTE : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
 {
   return fault;
@@ -280,11 +280,11 @@ XBYTE DIOI2CBATTERYCHARGERBQ24295::GetFaultDetection()
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::End()
 * @brief      End
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::End()
 {
   if(!DIODEVICE::End()) return false;
@@ -297,11 +297,11 @@ bool DIOI2CBATTERYCHARGERBQ24295::End()
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 * @brief      IniDevice
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::IniDevice()
 {  
   if(!DIODEVICEI2C::IniDevice()) return false;
@@ -383,33 +383,34 @@ bool DIOI2CBATTERYCHARGERBQ24295::Initialize()
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -432,14 +433,14 @@ bool DIOI2CBATTERYCHARGERBQ24295::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 * @brief      WriteRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
@@ -450,15 +451,15 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE data)
 * 
 * @fn         bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -498,11 +499,11 @@ void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 * @fn         void DIOI2CBATTERYCHARGERBQ24295::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::Clean()
 {
   for(XDWORD c=0; c<DIOI2CBATTERYCHARGERBQ24295_GPIOENTRYID_END; c++)

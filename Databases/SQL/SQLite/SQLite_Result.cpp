@@ -64,7 +64,7 @@
 * @fn         SQLITE_RESULT::~SQLITE_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -81,7 +81,7 @@ SQLITE_RESULT::~SQLITE_RESULT()
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumRows()
 * @brief      GetNumRows
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -96,7 +96,7 @@ XQWORD SQLITE_RESULT::GetNumRows()
 *
 * @fn         XQWORD SQLITE_RESULT::GetNumColumns()
 * @brief      GetNumColumns
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -111,7 +111,7 @@ XQWORD SQLITE_RESULT::GetNumColumns()
 *
 * @fn         bool SQLITE_RESULT::Seek(int index)
 * @brief      Seek
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  index :
 *
@@ -129,7 +129,7 @@ bool SQLITE_RESULT::Seek(int index)
 *
 * @fn         bool SQLITE_RESULT::First()
 * @brief      First
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -156,7 +156,7 @@ bool SQLITE_RESULT::First()
 *
 * @fn         bool SQLITE_RESULT::Last()
 * @brief      Last
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -172,7 +172,7 @@ bool SQLITE_RESULT::Last()
 *
 * @fn         bool SQLITE_RESULT::Next()
 * @brief      Next
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -195,7 +195,7 @@ bool SQLITE_RESULT::Next()
 *
 * @fn         bool SQLITE_RESULT::ProcessRow()
 * @brief      ProcessRow
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -268,7 +268,7 @@ bool SQLITE_RESULT::ProcessRow()
 *
 * @fn         bool SQLITE_RESULT::Abort()
 * @brief      Abort
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -283,7 +283,7 @@ bool SQLITE_RESULT::Abort()
 *
 * @fn         bool SQLITE_RESULT::HasNext()
 * @brief      HasNext
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -298,7 +298,7 @@ bool SQLITE_RESULT::HasNext()
 *
 * @fn         SQLITE_RESULT::SQLITE_RESULT()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -314,7 +314,7 @@ SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 * @fn         void SQLITE_RESULT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

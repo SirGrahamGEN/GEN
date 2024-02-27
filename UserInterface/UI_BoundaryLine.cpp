@@ -58,7 +58,7 @@
 *
 * @fn         UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 * @brief      Constructor
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @return     Does not return anything.
 *
@@ -79,7 +79,7 @@ UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 * @fn         UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @return     Does not return anything.
 *
@@ -94,7 +94,7 @@ UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 * 
 * @fn         void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
 * @brief      CopyFrom
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
 * 
@@ -114,7 +114,7 @@ void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
 * 
 * @fn         void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
 * @brief      CopyTo
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
 * 
@@ -134,7 +134,7 @@ void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
 * 
 * @fn         bool UI_BOUNDARYLINE::SetAround(UI_BOUNDARYLINE& boundaryline)
 * @brief      SetAround
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
 * 
@@ -182,7 +182,7 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 * @fn         void UI_BOUNDARYLINE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    XUTILS
+* @ingroup    USERINTERFACE
 *
 * @return     void : does not return anything.
 *

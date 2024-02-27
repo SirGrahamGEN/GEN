@@ -61,7 +61,7 @@
 *
 * @fn         DB_SQL_ERROR::DB_SQL_ERROR()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -76,7 +76,7 @@ DB_SQL_ERROR::DB_SQL_ERROR()
 *
 * @fn         DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_ERROR_TYPE :
 *
@@ -94,7 +94,7 @@ DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 * @fn         DB_SQL_ERROR::~DB_SQL_ERROR()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -110,7 +110,7 @@ DB_SQL_ERROR::~DB_SQL_ERROR()
 * @fn         void DB_SQL_ERROR::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWebServer.cpp
-*
+* 
 * @class      DIOWEBSERVER
 * @brief      Data Input/Output Web Server class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOWebServer.h"
 
 #include "XFactory.h"
 #include "XSleep.h"
@@ -55,16 +61,23 @@
 #include "DIOWebServer_Plugin.h"
 #include "DIOWebServer_XEvent.h"
 
-#include "DIOWebServer.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-#pragma region DIOWEBSERVER_HEADER
+#pragma region CLASS_DIOWEBSERVER_HEADER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -418,20 +431,18 @@ bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& web
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOWEBSERVER_HEADER::GetDescriptionResult
-*/
-/**
-//
-//
-//  ""
-//  @version      13/04/2013 17:02:12
-//
-//  @return       bool :
-//  @param        result :
-//  @param        description :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRING& description)
+* @brief      GetDescriptionResult
+* @ingroup    DATAIO
+* 
+* @param[in]  result : 
+* @param[in]  description : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRING& description)
 {
   typedef struct
@@ -517,13 +528,14 @@ bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRI
 void DIOWEBSERVER_HEADER::Clean()
 {
 
-
 }
+
 
 #pragma endregion 
 
 
-#pragma region DIOWEBSOCKET_HEADER
+#pragma region CLASS_DIOWEBSOCKET_HEADER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -571,10 +583,11 @@ void DIOWEBSOCKET_HEADER::Clean()
 
 }
 
+
 #pragma endregion 
 
 
-#pragma region DIOWEBSERVER_AUTHENTICATION
+#pragma region CLASS_DIOWEBSERVER_AUTHENTICATION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -712,10 +725,12 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 
 }
 
+
 #pragma endregion
 
 
-#pragma region DIOWEBSERVER_REQUEST
+#pragma region class_DIOWEBSERVER_REQUEST
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -727,7 +742,6 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
-
 {
   Clean();
   data = new XBUFFER();
@@ -1354,10 +1368,12 @@ void DIOWEBSERVER_REQUEST::Clean()
   data                      = NULL;
 }
 
+
 #pragma endregion
 
 
-#pragma region DIOWEBSERVER_CONNECTION
+#pragma region CLASS_DIOWEBSERVER_CONNECTION
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -2666,10 +2682,12 @@ void DIOWEBSERVER_CONNECTION::Clean()
   origin.Empty();
 }
 
+
 #pragma endregion
 
 
-#pragma region DIOWEBSERVER
+#pragma region CLASS_DIOWEBSERVER
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -3991,5 +4009,9 @@ void DIOWEBSERVER::Clean()
   websocket_search_version          = 0;
   websocket_search_resource.Empty();
 }
+
+
+#pragma endregion 
+
 
 #pragma endregion 

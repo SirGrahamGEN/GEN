@@ -63,15 +63,16 @@
 #pragma region CLASS_GRPVIDEOFILE_PROPERTYS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 * @brief      Constructor
-* @ingroup    GRAPHIC
-*
+* @ingroup    VIDEO
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 {
   Clean();
@@ -83,7 +84,7 @@ GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 * @fn         GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     Does not return anything. 
 * 
@@ -99,7 +100,7 @@ GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 * @fn         void GRPVIDEOFILE_PROPERTYS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     void : does not return anything. 
 * 
@@ -123,7 +124,7 @@ void GRPVIDEOFILE_PROPERTYS::Clean()
 *
 * @fn         GRPVIDEOFILE::GRPVIDEOFILE()
 * @brief      Constructor
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     Does not return anything.
 *
@@ -139,7 +140,7 @@ GRPVIDEOFILE::GRPVIDEOFILE()
 * @fn         GRPVIDEOFILE::~GRPVIDEOFILE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     Does not return anything.
 *
@@ -154,7 +155,7 @@ GRPVIDEOFILE::~GRPVIDEOFILE()
 * 
 * @fn         bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * @brief      Open
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  xpath : 
 * 
@@ -171,7 +172,7 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 * 
 * @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys))
 * @brief      Create
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  xpath : 
 * @param[in]  propertys : 
@@ -189,7 +190,7 @@ bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 * 
 * @fn         GRPVIDEOFILE_PROPERTYS* GRPVIDEOFILE::GetPropertys()
 * @brief      GetPropertys
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     GRPVIDEOFILE_PROPERTYS* : 
 * 
@@ -204,7 +205,7 @@ GRPVIDEOFILE_PROPERTYS*  GRPVIDEOFILE::GetPropertys()
 * 
 * @fn         XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * @brief      GetDataFrame
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  index_frame : 
 * @param[in]  sizeframe : 
@@ -222,7 +223,7 @@ XBYTE* GRPVIDEOFILE::GetDataFrame(XDWORD index_frame, XDWORD& sizeframe)
 * 
 * @fn         bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * @brief      AddFrame
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @param[in]  dataframe : 
 * @param[in]  dataframesize : 
@@ -240,7 +241,7 @@ bool GRPVIDEOFILE::AddFrame(XBYTE* dataframe, XDWORD dataframesize)
 * 
 * @fn         bool GRPVIDEOFILE::Close()
 * @brief      Close
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     bool : true if is succesful. 
 * 
@@ -256,7 +257,7 @@ bool GRPVIDEOFILE::Close()
 * @fn         void GRPVIDEOFILE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    GRAPHIC
+* @ingroup    VIDEO
 *
 * @return     void : does not return anything.
 *

@@ -3,7 +3,7 @@
 * @file       DIOWebServer_ResolveEndPoint.h
 * 
 * @class      DIOWEBSERVER_RESOLVEENDPOINT
-* @brief      Data Input/Output Web Server eXtended Event class
+* @brief      Data Input/Output Web Server Resolve EndPoint class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -30,33 +30,54 @@
 #define _DIOWEBSERVER_RESOLVEENDPOINT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XString.h"
 #include "XSerializable.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
+
+#pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOWEBSERVER_RESOLVEENDPOINT : public XSERIALIZABLE
 {
   public:
-                    DIOWEBSERVER_RESOLVEENDPOINT                ();
-    virtual        ~DIOWEBSERVER_RESOLVEENDPOINT                ();
+                      DIOWEBSERVER_RESOLVEENDPOINT      ();
+    virtual          ~DIOWEBSERVER_RESOLVEENDPOINT      ();
 
-    virtual bool    Update                                      (); 
+    virtual bool      Update                            (); 
 
-    bool            CreateResponse                              (XSTRING* response);
+    bool              CreateResponse                    (XSTRING* response);
 
-    virtual bool    Serialize                                   ();    
-    virtual bool    Deserialize                                 ();
-                                           
+    virtual bool      Serialize                         ();    
+    virtual bool      Deserialize                       ();
+                                             
   private:
 
-    void            Clean                                       ();
+    void              Clean                             ();
 };
 
+
+#pragma endregion
+
+
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
+

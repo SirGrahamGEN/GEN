@@ -235,11 +235,11 @@ bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          bool XSERIALIZATIONMETHOD::Serialize()
-* @brief       Serialize
-* @ingroup     XUTILS
+* @fn         bool XSERIALIZABLE::Serialize()
+* @brief      Serialize
+* @ingroup    XUTILS
 * 
-* @return      bool : true if is succesful. 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::Serialize()

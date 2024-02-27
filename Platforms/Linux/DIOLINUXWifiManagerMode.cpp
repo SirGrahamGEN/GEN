@@ -76,13 +76,13 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 * @brief      Constructor
-* @ingroup    DATAIO
-*
+* @ingroup    PLATFORM_LINUX
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()    
 { 
@@ -91,14 +91,14 @@ DIOLINUXWIFIMANAGERMODE::DIOLINUXWIFIMANAGERMODE()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
+* @ingroup    PLATFORM_LINUX
+* 
 * @return     Does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXWIFIMANAGERMODE::~DIOLINUXWIFIMANAGERMODE()    
 { 
@@ -487,7 +487,6 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
   status = WPA_CLI_Command(command, output);
   
   return status;
-
 }
 
 
@@ -827,14 +826,14 @@ bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOLINUXWIFIMANAGERMODE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
+* @ingroup    PLATFORM_LINUX
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXWIFIMANAGERMODE::Clean()
 {

@@ -65,7 +65,7 @@
 *
 * @fn         DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -89,7 +89,7 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION(DB_SQL_DATABASE* database)
 * @fn         DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -109,7 +109,7 @@ DB_SQL_CONNECTION::~DB_SQL_CONNECTION()
 *
 * @fn         bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 * @brief      SetOption
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  key :
 * @param[in]  value :
@@ -142,7 +142,7 @@ bool DB_SQL_CONNECTION::SetOption(XCHAR* key, XCHAR* value)
 *
 * @fn         bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 * @brief      FindOption
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  key :
 * @param[in]  result :
@@ -170,7 +170,7 @@ bool DB_SQL_CONNECTION::FindOption(XCHAR* key, DB_SQL_STRING* result)
 *
 * @fn         DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -186,7 +186,7 @@ DB_SQL_CONNECTION::DB_SQL_CONNECTION()
 * @fn         void DB_SQL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

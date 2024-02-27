@@ -3318,20 +3318,20 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEME
 }
 
 
- /**-------------------------------------------------------------------------------------------------------------------
- * 
- * @fn        UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
- * @brief     GetLayoutElement_ProgressBar
- * @ingroup   USERINTERFACE
- * 
-   * 
- * @param[in] node : 
- * @param[in] father : 
- * @param[in] element_legacy : 
- * 
- * @return      UI_ELEMENT* : 
- * 
- * ---------------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @brief      GetLayoutElement_ProgressBar
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  node : 
+* @param[in]  father : 
+* @param[in]  element_legacy : 
+* 
+* @return     UI_ELEMENT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   if(!skin_selected) return NULL;

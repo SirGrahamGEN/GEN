@@ -63,7 +63,7 @@
 *
 * @fn         MYSQL_CONNECTION::MYSQL_CONNECTION(DB_SQL_DATABASE* database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -81,7 +81,7 @@ MYSQL_CONNECTION::MYSQL_CONNECTION(DB_SQL_DATABASE* database): DB_SQL_CONNECTION
 * @fn         MYSQL_CONNECTION::~MYSQL_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -96,7 +96,7 @@ MYSQL_CONNECTION::~MYSQL_CONNECTION()
 *
 * @fn         bool MYSQL_CONNECTION::Connect()
 * @brief      Connect
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -193,7 +193,7 @@ bool MYSQL_CONNECTION::Connect()
 *
 * @fn         bool MYSQL_CONNECTION::Disconnect()
 * @brief      Disconnect
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -211,7 +211,7 @@ bool MYSQL_CONNECTION::Disconnect()
 * @fn         void MYSQL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

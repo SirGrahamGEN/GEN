@@ -1071,11 +1071,11 @@ bool XPATH::DeleteDrive()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn          bool XPATH::DeleteExt()
-* @brief       DeleteExt
-* @ingroup     UTILS
+* @fn         bool XPATH::DeleteExt()
+* @brief      DeleteExt
+* @ingroup    XUTILS
 * 
-* @return      bool : true if is succesful. 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XPATH::DeleteExt()

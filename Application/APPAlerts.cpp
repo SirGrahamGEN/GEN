@@ -69,13 +69,13 @@ APPALERTS* APPALERTS::instance = NULL;
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPALERTS::GetIsInstanced()
 * @brief      GetIsInstanced
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPALERTS::GetIsInstanced()
 {
@@ -84,13 +84,13 @@ bool APPALERTS::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPALERTS& APPALERTS::GetInstance()
 * @brief      GetInstance
-* @ingroup
-*
-* @return     APPALERTS& :
-*
+* @ingroup    APPLICATION
+* 
+* @return     APPALERTS& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPALERTS& APPALERTS::GetInstance()
 {
@@ -101,13 +101,13 @@ APPALERTS& APPALERTS::GetInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPALERTS::DelInstance()
 * @brief      DelInstance
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPALERTS::DelInstance()
 {

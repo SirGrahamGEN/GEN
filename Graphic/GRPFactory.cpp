@@ -92,14 +92,13 @@ GRPFACTORY::~GRPFACTORY()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool GRPFACTORY::GetIsInstanced()
-* @brief      Get if Is Instanced
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @brief      GetIsInstanced
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPFACTORY::GetIsInstanced()
 {
@@ -108,14 +107,13 @@ bool GRPFACTORY::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         GRPFACTORY& GRPFACTORY::GetInstance()
-* @brief      Get Instance of GRPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     GRPFACTORY& :
-*
+* @brief      GetInstance
+* @ingroup    GRAPHIC
+* 
+* @return     GRPFACTORY& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPFACTORY& GRPFACTORY::GetInstance()
 {
@@ -129,16 +127,15 @@ GRPFACTORY& GRPFACTORY::GetInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPFACTORY::SetInstance(GRPFACTORY* instance)
-* @brief      Set Instance of GRPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @param[in]  _instance : new instance
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @fn         bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
+* @brief      SetInstance
+* @ingroup    GRAPHIC
+* 
+* @param[in]  _instance : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
 {
@@ -151,14 +148,13 @@ bool GRPFACTORY::SetInstance(GRPFACTORY* _instance)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool GRPFACTORY::DelInstance()
-* @brief      Delete Instance of GRPFACTORY
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @brief      DelInstance
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPFACTORY::DelInstance()
 {

@@ -66,31 +66,33 @@ APPMAIN  GEN_appmain;
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPMAIN::APPMAIN()
 * @brief      Constructor
-* @ingroup
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPMAIN::APPMAIN()
+
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPMAIN::~APPMAIN()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup
-*
-* @return     Does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPMAIN::~APPMAIN()
+
 {
   End();
 
@@ -99,13 +101,13 @@ APPMAIN::~APPMAIN()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         APPBASE* APPMAIN::GetApplication()
-* @brief      Get Application
-* @ingroup
-*
-* @return     APPBASE* : Application Base instance
-*
+* @brief      GetApplication
+* @ingroup    APPLICATION
+* 
+* @return     APPBASE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPBASE* APPMAIN::GetApplication()
 {
@@ -192,13 +194,13 @@ bool APPMAIN::Ini(MAINPROC* mainproc, APPBASE_APPLICATIONMODE_TYPE applicationmo
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPMAIN::Update()
 * @brief      Update
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPMAIN::Update()
 {
@@ -216,13 +218,13 @@ bool APPMAIN::Update()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPMAIN::End()
 * @brief      End
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    APPLICATION
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPMAIN::End()
 {
@@ -262,14 +264,14 @@ bool APPMAIN::Delete()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void APPMAIN::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup
-*
-* @return     void : does not return anything.
-*
+* @ingroup    APPLICATION
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPMAIN::Clean()
 {
@@ -281,3 +283,4 @@ void APPMAIN::Clean()
 
 
 #endif
+

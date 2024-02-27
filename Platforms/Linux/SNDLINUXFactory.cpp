@@ -4,7 +4,7 @@
 * 
 * @class      SNDLINUXFACTORY
 * @brief      LINUX Sound Factory class
-* @ingroup    SOUND
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -63,7 +63,7 @@
 * 
 * @fn         SNDLINUXFACTORY::SNDLINUXFACTORY()
 * @brief      Constructor
-* @ingroup    SOUND
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     Does not return anything. 
 * 
@@ -79,7 +79,7 @@ SNDLINUXFACTORY::SNDLINUXFACTORY()
 * @fn         SNDLINUXFACTORY::~SNDLINUXFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    SOUND
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     Does not return anything. 
 * 
@@ -95,7 +95,7 @@ SNDLINUXFACTORY::~SNDLINUXFACTORY()
 * @fn         void SNDLINUXFACTORY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    SOUND
+* @ingroup    PLATFORM_LINUX
 * 
 * @return     void : does not return anything. 
 * 

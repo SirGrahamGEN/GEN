@@ -359,14 +359,13 @@ DIOPING::~DIOPING()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::GetIsInstanced()
-* @brief      Get if Is Instanced
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @brief      GetIsInstanced
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::GetIsInstanced()
 {
@@ -375,14 +374,13 @@ bool DIOPING::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOPING& DIOPING::GetInstance()
-* @brief      Get Instance of DIOPING
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     DIOPING& :
-*
+* @brief      GetInstance
+* @ingroup    DATAIO
+* 
+* @return     DIOPING& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING& DIOPING::GetInstance()
 {
@@ -392,18 +390,16 @@ DIOPING& DIOPING::GetInstance()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOPING::SetInstance(DIOPING* instance)
-* @brief      Set Instance of DIOPING
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @param[in]  _instance : new instance
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @fn         bool DIOPING::SetInstance(DIOPING* _instance)
+* @brief      SetInstance
+* @ingroup    DATAIO
+* 
+* @param[in]  _instance : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::SetInstance(DIOPING* _instance)
 {
@@ -415,16 +411,14 @@ bool DIOPING::SetInstance(DIOPING* _instance)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOPING::DelInstance()
-* @brief      Delete Instance of DIOPING
-* @note       STATIC
-* @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* @brief      DelInstance
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPING::DelInstance()
 {

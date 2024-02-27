@@ -4,7 +4,7 @@
 * 
 * @class      SNDLINUXFACTORY
 * @brief      LINUX Sound Factory class
-* @ingroup    SOUND
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

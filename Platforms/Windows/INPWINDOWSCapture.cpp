@@ -165,21 +165,19 @@ bool INPWINDOWSCAPTURE::Deactivate()
 
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)
 * @brief      LowLevelKeyboardProc
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       30/09/2018 17:13:38
-*
-* @param[in]  ncode :
-* @param[in]  wparam :
-* @param[in]  lparam :
-*
-* @return     LRESULT :
-*
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  ncode : 
+* @param[in]  wparam : 
+* @param[in]  lparam : 
+* 
+* @return     LRESULT : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)
 {
@@ -218,19 +216,15 @@ LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wpara
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void INPWINDOWSCAPTURE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       18/09/2018 12:20:49
-*
-* @return     void : does not return anything.
-*
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSCAPTURE::Clean()
 {

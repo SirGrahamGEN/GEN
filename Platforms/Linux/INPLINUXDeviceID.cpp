@@ -136,28 +136,28 @@ XSTRING* INPLINUXDEVICEID::GetName()
 * 
 * @fn         int INPLINUXDEVICEID::GetEventIndex()
 * @brief      GetEventIndex
-* @ingroup    APPLICATION
-*
+* @ingroup    PLATFORM_LINUX
+* 
 * @return     int : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEID::GetEventIndex()
 {
   return eventindex;
 }
-  
+ 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 * @brief      SetEventIndex
-* @ingroup    APPLICATION
-*
+* @ingroup    PLATFORM_LINUX
+* 
 * @param[in]  eventindex : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 {
   this->eventindex = eventindex;

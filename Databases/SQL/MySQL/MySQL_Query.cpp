@@ -68,7 +68,7 @@
 *
 * @fn         MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -86,7 +86,7 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 * @fn         MYSQL_QUERY::~MYSQL_QUERY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -105,7 +105,7 @@ MYSQL_QUERY::~MYSQL_QUERY()
 *
 * @fn         bool MYSQL_QUERY::Execute()
 * @brief      Execute
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -161,7 +161,7 @@ bool MYSQL_QUERY::Execute()
 *
 * @fn         bool MYSQL_QUERY::UnbindAll()
 * @brief      UnbindAll
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -197,7 +197,7 @@ bool MYSQL_QUERY::UnbindAll()
 *
 * @fn         bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  datetime :
@@ -220,7 +220,7 @@ bool MYSQL_QUERY::Bind(XDWORD ID, DB_SQL_DATETIME& datetime)
 *
 * @fn         bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 * @brief      Exec
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  db :
 * @param[in]  sql :
@@ -365,7 +365,7 @@ bool MYSQL_QUERY::Exec(MYSQL* db,char* sql)
 *
 * @fn         DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 * @brief      ConstructResult
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -385,7 +385,7 @@ DB_SQL_RESULT* MYSQL_QUERY::ConstructResult()
 *
 * @fn         bool MYSQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToQuery
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -495,7 +495,7 @@ bool MYSQL_QUERY::BindParametersToQuery()
 *
 * @fn         bool MYSQL_QUERY::BindParametersToResult()
 * @brief      BindParametersToResult
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -571,7 +571,7 @@ bool MYSQL_QUERY::BindParametersToResult()
 * @fn         void MYSQL_QUERY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

@@ -68,7 +68,7 @@
 * @fn         POSTGRESQL_RESULT::~POSTGRESQL_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -89,7 +89,7 @@ POSTGRESQL_RESULT::~POSTGRESQL_RESULT()
 *
 * @fn         XQWORD POSTGRESQL_RESULT::GetNumRows()
 * @brief      GetNumRows
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -105,7 +105,7 @@ XQWORD POSTGRESQL_RESULT::GetNumRows()
 *
 * @fn         XQWORD POSTGRESQL_RESULT::GetNumColumns()
 * @brief      GetNumColumns
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -120,7 +120,7 @@ XQWORD POSTGRESQL_RESULT::GetNumColumns()
 *
 * @fn         bool POSTGRESQL_RESULT::Seek(int index)
 * @brief      Seek
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  index :
 *
@@ -137,7 +137,7 @@ bool POSTGRESQL_RESULT::Seek(int index)
 *
 * @fn         bool POSTGRESQL_RESULT::First()
 * @brief      First
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -163,7 +163,7 @@ bool POSTGRESQL_RESULT::First()
 *
 * @fn         bool POSTGRESQL_RESULT::Last()
 * @brief      Last
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -178,7 +178,7 @@ bool POSTGRESQL_RESULT::Last()
 *
 * @fn         bool POSTGRESQL_RESULT::Next()
 * @brief      Next
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -194,7 +194,7 @@ bool POSTGRESQL_RESULT::Next()
 *
 * @fn         bool POSTGRESQL_RESULT::ProcessRow()
 * @brief      ProcessRow
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -544,7 +544,7 @@ bool POSTGRESQL_RESULT::ProcessRow()
 *
 * @fn         bool POSTGRESQL_RESULT::Abort()
 * @brief      Abort
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -559,7 +559,7 @@ bool POSTGRESQL_RESULT::Abort()
 *
 * @fn         bool POSTGRESQL_RESULT::HasNext()
 * @brief      HasNext
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -574,7 +574,7 @@ bool POSTGRESQL_RESULT::HasNext()
 *
 * @fn         POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ) :
 *
@@ -594,7 +594,7 @@ POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 * @fn         void POSTGRESQL_RESULT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

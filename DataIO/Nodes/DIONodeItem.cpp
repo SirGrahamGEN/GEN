@@ -62,7 +62,7 @@
 * 
 * @fn         DIONODEITEM::DIONODEITEM()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -105,12 +105,13 @@ DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
 * @fn         DIONODEITEM::~DIONODEITEM()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::~DIONODEITEM()
+
 {
   ItemHandler_Close();  
 
@@ -525,7 +526,7 @@ bool DIONODEITEM::Deserialize()
 * @fn         void DIONODEITEM::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 

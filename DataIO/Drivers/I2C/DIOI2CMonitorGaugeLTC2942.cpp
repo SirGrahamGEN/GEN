@@ -66,15 +66,15 @@
 #pragma region CLASS_MEMBERS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
+* 
+* @fn         DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942()
 * @brief      Constructor
 * @ingroup    DATAIO
-*
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942() : DIODEVICEI2C()
 {
@@ -102,15 +102,15 @@ DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD DIOI2CMONITORGAUGELTC2942::GetVoltage (XDWORD& voltage)
+* @fn         float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 * @brief      GetVoltage
-* @ingroup    
-*
-* @param[in]  voltage : 
+* @ingroup    DATAIO
 * 
-* @return     float :
+* @param[in]  void : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 {
   if(!diostream) return false;  
@@ -169,14 +169,14 @@ bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
-* @brief      Get Acumulated Charge value
-* @ingroup    
-*
+* @brief      GetAC
+* @ingroup    DATAIO
+* 
 * @param[in]  void : 
 * 
 * @return     XWORD : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 {
   XBYTE   buffer[2] = { 0, 0 };
@@ -194,13 +194,13 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 * @brief      GetMaxAC
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  void : 
 * 
 * @return     XWORD : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 {
   return DIOI2CMONITORGAUGELTC2942_AC_MAXVALUE;

@@ -62,7 +62,7 @@
 * 
 * @fn         DIONODEMANAGER::DIONODEMANAGER()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -78,7 +78,7 @@ DIONODEMANAGER::DIONODEMANAGER()
 * @fn         DIONODEMANAGER::~DIONODEMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -194,7 +194,7 @@ void DIONODEMANAGER::ThreadNodes(void* data)
 * @fn         void DIONODEMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 

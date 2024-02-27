@@ -61,7 +61,7 @@
 *
 * @fn         DB_SQL_RESULT::DB_SQL_RESULT()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -77,7 +77,7 @@ DB_SQL_RESULT::DB_SQL_RESULT()
 * @fn         DB_SQL_RESULT::~DB_SQL_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -97,7 +97,7 @@ DB_SQL_RESULT::~DB_SQL_RESULT()
 *
 * @fn         DB_SQL_ROW* DB_SQL_RESULT::GetRow()
 * @brief      GetRow
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_ROW* :
 *
@@ -112,7 +112,7 @@ DB_SQL_ROW* DB_SQL_RESULT::GetRow()
 *
 * @fn         DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
 * @brief      GetHeader
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_ROWHEADER* :
 *
@@ -127,7 +127,7 @@ DB_SQL_ROWHEADER* DB_SQL_RESULT::GetHeader()
 *
 * @fn         XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
 * @brief      GetCurrentRowIndex
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XDWORD :
 *
@@ -143,7 +143,7 @@ XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
 * @fn         void DB_SQL_RESULT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

@@ -67,7 +67,7 @@
 * @fn         MYSQL_RESULT::~MYSQL_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -126,7 +126,7 @@ MYSQL_RESULT::~MYSQL_RESULT()
 *
 * @fn         XQWORD MYSQL_RESULT::GetNumRows()
 * @brief      GetNumRows
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -141,7 +141,7 @@ XQWORD MYSQL_RESULT::GetNumRows()
 *
 * @fn         XQWORD MYSQL_RESULT::GetNumColumns()
 * @brief      GetNumColumns
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     XQWORD :
 *
@@ -156,7 +156,7 @@ XQWORD MYSQL_RESULT::GetNumColumns()
 *
 * @fn         bool MYSQL_RESULT::Seek(int index)
 * @brief      Seek
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  index :
 *
@@ -175,7 +175,7 @@ bool MYSQL_RESULT::Seek(int index)
 *
 * @fn         bool MYSQL_RESULT::First()
 * @brief      First
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -190,7 +190,7 @@ bool MYSQL_RESULT::First()
 *
 * @fn         bool MYSQL_RESULT::Last()
 * @brief      Last
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -205,7 +205,7 @@ bool MYSQL_RESULT::Last()
 *
 * @fn         bool MYSQL_RESULT::Next()
 * @brief      Next
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -225,7 +225,7 @@ bool MYSQL_RESULT::Next()
 *
 * @fn         bool MYSQL_RESULT::ProcessRow()
 * @brief      ProcessRow
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -325,7 +325,7 @@ bool MYSQL_RESULT::ProcessRow()
 *
 * @fn         bool MYSQL_RESULT::Abort()
 * @brief      Abort
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -340,7 +340,7 @@ bool MYSQL_RESULT::Abort()
 *
 * @fn         bool MYSQL_RESULT::HasNext()
 * @brief      HasNext
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -355,7 +355,7 @@ bool MYSQL_RESULT::HasNext()
 *
 * @fn         MYSQL_RESULT::MYSQL_RESULT()
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -371,7 +371,7 @@ MYSQL_RESULT::MYSQL_RESULT() : DB_SQL_RESULT()
 * @fn         void MYSQL_RESULT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

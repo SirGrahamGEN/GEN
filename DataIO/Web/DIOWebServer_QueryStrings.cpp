@@ -1,46 +1,57 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOWebServer_QueryStrings.cpp
-*
+* 
 * @class      DIOWEBSERVER_QUERYSTRINGS
 * @brief      Data Input/Output Web Server Query Strings Event class
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOWebServer_QueryStrings.h"
 
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -56,7 +67,6 @@ DIOWEBSERVER_QUERYSTRINGS::DIOWEBSERVER_QUERYSTRINGS()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -77,7 +87,6 @@ DIOWEBSERVER_QUERYSTRINGS::~DIOWEBSERVER_QUERYSTRINGS()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_QUERYSTRINGS::GetNParams()
@@ -93,7 +102,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetNParams()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XMAP<XSTRING*, XSTRING*>* DIOWEBSERVER_QUERYSTRINGS::GetParams()
@@ -107,7 +115,6 @@ XMAP<XSTRING*, XSTRING*>* DIOWEBSERVER_QUERYSTRINGS::GetParams()
 {
   return &params;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -128,7 +135,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XSTRING& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID , XSTRING& value)
@@ -147,7 +153,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID  , XSTRING& value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XCHAR* value)
@@ -164,7 +169,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XSTRING& ID, XCHAR* value)
 {
   return AddParam(ID.Get(), value);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -201,7 +205,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, XCHAR* value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, int value)
@@ -236,7 +239,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::AddParam(XCHAR* ID, int value)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XSTRING& ID)
@@ -252,7 +254,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XSTRING& ID)
 {
   return GetParam(ID.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -287,7 +288,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParam(XCHAR* ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamID(int index)
@@ -305,7 +305,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamID(int index)
 
   return (XSTRING*)params.GetKey(index);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -327,7 +326,6 @@ XSTRING* DIOWEBSERVER_QUERYSTRINGS::GetParamValue(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XSTRING& ID)
@@ -343,7 +341,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XSTRING& ID)
 {
   return DelParam(ID.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -366,7 +363,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelParam(XCHAR* ID)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
@@ -387,7 +383,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DelAllParam()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -420,7 +415,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::GetAllParam(XSTRING& allparam)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(DIOURL& url)
@@ -438,7 +432,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(DIOURL& url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XSTRING& url)
@@ -454,7 +447,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XSTRING& url)
 {
   return GetParamsFromURL(url.Get());
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -518,7 +510,6 @@ int DIOWEBSERVER_QUERYSTRINGS::GetParamsFromURL(XCHAR* url)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOWEBSERVER_QUERYSTRINGS::DeleteParamsFromURL(XSTRING& url)
@@ -547,7 +538,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::DeleteParamsFromURL(XSTRING& url)
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -590,7 +580,6 @@ bool DIOWEBSERVER_QUERYSTRINGS::CreateURLFromParams(XSTRING& urlpart)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWEBSERVER_QUERYSTRINGS::Clean()
@@ -605,4 +594,7 @@ void DIOWEBSERVER_QUERYSTRINGS::Clean()
 {
 
 }
+
+
+#pragma endregion
 

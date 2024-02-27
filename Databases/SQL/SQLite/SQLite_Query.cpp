@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_QUERY
 * @brief      DataBase SQL SQLite Query class
-* @ingroup    DATABASES
+* @ingroup    DATABASESSQL
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -65,14 +65,14 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         SQLITE_QUERY::~SQLITE_QUERY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
-*
-* @return     Does not return anything.
-*
+* @ingroup    DATABASES
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_QUERY::~SQLITE_QUERY()
 {
@@ -144,13 +144,13 @@ bool SQLITE_QUERY::Execute()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::ClearCursor()
 * @brief      ClearCursor
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::ClearCursor()
 {
@@ -159,16 +159,16 @@ bool SQLITE_QUERY::ClearCursor()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
-* @ingroup
-*
-* @param[in]  ID :
-* @param[in]  integer :
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @param[in]  ID : 
+* @param[in]  integer : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 {
@@ -176,17 +176,18 @@ bool SQLITE_QUERY::Bind(XDWORD ID, int integer)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @brief      Bind
-* @ingroup
-*
-* @param[in]  ID :
-* @param[in]  string :
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @param[in]  ID : 
+* @param[in]  string : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 {
@@ -195,16 +196,16 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XCHAR* string)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
-* @ingroup
-*
-* @param[in]  ID :
-* @param[in]  decimal :
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @param[in]  ID : 
+* @param[in]  decimal : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 {
@@ -213,16 +214,16 @@ bool SQLITE_QUERY::Bind(XDWORD ID, float decimal)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 * @brief      Bind
-* @ingroup
-*
-* @param[in]  ID :
-* @param[in]  datetime :
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @param[in]  ID : 
+* @param[in]  datetime : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 {
@@ -231,13 +232,13 @@ bool SQLITE_QUERY::Bind(XDWORD ID, XDATETIME& datetime)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::IsWellConstructedQuery()
 * @brief      IsWellConstructedQuery
-* @ingroup
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::IsWellConstructedQuery()
 {
@@ -391,13 +392,13 @@ int SQLITE_QUERY::Exec(const char* sql, XDWORD size)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool SQLITE_QUERY::BindParametersToQuery()
 * @brief      BindParametersToQuery
-* @ingroup    DATABASESSQL
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    DATABASES
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SQLITE_QUERY::BindParametersToQuery()
 {

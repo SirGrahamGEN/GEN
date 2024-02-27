@@ -178,14 +178,14 @@ void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOLOCATIONADDRESS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup
-*
-* @return     void : does not return anything.
-*
+* @ingroup    LOCATION
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLOCATIONADDRESS::Clean()
 {

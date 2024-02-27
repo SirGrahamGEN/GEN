@@ -26,32 +26,41 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
-
-#include "XFileJSON.h"
+#pragma region INCLUDES
 
 #include "DIOWebServer_ResolveEndPoint.h"
 
+#include "XFileJSON.h"
+
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOWEBSERVER_RESOLVEENDPOINT::DIOWEBSERVER_RESOLVEENDPOINT()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -67,7 +76,7 @@ DIOWEBSERVER_RESOLVEENDPOINT::DIOWEBSERVER_RESOLVEENDPOINT()
 * @fn         DIOWEBSERVER_RESOLVEENDPOINT::~DIOWEBSERVER_RESOLVEENDPOINT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
@@ -82,7 +91,7 @@ DIOWEBSERVER_RESOLVEENDPOINT::~DIOWEBSERVER_RESOLVEENDPOINT()
 * 
 * @fn         bool DIOWEBSERVER_RESOLVEENDPOINT::Update()
 * @brief      Update
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -97,7 +106,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Update()
 * 
 * @fn         bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
 * @brief      CreateResponse
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @param[in]  response : 
 * 
@@ -132,7 +141,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
 * 
 * @fn         bool DIOWEBSERVER_RESOLVEENDPOINT::Serialize()
 * @brief      Serialize
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -147,7 +156,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Serialize()
 * 
 * @fn         bool DIOWEBSERVER_RESOLVEENDPOINT::Deserialize()
 * @brief      Deserialize
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -163,7 +172,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::Deserialize()
 * @fn         void DIOWEBSERVER_RESOLVEENDPOINT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
@@ -172,3 +181,7 @@ void DIOWEBSERVER_RESOLVEENDPOINT::Clean()
 {
  
 }
+
+
+#pragma endregion
+

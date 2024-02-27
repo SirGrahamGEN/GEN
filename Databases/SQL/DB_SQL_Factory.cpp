@@ -72,7 +72,7 @@
 *
 * @fn         DB_SQL_DATABASE* DB_SQL_FACTORY::Create( DB_SQL_DATABASE_TYPE databasetype)
 * @brief      Create
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  databasetype :
 *

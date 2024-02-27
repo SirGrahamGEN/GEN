@@ -63,12 +63,13 @@
 * 
 * @fn         DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 * @brief      Constructor
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
+
 {
   Clean();
 
@@ -86,12 +87,13 @@ DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 * @fn         DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
+
 {
   enum_remotedevices.DeleteContents();
   enum_remotedevices.DeleteAll();
@@ -104,7 +106,7 @@ DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
 * 
 * @fn         bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 * @brief      Ini
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @param[in]  diostream : 
 * @param[in]  ID : 
@@ -292,11 +294,12 @@ void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
 * @brief      SendCommand
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @param[in]  command : 
 * @param[in]  target : 
@@ -329,11 +332,11 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& receivedID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+* @fn         bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 * @brief      ReceivedCommand
-* @ingroup    
+* @ingroup    DATAIO
 * 
-* @param[in]  receivedID : 
+* @param[in]  originID : 
 * @param[in]  command : 
 * @param[in]  params : 
 * @param[in]  answer : 
@@ -409,7 +412,7 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVE
 * 
 * @fn         void DIOPROTOCOLCLIBUS::End()
 * @brief      End
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 
@@ -460,7 +463,7 @@ void DIOPROTOCOLCLIBUS::End()
 * 
 * @fn         void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 * @brief      ThreadReceivedCommand
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @param[in]  param : 
 * 
@@ -528,7 +531,7 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
 * @fn         void DIOPROTOCOLCLIBUS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
+* @ingroup    DATAIO
 * 
 * @return     void : does not return anything. 
 * 

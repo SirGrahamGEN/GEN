@@ -55,19 +55,19 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-@brief      Constructor
-@ingroup    DATAIO
-
-@param[in]  XSUBJECT* : 
-@param[in]   XDWORD type : 
-@param[in]   XDWORD family : 
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
-DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
+* 
+* @fn         DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]  XDWORD type : 
+* @param[in]  XDWORD family : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
   Clean();
 }

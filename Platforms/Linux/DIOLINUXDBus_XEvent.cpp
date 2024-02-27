@@ -58,35 +58,37 @@
 #pragma region CLASS_MEMBERS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type)
 * @brief      Constructor
-* @ingroup    DATAIO
-*
-* @param[in]  subject :
-* @param[in]  type :
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  XSUBJECT* : 
+* @param[in]   XDWORD type : 
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type)  : XEVENT(subject, type, XEVENT_TYPE_LINUX_DBUS)
+DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVENT(subject, type, XEVENT_TYPE_LINUX_DBUS)
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
+
 {
   Clean();
 }
@@ -157,14 +159,14 @@ void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOLINUXDBUS_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_XEVENT::Clean()
 {  

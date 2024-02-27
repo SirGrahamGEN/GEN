@@ -59,33 +59,30 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         INPCAPTURE:: INPCAPTURE()
-* @brief      NPWINDOWSKEYBOARDHOOK
-* @ingroup    PLATFORM_WINDOWS
+* @fn         INPCAPTURE::INPCAPTURE()
+* @brief      Constructor
+* @ingroup    INPUT
 * 
-* @return     INPCAPTURE:: : 
+* @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-INPCAPTURE:: INPCAPTURE()
+* --------------------------------------------------------------------------------------------------------------------*/
+INPCAPTURE::INPCAPTURE()
 {
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPCAPTURE::~ INPCAPTURE()
+* 
+* @fn         INPCAPTURE::~INPCAPTURE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup
-*
-* @author     Abraham J. Velez
-* @date       18/09/2018 12:20:39
-*
-* @return     Does not return anything.
-*
+* @ingroup    INPUT
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-INPCAPTURE::~ INPCAPTURE()
+INPCAPTURE::~INPCAPTURE()
 { 
   Clean();
 }

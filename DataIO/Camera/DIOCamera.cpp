@@ -131,16 +131,16 @@ bool DIOCAMERA::End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
-* @ingroup    APPLICATION
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  event : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
@@ -154,16 +154,16 @@ void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOCAMERA::HandleEvent(XEVENT* xevent)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
-* @ingroup    APPLICATION
-*
-* @param[in]  xevent :
-*
-* @return     void : does not return anything.
-*
+* @ingroup    DATAIO
+* 
+* @param[in]  xevent : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA::HandleEvent(XEVENT* xevent)
 {

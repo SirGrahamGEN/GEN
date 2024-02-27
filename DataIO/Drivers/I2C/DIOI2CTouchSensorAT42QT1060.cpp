@@ -87,12 +87,13 @@ DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 * @fn         DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     Does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
+
 {
   End();
 
@@ -138,13 +139,13 @@ bool DIOI2CTOUCHSENSORAT42QT1060::SetGPIOInterruptEntryID(XDWORD GPIOentryID)
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 * @brief      GetHW_ID
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::GetHW_ID(XBYTE& ID)
 {
   if(!diostream) return false;
@@ -325,14 +326,14 @@ bool DIOI2CTOUCHSENSORAT42QT1060::Initializate()
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 {
   return ReadRegister(offset, &data, 1);
@@ -343,15 +344,15 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE& data)
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      ReadRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -374,14 +375,14 @@ bool DIOI2CTOUCHSENSORAT42QT1060::ReadRegister(XBYTE offset, XBYTE* data, XDWORD
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 * @brief      WriteRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 {
   return WriteRegister(offset, &data, 1);
@@ -392,15 +393,15 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE data)
 * 
 * @fn         bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 * @brief      WriteRegister
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @param[in]  offset : 
 * @param[in]  data : 
 * @param[in]  sizedata : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWORD sizedata)
 {
   if(!diostream) return false;
@@ -442,11 +443,11 @@ void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 * @fn         void DIOI2CTOUCHSENSORAT42QT1060::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    
-*
+* @ingroup    DATAIO
+* 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTOUCHSENSORAT42QT1060::Clean()
 {
   GPIOinterruptentryID  = DIOGPIO_ID_NOTDEFINED;

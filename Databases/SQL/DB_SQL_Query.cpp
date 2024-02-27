@@ -66,7 +66,7 @@
 *
 * @fn         DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -86,7 +86,7 @@ DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 * @fn         DB_SQL_QUERY::~DB_SQL_QUERY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -101,7 +101,7 @@ DB_SQL_QUERY::~DB_SQL_QUERY()
 *
 * @fn         bool DB_SQL_QUERY::ClearCursor()
 * @brief      ClearCursor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -116,7 +116,7 @@ bool DB_SQL_QUERY::ClearCursor()
 *
 * @fn         bool DB_SQL_QUERY::IsWellConstructedQuery()
 * @brief      IsWellConstructedQuery
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -131,7 +131,7 @@ bool DB_SQL_QUERY::IsWellConstructedQuery()
 *
 * @fn         DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 * @brief      GetResult
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -146,7 +146,7 @@ DB_SQL_RESULT* DB_SQL_QUERY::GetResult()
 *
 * @fn         DB_SQL_STRING* DB_SQL_QUERY::GetValue()
 * @brief      GetValue
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_STRING* :
 *
@@ -161,7 +161,7 @@ DB_SQL_STRING* DB_SQL_QUERY::GetValue()
 *
 * @fn         bool DB_SQL_QUERY::Set(XCHAR* query)
 * @brief      Set
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  query :
 *
@@ -183,7 +183,7 @@ bool DB_SQL_QUERY::Set(XCHAR* query)
 *
 * @fn         bool DB_SQL_QUERY::UnbindAll()
 * @brief      UnbindAll
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -198,7 +198,7 @@ bool DB_SQL_QUERY::UnbindAll()
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  variant :
@@ -216,7 +216,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, DB_SQL_VARIANT* variant)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  integer :
@@ -239,7 +239,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, int integer)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  string :
@@ -262,7 +262,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, XCHAR* string)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  decimal :
@@ -285,7 +285,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, float decimal)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  ID :
 * @param[in]  string :
@@ -308,7 +308,7 @@ bool DB_SQL_QUERY::Bind(XDWORD ID, char* string)
 *
 * @fn         bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 * @brief      Bind
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  id :
 * @param[in]  datetime :
@@ -331,7 +331,7 @@ bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 *
 * @fn         void DB_SQL_QUERY::ClearBuffers()
 * @brief      ClearBuffers
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *
@@ -352,7 +352,7 @@ void DB_SQL_QUERY::ClearBuffers()
 *
 * @fn         bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 * @brief      UseCursor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  cursorname :
 *
@@ -374,7 +374,7 @@ bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 * @fn         void DB_SQL_QUERY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

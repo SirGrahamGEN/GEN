@@ -2755,20 +2755,18 @@ XFILECOBOL_LINE_TYPE XFILECOBOL::InterpreterLineForHandle(XSTRING& line, int& le
   return returntype;
 }
 
- /**-------------------------------------------------------------------------------------------------------------------
- *
- *  @fn         XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
- *  @brief      GetParentNodeOfLevel
- *  @ingroup    UTILS
- *
- *  ""
- *  ""
- *
- *  @param[in]  level :
- *
- *  @return     XFILECOBOL_FD_TREENODE* :
- *
- * --------------------------------------------------------------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
+* @brief      GetParentNodeOfLevel
+* @ingroup    XUTILS
+* 
+* @param[in]  level : 
+* 
+* @return     XFILECOBOL_FD_TREENODE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 {
   if(!handle.GetFDTree()) return NULL;
@@ -2791,8 +2789,6 @@ XFILECOBOL_FD_TREENODE* XFILECOBOL::GetParentNodeOfLevel(int level)
 
   return NULL;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

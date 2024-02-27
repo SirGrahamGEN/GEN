@@ -68,7 +68,7 @@
 *
 * @fn         POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database)
 * @brief      Constructor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
@@ -88,7 +88,7 @@ POSTGRESQL_QUERY::POSTGRESQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(data
 * @fn         POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     Does not return anything.
 *
@@ -131,7 +131,7 @@ POSTGRESQL_QUERY::~POSTGRESQL_QUERY()
 *
 * @fn         bool POSTGRESQL_QUERY::Execute()
 * @brief      Execute
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -282,7 +282,7 @@ bool POSTGRESQL_QUERY::Execute()
 *
 * @fn         bool POSTGRESQL_QUERY::ClearCursor()
 * @brief      ClearCursor
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -312,7 +312,7 @@ bool POSTGRESQL_QUERY::ClearCursor()
 *
 * @fn         DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 * @brief      ConstructResult
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     DB_SQL_RESULT* :
 *
@@ -330,7 +330,7 @@ DB_SQL_RESULT* POSTGRESQL_QUERY::ConstructResult()
 *
 * @fn         bool POSTGRESQL_QUERY::BindParametersToQuery()
 * @brief      BindParametersToQuery
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -434,7 +434,7 @@ bool POSTGRESQL_QUERY::BindParametersToQuery()
 *
 * @fn         bool POSTGRESQL_QUERY::BindParametersToResult()
 * @brief      BindParametersToResult
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     bool : true if is succesful.
 *
@@ -450,7 +450,7 @@ bool POSTGRESQL_QUERY::BindParametersToResult()
 * @fn         void POSTGRESQL_QUERY::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATABASESSQL
+* @ingroup    DATABASES
 *
 * @return     void : does not return anything.
 *

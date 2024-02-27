@@ -64,15 +64,16 @@
 #pragma region CLASS_MEMBERS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-
-@fn         DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP()
-@brief      Constructor
-@ingroup    PLATFORM_WINDOWS
-
-@return     Does not return anything. 
-
---------------------------------------------------------------------------------------------------------------------*/
+* 
+* @fn         DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 {
   Clean();

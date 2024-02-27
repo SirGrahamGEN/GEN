@@ -79,16 +79,18 @@
 #pragma region CLASS_MEMBERS
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * @brief      Constructor
-* @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
+
 {
   Clean();
 
@@ -111,16 +113,17 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
+
 {
   Clean();
 }
@@ -150,18 +153,18 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * @brief      Send
-* @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 {   
-
   /*
 	XBYTE* ptrdata  = databuffer.Get();
   int    sizedata = databuffer.GetSize();
@@ -260,14 +263,14 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
-* @return     void : does not return anything.
-*
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Clean()
 {
