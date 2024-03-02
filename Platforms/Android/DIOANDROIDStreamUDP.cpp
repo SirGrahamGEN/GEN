@@ -1,24 +1,43 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP.CPP
-//
-//  ANDROID Data IO Stream UDP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamUDP.cpp
+* 
+* @class      DIOANDROIDSTREAMUDP
+* @brief      ANDROID Data Input/Output Stream UDP class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-//---- INCLUDES ----------------------------------------------------------------------------
+#pragma endregion
 
-#include "GEN_Defines.h"
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamUDP.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,32 +74,30 @@
 #include "DIOStreamUDP.h"
 #include "DIOStreamUDPConfig.h"
 
-#include "DIOANDROIDStreamUDP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:10:30
-//
-//  @return
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 {
   Clean();
@@ -123,17 +140,16 @@ DIOANDROIDSTREAMUDP::DIOANDROIDSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::~DIOANDROIDSTREAMUDP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUDP::~DIOANDROIDSTREAMUDP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUDP::~DIOANDROIDSTREAMUDP()
 {
   if(threadconnection)
@@ -145,18 +161,15 @@ DIOANDROIDSTREAMUDP::~DIOANDROIDSTREAMUDP()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUDP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUDP::Open()
 {
   if(!threadconnection)  return false;
@@ -176,18 +189,15 @@ bool DIOANDROIDSTREAMUDP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUDP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUDP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -205,17 +215,15 @@ bool DIOANDROIDSTREAMUDP::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUDP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUDP::Close()
 {
   if(!threadconnection) return false;
@@ -233,19 +241,17 @@ bool DIOANDROIDSTREAMUDP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOANDROIDSTREAMUDP::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOANDROIDSTREAMUDP::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -289,39 +295,17 @@ int DIOANDROIDSTREAMUDP::IsReadyConnect(int socket)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOANDROIDSTREAMUDP::Clean()
-{
-  threadconnection   = NULL;
-  status            = DIOSTREAMSTATUS_DISCONNECTED;
-  handle            = -1;
-}
-
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUDP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
+* @brief      ThreadRunFunction
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  thread : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
 {
   DIOANDROIDSTREAMUDP* diostream = (DIOANDROIDSTREAMUDP*)thread;
@@ -652,4 +636,24 @@ void DIOANDROIDSTREAMUDP::ThreadRunFunction(void* thread)
     }
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMUDP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMUDP::Clean()
+{
+  threadconnection   = NULL;
+  status            = DIOSTREAMSTATUS_DISCONNECTED;
+  handle            = -1;
+}
+
+
+#pragma endregion
 

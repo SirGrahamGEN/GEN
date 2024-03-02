@@ -1,51 +1,62 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       INPANDROIDDeviceMouse.cpp
-*
+* 
 * @class      INPANDROIDDEVICEMOUSE
 * @brief      ANDROID input device mouse class
 * @ingroup    PLATFORM_ANDROID
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "INPANDROIDDeviceMouse.h"
 
 #include "GRPANDROIDScreen.h"
 
 #include "INPButton.h"
 #include "INPCursor.h"
 
-#include "INPANDROIDDeviceMouse.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -73,7 +84,6 @@ INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
@@ -94,7 +104,6 @@ INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
 
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -120,7 +129,6 @@ bool INPANDROIDDEVICEMOUSE::Update()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
@@ -140,23 +148,20 @@ bool INPANDROIDDEVICEMOUSE::SetScreen(void* screenpointer)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  INPANDROIDDEVICEMOUSE::AddPosition
-*/
-/**
-//
-//
-//  ""
-//  @version      05/04/2012 1:28:39
-//
-//  @return       bool :
-//  @param        index :
-//  @param        x :
-//  @param        y :
-//  @param        ispressed :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispressed)
+* @brief      AddPosition
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  index : 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  ispressed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispressed)
 {
   if(!grpscreen) return false;
@@ -183,8 +188,6 @@ bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispres
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void INPANDROIDDEVICEMOUSE::Clean()
@@ -199,7 +202,6 @@ void INPANDROIDDEVICEMOUSE::Clean()
 {
   grpscreen = NULL;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -223,19 +225,15 @@ bool INPANDROIDDEVICEMOUSE::CreateAllButtons()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  INPANDROIDDEVICEMOUSE::CreateAllCursors
-*/
-/**
-//
-//
-//  ""
-//  @version      22/12/2011 10:55:24
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool INPANDROIDDEVICEMOUSE::CreateAllCursors()
+* @brief      CreateAllCursors
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPANDROIDDEVICEMOUSE::CreateAllCursors()
 {
   INPCURSOR* cursor;
@@ -254,4 +252,5 @@ bool INPANDROIDDEVICEMOUSE::CreateAllCursors()
 }
 
 
+#pragma endregion
 

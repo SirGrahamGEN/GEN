@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       XANDROIDFactory.cpp
-*
+* 
 * @class      XANDROIDFACTORY
 * @brief      ANDROID eXtended platform Factory
 * @ingroup    PLATFORM_ANDROID
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "XANDROIDFactory.h"
 
 #include "XANDROIDDateTime.h"
 #include "XANDROIDTimer.h"
@@ -44,20 +50,19 @@
 
 #include "XFactoryMacros.h"
 
-#include "XANDROIDFactory.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma endregion
 
-/*
-extern "C"
-{
-  void *__dso_handle = NULL;
-}
-*/
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 CREATEFUNC(XANDROIDFACTORY, XTIMER     , XANDROIDTIMER      , CreateTimer)
@@ -82,7 +87,6 @@ CREATEFUNC(XANDROIDFACTORY, XMUTEX     , XANDROIDMUTEX      , Create_Mutex)
 DELETEFUNC(XANDROIDFACTORY, XMUTEX     , XANDROIDMUTEX      , Delete_Mutex)
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XTHREAD* XANDROIDFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREADFUNCTION function,void* param)
@@ -102,7 +106,6 @@ XTHREAD* XANDROIDFACTORY::CreateThread(XTHREADGROUPID groupID, XCHAR* ID,XTHREAD
   XANDROIDTHREAD* _class =  new XANDROIDTHREAD(groupID, ID, function, param);
   return (XTHREAD*)_class;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -126,6 +129,16 @@ bool XANDROIDFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 
   return true;
 };
+
+
+#pragma endregion
+
+
+
+
+
+
+
 
 
 

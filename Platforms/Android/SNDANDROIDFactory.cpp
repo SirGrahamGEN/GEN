@@ -1,449 +1,111 @@
 
-/*------------------------------------------------------------------------------------------
-//  SNDANDROIDFACTORY.CPP
-//
-//  windows sound system
-//
-//  Author            : Imanol Celaya Ruiz de Alegria
-//  Date Of Creation  : 11/11/2015 10:52:15
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       SNDANDROIDFactory.cpp
+* 
+* @class      SNDANDROIDFACTORY
+* @brief      ANDROID Sound Factory class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
 
-#include "SNDAndroidFactory.h"
-#include "SNDOpenAL.h"
-#include "SNDFileOGG.h"
-#include "SNDDummyResampler.h"
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include <AL/al.h>
+#include <AL/alc.h>
+
+#include "SNDANDROIDFactory.h"
+
+#include "SNDFactory_XEvent.h"
 
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::SNDANDROIDFACTORY
-*/
-/**
-//
-//  Class Constructor SNDANDROIDFACTORY
-//
-//  ""
-//  @version      11/11/2015 10:57:23
-//
-
-
-//  @param        SNDFACTORY(xfactory :
-
-
-*/
-/*-----------------------------------------------------------------*/
-SNDANDROIDFACTORY::SNDANDROIDFACTORY() : SNDFACTORY()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDANDROIDFACTORY::SNDANDROIDFACTORY()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SNDANDROIDFACTORY::SNDANDROIDFACTORY()
 {
   Clean();
-  sndopenal = new SNDOPENAL(this);
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::~SNDANDROIDFACTORY
-*/
-/**
-//
-//   Class Destructor SNDANDROIDFACTORY
-//
-//  ""
-//  @version      11/11/2015 10:57:28
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
 {
-  delete sndopenal;
   Clean();
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//   SNDANDROIDFACTORY::AddFile
-*/
-/**
-//
-//
-//  ""
-//  @version  22/02/2018 9:59:02
-//
-//  @return   SNDELEMENT* :
-//
-//  @param    XPATH& :
-//  @param    XSTRING* :
-//  @param    bool :
-//
-*//*-----------------------------------------------------------------*/
-SNDELEMENT* SNDANDROIDFACTORY::AddFile(XPATH& xpath, XSTRING* namefile, bool stream)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void SNDANDROIDFACTORY::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void SNDANDROIDFACTORY::Clean()
 {
-  return sndopenal->AddFile(xpath, namefile, stream);
+  
 }
 
 
+#pragma endregion
 
-
-/*-------------------------------------------------------------------
-//   SNDANDROIDFACTORY::AddFile
-*/
-/**
-//
-//
-//  ""
-//  @version  22/02/2018 9:59:35
-//
-//  @return   SNDELEMENT* :
-//
-//  @param    XPATH& :
-//  @param    XCHAR* :
-//  @param    bool :
-//
-*//*-----------------------------------------------------------------*/
-SNDELEMENT* SNDANDROIDFACTORY::AddFile(XPATH& xpath, XCHAR* namefile, bool stream)
-{
-  return sndopenal->AddFile(xpath, namefile, stream);
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::GetFile
-*/
-/**
-//
-//  gets an already loaded file
-//
-//  ""
-//  @version      11/11/2015 10:58:08
-//
-//  @return       SNDELEMENT* :
-//
-//  @param        namefile :
-*/
-/*-----------------------------------------------------------------*/
-SNDELEMENT* SNDANDROIDFACTORY::GetFile(XSTRING* namefile, bool stream)
-{
-  return sndopenal->GetFile(namefile, stream);
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::GetFile
-*/
-/**
-//
-//  gets an already loaded file
-//
-//  ""
-//  @version      11/11/2015 10:58:18
-//
-//  @return       SNDELEMENT* :
-//
-//  @param        file :
-*/
-/*-----------------------------------------------------------------*/
-SNDELEMENT* SNDANDROIDFACTORY::GetFile(XCHAR* namefile, bool stream)
-{
-  return sndopenal->GetFile(namefile, stream);
-}
-
-
-
-/*-------------------------------------------------------------------
-//   SNDANDROIDFACTORY::RemoveFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version
-
-//  @return   bool :
-//
-//  @param    SNDELEMENT* :
-//
-*//*-----------------------------------------------------------------*/
-bool SNDANDROIDFACTORY::RemoveFile(SNDELEMENT* element)
-{
-  return sndopenal->RemoveFile(element);
-}
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::GetStreamer
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      20/07/2016 11:56:58
-//
-//  @return       SNDSTREAMELEMENT* :
-//
-*/
-/*-----------------------------------------------------------------*/
-SNDSTREAMELEMENT* SNDANDROIDFACTORY::GetStreamer()
-{
-  return sndopenal->GetStreamer();
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::PlaySound
-*/
-/**
-//
-//  plays a sund
-//
-//  ""
-//  @version      11/11/2015 10:58:27
-//
-//  @return       SNDSOURCE* :
-//
-//  @param        element :
-*/
-/*-----------------------------------------------------------------*/
-SNDINSTANCE* SNDANDROIDFACTORY::PlaySound(SNDELEMENT* element)
-{
-  return sndopenal->PlaySound(element);
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::StopSound
-*/
-/**
-//
-//  stops a sound
-//
-//  ""
-//  @version      11/11/2015 10:58:38
-//
-//  @param        element :
-*/
-/*-----------------------------------------------------------------*/
-void SNDANDROIDFACTORY::StopSound(SNDELEMENT* element)
-{
-  sndopenal->StopSound(element);
-}
-
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::PauseSound
-*/
-/**
-//
-//  pauses a sound
-//
-//  ""
-//  @version      11/11/2015 10:58:47
-//
-//  @return       SNDSOURCE* :
-//
-//  @param        element :
-*/
-/*-----------------------------------------------------------------*/
-SNDINSTANCE* SNDANDROIDFACTORY::PauseSound(SNDELEMENT* element)
-{
-  return sndopenal->PauseSound(element);
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::Update
-*/
-/**
-//
-//  system update
-//
-//  ""
-//  @version      11/11/2015 10:58:55
-//
-*/
-/*-----------------------------------------------------------------*/
-void SNDANDROIDFACTORY::ImpUpdate()
-{
-  sndopenal->Update();
-}
-
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::IsAnyPlaying
-*/
-/**
-//
-//  checks if any sound is playing
-//
-//  ""
-//  @version      11/11/2015 10:59:06
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
-bool SNDANDROIDFACTORY::IsAnyPlaying()
-{
-  return sndopenal->IsAnyPlaying();
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::StopAll
-*/
-/**
-//
-//  stops all sounds
-//
-//  ""
-//  @version      11/11/2015 10:59:15
-//
-*/
-/*-----------------------------------------------------------------*/
-void SNDANDROIDFACTORY::StopAll()
-{
-  sndopenal->StopAll();
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::SetMasterVolume
-*/
-/**
-//
-//  sets the master volume
-//
-//  ""
-//  @version      11/11/2015 10:59:25
-//
-//  @param        mastervolume :
-*/
-/*-----------------------------------------------------------------*/
-void SNDANDROIDFACTORY::SetMasterVolume(float mastervolume)
-{
-  sndopenal->SetMasterVolume(mastervolume);
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::GetMasterVolume
-*/
-/**
-//
-//  gets the master volume
-//
-//  ""
-//  @version      11/11/2015 10:59:33
-//
-//  @return       float :
-//
-*/
-/*-----------------------------------------------------------------*/
-float SNDANDROIDFACTORY::GetMasterVolume()
-{
-  return sndopenal->GetMasterVolume();
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::GetResampler
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      16/03/2017 16:24:48
-//
-//  @return       SNDRESAMPLER* :
-//
-*/
-/*-----------------------------------------------------------------*/
-SNDRESAMPLER* SNDANDROIDFACTORY::GetResampler()
-{
-  return new SNDDUMMYRESAMPLER();
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::CreateFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      16/03/2017 16:24:43
-//
-//  @return       SNDFILE* :
-//
-*/
-/*-----------------------------------------------------------------*/
-SNDFILE* SNDANDROIDFACTORY::CreateSNDFile()
-{
-  return new SNDFILEOGG();
-}
-
-
-
-/*-------------------------------------------------------------------
-//  SNDANDROIDFACTORY::DeleteFile
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      16/03/2017 16:24:36
-//
-//  @param        file :
-*/
-/*-----------------------------------------------------------------*/
-void SNDANDROIDFACTORY::DeleteSNDFile(SNDFILE* file)
-{
-  delete file;
-}

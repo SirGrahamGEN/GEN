@@ -1,101 +1,80 @@
-/*------------------------------------------------------------------------------------------
-//  SNDANDROIDFACTORY.H
-*/
-/**
-// \file
-//
-//  sound system for linux
-//
-//  ""
-//
-//  Date Of Creation  : 11/11/2015 10:37:51
-//  Last Modification :
-*/
-/*  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       SNDFactory.h
+* 
+* @class      SNDANDROIDFACTORY
+* @brief      ANDROID Sound Factory class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
 
 #ifndef _SNDANDROIDFACTORY_H_
 #define _SNDANDROIDFACTORY_H_
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-#include "SNDFactory.h"
-#include "SNDOpenAL.h"
+#include "SNDOpenALFactory.h"
 
-/*---- DEFINES & ENUMS  ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS -----------------------------------------------------------------------------*/
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
 
-class SNDOPENAL;
+
+#pragma endregion
+
+
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 class SNDELEMENT;
-class SNDSTREAMELEMENT;
-class SNDSOURCE;
 class SNDINSTANCE;
-class XFACTORY;
-class XPATHS;
-class XPUBLISHER;
+class SNDFILE;
 
-class SNDANDROIDFACTORY : public SNDFACTORY
+class SNDANDROIDFACTORY : public SNDOPENALFACTORY
 {
   public:
-
-                                              SNDANDROIDFACTORY         ();
-    virtual                                  ~SNDANDROIDFACTORY         ();
-
-    virtual SNDELEMENT*                       AddFile                   (XPATH&     xpath,    XSTRING*    namefile,       bool stream = false);
-    virtual SNDELEMENT*                       AddFile                   (XPATH&     xpath,    XCHAR*      namefile,       bool stream = false);
-    virtual SNDELEMENT*                       GetFile                   (XSTRING*   namefile, bool        stream = false);
-    virtual SNDELEMENT*                       GetFile                   (XCHAR*     namefile, bool        stream = false);
-
-    virtual bool                              RemoveFile                (SNDELEMENT* element);
-
-    virtual SNDSTREAMELEMENT*                 GetStreamer               ();
-
-    virtual SNDINSTANCE*                      PlaySound                 (SNDELEMENT* element);
-    virtual void                              StopSound                 (SNDELEMENT* element);
-    virtual SNDINSTANCE*                      PauseSound                (SNDELEMENT* element);
-
-
-    virtual bool                              IsAnyPlaying              ();
-
-    virtual void                              StopAll                   ();
-
-    virtual void                              SetMasterVolume           (float mastervolume);
-    virtual float                             GetMasterVolume           ();
-
-    void                                      IniEvents                 ()
-                                              {
-                                                sndopenal->IniEvents();
-                                                isinit = true;
-                                              }
-
-    void                                      EndEvents                 ()
-                                              {
-                                                sndopenal->EndEvents();
-                                                isinit = true;
-                                              }
-
-    SNDRESAMPLER*                             GetResampler              ();
-
-    virtual SNDFILE*                          CreateSNDFile             ();
-    virtual void                              DeleteSNDFile             (SNDFILE* file);
-
-  protected:
-    virtual void                              ImpUpdate                 ();
+                                      SNDANDROIDFACTORY           ();
+    virtual                          ~SNDANDROIDFACTORY           ();
+        
   private:
 
-    void                                      Clean                     ()
-                                              {
-                                                sndopenal = NULL;
-                                              }
-
-    SNDOPENAL*                                sndopenal;
-
+    void                              Clean                       ();
+    
 };
 
 
-/*---- INLINE FUNCTIONS ------------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
+
 

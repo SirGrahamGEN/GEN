@@ -1,26 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES.CPP
-//
-//  ANDROID Data IO Stream Wifi Remote Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamWifiRemoteEnumDevices.cpp
+* 
+* @class      DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES
+* @brief      ANDROID Data Input/Output Stream Wifi Remote Enum Devices class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMTWIFI_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
 
-#include "GEN_Defines.h"
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamWifiRemoteEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,8 +51,6 @@
 #include <syslog.h>
 #include <signal.h>
 #include <time.h>
-//#include <iwlib.h>
-
 
 #include "XVector.h"
 #include "XString.h"
@@ -42,35 +60,30 @@
 
 #include "DIOStream.h"
 #include "DIOStreamDeviceWifi.h"
-
-#include "DIOANDROIDStreamWifiRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      31/01/2014 19:22:27
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMWIFIREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
   Clean();
@@ -93,19 +106,16 @@ DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES() :
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES::~DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::~DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::~DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -120,19 +130,15 @@ DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::~DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Search()
 {
   if(!threadenumdevices)       return false;
@@ -149,20 +155,17 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Search()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:35
-//
-//  @return       bool :
-//  @param        waitend :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
+* @brief      StopSearch
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  waitend : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(IsSearching())
@@ -183,23 +186,18 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::StopSearch(bool waitend)
   usleep(1000);
 
   return true;
-};
+}
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:40
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
+* @brief      IsSearching
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices)              return false;
@@ -208,44 +206,20 @@ bool DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
   if(GetCurrentState()!=DIOANDROIDWIFIENUMFSMSTATE_SEARCH) return false;
 
   return true;
-};
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:25:03
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean()
-{
-  threadenumdevices = NULL;
-
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 17:02:14
-//
-//  @return       void :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
+* @brief      ThreadEnumDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
   DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES* enumeration = (DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES*)param;
@@ -322,4 +296,25 @@ void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMWIFIREMOTEENUMDEVICES::Clean()
+{
+  threadenumdevices = NULL;
+
+}
+
+
+#pragma endregion
+
+
 #endif
+

@@ -1,95 +1,106 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPANDROIDContext.cpp
+* 
+* @class      GRPANDROIDCONTEXT
+* @brief      ANDROID Graphics Context class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------------------
-//  GRPANDROIDCONTEXT.CPP
-//
-//  ANdroid Graphics Context
-//
-//  Author            : Imanol Celaya Ruiz de Alegria
-//  Date Of Creation  : 04/04/2016 16:19:06
-//  Last Modification :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "GRPANDROIDContext.h"
 
 #include "GRPANDROIDContext.h"
 #include "GRPANDROIDScreen.h"
 
 #include "XTrace.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#include "XMemory_Control.h"
+
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::GRPANDROIDCONTEXT
-*/
-/**
-//
-//  Class Constructor GRPANDROIDCONTEXT
-//
-//  ""
-//  @version      06/04/2016 14:30:33
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPANDROIDCONTEXT::GRPANDROIDCONTEXT()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDCONTEXT::GRPANDROIDCONTEXT() : GRPCONTEXT()
 {
+
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT
-*/
-/**
-//
-//   Class Destructor GRPANDROIDCONTEXT
-//
-//  ""
-//  @version      06/04/2016 14:30:28
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT()
 {
+
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::Create
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/04/2016 14:30:23
-//
-//  @return       bool :
-//
-//  @param        handle :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPANDROIDCONTEXT::Create(void* handle)
+* @brief      Create
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  handle : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDCONTEXT::Create(void* handle)
 {
   /*
@@ -213,24 +224,15 @@ bool GRPANDROIDCONTEXT::Create(void* handle)
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::Destroy
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/04/2016 14:30:15
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPANDROIDCONTEXT::Destroy()
+* @brief      Destroy
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDCONTEXT::Destroy()
 {
   /*
@@ -244,23 +246,15 @@ bool GRPANDROIDCONTEXT::Destroy()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::IsLost
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/04/2016 14:30:08
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPANDROIDCONTEXT::IsLost()
+* @brief      IsLost
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDCONTEXT::IsLost()
 {
   return false;
@@ -268,23 +262,15 @@ bool GRPANDROIDCONTEXT::IsLost()
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  GRPANDROIDCONTEXT::Update
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      06/04/2016 16:33:54
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPANDROIDCONTEXT::Update()
+* @brief      Update
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPANDROIDCONTEXT::Update()
 {
   /*
@@ -297,4 +283,6 @@ bool GRPANDROIDCONTEXT::Update()
   return true;
 }
 
+
+#pragma endregion
 

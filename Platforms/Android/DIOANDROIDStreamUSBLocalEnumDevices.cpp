@@ -1,103 +1,113 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES.CPP
-//
-//  ANDROID Data IO Stream USB Local Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamUSBLocalEnumDevices.cpp
+* 
+* @class      DIOANDROIDSTREAMUSBLOCALENUMDEVICES
+* @brief      ANDROID Data Input/Output Stream USB Local Enum Devices class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
 
-#include "GEN_Defines.h"
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamUSBLocalEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <unistd.h>
-//#include <libudev.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-//#include <libusb-1.0/libusb.h>
 
 #include "XTrace.h"
 #include "XPath.h"
 #include "DIOStreamDeviceUSB.h"
 
-#include "DIOANDROIDStreamUSBLocalEnumDevices.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
+#pragma endregion
 
 
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMUSBLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES::~DIOANDROIDSTREAMUSBLOCALENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUSBLOCALENUMDEVICES::~DIOANDROIDSTREAMUSBLOCALENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUSBLOCALENUMDEVICES::~DIOANDROIDSTREAMUSBLOCALENUMDEVICES()
 {
 
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::Search()
 {
   DelAllDevices();
@@ -212,21 +222,17 @@ bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::Search()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:32
-//
-//  @return       bool :
-//  @param        resource :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
+* @brief      IsDeviceAvailable
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  resource : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 {
 
@@ -234,23 +240,15 @@ bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 }
 
 
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      11/11/2014 13:41:56
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
+* @brief      SearchAndDeleteEqualDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 {
   if(devices.IsEmpty()) return false;
@@ -292,4 +290,8 @@ bool DIOANDROIDSTREAMUSBLOCALENUMDEVICES::SearchAndDeleteEqualDevices()
 }
 
 
+#pragma endregion
+
+
 #endif
+

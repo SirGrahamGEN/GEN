@@ -3,7 +3,7 @@
 * @file       INPLINUXDeviceKeyboardDirect.h
 * 
 * @class      INPLINUXDEVICEKEYBOARDDIRECT
-* @brief      LINUX direct input device keyboard class
+* @brief      LINUX input device keyboard direct class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.

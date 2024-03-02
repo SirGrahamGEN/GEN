@@ -1,37 +1,43 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       MainProcANDROID.cpp
-*
+* 
 * @class      MAINPROCANDROID
 * @brief      ANDROID Main Proc class
 * @ingroup    PLATFORM_ANDROID
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "MainProcANDROID.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -92,15 +98,13 @@
 
 #include "APPGraphics.h"
 
-
-#include "MainProcANDROID.h"
-
-#include "ANDROIDJNI.h"
-
 #include "XMemory_Control.h"
+
+#pragma endregion
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 #ifdef XTRACE_ACTIVE
 XANDROIDTRACE    androiddebugtrace;
@@ -109,6 +113,11 @@ XANDROIDTRACE    androiddebugtrace;
 MAINPROCANDROID  androidmain;
 void*            java_vm;
 
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -140,7 +149,6 @@ MAINPROCANDROID::~MAINPROCANDROID()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -203,7 +211,6 @@ bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain,
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::Update()
@@ -228,7 +235,6 @@ bool MAINPROCANDROID::Update()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -263,7 +269,6 @@ bool MAINPROCANDROID::End()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         android_app* MAINPROCANDROID::GetAndroidApplication()
@@ -277,7 +282,6 @@ android_app* MAINPROCANDROID::GetAndroidApplication()
 {
   return androidapplication;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -297,7 +301,6 @@ void MAINPROCANDROID::SetAndroidApplication(android_app* application)
 }
 
 
-
 #ifdef INP_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -314,7 +317,6 @@ INPDEVICE* MAINPROCANDROID::GetKeyboard()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         INPDEVICE* MAINPROCANDROID::GetTouchscreen()
@@ -329,8 +331,6 @@ INPDEVICE* MAINPROCANDROID::GetTouchscreen()
   return mouse;
 }
 #endif
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -445,7 +445,6 @@ bool MAINPROCANDROID::OnTouchEvent(AInputEvent* event)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
@@ -485,7 +484,6 @@ bool MAINPROCANDROID::OnKeyboardEvent(AInputEvent* event)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
@@ -505,7 +503,6 @@ bool MAINPROCANDROID::OnTrackballEvent(AInputEvent* event)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         STATUS MAINPROCANDROID::OnActivate()
@@ -523,7 +520,6 @@ STATUS MAINPROCANDROID::OnActivate()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnDeactivate()
@@ -537,7 +533,6 @@ void MAINPROCANDROID::OnDeactivate()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnDeactivate"));  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -569,7 +564,6 @@ STATUS MAINPROCANDROID::OnStep()
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -618,8 +612,6 @@ void MAINPROCANDROID::OnStart()
 }
 
 
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnResume()
@@ -634,7 +626,6 @@ void MAINPROCANDROID::OnResume()
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnResume"));
  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -652,7 +643,6 @@ void MAINPROCANDROID::OnPause()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnStop()
@@ -666,7 +656,6 @@ void MAINPROCANDROID::OnStop()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnStop"));  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -690,7 +679,6 @@ void MAINPROCANDROID::OnDestroy()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
@@ -707,7 +695,6 @@ void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnSaveState"));  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -748,7 +735,6 @@ void MAINPROCANDROID::OnConfigurationChanged()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnLowMemory()
@@ -762,7 +748,6 @@ void MAINPROCANDROID::OnLowMemory()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnLowMemory"));  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -889,7 +874,6 @@ void MAINPROCANDROID::OnCreateWindow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnDestroyWindow()
@@ -928,7 +912,6 @@ void MAINPROCANDROID::OnDestroyWindow()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnGainFocus()
@@ -947,7 +930,6 @@ void MAINPROCANDROID::OnGainFocus()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void MAINPROCANDROID::OnLostFocus()
@@ -964,7 +946,6 @@ void MAINPROCANDROID::OnLostFocus()
   //APPGRAPHICS* gap = dynamic_cast<APPGRAPHICS*>(application);
   //if(gap) gap->OnLostFocus();  
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1004,7 +985,6 @@ bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& p
 
   return status;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1085,10 +1065,8 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
 
   //#endif
 
-
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1162,7 +1140,6 @@ bool MAINPROCANDROID::Factorys_Ini()
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1363,7 +1340,6 @@ bool MAINPROCANDROID::OverturnAssetsToExternalLocation(XPATH& origin, XPATH& dat
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
@@ -1449,7 +1425,6 @@ bool MAINPROCANDROID::AssetsDir_CreateAll(XPATH& origin)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
@@ -1476,7 +1451,6 @@ bool MAINPROCANDROID::AssetsDir_Add(XPATH* assetsdir)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
@@ -1490,7 +1464,6 @@ XVECTOR<XPATH*>* MAINPROCANDROID::AssetsDir_GetAll()
 {
   return &assetsdirs;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1512,7 +1485,6 @@ XPATH* MAINPROCANDROID::AssetsDir_Get(int index)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool MAINPROCANDROID::AssetsDir_DeleteAll()
@@ -1532,9 +1504,6 @@ bool MAINPROCANDROID::AssetsDir_DeleteAll()
   return true;
 }
     
-
-
-
 
 #ifdef INP_ACTIVE
 
@@ -1591,7 +1560,6 @@ bool MAINPROCANDROID::DeleteInputDevices()
 #endif
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
@@ -1608,7 +1576,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
 {
   return JNI_VERSION_1_6;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -1637,3 +1604,7 @@ void android_main(android_app* application)
   XFILE_DISPLAYNOTCLOSEFILES
   XMEMORY_CONTROL_DISPLAYMEMORYLEAKS
 }
+
+
+#pragma endregion
+
