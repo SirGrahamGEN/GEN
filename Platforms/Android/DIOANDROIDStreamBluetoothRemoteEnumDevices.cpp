@@ -1,22 +1,43 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES.CPP
-//
-//  ANDROID Data IO Stream Bluetooth Remote Enum Devices class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamBluetoothRemoteEnumDevices.cpp
+* 
+* @class      DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES
+* @brief      ANDROID Data Input/Output Bluetooth Remote Enum Devices class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-#if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
-
-
-
-//---- INCLUDES ----------------------------------------------------------------------------
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamBluetoothRemoteEnumDevices.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,18 +65,22 @@
 #include "DIOStream.h"
 #include "DIOStreamDeviceBluetooth.h"
 
-#include "DIOANDROIDStreamBluetoothRemoteEnumDevices.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
 DIOSTREAMDEVICEBLUETOOTHSDPSERVICE*  SDP_lastservice = NULL;
 static char                          UUID_str[MAX_LEN_UUID_STR];
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 extern "C"
 {
@@ -69,21 +94,15 @@ extern "C"
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES::DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:01
-//
-//  @return
-
-//  @param        publisher :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
   Clean();
@@ -111,19 +130,16 @@ DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMD
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES::~DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:12
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES()
 {
   StopSearch(true);
@@ -138,19 +154,15 @@ DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHREMOTEENUM
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIPREMOTEENUMDEVICES::Search
-*/
-/**
-//
-//
-//  ""
-//  @version      28/04/2013 19:00:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
+* @brief      Search
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 {
   if(!threadenumdevices)       return false;
@@ -180,20 +192,17 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Search()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:35
-//
-//  @return       bool :
-//  @param        waitend :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
+* @brief      StopSearch
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  waitend : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 {
   if(!IsSearching()) return false;
@@ -216,20 +225,15 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::StopSearch(bool waitend)
 };
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:41:40
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
+* @brief      IsSearching
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 {
   if(!threadenumdevices) return false;
@@ -242,41 +246,18 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsSearching()
 };
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      06/05/2013 23:25:03
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
-{
-  threadenumdevices = NULL;
-
-}
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice
-*/
-/**
-//
-//
-//  ""
-//  @version      19/05/2013 20:54:25
-//
-//  @return       bool :
-//  @param        localdeviceindex :
-//  @param        btaddr :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int localdeviceindex, char* btaddr)
+* @brief      GetAddrFromLocalDevice
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  localdeviceindex : 
+* @param[in]  btaddr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int localdeviceindex, char* btaddr)
 {
   struct hci_dev_info* di;
@@ -295,21 +276,17 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::GetAddrFromLocalDevice(int loca
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect
-*/
-/**
-//
-//
-//  ""
-//  @version      19/05/2013 2:41:57
-//
-//  @return       int :
-//  @param        socket :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -346,20 +323,17 @@ int DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::IsReadyConnect(int socket)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 17:36:53
-//
-//  @return       bool :
-//  @param        devices :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVICE*>* devices)
+* @brief      ScanDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  devices : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDEVICE*>* devices)
 {
   inquiry_info* info = NULL;
@@ -409,21 +383,17 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevices(XVECTOR<DIOSTREAMDE
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName
-*/
-/**
-//
-//
-//  ""
-//  @version      19/05/2013 0:52:20
-//
-//  @return       bool :
-//  @param        device :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBLUETOOTH* device)
+* @brief      ScanDevicesName
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  device : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICEBLUETOOTH* device)
 {
   if(!device) return false;
@@ -463,20 +433,17 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesName(DIOSTREAMDEVICE
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices
-*/
-/**
-//
-//
-//  ""
-//  @version      19/05/2013 1:09:55
-//
-//  @return       bool :
-//  @param        devices :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOSTREAMDEVICE*>* devices)
+* @brief      ScanDevicesServices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  devices : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIOSTREAMDEVICE*>* devices)
 {
   DIOSTREAMDEVICEBLUETOOTH* device;
@@ -492,8 +459,6 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIO
 
 
       memset(&context, '\0', sizeof(struct search_context));
-
-      //
 
       //sdp_uuid16_create(&protocol, PUBLIC_BROWSE_GROUP);
 
@@ -513,22 +478,18 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDevicesServices(XVECTOR<DIO
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices
-*/
-/**
-//
-//
-//  ""
-//  @version      19/05/2013 1:10:54
-//
-//  @return       bool :
-//  @param        device :
-//  @param        index :
-//  @param        context :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVICEBLUETOOTH* device, struct search_context* context)
+* @brief      ScanDeviceServices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  device : 
+* @param[in]  search_context* context : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVICEBLUETOOTH* device, struct search_context* context)
 {
   if(!device) return false;
@@ -638,20 +599,17 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEV
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 17:02:14
-//
-//  @return       void :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
+* @brief      ThreadEnumDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
   DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES* enumeration = (DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES*)param;
@@ -702,20 +660,19 @@ void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 extern "C"
 {
 
-  /*-------------------------------------------------------------------
-  //  print_service_class
-  */
-  /**
-  //
-  //
-  //  ""
-  //  @version      19/05/2013 2:29:21
-  //
-  //  @return       void :
-  //  @param        value :
-  //  @param        userData :
-  */
-  /*-----------------------------------------------------------------*/
+
+  /**-------------------------------------------------------------------------------------------------------------------
+  * 
+  * @fn         void print_service_class(void* value, void* userData)
+  * @brief      void print_service_class
+  * @ingroup    PLATFORM_ANDROID
+  * 
+  * @param[in]  value : 
+  * @param[in]  userData : 
+  * 
+  * @return     Does not return anything. 
+  * 
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_class(void* value, void* userData)
   {
     if(!SDP_lastservice) return;
@@ -732,21 +689,18 @@ extern "C"
   }
 
 
-
-  /*-------------------------------------------------------------------
-  //  print_service_desc
-  */
-  /**
-  //
-  //
-  //  ""
-  //  @version      19/05/2013 2:29:13
-  //
-  //  @return       void :
-  //  @param        value :
-  //  @param        user :
-  */
-  /*-----------------------------------------------------------------*/
+  /**-------------------------------------------------------------------------------------------------------------------
+  * 
+  * @fn         void print_service_desc(void* value, void* user)
+  * @brief      void print_service_desc
+  * @ingroup    PLATFORM_ANDROID
+  * 
+  * @param[in]  value : 
+  * @param[in]  user : 
+  * 
+  * @return     Does not return anything. 
+  * 
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_desc(void* value, void* user)
   {
     if(!SDP_lastservice) return;
@@ -784,22 +738,18 @@ extern "C"
   }
 
 
-
-
-  /*-------------------------------------------------------------------
-  //  print_access_protos
-  */
-  /**
-  //
-  //
-  //  ""
-  //  @version      19/05/2013 2:29:07
-  //
-  //  @return       void :
-  //  @param        value :
-  //  @param        userData :
-  */
-  /*-----------------------------------------------------------------*/
+  /**-------------------------------------------------------------------------------------------------------------------
+  * 
+  * @fn         void print_access_protos(void* value, void* userData)
+  * @brief      void print_access_protos
+  * @ingroup    PLATFORM_ANDROID
+  * 
+  * @param[in]  value : 
+  * @param[in]  userData : 
+  * 
+  * @return     Does not return anything. 
+  * 
+  * --------------------------------------------------------------------------------------------------------------------*/
   void print_access_protos(void* value, void* userData)
   {
     //XTRACE_PRINTCOLOR(4, __L("print_access_protos"));
@@ -812,4 +762,26 @@ extern "C"
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
+{
+  threadenumdevices = NULL;
+
+}
+
+
+#pragma endregion
+
+
 #endif
+
+

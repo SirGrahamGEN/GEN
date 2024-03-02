@@ -1,24 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH.CPP
-//
-//  ANDROID Data IO Stream Bluetooth class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamBluetooth.cpp
+* 
+* @class      DIOANDROIDSTREAMBLUETOOTH
+* @brief      ANDROID Data Input/Output Stream Bluetooth class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
 
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
 
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
-//---- INCLUDES ----------------------------------------------------------------------------
-
-#include "GEN_Defines.h"
-
+#include "DIOANDROIDStreamBluetooth.h"
 
 #include "XFactory.h"
 #include "XDir.h"
@@ -29,33 +51,32 @@
 #include "DIOStreamBluetoothConfig.h"
 #include "DIOStreamDeviceBluetooth.h"
 
-#include "DIOANDROIDStreamBluetooth.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:17:35
-//
-//  @return       void :
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( )
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]    : 
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() , XFSMACHINE(0)
 {
   Clean();
@@ -96,17 +117,16 @@ DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() ,
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
 {
   if(threadconnection)
@@ -119,18 +139,15 @@ DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTH::Open()
+* @brief      Open
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTH::Open()
 {
   if(!threadconnection) return false;
@@ -144,18 +161,15 @@ bool DIOANDROIDSTREAMBLUETOOTH::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTH::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTH::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -173,17 +187,15 @@ bool DIOANDROIDSTREAMBLUETOOTH::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTH::Close()
+* @brief      Close
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTH::Close()
 {
   if(!threadconnection) return false;
@@ -214,21 +226,17 @@ bool DIOANDROIDSTREAMBLUETOOTH::Close()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 12:09:04
-//
-//  @return       int :
-//  @param        socket :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -265,23 +273,20 @@ int DIOANDROIDSTREAMBLUETOOTH::IsReadyConnect(int socket)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:33
-//
-//  @return       sdp_session_t* :
-//  @param        service_name :
-//  @param        service_dsc :
-//  @param        service_prov :
-//  @param        rfcomm_channel :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
+* @brief      SDP_RegisterService
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  service_name : 
+* @param[in]  service_dsc : 
+* @param[in]  service_prov : 
+* @param[in]  rfcomm_channel : 
+* 
+* @return     sdp_session_t* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name,char* service_dsc,char* service_prov,int rfcomm_channel)
 {
   uint32_t service_uuid_int[] = { 0x0111, 10, 1, 1 };
@@ -353,51 +358,20 @@ sdp_session_t* DIOANDROIDSTREAMBLUETOOTH::SDP_RegisterService(char* service_name
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOANDROIDSTREAMBLUETOOTH::Clean()
-{
-  threadconnection   = NULL;
-  status            = DIOSTREAMSTATUS_DISCONNECTED;
-
-  handlesocket      = -1;
-  sdpserversession  = NULL;
-  handleserver      = -1;
-
-  memset(buffer,0,DIOSTREAM_MAXBUFFER);
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      26/01/2015 9:37:22
-//
-//  @return       bool :
-//
-//  @param        active :
-//  @param        &locMACstring :
-//  @param        &remMACstring :
-//  @param        PIN :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
+* @brief      ManagementOfPIN
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  active : 
+* @param[in]  &localMACstring : 
+* @param[in]  &remoteMACstring : 
+* @param[in]  PIN : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACstring, XSTRING &remoteMACstring, XSTRING& PIN)
 {
   XDIR*   xdir;
@@ -496,23 +470,17 @@ bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACst
 }
 
 
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction
-*/
-/**
-//
-//
-//  ""
-//  @version      18/05/2013 12:13:01
-//
-//  @return       void :
-//  @param        param :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
+* @brief      ThreadRunFunction
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 {
   DIOANDROIDSTREAMBLUETOOTH* diostream = (DIOANDROIDSTREAMBLUETOOTH*)param;
@@ -788,6 +756,33 @@ void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
         }
     }
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMBLUETOOTH::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMBLUETOOTH::Clean()
+{
+  threadconnection   = NULL;
+  status            = DIOSTREAMSTATUS_DISCONNECTED;
+
+  handlesocket      = -1;
+  sdpserversession  = NULL;
+  handleserver      = -1;
+
+  memset(buffer,0,DIOSTREAM_MAXBUFFER);
+}
+
+
+#pragma endregion
+
 
 #endif
 

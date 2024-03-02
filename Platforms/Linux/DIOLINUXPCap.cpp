@@ -3,7 +3,7 @@
 * @file       DIOLINUXPCap.cpp
 * 
 * @class      DIOLINUXPCAP
-* @brief      LINUX Data Input/Output PCap Library (Capture Ethernet Packets) class
+* @brief      LINUX Data Input/Output PCap Library class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -1,25 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP.CPP
-//
-//  ANDROID Data IO Stream ICMP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamICMP.cpp
+* 
+* @class      DIOANDROIDSTREAMICMP
+* @brief      ANDROID Data Input/Output Stream ICMP class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
+
 
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMICMP_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
 
-#include "GEN_Defines.h"
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamICMP.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,86 +77,82 @@
 #include "DIOStreamICMPConfig.h"
 #include "DIOStreamICMP.h"
 
-
-#include "DIOANDROIDStreamICMP.h"
-
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:10:30
-//
-//  @return
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
-*/
-/*-----------------------------------------------------------------*/
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 {
   Clean();
 
   AddState( DIOANDROIDICMPFSMSTATE_NONE                 ,
-            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION     , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
-            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED         ,
-            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING     ,
+            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION    , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED          ,
+            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING      ,
             XFSMACHINESTATE_EVENTDEFEND);
 
-  AddState( DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION     ,
-            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED         ,
-            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD     ,
-            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA       ,
-            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING     ,
+  AddState( DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION    ,
+            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED          ,
+            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD      ,
+            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA        ,
+            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING      ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOANDROIDICMPFSMSTATE_CONNECTED            ,
-            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION     , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION,
-            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD     ,
-            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA       ,
-            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING     ,
+            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION    , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD      ,
+            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA        ,
+            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING      ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOANDROIDICMPFSMSTATE_WAITINGTOREAD        ,
-            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION     , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
-            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED         ,
-            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA       ,
-            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING     ,
+            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION    , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED          ,
+            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA        ,
+            DIOANDROIDICMPFSMEVENT_DISCONNECTING        , DIOANDROIDICMPFSMSTATE_DISCONNECTING      ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   AddState( DIOANDROIDICMPFSMSTATE_DISCONNECTING        ,
-            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION     , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
-            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED         ,
-            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD     ,
-            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA       ,
+            DIOANDROIDICMPFSMEVENT_GETTINGCONNECTION    , DIOANDROIDICMPFSMSTATE_GETTINGCONNECTION  ,
+            DIOANDROIDICMPFSMEVENT_CONNECTED            , DIOANDROIDICMPFSMSTATE_CONNECTED          ,
+            DIOANDROIDICMPFSMEVENT_WAITINGTOREAD        , DIOANDROIDICMPFSMSTATE_WAITINGTOREAD      ,
+            DIOANDROIDICMPFSMEVENT_SENDINGDATA          , DIOANDROIDICMPFSMSTATE_SENDINGDATA        ,
             XFSMACHINESTATE_EVENTDEFEND);
 
   threadconnection = CREATEXTHREAD(XTHREADGROUPID_DIOSTREAMICMP, __L("DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP"), ThreadRunFunction, (void*)this);
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
 {
   if(threadconnection)
@@ -147,18 +164,15 @@ DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMICMP::Open()
+* @brief      Open
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMICMP::Open()
 {
   if(!threadconnection)  return false;
@@ -178,18 +192,15 @@ bool DIOANDROIDSTREAMICMP::Open()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::Disconnect
-*/
-/**
-//
-//
-//  ""
-//  @version      01/12/2010 23:10:56
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMICMP::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMICMP::Disconnect()
 {
   if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
@@ -207,17 +218,15 @@ bool DIOANDROIDSTREAMICMP::Disconnect()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMICMP::Close()
+* @brief      Close
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMICMP::Close()
 {
   if(!threadconnection) return false;
@@ -235,19 +244,17 @@ bool DIOANDROIDSTREAMICMP::Close()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::IsReadyConnect
-/**
-//
-//
-//  ""
-//  @version      08/03/2006 15:36:59
-//
-//  @return       int :
-//  @param        sock :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
+* @brief      IsReadyConnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  socket : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
 {
   struct timeval  tv;
@@ -291,39 +298,17 @@ int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOANDROIDSTREAMICMP::Clean()
-{
-  threadconnection   = NULL;
-  status            = DIOSTREAMSTATUS_DISCONNECTED;
-  handle            = -1;
-}
-
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMICMP::ThreadRunFunction
-/**
-//
-//
-//  ""
-//  @version      06/03/2006 15:44:00
-//
-//  @return       void :
-//  @param        data :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
+* @brief      ThreadRunFunction
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  thread : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
 {
   DIOANDROIDSTREAMICMP* diostream = (DIOANDROIDSTREAMICMP*)thread;
@@ -568,4 +553,27 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
     }
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMICMP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMICMP::Clean()
+{
+  threadconnection    = NULL;
+  status              = DIOSTREAMSTATUS_DISCONNECTED;
+  handle              = -1;
+}
+
+
+#pragma endregion
+
+
 #endif
+

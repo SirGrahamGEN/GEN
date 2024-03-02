@@ -1,69 +1,91 @@
-/*------------------------------------------------------------------------------------------
-//  DIOANDROIDPCAP.CPP
-//
-//  Interface PCap Library (Capture Ethernet Packets)
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 22/10/2012 13:30:11
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//----------------------------------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDPCap.cpp
+* 
+* @class      DIOANDROIDPCAP
+* @brief      ANDROID Data Input/Output PCap Library class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #ifdef DIO_PCAP_ACTIVE
 
-/*---- INCLUDES --------------------------------------------------------------------------*/
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDPCap.h"
 
 #include "XFactory.h"
 #include "XTrace.h"
 #include "XThread.h"
 
-#include "DIOANDROIDPCap.h"
-
 #include "XMemory_Control.h"
 
-/*---- GENERAL VARIABLE ------------------------------------------------------------------*/
+#pragma endregion
 
 
-/*---- CLASS MEMBERS ---------------------------------------------------------------------*/
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::DIOANDROIDPCAP
-*/
-/**
-//
-//
-//  ""
-//  @version      22/10/2012 15:18:18
-//
-//  @return
-//  @param        xfactory :
-*/
-/*-----------------------------------------------------------------*/
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDPCAP::DIOANDROIDPCAP()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDPCAP::DIOANDROIDPCAP() : DIOPCAP()
 {
   Clean();
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::~DIOANDROIDPCAP
-*/
-/**
-//
-//
-//  ""
-//  @version      22/10/2012 15:18:36
-//
-//  @return
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDPCAP::~DIOANDROIDPCAP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDPCAP::~DIOANDROIDPCAP()
 {
   End();
@@ -72,23 +94,19 @@ DIOANDROIDPCAP::~DIOANDROIDPCAP()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::Capture_Start
-*/
-/**
-//
-//
-//  ""
-//  @version      23/10/2012 9:37:03
-//
-//  @return       bool :
-//  @param        netinterface :
-//  @param        promiscuousmode :
-//  @param        timeout :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
+* @brief      Capture_Start
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  netinterface : 
+* @param[in]  promiscuousmode : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promiscuousmode, int timeout)
 {
   if(!netinterface) return false;
@@ -115,19 +133,15 @@ bool DIOANDROIDPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promi
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::Capture_End
-*/
-/**
-//
-//
-//  ""
-//  @version      22/10/2012 17:15:54
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDPCAP::Capture_End()
+* @brief      Capture_End
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDPCAP::Capture_End()
 {
   if(threadcapture)
@@ -147,41 +161,15 @@ bool DIOANDROIDPCAP::Capture_End()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::Clean
-*/
-/**
-//
-//
-//  ""
-//  @version      22/10/2012 15:18:56
-//
-//  @return       void :
-//  */
-/*-----------------------------------------------------------------*/
-void DIOANDROIDPCAP::Clean()
-{
-  handle        = NULL;
-  threadcapture = NULL;
-}
-
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::CreateListNetInterfaces
-*/
-/**
-//
-//
-//  ""
-//  @version      22/10/2012 16:52:27
-//
-//  @return       bool :
-//  */
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDPCAP::CreateListNetInterfaces()
+* @brief      CreateListNetInterfaces
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDPCAP::CreateListNetInterfaces()
 {
   pcap_if_t* allnetinterfaces;
@@ -212,20 +200,17 @@ bool DIOANDROIDPCAP::CreateListNetInterfaces()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::ThreadCapture
-*/
-/**
-//
-//
-//  ""
-//  @version      23/10/2012 9:03:44
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDPCAP::ThreadCapture(void* data)
+* @brief      ThreadCapture
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDPCAP::ThreadCapture(void* data)
 {
   DIOANDROIDPCAP* diopcap = (DIOANDROIDPCAP*)data;
@@ -242,52 +227,50 @@ void DIOANDROIDPCAP::ThreadCapture(void* data)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDPCAP::PacketHandler
-*/
-/**
-//
-//
-//  ""
-//  @version      23/10/2012 9:42:38
-//
-//  @return       void :
-//  @param        param :
-//  @param        header :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
+* @brief      PacketHandler
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  param : 
+* @param[in]  struct pcap_pkthdr* header : 
+* @param[in]  u_char* data : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
 {
   DIOANDROIDPCAP* diopcap = (DIOANDROIDPCAP*)param;
   if(!diopcap) return;
 
   diopcap->Frames_Add((XBYTE*)data,header->len);
-
-
-  /*
-  struct tm *ltime;
-  char timestr[16];
-  time_t local_tv_sec;
-
-
-  //  unused parameters
-
-  //(VOID)(param);
-  //(VOID)(pkt_data);
-
-  // convert the timestamp to readable format
-  local_tv_sec = header->ts.tv_sec;
-  ltime=localtime(&local_tv_sec);
-  strftime( timestr, sizeof timestr, "%H:%M:%S", ltime);
-
-  printf("%s,%.6d len:%d\n", timestr, header->ts.tv_usec, header->len);
-  */
-
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDPCAP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDPCAP::Clean()
+{
+  handle        = NULL;
+  threadcapture = NULL;
+}
+
+
+#pragma endregion
+
 
 #endif
+
+
+#endif
+

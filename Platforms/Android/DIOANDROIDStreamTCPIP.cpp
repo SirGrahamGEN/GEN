@@ -1,106 +1,89 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIP.CPP
-//
-//  ANDROID Data IO Stream TCP/IP class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamTCPIP.cpp
+* 
+* @class      DIOANDROIDSTREAMTCPIP
+* @brief      ANDROID Data Input/Output Stream TCP/IP class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
-//---- INCLUDES ----------------------------------------------------------------------------
+#pragma endregion
 
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
 
-#include <malloc.h>
-#include <syslog.h>
-#include <signal.h>
-
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/ioctl.h>
-#include <sys/time.h>
-#include <sys/epoll.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <netinet/tcp.h>
-#include <net/if.h>
-#include <netdb.h>
-#include <linux/if_ether.h>
-
-#include "XFactory.h"
-#include "XBuffer.h"
-#include "XThread.h"
-#include "XTrace.h"
-#include "XString.h"
-#include "XTrace.h"
-
-#include "DIOIP.h"
-#include "DIOURL.h"
-#include "DIOStreamXEvent.h"
-#include "DIOStreamEnumServers.h"
-#include "DIOStreamTCPIPConfig.h"
-*/
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "DIOANDROIDStreamTCPIP.h"
 
 #include "XMemory_Control.h"
 
-
-//---- GENERAL VARIABLE --------------------------------------------------------------------
-
-
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+#pragma endregion
 
 
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 7:48:15
-//
-//  @return
-*/
-/*-----------------------------------------------------------------*/
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP() : DIOLINUXSTREAMTCPIP()
 {
 
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMTCPIP::~DIOANDROIDSTREAMTCPIP
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMTCPIP::~DIOANDROIDSTREAMTCPIP()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMTCPIP::~DIOANDROIDSTREAMTCPIP()
 {
 
 }
+
+
+#pragma endregion
+

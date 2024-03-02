@@ -1,23 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDFACTORY.CPP
-//
-//  ANDROID DIO factory class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 08/08/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDFactory.cpp
+* 
+* @class      DIOANDROIDFACTORY
+* @brief      ANDROID Data Input/Output Factory class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #ifdef DIO_ACTIVE
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDFactory.h"
 
 #ifdef DIO_STREAMUART_ACTIVE
 #include "DIOStreamUARTConfig.h"
@@ -74,41 +97,43 @@
 #ifdef DIO_PING_ACTIVE
 #include "DIOANDROIDPing.h"
 #endif
+
 #ifdef DIO_PCAP_ACTIVE
 #include "DIOANDROIDPCap.h"
 #endif
+
 #ifdef DIO_GPIO_ACTIVE
 #include "DIOANDROIDGPIO.h"
 #endif
 
-#include "DIOANDROIDFactory.h"
-
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
 #ifdef ANYTYPEOFDIOSTREAMIO
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::CreateStreamEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      05/05/2013 1:20:06
-//
-//  @return       DIOSTREAMENUMDEVICES* :
-
-
-//  @param        type :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
+* @brief      CreateStreamEnumDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  type : 
+* 
+* @return     DIOSTREAMENUMDEVICES* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTYPE type)
 {
   DIOSTREAMENUMDEVICES* _class = NULL;
@@ -143,20 +168,17 @@ DIOSTREAMENUMDEVICES* DIOANDROIDFACTORY::CreateStreamEnumDevices(DIOSTREAMENUMTY
 };
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::DeleteStreamEnumDevices
-*/
-/**
-//
-//
-//  ""
-//  @version      05/05/2013 1:20:13
-//
-//  @return       bool :
-//  @param        enumdevices :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
+* @brief      DeleteStreamEnumDevices
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  enumdevices : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 {
   if(!enumdevices)  return false;
@@ -167,24 +189,17 @@ bool DIOANDROIDFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 };
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::CreateStreamIO
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:19:55
-//
-//  @return       DIOSTREAM* :
-
-
-
-//  @param        config :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
+* @brief      CreateStreamIO
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  config : 
+* 
+* @return     DIOSTREAM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
   if(!config) return NULL;
@@ -238,46 +253,36 @@ DIOSTREAM* DIOANDROIDFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::DeleteStreamIO
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        streamio :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
+* @brief      DeleteStreamIO
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  diostream : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDFACTORY::DeleteStreamIO(DIOSTREAM* diostream)
 {
   if(!diostream) return false;
   delete diostream;
   return true;
 }
-
 #endif
 
 
-
-
 #ifdef DIO_PING_ACTIVE
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::CreatePing
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      30/03/2016 12:50:04
-//
-//  @return       DIOPING* :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPING* DIOANDROIDFACTORY::CreatePing()
+* @brief      CreatePing
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     DIOPING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPING* DIOANDROIDFACTORY::CreatePing()
 {
   DIOANDROIDPING* _class = new DIOANDROIDPING();
@@ -286,21 +291,17 @@ DIOPING* DIOANDROIDFACTORY::CreatePing()
 }
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::DeletePing
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      30/03/2016 12:50:23
-//
-//  @return       bool :
-//
-//  @param        ping :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
+* @brief      DeletePing
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  ping : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
 {
   if(!ping) return false;
@@ -314,21 +315,16 @@ bool DIOANDROIDFACTORY::DeletePing(DIOPING* ping)
 #endif
 
 
-
 #ifdef DIO_PCAP_ACTIVE
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::CreatePCap
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2009 07:27:51 p.m.
-//
-//  @return       DIOPCAP* :
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
+* @brief      CreatePCap
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     DIOPCAP* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
 {
   DIOANDROIDPCAP* _class = new DIOANDROIDPCAP();
@@ -337,20 +333,17 @@ DIOPCAP* DIOANDROIDFACTORY::CreatePCap()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::DeleteGPIO
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2009 07:27:55 p.m.
-//
-//  @return       bool :
-//  @param        port :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
+* @brief      DeletePCap
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  pcap : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
 {
   if(!pcap) return false;
@@ -360,26 +353,21 @@ bool DIOANDROIDFACTORY::DeletePCap(DIOPCAP* pcap)
 
   return true;
 }
-
 #endif
 
 
 
 
 #ifdef DIO_GPIO_ACTIVE
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::CreateGPIO
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2009 07:27:51 p.m.
-//
-//  @return       DIOGPIO* :
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
+* @brief      CreateGPIO
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     DIOGPIO* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
 {
   DIOANDROIDGPIO* _class = new DIOANDROIDGPIO();
@@ -388,20 +376,17 @@ DIOGPIO* DIOANDROIDFACTORY::CreateGPIO()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDFACTORY::DeleteGPIO
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2009 07:27:55 p.m.
-//
-//  @return       bool :
-//  @param        port :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDFACTORY::DeleteGPIO(DIOGPIO* port)
+* @brief      DeleteGPIO
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  port : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDFACTORY::DeleteGPIO(DIOGPIO* port)
 {
   if(!port) return false;
@@ -411,9 +396,19 @@ bool DIOANDROIDFACTORY::DeleteGPIO(DIOGPIO* port)
 
   return true;
 }
+#endif
+
 
 #endif
 
 
+#pragma endregion
 
-#endif
+
+
+
+
+
+
+
+

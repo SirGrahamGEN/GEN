@@ -1,39 +1,46 @@
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @file       DIOANDROIDGPIO.cpp
-*
+* 
 * @class      DIOANDROIDGPIO
-* @brief      Android DIO General Port Input/Ouput
+* @brief      ANDROID Data Input/Output GPIO (General Port Input/Ouput) class
 * @ingroup    PLATFORM_ANDROID
-*
+* 
 * @copyright  GEN Group. All rights reserved.
-*
+* 
 * @cond
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 * documentation files(the "Software"), to deal in the Software without restriction, including without limitation
 * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
 * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-*
+* 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
 * the Software.
-*
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 * @endcond
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
+
+#pragma endregion
+
 
 #ifdef ANDROID
 
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDGPIO.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,14 +53,19 @@
 #include <sys/stat.h>
 #include <sys/ioctl.h>
 
-#include "DIOANDROIDGPIO.h"
-
 #include "XMemory_Control.h"
 
+#pragma endregion
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-
+#pragma region CLASS_MEMBERS
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -69,7 +81,6 @@ DIOANDROIDGPIO::DIOANDROIDGPIO(): DIOGPIO()
 {
   Clean();
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -88,7 +99,6 @@ DIOANDROIDGPIO::~DIOANDROIDGPIO()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOANDROIDGPIO::Ini()
@@ -102,7 +112,6 @@ bool DIOANDROIDGPIO::Ini()
 {
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -119,10 +128,8 @@ bool DIOANDROIDGPIO::Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDGPIO::SetMode(XBYTE pin, bool isinput)
 {
-
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -138,10 +145,8 @@ bool DIOANDROIDGPIO::SetMode(XBYTE pin, bool isinput)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDGPIO::Get(XBYTE pin)
 {
-
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -158,10 +163,8 @@ bool DIOANDROIDGPIO::Get(XBYTE pin)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDGPIO::Set(XBYTE pin, bool active)
 {
-
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -175,10 +178,8 @@ bool DIOANDROIDGPIO::Set(XBYTE pin, bool active)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDGPIO::End()
 {
-
   return false;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -197,4 +198,8 @@ void DIOANDROIDGPIO::Clean()
 }
 
 
+#pragma endregion
+
+
 #endif
+

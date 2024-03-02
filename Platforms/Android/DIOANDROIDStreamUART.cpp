@@ -1,23 +1,46 @@
-//------------------------------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART.CPP
-//
-//  ANDROID Data IO Stream UART class
-//
-//  Author            : Abraham J. Velez
-//  Date Of Creation  : 02/01/2002
-//  Last Mofificacion :
-//
-//  GEN  Copyright (C).  All right reserved.
-//------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       DIOANDROIDStreamUART.cpp
+* 
+* @class      DIOANDROIDSTREAMUART
+* @brief      ANDROID Data Input/Output Stream UART class
+* @ingroup    PLATFORM_ANDROID
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-
-/*---- PRECOMPILATION CONTROL ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
 
+#pragma endregion
+
+
 #if defined(DIO_ACTIVE) && defined(DIO_STREAMUART_ACTIVE)
 
-//---- INCLUDES ----------------------------------------------------------------------------
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "DIOANDROIDStreamUART.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -48,27 +71,28 @@
 
 #include "XMemory_Control.h"
 
-//---- GENERAL VARIABLE --------------------------------------------------------------------
+#pragma endregion
 
 
-//---- CLASS MEMBERS -----------------------------------------------------------------------
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
 
 
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART
-*/
-/**
-//
-//
-//  ""
-//  @version      18/02/2013 23:11:51
-//
-//  @return
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
 
 
-
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART()
+* @brief      Constructor
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 {
   Clean();
@@ -99,17 +123,16 @@ DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     Does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART()
 {
   Close();
@@ -120,20 +143,15 @@ DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART()
 }
 
 
-
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::GetConnectStatus
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       DIOSTREAMSTATUS :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAMSTATUS DIOANDROIDSTREAMUART::GetConnectStatus()
+* @brief      GetConnectStatus
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     DIOSTREAMSTATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSTATUS DIOANDROIDSTREAMUART::GetConnectStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
@@ -143,17 +161,15 @@ DIOSTREAMSTATUS DIOANDROIDSTREAMUART::GetConnectStatus()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::Open
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::Open()
+* @brief      Open
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::Open()
 {
   if(!config) return false;
@@ -196,22 +212,17 @@ bool DIOANDROIDSTREAMUART::Open()
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::Config
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      01/11/2014 12:37:49
-//
-//  @return       bool :
-//
-//  @param        mask :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::Config(XWORD mask)
+* @brief      Config
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::Config(XWORD mask)
 {
   if(fd<0) return false;
@@ -332,23 +343,18 @@ bool DIOANDROIDSTREAMUART::Config(XWORD mask)
 }
 
 
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::ReadDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:25:13
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOANDROIDSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
+* @brief      ReadDirect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOANDROIDSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
@@ -390,24 +396,18 @@ XDWORD DIOANDROIDSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::WriteDirect
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      24/06/2015 13:25:02
-//
-//  @return       XDWORD :
-//
-//  @param        buffer :
-//  @param        size :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOANDROIDSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
+* @brief      WriteDirect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  buffer : 
+* @param[in]  size : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOANDROIDSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
@@ -434,18 +434,30 @@ XDWORD DIOANDROIDSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::Disconnect()
+* @brief      Disconnect
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOANDROIDSTREAMUART::Disconnect()                                
+{ 
+  return false; 
+}
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::Close
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::Close()
+* @brief      Close
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::Close()
 {
   //if(threadconnection) threadconnection->End();
@@ -462,17 +474,15 @@ bool DIOANDROIDSTREAMUART::Close()
 }
 
 
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::GetCTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::GetCTS()
+* @brief      GetCTS
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::GetCTS()
 {
   if(fd<0) return false;
@@ -485,18 +495,15 @@ bool DIOANDROIDSTREAMUART::GetCTS()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::GetDSR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::GetDSR()
+* @brief      GetDSR
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::GetDSR()
 {
   if(fd<0) return false;
@@ -509,19 +516,15 @@ bool DIOANDROIDSTREAMUART::GetDSR()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::GetRing
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::GetRing()
+* @brief      GetRing
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::GetRing()
 {
   if(fd<0) return false;
@@ -534,22 +537,15 @@ bool DIOANDROIDSTREAMUART::GetRing()
 }
 
 
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::GetRLSD
-*/
-/**
-//
-//
-//
-//  ""
-//  @version      12/11/2014 17:29:42
-//
-//  @return       bool :
-//
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::GetRLSD()
+* @brief      GetRLSD
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::GetRLSD()
 {
   if(fd<0) return false;
@@ -558,20 +554,17 @@ bool DIOANDROIDSTREAMUART::GetRLSD()
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::SetRTS
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::SetRTS(bool on)
+* @brief      SetRTS
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::SetRTS(bool on)
 {
   if(fd<0) return false;
@@ -588,20 +581,17 @@ bool DIOANDROIDSTREAMUART::SetRTS(bool on)
 }
 
 
-
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::SetDTR
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return       bool :
-//  @param        on :
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::SetDTR(bool on)
+* @brief      SetDTR
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  on : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::SetDTR(bool on)
 {
   if(fd<0) return false;
@@ -618,18 +608,16 @@ bool DIOANDROIDSTREAMUART::SetDTR(bool on)
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::CleanBuffers
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOANDROIDSTREAMUART::CleanBuffers()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUART::CleanBuffers()
 {
   if(fd<0) return false;
@@ -640,40 +628,17 @@ bool DIOANDROIDSTREAMUART::CleanBuffers()
 }
 
 
-
-//-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::Clean
-/**
-//
-//
-//  ""
-//  @version      03/09/2001 16:58:17
-//
-//  @return
-*/
-//-------------------------------------------------------------------
-void DIOANDROIDSTREAMUART::Clean()
-{
-  fd            = -1;
-  readtimeout   = 3000;
-  writetimeout  = 3000;
-}
-
-
-
-/*-------------------------------------------------------------------
-//  DIOANDROIDSTREAMUART::ThreadConnection
-*/
-/**
-//
-//
-//  ""
-//  @version      25/07/2012 13:56:19
-//
-//  @return       void :
-//  @param        data :
-*/
-/*-----------------------------------------------------------------*/
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
+* @brief      ThreadConnection
+* @ingroup    PLATFORM_ANDROID
+* 
+* @param[in]  param : 
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
 {
   DIOANDROIDSTREAMUART* diostream = (DIOANDROIDSTREAMUART*)param;
@@ -759,4 +724,26 @@ void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOANDROIDSTREAMUART::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_ANDROID
+* 
+* @return     void : does not return anything. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOANDROIDSTREAMUART::Clean()
+{
+  fd            = -1;
+  readtimeout   = 3000;
+  writetimeout  = 3000;
+}
+
+
+#pragma endregion
+
+
 #endif
+
