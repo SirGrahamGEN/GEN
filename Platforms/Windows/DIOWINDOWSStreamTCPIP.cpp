@@ -356,36 +356,6 @@ int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOWINDOWSSTREAMTCPIP::SetPropertysHandle(SOCKET socket)
-* @brief      SetPropertysHandle
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @param[in]  socket : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool DIOWINDOWSSTREAMTCPIP::SetPropertysHandle(SOCKET socket)
-{
-  int opt;
-
-  opt = 1;
-  if(setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, (char*)&opt, sizeof(opt)) == SOCKET_ERROR)  return false;
-
-  opt = 1;
-  if(setsockopt(socket, SOL_SOCKET, SO_KEEPALIVE, (char*)&opt, sizeof(opt)) == SOCKET_ERROR)  return false;
-
-  //opt = 1;
-  //if(setsockopt(socket, SOL_SOCKET, TCP_NODELAY, (char*)&opt, sizeof(opt))  == SOCKET_ERROR)  return false;
-
-  return true;
-}
-*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
 * @brief      GetHandleServer
 * @ingroup    PLATFORM_WINDOWS

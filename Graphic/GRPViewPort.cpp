@@ -143,13 +143,13 @@ void GRPVIEWPORT::SetIsActive(bool active)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjection()
-* @brief      Get Projection Type
+* 
+* @fn         GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
+* @brief      GetProjectionType
 * @ingroup    GRAPHIC
-*
-* @return     GRPVIEWPORT_PROJECTIONTYPE : Type of Projection
-*
+* 
+* @return     GRPVIEWPORT_PROJECTIONTYPE : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
 {

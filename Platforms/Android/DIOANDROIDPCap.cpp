@@ -270,7 +270,3 @@ void DIOANDROIDPCAP::Clean()
 
 
 #endif
-
-
-#endif
-

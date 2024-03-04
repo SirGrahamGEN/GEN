@@ -34,6 +34,9 @@
 #pragma endregion
 
 
+#if defined(DIO_ACTIVE) && defined(DIO_STREAMBLUETOOTH_ACTIVE)
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
@@ -783,5 +786,4 @@ void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 
 
 #endif
-
 

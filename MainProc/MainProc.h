@@ -4,7 +4,7 @@
 * 
 * @class      MAINPROC
 * @brief      Main Procedure class
-* @ingroup    MAIN PROCEDURE
+* @ingroup    MAIN_PROCEDURE
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

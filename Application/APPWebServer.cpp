@@ -241,21 +241,19 @@ bool APPWEBSERVER::GetIsApiRestOnly()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request, XSTRING& resource, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
+* 
+* @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
 * @brief      SendRequest
 * @ingroup    APPLICATION
-*
-* @param[in]  connection :
-* @param[in]  request :
-* @param[in]  resource :
-* @param[in]  headerresult :
-* @param[in]  data :
-* @param[in]  timeout :
-* @param[in]  addhead :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  connection : 
+* @param[in]  headerresult : 
+* @param[in]  data : 
+* @param[in]  timeout : 
+* @param[in]  addhead : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XBUFFER* data, int timeout, XSTRING* addhead)
 {
@@ -303,19 +301,19 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XSTRING& data, int timeout, XSTRING* addhead)
 * @brief      SendRequest
 * @ingroup    APPLICATION
-*
-* @param[in]  connection :
-* @param[in]  headerresult :
-* @param[in]  data :
-* @param[in]  timeout :
-* @param[in]  addhead :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  connection : 
+* @param[in]  headerresult : 
+* @param[in]  data : 
+* @param[in]  timeout : 
+* @param[in]  addhead : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XSTRING& data, int timeout, XSTRING* addhead)
 {
@@ -336,19 +334,19 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XPATH& xpathfile, int timeout, XSTRING* addhead)
 * @brief      SendRequest
 * @ingroup    APPLICATION
-*
-* @param[in]  connection :
-* @param[in]  headerresult :
-* @param[in]  xpathfile :
-* @param[in]  timeout :
-* @param[in]  addhead :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  connection : 
+* @param[in]  headerresult : 
+* @param[in]  xpathfile : 
+* @param[in]  timeout : 
+* @param[in]  addhead : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER_RESULT headerresult, XPATH& xpathfile, int timeout, XSTRING* addhead)
 {
@@ -379,17 +377,17 @@ bool APPWEBSERVER::SendRequest(DIOWEBSERVER_CONNECTION* connection, DIOWEBHEADER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
 * @brief      ResolveRequest
 * @ingroup    APPLICATION
-*
-* @param[in]  server :
-* @param[in]  connection :
-* @param[in]  request :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  server : 
+* @param[in]  connection : 
+* @param[in]  request : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION* connection, DIOWEBSERVER_REQUEST* request)
 {

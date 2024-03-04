@@ -89,13 +89,13 @@ UI_PROPERTY_EDITABLE::~UI_PROPERTY_EDITABLE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD UI_PROPERTY_EDITABLE::GetCursorPosition()
-* @brief      GetCursorPosition
+* @fn         XDWORD UI_PROPERTY_EDITABLE::Cursor_GetPosition()
+* @brief      Cursor_GetPosition
 * @ingroup    USERINTERFACE
-*
+* 
 * @return     XDWORD : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD UI_PROPERTY_EDITABLE::Cursor_GetPosition()
 {
   return cursor_position;
@@ -104,15 +104,15 @@ XDWORD UI_PROPERTY_EDITABLE::Cursor_GetPosition()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void UI_PROPERTY_EDITABLE::SetCursorPosition(XDWORD cursorposition)
-* @brief      SetCursorPosition
+* @fn         void UI_PROPERTY_EDITABLE::Cursor_SetPosition(XDWORD cursor_position)
+* @brief      Cursor_SetPosition
 * @ingroup    USERINTERFACE
-*
-* @param[in]  cursorposition : 
+* 
+* @param[in]  cursor_position : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_EDITABLE::Cursor_SetPosition(XDWORD cursor_position)
 {
   this->cursor_position = cursor_position;
@@ -136,15 +136,15 @@ XDWORD UI_PROPERTY_EDITABLE::GetMaxSize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void UI_PROPERTY_EDITABLE::SetMaxSizeText(XDWORD maxsize)
+* @fn         void UI_PROPERTY_EDITABLE::SetMaxSize(XDWORD maxsize)
 * @brief      SetMaxSize
 * @ingroup    USERINTERFACE
-*
-* @param[in]  maxsizetext : 
+* 
+* @param[in]  maxsize : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_EDITABLE::SetMaxSize(XDWORD maxsize)
 {
   this->maxsize = maxsize;

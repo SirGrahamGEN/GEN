@@ -121,15 +121,15 @@ bool GRPDISPLAYDEVICE::Update()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPDISPLAYDEVICE::Update(GRPCAVAS* canvas)
+* 
+* @fn         bool GRPDISPLAYDEVICE::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    GRAPHIC
-*
-* @param[in]  canvas : canvas handle
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  canvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPDISPLAYDEVICE::Update(GRPCANVAS* canvas)
 {

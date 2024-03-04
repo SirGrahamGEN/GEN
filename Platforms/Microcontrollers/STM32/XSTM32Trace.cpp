@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32DebugTrace.cpp
+* @file       XSTM32Trace.cpp
 *
 * @class      XSTM32TRACE
 * @brief      eXtended utils STM32 timer class
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -55,7 +55,7 @@
 *
 * @fn         XSTM32TRACE::XSTM32TRACE()
 * @brief      Constructor
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     Does not return anything.
 *
@@ -74,7 +74,7 @@ XSTM32TRACE::XSTM32TRACE()
 * @fn         XSTM32TRACE::~XSTM32TRACE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     Does not return anything.
 *
@@ -93,7 +93,7 @@ XSTM32TRACE::~XSTM32TRACE()
 *
 * @fn         void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @brief      Print Special aim
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
@@ -180,7 +180,7 @@ void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 * @fn         void XSTM32TRACE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     void : does not return anything.
 *

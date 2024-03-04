@@ -91,7 +91,7 @@ INPFACTORY::~INPFACTORY()
 * @fn         bool INPFACTORY::GetIsInstanced()
 * @brief      Get if Is Instanced
 * @note       STATIC
-* @ingroup    XUTILS
+* @ingroup    INPUT
 *
 * @return     bool : true if is succesful.
 *

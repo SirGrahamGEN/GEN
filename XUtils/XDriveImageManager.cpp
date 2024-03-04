@@ -553,15 +553,15 @@ XDRIVEIMAGEMANAGER::~XDRIVEIMAGEMANAGER()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XDRIVEIMAGEMANAGER::GetLogicalDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
-* @brief      GetLogicalDrives
+* 
+* @fn         bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
+* @brief      GetDrives
 * @ingroup    XUTILS
-*
-* @param[in]  drives :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  drives : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::GetDrives(XVECTOR<XDRIVEIMAGEMANAGER_DRIVE*>& drives)
 {
@@ -702,17 +702,17 @@ bool XDRIVEIMAGEMANAGER::ReadToIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& p
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XDRIVEIMAGEMANAGER::WritedFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
-* @brief      WritedFromIMGFile
+* 
+* @fn         bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
+* @brief      WriteFromIMGFile
 * @ingroup    XUTILS
-*
-* @param[in]  drive :
-* @param[in]  pathfileIMG :
-* @param[in]  nsectorsperblock :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  drive : 
+* @param[in]  pathfileIMG : 
+* @param[in]  nsectorsperblock : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XDRIVEIMAGEMANAGER::WriteFromIMGFile(XDRIVEIMAGEMANAGER_DRIVE& drive, XPATH& pathfileIMG, XQWORD nsectorsperblock)
 {

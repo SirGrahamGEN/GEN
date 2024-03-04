@@ -350,17 +350,17 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XCHAR* SSID, XCHAR* password, bool seria
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING password, bool serialize)
+* 
+* @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool serialize)
 * @brief      SetMode_Client
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool serialize)
 {
@@ -373,14 +373,14 @@ bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XSTRING& password, bool s
 * @fn         bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool serialize)
 * @brief      SetMode_Client
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  SSID : 
 * @param[in]  password : 
 * @param[in]  serialize : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWIFIMANAGERMODE::SetMode_Client(XSTRING& SSID, XCHAR* password, bool serialize)
 {
   return SetMode_Client(SSID.Get(), password, serialize);      

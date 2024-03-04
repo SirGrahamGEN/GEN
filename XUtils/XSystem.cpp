@@ -275,14 +275,13 @@ bool XSYSTEM::GetOperativeSystemID(XSTRING& ID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLANGUAGE_CODE XSYSTEM::GetLanguage()
-* @brief      Get Language Code
-* @note       VIRTUAL
+* 
+* @fn         XDWORD XSYSTEM::GetLanguageSO()
+* @brief      GetLanguageSO
 * @ingroup    XUTILS
-*
-* @return     XLANGUAGE_CODE : Language code (enum XLANGUAGE_CODE)
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XSYSTEM::GetLanguageSO()
 {

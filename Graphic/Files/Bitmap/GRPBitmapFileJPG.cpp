@@ -355,11 +355,9 @@ bool GRPBITMAPFILEJPG::ReadHeaderFile(GRPBITMAPFILEJPGHEADER* header)
       return false;
     }
 
-  jpeg_create_decompress(&dinfo);                                     /* Now we can initialize the JPEG decompression object. */
-//  jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        /* Step 2: specify data source (eg, a file) */
+  jpeg_create_decompress(&dinfo);                                     // Now we can initialize the JPEG decompression object.
+//jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());    // Step 2: specify data source (eg, a file) 
 
-  //DIEGO: el uso de la entrada de stdio_src para jpeg tiene mas viejo que espinete. Y crear el dup del handle de fichero de windows era catastrofico con el nuevo VS2015
-  //       leo todo el fichero en memoria y lo descomprimo usando el manejador mem_src.
 
   XQWORD file_size = GetPrimaryFile()->GetSize();
   XBYTE* file_buffer = new XBYTE[(XDWORD)file_size];
@@ -412,12 +410,9 @@ bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
       return false;
     }
 
-  jpeg_create_decompress(&dinfo);                                     /* Now we can initialize the JPEG decompression object. */
-//  jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        /* Step 2: specify data source (eg, a file) */
-
-  //DIEGO: el uso de la entrada de stdio_src para jpeg tiene mas viejo que espinete. Y crear el dup del handle de fichero de windows era catastrofico con el nuevo VS2015
-  //       leo todo el fichero en memoria y lo descomprimo usando el manejador mem_src.
-
+  jpeg_create_decompress(&dinfo);                                         // Now we can initialize the JPEG decompression object. 
+//jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        // Step 2: specify data source (eg, a file) 
+  
   jpeg_mem_src(&dinfo, buffer, size);
   jpeg_read_header(&dinfo, TRUE);
 
@@ -432,15 +427,15 @@ bool GRPBITMAPFILEJPG::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPBITMAPFILEJPG::Read(XBYTE* buffer)
-* @brief      Read
+* 
+* @fn         bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
+* @brief      DecodeToBufferFromFile
 * @ingroup    GRAPHIC
-*
-* @param[in]  buffer : buffer read data
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  buffer : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
 {
@@ -464,13 +459,10 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromFile(XBYTE* buffer)
       return false;
     }
 
-  jpeg_create_decompress(&dinfo);                                     /* Now we can initialize the JPEG decompression object. */
-  //jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        /* Step 2: specify data source (eg, a file) */
+  jpeg_create_decompress(&dinfo);                                           // Now we can initialize the JPEG decompression object. 
+//jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());          // Step 2: specify data source (eg, a file) 
 
-  //DIEGO: el uso de la entrada de stdio_src para jpeg es mas viejo que espinete. Y crear el dup del handle de fichero de windows era catastrofico con el nuevo VS2015
-  //       leo todo el fichero en memoria y lo descomprimo usando el manejador mem_src.
-  // es el mismo problema que arriba, por lo que se lee 2 veces. Deberia contenerse en memoria la primera vez que se accede.
-
+  
   XQWORD file_size = GetPrimaryFile()->GetSize();
   XBYTE* file_buffer=new XBYTE[(XDWORD)file_size];
 
@@ -529,8 +521,8 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
   if(!buffer)       return false;
   if(!tobuffer)     return false;
 
-  JSAMPARRAY  line;         /* Output row buffer */
-  int         rowstride;    /* physical row width in output buffer */
+  JSAMPARRAY  line;         // Output row buffer 
+  int         rowstride;    // physical row width in output buffer 
 
   struct GRPBITMAPFILEJPG_ERROR jerr;
 
@@ -543,12 +535,8 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
       return false;
     }
 
-  jpeg_create_decompress(&dinfo);                                           /* Now we can initialize the JPEG decompression object. */
-  //jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        /* Step 2: specify data source (eg, a file) */
-
-  //DIEGO: el uso de la entrada de stdio_src para jpeg es mas viejo que espinete. Y crear el dup del handle de fichero de windows era catastrofico con el nuevo VS2015
-  //       leo todo el fichero en memoria y lo descomprimo usando el manejador mem_src.
-  // es el mismo problema que arriba, por lo que se lee 2 veces. Deberia contenerse en memoria la primera vez que se accede.
+  jpeg_create_decompress(&dinfo);                                         // Now we can initialize the JPEG decompression object. 
+//jpeg_stdio_src(&dinfo, GetPrimaryFile()->GetFileStructHandle());        // Step 2: specify data source (eg, a file) 
 
   jpeg_mem_src(&dinfo, buffer, size);
 
@@ -577,7 +565,6 @@ bool GRPBITMAPFILEJPG::DecodeToBufferFromRawBuffer(XBYTE* buffer, XDWORD size, X
 
   jpeg_destroy_decompress(&dinfo);
 
-
   return true;
 }
 
@@ -604,8 +591,8 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
 
   struct jpeg_error_mgr jerr;
 
-  JSAMPROW rowpointer[1]; /* pointer to JSAMPLE row[s] */
-  int      rowstride;     /* physical row width in image buffer */
+  JSAMPROW rowpointer[1];  // pointer to JSAMPLE row[s] 
+  int      rowstride;      // physical row width in image buffer 
 
   GetPrimaryFile()->SetPosition(0);
 
@@ -618,10 +605,10 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
 
   jpeg_stdio_dest(&cinfo, filehandle);
 
-  cinfo.image_width       = width;          /* image width and height, in pixels */
+  cinfo.image_width       = width;          // image width and height, in pixels 
   cinfo.image_height      = height;
-  cinfo.input_components  = 3;              /* # of color components per pixel */
-  cinfo.in_color_space    = JCS_RGB;        /* colorspace of input image */
+  cinfo.input_components  = 3;              // # of color components per pixel 
+  cinfo.in_color_space    = JCS_RGB;        // colorspace of input image 
 
   jpeg_set_defaults(&cinfo);
 
@@ -629,7 +616,7 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
 
   jpeg_start_compress(&cinfo, TRUE);
 
-  rowstride = width * 3;  /* JSAMPLEs per row in image_buffer */
+  rowstride = width * 3;    // JSAMPLEs per row in image_buffer 
 
   int size  = width * height * 3;
 

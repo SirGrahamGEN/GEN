@@ -522,16 +522,16 @@ bool UI_VIRTUALKEYBOARD::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ANIMATION* UI_MANAGER::AddAnimationCache(XCHAR* name, XCHAR* resource)
-* @brief      AddAnimationCache
+* @fn         UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
+* @brief      AddImageCache
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  resource : 
 * 
 * @return     UI_ANIMATION* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_ANIMATION* UI_VIRTUALKEYBOARD::AddImageCache(XCHAR* name, XCHAR* resource)
 {
   UI_ANIMATION* animation = NULL;

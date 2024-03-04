@@ -150,23 +150,6 @@ XDWORD DIODISPLAYDEVICE_CONFIG::GetSizeBuffer()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIODISPLAYDEVICE_CONFIG::SetActiveBlackLight(bool active)
-* @brief      SetActiveBlackLight
-* @ingroup    DATAIO
-*
-* @param[in]  active :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIODISPLAYDEVICE::SetActiveBlackLight(bool active)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         void DIODISPLAYDEVICE_CONFIG::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -256,6 +239,23 @@ bool DIODISPLAYDEVICE::SetGPIOEntryID(DIODISPLAYDEVICE_INDEX_GPIOENTRYID index, 
   GPIOentrysID[index] = GPIOentryID;   
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIODISPLAYDEVICE::SetActiveBlackLight(bool active)
+* @brief      SetActiveBlackLight
+* @ingroup    DATAIO
+* 
+* @param[in]  active : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIODISPLAYDEVICE::SetActiveBlackLight(bool active)
+{
+  return false;
 }
 
 

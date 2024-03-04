@@ -4,7 +4,7 @@
 * 
 * @class      SQLITE_DATABASE
 * @brief      DataBase SQL SQLite Database class
-* @ingroup    DATABASESQL
+* @ingroup    DATABASES
 * 
 * @copyright  GEN Group. All rights reserved.
 * 

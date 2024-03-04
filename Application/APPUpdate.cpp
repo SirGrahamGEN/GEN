@@ -864,13 +864,13 @@ bool APPUPDATE::LogOfEvent(DIOAPPLICATIONUPDATE_XEVENT* event)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         APPUPDATE::APPUPDATE(XDWORD applicationversion, XDWORD applicationsubversion, XDWORD applicationerrorcontrol, XCHAR* applicationname, XPATH& xpathrootapp)
+* 
+* @fn         APPUPDATE::APPUPDATE()
 * @brief      Constructor
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPUPDATE::APPUPDATE()
 {

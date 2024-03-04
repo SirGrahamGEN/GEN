@@ -521,16 +521,16 @@ bool DIOI2CAIRQUALITYCCS811::ReadNTC(float& temperature, float& resistance)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOI2CAIRQUALITYCCS811::Read(XWORD& TVOC, XWORD& CO2)
-* @brief      Read
+* 
+* @fn         bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
+* @brief      ReadData
 * @ingroup    DATAIO
-*
-* @param[in]  TVOC :
-* @param[in]  CO2 :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  TVOC : 
+* @param[in]  CO2 : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 {
@@ -642,16 +642,16 @@ bool DIOI2CAIRQUALITYCCS811::IniDevice()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE data)
+* 
+* @fn         bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
 * @ingroup    DATAIO
-*
-* @param[in]  offset :
-* @param[in]  data :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  offset : 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::ReadRegister(XBYTE offset, XBYTE& data)
 {

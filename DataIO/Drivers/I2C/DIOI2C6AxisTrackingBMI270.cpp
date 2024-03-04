@@ -61,7 +61,7 @@
 #pragma region GENERAL_VARIABLE
 
 
-/*! @name  Global array that stores the feature input configuration of BMI270 */
+// Global array that stores the feature input configuration of BMI270 
 const struct bmi2_feature_config bmi270_feat_in[DIOI2C6AXISTRACKINGBMI270_MAX_FEAT_IN]      = {   { BMI2_CONFIG_ID                  ,  BMI2_PAGE_1  ,  DIOI2C6AXISTRACKINGBMI270_CONFIG_ID_STRT_ADDR             },
                                                                                                   { BMI2_MAX_BURST_LEN              ,  BMI2_PAGE_1  ,  DIOI2C6AXISTRACKINGBMI270_MAX_BURST_LEN_STRT_ADDR         },
                                                                                                   { BMI2_CRT_GYRO_SELF_TEST         ,  BMI2_PAGE_1  ,  DIOI2C6AXISTRACKINGBMI270_CRT_GYRO_SELF_TEST_STRT_ADDR    },
@@ -81,7 +81,7 @@ const struct bmi2_feature_config bmi270_feat_in[DIOI2C6AXISTRACKINGBMI270_MAX_FE
                                                                                                   { BMI2_WRIST_WEAR_WAKE_UP         ,  BMI2_PAGE_7  ,  DIOI2C6AXISTRACKINGBMI270_WRIST_WEAR_WAKE_UP_STRT_ADDR    },
                                                                                               };
 
-/*! @name  Global array that stores the feature output configuration */
+// Global array that stores the feature output configuration 
 const struct bmi2_feature_config bmi270_feat_out[DIOI2C6AXISTRACKINGBMI270_MAX_FEAT_OUT]    = {   { BMI2_STEP_COUNTER               ,  BMI2_PAGE_0  ,  DIOI2C6AXISTRACKINGBMI270_STEP_CNT_OUT_STRT_ADDR          },
                                                                                                   { BMI2_STEP_ACTIVITY              ,  BMI2_PAGE_0  ,  DIOI2C6AXISTRACKINGBMI270_STEP_ACT_OUT_STRT_ADDR          },
                                                                                                   { BMI2_WRIST_GESTURE              ,  BMI2_PAGE_0  ,  DIOI2C6AXISTRACKINGBMI270_WRIST_GEST_OUT_STRT_ADDR        },
@@ -91,7 +91,7 @@ const struct bmi2_feature_config bmi270_feat_out[DIOI2C6AXISTRACKINGBMI270_MAX_F
                                                                                                   { BMI2_VFRM_STATUS                ,  BMI2_PAGE_0  ,  DIOI2C6AXISTRACKINGBMI270_NVM_VFRM_OUT_STRT_ADDR          }
                                                                                               };
 
-/*! @name  Global array that stores the feature interrupts of BMI270 */
+// Global array that stores the feature interrupts of BMI270 
 struct bmi2_map_int bmi270_map_int[DIOI2C6AXISTRACKINGBMI270_MAX_INT_MAP]                   = {   { BMI2_SIG_MOTION                 ,  DIOI2C6AXISTRACKINGBMI270_INT_SIG_MOT_MASK                                },
                                                                                                   { BMI2_STEP_COUNTER               ,  DIOI2C6AXISTRACKINGBMI270_INT_STEP_COUNTER_MASK                           },
                                                                                                   { BMI2_STEP_DETECTOR              ,  DIOI2C6AXISTRACKINGBMI270_INT_STEP_DETECTOR_MASK                          },
@@ -103,7 +103,7 @@ struct bmi2_map_int bmi270_map_int[DIOI2C6AXISTRACKINGBMI270_MAX_INT_MAP]       
                                                                                               };
 
  
- /* Select features and their pins to be mapped to. */
+// Select features and their pins to be mapped to.
 struct bmi2_sens_int_config sens_int[4]                                                     = {   { BMI2_ANY_MOTION                 ,  BMI2_INT1                                              },
                                                                                                   { BMI2_NO_MOTION                  ,  BMI2_INT1                                              },
                                                                                                   { BMI2_STEP_DETECTOR              ,  BMI2_INT1                                              },			
@@ -111,8 +111,8 @@ struct bmi2_sens_int_config sens_int[4]                                         
                                                                                               };
 
 
-/*! @endcond */
-/*! @name  Global array that stores the configuration file of BMI270 */
+
+// Global array that stores the configuration file of BMI270 
 const XBYTE bmi270_config_file[]                                                            = { 0xc8, 0x2e, 0x00, 0x2e, 0x80, 0x2e, 0x3d, 0xb1, 0xc8, 0x2e, 0x00, 0x2e, 0x80, 0x2e, 0x91, 0x03, 0x80, 0x2e, 0xbc,
                                                                                                 0xb0, 0x80, 0x2e, 0xa3, 0x03, 0xc8, 0x2e, 0x00, 0x2e, 0x80, 0x2e, 0x00, 0xb0, 0x50, 0x30, 0x21, 0x2e, 0x59, 0xf5,
                                                                                                 0x10, 0x30, 0x21, 0x2e, 0x6a, 0xf5, 0x80, 0x2e, 0x3b, 0x03, 0x00, 0x00, 0x00, 0x00, 0x08, 0x19, 0x01, 0x00, 0x22,
@@ -4901,10 +4901,6 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::bmi2_extract_input_feat_config(struct bmi2_feat
     return feat_found;
 }
 
-/***************************************************************************/
-
-/*!         Local Function Definitions
- ****************************************************************************/
 
 /*! @cond DOXYGEN_SUPRESS */
 

@@ -87,14 +87,14 @@ DIODNSPROTOCOLCLIENT::DIODNSPROTOCOLCLIENT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOL()
+* 
+* @fn         DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOLCLIENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOLCLIENT()
 {

@@ -151,14 +151,14 @@ bool GRPANDROIDCONTEXT::Create(void* handle)
   // get an appropriate EGL frame buffer configuration
   result = eglChooseConfig(display, attribute_list, &config, 1, &nconfig);
 
-  // create an EGL rendering context
+  //create an EGL rendering context
   //context = eglCreateContext(display, config, EGL_NO_CONTEXT, NULL);
   //if(nconfig <= 0) return false;
 
   // EGL_NATIVE_VISUAL_ID is an attribute of the EGLConfig that is
-  //* guaranteed to be accepted by ANativeWindow_setBuffersGeometry().
-  //* As soon as we picked a EGLConfig, we can safely reconfigure the
-  //* ANativeWindow buffers to match, using EGL_NATIVE_VISUAL_ID.
+  // guaranteed to be accepted by ANativeWindow_setBuffersGeometry().
+  // As soon as we picked a EGLConfig, we can safely reconfigure the
+  // ANativeWindow buffers to match, using EGL_NATIVE_VISUAL_ID.
 
   if(EGL_FALSE == eglGetConfigAttrib(display, config, EGL_NATIVE_VISUAL_ID, &format)) return false;
 

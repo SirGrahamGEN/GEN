@@ -120,7 +120,7 @@ SCRIPT_LIB_WINDOW::~SCRIPT_LIB_WINDOW()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         boolSCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_WINDOW::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 * 
@@ -249,7 +249,7 @@ void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         voidSCRIPT_LIB_WINDOW::Clean()
+* @fn         void SCRIPT_LIB_WINDOW::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
@@ -277,8 +277,8 @@ void SCRIPT_LIB_WINDOW::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void Call_Window_GetPos(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
-* @brief      Call_Window_GetPos
+* @fn         void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
+* @brief      all_Window_GetPosX
 * @ingroup    SCRIPT
 * 
 * @param[in]  library : 

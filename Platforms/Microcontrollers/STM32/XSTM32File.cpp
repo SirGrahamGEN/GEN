@@ -54,7 +54,7 @@
 *
 * @fn         XSTM32FILE::XSTM32FILE()
 * @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @return     Does not return anything.
 *
@@ -82,7 +82,7 @@ XSTM32FILE::XSTM32FILE(): XFILE()
 * @fn         XSTM32FILE::~XSTM32FILE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @return     Does not return anything.
 *
@@ -98,7 +98,7 @@ XSTM32FILE::~XSTM32FILE()
 *
 * @fn         bool XSTM32FILE::Exist(XCHAR* path)
 * @brief      Exist
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  path :
 *
@@ -134,7 +134,7 @@ bool XSTM32FILE::Exist(XCHAR* path)
 *
 * @fn         bool XSTM32FILE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
 * @param[in]  isreadonly :
@@ -179,7 +179,7 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
 *
 * @fn         bool XSTM32FILE::Create(XCHAR* xpath)
 * @brief      Create
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  xpath :
 *
@@ -220,7 +220,7 @@ bool XSTM32FILE::Create(XCHAR* path)
 *
 * @fn         bool XSTM32FILE::SetSize(XQWORD size)
 * @brief      SetSize
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  size :
 *
@@ -247,7 +247,7 @@ bool XSTM32FILE::SetSize(XQWORD size)
 *
 * @fn         bool XSTM32FILE::GetPosition(XQWORD& position)
 * @brief      GetPosition
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
 *
@@ -273,7 +273,7 @@ bool XSTM32FILE::GetPosition(XQWORD& position)
 *
 * @fn         bool XSTM32FILE::SetPosition(XQWORD position)
 * @brief      SetPosition
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  position :
 *
@@ -299,7 +299,7 @@ bool XSTM32FILE::SetPosition(XQWORD position)
 *
 * @fn         bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -329,7 +329,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @fn         bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -362,7 +362,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 *
 * @fn         bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Write
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  buffer :
 * @param[in]  size :
@@ -397,7 +397,7 @@ bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 *
 * @fn         bool XSTM32FILE::Flush()
 * @brief      Flush
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -421,7 +421,7 @@ bool XSTM32FILE::Flush()
 *
 * @fn         bool XSTM32FILE::Close()
 * @brief      Close
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
@@ -445,7 +445,7 @@ bool XSTM32FILE::Close()
 *
 * @fn         bool XSTM32FILE::Erase(XCHAR* path,bool overwrite)
 * @brief      Erase
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  path :
 * @param[in]  overwrite :
@@ -478,7 +478,7 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
 *
 * @fn         bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 * @brief      Rename
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @param[in]  pathold :
 * @param[in]  pathnew :
@@ -566,7 +566,7 @@ bool XSTM32FILE::ActualizeSize()
 * @fn         void XSTM32FILE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
+* @ingroup    PLATFORM_STM32
 *
 * @return     void : does not return anything.
 *

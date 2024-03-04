@@ -157,9 +157,11 @@ bool CIPHERCURVE25519::CreateSharedKey(XBYTE publickey[CIPHERCURVE25519_MAXKEY])
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XBYTE* CIPHERCURVE25519::GetPrivateKey()
-* @brief      GetPrivateKey
+* @fn         XBYTE* CIPHERCURVE25519::GetKey(CIPHERCURVE25519_TYPEKEY typekey)
+* @brief      GetKey
 * @ingroup    CIPHER
+* 
+* @param[in]  typekey : 
 * 
 * @return     XBYTE* : 
 * 

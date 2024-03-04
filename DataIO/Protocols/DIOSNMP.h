@@ -3,9 +3,9 @@
 * @file       DIOSNMP.h
 * 
 * @class      DIOSNMP
-* @brief      
+* @brief      Data Input/Output SNMP (Simple Network Management Protocol)
 * @ingroup    DATAIO
-*
+* 
 * @copyright  GEN Group. All rights reserved.
 * 
 * @cond
@@ -24,16 +24,22 @@
 * SOFTWARE.
 * @endcond
 * 
-* * --------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 
 #ifndef _DIOSNMP_H_
 #define _DIOSNMP_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
 
 #include "XBER.h"
 
+#pragma endregion
+
+
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
+#pragma region DEFINES_ENUMS
+
 
 enum DIOSNMP_VERSION
 {
@@ -52,8 +58,6 @@ enum DIOSNMP_OPERATION
   DIOSNMP_OPERATION_SETREQUEST        = 0xA3 ,
   DIOSNMP_OPERATION_TRAP              = 0xA4 
 };
-
-
 
 #define DIOSNMPBERTYPE_IPADDRESS                0x00
 #define DIOSNMPBERTYPE_COUNTER32                0x01
@@ -80,7 +84,12 @@ enum DIOSNMP_OPERATION
 #define DIOSNMP_DEFAULT_TRAPPORT                162
 
 
+#pragma endregion
+
+
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
+
 
 class DIOSTREAMUDPCONFIG;
 class DIOSTREAMUDP;
@@ -99,7 +108,6 @@ class DIOSNMP_XBER :  public XBER
     bool                      Sequence_AddTo                (XBER& newxber);
     bool                      TrapData_AddTo                (XBER& newxber);
 };
-
 
 
 class DIOSNMP_BASE
@@ -130,8 +138,6 @@ class DIOSNMP_BASE
 };
 
 
-
-
 class DIOSNMP_TRAP : public DIOSNMP_BASE
 {
    public:
@@ -144,8 +150,6 @@ class DIOSNMP_TRAP : public DIOSNMP_BASE
 
     void                      Clean                         ();        
 };
-
-
 
 
 class DIOSNMP : public DIOSNMP_BASE
@@ -163,17 +167,15 @@ class DIOSNMP : public DIOSNMP_BASE
 };
 
 
+#pragma endregion
 
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
+#pragma endregion
+
 
 #endif
-
-
-
-
-
-
-
-
 

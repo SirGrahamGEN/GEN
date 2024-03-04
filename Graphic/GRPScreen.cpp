@@ -303,13 +303,13 @@ bool GRPSCREEN::Create(bool show)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool GRPSCREEN::Update()
 * @brief      Update
 * @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Update()
 {
@@ -318,15 +318,15 @@ bool GRPSCREEN::Update()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::Update(GRPCAVAS* canvas)
+* 
+* @fn         bool GRPSCREEN::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    GRAPHIC
-*
-* @param[in]  canvas : canvas handle
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  canvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Update(GRPCANVAS* canvas)
 {
@@ -369,8 +369,8 @@ bool GRPSCREEN::Get_Position(int &x, int &y)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPSCREEN::SetPosition(int x, int y)
-* @brief      SetPosition
+* @fn         bool GRPSCREEN::Set_Position(int x, int y)
+* @brief      Set_Position
 * @ingroup    GRAPHIC
 * 
 * @param[in]  x : 

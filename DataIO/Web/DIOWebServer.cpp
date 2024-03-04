@@ -2002,16 +2002,13 @@ bool DIOWEBSERVER_CONNECTION::End()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBSERVER_CONNECTION::RequestRequest(DIOWEBSERVER_REQUEST& request, int timeout)
-* @brief      GetRequest
+* 
+* @fn         bool DIOWEBSERVER_CONNECTION::ReadRequest()
+* @brief      ReadRequest
 * @ingroup    DATAIO
-*
-* @param[in]  request :
-* @param[in]  timeout :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_CONNECTION::ReadRequest()
 {

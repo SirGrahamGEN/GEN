@@ -208,13 +208,13 @@ void XTRACE_TARGET::SetAim(XCHAR* aim)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XDWORD XTRACE_TARGET::GetNSending()
-* @brief      Get number of sendings
+* 
+* @fn         XDWORD XTRACE_TARGET::GetNSendings()
+* @brief      GetNSendings
 * @ingroup    XUTILS
-*
-* @return     XDWORD : number of sendings
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XTRACE_TARGET::GetNSendings()
 {
@@ -273,13 +273,13 @@ void XTRACE_TARGET::SetPort(XWORD port)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XTRACE_TARGET::IPTarget()
-* @brief       IP of target aim = URL -> IP
+* @brief      IPTarget IP of target aim = URL to IP
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE_TARGET::IPTarget()
 {

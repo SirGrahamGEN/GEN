@@ -277,15 +277,15 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBCLIENT_HEADER::GetAuthentication(XSTRING& authentication)
-* @brief      GetAuthentication
+* 
+* @fn         bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
+* @brief      GetWWWAuthenticate
 * @ingroup    DATAIO
-*
-* @param[in]  authentication : 
-*
+* 
+* @param[in]  authenticate : 
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 {
@@ -579,15 +579,15 @@ bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIOWEBCLIENT::DoNotstopHTTPError(bool activate)
-* @brief      DoNotstopHTTPError
+* 
+* @fn         void DIOWEBCLIENT::DoStopHTTPError(bool activate)
+* @brief      DoStopHTTPError
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  activate : 
-*
+* 
 * @return     void : does not return anything. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::DoStopHTTPError(bool activate)
 {

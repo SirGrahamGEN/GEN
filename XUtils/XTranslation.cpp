@@ -163,15 +163,15 @@ XDWORD XTRANSLATION::GetActual()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XTRANSLATION::Language_ChangeCode(XTRANSLATION_CODE languagecode)
-* @brief      Language_ChangeCode
+* 
+* @fn         bool XTRANSLATION::SetActual(XDWORD code)
+* @brief      SetActual
 * @ingroup    XUTILS
-*
-* @param[in]  languagecode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  code : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::SetActual(XDWORD code)
 {
@@ -496,13 +496,13 @@ bool XTRANSLATION::Translate_Load()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XTRANSLATION::DeleteTranslate()
-* @brief      DeleteTranslate
+* 
+* @fn         bool XTRANSLATION::Translate_Delete()
+* @brief      Translate_Delete
 * @ingroup    XUTILS
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Translate_Delete()
 {

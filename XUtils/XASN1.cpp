@@ -46,8 +46,6 @@
 
 #include "XMemory_Control.h"
 
-#include "XMemory_Control.h"
-
 #pragma endregion
 
 
@@ -872,8 +870,8 @@ XASN1_OID_PROPERTY* XASN1::GetOIDProperty(XCHAR* OID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XCHAR* XASN1::GetOIDDescription(XCHAR* OID)
-* @brief      GetOIDDescription
+* @fn         XCHAR* XASN1::GetOIDPropertyDescription(XCHAR* OID)
+* @brief      GetOIDPropertyDescription
 * @ingroup    XUTILS
 * 
 * @param[in]  OID : 

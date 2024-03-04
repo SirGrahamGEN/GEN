@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONodeItemHandler_Sensor_AM2315.h
+* @file       DIONodeItemHandler_SensorAM2315.h
 * 
-* @class      DIONODEITEMHANDLER_SENSOR_AM2315
+* @class      DIONODEITEMHANDLER_SENSORAM2315
 * @brief      Data Input/Output Node Item Handler Sensor AM2315
 * @ingroup    DATAIO
 * 

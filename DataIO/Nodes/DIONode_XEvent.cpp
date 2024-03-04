@@ -76,14 +76,14 @@ DIONODE_XEVENT::DIONODE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIONODE_XEVENT::DIONODE_XEVENT::~DIONODE_XEVENT()
+* 
+* @fn         DIONODE_XEVENT::~DIONODE_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE_XEVENT::~DIONODE_XEVENT()
 {

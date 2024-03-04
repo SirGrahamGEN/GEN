@@ -3,8 +3,8 @@
 * @file       XESP32EEpromMemoryManager.cpp
 *
 * @class      XESP32EEPROMMEMORYMANAGER
-* @brief      eXtended utils ESP32 Flash Memory class
-* @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
+* @brief      eXtended Utils ESP32 EEPROM Memory Manager class
+* @ingroup    PLATFORM_ESP32
 *
 * @copyright  GEN Group. All rights reserved.
 *

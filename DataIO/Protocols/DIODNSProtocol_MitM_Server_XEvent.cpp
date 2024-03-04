@@ -74,14 +74,14 @@ DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* s
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
+* 
+* @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
 {

@@ -524,15 +524,15 @@ int INPLINUXDEVICEKEYBOARDDIRECT::Old_IsConsole(int fd)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int INPLINUXDEVICEKEYBOARDDIRECT::OpenConsole(const char*fnam)
-* @brief      OpenConsole
+* 
+* @fn         int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char*fnam)
+* @brief      Old_OpenConsole
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  char*fnam :
-*
-* @return     int :
-*
+* 
+* @param[in]  char*fnam : 
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int INPLINUXDEVICEKEYBOARDDIRECT::Old_OpenConsole(const char *fnam)
 {

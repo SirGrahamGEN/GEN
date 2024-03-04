@@ -601,15 +601,13 @@ bool XSTM32_FATSD_SPI::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void CS_Select(void)
-* @brief      S_Select
+* @fn         void XSTM32_FATSD_SPI::CS_Select()
+* @brief      CS_Select
 * @ingroup    PLATFORM_STM32
-*
-* @param[in]  void : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32_FATSD_SPI::CS_Select()
 {
   if(GPIOentryID_CS == DIOGPIO_ID_NOTDEFINED) return;
@@ -621,15 +619,13 @@ void XSTM32_FATSD_SPI::CS_Select()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void CS_Deselect(void)
-* @brief      S_Deselect
+* @fn         void XSTM32_FATSD_SPI::CS_Deselect()
+* @brief      CS_Deselect
 * @ingroup    PLATFORM_STM32
-*
-* @param[in]  void : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32_FATSD_SPI::CS_Deselect()
 {
   if(GPIOentryID_CS == DIOGPIO_ID_NOTDEFINED) return;

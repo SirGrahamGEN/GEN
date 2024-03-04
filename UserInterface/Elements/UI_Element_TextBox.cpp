@@ -170,15 +170,15 @@ UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void UI_ELEMENT_TEXTBOX::SetAlignText(UI_ELEMENT_TYPE_ALIGN aligntext)
-* @brief      SetAlignText
+* @fn         void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
+* @brief      SetTextAlignment
 * @ingroup    USERINTERFACE
-*
-* @param[in]  aligntext : 
+* 
+* @param[in]  textalignment : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
 {
   this->textalignment = textalignment;

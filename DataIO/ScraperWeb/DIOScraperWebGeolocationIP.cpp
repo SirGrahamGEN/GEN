@@ -437,19 +437,19 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::ChangeURL(XCHAR* maskurl, DIOURL& url)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
+* 
+* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @param[in]  IP :
-* @param[in]  geolocationIPresult :
-* @param[in]  timeoutforurl :
-* @param[in]  localIP :
-* @param[in]  usecache :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  IP : 
+* @param[in]  geolocationIPresult : 
+* @param[in]  timeoutforurl : 
+* @param[in]  localIP : 
+* @param[in]  usecache : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
@@ -462,19 +462,19 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XCHAR* IP, DIOGEOLOCATIONIP_RESULT& geoloca
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
+* 
+* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @param[in]  IP :
-* @param[in]  geolocationIPresult :
-* @param[in]  timeoutforurl :
-* @param[in]  localIP :
-* @param[in]  usecache :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  IP : 
+* @param[in]  geolocationIPresult : 
+* @param[in]  timeoutforurl : 
+* @param[in]  localIP : 
+* @param[in]  usecache : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {
@@ -483,19 +483,19 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(XSTRING& IP, DIOGEOLOCATIONIP_RESULT& geolo
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP& geolocationIP, int timeoutforurl, XSTRING* localIP, bool usecache)
+* 
+* @fn         bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 * @brief      Get
 * @ingroup    DATAIO
-*
-* @param[in]  IP :
-* @param[in]  geolocationIPresult :
-* @param[in]  timeoutforurl :
-* @param[in]  localIP :
-* @param[in]  usecache :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  IP : 
+* @param[in]  geolocationIPresult : 
+* @param[in]  timeoutforurl : 
+* @param[in]  localIP : 
+* @param[in]  usecache : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geolocationIPresult, int timeoutforurl, XSTRING* localIP, bool usecache)
 {

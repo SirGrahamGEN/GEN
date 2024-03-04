@@ -861,15 +861,15 @@ bool INPCURSORMOTION::InvertYAxis(XDWORD screen_height)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirection(bool indetail)
-* @brief      Ge tDirection of motion
+* 
+* @fn         INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
+* @brief      GetDirectionByAngle
 * @ingroup    INPUT
-*
-* @param[in]  indetail :
-*
-* @return     INPCURSORMOTION_DIR : Direction of motion
-*
+* 
+* @param[in]  indetail : 
+* 
+* @return     INPCURSORMOTION_DIR : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION_DIR INPCURSORMOTION::GetDirectionByAngle(bool indetail)
 {  

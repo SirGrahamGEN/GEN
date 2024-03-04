@@ -278,15 +278,15 @@ DIOSTREAMUARTFLOWCONTROL DIOSTREAMUARTCONFIG::GetFlowControl()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
-* @brief      DIOSTREAMUARTCONFIG::SetFlowControl
+* 
+* @fn         void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
+* @brief      SetFlowControl
 * @ingroup    DATAIO
-*
-* @param[in]  flowcontrol :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  flowcontrol : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
 {

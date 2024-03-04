@@ -568,15 +568,15 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int GRPPROPERTIES::IsEqualPropertysSizeTo(GRPPROPERTIES* properties)
-* @brief      IsEqualPropertysSizeTo
+* 
+* @fn         int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
+* @brief      IsEqualSizeTo
 * @ingroup    GRAPHIC
-*
-* @param[in]  properties : properties to compare
-*
-* @return     int : ISLESS, ISGREATER, ISEQUAL
-*
+* 
+* @param[in]  properties : 
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 {

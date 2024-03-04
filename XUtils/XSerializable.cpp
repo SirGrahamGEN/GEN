@@ -165,8 +165,8 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerialization()
-* @brief      GetSerialization
+* @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
+* @brief      GetSerializationMethod
 * @ingroup    XUTILS
 * 
 * @return     XSERIALIZATIONMETHOD* : 

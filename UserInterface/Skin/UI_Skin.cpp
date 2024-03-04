@@ -686,15 +686,16 @@ double UI_SKIN::GetHeightString(XCHAR* string, XDWORD sizefont)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         double UI_SKIN::GetHeightString(XSTRING& string)
+* @fn         double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
 * @brief      GetHeightString
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  string : 
+* @param[in]  sizefont : 
 * 
 * @return     double : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
 {
   return GetHeightString(string.Get(), sizefont);
@@ -1240,19 +1241,18 @@ bool UI_SKIN::Draw_Text(UI_ELEMENT* element)
   return false;
 }
 
-  
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::Draw_TextInBox(UI_ELEMENT* element)
-* @brief      Draw_TextInBox
+* @fn         bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)
+* @brief      Draw_TextBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)  
 {
   return false;

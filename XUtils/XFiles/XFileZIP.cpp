@@ -852,13 +852,13 @@ bool XFILEZIP::Close()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         float XFILEZIP::GetOperationPercent()
-* @brief      GetOperationPercent
+* 
+* @fn         float XFILEZIP::GetLastOperationPercent()
+* @brief      GetLastOperationPercent
 * @ingroup    XUTILS
-*
-* @return     float :
-*
+* 
+* @return     float : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 float XFILEZIP::GetLastOperationPercent()
 {

@@ -210,15 +210,15 @@ bool UI_PROPERTY_SCROLLEABLE::Scroll_SetActivate(UI_PROPERTY_SCROLLEABLE_TYPE ty
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_PROPERTY_SCROLLEABLE::GetVisibleScroll(UI_PROPERTY_SCROLLEABLE_TYPE type)
-* @brief      GetVisibleScroll
+* @fn         bool UI_PROPERTY_SCROLLEABLE::Scroll_GetVisible(UI_PROPERTY_SCROLLEABLE_TYPE type)
+* @brief      Scroll_GetVisible
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_PROPERTY_SCROLLEABLE::Scroll_GetVisible(UI_PROPERTY_SCROLLEABLE_TYPE type)
 {
   bool status = false;  

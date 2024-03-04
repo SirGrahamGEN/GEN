@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32DebugTrace.h
+* @file       XSTM32Trace.h
 *
 * @class      XSTM32TRACE
 * @brief      eXtended utils STM32 trace class
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
 *
@@ -68,8 +68,9 @@ class XSTM32TRACE : public XTRACE
 
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 
-#endif
 
 #endif
 
+
+#endif
 

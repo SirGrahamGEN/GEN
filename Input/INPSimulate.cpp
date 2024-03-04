@@ -428,7 +428,7 @@ bool INPSIMULATE::Key_ClickByText(XCHAR* text, int pressuretimeinterval)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPSIMULATE::SetMoudePos(int x, int y)
+* @fn         bool INPSIMULATE::Mouse_SetPos(int x, int y)
 * @brief      Mouse_SetPos
 * @ingroup    INPUT
 * 

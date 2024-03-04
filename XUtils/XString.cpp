@@ -938,15 +938,15 @@ void XSTRING::operator =  (const XCHAR* string)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XSTRING::operator = (XSTRING& string)
+* 
+* @fn         void XSTRING::operator = (const XSTRING& string)
 * @brief      operator =
 * @ingroup    XUTILS
-*
-* @param[in]  XSTRING& string :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  XSTRING& string : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (const XSTRING& string)
 {
@@ -4338,13 +4338,14 @@ bool XSTRING::ConvertToBase64(XSTRING& string)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
 * @brief      ConvertBinaryToBase64
 * @ingroup    XUTILS
 * 
-* @param[in]  inbuffer) : 
+* @param[in]  inbuffer : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -4357,11 +4358,11 @@ bool XSTRING::ConvertBinaryToBase64(XBUFFER& inbuffer)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTRING::ConvertFromBase64(XBUFFER& data)
-* @brief      ConvertFromBase64
+* @fn         bool XSTRING::ConvertBase64ToBinary(XBUFFER& outbuffer)
+* @brief      ConvertBase64ToBinary
 * @ingroup    XUTILS
 * 
-* @param[in]  data : 
+* @param[in]  outbuffer : 
 * 
 * @return     bool : true if is succesful. 
 * 

@@ -3,7 +3,7 @@
 * @file       DIOI2CMonitorGaugeLTC2942.h
 * 
 * @class      DIOI2CMONITORGAUGELTC2942
-* @brief      Data Input\Output I2C Monitor Gauge LTC2942 class
+* @brief      Data Input/Output I2C Monitor Gauge LTC2942 class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -91,18 +91,18 @@ DIOXTRACEINTERSTREAMS::~DIOXTRACEINTERSTREAMS()
 {
   Clean();
 }
-
     
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
-* @brief      DIOXTRACEINTERSTREAMS::Process
+* @fn         bool DIOXTRACEINTERSTREAMS::Process()
+* @brief      Process
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS::Process()
+bool DIOXTRACEINTERSTREAMS::Process()
 {
   if(!DIOstream) return false;
 

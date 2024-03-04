@@ -328,18 +328,18 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
 * @brief      Activate
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  LPCWSTR appUserModelId :
-* @param[in]  LPCWSTR invokedArgs :
-* @param[in]  const NOTIFICATION_USER_INPUT_TICKET* data :
-* @param[in]  count :
-*
-* @return     HRESULT :
-*
+* 
+* @param[in]  LPCWSTR appUserModelId : 
+* @param[in]  LPCWSTR invokedArgs : 
+* @param[in]  const NOTIFICATION_USER_INPUT_TICKET* data : 
+* @param[in]  count : 
+* 
+* @return     HRESULT : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
 {

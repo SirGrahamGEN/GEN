@@ -491,17 +491,18 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_RemoveAllNetworks()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value)
+* 
+* @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value, bool isstring)
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
 * @param[in]  value : 
-*
+* @param[in]  isstring : 
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, XCHAR* value, bool isstring)
 {
@@ -528,17 +529,17 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XCHAR* namevalue, X
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue, XSTRING& value)
 * @brief      WPA_SetValue
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  indexnetwork : 
 * @param[in]  namevalue : 
 * @param[in]  value : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXWIFIMANAGERMODE::WPA_SetValue(int indexnetwork, XSTRING& namevalue, XSTRING& value)
 {

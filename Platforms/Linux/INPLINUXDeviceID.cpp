@@ -98,20 +98,20 @@ INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 {
  return type;
 }
-    
+   
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void INPLINUXDEVICEID::INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
-* @brief      INPLINUXDEVICEID::SetType
+* @fn         void INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
+* @brief      SetType
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  type : 
 * 
 * @return     void : does not return anything. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void INPLINUXDEVICEID::INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
 {
   this->type = type;
 }

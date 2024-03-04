@@ -120,15 +120,15 @@ XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XFILEZIP_XEVENT::SetFileCompressZIP(XFILECMPZIP* filecmp)
+* 
+* @fn         void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 * @brief      SetFileCompress
 * @ingroup    XUTILS
-*
-* @param[in]  filecmpzip :
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  filecmp : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 {

@@ -216,13 +216,13 @@ bool XWINDOWSDATETIME::GetFileDateTime(XPATH& xpath)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int XWINDOWSDATETIME:GetMeridianDifference()
+* 
+* @fn         int XWINDOWSDATETIME::GetMeridianDifference()
 * @brief      GetMeridianDifference
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     int :
-*
+* 
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSDATETIME::GetMeridianDifference()
 {

@@ -678,13 +678,13 @@ bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
 * @fn         UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 * @brief      Skin_Get
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  drawmode : 
 * 
 * @return     UI_SKIN* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 {
   for(XDWORD c=0; c<skins.GetSize(); c++)
@@ -705,15 +705,16 @@ UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name)
+* @fn         UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
 * @brief      Skin_Get
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
+* @param[in]  drawmode : 
 * 
 * @return     UI_SKIN* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
 {
   return Skin_Get(name.Get(), drawmode);
@@ -1987,17 +1988,18 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::SubscribeInputsEvents(bool active)
-* @brief      SubscribeInputsEvents
+* @fn         bool UI_MANAGER::SubscribeInputEvents(bool active)
+* @brief      SubscribeInputEvents
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  active : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::SubscribeInputEvents(bool active)
 {
   UI_XEVENT_TYPE eventtype[] = {  UI_XEVENT_TYPE_INPUT_CURSOR_MOVE            ,
@@ -2160,17 +2162,17 @@ UI_MANAGER::~UI_MANAGER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, int& value)
+* @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, double& value)
 * @brief      GetLayoutElementValue
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
 * @param[in]  leyend : 
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, double& value)
 {
   XCHAR*    xcharstr;
@@ -2194,14 +2196,14 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, dou
 * @fn         bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value)
 * @brief      GetLayoutElementValue
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
 * @param[in]  leyend : 
 * @param[in]  value : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value)
 {
   XCHAR* xcharstr;
@@ -2219,17 +2221,16 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, bool& isfatherlayout, UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element)
 * @brief      GetLayoutElement_Base
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
-* @param[in]  isfatherlayout : 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element)
 {
   double xpos   = 0.0f;
@@ -2381,16 +2382,16 @@ bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
-* @brief      etParentSizeFont
+* @fn         bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
+* @brief      GetParentSizeFont
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
 * @param[in]  sizefont : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
 {
   if(!node) return false;

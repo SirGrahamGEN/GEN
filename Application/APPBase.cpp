@@ -382,15 +382,15 @@ APPBASE_EXITTYPE APPBASE::GetExitType()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void APPBASE::SetExittype(APPBASEEXITTYPE exitstatus)
-* @brief      Set the exit type for the application
+* 
+* @fn         void APPBASE::SetExitType(APPBASE_EXITTYPE exittype)
+* @brief      SetExitType
 * @ingroup    APPLICATION
-*
-* @param[in]  exitstatus : status of the exit (APPBASEEXITTYPE enum)
-*
-* @return     void : does not return anything.
-*
+* 
+* @param[in]  exittype : 
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetExitType(APPBASE_EXITTYPE exittype)
 {

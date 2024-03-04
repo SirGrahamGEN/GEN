@@ -89,8 +89,8 @@
 * @ingroup    DATAIO
 *
 * @param[in]  XDWORD :
-* @param[in]   XDWORD ID :
-* @param[in]   XBUFFER& xbuffer :
+* @param[in]  XDWORD ID :
+* @param[in]  XBUFFER& xbuffer :
 *
 * @return     Does not return anything.
 *
@@ -107,16 +107,16 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
+* 
+* @fn         DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
-*
+* 
+* @return     Does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
+DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
 {
   Clean();
 }
@@ -138,13 +138,13 @@ XDWORD DIOPROTOCOL_ANSWER::GetType()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XDWORD PROTOCOL_ANSWER::GetID()
+* 
+* @fn         XDWORD DIOPROTOCOL_ANSWER::GetID()
 * @brief      GetID
 * @ingroup    DATAIO
-*
-* @return     XDWORD :
-*
+* 
+* @return     XDWORD : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOPROTOCOL_ANSWER::GetID()
 {

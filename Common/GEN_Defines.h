@@ -29,6 +29,112 @@
 #ifndef _GEN_DEFINES_H_
 #define _GEN_DEFINES_H_
 
+
+/*---- DEFINE GROUPS DOXYGEN -----------------------------------------------------------------------------------------*/
+#pragma region DEFINES_GROUPS_DOXYGEN
+/**
+* @defgroup XUTILS eXtended Utils
+* @{
+* 
+* @}
+*
+* @defgroup DATAIO Data Input/Output
+* @{
+* 
+* @}
+*
+* @defgroup INPUT Input 
+* @{
+* 
+* @}
+*
+* @defgroup SOUND Sound
+* @{
+* 
+* @}
+*
+* @defgroup GRAPHIC Graphics
+* @{
+* 
+* @}
+*
+* @defgroup MAIN_PROCEDURE Main Procedure
+* @{
+* 
+* @}
+*
+* @defgroup APPLICATION Application
+* @{
+* 
+* @}
+*
+* @defgroup CIPHER Cipher
+* @{
+* 
+* @}
+*
+* @defgroup COMPRESS Compress
+* @{
+* 
+* @}
+*
+* @defgroup DATABASES Databases
+* @{
+* 
+* @}
+*
+* @defgroup SCRIPT Script
+* @{
+* 
+* @}
+*
+* @defgroup USERINTERFACE User Interface
+* @{
+* 
+* @}
+*
+* @defgroup LOCATION Location/Position
+* @{
+* 
+* @}
+*
+* @defgroup VIDEO Video
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_COMMON Common
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_WINDOWS Platform Windows
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_LINUX Platform Linux
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_ANDROID Platform Android
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_STM32 Platform STM32
+* @{
+* 
+* @}
+*
+* @defgroup PLATFORM_ESP32 Platform ESP32
+* @{
+* 
+* @}
+*/
+
+
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 

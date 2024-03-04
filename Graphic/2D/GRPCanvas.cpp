@@ -973,15 +973,15 @@ bool GRPCANVAS::RasterFont_Select(XCHAR* fontname)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPCANVAS::RasterFont_Select(XSTRING& fontname)
-* @brief      SelectRasterFont
+* 
+* @fn         bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
+* @brief      RasterFont_Select
 * @ingroup    GRAPHIC
-*
-* @param[in]  fontname :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  fontname : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::RasterFont_Select(XSTRING* fontname)
 {
@@ -1215,15 +1215,15 @@ bool GRPCANVAS::VectorFont_Printf(double x, double y, XCHAR* mask, ...)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPCANVAS::CopyByfferRenderToScreen(GRPSCREEN* screen)
-* @brief      Copy Buffer Render To Screen
+* 
+* @fn         bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
+* @brief      CopyBufferRenderToScreen
 * @ingroup    GRAPHIC
-*
-* @param[in]  screen : screen handle
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  screen : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPCANVAS::CopyBufferRenderToScreen(GRPSCREEN* screen)
 {

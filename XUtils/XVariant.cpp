@@ -359,7 +359,7 @@ XVARIANT::XVARIANT(const XDATETIME& value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVARIANT::XVARIANT(const XBUFFER value)
+* @fn         XVARIANT::XVARIANT(const XBUFFER& value)
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
@@ -369,6 +369,7 @@ XVARIANT::XVARIANT(const XDATETIME& value)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XBUFFER& value)
+
 {
   Clean();   
     
@@ -397,16 +398,17 @@ XVARIANT::XVARIANT(const void* value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVARIANT::XVARIANT(const XVARIANT value)
+* @fn         XVARIANT::XVARIANT(const XVARIANT& value)
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @param[in]  const XVARIANT: 
+* @param[in]  const : 
 * 
 * @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XVARIANT& value)
+
 {
   Clean();
 
@@ -665,11 +667,11 @@ const XVARIANT& XVARIANT::operator = (const XCHAR value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         const XVARIANT& XVARIANT::operator = (XCHAR* value)
+* @fn         const XVARIANT& XVARIANT::operator = (const XCHAR* value)
 * @brief      operator =
 * @ingroup    XUTILS
 * 
-* @param[in]  value : 
+* @param[in]  XCHAR* value : 
 * 
 * @return     const : 
 * 

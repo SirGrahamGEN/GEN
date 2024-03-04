@@ -389,41 +389,6 @@ int DIOLINUXSTREAMTCPIP::IsReadyConnect(int socket)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
-* @brief      SetPropertysHandle
-* @ingroup    PLATFORM_LINUX
-* 
-* @param[in]  socket : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-bool DIOLINUXSTREAMTCPIP::SetPropertysHandle(int socket)
-{
-  int opt;
-
-  opt = 1;
-  if(setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) return false;
-
-  #ifdef SO_REUSEPORT
-  opt = 1;
-  if(setsockopt(socket, SOL_SOCKET, SO_REUSEPORT, &opt, sizeof(opt)) < 0) return false;
-  #endif
-
-  opt = 1;
-  if(setsockopt(socket, SOL_SOCKET, SO_KEEPALIVE , &opt, sizeof(opt)) < 0) return false;
-
-  //opt = 1;
-  //if(setsockopt(socket, SOL_SOCKET, TCP_NODELAY,  &opt, sizeof(opt)) < 0) return false;
-
-  return true;
-}
-*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool DIOLINUXSTREAMTCPIP::GetHandleServer()
 * @brief      GetHandleServer
 * @ingroup    PLATFORM_LINUX

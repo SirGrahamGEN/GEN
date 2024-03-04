@@ -579,13 +579,13 @@ bool DIOGPIO::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMAP<XDWORD, DIOGPIO_ENTRY*>* DIOGPIO::GPIOMap_GetAll()
-* @brief      GPIOMap_GetAll
+* @fn         XVECTOR<DIOGPIO_ENTRY*>* DIOGPIO::GPIOEntry_GetAll()
+* @brief      GPIOEntry_GetAll
 * @ingroup    DATAIO
-*
-* @return     XMAP<XDWORD, : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* @return     XVECTOR<DIOGPIO_ENTRY*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<DIOGPIO_ENTRY*>* DIOGPIO::GPIOEntry_GetAll()
 {
   return &GPIOentrys;

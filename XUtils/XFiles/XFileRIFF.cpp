@@ -853,19 +853,16 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateListNode(XCHAR* typestr, XCHAR* typelistst
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD size, XDWORD typelist, XBYTE* data, XDWORD datasize)
+* @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
 * @brief      CreateChunkNode
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  type : 
-* @param[in]  size : 
-* @param[in]  typelist : 
-* @param[in]  data : 
 * @param[in]  datasize : 
 * 
 * @return     XFILERIFF_LIST_NODE* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
 {
   XFILERIFF_LIST* list = new XFILERIFF_LIST();
@@ -891,13 +888,13 @@ XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XDWORD type, XDWORD datasize)
 * @fn         XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
 * @brief      CreateChunkNode
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  typestr : 
 * @param[in]  datasize : 
 * 
 * @return     XFILERIFF_LIST_NODE* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF_LIST_NODE* XFILERIFF::CreateChunkNode(XCHAR* typestr, XDWORD datasize)
 {
   if(!typestr) return NULL;

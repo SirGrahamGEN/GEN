@@ -544,13 +544,13 @@ XFILEDFU_IMAGE* XFILEDFU::Read_Image()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XFILEDFU_ELEMENT* XFILEDFU::ReadElement()
-* @brief      ReadElement
+* @fn         XFILEDFU_ELEMENT* XFILEDFU::Read_Element()
+* @brief      Read_Element
 * @ingroup    XUTILS
-*
+* 
 * @return     XFILEDFU_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_ELEMENT* XFILEDFU::Read_Element()
 {
   XFILEDFU_ELEMENT* element = new XFILEDFU_ELEMENT();
@@ -614,13 +614,14 @@ bool XFILEDFU::CheckCRC()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void Clean()
-* @brief      lean
+* 
+* @fn         void XFILEDFU::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
-*
+* 
+* @return     void : does not return anything. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU::Clean()
 {

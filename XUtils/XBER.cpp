@@ -95,13 +95,13 @@ XBER::~XBER()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XBYTE XBER::GetType()
-* @brief      Get type of BER
+* 
+* @fn         XBYTE XBER::GetTagType()
+* @brief      GetTagType
 * @ingroup    XUTILS
-*
-* @return     XBYTE : Type of BER
-*
+* 
+* @return     XBYTE : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBYTE XBER::GetTagType()
 {
@@ -1139,7 +1139,7 @@ bool XBER::ConvertToInteger(XBUFFER& data, XVARIANT& variant)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool ConvertToOctetString(XBUFFER& data, XVARIANT& variant)
+* @fn         bool XBER::ConvertToOctetString(XBUFFER& data, XVARIANT& variant)
 * @brief      ConvertToOctetString
 * @ingroup    XUTILS
 * 

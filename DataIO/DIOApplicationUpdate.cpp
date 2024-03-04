@@ -1474,16 +1474,16 @@ bool DIOAPPLICATIONUPDATE::Restore(DIOAPPLICATIONUPDATE_VERSIONDATA& application
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOAPPLICATIONUPDATE::RestoreUpdate(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
-* @brief      RestoreUpdate
+* 
+* @fn         bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
+* @brief      Restore
 * @ingroup    DATAIO
-*
-* @param[in]  xpathbackup :
-* @param[in]  error :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathbackup : 
+* @param[in]  error : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOAPPLICATIONUPDATE::Restore(XPATH& xpathbackup, DIOAPPLICATIONUPDATE_ERROR& error)
 {

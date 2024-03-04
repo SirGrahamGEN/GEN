@@ -3,7 +3,7 @@
 * @file       DIOI2CMonitorGaugeLTC2942.cpp
 * 
 * @class      DIOI2CMONITORGAUGELTC2942
-* @brief      Data Input\Output I2C Monitor Gauge LTC2942 class
+* @brief      Data Input/Output I2C Monitor Gauge LTC2942 class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -311,16 +311,16 @@ bool DIOI2CMONITORGAUGELTC2942::Initialize()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE data)
+* 
+* @fn         bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 * @brief      ReadRegister
 * @ingroup    DATAIO
-*
-* @param[in]  offset :
-* @param[in]  data :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  offset : 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CMONITORGAUGELTC2942::ReadRegister(XBYTE offset, XBYTE& data)
 {

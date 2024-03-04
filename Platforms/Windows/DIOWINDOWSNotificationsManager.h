@@ -71,7 +71,6 @@
 
 #if(_MSC_VER >= 1700) && defined(_USING_V110_SDK71_)
 
-
 #else
 
 typedef struct NOTIFICATION_USER_INPUT_TICKET

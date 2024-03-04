@@ -170,16 +170,16 @@ bool GRPVIDEOFILE::Open(XCHAR* xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys))
+* @fn         bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 * @brief      Create
 * @ingroup    VIDEO
-*
+* 
 * @param[in]  xpath : 
 * @param[in]  propertys : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVIDEOFILE::Create(XCHAR* xpath, GRPVIDEOFILE_PROPERTYS& propertys)
 {
   return false;

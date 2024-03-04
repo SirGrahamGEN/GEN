@@ -360,11 +360,11 @@ DIONODEITEMVALUEUNITFORMAT* DIONODEITEMVALUE::GetUnitFormat()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDATETIME* DIONODEITEMVALUE::GetDateTime()
-* @brief      GetDateTime
+* @fn         bool DIONODEITEMVALUE::ReadUpdateDateTime()
+* @brief      ReadUpdateDateTime
 * @ingroup    DATAIO
 * 
-* @return     XDATETIME* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONODEITEMVALUE::ReadUpdateDateTime()

@@ -48,7 +48,7 @@
 *
 * @fn         XSTM32RAND::XSTM32RAND()
 * @brief      Constructor
-* @ingroup    PLATFORM_STM32    PLATFORM_STM32
+* @ingroup    PLATFORM_STM32
 *
 * @return     Does not return anything.
 *

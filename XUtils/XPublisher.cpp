@@ -136,13 +136,13 @@ bool XPUBLISHER::GetIsInstanced()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XPUBLISHER& GEN_XPUBLISHER.
+* 
+* @fn         XPUBLISHER& XPUBLISHER::GetInstance()
 * @brief      GetInstance
 * @ingroup    XUTILS
-*
-* @return     XPUBLISHER& :
-*
+* 
+* @return     XPUBLISHER& : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHER& XPUBLISHER::GetInstance()
 {

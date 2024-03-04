@@ -593,13 +593,13 @@ XSTRING* XFILEINIREMARK::GetRelativeKey()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XFILEINIREMARK::GetRemark()
-* @brief      GetRemark
+* @fn         XSTRING* XFILEINIREMARK::GetTextRemark()
+* @brief      GetTextRemark
 * @ingroup    XUTILS
-*
+* 
 * @return     XSTRING* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* XFILEINIREMARK::GetTextRemark()
 {
   return &textremark;

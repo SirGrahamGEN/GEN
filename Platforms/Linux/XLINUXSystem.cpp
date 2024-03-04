@@ -1018,16 +1018,16 @@ void unmount_disks_ourselves()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXSYSTEM::Sound_SetLevel(bool read, int level)
+* 
+* @fn         bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 * @brief      Sound_SetLevel
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  read : 
 * @param[in]  level : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::Sound_SetLevel(bool read, long* level)
 {

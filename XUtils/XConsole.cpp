@@ -476,18 +476,18 @@ bool XCONSOLE::Format_Message(XCHAR* message, XDWORD margin, bool prelude, bool 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XCONSOLE::Print_Message(XCHAR* message, XDWORD margin, bool prelude, bool returnline)
-* @brief      Print Message
+* 
+* @fn         bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool returnline)
+* @brief      PrintMessage
 * @ingroup    XUTILS
-*
-* @param[in]  message : Message to print
-* @param[in]  margin : size of margin
-* @param[in]  prelude : true if has prelude
-* @param[in]  returnline : true if return line
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  message : 
+* @param[in]  margin : 
+* @param[in]  prelude : 
+* @param[in]  returnline : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XCONSOLE::PrintMessage(XCHAR* message, XDWORD margin, bool prelude, bool returnline)
 {

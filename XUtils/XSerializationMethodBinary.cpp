@@ -409,13 +409,12 @@ bool XSERIALIZATIONMETHODBINARY::Add(XSTRING* var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER* var, XCHAR* name, bool open)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Add(XBUFFER* var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
 * @param[in]  var : 
 * @param[in]  name : 
-* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -733,7 +732,7 @@ bool XSERIALIZATIONMETHODBINARY::Extract(XBUFFER* var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XVARIANT& var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODBINARY::Extract(XVARIANT* var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 

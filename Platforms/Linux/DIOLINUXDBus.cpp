@@ -574,15 +574,15 @@ bool DIOLINUXDBUS_ARGUMENTS::AppendIterator(XCHAR* value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXDBUS_MESSAGE::GetResultInteractor(XVARIANT& result)
+* @fn         bool DIOLINUXDBUS_ARGUMENTS::GetResultInteractor(XVARIANT& result)
 * @brief      GetResultInteractor
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  result : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXDBUS_ARGUMENTS::GetResultInteractor(XVARIANT& result)
 {
   DBusMessageIter   iter_variant;

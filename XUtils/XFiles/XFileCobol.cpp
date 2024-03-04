@@ -833,15 +833,15 @@ XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XCHAR* name)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR it)
+* 
+* @fn         XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it)
 * @brief      GetField
 * @ingroup    XUTILS
-*
-* @param[in]  it :
-*
-* @return     XFILECOBOL_FIELD* :
-*
+* 
+* @param[in]  it : 
+* 
+* @return     XFILECOBOL_FIELD* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD* XFILECOBOL_RECORD::GetField(XFILECOBOL_FD_TREENODEITERATOR& it)
 {
@@ -900,15 +900,16 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XVARIANT& variant)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XVARIANT* XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR it)
+* 
+* @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIANT& variant)
 * @brief      GetFieldData
 * @ingroup    XUTILS
-*
-* @param[in]  it :
-*
-* @return     XVARIANT* :
-*
+* 
+* @param[in]  it : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XVARIANT& variant)
 {
@@ -1050,16 +1051,16 @@ bool XFILECOBOL_RECORD::GetFieldData(XCHAR* name, XBUFFER& data)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR it, XBUFFER& data)
+* 
+* @fn         bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER& data)
 * @brief      GetFieldData
 * @ingroup    XUTILS
-*
-* @param[in]  it :
-* @param[in]  data :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  it : 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL_RECORD::GetFieldData(XFILECOBOL_FD_TREENODEITERATOR& it, XBUFFER& data)
 {
@@ -2146,15 +2147,15 @@ XPATH* XFILECOBOL::GetPathDataFile()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECOBOL:CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
-* @brief      LoadCapabilitiesFile
+* 
+* @fn         bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
+* @brief      CapabilitiesFile_Load
 * @ingroup    XUTILS
-*
-* @param[in]  xpathcapabilitiesfile :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  xpathcapabilitiesfile : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::CapabilitiesFile_Load(XPATH& xpathcapabilitiesfile)
 {
@@ -2397,15 +2398,15 @@ bool XFILECOBOL::Eliminate_InvalidCharacters(XVECTOR<XSTRING*>* lines)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XFILECOBOL::Eliminate_Coments(XVECTOR<XSTRING*>* lines)
-* @brief      Eliminate_Coments
+* 
+* @fn         bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
+* @brief      Eliminate_Comments
 * @ingroup    XUTILS
-*
-* @param[in]  lines :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  lines : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILECOBOL::Eliminate_Comments(XVECTOR<XSTRING*>* lines)
 {

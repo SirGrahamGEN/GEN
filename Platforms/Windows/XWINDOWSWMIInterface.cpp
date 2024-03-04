@@ -804,13 +804,15 @@ bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int ID, int metric)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric()
+* @fn         bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
 * @brief      NetWorkInterfaceSetMetric
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
+* @param[in]  metric : 
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSWMIINTERFACE::NetWorkInterfaceSetMetric(int metric)
 {
   HRESULT hr; 

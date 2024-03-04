@@ -98,7 +98,7 @@ SCRIPT_LIB_INPUTSIMULATE::~SCRIPT_LIB_INPUTSIMULATE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         boolSCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
+* @fn         bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 * @brief      AddLibraryFunctions
 * @ingroup    SCRIPT
 * 
@@ -127,7 +127,7 @@ bool SCRIPT_LIB_INPUTSIMULATE::AddLibraryFunctions(SCRIPT* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         voidSCRIPT_LIB_INPUTSIMULATE::Clean()
+* @fn         void SCRIPT_LIB_INPUTSIMULATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
