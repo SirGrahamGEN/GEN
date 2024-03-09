@@ -90,8 +90,6 @@ APPGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_WINDOW::SCRIPT_LIB_WINDOW() : SCRIPT_LIB(SCRIPT_LIB_NAME_WINDOW)
 {
@@ -108,8 +106,6 @@ SCRIPT_LIB_WINDOW::SCRIPT_LIB_WINDOW() : SCRIPT_LIB(SCRIPT_LIB_NAME_WINDOW)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_WINDOW::~SCRIPT_LIB_WINDOW()
@@ -171,8 +167,6 @@ XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetDiffLimitPercent()
 * 
 * @param[in]  difflimitpercent : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::BmpFindCFG_SetDiffLimitPercent(XBYTE difflimitpercent)
 {
@@ -202,8 +196,6 @@ XBYTE SCRIPT_LIB_WINDOW::BmpFindCFG_GetPixelMargin()
 * @ingroup    SCRIPT
 * 
 * @param[in]  pixelmargin : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
@@ -237,8 +229,6 @@ APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
 * 
 * @param[in]  _appgraphics : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
 {
@@ -253,8 +243,6 @@ void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_WINDOW::Clean()
@@ -285,8 +273,6 @@ void SCRIPT_LIB_WINDOW::Clean()
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -457,8 +443,6 @@ void Call_Window_GetPosX(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 * @param[in]  params : 
 * @param[in]  returnvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
@@ -489,8 +473,6 @@ void Call_Window_GetPosY(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_SetBmpFindCFG(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -537,8 +519,6 @@ void Call_Window_SetBmpFindCFG(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVAR
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -608,8 +588,6 @@ void Call_Window_SetFocus(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_SetPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -685,8 +663,6 @@ void Call_Window_SetPosition(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIA
 * @param[in]  params : 
 * @param[in]  returnvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
@@ -761,8 +737,6 @@ void Call_Window_Resize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 * @param[in]  params : 
 * @param[in]  returnvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_Minimize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
@@ -832,8 +806,6 @@ void Call_Window_Minimize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Window_Maximize(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -1208,8 +1180,6 @@ GRPBITMAP* GetBitmap(int x, int y, int sizex, int sizey)
 * @param[in]  scrpos : 
 * @param[in]  linesize : 
 * @param[in]  color : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void FillLineDebug(GRPBITMAP* bitmapscreen, XDWORD*  bufferscreen, XDWORD scrpos, XDWORD linesize, XDWORD color)

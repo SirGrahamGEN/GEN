@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT()
 {
@@ -79,8 +77,6 @@ XVARIANT::XVARIANT()
 * @ingroup    XUTILS
 * 
 * @param[in]  const bool: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const bool value)
@@ -99,8 +95,6 @@ XVARIANT::XVARIANT(const bool value)
 * 
 * @param[in]  const short: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const short value) 
 {
@@ -117,8 +111,6 @@ XVARIANT::XVARIANT(const short value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const XWORD: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XWORD value)
@@ -137,8 +129,6 @@ XVARIANT::XVARIANT(const XWORD value)
 * 
 * @param[in]  const int: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const int value)
 {
@@ -155,8 +145,6 @@ XVARIANT::XVARIANT(const int value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const XDWORD: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XDWORD value)
@@ -175,8 +163,6 @@ XVARIANT::XVARIANT(const XDWORD value)
 * 
 * @param[in]  const long long: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const long long value)
 {
@@ -193,8 +179,6 @@ XVARIANT::XVARIANT(const long long value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const XQWORD: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XQWORD value)
@@ -213,8 +197,6 @@ XVARIANT::XVARIANT(const XQWORD value)
 * 
 * @param[in]  const float: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const float value)
 {
@@ -231,8 +213,6 @@ XVARIANT::XVARIANT(const float value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const double: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const double value)
@@ -251,8 +231,6 @@ XVARIANT::XVARIANT(const double value)
 * 
 * @param[in]  const char: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const char value)
 {
@@ -269,8 +247,6 @@ XVARIANT::XVARIANT(const char value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const char*: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const char* value)
@@ -289,8 +265,6 @@ XVARIANT::XVARIANT(const char* value)
 * 
 * @param[in]  const XCHAR: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XCHAR value)
 {
@@ -307,8 +281,6 @@ XVARIANT::XVARIANT(const XCHAR value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const  XCHAR*: 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XCHAR* value)
@@ -327,8 +299,6 @@ XVARIANT::XVARIANT(const XCHAR* value)
 * 
 * @param[in]  const XSTRING&: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XSTRING& value)
 {
@@ -346,8 +316,6 @@ XVARIANT::XVARIANT(const XSTRING& value)
 * 
 * @param[in]  const XDATETIME: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XDATETIME& value)
 {
@@ -364,8 +332,6 @@ XVARIANT::XVARIANT(const XDATETIME& value)
 * @ingroup    XUTILS
 * 
 * @param[in]  const : 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XBUFFER& value)
@@ -385,8 +351,6 @@ XVARIANT::XVARIANT(const XBUFFER& value)
 * 
 * @param[in]  const : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const void* value)
 {
@@ -404,8 +368,6 @@ XVARIANT::XVARIANT(const void* value)
 * 
 * @param[in]  const : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::XVARIANT(const XVARIANT& value)
 
@@ -422,8 +384,6 @@ XVARIANT::XVARIANT(const XVARIANT& value)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XVARIANT::~XVARIANT()
@@ -1154,8 +1114,6 @@ bool XVARIANT::GetType(XSTRING& typestr)
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XVARIANT::SetType(XVARIANT_TYPE type)
 {
@@ -1773,8 +1731,6 @@ bool XVARIANT::Destroy()
 * @brief      PrintDebug
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XVARIANT::PrintDebug()
 {
@@ -1797,8 +1753,6 @@ void XVARIANT::PrintDebug()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XVARIANT::Clean()

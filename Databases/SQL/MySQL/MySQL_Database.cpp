@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 {
@@ -84,8 +82,6 @@ MYSQL_DATABASE::MYSQL_DATABASE(): DB_SQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_DATABASE::~MYSQL_DATABASE()
@@ -519,8 +515,6 @@ bool MYSQL_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_DATABASE::Clean()

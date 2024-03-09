@@ -71,8 +71,6 @@
 * 
 * @param[in]  DIOSTREAM* : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 {
@@ -90,8 +88,6 @@ DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATE::~DIOBUSPIRATE()
@@ -383,8 +379,6 @@ bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOBUSPIRATE::Clean()

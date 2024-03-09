@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPFRAMERATE::GRPFRAMERATE()    
 { 
@@ -87,8 +85,6 @@ GRPFRAMERATE::GRPFRAMERATE()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPFRAMERATE::~GRPFRAMERATE()    
 { 
@@ -127,8 +123,6 @@ XTIMER* GRPFRAMERATE::GetXTimer()
 * @brief      AddNFrames
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPFRAMERATE::AddNFrames()
 {
@@ -157,8 +151,6 @@ XDWORD GRPFRAMERATE::GetNFrames()
 * @brief      Reset
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPFRAMERATE::Reset()
 {  
@@ -196,8 +188,6 @@ float GRPFRAMERATE::Get()
 *
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 {
@@ -222,8 +212,6 @@ void GRPFRAMERATE::ThreadRunFunction_Framerate(void* param)
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPFRAMERATE::Clean()
 {

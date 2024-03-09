@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
 {
@@ -85,8 +83,6 @@ DIOWEBPAGEHTMLCREATOR::DIOWEBPAGEHTMLCREATOR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
@@ -105,8 +101,6 @@ DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
 *
 * @param[in]  char* htlmpage :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 {
@@ -121,8 +115,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 * @ingroup    DATAIO
 *
 * @param[in]  XCHAR* htlmpage :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
@@ -139,8 +131,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
 *
 * @param[in]  htlmpage :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 {
@@ -155,8 +145,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (DIOWEBPAGEHTMLCREATOR& htlmpage)
 * @ingroup    DATAIO
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (XSTRING& string)
@@ -173,8 +161,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XSTRING& string)
 *
 * @param[in]  htlmpage :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 {
@@ -189,8 +175,6 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 * @ingroup    DATAIO
 *
 * @param[in]  char* htlmpage :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
@@ -207,8 +191,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
 *
 * @param[in]  XCHAR* htlmpage :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 {
@@ -223,8 +205,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
 * @ingroup    DATAIO
 *
 * @param[in]  htlmpage :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XPATH& htlmpage)
@@ -241,8 +221,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XPATH& htlmpage)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 {
@@ -257,8 +235,6 @@ void DIOWEBPAGEHTMLCREATOR::operator += (XSTRING& string)
 * @ingroup    DATAIO
 *
 * @param[in]  htlmpage :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (XCHAR htlmpage)

@@ -75,8 +75,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 {
@@ -102,8 +100,6 @@ INPLINUXDEVICEMOUSEX11::INPLINUXDEVICEMOUSEX11() : INPDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEMOUSEX11::~INPLINUXDEVICEMOUSEX11()
@@ -291,8 +287,6 @@ bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEMOUSEX11::Clean()

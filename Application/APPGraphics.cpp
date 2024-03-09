@@ -85,8 +85,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPGRAPHICS::APPGRAPHICS()
 {
@@ -100,8 +98,6 @@ APPGRAPHICS::APPGRAPHICS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPGRAPHICS::~APPGRAPHICS()
@@ -195,8 +191,6 @@ XDWORD APPGRAPHICS::GetInitOptions()
 * @ingroup    APPLICATION
 * 
 * @param[in]  initoptions : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::SetInitOptions(XDWORD initoptions)
@@ -377,8 +371,6 @@ GRPSCREEN* APPGRAPHICS::GetMainScreen()
 *
 * @param[in]  mainscreen :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 {
@@ -459,8 +451,6 @@ bool APPGRAPHICS::AppProc_BeforeCreateMainCanvas(GRPCANVAS* maincanvas)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPGRAPHICS::Clean()

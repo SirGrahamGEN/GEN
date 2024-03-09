@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE() : SCRIPT_LIB(SCRIPT_LIB_NAME_CONSOLE)
 {
@@ -84,8 +82,6 @@ SCRIPT_LIB_CONSOLE::SCRIPT_LIB_CONSOLE() : SCRIPT_LIB(SCRIPT_LIB_NAME_CONSOLE)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_CONSOLE::~SCRIPT_LIB_CONSOLE()
@@ -150,8 +146,6 @@ XCONSOLE* SCRIPT_LIB_CONSOLE::GetConsole()
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_CONSOLE::Clean()
 {
@@ -176,8 +170,6 @@ void SCRIPT_LIB_CONSOLE::Clean()
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -204,8 +196,6 @@ void Call_Console_GetChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -242,8 +232,6 @@ void Call_Console_PutChar(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Console_Printf(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

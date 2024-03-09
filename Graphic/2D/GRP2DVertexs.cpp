@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DVERTEX::GRP2DVERTEX()
 {
@@ -79,8 +77,6 @@ GRP2DVERTEX::GRP2DVERTEX()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DVERTEX::~GRP2DVERTEX()
 {
@@ -94,8 +90,6 @@ GRP2DVERTEX::~GRP2DVERTEX()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DVERTEX::Clean()
@@ -117,8 +111,6 @@ void GRP2DVERTEX::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DVERTEXS::GRP2DVERTEXS()
 {
@@ -132,8 +124,6 @@ GRP2DVERTEXS::GRP2DVERTEXS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DVERTEXS::~GRP2DVERTEXS()
@@ -225,8 +215,6 @@ bool GRP2DVERTEXS::DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DVERTEXS::Clean()

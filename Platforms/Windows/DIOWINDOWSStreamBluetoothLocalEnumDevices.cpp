@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 {
@@ -85,8 +83,6 @@ DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEV
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLOCALENUMDEVICES()

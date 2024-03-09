@@ -67,8 +67,6 @@ DIOGPIO* DIOGPIO::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO_ENTRY::DIOGPIO_ENTRY()
 {
@@ -83,8 +81,6 @@ DIOGPIO_ENTRY::DIOGPIO_ENTRY()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO_ENTRY::~DIOGPIO_ENTRY()
 {
@@ -114,8 +110,6 @@ XDWORD DIOGPIO_ENTRY::GetID()
 * @ingroup    DATAIO
 *
 * @param[in]  ID : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetID(XDWORD ID)
@@ -147,8 +141,6 @@ XQWORD DIOGPIO_ENTRY::GetGPIO()
 *
 * @param[in]  GPIO : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetGPIO(XQWORD GPIO)
 {
@@ -178,8 +170,6 @@ DIOGPIO_PINSGROUP DIOGPIO_ENTRY::GetGroup()
 * @ingroup    DATAIO
 *
 * @param[in]  group : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetGroup(DIOGPIO_PINSGROUP group)
@@ -211,8 +201,6 @@ XWORD DIOGPIO_ENTRY::GetPin()
 *
 * @param[in]  pin : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetPin(XWORD pin)
 {
@@ -242,8 +230,6 @@ XWORD DIOGPIO_ENTRY::GetMode()
 * @ingroup    DATAIO
 *
 * @param[in]  mode : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetMode(XWORD mode)
@@ -275,8 +261,6 @@ DIOGPIO_PULLMODE DIOGPIO_ENTRY::GetPullMode()
 *
 * @param[in]  pullmode : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetPullMode(DIOGPIO_PULLMODE pullmode)
 {
@@ -306,8 +290,6 @@ DIOGPIO_INT_FUNCPTR DIOGPIO_ENTRY::GetIntFunctionPointer()
 * @ingroup    DATAIO
 *
 * @param[in]  int_funcptr : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetIntFunctionPointer(DIOGPIO_INT_FUNCPTR int_funcptr)
@@ -339,8 +321,6 @@ void* DIOGPIO_ENTRY::GetIntParamPointer()
 *
 * @param[in]  int_paramptr : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetIntParamPointer(void* int_paramptr)
 {
@@ -370,8 +350,6 @@ XDWORD DIOGPIO_ENTRY::GetIntIRQ()
 * @ingroup    DATAIO
 *
 * @param[in]  int_IRQ : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetIntIRQ(XDWORD int_IRQ)
@@ -403,8 +381,6 @@ XDWORD DIOGPIO_ENTRY::GetIntPriority()
 *
 * @param[in]  int_priority : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::SetIntPriority(XDWORD int_priority)
 {
@@ -418,8 +394,6 @@ void DIOGPIO_ENTRY::SetIntPriority(XDWORD int_priority)
 * @brief      DebugTrace
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::DebugTrace()
 {
@@ -443,8 +417,6 @@ void DIOGPIO_ENTRY::DebugTrace()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO_ENTRY::Clean()
 {
@@ -474,8 +446,6 @@ void DIOGPIO_ENTRY::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO::DIOGPIO()
 {
@@ -489,8 +459,6 @@ DIOGPIO::DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOGPIO::~DIOGPIO()
@@ -1056,8 +1024,6 @@ bool DIOGPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOGPIO::Clean()

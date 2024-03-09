@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* s
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER_XEVENT::~DIODNSPROTOCOL_MITM_SERVER_XEVENT()
@@ -170,8 +166,6 @@ DIOIP* DIODNSPROTOCOL_MITM_SERVER_XEVENT::GetAnsweredIP()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSPROTOCOL_MITM_SERVER_XEVENT::Clean()

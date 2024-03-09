@@ -72,8 +72,6 @@
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 {
@@ -87,8 +85,6 @@ MYSQL_QUERY::MYSQL_QUERY(DB_SQL_DATABASE* database): DB_SQL_QUERY(database)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_QUERY::~MYSQL_QUERY()
@@ -572,8 +568,6 @@ bool MYSQL_QUERY::BindParametersToResult()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_QUERY::Clean()

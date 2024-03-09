@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICE::DIOSTREAMDEVICE()
 {
@@ -77,8 +75,6 @@ DIOSTREAMDEVICE::DIOSTREAMDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICE::~DIOSTREAMDEVICE()
@@ -143,8 +139,6 @@ DIOSTREAMDEVICE_TYPE DIOSTREAMDEVICE::GetType()
 * @ingroup    DATAIO
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICE::SetType(DIOSTREAMDEVICE_TYPE type)
@@ -270,8 +264,6 @@ bool DIOSTREAMDEVICE::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICE::Clean()

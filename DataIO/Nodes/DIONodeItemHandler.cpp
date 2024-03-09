@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMHANDLER::DIONODEITEMHANDLER()
 {
@@ -79,8 +77,6 @@ DIONODEITEMHANDLER::DIONODEITEMHANDLER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMHANDLER::~DIONODEITEMHANDLER()
@@ -247,8 +243,6 @@ bool DIONODEITEMHANDLER::SetNodeItem(DIONODEITEM* nodeitem)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMHANDLER::Clean()

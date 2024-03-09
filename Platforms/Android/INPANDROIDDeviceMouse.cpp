@@ -67,8 +67,6 @@
 *
 * @param[in]  GRPANDROIDSCREEN* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 {
@@ -90,8 +88,6 @@ INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEMOUSE::~INPANDROIDDEVICEMOUSE()
@@ -194,8 +190,6 @@ bool INPANDROIDDEVICEMOUSE::AddPosition(int index, float x, float y, bool ispres
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPANDROIDDEVICEMOUSE::Clean()

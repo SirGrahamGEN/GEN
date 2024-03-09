@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICEI2C::DIODEVICEI2C()
 {
@@ -84,8 +82,6 @@ DIODEVICEI2C::DIODEVICEI2C()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICEI2C::~DIODEVICEI2C()
 {
@@ -264,8 +260,6 @@ bool DIODEVICEI2C::End()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIODEVICEI2C::Clean()
 {

@@ -98,8 +98,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
 {
@@ -114,8 +112,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 {
@@ -129,8 +125,6 @@ XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
@@ -157,8 +151,6 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 *
 * @param[in]  ) :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 {
@@ -172,8 +164,6 @@ XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
@@ -1209,8 +1199,6 @@ bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSYSTEM::Clean()

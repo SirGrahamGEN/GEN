@@ -80,8 +80,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_COMMAND::SCRIPT_LNG_G_COMMAND()
 
@@ -96,8 +94,6 @@ SCRIPT_LNG_G_COMMAND::SCRIPT_LNG_G_COMMAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_COMMAND::~SCRIPT_LNG_G_COMMAND()
@@ -184,8 +180,6 @@ bool SCRIPT_LNG_G_COMMAND::Set(XSTRING& command,SCRIPT_LNG_G_TOKENIREPS token)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G_COMMAND::Clean()
 {
@@ -207,8 +201,6 @@ void SCRIPT_LNG_G_COMMAND::Clean()
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_VAR::SCRIPT_LNG_G_VAR()
 {
@@ -222,8 +214,6 @@ SCRIPT_LNG_G_VAR::SCRIPT_LNG_G_VAR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_VAR::~SCRIPT_LNG_G_VAR()
@@ -710,8 +700,6 @@ bool SCRIPT_LNG_G_VAR::Clear()
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G_VAR::Clean()
 {
@@ -739,8 +727,6 @@ void SCRIPT_LNG_G_VAR::Clean()
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_FUNCTIONTYPE::SCRIPT_LNG_G_FUNCTIONTYPE()
 {
@@ -754,8 +740,6 @@ SCRIPT_LNG_G_FUNCTIONTYPE::SCRIPT_LNG_G_FUNCTIONTYPE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G_FUNCTIONTYPE::~SCRIPT_LNG_G_FUNCTIONTYPE()
@@ -890,8 +874,6 @@ bool SCRIPT_LNG_G_FUNCTIONTYPE::SetLocation(XCHAR* location)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G_FUNCTIONTYPE::Clean()
 {
@@ -914,8 +896,6 @@ void SCRIPT_LNG_G_FUNCTIONTYPE::Clean()
 * @fn         SCRIPT_LNG_G::SCRIPT_LNG_G()
 * @brief      Constructor
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G::SCRIPT_LNG_G()
@@ -952,8 +932,6 @@ SCRIPT_LNG_G::SCRIPT_LNG_G()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_G::~SCRIPT_LNG_G()
@@ -1147,8 +1125,6 @@ int SCRIPT_LNG_G::GetFuncParams(SCRIPT_LNG_G_VAR* params)
 * @fn         void SCRIPT_LNG_G::NotFuncParams()
 * @brief      NotFuncParams
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::NotFuncParams()
@@ -1432,8 +1408,6 @@ SCRIPT_LNG_G_TOKENIREPS SCRIPT_LNG_G::LookUpToken(XCHAR* s)
 * @brief      PutBackToken
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::PutBackToken()
 {
@@ -1455,8 +1429,6 @@ void SCRIPT_LNG_G::PutBackToken()
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp(SCRIPT_LNG_G_VAR& value)
@@ -1507,8 +1479,6 @@ void SCRIPT_LNG_G::EvalExp(SCRIPT_LNG_G_VAR& value)
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp0(SCRIPT_LNG_G_VAR& value)
@@ -1587,8 +1557,6 @@ void SCRIPT_LNG_G::EvalExp0(SCRIPT_LNG_G_VAR& value)
 *
 * @param[in]  value :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp1(SCRIPT_LNG_G_VAR& value)
 {
@@ -1659,8 +1627,6 @@ void SCRIPT_LNG_G::EvalExp1(SCRIPT_LNG_G_VAR& value)
 *
 * @param[in]  value :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp2(SCRIPT_LNG_G_VAR& value)
 {
@@ -1721,8 +1687,6 @@ void SCRIPT_LNG_G::EvalExp2(SCRIPT_LNG_G_VAR& value)
 *
 * @param[in]  value :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp3(SCRIPT_LNG_G_VAR& value)
 {
@@ -1777,8 +1741,6 @@ void SCRIPT_LNG_G::EvalExp3(SCRIPT_LNG_G_VAR& value)
 *
 * @param[in]  value :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp4(SCRIPT_LNG_G_VAR& value)
 {
@@ -1824,8 +1786,6 @@ void SCRIPT_LNG_G::EvalExp4(SCRIPT_LNG_G_VAR& value)
 *
 * @param[in]  value :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::EvalExp5(SCRIPT_LNG_G_VAR& value)
 {
@@ -1854,8 +1814,6 @@ void SCRIPT_LNG_G::EvalExp5(SCRIPT_LNG_G_VAR& value)
 * @ingroup    SCRIPT
 *
 * @param[in]  value :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Atom(SCRIPT_LNG_G_VAR& value)
@@ -2075,8 +2033,6 @@ SCRIPT_LNG_G_VAR* SCRIPT_LNG_G::IsVariable(XCHAR* variablename)
 *
 * @param[in]  variablename :
 * @param[in]  value :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::AssignVariable(XCHAR* variablename, SCRIPT_LNG_G_VAR& value)
@@ -2326,8 +2282,6 @@ SCRIPT_LNG_G_FUNCTIONTYPE* SCRIPT_LNG_G::GetFunction(XCHAR* name)
 * @brief      FindEndofBlock
 * @ingroup    SCRIPT
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::FindEndofBlock()
 {
@@ -2368,8 +2322,6 @@ void SCRIPT_LNG_G::FindEndofBlock()
 * @fn         void SCRIPT_LNG_G::DeclareGlobalVariable()
 * @brief      DeclareGlobalVariable
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::DeclareGlobalVariable()
@@ -2429,8 +2381,6 @@ void SCRIPT_LNG_G::DeclareGlobalVariable()
 * @fn         void SCRIPT_LNG_G::DeclareLocalVariable()
 * @brief      DeclareLocalVariable
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::DeclareLocalVariable()
@@ -2852,8 +2802,6 @@ SCRIPT_LNG_G_TOKENTYPES SCRIPT_LNG_G::GetToken()
 * @brief      PreScan
 * @ingroup    SCRIPT
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::PreScan()
 {
@@ -2985,8 +2933,6 @@ void SCRIPT_LNG_G::PreScan()
 * @brief      GetArgs
 * @ingroup    SCRIPT
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::GetArgs()
 {
@@ -3042,8 +2988,6 @@ void SCRIPT_LNG_G::GetArgs()
 * @fn         void SCRIPT_LNG_G::GetParams()
 * @brief      GetParams
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::GetParams()
@@ -3101,8 +3045,6 @@ void SCRIPT_LNG_G::GetParams()
 * @brief      FunctionReturn
 * @ingroup    SCRIPT
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::FunctionReturn()
 {
@@ -3140,8 +3082,6 @@ void SCRIPT_LNG_G::FunctionReturn()
 * @fn         void SCRIPT_LNG_G::Exec_IF()
 * @brief      Exec_IF
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Exec_IF()
@@ -3193,8 +3133,6 @@ void SCRIPT_LNG_G::Exec_IF()
 * @fn         void SCRIPT_LNG_G::Exec_SWITCH()
 * @brief      Exec_SWITCH
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Exec_SWITCH()
@@ -3278,8 +3216,6 @@ void SCRIPT_LNG_G::Exec_SWITCH()
 * @brief      Exec_WHILE
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Exec_WHILE()
 {
@@ -3334,8 +3270,6 @@ void SCRIPT_LNG_G::Exec_WHILE()
 * @fn         void SCRIPT_LNG_G::Exec_DO()
 * @brief      Exec_DO
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Exec_DO()
@@ -3405,8 +3339,6 @@ void SCRIPT_LNG_G::Exec_DO()
 * @fn         void SCRIPT_LNG_G::Exec_FOR()
 * @brief      Exec_FOR
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Exec_FOR()
@@ -3614,8 +3546,6 @@ bool SCRIPT_LNG_G::Interpret()
 * @brief      Call
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Call()
 {
@@ -3673,8 +3603,6 @@ void SCRIPT_LNG_G::Call()
 *
 * @param[in]  data :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::ThreadFunction(void* data)
 {
@@ -3697,8 +3625,6 @@ void SCRIPT_LNG_G::ThreadFunction(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_G::Clean()

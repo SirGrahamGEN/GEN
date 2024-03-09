@@ -68,8 +68,6 @@
 *
 * @param[in]  XCHAR* : 
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCFG::APPCFG(XCHAR* namefile)
 #ifdef APP_CFG_REMOTEFILE_ACTIVE
@@ -88,8 +86,6 @@ APPCFG::APPCFG(XCHAR* namefile)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCFG::~APPCFG()
@@ -494,8 +490,6 @@ XWORD APPCFG::GetShowDetailInfo()
 *
 * @param[in]  detail : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCFG::SetShowDetailInfo(XWORD detail)
 {
@@ -800,8 +794,6 @@ XVECTOR<XSTRING*>* APPCFG::InternetServices_GetUpdateTimeNTPServers()
 * @ingroup    APPLICATION
 *
 * @param[in]  index :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* APPCFG::InternetServices_GetUpdateTimeNTPServer(int index)
@@ -1817,8 +1809,6 @@ int APPCFG::Log_ReductionPercent()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCFG::Clean()

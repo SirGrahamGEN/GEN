@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFGVALUE::XFILECFGVALUE()
 {
@@ -86,8 +84,6 @@ XFILECFGVALUE::XFILECFGVALUE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFGVALUE::~XFILECFGVALUE()
@@ -245,8 +241,6 @@ XDWORD XFILECFGVALUE::GetMinSecuences()
 * 
 * @param[in]  minsecuences : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetMinSecuences(XDWORD minsecuences)
 {
@@ -276,8 +270,6 @@ XDWORD XFILECFGVALUE::GetMaxSecuences()
 * @ingroup    XUTILS
 * 
 * @param[in]  maxsecuences : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetMaxSecuences(XDWORD maxsecuences)
@@ -309,8 +301,6 @@ int XFILECFGVALUE::GetIndexSecuence()
 * 
 * @param[in]  index : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetIndexSecuence(int index)
 {
@@ -340,8 +330,6 @@ XDWORD XFILECFGVALUE::GetNSecuences()
 * @ingroup    XUTILS
 * 
 * @param[in]  nsecuences : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetNSecuences(XDWORD nsecuences)
@@ -388,8 +376,6 @@ XDWORD XFILECFGVALUE::GetRemarkXPos()
 * 
 * @param[in]  remark_xpos : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetRemarkXPos(XDWORD remark_xpos)
 {
@@ -419,8 +405,6 @@ void* XFILECFGVALUE::GetValuesVector()
 * @ingroup    XUTILS
 * 
 * @param[in]  valuesvector : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetValuesVector(void* valuesvector)
@@ -452,8 +436,6 @@ XFILECFG_MODEREMOTEMIX XFILECFGVALUE::GetModeRemoteMix()
 * 
 * @param[in]  moderemotemix : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
 {
@@ -467,8 +449,6 @@ void XFILECFGVALUE::SetModeRemoteMix(XFILECFG_MODEREMOTEMIX moderemotemix)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFGVALUE::Clean()
@@ -506,8 +486,6 @@ void XFILECFGVALUE::Clean()
 *
 * @param[in]  XCHAR* : name file of config
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFG::XFILECFG(XCHAR* namefile)
 {
@@ -538,8 +516,6 @@ XFILECFG::XFILECFG(XCHAR* namefile)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFG::~XFILECFG()
@@ -1427,8 +1403,6 @@ bool XFILECFG::GenerateKeySecuence(XCHAR* IDbase, XCHAR* mask, int index, XSTRIN
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECFG::Clean()

@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 {
@@ -87,8 +85,6 @@ SQLITE_DATABASE::SQLITE_DATABASE() : DB_SQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_DATABASE::~SQLITE_DATABASE()
@@ -457,8 +453,6 @@ bool SQLITE_DATABASE::SetDatabaseEncoding(DB_SQL_DATABASE_ENCODING encodingtouse
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_DATABASE::Clean()

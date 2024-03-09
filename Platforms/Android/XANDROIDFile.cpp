@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDFILE::XANDROIDFILE(): XLINUXFILE()
 {
@@ -77,8 +75,6 @@ XANDROIDFILE::XANDROIDFILE(): XLINUXFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDFILE::~XANDROIDFILE()

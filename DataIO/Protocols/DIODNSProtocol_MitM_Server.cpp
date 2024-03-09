@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER::DIODNSPROTOCOL_MITM_SERVER()
 {
@@ -84,8 +82,6 @@ DIODNSPROTOCOL_MITM_SERVER::DIODNSPROTOCOL_MITM_SERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER::~DIODNSPROTOCOL_MITM_SERVER()
@@ -681,8 +677,6 @@ bool DIODNSPROTOCOL_MITM_SERVER::Detour(DIODNSRESOLVER_DNSSERVER* DNSserver, XBU
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSPROTOCOL_MITM_SERVER::ThreadServer(void* param)
 {
@@ -713,8 +707,6 @@ void DIODNSPROTOCOL_MITM_SERVER::ThreadServer(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSPROTOCOL_MITM_SERVER::Clean()

@@ -71,8 +71,6 @@
 * 
 * @param[in]  XPATH& : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
 {
@@ -93,8 +91,6 @@ CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEGKF::~CIPHERKEYSFILEGKF()
@@ -771,8 +767,6 @@ bool CIPHERKEYSFILEGKF::ReadAllFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYSFILEGKF::Clean()

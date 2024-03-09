@@ -75,8 +75,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 {
@@ -92,8 +90,6 @@ DIOCHECKTCPIPCONNECTION_CUT::DIOCHECKTCPIPCONNECTION_CUT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION_CUT::~DIOCHECKTCPIPCONNECTION_CUT()
@@ -141,8 +137,6 @@ int DIOCHECKTCPIPCONNECTION_CUT::GetMeasureNSeconds()
 * @ingroup    DATAIO
 *
 * @param[in]  nseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION_CUT::SetMeasureNSeconds(XDWORD nseconds)
@@ -224,8 +218,6 @@ bool DIOCHECKTCPIPCONNECTION_CUT::CopyTo(DIOCHECKTCPIPCONNECTION_CUT* connection
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 {
@@ -246,8 +238,6 @@ void DIOCHECKTCPIPCONNECTION_CUT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
 {
@@ -265,8 +255,6 @@ DIOCHECKTCPIPCONNECTION::DIOCHECKTCPIPCONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTION::~DIOCHECKTCPIPCONNECTION()
@@ -332,8 +320,6 @@ bool DIOCHECKTCPIPCONNECTION::IsConnected()
 *
 * @param[in]  isconnected :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetIsConnected(bool isconnected)
 {
@@ -363,8 +349,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetNChecks()
 * @ingroup    DATAIO
 *
 * @param[in]  nchecks :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetNChecks(XDWORD nchecks)
@@ -435,8 +419,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::GetElapsedTime()
 * @ingroup    DATAIO
 *
 * @param[in]  elapsedtime :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::SetElapsedTime(XDWORD elapsedtime)
@@ -509,8 +491,6 @@ XDWORD DIOCHECKTCPIPCONNECTION::CreateID()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTION::Clean()
 {
@@ -535,8 +515,6 @@ void DIOCHECKTCPIPCONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 {
@@ -550,8 +528,6 @@ DIOCHECKTCPIPCONNECTIONS::DIOCHECKTCPIPCONNECTIONS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKTCPIPCONNECTIONS::~DIOCHECKTCPIPCONNECTIONS()
@@ -650,8 +626,6 @@ bool DIOCHECKTCPIPCONNECTIONS::IsCheckTimeConnections()
 *
 * @param[in]  ischecktimeconnections :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnections)
 {
@@ -668,8 +642,6 @@ void DIOCHECKTCPIPCONNECTIONS::SetIsCheckTimeConnections(bool ischecktimeconnect
 * @param[in]  timeconnectionchecks :
 * @param[in]  validsomeisconnected :
 * @param[in]  dispersionmode :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::Setup(int timeconnectionchecks, bool validsomeisconnected, bool dispersionmode)
@@ -1131,8 +1103,6 @@ bool DIOCHECKTCPIPCONNECTIONS::End()
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 {
@@ -1244,8 +1214,6 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCHECKTCPIPCONNECTIONS::Clean()

@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
 {
@@ -83,8 +81,6 @@ GRPCANVAS_VECTORFONT_CONFIG::GRPCANVAS_VECTORFONT_CONFIG()
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS_VECTORFONT_CONFIG::~GRPCANVAS_VECTORFONT_CONFIG()
 {
@@ -202,8 +198,6 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetWidth()
 *
 * @param[in]  width : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS_VECTORFONT_CONFIG::SetWidth(double width)                     
 { 
@@ -234,8 +228,6 @@ double GRPCANVAS_VECTORFONT_CONFIG::GetHeight()
 *
 * @param[in]  height : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS_VECTORFONT_CONFIG::SetHeight(double height)                    
 { 
@@ -265,8 +257,6 @@ GRP2DCOLOR_RGBA8* GRPCANVAS_VECTORFONT_CONFIG::GetColor()
 * @ingroup    GRAPHIC
 *
 * @param[in]  color : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS_VECTORFONT_CONFIG::SetColor(GRP2DCOLOR_RGBA8* color)          
@@ -303,8 +293,6 @@ bool GRPCANVAS_VECTORFONT_CONFIG::IsKerning()
 *
 * @param[in]  iskerning : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
 {
@@ -319,8 +307,6 @@ void GRPCANVAS_VECTORFONT_CONFIG::SetKerning(bool iskerning)
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS_VECTORFONT_CONFIG::Clean()
 {
@@ -343,8 +329,6 @@ void GRPCANVAS_VECTORFONT_CONFIG::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS::GRPCANVAS()
 {
@@ -358,8 +342,6 @@ GRPCANVAS::GRPCANVAS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS::~GRPCANVAS()
@@ -442,8 +424,6 @@ XBYTE* GRPCANVAS::GetBuffer()
 *
 * @param[in]  GRP2DCOLOR* color :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 {
@@ -462,8 +442,6 @@ void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 * @param[in]  x2 : 
 * @param[in]  y2 : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
 {
@@ -481,8 +459,6 @@ void GRPCANVAS::GetClipBox(double& x1, double& y1, double& x2, double& y2)
 * @ingroup    GRAPHIC
 *
 * @param[in]  rect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::GetClipBox(XRECT& rect)
@@ -517,8 +493,6 @@ XRECT& GRPCANVAS::GetClipBox()
 * @param[in]  x2 : 
 * @param[in]  y2 : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void  GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
 {
@@ -536,8 +510,6 @@ void  GRPCANVAS::SetClipBox(double x1, double y1, double x2, double y2)
 * @ingroup    GRAPHIC
 *
 * @param[in]  rect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetClipBox(XRECT& rect)
@@ -574,8 +546,6 @@ GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 * @param[in]  y : y pos to put pixel
 * @param[in]  GRP2DCOLOR* color : color to put
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 {
@@ -593,8 +563,6 @@ void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 * @param[in]  y : y pos to put pixel
 * @param[in]  GRP2DCOLOR* color : color to put
 * @param[in]  alpha : alpha to put pixel
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBlendPixel(double x, double y, const GRP2DCOLOR* color, double alpha)
@@ -626,8 +594,6 @@ GRP2DCOLOR* GRPCANVAS::GetFillColor()
 *
 * @param[in]  GRP2DCOLOR* color : color to fill
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
 {
@@ -657,8 +623,6 @@ GRP2DCOLOR* GRPCANVAS::GetLineColor()
 * @ingroup    GRAPHIC
 *
 * @param[in]  GRP2DCOLOR* color : color to lines
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
@@ -690,8 +654,6 @@ double GRPCANVAS::GetLineWidth()
 *
 * @param[in]  linewidth : new line width
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetLineWidth(double linewidth)
 {
@@ -722,8 +684,6 @@ double GRPCANVAS::GetDashLength()
 *
 * @param[in]  dashlength : new dash lenght
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetDashLenght(double dashlength)
 {
@@ -741,8 +701,6 @@ void GRPCANVAS::SetDashLenght(double dashlength)
 * @param[in]  y1 :
 * @param[in]  x2 :
 * @param[in]  y2 :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Line(double x1, double y1, double x2, double y2)
@@ -763,8 +721,6 @@ void GRPCANVAS::Line(double x1, double y1, double x2, double y2)
 * @param[in]  y2 :
 * @param[in]  isfill :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfill)
 {
@@ -782,8 +738,6 @@ void GRPCANVAS::Rectangle(double x1, double y1, double x2, double y2, bool isfil
 * @param[in]  y : y center position
 * @param[in]  radius : radius of circle
 * @param[in]  isfill : is fill
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Circle(double x, double y, double radius, bool isfill)
@@ -804,8 +758,6 @@ void GRPCANVAS::Circle(double x, double y, double radius, bool isfill)
 * @param[in]  ry : y radius of ellipse
 * @param[in]  isfill : is fill
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 {
@@ -821,8 +773,6 @@ void GRPCANVAS::Ellipse(double x, double y, double rx, double ry, bool isfill)
 *
 * @param[in]  vertexs : vector of vertex
 * @param[in]  isfill : is fill
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
@@ -843,8 +793,6 @@ void GRPCANVAS::Polygon(GRP2DVERTEXS& vertexs, bool isfill)
 * @param[in]  y2 :
 * @param[in]  radius :
 * @param[in]  isfill :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::RoundRect(double x1, double y1, double x2, double y2, double radius, bool isfill)
@@ -883,8 +831,6 @@ GRPBITMAP* GRPCANVAS::GetBitmap(double x, double y, double width, double height)
 * @param[in]  y :
 * @param[in]  bitmap :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 {
@@ -901,8 +847,6 @@ void GRPCANVAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 * @param[in]  x : x pos of bitmap
 * @param[in]  y : y pos of bitmap
 * @param[in]  bitmap : bitmap class to draw
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
@@ -922,8 +866,6 @@ void GRPCANVAS::PutBitmap(double x, double y, GRPBITMAP* bitmap)
 * @param[in]  bitmap :
 * @param[in]  alpha :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alpha)
 {
@@ -940,8 +882,6 @@ void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alp
 * @param[in]  x : x pos of bitmap
 * @param[in]  y : y pos of bitmap
 * @param[in]  bitmapframe : bitmap frame class to draw
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, double alpha)
@@ -1011,8 +951,6 @@ GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 * @ingroup    GRAPHIC
 *
 * @param[in]  GRP2DCOLOR* c :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
@@ -1308,8 +1246,6 @@ bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clean()

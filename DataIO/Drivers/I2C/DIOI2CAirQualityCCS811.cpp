@@ -73,8 +73,6 @@
 * @ingroup    DATAIO
 *
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 {
@@ -88,8 +86,6 @@ DIOI2CAIRQUALITYCCS811::DIOI2CAIRQUALITYCCS811() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CAIRQUALITYCCS811::~DIOI2CAIRQUALITYCCS811()
@@ -477,8 +473,6 @@ float DIOI2CAIRQUALITYCCS811::GetReferenceResistance()
 *
 * @param[in]  referenceresistance :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CAIRQUALITYCCS811::SetReferenceResistance(float referenceresistance)
 {
@@ -744,8 +738,6 @@ bool DIOI2CAIRQUALITYCCS811::WriteRegister(XBYTE offset, XBYTE* data, XDWORD siz
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CAIRQUALITYCCS811::Clean()

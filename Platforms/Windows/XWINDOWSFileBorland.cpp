@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 {
@@ -88,8 +86,6 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSFILE::~XWINDOWSFILE()

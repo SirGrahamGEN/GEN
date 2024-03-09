@@ -62,8 +62,6 @@ XSLEEP* XSLEEP::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSLEEP::XSLEEP()
 {
@@ -77,8 +75,6 @@ XSLEEP::XSLEEP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSLEEP::~XSLEEP()
@@ -176,8 +172,6 @@ bool XSLEEP::DelInstance()
 *
 * @param[in]  seconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSLEEP::Seconds(int seconds)
 {
@@ -192,8 +186,6 @@ void XSLEEP::Seconds(int seconds)
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSLEEP::MilliSeconds(int milliseconds)
@@ -210,8 +202,6 @@ void XSLEEP::MilliSeconds(int milliseconds)
 * @ingroup    XUTILS
 *
 * @param[in]  microseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSLEEP::MicroSeconds(int microseconds)
@@ -230,8 +220,6 @@ void XSLEEP::MicroSeconds(int microseconds)
 *
 * @param[in]  nanoseconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSLEEP::NanoSeconds(int nanoseconds)
 {
@@ -245,8 +233,6 @@ void XSLEEP::NanoSeconds(int nanoseconds)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSLEEP::Clean()

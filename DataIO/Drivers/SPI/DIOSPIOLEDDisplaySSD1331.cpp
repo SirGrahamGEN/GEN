@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 {
@@ -83,8 +81,6 @@ DIOSPIOLEDDISPLAYSSD1331::DIOSPIOLEDDISPLAYSSD1331(): DIODEVICESPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1331::~DIOSPIOLEDDISPLAYSSD1331()
@@ -613,8 +609,6 @@ bool DIOSPIOLEDDISPLAYSSD1331::SendData(XBYTE* data, XDWORD size, int timeout)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1331::Clean()

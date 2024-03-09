@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
 {
@@ -90,8 +88,6 @@ SCRIPT_LNG_LUA::SCRIPT_LNG_LUA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_LUA::~SCRIPT_LNG_LUA()
@@ -341,8 +337,6 @@ bool SCRIPT_LNG_LUA::HaveMainFunction()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_LUA::Clean()

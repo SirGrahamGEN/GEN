@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::COMPRESSBASE()
 {
@@ -83,8 +81,6 @@ COMPRESSBASE::COMPRESSBASE()
 * 
 * @param[in]  COMPRESSBASE_TYPE : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 {
@@ -98,8 +94,6 @@ COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::~COMPRESSBASE()

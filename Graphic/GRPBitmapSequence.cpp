@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME::GRPBITMAPFRAME()
 {
@@ -84,8 +82,6 @@ GRPBITMAPFRAME::GRPBITMAPFRAME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFRAME::~GRPBITMAPFRAME()
@@ -148,8 +144,6 @@ int GRPBITMAPFRAME::GetAjustY()
 *
 * @param[in]  bitmap : new bitmap of frame
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 {
@@ -164,8 +158,6 @@ void GRPBITMAPFRAME::SetBitmap(GRPBITMAP* bitmap)
 * @ingroup    GRAPHIC
 *
 * @param[in]  x : new ajust x
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetAjustX(int ajustx)
@@ -182,8 +174,6 @@ void GRPBITMAPFRAME::SetAjustX(int ajustx)
 *
 * @param[in]  y : new ajust y
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::SetAjustY(int ajusty)
 {
@@ -197,8 +187,6 @@ void GRPBITMAPFRAME::SetAjustY(int ajusty)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFRAME::Clean()
@@ -221,8 +209,6 @@ void GRPBITMAPFRAME::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 {
@@ -240,8 +226,6 @@ GRPBITMAPSEQUENCE::GRPBITMAPSEQUENCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPSEQUENCE::~GRPBITMAPSEQUENCE()
@@ -750,8 +734,6 @@ bool GRPBITMAPSEQUENCE::Flip(bool horizontal)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPSEQUENCE::Clean()

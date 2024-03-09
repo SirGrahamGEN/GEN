@@ -64,8 +64,6 @@ DIOESP32STREAMSPI*        DIOESP32STREAMSPI::handles[DIOESP32STREAMSPI_MAXHANDLE
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMSPIPORT::DIOESP32STREAMSPIPORT()
 {
@@ -80,8 +78,6 @@ DIOESP32STREAMSPIPORT::DIOESP32STREAMSPIPORT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMSPIPORT::~DIOESP32STREAMSPIPORT()
@@ -115,8 +111,6 @@ XDWORD DIOESP32STREAMSPIPORT::GetCounterRef()
 *
 * @param[in]  counterref :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 {
@@ -149,8 +143,6 @@ SPI_HandleTypeDef* DIOESP32STREAMSPIPORT::GetHandleSPI()
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 {
@@ -165,8 +157,6 @@ void DIOESP32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMSPIPORT::Clean()
@@ -189,8 +179,6 @@ void DIOESP32STREAMSPIPORT::Clean()
 * @fn         DIOESP32STREAMSPI::DIOESP32STREAMSPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMSPI::DIOESP32STREAMSPI() : DIOSTREAMSPI()
@@ -228,8 +216,6 @@ DIOESP32STREAMSPI::DIOESP32STREAMSPI() : DIOSTREAMSPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMSPI::~DIOESP32STREAMSPI()
@@ -565,8 +551,6 @@ bool DIOESP32STREAMSPI::CleanBuffers()
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
@@ -604,8 +588,6 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
@@ -622,8 +604,6 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @param[in]  SPI_HandleTypeDef*hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 {
@@ -639,8 +619,6 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMSPI::ThreadConnection(void* param)
@@ -732,8 +710,6 @@ void DIOESP32STREAMSPI::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMSPI::Clean()

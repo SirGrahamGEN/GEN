@@ -61,8 +61,6 @@ INPFACTORY* INPFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORY::INPFACTORY()
 {
@@ -76,8 +74,6 @@ INPFACTORY::INPFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPFACTORY::~INPFACTORY()
@@ -270,8 +266,6 @@ bool INPFACTORY::DeleteCapture(INPCAPTURE* inputcapture)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPFACTORY::Clean()

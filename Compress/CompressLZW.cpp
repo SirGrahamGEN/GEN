@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZW::COMPRESS_LZW()
 {
@@ -84,8 +82,6 @@ COMPRESS_LZW::COMPRESS_LZW()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZW::~COMPRESS_LZW()
@@ -178,8 +174,6 @@ XDWORD COMPRESS_LZW::LZW_Encode(XBYTE* inbuffer,XDWORD length,XBYTE* outbuffer)
 * 
 * @param[in]  inbuffer : 
 * @param[in]  outbuffer : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::LZW_Decode(XBYTE* inbuffer,XBYTE* outbuffer)
@@ -277,8 +271,6 @@ XDWORD COMPRESS_LZW::LZW_GIF_Encode(XBYTE* dibbuffer,XBYTE* outbuffer,XDWORD dib
 * @param[in]  dibheight : 
 * @param[in]  binterlace : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwidth,XDWORD dibheight,bool binterlace)
 {
@@ -338,8 +330,6 @@ void COMPRESS_LZW::LZW_GIF_Decode(XBYTE* inbuffer,XBYTE* dibbuffer,XDWORD dibwid
 * @fn         void COMPRESS_LZW::Decode_InitStringTable()
 * @brief      Decode_InitStringTable
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_InitStringTable()
@@ -422,8 +412,6 @@ bool COMPRESS_LZW::Decode_IsInTable(XWORD code)
 * @param[in]  prefix : 
 * @param[in]  suffix : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_AddStringToTable(XWORD prefix, XWORD suffix)
 {
@@ -468,8 +456,6 @@ XBYTE COMPRESS_LZW::Decode_GetFirstChar(XWORD code)
 * 
 * @param[in]  code : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
 {
@@ -492,8 +478,6 @@ void COMPRESS_LZW::Decode_WriteString_to8(XWORD code)
 * @fn         void COMPRESS_LZW::Decode_SwitchToFollowLine()
 * @brief      Decode_SwitchToFollowLine
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Decode_SwitchToFollowLine()
@@ -523,8 +507,6 @@ void COMPRESS_LZW::Decode_SwitchToFollowLine()
 * @fn         void COMPRESS_LZW::Encode_InitStringTable()
 * @brief      Encode_InitStringTable
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_InitStringTable()
@@ -601,8 +583,6 @@ bool COMPRESS_LZW::Encode_IsInTable(XWORD Old, XWORD Pixel)
 * @param[in]  Old : 
 * @param[in]  Pixel : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 {
@@ -623,8 +603,6 @@ void COMPRESS_LZW::Encode_AddStringToTable(XWORD Old, XWORD Pixel)
 * @ingroup    COMPRESS
 * 
 * @param[in]  Index : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_LZW::Encode_WriteIndex(XDWORD Index)

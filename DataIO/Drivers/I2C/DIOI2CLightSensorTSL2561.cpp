@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 {
@@ -83,8 +81,6 @@ DIOI2CLIGHTSENSORTSL2561::DIOI2CLIGHTSENSORTSL2561(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLIGHTSENSORTSL2561::~DIOI2CLIGHTSENSORTSL2561()
@@ -559,8 +555,6 @@ XDWORD DIOI2CLIGHTSENSORTSL2561::CalculateLux(XWORD broadband, XWORD inflared)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLIGHTSENSORTSL2561::Clean()

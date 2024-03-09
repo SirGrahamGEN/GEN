@@ -70,8 +70,6 @@
 *
 * @param[in]  hash :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXDB::XFILEXDB(HASH* hash) : XFILEHASH(hash)
 {
@@ -91,8 +89,6 @@ XFILEXDB::XFILEXDB(HASH* hash) : XFILEHASH(hash)
 *
 * @param[in]  hash :
 * @param[in]  xpath :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
@@ -114,8 +110,6 @@ XFILEXDB::XFILEXDB(HASH* hash, XPATH& xpath)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXDB::~XFILEXDB()
@@ -410,8 +404,6 @@ bool XFILEXDB::CloseFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEXDB::Clean()

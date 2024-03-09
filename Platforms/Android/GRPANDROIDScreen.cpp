@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 {
@@ -87,8 +85,6 @@ GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDSCREEN::~GRPANDROIDSCREEN()
@@ -258,8 +254,6 @@ ANativeWindow* GRPANDROIDSCREEN::GetAndroidHandle()
 *
 * @param[in]  anativehandle :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 {
@@ -273,8 +267,6 @@ void GRPANDROIDSCREEN::SetAndroidHandle(ANativeWindow* anativehandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPANDROIDSCREEN::Clean()

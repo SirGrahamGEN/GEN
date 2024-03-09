@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSRAND::XWINDOWSRAND()
 {
@@ -77,8 +75,6 @@ XWINDOWSRAND::XWINDOWSRAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSRAND::~XWINDOWSRAND()

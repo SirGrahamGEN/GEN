@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 {
@@ -85,8 +83,6 @@ XWINDOWSREGISTRYKEY::XWINDOWSREGISTRYKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYKEY::~XWINDOWSREGISTRYKEY()
@@ -118,8 +114,6 @@ HKEY XWINDOWSREGISTRYKEY::GetHandle()
 *
 * @param[in]  handlekey :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::SetHandle(HKEY handlekey)
 {
@@ -149,8 +143,6 @@ XDWORD XWINDOWSREGISTRYKEY::GetType()
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::SetType(XDWORD type)
@@ -487,8 +479,6 @@ bool XWINDOWSREGISTRYKEY::DeleteValue(XSTRING& name)
 * @brief      Clear
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::Clear()
 {
@@ -503,8 +493,6 @@ void XWINDOWSREGISTRYKEY::Clear()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYKEY::Clean()
@@ -525,8 +513,6 @@ void XWINDOWSREGISTRYKEY::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 {
@@ -540,8 +526,6 @@ XWINDOWSREGISTRYMANAGER::XWINDOWSREGISTRYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSREGISTRYMANAGER::~XWINDOWSREGISTRYMANAGER()
@@ -844,8 +828,6 @@ bool XWINDOWSREGISTRYMANAGER::DeleteKey(HKEY handlekey, XSTRING& subkeystring)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSREGISTRYMANAGER::Clean()

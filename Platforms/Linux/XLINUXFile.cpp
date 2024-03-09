@@ -76,8 +76,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXFILE::XLINUXFILE(): XFILE()
 {
@@ -91,8 +89,6 @@ XLINUXFILE::XLINUXFILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXFILE::~XLINUXFILE()
@@ -498,8 +494,6 @@ bool XLINUXFILE::DeleteStructHandle()
 *
 * @param[in]  attributes : new atributes
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXFILE::ChangeAttributes(XCHAR* attributes)
 {
@@ -554,8 +548,6 @@ bool XLINUXFILE::ActualizeSize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXFILE::Clean()

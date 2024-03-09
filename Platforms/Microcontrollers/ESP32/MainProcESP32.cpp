@@ -95,8 +95,6 @@ MAINPROCESP32    mainprocesp32;
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCESP32::MAINPROCESP32()
 {
@@ -110,8 +108,6 @@ MAINPROCESP32::MAINPROCESP32()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCESP32::~MAINPROCESP32()
@@ -356,8 +352,6 @@ bool MAINPROCESP32::Factorys_End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCESP32::Clean()

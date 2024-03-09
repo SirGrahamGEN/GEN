@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 {
@@ -81,8 +79,6 @@ DIOSPITFTDISPLAYILI9341::DIOSPITFTDISPLAYILI9341()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYILI9341::~DIOSPITFTDISPLAYILI9341()
@@ -519,8 +515,6 @@ bool DIOSPITFTDISPLAYILI9341::WriteRegister(XBYTE reg, int ndata, ...)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITFTDISPLAYILI9341::Clean()

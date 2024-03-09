@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMAC::DIOMAC()
 {
@@ -78,8 +76,6 @@ DIOMAC::DIOMAC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMAC::~DIOMAC()
@@ -326,8 +322,6 @@ bool DIOMAC::IsEqual(DIOMAC& MAC)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMAC::Clean()

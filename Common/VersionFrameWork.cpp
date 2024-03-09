@@ -156,8 +156,6 @@ XSTRING* VERSIONFRAMEWORK::GetVersion()
 * @param[in]  subversion : 
 * @param[in]  suberror : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void VERSIONFRAMEWORK::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& suberror)
 {
@@ -191,8 +189,6 @@ XSTRING* VERSIONFRAMEWORK::GetCodeName()
 * @param[in]  app_version : 
 * @param[in]  app_subversion : 
 * @param[in]  app_versionerror : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
@@ -338,8 +334,6 @@ bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, 
 * @param[in]  app_owner : 
 * @param[in]  app_creationyear : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
 {
@@ -379,8 +373,6 @@ bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD
 * @brief      Constructor
 * @ingroup    PLATFORM_COMMON
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 VERSIONFRAMEWORK::VERSIONFRAMEWORK()
 {
@@ -399,8 +391,6 @@ VERSIONFRAMEWORK::VERSIONFRAMEWORK()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_COMMON
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 VERSIONFRAMEWORK::~VERSIONFRAMEWORK()
 {
@@ -414,8 +404,6 @@ VERSIONFRAMEWORK::~VERSIONFRAMEWORK()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_COMMON
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void VERSIONFRAMEWORK::Clean()

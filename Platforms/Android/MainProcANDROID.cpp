@@ -126,8 +126,6 @@ void*            java_vm;
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCANDROID::MAINPROCANDROID()
 {
@@ -141,8 +139,6 @@ MAINPROCANDROID::MAINPROCANDROID()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCANDROID::~MAINPROCANDROID()
@@ -291,8 +287,6 @@ android_app* MAINPROCANDROID::GetAndroidApplication()
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  application :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::SetAndroidApplication(android_app* application)
@@ -526,8 +520,6 @@ STATUS MAINPROCANDROID::OnActivate()
 * @brief      OnDeactivate
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDeactivate()
 {
@@ -571,8 +563,6 @@ STATUS MAINPROCANDROID::OnStep()
 * @fn         void MAINPROCANDROID::OnStart()
 * @brief      OnStart
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnStart()
@@ -618,8 +608,6 @@ void MAINPROCANDROID::OnStart()
 * @brief      OnResume
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnResume()
 {
@@ -634,8 +622,6 @@ void MAINPROCANDROID::OnResume()
 * @brief      OnPause
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnPause()
 {
@@ -649,8 +635,6 @@ void MAINPROCANDROID::OnPause()
 * @brief      OnStop
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnStop()
 {
@@ -663,8 +647,6 @@ void MAINPROCANDROID::OnStop()
 * @fn         void MAINPROCANDROID::OnDestroy()
 * @brief      OnDestroy
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDestroy()
@@ -688,8 +670,6 @@ void MAINPROCANDROID::OnDestroy()
 * @param[in]  data :
 * @param[in]  size :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 {
@@ -702,8 +682,6 @@ void MAINPROCANDROID::OnSaveState(void** data, size_t* size)
 * @fn         void MAINPROCANDROID::OnConfigurationChanged()
 * @brief      OnConfigurationChanged
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnConfigurationChanged()
@@ -741,8 +719,6 @@ void MAINPROCANDROID::OnConfigurationChanged()
 * @brief      OnLowMemory
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnLowMemory()
 {
@@ -755,8 +731,6 @@ void MAINPROCANDROID::OnLowMemory()
 * @fn         void MAINPROCANDROID::OnCreateWindow()
 * @brief      OnCreateWindow
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnCreateWindow()
@@ -880,8 +854,6 @@ void MAINPROCANDROID::OnCreateWindow()
 * @brief      OnDestroyWindow
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnDestroyWindow()
 {
@@ -918,8 +890,6 @@ void MAINPROCANDROID::OnDestroyWindow()
 * @brief      OnGainFocus
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnGainFocus()
 {
@@ -935,8 +905,6 @@ void MAINPROCANDROID::OnGainFocus()
 * @fn         void MAINPROCANDROID::OnLostFocus()
 * @brief      OnLostFocus
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::OnLostFocus()
@@ -1075,8 +1043,6 @@ bool MAINPROCANDROID::GetDPI(struct android_app* app)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCANDROID::Clean()
@@ -1585,8 +1551,6 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
 * @ingroup    PLATFORM_ANDROID
 *
 * @param[in]  application :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void android_main(android_app* application)

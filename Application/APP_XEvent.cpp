@@ -66,8 +66,6 @@
 * @param[in]  XDWORD type : 
 * @param[in]  XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APP_XEVENT::APP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -81,8 +79,6 @@ APP_XEVENT::APP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(s
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APP_XEVENT::~APP_XEVENT()
@@ -114,8 +110,6 @@ XSYSTEM_CHANGESTATUSTYPE APP_XEVENT::GetChangeStatusType()
 * 
 * @param[in]  changestatustype : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APP_XEVENT::SetChangeStatusType(XSYSTEM_CHANGESTATUSTYPE changestatustype)
 {
@@ -129,8 +123,6 @@ void APP_XEVENT::SetChangeStatusType(XSYSTEM_CHANGESTATUSTYPE changestatustype)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APP_XEVENT::Clean()

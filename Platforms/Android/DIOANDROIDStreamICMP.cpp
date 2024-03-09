@@ -98,8 +98,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 {
@@ -149,8 +147,6 @@ DIOANDROIDSTREAMICMP::DIOANDROIDSTREAMICMP() : DIOSTREAMICMP() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMICMP::~DIOANDROIDSTREAMICMP()
@@ -305,8 +301,6 @@ int DIOANDROIDSTREAMICMP::IsReadyConnect(int socket)
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  thread : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
@@ -560,8 +554,6 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMICMP::Clean()

@@ -79,8 +79,6 @@
 * @param[in]  XSUBJECT* : 
 * @param[in]  XDWORD : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type) : XEVENT(subject,type)
 {
@@ -95,8 +93,6 @@ DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDW
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
 {
@@ -110,8 +106,6 @@ DIOMODBUSELECTRICMETERXEVENT::~DIOMODBUSELECTRICMETERXEVENT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUSELECTRICMETERXEVENT::Clean()
@@ -135,8 +129,6 @@ void DIOMODBUSELECTRICMETERXEVENT::Clean()
 * @param[in]  DIOSTREAM* : 
 * @param[in]   DIOMODBUS_CLIENTMODE mode : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
 {
@@ -159,8 +151,6 @@ DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_C
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETER::~DIOMODBUSELECTRICMETER()
@@ -414,8 +404,6 @@ bool DIOMODBUSELECTRICMETER::CancelOperations()
 * @brief      Disconnect
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUSELECTRICMETER::Disconnect()
 {
@@ -515,8 +503,6 @@ bool DIOMODBUSELECTRICMETER::ReadRegister(int registerID, int nwords, int timeou
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUSELECTRICMETER::Clean()

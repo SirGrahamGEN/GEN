@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMSPI::DIOANDROIDSTREAMSPI() : DIOSTREAMSPI()
 {
@@ -92,8 +90,6 @@ DIOANDROIDSTREAMSPI::DIOANDROIDSTREAMSPI() : DIOSTREAMSPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMSPI::~DIOANDROIDSTREAMSPI()
@@ -217,8 +213,6 @@ bool DIOANDROIDSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, 
 * 
 * @param[in]  count : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMSPI::Sleep(int count)
 {
@@ -236,8 +230,6 @@ void DIOANDROIDSTREAMSPI::Sleep(int count)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMSPI::Clean()

@@ -68,8 +68,6 @@
 * @param[in]  XSUBJECT* : 
 * @param[in]   XDWORD type : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVENT(subject, type, XEVENT_TYPE_LINUX_DBUS)
 {
@@ -83,8 +81,6 @@ DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVEN
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
@@ -117,8 +113,6 @@ DIOLINUXDBUS_SIGNAL* DIOLINUXDBUS_XEVENT::GetSignal()
 *
 * @param[in]  signal : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_XEVENT::SetSignal(DIOLINUXDBUS_SIGNAL* signal)
 {
@@ -149,8 +143,6 @@ DIOLINUXDBUS_MESSAGE* DIOLINUXDBUS_XEVENT::GetMessage()
 *
 * @param[in]  message : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 {
@@ -164,8 +156,6 @@ void DIOLINUXDBUS_XEVENT::SetMessage(DIOLINUXDBUS_MESSAGE* message)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_XEVENT::Clean()

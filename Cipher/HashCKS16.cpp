@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCKS16::HASHCKS16() : HASH()
 {
@@ -87,8 +85,6 @@ HASHCKS16::HASHCKS16() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCKS16::~HASHCKS16()
@@ -245,8 +241,6 @@ XWORD HASHCKS16::GetResultCKS16()
 * 
 * @param[in]  void : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCKS16::Ini(void)
 {
@@ -287,8 +281,6 @@ XWORD HASHCKS16::Update(XWORD CKS16, XWORD c)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCKS16::Clean()

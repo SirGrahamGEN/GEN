@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCAPTURE::INPCAPTURE()
 {
@@ -78,8 +76,6 @@ INPCAPTURE::INPCAPTURE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCAPTURE::~INPCAPTURE()
@@ -95,8 +91,6 @@ INPCAPTURE::~INPCAPTURE()
 * @ingroup    INPUT
 * 
 * @param[in]  applicationhandle : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE::SetApplicationHandle(void* applicationhandle)
@@ -141,8 +135,6 @@ bool INPCAPTURE::Deactivate()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE::Clean()

@@ -56,8 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32FILE::XSTM32FILE(): XFILE()
 {
@@ -83,8 +81,6 @@ XSTM32FILE::XSTM32FILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32FILE::~XSTM32FILE()
@@ -567,8 +563,6 @@ bool XSTM32FILE::ActualizeSize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32FILE::Clean()

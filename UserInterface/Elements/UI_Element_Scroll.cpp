@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_SCROLL::UI_ELEMENT_SCROLL()    
 { 
@@ -79,8 +77,6 @@ UI_ELEMENT_SCROLL::UI_ELEMENT_SCROLL()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_SCROLL::~UI_ELEMENT_SCROLL()    
 {   
@@ -95,8 +91,6 @@ UI_ELEMENT_SCROLL::~UI_ELEMENT_SCROLL()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_SCROLL::Clean()
 {  

@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSMUTEX::XWINDOWSMUTEX()
 {
@@ -90,8 +88,6 @@ XWINDOWSMUTEX::XWINDOWSMUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSMUTEX::~XWINDOWSMUTEX()
@@ -164,8 +160,6 @@ bool XWINDOWSMUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSMUTEX::Clean()
 {
@@ -183,8 +177,6 @@ void XWINDOWSMUTEX::Clean()
 * @param[in]  ID :
 * @param[in]  function :
 * @param[in]  data :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data) : XTHREAD(groupID, ID,function,data)
@@ -205,8 +197,6 @@ XWINDOWSTHREAD::XWINDOWSTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTHREAD::~XWINDOWSTHREAD()
@@ -394,8 +384,6 @@ DWORD WINAPI XWINDOWSTHREAD::Callback(LPVOID thread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTHREAD::Clean()

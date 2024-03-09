@@ -85,8 +85,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMI2C::DIOANDROIDSTREAMI2C() : DIOSTREAMI2C()
 {
@@ -102,8 +100,6 @@ DIOANDROIDSTREAMI2C::DIOANDROIDSTREAMI2C() : DIOSTREAMI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMI2C::~DIOANDROIDSTREAMI2C()
@@ -207,8 +203,6 @@ bool DIOANDROIDSTREAMI2C::Close()
 * @ingroup    PLATFORM_ANDROID
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMI2C::ThreadConnection(void* data)
@@ -401,8 +395,6 @@ bool DIOANDROIDSTREAMI2C::I2C_Write(XWORD address, XBYTE* buffer, XWORD size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMI2C::Clean()

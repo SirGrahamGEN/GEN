@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXRAND::XLINUXRAND()
 {
@@ -75,8 +73,6 @@ XLINUXRAND::XLINUXRAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXRAND::~XLINUXRAND()

@@ -62,8 +62,6 @@ XSHAREDMEMORYMANAGER* XSHAREDMEMORYMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSHAREDMEMORYMANAGER::XSHAREDMEMORYMANAGER()
 {
@@ -77,8 +75,6 @@ XSHAREDMEMORYMANAGER::XSHAREDMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSHAREDMEMORYMANAGER::~XSHAREDMEMORYMANAGER()
@@ -295,8 +291,6 @@ bool XSHAREDMEMORYMANAGER::IsServer()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSHAREDMEMORYMANAGER::Clean()

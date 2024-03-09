@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 {
@@ -90,8 +88,6 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
@@ -415,8 +411,6 @@ bool APPCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
 *
 * @param[in]  event : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
@@ -443,8 +437,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @ingroup    APPLICATION
 *
 * @param[in]  xevent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
@@ -473,8 +465,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::Clean()

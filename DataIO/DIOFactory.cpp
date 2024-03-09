@@ -68,8 +68,6 @@ DIOFACTORY* DIOFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOFACTORY::DIOFACTORY()
 {
@@ -83,8 +81,6 @@ DIOFACTORY::DIOFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOFACTORY::~DIOFACTORY()
@@ -400,8 +396,6 @@ bool DIOFACTORY::DeleteLedNeopixelWS2812B(DIOLEDNEOPIXELWS2812B* ledneopixelws28
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOFACTORY::Clean()

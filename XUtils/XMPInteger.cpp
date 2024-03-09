@@ -76,8 +76,6 @@ static const int SmallPrime[] = {   3,    5,    7,   11,   13,   17,   19,   23,
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XMPINTEGER::XMPINTEGER()
 {
@@ -91,8 +89,6 @@ XMPINTEGER::XMPINTEGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XMPINTEGER::~XMPINTEGER()
@@ -155,8 +151,6 @@ XLIMB* XMPINTEGER::GetLimbs()
 *
 * @param[in]  sign :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetSign(int sign)
 {
@@ -172,8 +166,6 @@ void XMPINTEGER::SetSign(int sign)
 *
 * @param[in]  nlimbs :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 {
@@ -188,8 +180,6 @@ void XMPINTEGER::SetNLimbs(XDWORD nlimbs)
 * @ingroup    XUTILS
 *
 * @param[in]  limbs :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SetLimbs(XLIMB* limbs)
@@ -351,8 +341,6 @@ bool XMPINTEGER::CopyFrom(XMPINTEGER* xmpinteger)
 * @ingroup    XUTILS
 *
 * @param[in]  xmpinteger :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::Swap(XMPINTEGER* xmpinteger)
@@ -1438,8 +1426,6 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 * @param[in]  XLIMB*mm :
 * @param[in]  N :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 {
@@ -1469,8 +1455,6 @@ void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
 * @param[in]  N :
 * @param[in]  mm :
 * @param[in]  T :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
@@ -1516,8 +1500,6 @@ void XMPINTEGER::MontgomeryMultiplication(XMPINTEGER* A, XMPINTEGER* B, XMPINTEG
 * @param[in]  N :
 * @param[in]  mm :
 * @param[in]  T :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MontgomeryReduction(XMPINTEGER* A, XMPINTEGER* N, XLIMB mm, XMPINTEGER* T)
@@ -2484,8 +2466,6 @@ bool XMPINTEGER::End()
 * @param[in]  XLIMB*s :
 * @param[in]  XLIMB*d :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 {
@@ -2517,8 +2497,6 @@ void XMPINTEGER::SubtractionHelper(XDWORD n, XLIMB *s, XLIMB *d)
 * @param[in]  s :
 * @param[in]  d :
 * @param[in]  b :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::MultiplicationHelper(XDWORD i, XLIMB* s, XLIMB* d, XLIMB b)
@@ -2640,8 +2618,6 @@ bool XMPINTEGER::SetToStringHelper(int radix, XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMPINTEGER::Clean()

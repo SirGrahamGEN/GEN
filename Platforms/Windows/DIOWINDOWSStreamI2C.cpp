@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C() : DIOSTREAMI2C()
 {
@@ -86,8 +84,6 @@ DIOWINDOWSSTREAMI2C::DIOWINDOWSSTREAMI2C() : DIOSTREAMI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMI2C::~DIOWINDOWSSTREAMI2C()
@@ -150,8 +146,6 @@ bool DIOWINDOWSSTREAMI2C::Close()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMI2C::ThreadConnection(void* data)

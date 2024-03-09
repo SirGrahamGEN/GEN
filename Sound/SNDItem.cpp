@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDITEM::SNDITEM()
 {
@@ -80,8 +78,6 @@ SNDITEM::SNDITEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDITEM::~SNDITEM()
@@ -129,8 +125,6 @@ SNDITEM_TYPE SNDITEM::GetType()
 * @ingroup    SOUND
 * 
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetType(SNDITEM_TYPE type)
@@ -207,8 +201,6 @@ SNDITEM_STATUS SNDITEM::GetStatus()
 * 
 * @param[in]  status : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetStatus(SNDITEM_STATUS status)
 {
@@ -269,8 +261,6 @@ XDWORD SNDITEM::GetNTimesPlayed()
 * @brief      AddOneNTimesPlayed
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::AddOneNTimesPlayed()
 {
@@ -300,8 +290,6 @@ int SNDITEM::GetNTimesToPlay()
 * @ingroup    SOUND
 * 
 * @param[in]  ntimestoplay : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetNTimesToPlay(int ntimestoplay)
@@ -333,8 +321,6 @@ int SNDITEM::GetCounterPlay()
 * 
 * @param[in]  counterplay : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetCounterPlay(int counterplay)
 {
@@ -365,8 +351,6 @@ XDWORD SNDITEM::GetPlayingTime()
 * 
 * @param[in]  playingtime : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetPlayingTime(XDWORD playingtime)
 {
@@ -396,8 +380,6 @@ XDWORD SNDITEM::GetCurrentPlayingTime()
 * @ingroup    SOUND
 * 
 * @param[in]  currentplayingtime : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetCurrentPlayingTime(XDWORD currentplayingtime)
@@ -510,8 +492,6 @@ SNDFILE* SNDITEM::GetSoundFile()
 * 
 * @param[in]  soundfile : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetSoundFile(SNDFILE* soundfile)
 {
@@ -542,8 +522,6 @@ SNDNOTE* SNDITEM::GetSoundNote()
 * 
 * @param[in]  soundnote : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
 {
@@ -557,8 +535,6 @@ void SNDITEM::SetSoundNote(SNDNOTE* soundnote)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDITEM::Clean()

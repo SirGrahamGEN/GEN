@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT::DB_SQL_RESULT()
 {
@@ -78,8 +76,6 @@ DB_SQL_RESULT::DB_SQL_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_RESULT::~DB_SQL_RESULT()
@@ -144,8 +140,6 @@ XDWORD DB_SQL_RESULT::GetCurrentRowIndex()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_RESULT::Clean()

@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSB::DIOSTREAMUSB() : DIOSTREAM()
 {
@@ -77,8 +75,6 @@ DIOSTREAMUSB::DIOSTREAMUSB() : DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSB::~DIOSTREAMUSB()
@@ -190,8 +186,6 @@ bool DIOSTREAMUSB::CleanBuffers()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSB::Clean()

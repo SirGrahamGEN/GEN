@@ -217,8 +217,6 @@ bool UI_ANIMATIONS::DeleteAll()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ANIMATIONS::UI_ANIMATIONS()
 {
@@ -233,8 +231,6 @@ UI_ANIMATIONS::UI_ANIMATIONS()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ANIMATIONS::~UI_ANIMATIONS()
 {
@@ -251,8 +247,6 @@ UI_ANIMATIONS::~UI_ANIMATIONS()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ANIMATIONS::Clean()
 {

@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEID::XLICENSEID()
 {
@@ -93,8 +91,6 @@ XLICENSEID::XLICENSEID()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEID::~XLICENSEID()
@@ -172,8 +168,6 @@ XDWORD* XLICENSEID::GetParts()
 *
 * @param[in]  xbuffer :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 {
@@ -191,8 +185,6 @@ void XLICENSEID::GetXBuffer(XBUFFER& xbuffer)
 * @ingroup    XUTILS
 *
 * @param[in]  IDstring :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::GetXString(XSTRING& IDstring)
@@ -217,8 +209,6 @@ void XLICENSEID::GetXString(XSTRING& IDstring)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEID::Clean()
 {
@@ -241,8 +231,6 @@ void XLICENSEID::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSE::XLICENSE()
 {
@@ -261,8 +249,6 @@ XLICENSE::XLICENSE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSE::~XLICENSE()
@@ -806,8 +792,6 @@ bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSE::Clean()

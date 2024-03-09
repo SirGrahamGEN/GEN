@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
 {
@@ -88,8 +86,6 @@ XLINUXSHAREDMEMORYMANAGER::XLINUXSHAREDMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSHAREDMEMORYMANAGER::~XLINUXSHAREDMEMORYMANAGER()
@@ -223,8 +219,6 @@ bool XLINUXSHAREDMEMORYMANAGER::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSHAREDMEMORYMANAGER::Clean()

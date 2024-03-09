@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSGPIOPCPARALLEL::DIOWINDOWSGPIOPCPARALLEL(): DIOGPIO()
 {
@@ -77,8 +75,6 @@ DIOWINDOWSGPIOPCPARALLEL::DIOWINDOWSGPIOPCPARALLEL(): DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSGPIOPCPARALLEL::~DIOWINDOWSGPIOPCPARALLEL()
@@ -110,8 +106,6 @@ XPATH* DIOWINDOWSGPIOPCPARALLEL::GetPath()
 *
 * @param[in]  xpath :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSGPIOPCPARALLEL::SetPath(XPATH* xpath)
 {
@@ -141,8 +135,6 @@ XWORD DIOWINDOWSGPIOPCPARALLEL::GetParallelPort()
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  port : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSGPIOPCPARALLEL::SetParallelPort(XWORD port)
@@ -352,8 +344,6 @@ bool DIOWINDOWSGPIOPCPARALLEL::PC_Set(XDWORD nport, XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSGPIOPCPARALLEL::Clean()

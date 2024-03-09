@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSLEEP::XWINDOWSSLEEP()
 {
@@ -83,8 +81,6 @@ XWINDOWSSLEEP::XWINDOWSSLEEP()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSLEEP::~XWINDOWSSLEEP()
 {
@@ -99,8 +95,6 @@ XWINDOWSSLEEP::~XWINDOWSSLEEP()
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  seconds : seconds to sleep
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSLEEP::Seconds(int seconds)
@@ -117,8 +111,6 @@ void XWINDOWSSLEEP::Seconds(int seconds)
 *
 * @param[in]  milliseconds : milliseconds to sleep
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSLEEP::MilliSeconds(int milliseconds)
 {
@@ -133,8 +125,6 @@ void XWINDOWSSLEEP::MilliSeconds(int milliseconds)
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  microseconds : microseconds to sleep
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSLEEP::MicroSeconds(int microseconds)
@@ -164,8 +154,6 @@ void XWINDOWSSLEEP::MicroSeconds(int microseconds)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSLEEP::Clean()

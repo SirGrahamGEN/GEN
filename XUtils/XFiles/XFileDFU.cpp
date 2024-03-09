@@ -96,8 +96,6 @@ XDWORD XFILEDFU::CRCtable[256] =   {  0x00000000, 0x77073096, 0xee0e612c, 0x9909
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_PREFIX::XFILEDFU_PREFIX()
 {
@@ -112,8 +110,6 @@ XFILEDFU_PREFIX::XFILEDFU_PREFIX()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_PREFIX::~XFILEDFU_PREFIX()
 {
@@ -128,8 +124,6 @@ XFILEDFU_PREFIX::~XFILEDFU_PREFIX()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU_PREFIX::Clean()
 {
@@ -152,8 +146,6 @@ void XFILEDFU_PREFIX::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_IMAGE::XFILEDFU_IMAGE()
 {
@@ -168,8 +160,6 @@ XFILEDFU_IMAGE::XFILEDFU_IMAGE()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_IMAGE::~XFILEDFU_IMAGE()
 {
@@ -187,8 +177,6 @@ XFILEDFU_IMAGE::~XFILEDFU_IMAGE()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU_IMAGE::Clean()
 {
@@ -215,8 +203,6 @@ void XFILEDFU_IMAGE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_ELEMENT::XFILEDFU_ELEMENT()
 {
@@ -231,8 +217,6 @@ XFILEDFU_ELEMENT::XFILEDFU_ELEMENT()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_ELEMENT::~XFILEDFU_ELEMENT()
 {
@@ -247,8 +231,6 @@ XFILEDFU_ELEMENT::~XFILEDFU_ELEMENT()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU_ELEMENT::Clean()
 {
@@ -269,8 +251,6 @@ void XFILEDFU_ELEMENT::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_SUFFIX::XFILEDFU_SUFFIX()
 {
@@ -285,8 +265,6 @@ XFILEDFU_SUFFIX::XFILEDFU_SUFFIX()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU_SUFFIX::~XFILEDFU_SUFFIX()
 {
@@ -301,8 +279,6 @@ XFILEDFU_SUFFIX::~XFILEDFU_SUFFIX()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU_SUFFIX::Clean()
 {
@@ -330,8 +306,6 @@ void XFILEDFU_SUFFIX::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU::XFILEDFU()
 {
@@ -347,8 +321,6 @@ XFILEDFU::XFILEDFU()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDFU::~XFILEDFU()
@@ -619,8 +591,6 @@ bool XFILEDFU::CheckCRC()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDFU::Clean()

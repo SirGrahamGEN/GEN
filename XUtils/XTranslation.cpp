@@ -271,8 +271,6 @@ bool XTRANSLATION::End()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION::XTRANSLATION()
 {
@@ -286,8 +284,6 @@ XTRANSLATION::XTRANSLATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION::~XTRANSLATION()
@@ -525,8 +521,6 @@ bool XTRANSLATION::Translate_Delete()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTRANSLATION::Clean()

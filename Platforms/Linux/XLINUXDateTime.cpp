@@ -76,8 +76,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXDATETIME::XLINUXDATETIME()
 {
@@ -99,8 +97,6 @@ XLINUXDATETIME::XLINUXDATETIME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXDATETIME::~XLINUXDATETIME()
@@ -326,8 +322,6 @@ bool XLINUXDATETIME::IsDayLigthSavingTime(int* bias)
 * @param[in]  timed : 
 * @param[in]  islocal : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 {
@@ -369,8 +363,6 @@ void XLINUXDATETIME::GetActualDateTime(XLINUXDATETIME* timed, bool islocal)
 * 
 * @param[in]  timed : 
 * @param[in]  islocal : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXDATETIME::SetActualDateTime(XLINUXDATETIME* timed, bool islocal)

@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()    
 { 
@@ -81,8 +79,6 @@ UI_ELEMENT_CHECKBOX::UI_ELEMENT_CHECKBOX()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_CHECKBOX::~UI_ELEMENT_CHECKBOX()    
 {   
@@ -133,8 +129,6 @@ bool  UI_ELEMENT_CHECKBOX::SetStatus(bool status)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_CHECKBOX::Clean()
 {  

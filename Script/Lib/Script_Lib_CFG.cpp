@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 {
@@ -80,8 +78,6 @@ SCRIPT_LIB_CFG::SCRIPT_LIB_CFG() : SCRIPT_LIB(SCRIPT_LIB_NAME_CFG)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_CFG::~SCRIPT_LIB_CFG()
@@ -136,8 +132,6 @@ XFILECFG* SCRIPT_LIB_CFG::GetXFileCFG()
 * 
 * @param[in]  xfileCFG : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
 {
@@ -151,8 +145,6 @@ void SCRIPT_LIB_CFG::SetXFileCFG(XFILECFG* xfileCFG)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_CFG::Clean()
@@ -178,8 +170,6 @@ void SCRIPT_LIB_CFG::Clean()
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_GetFileCFGValue(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

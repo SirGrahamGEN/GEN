@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32 
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32TRACE::XESP32TRACE()
 {
@@ -86,8 +84,6 @@ XESP32TRACE::XESP32TRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32TRACE::~XESP32TRACE()
@@ -107,8 +103,6 @@ XESP32TRACE::~XESP32TRACE()
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -153,8 +147,6 @@ void XESP32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32TRACE::Clean()

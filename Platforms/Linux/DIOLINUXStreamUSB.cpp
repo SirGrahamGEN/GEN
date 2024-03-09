@@ -83,8 +83,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 {
@@ -123,8 +121,6 @@ DIOLINUXSTREAMUSB::DIOLINUXSTREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB()
@@ -256,8 +252,6 @@ bool DIOLINUXSTREAMUSB::CleanBuffers()
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUSB::ThreadConnection(void* data)
@@ -438,8 +432,6 @@ XDWORD DIOLINUXSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUSB::Clean()

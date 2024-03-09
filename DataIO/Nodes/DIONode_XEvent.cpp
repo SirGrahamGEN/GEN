@@ -66,8 +66,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE_XEVENT::DIONODE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -81,8 +79,6 @@ DIONODE_XEVENT::DIONODE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE_XEVENT::~DIONODE_XEVENT()
@@ -114,8 +110,6 @@ DIONODEITEM* DIONODE_XEVENT::GetNodeItem()
 * 
 * @param[in]  nodeitem : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE_XEVENT::SetNodeItem(DIONODEITEM* nodeitem)
 {
@@ -146,8 +140,6 @@ XDWORD DIONODE_XEVENT::GetIndexValue()
 * 
 * @param[in]  indexvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
 {
@@ -161,8 +153,6 @@ void DIONODE_XEVENT::SetIndexValue(XDWORD indexvalue)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE_XEVENT::Clean()

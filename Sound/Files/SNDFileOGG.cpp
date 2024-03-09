@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 {
@@ -83,8 +81,6 @@ SNDFILEOGG::SNDFILEOGG() : SNDFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILEOGG::~SNDFILEOGG()
@@ -185,8 +181,6 @@ bool SNDFILEOGG::LoadFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFILEOGG::Clean()

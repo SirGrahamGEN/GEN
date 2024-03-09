@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::DIONODEITEM()
 {
@@ -84,8 +82,6 @@ DIONODEITEM::DIONODEITEM()
 * @ingroup    DATAIO
 * 
 * @param[in]  DIONODEITEMHANDLER* : 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
@@ -106,8 +102,6 @@ DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::~DIONODEITEM()
@@ -149,8 +143,6 @@ XDWORD DIONODEITEM::GetCategory()
 * @ingroup    DATAIO
 * 
 * @param[in]  category : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::SetCategory(XDWORD category)
@@ -203,8 +195,6 @@ XUUID& DIONODEITEM::GetID()
 * @ingroup    DATAIO
 * 
 * @param[in]  UUID : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::SetID(XUUID& UUID)
@@ -345,8 +335,6 @@ bool DIONODEITEM::IsSimulate()
 * 
 * @param[in]  issimulated : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::SetIsSimulate(bool issimulated)
 {
@@ -376,8 +364,6 @@ XQWORD DIONODEITEM::GetTimeToUpdate()
 * @ingroup    DATAIO
 * 
 * @param[in]  timetoupdate : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::SetTimeToUpdate(XQWORD timetoupdate)
@@ -527,8 +513,6 @@ bool DIONODEITEM::Deserialize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEM::Clean()

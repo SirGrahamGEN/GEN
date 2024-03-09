@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()    
 { 
@@ -84,8 +82,6 @@ UI_PROPERTY_SELECTABLE::UI_PROPERTY_SELECTABLE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SELECTABLE::~UI_PROPERTY_SELECTABLE()    
 {   
@@ -121,8 +117,6 @@ XDWORD UI_PROPERTY_SELECTABLE::GetTimeSelected()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  timeselected : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SELECTABLE::SetTimeSelected(XDWORD timeselected)
@@ -234,8 +228,6 @@ UI_PROPERTY_SELECTABLE_STATE UI_PROPERTY_SELECTABLE::SetSelectableStateFromStrin
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SELECTABLE::Clean()
 {  

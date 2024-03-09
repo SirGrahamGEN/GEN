@@ -113,8 +113,6 @@ void    unmount_disks_ourselves         ();
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 {
@@ -128,8 +126,6 @@ XLINUXSYSTEM::XLINUXSYSTEM(): XSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSYSTEM::~XLINUXSYSTEM()
@@ -849,8 +845,6 @@ bool XLINUXSYSTEM::Sound_SetMutex(bool on)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSYSTEM::Clean()
 {
@@ -864,8 +858,6 @@ void XLINUXSYSTEM::Clean()
 * @brief      nt_handler
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void int_handler(int code)
 {
@@ -882,8 +874,6 @@ void int_handler(int code)
 * @brief      wap_off
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void swap_off()
 {
@@ -926,8 +916,6 @@ void swap_off()
 * @brief      nmount_disks
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void unmount_disks()
 {
@@ -972,8 +960,6 @@ void unmount_disks()
 * @brief      nmount_disks_ourselves
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void unmount_disks_ourselves()
 {

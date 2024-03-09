@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 {
@@ -120,8 +118,6 @@ DIOWINDOWSSTREAMUDP::DIOWINDOWSSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUDP::~DIOWINDOWSSTREAMUDP()
@@ -307,8 +303,6 @@ int DIOWINDOWSSTREAMUDP::IsReadyConnect(SOCKET socket)
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUDP::Clean()
 {
@@ -325,8 +319,6 @@ void DIOWINDOWSSTREAMUDP::Clean()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)

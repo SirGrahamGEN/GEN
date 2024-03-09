@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES() 
 {
@@ -89,8 +87,6 @@ DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMD
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
@@ -295,8 +291,6 @@ bool DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 *
 * @param[in]  param : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
@@ -386,8 +380,6 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 *
 * @param[in]  param : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* param)
 {
@@ -433,8 +425,6 @@ void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::ThreadEnumDevicesEvent(void* pa
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()

@@ -55,8 +55,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
 {
@@ -70,8 +68,6 @@ DIOSTM32LEDNEOPIXELWS2812B::DIOSTM32LEDNEOPIXELWS2812B()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32LEDNEOPIXELWS2812B::~DIOSTM32LEDNEOPIXELWS2812B()
@@ -219,8 +215,6 @@ bool DIOSTM32LEDNEOPIXELWS2812B::Send()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32LEDNEOPIXELWS2812B::Clean()

@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_MATH::SCRIPT_LIB_MATH() : SCRIPT_LIB(SCRIPT_LIB_MATH_NAME)
 {
@@ -82,8 +80,6 @@ SCRIPT_LIB_MATH::SCRIPT_LIB_MATH() : SCRIPT_LIB(SCRIPT_LIB_MATH_NAME)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_MATH::~SCRIPT_LIB_MATH()
@@ -122,8 +118,6 @@ bool SCRIPT_LIB_MATH::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_MATH::Clean()
 {
@@ -148,8 +142,6 @@ void SCRIPT_LIB_MATH::Clean()
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Abs(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

@@ -51,8 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 {
@@ -67,8 +65,6 @@ XSTM32EEPROMMEMORYMANAGER::XSTM32EEPROMMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32EEPROMMEMORYMANAGER::~XSTM32EEPROMMEMORYMANAGER()

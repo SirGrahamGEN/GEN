@@ -65,8 +65,6 @@
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECTION(database)
 {
@@ -80,8 +78,6 @@ POSTGRESQL_CONNECTION::POSTGRESQL_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_CONNECTION::~POSTGRESQL_CONNECTION()
@@ -227,8 +223,6 @@ bool POSTGRESQL_CONNECTION::Disconnect()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_CONNECTION::Clean()

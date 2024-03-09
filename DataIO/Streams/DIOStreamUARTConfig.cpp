@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG(): DIOSTREAMCONFIG()
 {
@@ -77,8 +75,6 @@ DIOSTREAMUARTCONFIG::DIOSTREAMUARTCONFIG(): DIOSTREAMCONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTCONFIG::~DIOSTREAMUARTCONFIG()
@@ -109,8 +105,6 @@ int DIOSTREAMUARTCONFIG::GetPort()
 * @ingroup    DATAIO
 *
 * @param[in]  port :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetPort(int port)
@@ -157,8 +151,6 @@ int DIOSTREAMUARTCONFIG::GetBaudRate()
 *
 * @param[in]  baudrate :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetBaudRate(int baudrate)
 {
@@ -188,8 +180,6 @@ DIOSTREAMUARTDATABITS DIOSTREAMUARTCONFIG::GetDataBits()
 * @ingroup    DATAIO
 *
 * @param[in]  databits :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetDataBits(DIOSTREAMUARTDATABITS databits)
@@ -221,8 +211,6 @@ DIOSTREAMUARTPARITY DIOSTREAMUARTCONFIG::GetParity()
 *
 * @param[in]  parity :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetParity(DIOSTREAMUARTPARITY parity)
 {
@@ -253,8 +241,6 @@ DIOSTREAMUARTSTOPBITS DIOSTREAMUARTCONFIG::GetStopBits()
 *
 * @param[in]  stopbits :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetStopBits(DIOSTREAMUARTSTOPBITS stopbits)
 {
@@ -284,8 +270,6 @@ DIOSTREAMUARTFLOWCONTROL DIOSTREAMUARTCONFIG::GetFlowControl()
 * @ingroup    DATAIO
 * 
 * @param[in]  flowcontrol : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::SetFlowControl(DIOSTREAMUARTFLOWCONTROL flowcontrol)
@@ -524,8 +508,6 @@ bool DIOSTREAMUARTCONFIG::SetFromString(XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTCONFIG::Clean()

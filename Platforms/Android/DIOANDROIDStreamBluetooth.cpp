@@ -74,8 +74,6 @@
 * 
 * @param[in]    : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() , XFSMACHINE(0)
 {
@@ -123,8 +121,6 @@ DIOANDROIDSTREAMBLUETOOTH::DIOANDROIDSTREAMBLUETOOTH( ) : DIOSTREAMBLUETOOTH() ,
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTH::~DIOANDROIDSTREAMBLUETOOTH()
@@ -478,8 +474,6 @@ bool DIOANDROIDSTREAMBLUETOOTH::ManagementOfPIN(bool active, XSTRING &localMACst
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 {
@@ -764,8 +758,6 @@ void DIOANDROIDSTREAMBLUETOOTH::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTH::Clean()

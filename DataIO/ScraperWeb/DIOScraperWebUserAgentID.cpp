@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 {
@@ -126,8 +124,6 @@ XSTRING* DIOUSERAGENTID_RESULT::GetSO()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOUSERAGENTID_RESULT::Clean()
 {
@@ -147,8 +143,6 @@ void DIOUSERAGENTID_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 {
@@ -162,8 +156,6 @@ DIOSCRAPERWEBUSERAGENTID::DIOSCRAPERWEBUSERAGENTID() : DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBUSERAGENTID::~DIOSCRAPERWEBUSERAGENTID()
@@ -298,8 +290,6 @@ bool DIOSCRAPERWEBUSERAGENTID::Get(XSTRING& useragent, XSTRING& browser, XSTRING
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBUSERAGENTID::Clean()

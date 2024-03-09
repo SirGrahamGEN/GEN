@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 {
@@ -83,8 +81,6 @@ DIOI2CEEPROM24XXX::DIOI2CEEPROM24XXX(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CEEPROM24XXX::~DIOI2CEEPROM24XXX()
@@ -117,8 +113,6 @@ DIOI2CEEPROM24XXXTYPE DIOI2CEEPROM24XXX::GetType()
 * @ingroup    DATAIO
 *
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CEEPROM24XXX::SetType(DIOI2CEEPROM24XXXTYPE type)    
@@ -463,8 +457,6 @@ bool DIOI2CEEPROM24XXX::WriteBYTE(XDWORD address, XBYTE data)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CEEPROM24XXX::Clean()
 {

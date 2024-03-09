@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDDIR::XANDROIDDIR(): XLINUXDIR()
 {
@@ -75,8 +73,6 @@ XANDROIDDIR::XANDROIDDIR(): XLINUXDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDDIR::~XANDROIDDIR()

@@ -82,8 +82,6 @@ void    WLanCallback      (WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID c
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMWIFIREMOTEENUMDEVICES()
 {
@@ -97,8 +95,6 @@ DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES() :
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::~DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES()
@@ -538,8 +534,6 @@ bool DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::IsSearching()
 * @param[in]  wlanhandle :
 * @param[in]  interfaces :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_INTERFACE_INFO_LIST* interfaces)
 {
@@ -609,8 +603,6 @@ void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::TriggerScan(HANDLE wlanhandle, WLAN_
 * @param[in]  WLAN_NOTIFICATION_DATA*scannotificationdata :
 * @param[in]  context :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 {
@@ -647,8 +639,6 @@ void WLanCallback(WLAN_NOTIFICATION_DATA *scannotificationdata, PVOID context)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMWIFIREMOTEENUMDEVICES::Clean()

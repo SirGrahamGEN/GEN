@@ -51,8 +51,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32EEPROMMEMORYMANAGER::XESP32EEPROMMEMORYMANAGER()
 {
@@ -67,8 +65,6 @@ XESP32EEPROMMEMORYMANAGER::XESP32EEPROMMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32EEPROMMEMORYMANAGER::~XESP32EEPROMMEMORYMANAGER()

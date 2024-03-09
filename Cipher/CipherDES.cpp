@@ -258,8 +258,6 @@ XBYTE CIPHERDES::weakkeytable[CIPHERDES_WEAKKEYCOUNT][CIPHERDES_KEYSIZE] =    { 
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERDES::CIPHERDES()
 {
@@ -278,8 +276,6 @@ CIPHERDES::CIPHERDES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERDES::~CIPHERDES()
@@ -385,8 +381,6 @@ bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
 * 
 * @param[in]  key[CIPHERDES_KEYSIZE] : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
 {
@@ -449,8 +443,6 @@ int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
 * 
 * @param[in]  SK[32] : 
 * @param[in]  key[CIPHERDES_KEYSIZE] : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
@@ -733,8 +725,6 @@ bool CIPHERDES::DESCipher_CBC(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::Clean()

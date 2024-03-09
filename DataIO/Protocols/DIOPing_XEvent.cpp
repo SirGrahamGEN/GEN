@@ -64,8 +64,6 @@
 * @param[in]  XDWORD type : 
 * @param[in]  XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ DIOPING_XEVENT::DIOPING_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING_XEVENT::~DIOPING_XEVENT()
@@ -112,8 +108,6 @@ DIOPINGREPLY* DIOPING_XEVENT::GetPingReply()
 * 
 * @param[in]  pingreply : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
 {
@@ -127,8 +121,6 @@ void DIOPING_XEVENT::SetPingReply(DIOPINGREPLY* pingreply)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING_XEVENT::Clean()

@@ -65,8 +65,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_XEVENT::SCRIPT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -80,8 +78,6 @@ SCRIPT_XEVENT::SCRIPT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEV
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_XEVENT::~SCRIPT_XEVENT()
@@ -112,8 +108,6 @@ SCRIPT* SCRIPT_XEVENT::GetScript()
 * @ingroup    SCRIPT
 * 
 * @param[in]  script : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_XEVENT::SetScript(SCRIPT* script)
@@ -160,8 +154,6 @@ int SCRIPT_XEVENT::GetError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_XEVENT::SetError(int error)
 {
@@ -207,8 +199,6 @@ int SCRIPT_XEVENT::GetNLine()
 *
 * @param[in]  nline :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_XEVENT::SetNLine(int nline)
 {
@@ -237,8 +227,6 @@ XSTRING* SCRIPT_XEVENT::GetCurrentToken()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_XEVENT::Clean()

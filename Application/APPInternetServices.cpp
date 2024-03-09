@@ -83,8 +83,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES::APPINTERNETSERVICES()
 {
@@ -118,8 +116,6 @@ APPINTERNETSERVICES::APPINTERNETSERVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES::~APPINTERNETSERVICES()
@@ -931,8 +927,6 @@ bool APPINTERNETSERVICES::AdjustTimerByNTP(XVECTOR<XSTRING*>* servers)
 *
 * @param[in]  event : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
@@ -1000,8 +994,6 @@ void APPINTERNETSERVICES::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 *
 * @param[in]  xevent :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 {
@@ -1025,8 +1017,6 @@ void APPINTERNETSERVICES::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES::Clean()

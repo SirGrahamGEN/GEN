@@ -65,8 +65,6 @@ XEEPROMMEMORYMANAGER* XEEPROMMEMORYMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 {
@@ -80,8 +78,6 @@ XEEPROMMEMORYMANAGER::XEEPROMMEMORYMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XEEPROMMEMORYMANAGER::~XEEPROMMEMORYMANAGER()

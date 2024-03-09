@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP() : DIOLINUXSTREAMTCPIP()
 {
@@ -75,8 +73,6 @@ DIOANDROIDSTREAMTCPIP::DIOANDROIDSTREAMTCPIP() : DIOLINUXSTREAMTCPIP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMTCPIP::~DIOANDROIDSTREAMTCPIP()

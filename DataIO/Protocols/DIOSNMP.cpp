@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
 {
@@ -88,8 +86,6 @@ DIOSNMP_XBER::DIOSNMP_XBER(): XBER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_XBER::~DIOSNMP_XBER()
 {
@@ -235,8 +231,6 @@ bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_BASE::DIOSNMP_BASE()
 {
@@ -251,8 +245,6 @@ DIOSNMP_BASE::DIOSNMP_BASE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_BASE::~DIOSNMP_BASE()
 {
@@ -312,8 +304,6 @@ DIOSNMP_VERSION DIOSNMP_BASE::GetVersion()
 * @ingroup    DATAIO
 *
 * @param[in]  version : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
@@ -420,8 +410,6 @@ bool DIOSNMP_BASE::Close()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSNMP_BASE::Clean()
 {
@@ -444,8 +432,6 @@ void DIOSNMP_BASE::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_TRAP::DIOSNMP_TRAP()
 {
@@ -460,8 +446,6 @@ DIOSNMP_TRAP::DIOSNMP_TRAP()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP_TRAP::~DIOSNMP_TRAP()
 {
@@ -590,8 +574,6 @@ bool DIOSNMP_TRAP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int ge
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSNMP_TRAP::Clean()
 {
@@ -611,8 +593,6 @@ void DIOSNMP_TRAP::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP::DIOSNMP()
 {
@@ -627,8 +607,6 @@ DIOSNMP::DIOSNMP()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSNMP::~DIOSNMP()
 {
@@ -854,8 +832,6 @@ bool DIOSNMP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generic
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSNMP::Clean()
 {

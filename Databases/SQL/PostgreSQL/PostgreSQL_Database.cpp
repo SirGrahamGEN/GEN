@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 {
@@ -88,8 +86,6 @@ POSTGRESQL_DATABASE::POSTGRESQL_DATABASE(): DB_SQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_DATABASE::~POSTGRESQL_DATABASE()
@@ -521,8 +517,6 @@ bool POSTGRESQL_DATABASE::IsThreadSafe()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_DATABASE::Clean()

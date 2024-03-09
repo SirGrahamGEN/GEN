@@ -237,8 +237,6 @@ bool UI_COLORS::DeleteAll()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_COLORS::UI_COLORS()
 {
@@ -263,8 +261,6 @@ UI_COLORS::UI_COLORS()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_COLORS::~UI_COLORS()
 {
@@ -281,8 +277,6 @@ UI_COLORS::~UI_COLORS()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLORS::Clean()
 {

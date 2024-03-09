@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILETXT::XFILETXT(): XFILECONTAINER()
 {
@@ -86,8 +84,6 @@ XFILETXT::XFILETXT(): XFILECONTAINER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILETXT::~XFILETXT()
@@ -1650,8 +1646,6 @@ bool XFILETXT::CopyTo(XFILETXT* filetxt)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILETXT::Clean()

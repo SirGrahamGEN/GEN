@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBHEADER::DIOWEBHEADER()
 {
@@ -83,8 +81,6 @@ DIOWEBHEADER::DIOWEBHEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBHEADER::~DIOWEBHEADER()
@@ -423,8 +419,6 @@ bool DIOWEBHEADER::GetFormat(bool isserver, int type, void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBHEADER::Clean()

@@ -200,8 +200,6 @@ XDWORD DIOSSHREVERSE::GetPort()
 * 
 * @param[in]  port : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSSHREVERSE::SetPort(XDWORD port)
 { 
@@ -615,8 +613,6 @@ bool DIOSSHREVERSE::Exec(DIOURL&  URL, XSTRING& publicIP, XSTRING& localIP)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSSHREVERSE::DIOSSHREVERSE()
 {
@@ -631,8 +627,6 @@ DIOSSHREVERSE::DIOSSHREVERSE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSSHREVERSE::~DIOSSHREVERSE()
 {
@@ -646,8 +640,6 @@ DIOSSHREVERSE::~DIOSSHREVERSE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSSHREVERSE::Clean()

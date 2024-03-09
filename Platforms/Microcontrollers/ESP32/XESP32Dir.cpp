@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32 
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DIR::XESP32DIR(): XDIR()
 {
@@ -83,8 +81,6 @@ XESP32DIR::XESP32DIR(): XDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DIR::~XESP32DIR()
@@ -222,8 +218,6 @@ bool XESP32DIR::NextSearch(XDIRELEMENT* searchelement)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32 
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32DIR::Clean()

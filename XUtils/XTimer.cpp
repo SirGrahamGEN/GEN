@@ -82,8 +82,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMERCLOCK::XTIMERCLOCK()
 {
@@ -104,8 +102,6 @@ XTIMERCLOCK::XTIMERCLOCK()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMERCLOCK::~XTIMERCLOCK()
@@ -152,8 +148,6 @@ XQWORD XTIMERCLOCK::GetClockTicks()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMERCLOCK::Clean()
 {
@@ -171,8 +165,6 @@ void XTIMERCLOCK::Clean()
 * @ingroup    XUTILS
 *
 * @param[in]  data :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMERCLOCK::ThreadClockFunction(void* data)
@@ -206,8 +198,6 @@ void XTIMERCLOCK::ThreadClockFunction(void* data)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMER::XTIMER()
 {
@@ -221,8 +211,6 @@ XTIMER::XTIMER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTIMER::~XTIMER()
@@ -239,8 +227,6 @@ XTIMER::~XTIMER()
 *
 * @param[in]  milliseconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 {
@@ -255,8 +241,6 @@ void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 * @ingroup    XUTILS
 *
 * @param[in]  seconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::AddSeconds(XQWORD seconds)
@@ -273,8 +257,6 @@ void XTIMER::AddSeconds(XQWORD seconds)
 *
 * @param[in]  milliseconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::SetMilliSeconds(XQWORD milliseconds)
 {
@@ -289,8 +271,6 @@ void XTIMER::SetMilliSeconds(XQWORD milliseconds)
 * @fn         void XTIMER::Reset()
 * @brief      Reset
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::Reset()
@@ -565,8 +545,6 @@ XQWORD XTIMER::GetMicroSecondsTickCounter()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::Clean()

@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
 {
@@ -80,8 +78,6 @@ INPWINDOWSSIMULATE::INPWINDOWSSIMULATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSSIMULATE::~INPWINDOWSSIMULATE()
@@ -537,8 +533,6 @@ bool INPWINDOWSSIMULATE::IsScrollLockActive()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSSIMULATE::Clean()

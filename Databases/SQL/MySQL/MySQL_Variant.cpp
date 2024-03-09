@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_VARIANT::MYSQL_VARIANT()  : DB_SQL_VARIANT()
 {
@@ -78,8 +76,6 @@ MYSQL_VARIANT::MYSQL_VARIANT()  : DB_SQL_VARIANT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_VARIANT::~MYSQL_VARIANT()
@@ -181,8 +177,6 @@ void* MYSQL_VARIANT::GetData()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_VARIANT::Clean()

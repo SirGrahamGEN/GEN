@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
 {
@@ -80,8 +78,6 @@ DIOMACMANUFACTURED_RESULT::DIOMACMANUFACTURED_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMACMANUFACTURED_RESULT::~DIOMACMANUFACTURED_RESULT()
@@ -112,8 +108,6 @@ XSTRING* DIOMACMANUFACTURED_RESULT::Get()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMACMANUFACTURED_RESULT::Clean()
 {
@@ -133,8 +127,6 @@ void DIOMACMANUFACTURED_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER(): DIOSCRAPERWEB()
 {
@@ -148,8 +140,6 @@ DIOSCRAPERWEBMACMANUFACTURER::DIOSCRAPERWEBMACMANUFACTURER(): DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBMACMANUFACTURER::~DIOSCRAPERWEBMACMANUFACTURER()
@@ -259,8 +249,6 @@ bool DIOSCRAPERWEBMACMANUFACTURER::Get(DIOMAC& MAC, XSTRING& manufactured, int t
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBMACMANUFACTURER::Clean()

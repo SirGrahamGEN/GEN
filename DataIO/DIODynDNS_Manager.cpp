@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS_MANAGER::DIODYNDNS_MANAGER()
 {
@@ -77,8 +75,6 @@ DIODYNDNS_MANAGER::DIODYNDNS_MANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS_MANAGER::~DIODYNDNS_MANAGER()
@@ -241,8 +237,6 @@ bool DIODYNDNS_MANAGER::AssingAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODYNDNS_MANAGER::Clean()

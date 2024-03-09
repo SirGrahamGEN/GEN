@@ -101,8 +101,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 {
@@ -152,8 +150,6 @@ DIOLINUXSTREAMTCPIP::DIOLINUXSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMTCPIP::~DIOLINUXSTREAMTCPIP()
@@ -645,8 +641,6 @@ bool DIOLINUXSTREAMTCPIP::GetHandleClient()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
 {
@@ -828,8 +822,6 @@ void DIOLINUXSTREAMTCPIP::ThreadConnection(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMTCPIP::Clean()

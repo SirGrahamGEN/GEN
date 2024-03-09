@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTLOCALENUMDEVICES::DIOSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
@@ -75,8 +73,6 @@ DIOSTREAMUARTLOCALENUMDEVICES::DIOSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMENUMDE
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUARTLOCALENUMDEVICES::~DIOSTREAMUARTLOCALENUMDEVICES()
@@ -155,8 +151,6 @@ bool DIOSTREAMUARTLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUARTLOCALENUMDEVICES::Clean()

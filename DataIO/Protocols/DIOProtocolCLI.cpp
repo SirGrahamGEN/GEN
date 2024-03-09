@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLICOMMAND::DIOPROTOCOLCLICOMMAND()
 {
@@ -93,8 +91,6 @@ DIOPROTOCOLCLICOMMAND::DIOPROTOCOLCLICOMMAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLICOMMAND::~DIOPROTOCOLCLICOMMAND()
@@ -161,8 +157,6 @@ bool DIOPROTOCOLCLICOMMAND::Set(XCHAR* command, int nparams)
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLICOMMAND::Clean()
 {
@@ -183,8 +177,6 @@ void DIOPROTOCOLCLICOMMAND::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIANSWER::DIOPROTOCOLCLIANSWER()
 {
@@ -198,8 +190,6 @@ DIOPROTOCOLCLIANSWER::DIOPROTOCOLCLIANSWER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIANSWER::~DIOPROTOCOLCLIANSWER()
@@ -260,8 +250,6 @@ XSTRING* DIOPROTOCOLCLIANSWER::GetAnswer()
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIANSWER::Clean()
 {
@@ -282,8 +270,6 @@ void DIOPROTOCOLCLIANSWER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLI::DIOPROTOCOLCLI()
 {
@@ -299,8 +285,6 @@ DIOPROTOCOLCLI::DIOPROTOCOLCLI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLI::~DIOPROTOCOLCLI()
@@ -374,8 +358,6 @@ bool DIOPROTOCOLCLI::IsIni()
 * @ingroup    DATAIO
 * 
 * @param[in]  activated : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLI::ActiveCRC(bool activated)
@@ -591,8 +573,6 @@ bool DIOPROTOCOLCLI::ReceivedAnswer(XSTRING& origin, XSTRING& command, XSTRING& 
 * @fn         void DIOPROTOCOLCLI::ReceivedCommandManager()
 * @brief      ReceivedCommandManager
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLI::ReceivedCommandManager()
@@ -938,8 +918,6 @@ bool DIOPROTOCOLCLI::DeleteAllAnswers()
 * @brief      End
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLI::End()
 {
@@ -1133,8 +1111,6 @@ bool DIOPROTOCOLCLI::ExtractParamsFromCommand(XSTRING& stringreceived, XSTRING& 
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLI::Clean()

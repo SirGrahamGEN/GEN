@@ -139,8 +139,6 @@ XDWORD  CIPHERAES::RCON[10];
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERAES::CIPHERAES()
 {
@@ -159,8 +157,6 @@ CIPHERAES::CIPHERAES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERAES::~CIPHERAES()
@@ -307,8 +303,6 @@ bool CIPHERAES::Uncipher(XBYTE* input, XDWORD size)
 * @ingroup    CIPHER
 * 
 * @param[in]  void : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERAES::AESGenTables(void)
@@ -869,8 +863,6 @@ bool CIPHERAES::AESCipher_CTR(CIPHERAES_CONTEXT* ctx, XDWORD size, int* nc_off, 
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERAES::Clean()

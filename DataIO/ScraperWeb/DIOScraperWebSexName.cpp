@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 {
@@ -80,8 +78,6 @@ DIOSEXNAME_RESULT::DIOSEXNAME_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSEXNAME_RESULT::~DIOSEXNAME_RESULT()
@@ -146,8 +142,6 @@ XSTRING* DIOSEXNAME_RESULT::GetNameClear()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSEXNAME_RESULT::Clean()
 {
@@ -167,8 +161,6 @@ void DIOSEXNAME_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 {
@@ -182,8 +174,6 @@ DIOSCRAPERWEBSEXNAME::DIOSCRAPERWEBSEXNAME(): DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBSEXNAME::~DIOSCRAPERWEBSEXNAME()
@@ -324,8 +314,6 @@ bool DIOSCRAPERWEBSEXNAME::Get(XSTRING& name, DIOSCRAPERWEBSEXNAMETYPE& sexnamet
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBSEXNAME::Clean()

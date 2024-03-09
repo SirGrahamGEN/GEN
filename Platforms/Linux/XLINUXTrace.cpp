@@ -83,8 +83,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTRACE::XLINUXTRACE()
 {
@@ -103,8 +101,6 @@ XLINUXTRACE::XLINUXTRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTRACE::~XLINUXTRACE()
@@ -138,8 +134,6 @@ XLINUXTRACE::~XLINUXTRACE()
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -204,8 +198,6 @@ void XLINUXTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -288,8 +280,6 @@ void XLINUXTRACE::PrintFile(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTRACE::PrintNet(XTRACE_TARGET* target, XBYTE level, XCHAR* string)

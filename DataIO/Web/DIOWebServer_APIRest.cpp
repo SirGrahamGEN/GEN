@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
 {
@@ -79,8 +77,6 @@ DIOWEBSERVER_ENDPOINT::DIOWEBSERVER_ENDPOINT()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
 {
@@ -94,8 +90,6 @@ DIOWEBSERVER_ENDPOINT::~DIOWEBSERVER_ENDPOINT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_ENDPOINT::Clean()
@@ -116,8 +110,6 @@ void DIOWEBSERVER_ENDPOINT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
 {
@@ -131,8 +123,6 @@ DIOWEBSERVER_APIREST::DIOWEBSERVER_APIREST()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
@@ -167,8 +157,6 @@ bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_REQUEST* request, DIOWEB
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_APIREST::Clean()

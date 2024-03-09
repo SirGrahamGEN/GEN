@@ -96,8 +96,6 @@
 *
 * @param[in]  GRPSCREEN* : 
 * 
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
 {
@@ -123,8 +121,6 @@ UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_REBUILDAREAS::~UI_SKINCANVAS_REBUILDAREAS()
 {
@@ -351,8 +347,6 @@ GRPBITMAP* UI_SKINCANVAS_REBUILDAREAS::GetBitmap(double x, double y, double widt
 * @param[in]  y : 
 * @param[in]  bitmap : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS_REBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 {
@@ -399,8 +393,6 @@ GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS_REBUILDAREAS::Clean()
 {
@@ -423,8 +415,6 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 *
 * @param[in]  GRPSCREEN* : 
 * 
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBUILDAREAS(screen)
 { 
@@ -443,8 +433,6 @@ UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBU
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS::~UI_SKINCANVAS()    
 { 
@@ -3390,8 +3378,6 @@ bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS::Clean()
 {

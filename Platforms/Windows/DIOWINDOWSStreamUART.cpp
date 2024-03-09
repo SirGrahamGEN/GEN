@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 {
@@ -108,8 +106,6 @@ DIOWINDOWSSTREAMUART::DIOWINDOWSSTREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
@@ -707,8 +703,6 @@ bool DIOWINDOWSSTREAMUART::SetTimeouts()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 {
@@ -796,8 +790,6 @@ void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUART::Clean()

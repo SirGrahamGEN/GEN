@@ -81,8 +81,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-*
 --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C() : DIOSTREAMI2C()
 {
@@ -98,8 +96,6 @@ DIOLINUXSTREAMI2C::DIOLINUXSTREAMI2C() : DIOSTREAMI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMI2C::~DIOLINUXSTREAMI2C()
@@ -288,8 +284,6 @@ bool DIOLINUXSTREAMI2C::Close()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
 {
@@ -393,8 +387,6 @@ void DIOLINUXSTREAMI2C::ThreadConnection(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMI2C::Clean()

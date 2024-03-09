@@ -89,8 +89,6 @@ static void JavaEnvDestructor(void*)
 * @param[in]  application : 
 * @param[in]  javaversion : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDJNI::InitializeJNI(android_app* application, jint javaversion)
 {
@@ -168,8 +166,6 @@ JNIEnv* ANDROIDJNI::GetJNIEnv()
 * @fn         void ANDROIDJNI::DetachJNIEnv()
 * @brief      DetachJNIEnv
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDJNI::DetachJNIEnv()

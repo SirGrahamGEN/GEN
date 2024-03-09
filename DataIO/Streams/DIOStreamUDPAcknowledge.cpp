@@ -73,8 +73,6 @@
 * 
 * @param[in]  DIOSTREAMUDPCONFIG* : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : DIOSTREAMUDP()
 {
@@ -94,8 +92,6 @@ DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : D
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPACKNOWLEDGE::~DIOSTREAMUDPACKNOWLEDGE()
@@ -180,8 +176,6 @@ int DIOSTREAMUDPACKNOWLEDGE::GetTimeout()
 * @ingroup    DATAIO
 * 
 * @param[in]  timeout : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPACKNOWLEDGE::SetTimeout(int timeout)
@@ -438,8 +432,6 @@ DIOSTREAM* DIOSTREAMUDPACKNOWLEDGE::GetDIOStreamBase()
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
 {
@@ -481,8 +473,6 @@ void DIOSTREAMUDPACKNOWLEDGE::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPACKNOWLEDGE::Clean()

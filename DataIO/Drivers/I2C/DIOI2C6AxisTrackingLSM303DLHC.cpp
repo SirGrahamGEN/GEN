@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 {
@@ -88,8 +86,6 @@ DIOI2CLSM303DLHCVECTOR::DIOI2CLSM303DLHCVECTOR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
@@ -107,8 +103,6 @@ DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 * @param[in]  DIOI2CLSM303DLHCVECTOR& a :
 * @param[in]  DIOI2CLSM303DLHCVECTOR& b :
 * @param[in]  out :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CLSM303DLHCVECTOR& b, DIOI2CLSM303DLHCVECTOR& out)
@@ -145,8 +139,6 @@ float DIOI2CLSM303DLHCVECTOR::Dot(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2CL
 *
 * @param[in]  a :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 {
@@ -164,8 +156,6 @@ void DIOI2CLSM303DLHCVECTOR::Normalize(DIOI2CLSM303DLHCVECTOR& a)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHCVECTOR::Clean()
@@ -190,8 +180,6 @@ void DIOI2CLSM303DLHCVECTOR::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 {
@@ -205,8 +193,6 @@ DIOI2CLSM303DLHC::DIOI2CLSM303DLHC() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CLSM303DLHC::~DIOI2CLSM303DLHC()
@@ -357,8 +343,6 @@ bool DIOI2CLSM303DLHC::WriteRegister(XBYTE reg, XBYTE value)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CLSM303DLHC::Clean()
 {
@@ -378,8 +362,6 @@ void DIOI2CLSM303DLHC::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 {
@@ -393,8 +375,6 @@ DIOI2C3DCOMPASSLSM303DLHC::DIOI2C3DCOMPASSLSM303DLHC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DCOMPASSLSM303DLHC::~DIOI2C3DCOMPASSLSM303DLHC()
@@ -475,8 +455,6 @@ bool DIOI2C3DACCELEROMETERLSM303DLHC::Read(XWORD& a_x, XWORD& a_y, XWORD& a_z)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 {
@@ -490,8 +468,6 @@ DIOI2C3DACCELEROMETERLSM303DLHC::DIOI2C3DACCELEROMETERLSM303DLHC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C3DACCELEROMETERLSM303DLHC::~DIOI2C3DACCELEROMETERLSM303DLHC()
@@ -571,8 +547,6 @@ bool DIOI2C3DCOMPASSLSM303DLHC::Read(XWORD& c_x, XWORD& c_y, XWORD& c_z)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 {
@@ -589,8 +563,6 @@ DIOI2C6AXISTRACKINGLSM303DLHC::DIOI2C6AXISTRACKINGLSM303DLHC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGLSM303DLHC::~DIOI2C6AXISTRACKINGLSM303DLHC()
@@ -673,8 +645,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::Ini(int port,  int remotedeviceaddressaccele
 * @param[in]  y :
 * @param[in]  z :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 {
@@ -693,8 +663,6 @@ void DIOI2C6AXISTRACKINGLSM303DLHC::SetOffset(float x, float y, float z)
 * @param[in]  x :
 * @param[in]  y :
 * @param[in]  z :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::SetScale(float x, float y, float z)
@@ -872,8 +840,6 @@ bool DIOI2C6AXISTRACKINGLSM303DLHC::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGLSM303DLHC::Clean()

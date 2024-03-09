@@ -70,8 +70,6 @@
 * @param[in]   int pindata : 
 * @param[in]   bool activatecache : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata, bool activatecache) : DIODEVICE()
 {
@@ -102,8 +100,6 @@ DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata,
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLIGHTSENSORLDRANALOG::~DIOLIGHTSENSORLDRANALOG()
@@ -256,8 +252,6 @@ bool DIOLIGHTSENSORLDRANALOG::End()
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLIGHTSENSORLDRANALOG::ThreadRunFunction(void* param)
 {
@@ -292,8 +286,6 @@ void DIOLIGHTSENSORLDRANALOG::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLIGHTSENSORLDRANALOG::Clean()

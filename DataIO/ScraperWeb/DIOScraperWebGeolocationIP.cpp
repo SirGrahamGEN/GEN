@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 {
@@ -81,8 +79,6 @@ DIOGEOLOCATIONIP_RESULT::DIOGEOLOCATIONIP_RESULT(): DIOSCRAPERWEBCACHE_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOGEOLOCATIONIP_RESULT::~DIOGEOLOCATIONIP_RESULT()
@@ -363,8 +359,6 @@ bool DIOGEOLOCATIONIP_RESULT::Set(float latitude, float longitude)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOGEOLOCATIONIP_RESULT::Clean()
 {
@@ -387,8 +381,6 @@ void DIOGEOLOCATIONIP_RESULT::Clean()
 *
 * @param[in]  webclient :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient): DIOSCRAPERWEB()
 {
@@ -402,8 +394,6 @@ DIOSCRAPERWEBGEOLOCATIONIP::DIOSCRAPERWEBGEOLOCATIONIP(DIOWEBCLIENT* webclient):
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBGEOLOCATIONIP::~DIOSCRAPERWEBGEOLOCATIONIP()
@@ -582,8 +572,6 @@ bool DIOSCRAPERWEBGEOLOCATIONIP::Get(DIOIP& IP, DIOGEOLOCATIONIP_RESULT& geoloca
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBGEOLOCATIONIP::Clean()

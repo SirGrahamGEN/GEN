@@ -70,8 +70,6 @@
 * @brief      DIOSTREAMI2C
 * @ingroup    DATAIO
 *
-* @return     does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMI2C::DIOSTREAMI2C() : DIOSTREAM() , XFSMACHINE(0)
 {
@@ -110,8 +108,6 @@ DIOSTREAMI2C::DIOSTREAMI2C() : DIOSTREAM() , XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMI2C::~DIOSTREAMI2C()
 {
@@ -240,8 +236,6 @@ bool DIOSTREAMI2C::Close()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2C::Clean()
 {

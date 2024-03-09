@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C9AXISTRACKINGMPU9150::DIOI2C9AXISTRACKINGMPU9150() : DIODEVICEI2C()
 {
@@ -87,8 +85,6 @@ DIOI2C9AXISTRACKINGMPU9150::DIOI2C9AXISTRACKINGMPU9150() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C9AXISTRACKINGMPU9150::~DIOI2C9AXISTRACKINGMPU9150()
@@ -147,8 +143,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::IniDevice()
 * @brief      Initialize
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::Initialize()
 {
@@ -203,8 +197,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetAuxVDDIOLevel()
 *
 * @param[in]  level :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAuxVDDIOLevel(XBYTE level)
 {
@@ -251,8 +243,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetRate()
 * @ingroup    DATAIO
 *
 * @param[in]  rate :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetRate(XBYTE rate)
@@ -322,8 +312,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetExternalFrameSync()
 *
 * @param[in]  sync : New FSYNC configuration value
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetExternalFrameSync(XBYTE sync)
 {
@@ -374,8 +362,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDLPFMode()
 *
 * @param[in]  mode : New DLFP configuration setting
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDLPFMode(XBYTE mode)
 {
@@ -413,8 +399,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleGyroRange()
 *
 * @param[in]  range : New full-scale gyroscope range value
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleGyroRange(XBYTE range)
 {
@@ -445,8 +429,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelXSelfTest()
 * @ingroup    DATAIO
 *
 * @param[in]  enabled : Self-test enabled value
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAccelXSelfTest(bool enabled)
@@ -512,8 +494,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetAccelZSelfTest()
 *
 * @param[in]  enabled : Self-test enabled value
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetAccelZSelfTest(bool enabled)
 {
@@ -552,8 +532,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFullScaleAccelRange()
 * @ingroup    DATAIO
 *
 * @param[in]  range : New full-scale accelerometer range setting
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFullScaleAccelRange(XBYTE range)
@@ -611,8 +589,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDHPFMode()
 * 
 * @param[in]  bandwidth : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDHPFMode(XBYTE bandwidth)
 {
@@ -649,8 +625,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFreefallDetectionThreshold()
 * @ingroup    DATAIO
 * 
 * @param[in]  threshold : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFreefallDetectionThreshold(XBYTE threshold)
@@ -691,8 +665,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFreefallDetectionDuration()
 * 
 * @param[in]  duration : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFreefallDetectionDuration(XBYTE duration)
 {
@@ -731,8 +703,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMotionDetectionThreshold()
 * 
 * @param[in]  threshold : New motion detection acceleration threshold value (LSB = 2mg)
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetMotionDetectionThreshold(XBYTE threshold)
 {
@@ -770,8 +740,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetMotionDetectionDuration()
 * @ingroup    DATAIO
 * 
 * @param[in]  duration : New motion detection duration threshold value (LSB = 1ms)
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetMotionDetectionDuration(XBYTE duration)
@@ -820,8 +788,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetZeroMotionDetectionThreshold()
 * 
 * @param[in]  threshold : New zero motion detection acceleration threshold value (LSB = 2mg)
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZeroMotionDetectionThreshold(XBYTE threshold)
 {
@@ -860,8 +826,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetZeroMotionDetectionDuration()
 * 
 * @param[in]  duration : New zero motion detection duration threshold value (LSB = 1ms)
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZeroMotionDetectionDuration(XBYTE duration)
 {
@@ -894,8 +858,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetTempFIFOEnabled()
 * @ingroup    DATAIO
 * 
 * @param[in]  enabled : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetTempFIFOEnabled(bool enabled)
@@ -930,8 +892,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetXGyroFIFOEnabled()
 * 
 * @param[in]  enabled : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetXGyroFIFOEnabled(bool enabled)
 {
@@ -965,8 +925,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetYGyroFIFOEnabled()
 * 
 * @param[in]  enabled : New gyroscope Y-axis FIFO enabled value
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetYGyroFIFOEnabled(bool enabled)
 {
@@ -999,8 +957,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetZGyroFIFOEnabled()
 * @ingroup    DATAIO
 * 
 * @param[in]  enabled : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZGyroFIFOEnabled(bool enabled)
@@ -4996,8 +4952,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetFIFOByte()
 * @param[in]  data : 
 * @param[in]  length : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::GetFIFOBytes(XBYTE* data, XBYTE length)
 {
@@ -5012,8 +4966,6 @@ void DIOI2C9AXISTRACKINGMPU9150::GetFIFOBytes(XBYTE* data, XBYTE length)
 * @ingroup    DATAIO
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetFIFOByte(XBYTE data)
@@ -5062,8 +5014,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetOTPBankValid()
 * 
 * @param[in]  enabled : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetOTPBankValid(bool enabled)
 {
@@ -5094,8 +5044,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetXGyroOffset()
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetXGyroOffset(XBYTESIG offset)
@@ -5128,8 +5076,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetYGyroOffset()
 * 
 * @param[in]  offset : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetYGyroOffset(XBYTESIG offset)
 {
@@ -5160,8 +5106,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetZGyroOffset()
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZGyroOffset(XBYTESIG offset)
@@ -5194,8 +5138,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetXFineGain()
 * 
 * @param[in]  gain : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetXFineGain(XBYTESIG gain)
 {
@@ -5226,8 +5168,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetYFineGain()
 * @ingroup    DATAIO
 * 
 * @param[in]  gain : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::GetYFineGain(XBYTESIG gain)
@@ -5260,8 +5200,6 @@ XBYTESIG DIOI2C9AXISTRACKINGMPU9150::GetZFineGain()
 * 
 * @param[in]  gain : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZFineGain(XBYTESIG gain)
 {
@@ -5292,8 +5230,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetXAccelOffset()
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetXAccelOffset(XWORDSIG offset)
@@ -5326,8 +5262,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetYAccelOffset()
 * 
 * @param[in]  offset : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetYAccelOffset(XWORDSIG offset)
 {
@@ -5358,8 +5292,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetZAccelOffset()
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZAccelOffset(XWORDSIG offset)
@@ -5392,8 +5324,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetXGyroOffsetUser()
 * 
 * @param[in]  offset : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetXGyroOffsetUser(XWORDSIG offset)
 {
@@ -5424,8 +5354,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetYGyroOffsetUser()
 * @ingroup    DATAIO
 * 
 * @param[in]  offset : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetYGyroOffsetUser(XWORDSIG offset)
@@ -5458,8 +5386,6 @@ XWORDSIG DIOI2C9AXISTRACKINGMPU9150::GetZGyroOffsetUser()
 * 
 * @param[in]  offset : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetZGyroOffsetUser(XWORDSIG offset)
 {
@@ -5491,8 +5417,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntPLLReadyEnabled()
 * 
 * @param[in]  enabled : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetIntPLLReadyEnabled(bool enabled)
 {
@@ -5523,8 +5447,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetIntDMPEnabled()
 * @ingroup    DATAIO
 * 
 * @param[in]  enabled : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetIntDMPEnabled(bool enabled)
@@ -5685,8 +5607,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::GetDMPEnabled()
 * 
 * @param[in]  enabled : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDMPEnabled(bool enabled)
 {
@@ -5699,8 +5619,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetDMPEnabled(bool enabled)
 * @fn         void DIOI2C9AXISTRACKINGMPU9150::ResetDMP()
 * @brief      ResetDMP
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::ResetDMP()
@@ -5718,8 +5636,6 @@ void DIOI2C9AXISTRACKINGMPU9150::ResetDMP()
 * @param[in]  bank : 
 * @param[in]  prefetchEnabled : 
 * @param[in]  userBank : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetMemoryBank(XBYTE bank, bool prefetchEnabled, bool userBank)
@@ -5740,8 +5656,6 @@ void DIOI2C9AXISTRACKINGMPU9150::SetMemoryBank(XBYTE bank, bool prefetchEnabled,
 * @ingroup    DATAIO
 * 
 * @param[in]  address : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetMemoryStartAddress(XBYTE address)
@@ -5774,8 +5688,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::ReadMemoryByte()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::WriteMemoryByte(XBYTE data)
 {
@@ -5807,8 +5719,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDMPConfig1()
 * 
 * @param[in]  config : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDMPConfig1(XBYTE config)
 {
@@ -5839,8 +5749,6 @@ XBYTE DIOI2C9AXISTRACKINGMPU9150::GetDMPConfig2()
 * @ingroup    DATAIO
 * 
 * @param[in]  config : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::SetDMPConfig2(XBYTE config)
@@ -6183,8 +6091,6 @@ bool DIOI2C9AXISTRACKINGMPU9150::WriteWords(XBYTE deviceaddr, XBYTE regaddr, XBY
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C9AXISTRACKINGMPU9150::Clean()

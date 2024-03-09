@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0)
 {
@@ -129,8 +127,6 @@ DIOWINDOWSSTREAMTCPIP::DIOWINDOWSSTREAMTCPIP() : DIOSTREAMTCPIP() , XFSMACHINE(0
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMTCPIP::~DIOWINDOWSSTREAMTCPIP()
@@ -626,8 +622,6 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)

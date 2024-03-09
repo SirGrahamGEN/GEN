@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 {
@@ -87,8 +85,6 @@ DIOSTREAMICMPDATAGRAM::DIOSTREAMICMPDATAGRAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMPDATAGRAM::~DIOSTREAMICMPDATAGRAM()
@@ -121,8 +117,6 @@ bool DIOSTREAMICMPDATAGRAM::IsToSend()
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::SetIsToSend(bool istosend)
@@ -228,8 +222,6 @@ bool DIOSTREAMICMPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 *
 * @param[in]  data :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 {
@@ -243,8 +235,6 @@ void DIOSTREAMICMPDATAGRAM::SetData(XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMPDATAGRAM::Clean()
@@ -267,8 +257,6 @@ void DIOSTREAMICMPDATAGRAM::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 {
@@ -285,8 +273,6 @@ DIOSTREAMICMP::DIOSTREAMICMP() : DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMICMP::~DIOSTREAMICMP()
@@ -763,8 +749,6 @@ bool DIOSTREAMICMP::DeleteDatagram(int index)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMICMP::Clean()

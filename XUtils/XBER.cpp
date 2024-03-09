@@ -65,8 +65,6 @@ XDWORD XBER::totalposition = 0;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XBER::XBER()
 {
@@ -82,8 +80,6 @@ XBER::XBER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XBER::~XBER()
@@ -1523,8 +1519,6 @@ bool XBER::CodeSize(XDWORD integer, XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBER::Clean()

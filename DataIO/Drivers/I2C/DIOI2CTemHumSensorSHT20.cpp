@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 {
@@ -84,8 +82,6 @@ DIOI2CTEMHUMSENSORSHT20::DIOI2CTEMHUMSENSORSHT20(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORSHT20::~DIOI2CTEMHUMSENSORSHT20()
@@ -401,8 +397,6 @@ bool DIOI2CTEMHUMSENSORSHT20::CheckCRC(XWORD datasensor, XBYTE checkvalue)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTEMHUMSENSORSHT20::Clean()

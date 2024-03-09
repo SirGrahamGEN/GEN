@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()    
 { 
@@ -81,8 +79,6 @@ UI_ELEMENT_LISTBOX::UI_ELEMENT_LISTBOX()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_LISTBOX::~UI_ELEMENT_LISTBOX()    
 { 
@@ -131,8 +127,6 @@ bool UI_ELEMENT_LISTBOX::Set_UIMenu(UI_ELEMENT_MENU* element_menu)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_LISTBOX::Clean()
 {

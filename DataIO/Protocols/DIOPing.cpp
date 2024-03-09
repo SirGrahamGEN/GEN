@@ -80,8 +80,6 @@ DIOPING* DIOPING::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPINGREPLY::DIOPINGREPLY()
 {
@@ -95,8 +93,6 @@ DIOPINGREPLY::DIOPINGREPLY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPINGREPLY::~DIOPINGREPLY()
@@ -127,8 +123,6 @@ XDWORD DIOPINGREPLY::GetSequence()
 * @ingroup    DATAIO
 * 
 * @param[in]  sequence : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetSequence(XDWORD sequence)
@@ -175,8 +169,6 @@ XDWORD DIOPINGREPLY::GetSizeRequest()
 * 
 * @param[in]  sizerequest : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetSizeRequest(XDWORD sizerequest)
 {
@@ -206,8 +198,6 @@ XDWORD DIOPINGREPLY::GetTimeElapsed()
 * @ingroup    DATAIO
 * 
 * @param[in]  timeelapsed : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetTimeElapsed(XDWORD timeelapsed)
@@ -239,8 +229,6 @@ XBYTE DIOPINGREPLY::GetTTL()
 * 
 * @param[in]  TTL : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::SetTTL(XBYTE TTL)
 {
@@ -254,8 +242,6 @@ void DIOPINGREPLY::SetTTL(XBYTE TTL)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPINGREPLY::Clean()
@@ -281,8 +267,6 @@ void DIOPINGREPLY::Clean()
 * @fn         DIOPING::DIOPING()
 * @brief      Constructor
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING::DIOPING()
@@ -324,8 +308,6 @@ DIOPING::DIOPING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPING::~DIOPING()
@@ -950,8 +932,6 @@ XWORD DIOPING::CalculeCheckSum(XWORD* addr, int len)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPING::Clean()

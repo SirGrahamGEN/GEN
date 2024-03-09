@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_RAND::SCRIPT_LIB_RAND() : SCRIPT_LIB(SCRIPT_LIB_NAME_RANDOM)
 {
@@ -84,8 +82,6 @@ SCRIPT_LIB_RAND::SCRIPT_LIB_RAND() : SCRIPT_LIB(SCRIPT_LIB_NAME_RANDOM)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_RAND::~SCRIPT_LIB_RAND()
@@ -142,8 +138,6 @@ bool SCRIPT_LIB_RAND::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_RAND::Clean()
 {
@@ -168,8 +162,6 @@ void SCRIPT_LIB_RAND::Clean()
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_RandMax(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -213,8 +205,6 @@ void Call_RandMax(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* para
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_RandBetween(SCRIPT_LIB* library, SCRIPT* script , XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

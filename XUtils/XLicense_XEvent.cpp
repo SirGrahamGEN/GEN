@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLICENSEXEVENT::~XLICENSEXEVENT()
@@ -112,8 +108,6 @@ XLICENSE* XLICENSEXEVENT::Get()
 *
 * @param[in]  xlicense :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 {
@@ -127,8 +121,6 @@ void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLICENSEXEVENT::Clean()

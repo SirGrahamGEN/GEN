@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32 
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32RAND::XESP32RAND()
 {
@@ -80,8 +78,6 @@ XESP32RAND::XESP32RAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32RAND::~XESP32RAND()
@@ -164,8 +160,6 @@ int XESP32RAND::Between(int min,int max)
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XESP32RAND::Clean()
 {

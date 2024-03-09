@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTIES::GRPPROPERTIES()
 {
@@ -77,8 +75,6 @@ GRPPROPERTIES::GRPPROPERTIES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPPROPERTIES::~GRPPROPERTIES()
@@ -109,8 +105,6 @@ GRPPROPERTYMODE GRPPROPERTIES::GetMode()
 * @ingroup    GRAPHIC
 *
 * @param[in]  mode : new mode of property
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
@@ -158,8 +152,6 @@ XDWORD GRPPROPERTIES::GetPositionY()
 * @param[in]  x : new x position
 * @param[in]  y : new y position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
 {
@@ -191,8 +183,6 @@ XDWORD GRPPROPERTIES::GetWidth()
 *
 * @param[in]  width : new width
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetWidth(XDWORD width)
 {
@@ -223,8 +213,6 @@ XDWORD GRPPROPERTIES::GetHeight()
 *
 * @param[in]  height : new height
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetHeight(XDWORD height)
 {
@@ -240,8 +228,6 @@ void GRPPROPERTIES::SetHeight(XDWORD height)
 *
 * @param[in]  width :
 * @param[in]  height :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetSize(XDWORD width, XDWORD height)
@@ -274,8 +260,6 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 *
 * @param[in]  maxwidth : new max width
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
 {
@@ -306,8 +290,6 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 *
 * @param[in]  height : new max height
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 {
@@ -323,8 +305,6 @@ void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)
 *
 * @param[in]  maxwidth :
 * @param[in]  maxheight :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
@@ -357,8 +337,6 @@ float GRPPROPERTIES::GetDPI()
 *
 * @param[in]  DPI :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetDPI(float DPI)
 {
@@ -388,8 +366,6 @@ XDWORD GRPPROPERTIES::GetStride()
 * @ingroup    GRAPHIC
 *
 * @param[in]  stride : new stride
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetStride(XDWORD stride)
@@ -421,8 +397,6 @@ bool GRPPROPERTIES::IsBufferInverse()
 *
 * @param[in]  isbufferinverse : true is buffer inverse
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 {
@@ -452,8 +426,6 @@ bool GRPPROPERTIES::HasTitle()
 * @ingroup    GRAPHIC
 *
 * @param[in]  hastitle :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetHasTitle(bool hastitle)
@@ -521,8 +493,6 @@ XBYTE GRPPROPERTIES::GetBytesperPixel()
 *
 * @param[in]  properties : new properties to assing
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 {
@@ -547,8 +517,6 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
 * @ingroup    GRAPHIC
 *
 * @param[out] properties : Actual properties
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
@@ -600,8 +568,6 @@ int GRPPROPERTIES::IsEqualSizeTo(GRPPROPERTIES* properties)
 * @brief      Default
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::Default()
 {
@@ -625,8 +591,6 @@ void GRPPROPERTIES::Default()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::Clean()

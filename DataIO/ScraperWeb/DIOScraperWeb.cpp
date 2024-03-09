@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEB::DIOSCRAPERWEB()
 {
@@ -106,8 +104,6 @@ DIOSCRAPERWEB::DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEB::~DIOSCRAPERWEB()
@@ -822,8 +818,6 @@ bool DIOSCRAPERWEB::ExtractString(XSTRING& searchini, XSTRING& searchend, XBUFFE
 *
 * @param[in]  xevent :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 {
@@ -837,8 +831,6 @@ void DIOSCRAPERWEB::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEB::Clean()

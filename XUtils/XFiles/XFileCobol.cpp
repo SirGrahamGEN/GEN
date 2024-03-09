@@ -75,8 +75,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC::XFILECOBOL_PIC()
 {
@@ -90,8 +88,6 @@ XFILECOBOL_PIC::XFILECOBOL_PIC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_PIC::~XFILECOBOL_PIC()
@@ -366,8 +362,6 @@ int XFILECOBOL_PIC::GetComputationalType()
 *
 * @param[in]  computationaltype :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 {
@@ -381,8 +375,6 @@ void XFILECOBOL_PIC::SetComputationalType(int computationaltype)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_PIC::Clean()
@@ -408,8 +400,6 @@ void XFILECOBOL_PIC::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 {
@@ -423,8 +413,6 @@ XFILECOBOL_FIELD::XFILECOBOL_FIELD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_FIELD::~XFILECOBOL_FIELD()
@@ -456,8 +444,6 @@ XFILECOBOL_FIELD_TYPE XFILECOBOL_FIELD::GetType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetType(XFILECOBOL_FIELD_TYPE type)
 {
@@ -487,8 +473,6 @@ int XFILECOBOL_FIELD::GetLevel()
 * @ingroup    XUTILS
 *
 * @param[in]  level :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetLevel(int level)
@@ -550,8 +534,6 @@ int XFILECOBOL_FIELD::GetNOccurs()
 *
 * @param[in]  noccurs :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetNOccurs(int noccurs)
 {
@@ -581,8 +563,6 @@ bool XFILECOBOL_FIELD::IsRedefine()
 * @ingroup    XUTILS
 *
 * @param[in]  isredefine :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetIsRedefine(bool isredefine)
@@ -629,8 +609,6 @@ int XFILECOBOL_FIELD::GetRedefineOffset()
 *
 * @param[in]  redefineoffset :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 {
@@ -644,8 +622,6 @@ void XFILECOBOL_FIELD::SetRedefineOffset(int redefineoffset)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_FIELD::Clean()
@@ -675,8 +651,6 @@ void XFILECOBOL_FIELD::Clean()
 *
 * @param[in]  XVECTOR<XFILECOBOL_FIELD*>* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 {
@@ -695,8 +669,6 @@ XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD::~XFILECOBOL_RECORD()
@@ -1246,8 +1218,6 @@ bool XFILECOBOL_RECORD::ConvertDataTo(XFILECOBOL_PIC* picture, XBUFFER& bufferda
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_RECORD::Clean()
 {
@@ -1266,8 +1236,6 @@ void XFILECOBOL_RECORD::Clean()
 * @fn         XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
@@ -1411,8 +1379,6 @@ XFILECOBOL_RECORD_TYPE  XFILECOBOL_HANDLE::GetTypeRecord()
 * @ingroup    XUTILS
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_HANDLE::SetTypeRecord(XFILECOBOL_RECORD_TYPE type)
@@ -1702,8 +1668,6 @@ XFILECOBOL_FIELD* XFILECOBOL_HANDLE::IsFieldRedefinedByAnother(XCHAR* name)
 *
 * @param[in]  ) :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL_HANDLE::Clean()
 {
@@ -1723,8 +1687,6 @@ void XFILECOBOL_HANDLE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL::XFILECOBOL()
 {
@@ -1740,8 +1702,6 @@ XFILECOBOL::XFILECOBOL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL::~XFILECOBOL()
@@ -1954,8 +1914,6 @@ XFILECOBOL_FILE_TYPE XFILECOBOL::GetType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::SetType(XFILECOBOL_FILE_TYPE type)
 {
@@ -1985,8 +1943,6 @@ bool XFILECOBOL::HaveFileHeaders()
 * @ingroup    XUTILS
 *
 * @param[in]  havefileheaders :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::SetHaveFileHeaders(bool havefileheaders)
@@ -3169,8 +3125,6 @@ bool XFILECOBOL::AjustNodeWithOccurs(XFILECOBOL_FD_TREENODE* node)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECOBOL::Clean()

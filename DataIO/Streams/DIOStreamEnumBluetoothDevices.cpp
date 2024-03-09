@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
 {
@@ -77,8 +75,6 @@ DIOSTREAMENUMBLUETOOTHDEVICES::DIOSTREAMENUMBLUETOOTHDEVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMBLUETOOTHDEVICES::~DIOSTREAMENUMBLUETOOTHDEVICES()
@@ -238,8 +234,6 @@ DIOSTREAMDEVICEBLUETOOTH* DIOSTREAMENUMBLUETOOTHDEVICES::GetDeviceByMAC(DIOMAC* 
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMBLUETOOTHDEVICES::Clean()

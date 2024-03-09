@@ -56,8 +56,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32DIR::XSTM32DIR(): XDIR()
 {
@@ -82,8 +80,6 @@ XSTM32DIR::XSTM32DIR(): XDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32DIR::~XSTM32DIR()
@@ -501,8 +497,6 @@ bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinf
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32DIR::Clean()

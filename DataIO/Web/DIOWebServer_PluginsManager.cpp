@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 {
@@ -78,8 +76,6 @@ DIOWEBSERVER_PLUGINSMANAGER::DIOWEBSERVER_PLUGINSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGINSMANAGER::~DIOWEBSERVER_PLUGINSMANAGER()
@@ -182,8 +178,6 @@ bool DIOWEBSERVER_PLUGINSMANAGER::Plugins_DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGINSMANAGER::Clean()

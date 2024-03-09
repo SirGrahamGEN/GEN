@@ -71,8 +71,6 @@
 * 
 * @param[in]  DIOSPILCDDISPLAYPCF8833_TYPE : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type) : DIODEVICESPI()
 {
@@ -88,8 +86,6 @@ DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE ty
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::~DIOSPILCDDISPLAYPCF8833()
@@ -658,8 +654,6 @@ bool DIOSPILCDDISPLAYPCF8833::Buffer_Delete(XBUFFER& databuffer)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPILCDDISPLAYPCF8833::Clean()

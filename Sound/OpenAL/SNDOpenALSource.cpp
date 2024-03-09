@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALSOURCE::SNDOPENALSOURCE()
 {
@@ -90,8 +88,6 @@ SNDOPENALSOURCE::SNDOPENALSOURCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALSOURCE::~SNDOPENALSOURCE()
@@ -125,8 +121,6 @@ SNDOPENALBUFFER* SNDOPENALSOURCE::GetBuffer()
 * @brief      Stop
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Stop()
 {
@@ -141,8 +135,6 @@ void SNDOPENALSOURCE::Stop()
 * @brief      Pause
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Pause()
 {
@@ -156,8 +148,6 @@ void SNDOPENALSOURCE::Pause()
 * @fn         void SNDOPENALSOURCE::UnPause()
 * @brief      UnPause
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::UnPause()
@@ -239,8 +229,6 @@ bool SNDOPENALSOURCE::IsPaused()
 * 
 * @param[in]  inloop : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetInLoop(bool inloop)
 {
@@ -281,8 +269,6 @@ int SNDOPENALSOURCE::GetVolume()
 * 
 * @param[in]  volume : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALSOURCE::SetVolume(int volume)
 {  
@@ -322,8 +308,6 @@ float SNDOPENALSOURCE::GetPitch()
 * 
 * @param[in]  pitch : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetPitch(float pitch)
 {
@@ -336,8 +320,6 @@ void SNDOPENALSOURCE::SetPitch(float pitch)
 * @fn         void SNDOPENALSOURCE::Play()
 * @brief      Play
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Play()
@@ -358,8 +340,6 @@ void SNDOPENALSOURCE::Play()
 * @brief      ResetPlay
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::ResetPlay()
 {
@@ -374,8 +354,6 @@ void SNDOPENALSOURCE::ResetPlay()
 * @ingroup    SOUND
 * 
 * @param[in]  seconds : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
@@ -399,8 +377,6 @@ void SNDOPENALSOURCE::SetSecondsOffset(float seconds)
 * @ingroup    SOUND
 * 
 * @param[in]  samples : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetSamplesOffset(int samples)
@@ -426,8 +402,6 @@ void SNDOPENALSOURCE::SetSamplesOffset(int samples)
 * @ingroup    SOUND
 * 
 * @param[in]  aquired : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::SetAquired(bool aquired)
@@ -457,8 +431,6 @@ bool SNDOPENALSOURCE::IsAquired()
 * @brief      Aquire
 * @ingroup    SOUND
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Aquire()
 { 
@@ -471,8 +443,6 @@ void SNDOPENALSOURCE::Aquire()
 * @fn         void SNDOPENALSOURCE::Release()
 * @brief      Release
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Release()
@@ -488,8 +458,6 @@ void SNDOPENALSOURCE::Release()
 * @ingroup    SOUND
 * 
 * @param[in]  buffer : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Queue()
@@ -508,8 +476,6 @@ void SNDOPENALSOURCE::Queue()
 * @ingroup    SOUND
 * 
 * @param[in]  buffer : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::UnQueue()
@@ -561,8 +527,6 @@ int SNDOPENALSOURCE::GetProcessedBuffers()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Clean()

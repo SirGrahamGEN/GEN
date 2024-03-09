@@ -192,8 +192,6 @@ bool                  Signal_RunLevel           (XCHAR& previous, XCHAR& actual)
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCLINUX::MAINPROCLINUX()
 {
@@ -207,8 +205,6 @@ MAINPROCLINUX::MAINPROCLINUX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCLINUX::~MAINPROCLINUX()
@@ -626,8 +622,6 @@ bool MAINPROCLINUX::Factorys_End()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCLINUX::Clean()
 {
@@ -750,8 +744,6 @@ __attribute__((constructor))
 *
 * @param[in]  void :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_Ini(void)
 {
@@ -788,8 +780,6 @@ __attribute__((destructor))
 *
 * @param[in]  void :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 static void LIBRARY_End(void)
 {
@@ -816,8 +806,6 @@ static void LIBRARY_End(void)
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  void :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Signal_Ini(void)

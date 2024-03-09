@@ -74,8 +74,6 @@
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_CONNECTION::SQLITE_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECTION(database)
 {
@@ -89,8 +87,6 @@ SQLITE_CONNECTION::SQLITE_CONNECTION(DB_SQL_DATABASE* database) : DB_SQL_CONNECT
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_CONNECTION::~SQLITE_CONNECTION()
@@ -196,8 +192,6 @@ bool SQLITE_CONNECTION::Disconnect()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_CONNECTION::Clean()

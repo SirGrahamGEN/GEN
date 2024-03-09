@@ -48,8 +48,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32DATETIME::XSTM32DATETIME()
 {
@@ -64,8 +62,6 @@ XSTM32DATETIME::XSTM32DATETIME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32DATETIME::~XSTM32DATETIME()

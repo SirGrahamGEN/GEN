@@ -69,8 +69,6 @@ const XBYTE CIPHERCURVE25519::basepoint[CIPHERCURVE25519_MAXKEY] = { 9 };
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERCURVE25519::CIPHERCURVE25519()
 {
@@ -84,8 +82,6 @@ CIPHERCURVE25519::CIPHERCURVE25519()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERCURVE25519::~CIPHERCURVE25519()
@@ -203,8 +199,6 @@ bool CIPHERCURVE25519::IsKeyCreated(CIPHERCURVE25519_TYPEKEY typekey)
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::CleanAllKeys()
 {
@@ -229,8 +223,6 @@ void CIPHERCURVE25519::CleanAllKeys()
 * @param[in]  output : 
 * @param[in]  in : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fsum(XQWORDSIG* output, const XQWORDSIG* in) 
 {
@@ -252,8 +244,6 @@ void CIPHERCURVE25519::fsum(XQWORDSIG* output, const XQWORDSIG* in)
 * 
 * @param[in]  output : 
 * @param[in]  in : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fdifference(XQWORDSIG* output, const XQWORDSIG* in) 
@@ -277,8 +267,6 @@ void CIPHERCURVE25519::fdifference(XQWORDSIG* output, const XQWORDSIG* in)
 * @param[in]  in : 
 * @param[in]  scalar : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fscalar_product(XQWORDSIG* output, const XQWORDSIG* in, const XQWORDSIG scalar) 
 {
@@ -301,8 +289,6 @@ void CIPHERCURVE25519::fscalar_product(XQWORDSIG* output, const XQWORDSIG* in, c
 * @param[in]  output : 
 * @param[in]  in2 : 
 * @param[in]  in : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fproduct(XQWORDSIG* output, const XQWORDSIG* in2, const XQWORDSIG* in) 
@@ -418,8 +404,6 @@ void CIPHERCURVE25519::fproduct(XQWORDSIG* output, const XQWORDSIG* in2, const X
 * 
 * @param[in]  output : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::freduce_degree(XQWORDSIG* output) 
 {
@@ -524,8 +508,6 @@ XDWORDSIG CIPHERCURVE25519::div_s32_by_2_25(const XDWORDSIG v)
 * 
 * @param[in]  output : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::freduce_coefficients(XQWORDSIG* output) 
 {
@@ -583,8 +565,6 @@ void CIPHERCURVE25519::freduce_coefficients(XQWORDSIG* output)
 * @param[in]  in : 
 * @param[in]  in2 : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fmul(XQWORDSIG* output, const XQWORDSIG* in, const XQWORDSIG* in2) 
 {
@@ -606,8 +586,6 @@ void CIPHERCURVE25519::fmul(XQWORDSIG* output, const XQWORDSIG* in, const XQWORD
 * 
 * @param[in]  output : 
 * @param[in]  in : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fsquare_inner(XQWORDSIG* output, const XQWORDSIG* in) 
@@ -679,8 +657,6 @@ void CIPHERCURVE25519::fsquare_inner(XQWORDSIG* output, const XQWORDSIG* in)
 * @param[in]  output : 
 * @param[in]  in : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fsquare(XQWORDSIG* output, const XQWORDSIG* in) 
 {
@@ -702,8 +678,6 @@ void CIPHERCURVE25519::fsquare(XQWORDSIG* output, const XQWORDSIG* in)
 * 
 * @param[in]  output : 
 * @param[in]  input : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fexpand(XQWORDSIG* output, const XBYTE* input) 
@@ -729,8 +703,6 @@ void CIPHERCURVE25519::fexpand(XQWORDSIG* output, const XBYTE* input)
 * 
 * @param[in]  output : 
 * @param[in]  input : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fcontract(XBYTE* output, XQWORDSIG* input) 
@@ -827,8 +799,6 @@ void CIPHERCURVE25519::fcontract(XBYTE* output, XQWORDSIG* input)
 * @param[in]  zprime : input Q'
 * @param[in]  qmqp : qmqp: short form, preserved input Q - Q' 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::fmonty(XQWORDSIG* x2, XQWORDSIG* z2, XQWORDSIG* x3, XQWORDSIG* z3, XQWORDSIG* x, XQWORDSIG* z, XQWORDSIG* xprime, XQWORDSIG* zprime, const XQWORDSIG* qmqp) 
 {
@@ -901,8 +871,6 @@ void CIPHERCURVE25519::fmonty(XQWORDSIG* x2, XQWORDSIG* z2, XQWORDSIG* x3, XQWOR
 * @param[in]  b[19] : 
 * @param[in]  iswap : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::swap_conditional(XQWORDSIG a[19], XQWORDSIG b[19], XQWORDSIG iswap) 
 {
@@ -932,8 +900,6 @@ void CIPHERCURVE25519::swap_conditional(XQWORDSIG a[19], XQWORDSIG b[19], XQWORD
 * @param[in]  resultz : 
 * @param[in]  n : 
 * @param[in]  q : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::cmult(XQWORDSIG* resultx, XQWORDSIG* resultz, const XBYTE* n, const XQWORDSIG* q) 
@@ -1003,8 +969,6 @@ void CIPHERCURVE25519::cmult(XQWORDSIG* resultx, XQWORDSIG* resultz, const XBYTE
 * 
 * @param[in]  out : 
 * @param[in]  z : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::crecip(XQWORDSIG* out, const XQWORDSIG* z) 
@@ -1102,8 +1066,6 @@ void CIPHERCURVE25519::crecip(XQWORDSIG* out, const XQWORDSIG* z)
 * @param[in]  secret : 
 * @param[in]  basepoint : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::curve25519(XBYTE* mypublic, const XBYTE* secret, const XBYTE* basepoint) 
 {
@@ -1143,8 +1105,6 @@ void CIPHERCURVE25519::curve25519(XBYTE* mypublic, const XBYTE* secret, const XB
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERCURVE25519::Clean()

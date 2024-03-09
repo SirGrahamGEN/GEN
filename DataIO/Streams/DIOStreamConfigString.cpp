@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 {
@@ -75,8 +73,6 @@ DIOSTREAMCONFIGSTRING::DIOSTREAMCONFIGSTRING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIGSTRING::~DIOSTREAMCONFIGSTRING()
@@ -244,8 +240,6 @@ bool DIOSTREAMCONFIGSTRING::SetFromString(XSTRING& string, bool addslash)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIGSTRING::Clean()

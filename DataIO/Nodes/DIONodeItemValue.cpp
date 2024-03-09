@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMVALUE::DIONODEITEMVALUE()
 {
@@ -79,8 +77,6 @@ DIONODEITEMVALUE::DIONODEITEMVALUE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMVALUE::~DIONODEITEMVALUE()
@@ -117,8 +113,6 @@ XDWORD DIONODEITEMVALUE::GetType()
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::SetType(XDWORD type)
@@ -194,8 +188,6 @@ DIONODEITEMVALUE_MODE DIONODEITEMVALUE::GetMode()
 * 
 * @param[in]  mode : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::SetMode(DIONODEITEMVALUE_MODE mode)
 {
@@ -210,8 +202,6 @@ void DIONODEITEMVALUE::SetMode(DIONODEITEMVALUE_MODE mode)
 * @ingroup    DATAIO
 * 
 * @param[in]  modestring : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::GetModeString(XSTRING& modestring)
@@ -334,8 +324,6 @@ bool DIONODEITEMVALUE::ValueHasChanged()
 * 
 * @param[in]  haschanged : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::SetValueHasChanged(bool haschanged)
 {
@@ -454,8 +442,6 @@ bool DIONODEITEMVALUE::Deserialize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUE::Clean()

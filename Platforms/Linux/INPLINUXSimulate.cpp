@@ -61,8 +61,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXSIMULATE::INPLINUXSIMULATE()
 {
@@ -77,8 +75,6 @@ INPLINUXSIMULATE::INPLINUXSIMULATE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXSIMULATE::~INPLINUXSIMULATE()
 {
@@ -92,8 +88,6 @@ INPLINUXSIMULATE::~INPLINUXSIMULATE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXSIMULATE::Clean()

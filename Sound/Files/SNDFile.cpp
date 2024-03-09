@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILE::SNDFILE()
 {
@@ -81,8 +79,6 @@ SNDFILE::SNDFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILE::~SNDFILE()
@@ -309,8 +305,6 @@ bool SNDFILE::LoadFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFILE::Clean()

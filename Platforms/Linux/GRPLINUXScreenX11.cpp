@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 {
@@ -108,8 +106,6 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
@@ -395,8 +391,6 @@ bool  GRPLINUXSCREENX11::IsDesktop()
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  isdesktop : set is run in desktop
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPLINUXSCREENX11::SetIsDesktop(bool isdesktop)
@@ -714,8 +708,6 @@ int GRPLINUXSCREENX11::GetByteOrder()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPLINUXSCREENX11::Clean()

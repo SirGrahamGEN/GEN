@@ -68,8 +68,6 @@
 * @param[in]  int :
 * @param[in]   int ntransitions :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 {
@@ -105,8 +103,6 @@ XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINESTATE::~XFSMACHINESTATE()
@@ -243,8 +239,6 @@ bool XFSMACHINESTATE::DeleteTransition(int outputID)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSMACHINESTATE::Clean()
 {
@@ -270,8 +264,6 @@ void XFSMACHINESTATE::Clean()
 *
 * @param[in]  int :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINE::XFSMACHINE(int stateID)
 {
@@ -287,8 +279,6 @@ XFSMACHINE::XFSMACHINE(int stateID)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINE::~XFSMACHINE()
@@ -355,8 +345,6 @@ int XFSMACHINE::GetCurrentState()
 * @ingroup    XUTILS
 *
 * @param[in]  stateID :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSMACHINE::SetCurrentState(int stateID)
@@ -637,8 +625,6 @@ bool XFSMACHINE::CheckTransition()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSMACHINE::Clean()

@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPBUTTON::INPBUTTON()
 {
@@ -83,8 +81,6 @@ INPBUTTON::INPBUTTON()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPBUTTON::~INPBUTTON()
@@ -118,8 +114,6 @@ INPBUTTON_ID INPBUTTON::GetID()
 *
 * @param[in]  ID : new ID to Set
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetID(INPBUTTON_ID ID)
 {
@@ -149,8 +143,6 @@ XWORD INPBUTTON::GetKeyCode()
 * @ingroup    INPUT
 *
 * @param[in]  keycode : new Key Code of button
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetKeyCode(XWORD keycode)
@@ -182,8 +174,6 @@ XCHAR INPBUTTON::GetSymbol()
 *
 * @param[in]  symbol : new Symbol of key
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetSymbol(XCHAR symbol)
 {
@@ -214,8 +204,6 @@ INPBUTTON_STATE INPBUTTON::GetState()
 *
 * @param[in]  state : new state
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetState(INPBUTTON_STATE state)
 {
@@ -245,8 +233,6 @@ float INPBUTTON::GetPressure()
 * @ingroup    INPUT
 *
 * @param[in]  pressure : new pressure
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetPressure(float pressure)
@@ -305,8 +291,6 @@ bool INPBUTTON::IsPressedWithRelease()
 * @ingroup    INPUT
 *
 * @param[in]  ispressed :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::SetPressed(bool ispressed)
@@ -379,8 +363,6 @@ bool INPBUTTON::CreateButton(XVECTOR<INPBUTTON*>* buttons, int keycode, INPBUTTO
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPBUTTON::Clean()

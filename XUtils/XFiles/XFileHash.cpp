@@ -64,8 +64,6 @@
 *
 * @param[in]  hash :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHASH::XFILEHASH(HASH* hash): XFILECONTAINER()
 {
@@ -83,8 +81,6 @@ XFILEHASH::XFILEHASH(HASH* hash): XFILECONTAINER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHASH::~XFILEHASH()
@@ -508,8 +504,6 @@ bool XFILEHASH::UpdateHash()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHASH::Clean()

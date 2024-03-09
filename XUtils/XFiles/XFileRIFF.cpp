@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF_LIST::XFILERIFF_LIST()
 {
@@ -83,8 +81,6 @@ XFILERIFF_LIST::XFILERIFF_LIST()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF_LIST::~XFILERIFF_LIST()
 {
@@ -114,8 +110,6 @@ XDWORD XFILERIFF_LIST::GetType()
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF_LIST::SetType(XDWORD type)
@@ -175,8 +169,6 @@ XDWORD XFILERIFF_LIST::GetSize()
 *
 * @param[in]  size : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF_LIST::SetSize(XDWORD size)
 {
@@ -208,8 +200,6 @@ XDWORD XFILERIFF_LIST::GetTypeList()
 * @ingroup    XUTILS
 *
 * @param[in]  typelist : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF_LIST::SetTypeList(XDWORD typelist)
@@ -251,8 +241,6 @@ XQWORD XFILERIFF_LIST::GetPositionFileData()
 *
 * @param[in]  positionfiledata : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
 {
@@ -267,8 +255,6 @@ void XFILERIFF_LIST::SetPositionFileData(XQWORD positionfiledata)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF_LIST::Clean()
 { 
@@ -298,8 +284,6 @@ void XFILERIFF_LIST::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF::XFILERIFF() 
 { 
@@ -316,8 +300,6 @@ XFILERIFF::XFILERIFF()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF::~XFILERIFF()    
 { 
@@ -1279,8 +1261,6 @@ XFILERIFF_LIST_NODE* XFILERIFF::GetListNode(bool search_chunk, XFILERIFF_LIST_NO
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILERIFF::Clean()
 {

@@ -186,8 +186,6 @@ bool APPLOG::End()
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPLOG::APPLOG()
 {
@@ -201,8 +199,6 @@ APPLOG::APPLOG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPLOG::~APPLOG()
@@ -219,8 +215,6 @@ APPLOG::~APPLOG()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPLOG::Clean()

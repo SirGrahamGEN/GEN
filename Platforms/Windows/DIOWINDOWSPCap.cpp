@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
 {
@@ -84,8 +82,6 @@ DIOWINDOWSPCAP::DIOWINDOWSPCAP() : DIOPCAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSPCAP::~DIOWINDOWSPCAP()
@@ -174,8 +170,6 @@ bool DIOWINDOWSPCAP::Capture_End()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::Clean()
 {
@@ -249,8 +243,6 @@ bool DIOWINDOWSPCAP::CreateListNetInterfaces()
 *
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::ThreadCapture(void* data)
 {
@@ -277,8 +269,6 @@ void DIOWINDOWSPCAP::ThreadCapture(void* data)
 * @param[in]  param : 
 * @param[in]  struct pcap_pkthdr* header : 
 * @param[in]  u_char* data : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)

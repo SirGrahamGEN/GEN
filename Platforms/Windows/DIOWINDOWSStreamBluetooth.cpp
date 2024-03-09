@@ -81,8 +81,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , XFSMACHINE(0)
 {
@@ -132,8 +130,6 @@ DIOWINDOWSSTREAMBLUETOOTH::DIOWINDOWSSTREAMBLUETOOTH() : DIOSTREAMBLUETOOTH() , 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTH::~DIOWINDOWSSTREAMBLUETOOTH()
@@ -359,8 +355,6 @@ bool DIOWINDOWSSTREAMBLUETOOTH::SDP_RegisterService(bool reg, char* service_name
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTH::Clean()
 {
@@ -380,8 +374,6 @@ void DIOWINDOWSSTREAMBLUETOOTH::Clean()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  param : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTH::ThreadConnection(void* param)

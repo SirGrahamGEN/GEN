@@ -62,8 +62,6 @@ XFACTORY* XFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFACTORY::XFACTORY()
 {
@@ -77,8 +75,6 @@ XFACTORY::XFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFACTORY::~XFACTORY()
@@ -452,8 +448,6 @@ bool XFACTORY::DeleteThread(XTHREADGROUPID groupID, XTHREAD* xthread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFACTORY::Clean()

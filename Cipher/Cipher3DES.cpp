@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHER3DES::CIPHER3DES() 
 {
@@ -83,8 +81,6 @@ CIPHER3DES::CIPHER3DES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHER3DES::~CIPHER3DES()
@@ -196,8 +192,6 @@ bool CIPHER3DES::Uncipher(XBYTE* input, XDWORD size)
 * @param[in]  dsk[96] : 
 * @param[in]  key[CIPHERDES_KEYSIZE*2] : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER3DES::DES3Set2Key(XDWORD esk[96], XDWORD dsk[96], XBYTE key[CIPHERDES_KEYSIZE*2])
 {
@@ -279,8 +273,6 @@ int CIPHER3DES::DES3Set2KeyUncipher(CIPHER3DES_CONTEXT *ctx, XBYTE key[CIPHERDES
 * @param[in]  esk[96] : 
 * @param[in]  dsk[96] : 
 * @param[in]  key[24] : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER3DES::DES3Set3Key(XDWORD esk[96], XDWORD dsk[96], XBYTE key[24])
@@ -531,8 +523,6 @@ bool CIPHER3DES::DES3Cipher_CBC(CIPHER3DES_CONTEXT* ctx, int mode, size_t length
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER3DES::Clean()

@@ -69,8 +69,6 @@
 * @param[in]  XDWORD : 
 * @param[in]   XDWORD height : 
 * 
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 {
@@ -89,8 +87,6 @@ DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYST7789::~DIOSPITFTDISPLAYST7789()
@@ -434,8 +430,6 @@ bool DIOSPITFTDISPLAYST7789::TFT_SetWindow(int xs, int ys, int xe, int ye)
 *
 * @param[in]  mode : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITFTDISPLAYST7789::TFT_SetRotation(XBYTE mode) 
 {
@@ -605,8 +599,6 @@ bool DIOSPITFTDISPLAYST7789::SendCommandParams(XBYTE command, int ndata, ...)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITFTDISPLAYST7789::Clean()

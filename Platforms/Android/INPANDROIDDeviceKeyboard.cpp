@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD(): INPDEVICE()
 {
@@ -81,8 +79,6 @@ INPANDROIDDEVICEKEYBOARD::INPANDROIDDEVICEKEYBOARD(): INPDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEKEYBOARD::~INPANDROIDDEVICEKEYBOARD()
@@ -136,8 +132,6 @@ bool INPANDROIDDEVICEKEYBOARD::SetScreen(void* screenpointer)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPANDROIDDEVICEKEYBOARD::Clean()

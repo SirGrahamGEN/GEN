@@ -73,8 +73,6 @@ XMAP<HWND, GRPWINDOWSSCREEN*>  GRPWINDOWSSCREEN::listscreens;
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 {
@@ -107,8 +105,6 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
@@ -442,8 +438,6 @@ void* GRPWINDOWSSCREEN::GetHandle()
 * 
 * @param[in]  handle_window : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSSCREEN::SetHandle(void* handle_window)
 {
@@ -626,8 +620,6 @@ void* GRPWINDOWSSCREEN::GetHDC()
 *
 * @param[in]  hdc :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSSCREEN::SetHDC(HDC hdc)
 {
@@ -673,8 +665,6 @@ bool GRPWINDOWSSCREEN::IsBlockClose()
 *
 * @param[in]  activated : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 {
@@ -703,8 +693,6 @@ XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSSCREEN::Clean()

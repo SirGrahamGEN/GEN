@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDSYSTEM::XANDROIDSYSTEM(): XLINUXSYSTEM()
 {
@@ -75,8 +73,6 @@ XANDROIDSYSTEM::XANDROIDSYSTEM(): XLINUXSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDSYSTEM::~XANDROIDSYSTEM()

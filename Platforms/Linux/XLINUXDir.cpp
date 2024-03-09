@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXDIR::XLINUXDIR(): XDIR()
 {
@@ -92,8 +90,6 @@ XLINUXDIR::XLINUXDIR(): XDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXDIR::~XLINUXDIR()
@@ -547,8 +543,6 @@ XDIRELEMENTTYPE XLINUXDIR::TypeOfEntry(XCHAR* path, XDIRELEMENT* searchelement)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXDIR::Clean()

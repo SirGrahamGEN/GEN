@@ -64,8 +64,6 @@
 * 
 * @param[in]  android_app* : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* application)
 {
@@ -86,8 +84,6 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* ap
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
 {
@@ -103,8 +99,6 @@ ANDROIDNATIVEACTIVITY_EVENTLOOP::~ANDROIDNATIVEACTIVITY_EVENTLOOP()
 * 
 * @param[in]  activityhandler : 
 * @param[in]  inputhandler : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activityhandler, ANDROIDNATIVEINPUT_HANDLER* inputhandler)
@@ -148,8 +142,6 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Run(ANDROIDNATIVEACTIVITY_HANDLER* activit
 * @brief      Activate
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
 {
@@ -176,8 +168,6 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::Activate()
 * @fn         void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
 * @brief      Deactivate
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Deactivate()
@@ -232,8 +222,6 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessInputEvent(AInputEvent* event, a
 * 
 * @param[in]  command : 
 * @param[in]  application : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, android_app* application)
@@ -295,8 +283,6 @@ void ANDROIDNATIVEACTIVITY_EVENTLOOP::ProcessApplicationEvent(int32_t command, a
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::Clean()
 {
@@ -337,8 +323,6 @@ int32_t ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackInput(android_app* application,
 * 
 * @param[in]  application : 
 * @param[in]  command : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void ANDROIDNATIVEACTIVITY_EVENTLOOP::CallbackEvent(android_app* application, int32_t command)

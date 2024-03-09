@@ -69,8 +69,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_RESULT::~MYSQL_RESULT()
 {
@@ -357,8 +355,6 @@ bool MYSQL_RESULT::HasNext()
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MYSQL_RESULT::MYSQL_RESULT() : DB_SQL_RESULT()
 {
@@ -372,8 +368,6 @@ MYSQL_RESULT::MYSQL_RESULT() : DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MYSQL_RESULT::Clean()

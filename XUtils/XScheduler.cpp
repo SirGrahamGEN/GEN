@@ -74,8 +74,6 @@
 *
 * @param[in]  XSCHEDULER* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 {
@@ -88,14 +86,12 @@ XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSCHEDULERTASK::~XSCHEDULERTASK()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULERTASK::~XSCHEDULERTASK()
 {
@@ -166,8 +162,6 @@ XDWORD XSCHEDULERTASK::GetID()
 * @ingroup    XUTILS
 *
 * @param[in]  ID :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULERTASK::SetID(XDWORD ID)
@@ -360,8 +354,6 @@ bool XSCHEDULERTASK::IsStartImmediatelyCycles()
 *
 * @param[in]  isstartimmediatelycycles :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULERTASK::SetIsStartImmediatelyCycles(bool isstartimmediatelycycles)
 {
@@ -397,8 +389,6 @@ bool XSCHEDULERTASK::SetTimeLimits(XDATETIME* xdatetimelimitstart, XDATETIME* xd
 * @ingroup    XUTILS
 *
 * @param[in]  mask :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULERTASK::SetConditionDayWeek(XBYTE mask)
@@ -567,8 +557,6 @@ XBYTE XSCHEDULERTASK::GetDayOfWeekMask(XDATETIME* xtimeactual)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULERTASK::Clean()
 {
@@ -602,8 +590,6 @@ void XSCHEDULERTASK::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER::XSCHEDULER()
 {
@@ -621,8 +607,6 @@ XSCHEDULER::XSCHEDULER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER::~XSCHEDULER()
@@ -690,8 +674,6 @@ bool XSCHEDULER::IsActive()
 * @ingroup    XUTILS
 *
 * @param[in]  on :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER::Activate(bool on)
@@ -957,8 +939,6 @@ bool XSCHEDULER::End()
 *
 * @param[in]  data :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER::ThreadScheduler(void* data)
 {
@@ -1032,8 +1012,6 @@ void XSCHEDULER::ThreadScheduler(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER::Clean ()

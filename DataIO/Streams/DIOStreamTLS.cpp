@@ -67,8 +67,6 @@
 *
 * @param[in]  DIOSTREAMCONFIG* : 
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config) 
 {
@@ -86,8 +84,6 @@ DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTLS::~DIOSTREAMTLS()
@@ -302,8 +298,6 @@ DIOSTREAMTCPIP* DIOSTREAMTLS::GetDIOStreamTCPIP()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTLS::Clean()

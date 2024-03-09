@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
 {
@@ -83,8 +81,6 @@ XWINDOWSACCESSCONTROLLISTS::XWINDOWSACCESSCONTROLLISTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSACCESSCONTROLLISTS::~XWINDOWSACCESSCONTROLLISTS()
@@ -302,8 +298,6 @@ bool XWINDOWSACCESSCONTROLLISTS::SetFilePermissionForEveryone(XCHAR* filename)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSACCESSCONTROLLISTS::Clean()

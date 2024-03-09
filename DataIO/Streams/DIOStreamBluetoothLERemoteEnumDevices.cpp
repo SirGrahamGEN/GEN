@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES() 
 {
@@ -75,8 +73,6 @@ DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
@@ -172,8 +168,6 @@ XDWORD DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::GetSearchMode()
 *
 * @param[in]  searchmode : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::SetSearchMode(XDWORD searchmode)
 {
@@ -187,8 +181,6 @@ void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::SetSearchMode(XDWORD searchmode)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()

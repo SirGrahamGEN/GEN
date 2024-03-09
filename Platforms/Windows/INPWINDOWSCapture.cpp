@@ -73,8 +73,6 @@ INPWINDOWSCAPTURE* INPWINDOWSCAPTURE::capture = NULL;
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSCAPTURE::INPWINDOWSCAPTURE()
 {  
@@ -90,8 +88,6 @@ INPWINDOWSCAPTURE::INPWINDOWSCAPTURE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPWINDOWSCAPTURE::~INPWINDOWSCAPTURE()
@@ -222,8 +218,6 @@ LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wpara
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPWINDOWSCAPTURE::Clean()

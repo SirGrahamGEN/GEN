@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 {
@@ -92,8 +90,6 @@ DIOLINUXGPIOPCPARALLEL::DIOLINUXGPIOPCPARALLEL() : DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOPCPARALLEL::~DIOLINUXGPIOPCPARALLEL()
@@ -124,8 +120,6 @@ XWORD DIOLINUXGPIOPCPARALLEL::GetParallelPort()
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  port : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIOPCPARALLEL::SetParallelPort(XWORD port)
@@ -290,8 +284,6 @@ bool DIOLINUXGPIOPCPARALLEL::PC_Set(XDWORD nport,XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIOPCPARALLEL::Clean()

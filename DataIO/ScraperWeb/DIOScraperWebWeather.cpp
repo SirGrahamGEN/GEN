@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER() : DIOSCRAPERWEB()
 {
@@ -78,8 +76,6 @@ DIOSCRAPERWEBWEATHER::DIOSCRAPERWEBWEATHER() : DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBWEATHER::~DIOSCRAPERWEBWEATHER()
@@ -192,8 +188,6 @@ bool DIOSCRAPERWEBWEATHER::Get(XSTRING& location, bool iscelsius,  XSTRING& cond
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBWEATHER::Clean()

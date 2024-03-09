@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(): XSTRING()
 {
@@ -76,8 +74,6 @@ XFSTRING::XFSTRING(): XSTRING()
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(int n) : XSTRING(n)
@@ -94,8 +90,6 @@ XFSTRING::XFSTRING(int n) : XSTRING(n)
 *
 * @param[in]  string :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
 {
@@ -110,8 +104,6 @@ XFSTRING::XFSTRING(const XCHAR* string) : XSTRING(string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
@@ -128,8 +120,6 @@ XFSTRING::XFSTRING(XCHAR* string) : XSTRING(string)
 *
 * @param[in]  string :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(const char* string) : XSTRING(string)
 {
@@ -144,8 +134,6 @@ XFSTRING::XFSTRING(const char* string) : XSTRING(string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(XSTRING& string) : XSTRING(string)
@@ -328,8 +316,6 @@ bool XFSTRING::Fast_Empty()
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator =  (const char* string)
 {
@@ -344,8 +330,6 @@ void XFSTRING::operator =  (const char* string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator =  (const XCHAR* string)
@@ -362,8 +346,6 @@ void XFSTRING::operator =  (const XCHAR* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator =  (const XSTRING& string)
 {
@@ -378,8 +360,6 @@ void XFSTRING::operator =  (const XSTRING& string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator =  (XWORD* string)
@@ -396,8 +376,6 @@ void XFSTRING::operator =  (XWORD* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator =  (XBUFFER& string)
 {
@@ -412,8 +390,6 @@ void XFSTRING::operator =  (XBUFFER& string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator += (const char* string)
@@ -430,8 +406,6 @@ void XFSTRING::operator += (const char* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator += (const XCHAR* string)
 {
@@ -447,8 +421,6 @@ void XFSTRING::operator += (const XCHAR* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator += (XSTRING& string)
 {
@@ -463,8 +435,6 @@ void XFSTRING::operator += (XSTRING& string)
 * @ingroup    XUTILS
 *
 * @param[in]  character :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFSTRING::operator += (XCHAR character)

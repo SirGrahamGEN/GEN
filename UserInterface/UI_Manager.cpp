@@ -1281,8 +1281,6 @@ bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE typ
 * @param[in]  layoutname : 
 * @param[in]  element : 
 * 
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
 {
@@ -2107,8 +2105,6 @@ bool UI_MANAGER::DeleteVirtualKeyboard()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_MANAGER::UI_MANAGER()    
 { 
@@ -2128,8 +2124,6 @@ UI_MANAGER::UI_MANAGER()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_MANAGER::~UI_MANAGER()    
 { 
@@ -4236,8 +4230,6 @@ bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 *
 * @param[in]  event : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 {
@@ -4352,8 +4344,6 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 *
 * @param[in]  xevent : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_MANAGER::HandleEvent(XEVENT* xevent)
 {
@@ -4378,8 +4368,6 @@ void UI_MANAGER::HandleEvent(XEVENT* xevent)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_MANAGER::Clean()
 {  

@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS::DIODYNDNS()
 {
@@ -81,8 +79,6 @@ DIODYNDNS::DIODYNDNS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODYNDNS::~DIODYNDNS()
@@ -332,8 +328,6 @@ DIODYNDNS_STATUSCODE DIODYNDNS::GetError(XSTRING& result)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODYNDNS::Clean()

@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 {
@@ -92,8 +90,6 @@ DIOWEBCLIENT_HEADER::DIOWEBCLIENT_HEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_HEADER::~DIOWEBCLIENT_HEADER()
@@ -305,8 +301,6 @@ bool DIOWEBCLIENT_HEADER::GetWWWAuthenticate(XSTRING& authenticate)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_HEADER::Clean()
 {
@@ -327,8 +321,6 @@ void DIOWEBCLIENT_HEADER::Clean()
 * @ingroup    DATAIO
 *
 * @param[in]  XDWORD :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
@@ -357,8 +349,6 @@ DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::~DIOWEBCLIENT()
@@ -415,8 +405,6 @@ int DIOWEBCLIENT::Get_Port()
 *
 * @param[in]  port :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::Set_Port(int port)
 {
@@ -462,8 +450,6 @@ int DIOWEBCLIENT::GetProxyPort()
 *
 * @param[in]  port :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::SetProxyPort(int port)
 {
@@ -493,8 +479,6 @@ DIOWEBCLIENT_AUTHENTICATION_METHOD DIOWEBCLIENT::GetAuthenticationMethod()
 * @ingroup    DATAIO
 *
 * @param[in]  authenticationmethod : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::SetAuthenticationMethod(DIOWEBCLIENT_AUTHENTICATION_METHOD authenticationmethod)
@@ -585,8 +569,6 @@ bool DIOWEBCLIENT::IsActiveDoStopHTTPError()
 * @ingroup    DATAIO
 * 
 * @param[in]  activate : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::DoStopHTTPError(bool activate)
@@ -1445,8 +1427,6 @@ bool DIOWEBCLIENT::GetSubStringWWWWAuthenticate(XSTRING& www_authenticate, XCHAR
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT::Clean()

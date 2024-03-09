@@ -97,8 +97,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 {
@@ -148,8 +146,6 @@ DIOLINUXSTREAMUDP::DIOLINUXSTREAMUDP() : DIOSTREAMUDP() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMUDP::~DIOLINUXSTREAMUDP()
@@ -333,8 +329,6 @@ int DIOLINUXSTREAMUDP::IsReadyConnect(int socket)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUDP::Clean()
 {
@@ -351,8 +345,6 @@ void DIOLINUXSTREAMUDP::Clean()
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  thread : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMUDP::ThreadRunFunction(void* thread)

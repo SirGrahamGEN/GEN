@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHODJSON::XSERIALIZATIONMETHODJSON()
 {
@@ -78,8 +76,6 @@ XSERIALIZATIONMETHODJSON::XSERIALIZATIONMETHODJSON()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHODJSON::~XSERIALIZATIONMETHODJSON()
@@ -881,8 +877,6 @@ XFILEJSON* XSERIALIZATIONMETHODJSON::GetFileJSON()
 * 
 * @param[in]  fileJSON : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODJSON::SetFileJSON(XFILEJSON* fileJSON)
 {
@@ -912,8 +906,6 @@ XFILEJSONOBJECT* XSERIALIZATIONMETHODJSON::GetActualObject()
 * @ingroup    XUTILS
 * 
 * @param[in]  actualobject : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODJSON::SetActualObject(XFILEJSONOBJECT* actualobject)
@@ -953,8 +945,6 @@ bool XSERIALIZATIONMETHODJSON::CheckHandleActive()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODJSON::Clean()

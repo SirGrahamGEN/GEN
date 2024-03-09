@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XOBSERVER::XOBSERVER()
 {
@@ -75,8 +73,6 @@ XOBSERVER::XOBSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XOBSERVER::~XOBSERVER()
@@ -129,8 +125,6 @@ bool XOBSERVER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obse
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XOBSERVER::Clean()

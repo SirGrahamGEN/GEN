@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 { 
@@ -86,8 +84,6 @@ DIOLINUXNETWORKMANAGER::DIOLINUXNETWORKMANAGER()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXNETWORKMANAGER::~DIOLINUXNETWORKMANAGER()    
 { 
@@ -557,8 +553,6 @@ bool DIOLINUXNETWORKMANAGER::GetProperty(XCHAR* iface, XCHAR* pathdevice, XCHAR*
 *
 * @param[in]  event : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
 {  
@@ -585,8 +579,6 @@ void DIOLINUXNETWORKMANAGER::HandleEvent_Signal(DIOLINUXDBUS_XEVENT* event)
 *
 * @param[in]  xevent : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
 {
@@ -612,8 +604,6 @@ void DIOLINUXNETWORKMANAGER::HandleEvent(XEVENT* xevent)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXNETWORKMANAGER::Clean()
 {

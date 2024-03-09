@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDLINUXFACTORY::SNDLINUXFACTORY()
 {
@@ -81,8 +79,6 @@ SNDLINUXFACTORY::SNDLINUXFACTORY()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDLINUXFACTORY::~SNDLINUXFACTORY()
 {
@@ -96,8 +92,6 @@ SNDLINUXFACTORY::~SNDLINUXFACTORY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDLINUXFACTORY::Clean()

@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPSCREEN::GRPSCREEN()
 {
@@ -91,8 +89,6 @@ GRPSCREEN::GRPSCREEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPSCREEN::~GRPSCREEN()
@@ -215,8 +211,6 @@ bool GRPSCREEN::IsFullScreen()
 * @ingroup    GRAPHIC
 *
 * @param[in]  isfullscreen :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
@@ -493,8 +487,6 @@ void* GRPSCREEN::GetHandle()
 * @ingroup    GRAPHIC
 * 
 * @param[in]  handle_window : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPSCREEN::SetHandle(void* handle_window)
@@ -808,8 +800,6 @@ GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPSCREEN::Clean()

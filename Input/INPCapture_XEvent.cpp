@@ -68,8 +68,6 @@
 * @param[in]   XDWORD type : 
 * @param[in]   XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCAPTURE_XEVENT::INPCAPTURE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -83,8 +81,6 @@ INPCAPTURE_XEVENT::INPCAPTURE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCAPTURE_XEVENT::~INPCAPTURE_XEVENT()
@@ -117,8 +113,6 @@ XDWORD INPCAPTURE_XEVENT::GetVKCode()
 * 
 * @param[in]  vkcode : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::SetVKCode(XDWORD vkcode)
 {
@@ -148,8 +142,6 @@ XWORD INPCAPTURE_XEVENT::GetScanCode()
 * @ingroup    INPUT
 * 
 * @param[in]  scancode : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::SetScanCode(XWORD scancode)
@@ -181,8 +173,6 @@ XDWORD INPCAPTURE_XEVENT::GetFlags()
 * 
 * @param[in]  flags : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::SetFlags(XWORD flags)
 {
@@ -213,8 +203,6 @@ bool INPCAPTURE_XEVENT::IsKeyLocked()
 * 
 * @param[in]  iskeylocked : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::SetIsKeyLocked(bool iskeylocked)
 {
@@ -228,8 +216,6 @@ void INPCAPTURE_XEVENT::SetIsKeyLocked(bool iskeylocked)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::Clean()

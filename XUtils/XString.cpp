@@ -76,8 +76,6 @@ const char XSTRING::decodetablebase64[] = "|$$$}rstuvwxyz{$$$$$$$>?@ABCDEFGHIJKL
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING()
 {
@@ -94,8 +92,6 @@ XSTRING::XSTRING()
 * @ingroup    XUTILS
 *
 * @param[in]  XDWORD :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(XDWORD size)
@@ -116,8 +112,6 @@ XSTRING::XSTRING(XDWORD size)
 *
 * @param[in]  :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(const char* string)
 {
@@ -136,8 +130,6 @@ XSTRING::XSTRING(const char* string)
 * @ingroup    XUTILS
 * 
 * @param[in]  const : 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(const XCHAR* string)
@@ -159,8 +151,6 @@ XSTRING::XSTRING(const XCHAR* string)
 * @param[in]  :
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 {
@@ -179,8 +169,6 @@ XSTRING::XSTRING(const XCHAR* string, XDWORD size)
 * @ingroup    XUTILS
 *
 * @param[in]  const :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(const XSTRING& string)
@@ -201,8 +189,6 @@ XSTRING::XSTRING(const XSTRING& string)
 *
 * @param[in]  XWORD* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::XSTRING(XWORD* string)
 {
@@ -220,8 +206,6 @@ XSTRING::XSTRING(XWORD* string)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING::~XSTRING()
@@ -911,8 +895,6 @@ bool XSTRING::Add(XBUFFER& buffer)
 *
 * @param[in]  char* string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (const char* string)
 {
@@ -927,8 +909,6 @@ void XSTRING::operator =  (const char* string)
 * @ingroup    XUTILS
 *
 * @param[in]  XCHAR* string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (const XCHAR* string)
@@ -945,8 +925,6 @@ void XSTRING::operator =  (const XCHAR* string)
 * 
 * @param[in]  XSTRING& string : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (const XSTRING& string)
 {
@@ -961,8 +939,6 @@ void XSTRING::operator =  (const XSTRING& string)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (XWORD* string)
@@ -979,8 +955,6 @@ void XSTRING::operator =  (XWORD* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator =  (XBUFFER& string)
 {
@@ -995,8 +969,6 @@ void XSTRING::operator =  (XBUFFER& string)
 * @ingroup    XUTILS
 *
 * @param[in]  char* string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator += (const char* string)
@@ -1013,8 +985,6 @@ void XSTRING::operator += (const char* string)
 *
 * @param[in]  XCHAR* string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator += (const XCHAR* string)
 {
@@ -1030,8 +1000,6 @@ void XSTRING::operator += (const XCHAR* string)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator += (XSTRING& string)
 {
@@ -1046,8 +1014,6 @@ void XSTRING::operator += (XSTRING& string)
 * @ingroup    XUTILS
 *
 * @param[in]  character :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::operator += (XCHAR character)
@@ -5737,8 +5703,6 @@ bool XSTRING::ConvertStringWithMask(XCHAR* mask, XCHAR* string, XCHAR* result)
 * @param[in]  XBYTE*out : 
 * @param[in]  len : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::Base64_EncodeBlock(XBYTE *in, XBYTE *out, int len)
 {
@@ -5809,8 +5773,6 @@ bool XSTRING::Base64_Encode(XBYTE* buffer, XDWORD buffersize, XSTRING& line)
 * 
 * @param[in]  in[4] : 
 * @param[in]  out[3] : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::Base64_DecodeBlock(XBYTE in[4], XBYTE out[3]) 
@@ -5888,8 +5850,6 @@ bool XSTRING::Base64_Decode(const char* in_buffer, int in_buffer_size, XBUFFER& 
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTRING::Clean()

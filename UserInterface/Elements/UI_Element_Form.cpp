@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_FORM::UI_ELEMENT_FORM()    
 { 
@@ -80,8 +78,6 @@ UI_ELEMENT_FORM::UI_ELEMENT_FORM()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_FORM::~UI_ELEMENT_FORM()    
 { 
@@ -126,8 +122,6 @@ UI_BOUNDARYLINE* UI_ELEMENT_FORM::GetVisibleRect()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_FORM::Clean()
 {

@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32SYSTEM::XESP32SYSTEM() : XSYSTEM()
 {
@@ -79,8 +77,6 @@ XESP32SYSTEM::XESP32SYSTEM() : XSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32SYSTEM::~XESP32SYSTEM()
@@ -183,8 +179,6 @@ bool XESP32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32SYSTEM::Clean()

@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDRAND::XANDROIDRAND()
 {
@@ -75,8 +73,6 @@ XANDROIDRAND::XANDROIDRAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDRAND::~XANDROIDRAND()

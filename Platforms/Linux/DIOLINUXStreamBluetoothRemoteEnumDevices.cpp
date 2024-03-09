@@ -105,8 +105,6 @@ extern "C"
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
@@ -141,8 +139,6 @@ DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVIC
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES()
@@ -611,8 +607,6 @@ bool DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEVIC
 *
 * @param[in]  param : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
@@ -666,8 +660,6 @@ void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()
 {
@@ -687,8 +679,6 @@ extern "C"
   *
   * @param[in]  value : 
   * @param[in]  userData : 
-  *
-  * @return     void : does not return anything. 
   *
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_class(void* value, void* userData)
@@ -715,8 +705,6 @@ extern "C"
   *
   * @param[in]  value : 
   * @param[in]  user : 
-  *
-  * @return     void : does not return anything. 
   *
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_desc(void* value, void* user)
@@ -764,8 +752,6 @@ extern "C"
   *
   * @param[in]  value : 
   * @param[in]  userData :  
-  *
-  * @return     Does not return anything. 
   *
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_access_protos(void* value, void* userData)

@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTIMER::XANDROIDTIMER()
 {
@@ -75,8 +73,6 @@ XANDROIDTIMER::XANDROIDTIMER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTIMER::~XANDROIDTIMER()

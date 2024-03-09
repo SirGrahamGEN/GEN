@@ -66,8 +66,6 @@
 * @param[in]  XDWORD type :
 * @param[in]  XDWORD family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -81,8 +79,6 @@ DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_XEVENT::~DIOWEBCLIENT_XEVENT()
@@ -129,8 +125,6 @@ DIOWEBHEADER_METHOD DIOWEBCLIENT_XEVENT::GetMethod()
 *
 * @param[in]  method :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetMethod(DIOWEBHEADER_METHOD method)
 {
@@ -176,8 +170,6 @@ XQWORD DIOWEBCLIENT_XEVENT::GetContentLenght()
 *
 * @param[in]  contentlenght :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetContentLenght(XQWORD contentlenght)
 {
@@ -207,8 +199,6 @@ float DIOWEBCLIENT_XEVENT::GetOperationPercent()
 * @ingroup    DATAIO
 *
 * @param[in]  operationpercent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetOperationPercent(float operationpercent)
@@ -240,8 +230,6 @@ XQWORD DIOWEBCLIENT_XEVENT::GetDownloadSize()
 *
 * @param[in]  downloadsize :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetDownloadSize(XQWORD downloadsize)
 {
@@ -272,8 +260,6 @@ XDWORD DIOWEBCLIENT_XEVENT::GetMBPSSpeed()
 *
 * @param[in]  MBPSspeed :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 {
@@ -287,8 +273,6 @@ void DIOWEBCLIENT_XEVENT::SetMBPSSpeed(XDWORD MBPSspeed)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBCLIENT_XEVENT::Clean()

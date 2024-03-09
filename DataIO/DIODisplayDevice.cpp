@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODISPLAYDEVICE_CONFIG::DIODISPLAYDEVICE_CONFIG()
 {
@@ -78,8 +76,6 @@ DIODISPLAYDEVICE_CONFIG::DIODISPLAYDEVICE_CONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODISPLAYDEVICE_CONFIG::~DIODISPLAYDEVICE_CONFIG()
@@ -155,8 +151,6 @@ XDWORD DIODISPLAYDEVICE_CONFIG::GetSizeBuffer()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODISPLAYDEVICE_CONFIG::Clean()
 {
@@ -180,8 +174,6 @@ void DIODISPLAYDEVICE_CONFIG::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODISPLAYDEVICE::DIODISPLAYDEVICE()
 {
@@ -195,8 +187,6 @@ DIODISPLAYDEVICE::DIODISPLAYDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODISPLAYDEVICE::~DIODISPLAYDEVICE()
@@ -266,8 +256,6 @@ bool DIODISPLAYDEVICE::SetActiveBlackLight(bool active)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIODISPLAYDEVICE::Clean()
 {

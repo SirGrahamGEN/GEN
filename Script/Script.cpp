@@ -101,8 +101,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT::SCRIPT()
 {
@@ -129,8 +127,6 @@ SCRIPT::SCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT::~SCRIPT()
@@ -1029,8 +1025,6 @@ bool SCRIPT::EliminateExtraChars(XSTRING* namescript)
 * 
 * @param[in]  xevent : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT::HandleEvent(XEVENT* xevent)
 {
@@ -1045,8 +1039,6 @@ void SCRIPT::HandleEvent(XEVENT* xevent)
 * @ingroup    SCRIPT
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT::ThreadFunction(void* data)
@@ -1068,8 +1060,6 @@ void SCRIPT::ThreadFunction(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT::Clean()

@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
 {
@@ -79,8 +77,6 @@ XSERIALIZATIONMETHOD::XSERIALIZATIONMETHOD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHOD::~XSERIALIZATIONMETHOD()
@@ -671,8 +667,6 @@ bool XSERIALIZATIONMETHOD::ExtractArray(XDWORD nelements, XCHAR* name)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHOD::Clean()

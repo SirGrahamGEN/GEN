@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMVALUEUNITFORMAT::DIONODEITEMVALUEUNITFORMAT()
 {
@@ -75,8 +73,6 @@ DIONODEITEMVALUEUNITFORMAT::DIONODEITEMVALUEUNITFORMAT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMVALUEUNITFORMAT::~DIONODEITEMVALUEUNITFORMAT()
@@ -107,8 +103,6 @@ XDWORD DIONODEITEMVALUEUNITFORMAT::GetType()
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUEUNITFORMAT::SetType(XDWORD type)
@@ -194,8 +188,6 @@ bool DIONODEITEMVALUEUNITFORMAT::Deserialize()
 * @brief      GetDefaultName
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUEUNITFORMAT::GetDefaultName()
 {
@@ -230,8 +222,6 @@ void DIONODEITEMVALUEUNITFORMAT::GetDefaultName()
 * @fn         void DIONODEITEMVALUEUNITFORMAT::GetDefaultSymbol()
 * @brief      GetDefaultSymbol
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUEUNITFORMAT::GetDefaultSymbol()
@@ -279,8 +269,6 @@ void DIONODEITEMVALUEUNITFORMAT::GetDefaultSymbol()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEITEMVALUEUNITFORMAT::Clean()

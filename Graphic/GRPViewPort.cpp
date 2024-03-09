@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIEWPORT::GRPVIEWPORT()
 {
@@ -80,8 +78,6 @@ GRPVIEWPORT::GRPVIEWPORT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIEWPORT::~GRPVIEWPORT()
@@ -133,8 +129,6 @@ bool GRPVIEWPORT::IsActive()
 *
 * @param[in]  active : true to active
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIEWPORT::SetIsActive(bool active)
 {
@@ -164,8 +158,6 @@ GRPVIEWPORT_PROJECTIONTYPE GRPVIEWPORT::GetProjectionType()
 * @ingroup    GRAPHIC
 *
 * @param[in]  projectiontype : new projection type
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
@@ -241,8 +233,6 @@ float  GRPVIEWPORT::GetPositionY()
 * @param[in]  x : Set X position
 * @param[in]  y : Set Y position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIEWPORT::SetPosition(float x, float y)
 {
@@ -290,8 +280,6 @@ float GRPVIEWPORT::GetHeight()
 * @param[in]  width : Set Width of View Port
 * @param[in]  height : Set Height of View Port
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIEWPORT::SetSize(float width, float height)
 {
@@ -321,8 +309,6 @@ GRPCANVAS*  GRPVIEWPORT::GetCanvas()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIEWPORT::Clean()

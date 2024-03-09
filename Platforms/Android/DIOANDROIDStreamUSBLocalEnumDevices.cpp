@@ -74,8 +74,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES() : DIOSTREAMUSBLOCALENUMDEVICES()
 {
@@ -89,8 +87,6 @@ DIOANDROIDSTREAMUSBLOCALENUMDEVICES::DIOANDROIDSTREAMUSBLOCALENUMDEVICES() : DIO
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUSBLOCALENUMDEVICES::~DIOANDROIDSTREAMUSBLOCALENUMDEVICES()

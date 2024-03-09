@@ -84,8 +84,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 {
@@ -101,8 +99,6 @@ GRPBITMAPFILEBASE::GRPBITMAPFILEBASE(): XFILECONTAINER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBASE::~GRPBITMAPFILEBASE()
@@ -280,8 +276,6 @@ bool GRPBITMAPFILEBASE::Close()
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBASE::Clean()
 {
@@ -301,8 +295,6 @@ void GRPBITMAPFILEBASE::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE()
 {
@@ -317,8 +309,6 @@ GRPBITMAPFILE::GRPBITMAPFILE()
 * @ingroup    GRAPHIC
 *
 * @param[in]  XCHAR* : initial path to file
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
@@ -337,8 +327,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 *
 * @param[in]  XPATH& : initial path to file
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 {
@@ -354,8 +342,6 @@ GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::~GRPBITMAPFILE()
@@ -387,8 +373,6 @@ XCHAR* GRPBITMAPFILE::GetPath()
 *
 * @param[in]  xpath : Path of file
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::SetPath(XPATH& xpath)
 {
@@ -403,8 +387,6 @@ void GRPBITMAPFILE::SetPath(XPATH& xpath)
 * @ingroup    GRAPHIC
 *
 * @param[in]  xpath : Path of file
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::SetPath(XCHAR* xpath)
@@ -703,8 +685,6 @@ GRPBITMAPSEQUENCE* GRPBITMAPFILE::LoadSequence(XCHAR* namemask, int inisequence,
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILE::Clean()

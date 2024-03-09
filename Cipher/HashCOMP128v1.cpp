@@ -143,8 +143,6 @@ const XBYTE* HASHCOMP128V1::table[5]      =   {  table0,
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCOMP128V1::HASHCOMP128V1() : HASH()
 {
@@ -158,8 +156,6 @@ HASHCOMP128V1::HASHCOMP128V1() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCOMP128V1::~HASHCOMP128V1()
@@ -288,8 +284,6 @@ bool HASHCOMP128V1::GetKc(XBUFFER& Kc)
 * 
 * @param[in]  input : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCOMP128V1::Make(XBYTE* input)
 {
@@ -392,8 +386,6 @@ void HASHCOMP128V1::Make(XBYTE* input)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCOMP128V1::Clean()

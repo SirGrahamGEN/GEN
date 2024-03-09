@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT::UI_ELEMENT()    
 { 
@@ -91,8 +89,6 @@ UI_ELEMENT::UI_ELEMENT()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT::~UI_ELEMENT()    
 { 
@@ -146,8 +142,6 @@ UI_ELEMENT_TYPE UI_ELEMENT::GetType()
 *
 * @param[in]  type : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetType(UI_ELEMENT_TYPE type)
 {
@@ -193,8 +187,6 @@ UI_ELEMENT* UI_ELEMENT::GetFather()
 *
 * @param[in]  father : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetFather(UI_ELEMENT* father)
 {
@@ -224,8 +216,6 @@ bool UI_ELEMENT::IsDetached()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  hasfather : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetIsDetached(bool isdetached)
@@ -491,8 +481,6 @@ UI_BOUNDARYLINE* UI_ELEMENT::GetBoundaryLine()
 *
 * @param[in]  boundaryline : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetBoundaryLine(UI_BOUNDARYLINE& boundaryline)
 {
@@ -534,8 +522,6 @@ double UI_ELEMENT::GetMargin(UI_ELEMENT_TYPE_ALIGN position)
 * @param[in]  position : 
 * @param[in]  value : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetMargin(UI_ELEMENT_TYPE_ALIGN position, double value)
 {
@@ -572,8 +558,6 @@ bool UI_ELEMENT::IsActive()
 *
 * @param[in]  isactive : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetActive(bool isactive)
 {
@@ -603,8 +587,6 @@ bool UI_ELEMENT::IsPreSelect()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ispreselect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetPreSelect(bool ispreselect)
@@ -636,8 +618,6 @@ bool UI_ELEMENT::IsSelected()
 *
 * @param[in]  isselected : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetSelected(bool isselected)
 {
@@ -667,8 +647,6 @@ bool UI_ELEMENT::IsVisible()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  isvisible : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetVisible(bool isvisible)
@@ -705,8 +683,6 @@ XDWORD UI_ELEMENT::GetRoundRect()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  roundrect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetRoundRect(XDWORD roundrect)
@@ -837,8 +813,6 @@ UI_ELEMENT_TRANSITION_STATE_SHOW UI_ELEMENT::GetTransitionStateShow()
 *
 * @param[in]  transitionstateshow : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetTransitionStateShow(UI_ELEMENT_TRANSITION_STATE_SHOW transitionstateshow)
 {
@@ -868,8 +842,6 @@ bool UI_ELEMENT::HasScroll()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  hasscroll : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetHasScroll(bool hasscroll)
@@ -915,8 +887,6 @@ bool UI_ELEMENT::MustReDraw()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  mustredraw : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::SetMustReDraw(bool mustredraw)
@@ -967,8 +937,6 @@ bool UI_ELEMENT::DeleteAllComposeElements()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT::Clean()
 {

@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ERROR::DB_SQL_ERROR()
 {
@@ -80,8 +78,6 @@ DB_SQL_ERROR::DB_SQL_ERROR()
 *
 * @param[in]  DB_SQL_ERROR_TYPE :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 {
@@ -96,8 +92,6 @@ DB_SQL_ERROR::DB_SQL_ERROR(DB_SQL_ERROR_TYPE type)
 * @note       VIRTUAL
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ERROR::~DB_SQL_ERROR()
 {
@@ -111,8 +105,6 @@ DB_SQL_ERROR::~DB_SQL_ERROR()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_ERROR::Clean()

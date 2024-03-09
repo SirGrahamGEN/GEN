@@ -75,8 +75,6 @@ CIPHERRSA* CIPHERRSA::instance = NULL;
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 {
@@ -95,8 +93,6 @@ CIPHERKEYRSAPUBLIC::CIPHERKEYRSAPUBLIC() : CIPHERKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPUBLIC::~CIPHERKEYRSAPUBLIC()
@@ -213,8 +209,6 @@ bool CIPHERKEYRSAPUBLIC::Check()
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYRSAPUBLIC::Clean()
 {                                         
@@ -233,8 +227,6 @@ void CIPHERKEYRSAPUBLIC::Clean()
 * @fn         CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE()
 * @brief      Constructor
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
@@ -255,8 +247,6 @@ CIPHERKEYRSAPRIVATE::CIPHERKEYRSAPRIVATE() : CIPHERKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYRSAPRIVATE::~CIPHERKEYRSAPRIVATE()
@@ -432,8 +422,6 @@ bool CIPHERKEYRSAPRIVATE::Check(CIPHERKEYRSAPUBLIC& publickey)
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYRSAPRIVATE::Clean()
 {            
@@ -453,8 +441,6 @@ void CIPHERKEYRSAPRIVATE::Clean()
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
 
@@ -471,8 +457,6 @@ CIPHERRSA_CONTEXT::CIPHERRSA_CONTEXT()
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA_CONTEXT::~CIPHERRSA_CONTEXT()
 {
@@ -486,8 +470,6 @@ CIPHERRSA_CONTEXT::~CIPHERRSA_CONTEXT()
 * @fn         void CIPHERRSA_CONTEXT::Ini()
 * @brief      Ini
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERRSA_CONTEXT::Ini()
@@ -515,8 +497,6 @@ void CIPHERRSA_CONTEXT::Ini()
 * @fn         void CIPHERRSA_CONTEXT::End()
 * @brief      End
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERRSA_CONTEXT::End()
@@ -546,8 +526,6 @@ void CIPHERRSA_CONTEXT::End()
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERRSA_CONTEXT::Clean()
 {
@@ -569,8 +547,6 @@ void CIPHERRSA_CONTEXT::Clean()
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA::CIPHERRSA() : CIPHER()
 {
@@ -590,8 +566,6 @@ CIPHERRSA::CIPHERRSA() : CIPHER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERRSA::~CIPHERRSA()
@@ -1490,8 +1464,6 @@ bool CIPHERRSA::GenerateRandom(XBYTE* buffer, XDWORD size, void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERRSA::Clean()

@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM::DIOSTREAM()
 {
@@ -95,8 +93,6 @@ DIOSTREAM::DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM::~DIOSTREAM()
@@ -646,8 +642,6 @@ bool DIOSTREAM::IsBlockRead()
 *
 * @param[in]  isblockread :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::SetIsBlockRead(bool isblockread)
 {
@@ -677,8 +671,6 @@ bool DIOSTREAM::IsBlockWrite()
 * @ingroup    DATAIO
 *
 * @param[in]  isblockwrite :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::SetIsBlockWrite(bool isblockwrite)
@@ -724,8 +716,6 @@ DIOSTREAMTYPE DIOSTREAM::GetType()
 * @ingroup    DATAIO
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::SetType(DIOSTREAMTYPE type)
@@ -1033,8 +1023,6 @@ DIOSTREAMERROR DIOSTREAM::GetLastDIOError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
 {
@@ -1049,8 +1037,6 @@ void DIOSTREAM::SetLastDIOError(DIOSTREAMERROR error)
 * @ingroup    DATAIO
 *
 * @param[in]  milliseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::Wait(int milliseconds)
@@ -1086,8 +1072,6 @@ bool DIOSTREAM::ResetConnectionStatistics()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAM::Clean()

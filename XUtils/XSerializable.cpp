@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZABLE::XSERIALIZABLE()
 {
@@ -83,8 +81,6 @@ XSERIALIZABLE::XSERIALIZABLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZABLE::~XSERIALIZABLE()
@@ -186,8 +182,6 @@ XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
 * 
 * @param[in]  serializationmethod : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
 {
@@ -273,8 +267,6 @@ bool XSERIALIZABLE::Deserialize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZABLE::Clean()

@@ -74,8 +74,6 @@ DIODNSRESOLVER* DIODNSRESOLVER::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER_HOSTRESOLVED::DIODNSRESOLVER_HOSTRESOLVED()
 {
@@ -89,8 +87,6 @@ DIODNSRESOLVER_HOSTRESOLVED::DIODNSRESOLVER_HOSTRESOLVED()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER_HOSTRESOLVED::~DIODNSRESOLVER_HOSTRESOLVED()
@@ -136,8 +132,6 @@ XSTRING* DIODNSRESOLVER_HOSTRESOLVED::GetIP()
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVER_HOSTRESOLVED::Clean()
 {
@@ -157,8 +151,6 @@ void DIODNSRESOLVER_HOSTRESOLVED::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER_DNSSERVER::DIODNSRESOLVER_DNSSERVER()
 {
@@ -172,8 +164,6 @@ DIODNSRESOLVER_DNSSERVER::DIODNSRESOLVER_DNSSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER_DNSSERVER::~DIODNSRESOLVER_DNSSERVER()
@@ -220,8 +210,6 @@ XWORD DIODNSRESOLVER_DNSSERVER::GetPort()
 * 
 * @param[in]  port : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVER_DNSSERVER::SetPort(XWORD port)
 {
@@ -235,8 +223,6 @@ void DIODNSRESOLVER_DNSSERVER::SetPort(XWORD port)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVER_DNSSERVER::Clean()
@@ -766,8 +752,6 @@ bool DIODNSRESOLVER::Host_DeleteAllList()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER::DIODNSRESOLVER()
 {
@@ -783,8 +767,6 @@ DIODNSRESOLVER::DIODNSRESOLVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSRESOLVER::~DIODNSRESOLVER()
@@ -808,8 +790,6 @@ DIODNSRESOLVER::~DIODNSRESOLVER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSRESOLVER::Clean()

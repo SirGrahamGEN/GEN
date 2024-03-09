@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSOR::INPCURSOR(): INPCURSORMOTIONPOINT()
 {
@@ -82,8 +80,6 @@ INPCURSOR::INPCURSOR(): INPCURSORMOTIONPOINT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSOR::~INPCURSOR()
@@ -119,8 +115,6 @@ INPCURSOR_ID INPCURSOR::GetID()
 * @ingroup    INPUT
 *
 * @param[in]  ID : new ID of cursor
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::SetID(INPCURSOR_ID ID)
@@ -298,8 +292,6 @@ bool INPCURSOR::AddPointToMotion(bool ispressed)
 * @param[in]  y : new y position
 * @param[in]  z : new x position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::Set(float x , float y, float z)
 {
@@ -325,8 +317,6 @@ void INPCURSOR::Set(float x , float y, float z)
 *
 * @param[in]  x : new x position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::SetX(float x)
 {
@@ -345,8 +335,6 @@ void INPCURSOR::SetX(float x)
 * @ingroup    INPUT
 *
 * @param[in]  y : new y position
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::SetY(float y)
@@ -367,8 +355,6 @@ void INPCURSOR::SetY(float y)
 *
 * @param[in]  z : new z position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::SetZ(float z)
 {
@@ -383,8 +369,6 @@ void INPCURSOR::SetZ(float z)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSOR::Clean()

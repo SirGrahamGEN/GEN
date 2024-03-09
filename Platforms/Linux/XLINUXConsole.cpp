@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXCONSOLE::XLINUXCONSOLE(): XCONSOLE()
 {
@@ -84,8 +82,6 @@ XLINUXCONSOLE::XLINUXCONSOLE(): XCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXCONSOLE::~XLINUXCONSOLE()
@@ -327,8 +323,6 @@ int XLINUXCONSOLE::GetChar()
 * @brief      RawModeEnable
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeEnable()
 {
@@ -345,8 +339,6 @@ void XLINUXCONSOLE::RawModeEnable()
 * @fn         void XLINUXCONSOLE::RawModeDisable()
 * @brief      RawModeDisable
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeDisable()

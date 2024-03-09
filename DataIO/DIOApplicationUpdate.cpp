@@ -81,8 +81,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 {
@@ -96,8 +94,6 @@ DIOAPPLICATIONUPDATE_VERSIONDATA::DIOAPPLICATIONUPDATE_VERSIONDATA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_VERSIONDATA::~DIOAPPLICATIONUPDATE_VERSIONDATA()
@@ -129,8 +125,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetVersion()
 *
 * @param[in]  version :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetVersion(XDWORD version)
 {
@@ -161,8 +155,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersion()
 *
 * @param[in]  subversion :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersion(XDWORD subversion)
 {
@@ -192,8 +184,6 @@ XDWORD DIOAPPLICATIONUPDATE_VERSIONDATA::GetSubVersionError()
 * @ingroup    DATAIO
 *
 * @param[in]  subversionerror :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSubVersionError(XDWORD subversionerror)
@@ -317,8 +307,6 @@ int DIOAPPLICATIONUPDATE_VERSIONDATA::Compare(XDWORD version, XDWORD subversion,
 *
 * @param[in]  applicationmustbeinit :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustbeinit)
 {
@@ -332,8 +320,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::SetSystemMustBeInit(bool applicationmustb
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
@@ -361,8 +347,6 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 * @param[in]   XDWORD CRC32 :
 * @param[in]   XDWORD size :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CRC32, XQWORD size)
 {
@@ -380,8 +364,6 @@ DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CR
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_FILE::~DIOAPPLICATIONUPDATE_FILE()
@@ -458,8 +440,6 @@ bool DIOAPPLICATIONUPDATE_FILE::HasSpecialControlUpdate()
 *
 * @param[in]  specialcontrolupdate :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolupdate)
 {
@@ -473,8 +453,6 @@ void DIOAPPLICATIONUPDATE_FILE::SetHasSpecialControlUpdate(bool specialcontrolup
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE_FILE::Clean()
@@ -502,8 +480,6 @@ void DIOAPPLICATIONUPDATE_FILE::Clean()
 * @param[in]  applicationsubversionerror :
 * @param[in]  applicationname :
 * @param[in]  xpathrootapp :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD applicationsubversion, XDWORD applicationsubversionerror, XCHAR* applicationname, XPATH& xpathrootapp)
@@ -541,8 +517,6 @@ DIOAPPLICATIONUPDATE::DIOAPPLICATIONUPDATE(XDWORD applicationversion, XDWORD app
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE::~DIOAPPLICATIONUPDATE()
@@ -1947,8 +1921,6 @@ bool DIOAPPLICATIONUPDATE::CopyFile(XPATH& origin, XPATH& target)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAPPLICATIONUPDATE::Clean()

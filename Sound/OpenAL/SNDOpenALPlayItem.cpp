@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALPLAYITEM::SNDOPENALPLAYITEM() : XFSMACHINE(0)
 {
@@ -81,8 +79,6 @@ SNDOPENALPLAYITEM::SNDOPENALPLAYITEM() : XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALPLAYITEM::~SNDOPENALPLAYITEM()
@@ -169,8 +165,6 @@ SNDITEM* SNDOPENALPLAYITEM::GetItem()
 * 
 * @param[in]  item : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALPLAYITEM::SetItem(SNDITEM* item)
 {
@@ -200,8 +194,6 @@ SNDOPENALSOURCE* SNDOPENALPLAYITEM::GetSource()
 * @ingroup    SOUND
 * 
 * @param[in]  source : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALPLAYITEM::SetSource(SNDOPENALSOURCE* source)
@@ -239,8 +231,6 @@ bool SNDOPENALPLAYITEM::Delete()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALPLAYITEM::Clean()

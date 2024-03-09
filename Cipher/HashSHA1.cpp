@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHSHA1::HASHSHA1() : HASH()
 {
@@ -83,8 +81,6 @@ HASHSHA1::HASHSHA1() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHSHA1::~HASHSHA1()
@@ -145,8 +141,6 @@ int HASHSHA1::GetDefaultSize()
 * @brief      Reset
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA1::Reset()
 {
@@ -173,8 +167,6 @@ void HASHSHA1::Reset()
 * 
 * @param[in]  input : 
 * @param[in]  length : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA1::Input(XBYTE* input, XQWORD length)
@@ -214,8 +206,6 @@ void HASHSHA1::Input(XBYTE* input, XQWORD length)
 * @fn         void HASHSHA1::ProcessMessageBlock()
 * @brief      ProcessMessageBlock
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA1::ProcessMessageBlock()
@@ -312,8 +302,6 @@ void HASHSHA1::ProcessMessageBlock()
 * @fn         void HASHSHA1::PadMessage()
 * @brief      PadMessage
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA1::PadMessage()
@@ -420,8 +408,6 @@ bool HASHSHA1::Result(XDWORD* msgdigest)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHSHA1::Clean()

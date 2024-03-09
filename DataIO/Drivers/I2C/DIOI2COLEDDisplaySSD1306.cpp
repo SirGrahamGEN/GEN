@@ -71,8 +71,6 @@
 * @param[in]  XDWORD width :
 * @param[in]  XDWORD height :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height): DIODEVICEI2C()
 {
@@ -91,8 +89,6 @@ DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2COLEDDISPLAYSSD1306::~DIOI2COLEDDISPLAYSSD1306()
@@ -351,8 +347,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Activate(bool active)
 *
 * @param[in]  contrast :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2COLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 {
@@ -524,8 +518,6 @@ bool DIOI2COLEDDISPLAYSSD1306::Send(XBYTE control, XBYTE* data, int sizedata)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2COLEDDISPLAYSSD1306::Clean()

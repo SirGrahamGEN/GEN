@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES(): DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
 {
@@ -78,8 +76,6 @@ DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::DIOWINDOWSSTREAMBLUETOOTHLEREMOTEE
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::~DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES()
@@ -143,8 +139,6 @@ bool DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::IsSearching()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMBLUETOOTHLEREMOTEENUMDEVICES::Clean()

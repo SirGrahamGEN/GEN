@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHODBINARY::XSERIALIZATIONMETHODBINARY()
 {
@@ -80,8 +78,6 @@ XSERIALIZATIONMETHODBINARY::XSERIALIZATIONMETHODBINARY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSERIALIZATIONMETHODBINARY::~XSERIALIZATIONMETHODBINARY()
@@ -806,8 +802,6 @@ XBUFFER* XSERIALIZATIONMETHODBINARY::GetBufferData()
 * 
 * @param[in]  bufferdata : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODBINARY::SetBufferData(XBUFFER* bufferdata)
 {
@@ -821,8 +815,6 @@ void XSERIALIZATIONMETHODBINARY::SetBufferData(XBUFFER* bufferdata)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZATIONMETHODBINARY::Clean()

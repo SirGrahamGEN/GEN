@@ -74,8 +74,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOLCLIENT::DIODNSPROTOCOLCLIENT()
 {
@@ -92,8 +90,6 @@ DIODNSPROTOCOLCLIENT::DIODNSPROTOCOLCLIENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOLCLIENT::~DIODNSPROTOCOLCLIENT()
@@ -582,8 +578,6 @@ XBYTE* DIODNSPROTOCOLCLIENT::GetBufferName(XBYTE* reader, XBYTE* buffer, int* co
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIODNSPROTOCOLCLIENT::Clean()

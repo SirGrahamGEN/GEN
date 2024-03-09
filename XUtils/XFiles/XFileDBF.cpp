@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_FIELD::XFILEDBF_FIELD()
 {
@@ -84,8 +82,6 @@ XFILEDBF_FIELD::XFILEDBF_FIELD()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_FIELD::~XFILEDBF_FIELD()
 {
@@ -99,8 +95,6 @@ XFILEDBF_FIELD::~XFILEDBF_FIELD()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDBF_FIELD::Clean()
@@ -125,8 +119,6 @@ void XFILEDBF_FIELD::Clean()
 * @ingroup    XUTILS
 *
 * @param[in]  XVECTOR<XFILEDBF_FIELD*>* :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_RECORD::XFILEDBF_RECORD(XVECTOR<XFILEDBF_FIELD*>* fields)
@@ -159,8 +151,6 @@ XFILEDBF_RECORD::XFILEDBF_RECORD(XVECTOR<XFILEDBF_FIELD*>* fields)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_RECORD::~XFILEDBF_RECORD()
@@ -503,8 +493,6 @@ int XFILEDBF_RECORD::GetOffset(int indexfield)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDBF_RECORD::Clean()
 {
@@ -525,8 +513,6 @@ void XFILEDBF_RECORD::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_HEADER::XFILEDBF_HEADER()
 {
@@ -541,8 +527,6 @@ XFILEDBF_HEADER::XFILEDBF_HEADER()
 * @ingroup    XUTILS
 *
 * @param[in]  XFILE* :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_HEADER::XFILEDBF_HEADER(XFILE* fileb)
@@ -559,8 +543,6 @@ XFILEDBF_HEADER::XFILEDBF_HEADER(XFILE* fileb)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_HEADER::~XFILEDBF_HEADER()
@@ -1112,8 +1094,6 @@ bool XFILEDBF_HEADER::DeleteAllFields()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDBF_HEADER::Clean()
 {
@@ -1134,8 +1114,6 @@ void XFILEDBF_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::XFILEDBF()
 {
@@ -1154,8 +1132,6 @@ XFILEDBF::XFILEDBF()
 * @ingroup    XUTILS
 *
 * @param[in]  XPATH& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::XFILEDBF(XPATH& xpath)
@@ -1180,8 +1156,6 @@ XFILEDBF::XFILEDBF(XPATH& xpath)
 *
 * @param[in]  XFILE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::XFILEDBF(XFILE* fileb)
 {
@@ -1201,8 +1175,6 @@ XFILEDBF::XFILEDBF(XFILE* fileb)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::~XFILEDBF()
@@ -1685,8 +1657,6 @@ bool XFILEDBF::CreateHeader()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEDBF::Clean()

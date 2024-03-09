@@ -64,8 +64,6 @@ DIOSTM32STREAMSPI*        DIOSTM32STREAMSPI::handles[DIOSTM32STREAMSPI_MAXHANDLE
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 {
@@ -80,8 +78,6 @@ DIOSTM32STREAMSPIPORT::DIOSTM32STREAMSPIPORT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPIPORT::~DIOSTM32STREAMSPIPORT()
@@ -115,8 +111,6 @@ XDWORD DIOSTM32STREAMSPIPORT::GetCounterRef()
 *
 * @param[in]  counterref :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::SetCounterRef(XDWORD counterref)
 {
@@ -149,8 +143,6 @@ SPI_HandleTypeDef* DIOSTM32STREAMSPIPORT::GetHandleSPI()
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 {
@@ -165,8 +157,6 @@ void DIOSTM32STREAMSPIPORT::SetHandleSPI(SPI_HandleTypeDef* hspi)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPIPORT::Clean()
@@ -189,8 +179,6 @@ void DIOSTM32STREAMSPIPORT::Clean()
 * @fn         DIOSTM32STREAMSPI::DIOSTM32STREAMSPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
@@ -228,8 +216,6 @@ DIOSTM32STREAMSPI::DIOSTM32STREAMSPI() : DIOSTREAMSPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
@@ -565,8 +551,6 @@ bool DIOSTM32STREAMSPI::CleanBuffers()
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
@@ -604,8 +588,6 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @param[in]  hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 {
@@ -622,8 +604,6 @@ void HAL_SPI_SlaveRxCpltCallback(SPI_HandleTypeDef* hspi)
 *
 * @param[in]  SPI_HandleTypeDef*hspi :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 {
@@ -639,8 +619,6 @@ void HAL_SPI_ErrorCallback(SPI_HandleTypeDef *hspi)
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPI::ThreadConnection(void* param)
@@ -732,8 +710,6 @@ void DIOSTM32STREAMSPI::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMSPI::Clean()

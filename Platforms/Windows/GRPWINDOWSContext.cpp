@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT() : GRPCONTEXT()
 {
@@ -77,8 +75,6 @@ GRPWINDOWSCONTEXT::GRPWINDOWSCONTEXT() : GRPCONTEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSCONTEXT::~GRPWINDOWSCONTEXT()
@@ -237,8 +233,6 @@ bool GRPWINDOWSCONTEXT::Destroy()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPWINDOWSCONTEXT::Clean()

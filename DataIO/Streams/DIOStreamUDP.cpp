@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
 {
@@ -86,8 +84,6 @@ DIOSTREAMUDPDATAGRAM::DIOSTREAMUDPDATAGRAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPDATAGRAM::~DIOSTREAMUDPDATAGRAM()
@@ -120,8 +116,6 @@ bool DIOSTREAMUDPDATAGRAM::IsToSend()
 * @ingroup    DATAIO
 *
 * @param[in]  istosend :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetIsToSend(bool istosend)
@@ -206,8 +200,6 @@ XWORD DIOSTREAMUDPDATAGRAM::GetPort()
 *
 * @param[in]  port :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetPorts(XWORD port)
 {
@@ -261,8 +253,6 @@ bool DIOSTREAMUDPDATAGRAM::SetData(XBYTE* data,XDWORD size)
 *
 * @param[in]  data :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 {
@@ -276,8 +266,6 @@ void DIOSTREAMUDPDATAGRAM::SetData(XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPDATAGRAM::Clean()
@@ -301,8 +289,6 @@ void DIOSTREAMUDPDATAGRAM::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
 {
@@ -319,8 +305,6 @@ DIOSTREAMUDP::DIOSTREAMUDP() : DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDP::~DIOSTREAMUDP()
@@ -859,8 +843,6 @@ int DIOSTREAMUDP::GetFirstDatagram(bool tosend)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDP::Clean()

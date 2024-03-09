@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDPCAP::DIOANDROIDPCAP() : DIOPCAP()
 {
@@ -82,8 +80,6 @@ DIOANDROIDPCAP::DIOANDROIDPCAP() : DIOPCAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDPCAP::~DIOANDROIDPCAP()
@@ -208,8 +204,6 @@ bool DIOANDROIDPCAP::CreateListNetInterfaces()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDPCAP::ThreadCapture(void* data)
 {
@@ -237,8 +231,6 @@ void DIOANDROIDPCAP::ThreadCapture(void* data)
 * @param[in]  struct pcap_pkthdr* header : 
 * @param[in]  u_char* data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
 {
@@ -255,8 +247,6 @@ void DIOANDROIDPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* head
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDPCAP::Clean()

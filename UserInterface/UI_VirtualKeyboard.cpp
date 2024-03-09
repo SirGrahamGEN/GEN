@@ -80,8 +80,6 @@
 * @brief      UI_VIRTUALKEYBOARD_KEYINFO
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()    
 {
@@ -96,8 +94,6 @@ UI_VIRTUALKEYBOARD_KEYINFO::UI_VIRTUALKEYBOARD_KEYINFO()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
 {
@@ -112,8 +108,6 @@ UI_VIRTUALKEYBOARD_KEYINFO::~UI_VIRTUALKEYBOARD_KEYINFO()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
 {
@@ -139,8 +133,6 @@ void UI_VIRTUALKEYBOARD_KEYINFO::Clean()
 * @brief      UI_VIRTUALKEYBOARD
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
 { 
@@ -154,8 +146,6 @@ UI_VIRTUALKEYBOARD::UI_VIRTUALKEYBOARD()
 * @brief      ~UI_VIRTUALKEYBOARD
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
 { 
@@ -911,8 +901,6 @@ bool UI_VIRTUALKEYBOARD::DeleteAllKeys()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_VIRTUALKEYBOARD::Clean()
 {

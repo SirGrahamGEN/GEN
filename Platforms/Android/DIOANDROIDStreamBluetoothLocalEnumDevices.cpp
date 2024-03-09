@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
 {
@@ -84,8 +82,6 @@ DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEV
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHLOCALENUMDEVICES()

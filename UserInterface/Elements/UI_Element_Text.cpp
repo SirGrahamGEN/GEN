@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()    
 { 
@@ -79,8 +77,6 @@ UI_ELEMENT_TEXT::UI_ELEMENT_TEXT()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_TEXT::~UI_ELEMENT_TEXT()    
 { 
@@ -110,8 +106,6 @@ XDWORD UI_ELEMENT_TEXT::GetSizeFont()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  sizefont : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXT::SetSizeFont(XDWORD sizefont)
@@ -173,8 +167,6 @@ XDWORD UI_ELEMENT_TEXT::GetMaxSizeText()
 *
 * @param[in]  maxsizetext : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
 {
@@ -189,8 +181,6 @@ void UI_ELEMENT_TEXT::SetMaxSizeText(XDWORD maxsizetext)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXT::Clean()
 {

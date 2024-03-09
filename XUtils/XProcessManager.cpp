@@ -64,8 +64,6 @@ XPROCESSMANAGER* XPROCESSMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XPROCESS::XPROCESS()
 {
@@ -80,8 +78,6 @@ XPROCESS::XPROCESS()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XPROCESS::~XPROCESS()
 {
@@ -113,8 +109,6 @@ XDWORD XPROCESS::GetID()
 * @ingroup    XUTILS
 *
 * @param[in]  ID : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::SetID(XDWORD ID)
@@ -192,8 +186,6 @@ void* XPROCESS::GetWindowHandle()
 * 
 * @param[in]  windowhandle : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::SetWindowHandle(void* windowhandle)
 {
@@ -254,8 +246,6 @@ int XPROCESS::GetWindowTitleHeight()
 * 
 * @param[in]  windowtitleheight : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::SetWindowTitleHeight(int windowtitleheight)
 {
@@ -285,8 +275,6 @@ int XPROCESS::GetWindowBorderWidth()
 * @ingroup    XUTILS
 * 
 * @param[in]  windowborderwidth : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::SetWindowBorderWidth(int windowborderwidth)
@@ -356,8 +344,6 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XPROCESS::Clean()
 {
@@ -378,8 +364,6 @@ void XPROCESS::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPROCESSMANAGER::XPROCESSMANAGER()
 {
@@ -393,8 +377,6 @@ XPROCESSMANAGER::XPROCESSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPROCESSMANAGER::~XPROCESSMANAGER()
@@ -723,8 +705,6 @@ XPROCESS* XPROCESSMANAGER::Application_GetProcessByID(XDWORD processID, XVECTOR<
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPROCESSMANAGER::Clean()

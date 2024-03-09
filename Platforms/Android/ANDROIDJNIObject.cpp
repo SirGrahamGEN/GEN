@@ -68,8 +68,6 @@
 * @param[in]   XSTRING constructorsignature : 
 * @param[in]   ... : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING ClassName, XSTRING constructorsignature, ...)
 {
@@ -106,8 +104,6 @@ ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING ClassName, XSTRING constructorsignatu
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDJNIOBJECT::~ANDROIDJNIOBJECT()
@@ -188,8 +184,6 @@ jstring ANDROIDJNIOBJECT::GetJString(const XSTRING& str)
 * 
 * @param[in]  Method : 
 * @param[in]  ... : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>

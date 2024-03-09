@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP3DCONTEXT::GRP3DCONTEXT()
 {
@@ -77,8 +75,6 @@ GRP3DCONTEXT::GRP3DCONTEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP3DCONTEXT::~GRP3DCONTEXT()
@@ -109,8 +105,6 @@ GRPSCREEN* GRP3DCONTEXT::GetScreen()
 * @ingroup    GRAPHIC
 *
 * @param[in]  screen : new screen class (handle)
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP3DCONTEXT::SetScreen(GRPSCREEN* screen)
@@ -204,8 +198,6 @@ bool GRP3DCONTEXT::IsMustRebuild()
 *
 * @param[in]  mustrebuild : true if Must Rebuild context
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP3DCONTEXT::SetMustRebuild(bool mustrebuild)
 {
@@ -236,8 +228,6 @@ XDWORD GRP3DCONTEXT::GetMultisampling()
 *
 * @param[in]  multisampling : multisamplig factor
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
 {
@@ -251,8 +241,6 @@ void GRP3DCONTEXT::SetMultiSampling(XDWORD multisampling)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP3DCONTEXT::Clean()

@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTIMER::XWINDOWSTIMER()
 {
@@ -90,8 +88,6 @@ XWINDOWSTIMER::XWINDOWSTIMER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSTIMER::~XWINDOWSTIMER()
@@ -136,8 +132,6 @@ XQWORD XWINDOWSTIMER::GetMicroSecondsTickCounter()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSTIMER::Clean()

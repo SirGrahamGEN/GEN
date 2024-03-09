@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
@@ -75,8 +73,6 @@ DIOSTREAMWIFIREMOTEENUMDEVICES::DIOSTREAMWIFIREMOTEENUMDEVICES() : DIOSTREAMENUM
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMWIFIREMOTEENUMDEVICES::~DIOSTREAMWIFIREMOTEENUMDEVICES()
@@ -155,8 +151,6 @@ bool DIOSTREAMWIFIREMOTEENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMWIFIREMOTEENUMDEVICES::Clean()

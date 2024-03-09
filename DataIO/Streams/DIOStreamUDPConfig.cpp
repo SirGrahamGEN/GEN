@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPCONFIG::DIOSTREAMUDPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTRING()
 {
@@ -77,8 +75,6 @@ DIOSTREAMUDPCONFIG::DIOSTREAMUDPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTR
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPCONFIG::~DIOSTREAMUDPCONFIG()
@@ -189,8 +185,6 @@ bool DIOSTREAMUDPCONFIG::IsUsedDatagrams()
 *
 * @param[in]  active :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::SetIsUsedDatagrams(bool active)
 {
@@ -221,8 +215,6 @@ bool DIOSTREAMUDPCONFIG::IsBroadcastModeActive()
 *
 * @param[in]  active :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 {
@@ -236,8 +228,6 @@ void DIOSTREAMUDPCONFIG::SetBroadcastModeActive(bool active)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUDPCONFIG::Clean()

@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI() : DIOSTREAMSPI()
 {
@@ -93,8 +91,6 @@ DIOLINUXSTREAMSPI::DIOLINUXSTREAMSPI() : DIOSTREAMSPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXSTREAMSPI::~DIOLINUXSTREAMSPI()
@@ -219,8 +215,6 @@ bool DIOLINUXSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XD
 * 
 * @param[in]  count : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMSPI::Sleep(int count)
 {
@@ -237,8 +231,6 @@ void DIOLINUXSTREAMSPI::Sleep(int count)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXSTREAMSPI::Clean()

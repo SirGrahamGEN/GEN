@@ -65,8 +65,6 @@
 * @param[in]   XCHAR* name :
 * @param[in]   SCRFUNCIONLIBRARY functionlibrary :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary)
 {
@@ -88,8 +86,6 @@ SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFU
 * @param[in]   XSTRING& name :
 * @param[in]   SCRFUNCIONLIBRARY functionlibrary :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary)
 {
@@ -107,8 +103,6 @@ SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XSTRING& name, SCR
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_FUNCTION::~SCRIPT_LIB_FUNCTION()
@@ -205,8 +199,6 @@ bool SCRIPT_LIB_FUNCTION::SetFunctionLibrary(SCRFUNCIONLIBRARY functionlibrary)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_FUNCTION::Clean()

@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICESPI::DIODEVICESPI()
 {
@@ -85,8 +83,6 @@ DIODEVICESPI::DIODEVICESPI()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICESPI::~DIODEVICESPI()
 {
@@ -272,8 +268,6 @@ bool DIODEVICESPI::End()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIODEVICESPI::Clean()
 {

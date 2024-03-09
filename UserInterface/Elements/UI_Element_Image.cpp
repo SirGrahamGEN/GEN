@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()    
 { 
@@ -81,8 +79,6 @@ UI_ELEMENT_IMAGE::UI_ELEMENT_IMAGE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_IMAGE::~UI_ELEMENT_IMAGE()    
 { 
@@ -149,8 +145,6 @@ XBYTE UI_ELEMENT_IMAGE::GetAlpha()
 *
 * @param[in]  alpha : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
 {
@@ -165,8 +159,6 @@ void UI_ELEMENT_IMAGE::SetAlpha(XBYTE alpha)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_IMAGE::Clean()
 {

@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG() : DIOSTREAMCONFIG()
 {
@@ -81,8 +79,6 @@ DIOSTREAMI2CCONFIG::DIOSTREAMI2CCONFIG() : DIOSTREAMCONFIG()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMI2CCONFIG::~DIOSTREAMI2CCONFIG()
 {
@@ -112,8 +108,6 @@ int DIOSTREAMI2CCONFIG::GetPort()
 * @ingroup    DATAIO
 * 
 * @param[in]  port : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetPort(int port)                       
@@ -190,8 +184,6 @@ int DIOSTREAMI2CCONFIG::GetLocalAddress()
 *
 * @param[in]  localaddress : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetLocalAddress(int localaddress)
 { 
@@ -221,8 +213,6 @@ int DIOSTREAMI2CCONFIG::GetRemoteAddress()
 * @ingroup    DATAIO
 *
 * @param[in]  remoteaddress : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetRemoteAddress(int remoteaddress)
@@ -254,8 +244,6 @@ DIOSTREAMI2CCONFIG_ADDRESSSIZE DIOSTREAMI2CCONFIG::GetAddressSize()
 *
 * @param[in]  addresssize : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetAddressSize(DIOSTREAMI2CCONFIG_ADDRESSSIZE addresssize)
 {
@@ -286,8 +274,6 @@ bool DIOSTREAMI2CCONFIG::IsStretchActive()
 *
 * @param[in]  isstretchactive : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 { 
@@ -302,8 +288,6 @@ void DIOSTREAMI2CCONFIG::SetIsStretchActive(bool isstretchactive)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMI2CCONFIG::Clean()
 {

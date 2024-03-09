@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALBUFFER::SNDOPENALBUFFER()
 {
@@ -80,8 +78,6 @@ SNDOPENALBUFFER::SNDOPENALBUFFER()
 * @note       VIRTUAL
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALBUFFER::~SNDOPENALBUFFER()
 {
@@ -94,8 +90,6 @@ SNDOPENALBUFFER::~SNDOPENALBUFFER()
 * @fn         void SNDOPENALBUFFER::Create()
 * @brief      Create
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALBUFFER::Create()
@@ -111,8 +105,6 @@ void SNDOPENALBUFFER::Create()
 * @fn         void SNDOPENALBUFFER::Delete()
 * @brief      Delete
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALBUFFER::Delete()
@@ -240,8 +232,6 @@ bool SNDOPENALBUFFER::Assign(XWORD channels, size_t size, XDWORD samplerate)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALBUFFER::Clean()

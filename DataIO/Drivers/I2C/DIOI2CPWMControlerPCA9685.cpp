@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 {
@@ -85,8 +83,6 @@ DIOI2CPWMCONTROLERPCA9685::DIOI2CPWMCONTROLERPCA9685(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CPWMCONTROLERPCA9685::~DIOI2CPWMCONTROLERPCA9685()
@@ -305,8 +301,6 @@ bool DIOI2CPWMCONTROLERPCA9685::SendCommand(XBYTE cmd, XBYTE value, bool wait)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CPWMCONTROLERPCA9685::Clean()

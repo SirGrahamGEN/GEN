@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 {
@@ -77,8 +75,6 @@ DIOWEBSERVER_PLUGIN::DIOWEBSERVER_PLUGIN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_PLUGIN::~DIOWEBSERVER_PLUGIN()
@@ -288,8 +284,6 @@ bool DIOWEBSERVER_PLUGIN::SeparedResult(XSTRING& result, XSTRING& head, XSTRING&
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_PLUGIN::Clean()

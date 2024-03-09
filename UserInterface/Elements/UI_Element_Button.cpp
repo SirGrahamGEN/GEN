@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_BUTTON::UI_ELEMENT_BUTTON()    
 { 
@@ -81,8 +79,6 @@ UI_ELEMENT_BUTTON::UI_ELEMENT_BUTTON()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_BUTTON::~UI_ELEMENT_BUTTON()    
 {   
@@ -97,8 +93,6 @@ UI_ELEMENT_BUTTON::~UI_ELEMENT_BUTTON()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_BUTTON::Clean()
 {  

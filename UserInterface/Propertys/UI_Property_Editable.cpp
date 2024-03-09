@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_EDITABLE::UI_PROPERTY_EDITABLE()    
 { 
@@ -78,8 +76,6 @@ UI_PROPERTY_EDITABLE::UI_PROPERTY_EDITABLE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_EDITABLE::~UI_PROPERTY_EDITABLE()    
 {   
@@ -109,8 +105,6 @@ XDWORD UI_PROPERTY_EDITABLE::Cursor_GetPosition()
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  cursor_position : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_EDITABLE::Cursor_SetPosition(XDWORD cursor_position)
@@ -142,8 +136,6 @@ XDWORD UI_PROPERTY_EDITABLE::GetMaxSize()
 * 
 * @param[in]  maxsize : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_EDITABLE::SetMaxSize(XDWORD maxsize)
 {
@@ -158,8 +150,6 @@ void UI_PROPERTY_EDITABLE::SetMaxSize(XDWORD maxsize)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_EDITABLE::Clean()
 {

@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD::DIOATCMD()
 {
@@ -86,8 +84,6 @@ DIOATCMD::DIOATCMD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMD::~DIOATCMD()
@@ -186,8 +182,6 @@ bool DIOATCMD::IsUnSolicited()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMD::Clean()
 {
@@ -203,8 +197,6 @@ void DIOATCMD::Clean()
 * @ingroup    DATAIO
 *
 * @param[in]  DIOSTREAM* :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
@@ -233,8 +225,6 @@ DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDS::~DIOATCMDS()
@@ -575,8 +565,6 @@ DIOATCMD_ERROR DIOATCMDS::SetBaudRate(int baudrate, int timeout)
 * @fn         void DIOATCMDS::End()
 * @brief      End
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::End()
@@ -1620,8 +1608,6 @@ DIOATCMD_ERROR DIOATCMDS::MakeCommandWithSimpleAnswer(XDWORD type, XSTRING& answ
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::ThreadConnection(void* param)
 {
@@ -1759,8 +1745,6 @@ bool DIOATCMDS::CheckUnsolicitedAnswer(XSTRING& answer)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOATCMDS::Clean()

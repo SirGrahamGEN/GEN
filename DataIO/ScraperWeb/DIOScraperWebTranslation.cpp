@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 {
@@ -80,8 +78,6 @@ DIOTRANSLATION_RESULT::DIOTRANSLATION_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOTRANSLATION_RESULT::~DIOTRANSLATION_RESULT()
@@ -180,8 +176,6 @@ XSTRING* DIOTRANSLATION_RESULT::GetTranslation()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOTRANSLATION_RESULT::Clean()
 {
@@ -202,8 +196,6 @@ void DIOTRANSLATION_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 {
@@ -217,8 +209,6 @@ DIOSCRAPERWEBTRANSLATION::DIOSCRAPERWEBTRANSLATION() : DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBTRANSLATION::~DIOSCRAPERWEBTRANSLATION()
@@ -581,8 +571,6 @@ bool DIOSCRAPERWEBTRANSLATION::GoogleLanguageCode(XLANGUAGE_CODE languagecode, X
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBTRANSLATION::Clean()

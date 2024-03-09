@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()    
 { 
@@ -86,8 +84,6 @@ UI_ELEMENT_PROGRESSBAR::UI_ELEMENT_PROGRESSBAR()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_PROGRESSBAR::~UI_ELEMENT_PROGRESSBAR()    
 { 
@@ -123,8 +119,6 @@ float UI_ELEMENT_PROGRESSBAR::GetLevel()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  level : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_PROGRESSBAR::SetLevel(float level)
@@ -174,8 +168,6 @@ UI_ELEMENT* UI_ELEMENT_PROGRESSBAR::GetProgressRect()
 *
 * @param[in]  progressrect : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_PROGRESSBAR::SetProgressRect(UI_ELEMENT* progressrect)
 {
@@ -208,8 +200,6 @@ bool UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Is()
 * @param[in]  sizesegment : 
 * @param[in]  stepsegment : 
 * @param[in]  timestep : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_Set(bool active, XDWORD sizesegment, XDWORD stepsegment, XDWORD timestep)
@@ -274,8 +264,6 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetNSteps()
 *
 * @param[in]  nsteps : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_PROGRESSBAR::ContinuousCycle_SetNSteps(XDWORD nsteps)
 {
@@ -320,8 +308,6 @@ XDWORD UI_ELEMENT_PROGRESSBAR::ContinuousCycle_GetTimeStep()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_PROGRESSBAR::Clean()
 {  

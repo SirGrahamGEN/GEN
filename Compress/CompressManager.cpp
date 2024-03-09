@@ -67,8 +67,6 @@ COMPRESSMANAGER* COMPRESSMANAGER::instance=NULL;
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSMANAGER::COMPRESSMANAGER()
 {
@@ -82,8 +80,6 @@ COMPRESSMANAGER::COMPRESSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSMANAGER::~COMPRESSMANAGER()
@@ -145,8 +141,6 @@ COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
 * @brief      DeleteInstance
 * @ingroup    COMPRESS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESSMANAGER::DeleteInstance()
 {
@@ -160,8 +154,6 @@ void COMPRESSMANAGER::DeleteInstance()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESSMANAGER::Clean()

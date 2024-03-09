@@ -84,8 +84,6 @@ DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG(): DIOSTREAMCONFIG(), DIOSTREAMCONFI
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPCONFIG::~DIOSTREAMTCPIPCONFIG()
 {
@@ -182,8 +180,6 @@ int DIOSTREAMTCPIPCONFIG::GetCounterMultiServer()
 *
 * @param[in]  countermultiserver :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::SetCounterMultiServer(int countermultiserver)
 {
@@ -229,8 +225,6 @@ int DIOSTREAMTCPIPCONFIG::GetHandleMultiServer()
 *
 * @param[in]  handlemultiserver :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::SetHandleMultiServer(int handlemultiserver)
 {
@@ -244,8 +238,6 @@ void DIOSTREAMTCPIPCONFIG::SetHandleMultiServer(int handlemultiserver)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMTCPIPCONFIG::Clean()

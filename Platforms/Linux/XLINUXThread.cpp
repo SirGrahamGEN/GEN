@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXMUTEX::XLINUXMUTEX()
 {
@@ -91,8 +89,6 @@ XLINUXMUTEX::XLINUXMUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXMUTEX::~XLINUXMUTEX()
@@ -155,8 +151,6 @@ bool XLINUXMUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXMUTEX::Clean()
 {
@@ -181,8 +175,6 @@ void XLINUXMUTEX::Clean()
 * @param[in]  function : callbak fuction
 * @param[in]  param : param of the callback
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param): XTHREAD(groupID, ID, function, param)
 {
@@ -196,8 +188,6 @@ XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXTHREAD::~XLINUXTHREAD()
@@ -400,8 +390,6 @@ void* XLINUXTHREAD::Callback(void* thread)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXTHREAD::Clean()

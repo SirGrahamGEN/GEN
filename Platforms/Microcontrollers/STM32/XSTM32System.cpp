@@ -55,8 +55,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32SYSTEM::XSTM32SYSTEM() : XSYSTEM()
 {
@@ -71,8 +69,6 @@ XSTM32SYSTEM::XSTM32SYSTEM() : XSYSTEM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32SYSTEM::~XSTM32SYSTEM()
@@ -220,8 +216,6 @@ bool XSTM32SYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32SYSTEM::Clean()

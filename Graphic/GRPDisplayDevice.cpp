@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDISPLAYDEVICE::GRPDISPLAYDEVICE()
 {
@@ -79,8 +77,6 @@ GRPDISPLAYDEVICE::GRPDISPLAYDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDISPLAYDEVICE::~GRPDISPLAYDEVICE()
@@ -259,8 +255,6 @@ void* GRPDISPLAYDEVICE::GetHandle()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPDISPLAYDEVICE::Clean()

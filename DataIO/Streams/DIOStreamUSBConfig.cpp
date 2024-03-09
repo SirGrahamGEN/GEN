@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBCONFIG::DIOSTREAMUSBCONFIG() : DIOSTREAMCONFIG()
 {
@@ -79,8 +77,6 @@ DIOSTREAMUSBCONFIG::DIOSTREAMUSBCONFIG() : DIOSTREAMCONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUSBCONFIG::~DIOSTREAMUSBCONFIG()
@@ -127,8 +123,6 @@ XDWORD DIOSTREAMUSBCONFIG::GetVendorID()
 *
 * @param[in]  vendorID :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetVendorID(XDWORD vendorID)
 {
@@ -159,8 +153,6 @@ XDWORD DIOSTREAMUSBCONFIG::GetProductID()
 *
 * @param[in]  productID :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetProductID(XDWORD productID)
 {
@@ -190,8 +182,6 @@ DIOSTREAMDEVICEUSBCLASS DIOSTREAMUSBCONFIG::GetClass()
 * @ingroup    DATAIO
 *
 * @param[in]  classdev :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::SetClass(DIOSTREAMDEVICEUSBCLASS classdev)
@@ -353,8 +343,6 @@ bool DIOSTREAMUSBCONFIG::SetFromString(XSTRING& string)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUSBCONFIG::Clean()

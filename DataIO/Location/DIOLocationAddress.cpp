@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    LOCATION
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
 {
@@ -75,8 +73,6 @@ DIOLOCATIONADDRESS::DIOLOCATIONADDRESS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    LOCATION
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLOCATIONADDRESS::~DIOLOCATIONADDRESS()
@@ -168,8 +164,6 @@ XDWORD DIOLOCATIONADDRESS::GetPostalCode()
 * 
 * @param[in]  postalcode : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 {
@@ -183,8 +177,6 @@ void DIOLOCATIONADDRESS::SetPostalCode(XDWORD postalcode)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    LOCATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLOCATIONADDRESS::Clean()

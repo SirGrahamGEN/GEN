@@ -85,8 +85,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 {
@@ -100,8 +98,6 @@ DIOWEBSERVER_HEADER::DIOWEBSERVER_HEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_HEADER::~DIOWEBSERVER_HEADER()
@@ -522,8 +518,6 @@ bool DIOWEBSERVER_HEADER::GetDescriptionResult(DIOWEBHEADER_RESULT result, XSTRI
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_HEADER::Clean()
 {
@@ -543,8 +537,6 @@ void DIOWEBSERVER_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 {
@@ -559,8 +551,6 @@ DIOWEBSOCKET_HEADER::DIOWEBSOCKET_HEADER()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 {
@@ -574,8 +564,6 @@ DIOWEBSOCKET_HEADER::~DIOWEBSOCKET_HEADER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSOCKET_HEADER::Clean()
@@ -596,8 +584,6 @@ void DIOWEBSOCKET_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 {
@@ -611,8 +597,6 @@ DIOWEBSERVER_AUTHENTICATION::DIOWEBSERVER_AUTHENTICATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_AUTHENTICATION::~DIOWEBSERVER_AUTHENTICATION()
@@ -717,8 +701,6 @@ bool DIOWEBSERVER_AUTHENTICATION::Set(XSTRING& guest, XSTRING& login, XSTRING& p
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_AUTHENTICATION::Clean()
 {
@@ -738,8 +720,6 @@ void DIOWEBSERVER_AUTHENTICATION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
 {
@@ -754,8 +734,6 @@ DIOWEBSERVER_REQUEST::DIOWEBSERVER_REQUEST()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_REQUEST::~DIOWEBSERVER_REQUEST()
@@ -789,8 +767,6 @@ DIOWEBSERVER_TYPE DIOWEBSERVER_REQUEST::GetType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetType(DIOWEBSERVER_TYPE type)
 {
@@ -820,8 +796,6 @@ DIOWEBHEADER_METHOD DIOWEBSERVER_REQUEST::GetMethod()
 * @ingroup    DATAIO
 *
 * @param[in]  method :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetMethod(DIOWEBHEADER_METHOD method)
@@ -898,8 +872,6 @@ int DIOWEBSERVER_REQUEST::GetSize()
 *
 * @param[in]  size :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetSize(XDWORD size)
 {
@@ -929,8 +901,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetIfNoneMatch()
 * @ingroup    DATAIO
 *
 * @param[in]  ifnonematch :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetIfNoneMatch(XSTRING& ifnonematch)
@@ -1015,8 +985,6 @@ XSTRING* DIOWEBSERVER_REQUEST::GetAcceptedAllowHeaders()
 * @ingroup    DATAIO
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::ProcessAcceptedEncodingFlags(XSTRING& string)
@@ -1191,8 +1159,6 @@ bool DIOWEBSERVER_REQUEST::GetLoginPassword(XSTRING& login, XSTRING& password)
 *
 * @param[in]  loginpassword :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::SetLoginPassword(XSTRING& loginpassword)
 {
@@ -1311,8 +1277,6 @@ int DIOWEBSERVER_REQUEST::WebSocket_GetVersion()
 *
 * @param[in]  version :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 {
@@ -1326,8 +1290,6 @@ void DIOWEBSERVER_REQUEST::WebSocket_SetVersion(int version)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_REQUEST::Clean()
@@ -1381,8 +1343,6 @@ void DIOWEBSERVER_REQUEST::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 {
@@ -1396,8 +1356,6 @@ DIOWEBSERVER_CONNECTION::DIOWEBSERVER_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_CONNECTION::~DIOWEBSERVER_CONNECTION()
@@ -1560,8 +1518,6 @@ DIOWEBSERVER_CONNECTION_MODE DIOWEBSERVER_CONNECTION::GetMode()
 * @ingroup    DATAIO
 *
 * @param[in]  mode :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::SetMode(DIOWEBSERVER_CONNECTION_MODE mode)
@@ -2560,8 +2516,6 @@ bool DIOWEBSERVER_CONNECTION::WebSocket_SendEvent_Disconnected()
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 {
@@ -2657,8 +2611,6 @@ void DIOWEBSERVER_CONNECTION::ThreadRunFunction(void* param)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_CONNECTION::Clean()
 {
@@ -2692,8 +2644,6 @@ void DIOWEBSERVER_CONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER::DIOWEBSERVER()
 {
@@ -2707,8 +2657,6 @@ DIOWEBSERVER::DIOWEBSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER::~DIOWEBSERVER()
@@ -3162,8 +3110,6 @@ bool DIOWEBSERVER::DeleteAllPlayablePageExtensions()
 * @ingroup    DATAIO
 *
 * @param[in]  flag :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::AddIncludedEncodingFlag(DIOWEBSERVER_ENCODINGFLAGS flag)
@@ -3872,8 +3818,6 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 *
 * @param[in]  event :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 {
@@ -3932,8 +3876,6 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
 *
 * @param[in]  xevent :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 {
@@ -3960,8 +3902,6 @@ void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::ThreadRunFunction(void* param)
 {
@@ -3983,8 +3923,6 @@ void DIOWEBSERVER::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER::Clean()

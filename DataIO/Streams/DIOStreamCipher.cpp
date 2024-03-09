@@ -72,8 +72,6 @@
 * @param[in]  config :
 * @param[in]  cipher :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher): DIOSTREAM()
 {
@@ -108,8 +106,6 @@ DIOSTREAMCIPHER::DIOSTREAMCIPHER(DIOSTREAMCONFIG* config, CIPHER* cipher): DIOST
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCIPHER::~DIOSTREAMCIPHER()
@@ -314,8 +310,6 @@ CIPHER* DIOSTREAMCIPHER::GetCipher()
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
 {
@@ -409,8 +403,6 @@ void DIOSTREAMCIPHER::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCIPHER::Clean()

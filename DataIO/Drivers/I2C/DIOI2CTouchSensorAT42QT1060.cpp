@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 {
@@ -88,8 +86,6 @@ DIOI2CTOUCHSENSORAT42QT1060::DIOI2CTOUCHSENSORAT42QT1060() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTOUCHSENSORAT42QT1060::~DIOI2CTOUCHSENSORAT42QT1060()
@@ -184,8 +180,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::IsNecessaryUpdate()
 * @ingroup    DATAIO
 *
 * @param[in]  isnecessaryupdate : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTOUCHSENSORAT42QT1060::SetIsNecessaryUpdate(bool isnecessaryupdate)
@@ -428,8 +422,6 @@ bool DIOI2CTOUCHSENSORAT42QT1060::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 *
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 {
@@ -444,8 +436,6 @@ void DIOI2CTOUCHSENSORAT42QT1060::Handler_Interrupt(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTOUCHSENSORAT42QT1060::Clean()

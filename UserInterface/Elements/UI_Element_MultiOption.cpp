@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MULTIOPTION::UI_ELEMENT_MULTIOPTION()    
 { 
@@ -80,8 +78,6 @@ UI_ELEMENT_MULTIOPTION::UI_ELEMENT_MULTIOPTION()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MULTIOPTION::~UI_ELEMENT_MULTIOPTION()    
 { 
@@ -96,8 +92,6 @@ UI_ELEMENT_MULTIOPTION::~UI_ELEMENT_MULTIOPTION()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_MULTIOPTION::Clean()
 {

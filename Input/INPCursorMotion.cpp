@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 {
@@ -85,8 +83,6 @@ INPCURSORMOTIONPOINT::INPCURSORMOTIONPOINT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTIONPOINT::~INPCURSORMOTIONPOINT()
@@ -150,8 +146,6 @@ float INPCURSORMOTIONPOINT::GetZ()
 * @param[in]  y : new y position
 * @param[in]  z : new z position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 {
@@ -169,8 +163,6 @@ void INPCURSORMOTIONPOINT::Set(float x, float y, float z)
 *
 * @param[in]  x : new x position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetX(float x)
 {
@@ -185,8 +177,6 @@ void INPCURSORMOTIONPOINT::SetX(float x)
 * @ingroup    INPUT
 *
 * @param[in]  y : new y position
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetY(float y)
@@ -203,8 +193,6 @@ void INPCURSORMOTIONPOINT::SetY(float y)
 *
 * @param[in]  z : new z position
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::SetZ(float z)
 {
@@ -218,8 +206,6 @@ void INPCURSORMOTIONPOINT::SetZ(float z)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTIONPOINT::Clean()
@@ -242,8 +228,6 @@ void INPCURSORMOTIONPOINT::Clean()
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION::INPCURSORMOTION()
 {
@@ -257,8 +241,6 @@ INPCURSORMOTION::INPCURSORMOTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCURSORMOTION::~INPCURSORMOTION()
@@ -1064,8 +1046,6 @@ int INPCURSORMOTION::Round(double a)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCURSORMOTION::Clean()

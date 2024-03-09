@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
 {
@@ -79,8 +77,6 @@ DIOSTREAMUART::DIOSTREAMUART(): DIOSTREAM()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUART::~DIOSTREAMUART()
@@ -341,8 +337,6 @@ bool DIOSTREAMUART::CleanBuffers()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMUART::Clean()

@@ -68,8 +68,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER*     XWINDOWSVIRTUALDESKTOPMANAGER::instance = NUL
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 {
@@ -83,8 +81,6 @@ XWINDOWSVIRTUALDESKTOP::XWINDOWSVIRTUALDESKTOP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOP::~XWINDOWSVIRTUALDESKTOP()
@@ -114,8 +110,6 @@ XSTRING* XWINDOWSVIRTUALDESKTOP::GetName()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSVIRTUALDESKTOP::Clean()
@@ -530,8 +524,6 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::IsUserInteractive()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 {
@@ -549,8 +541,6 @@ XWINDOWSVIRTUALDESKTOPMANAGER::XWINDOWSVIRTUALDESKTOPMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSVIRTUALDESKTOPMANAGER::~XWINDOWSVIRTUALDESKTOPMANAGER()
@@ -644,8 +634,6 @@ BOOL __stdcall XWINDOWSVIRTUALDESKTOPMANAGER::EnumDesktopProc(LPTSTR namedesktop
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSVIRTUALDESKTOPMANAGER::Clean()

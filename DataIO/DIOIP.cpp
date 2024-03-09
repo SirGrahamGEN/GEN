@@ -84,8 +84,6 @@ DIOIPADDRESS:: DIOIPADDRESS()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIPADDRESS::~DIOIPADDRESS()
 {
@@ -382,8 +380,6 @@ bool DIOIPADDRESS::Compare(DIOIP& otheraddress)
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIPADDRESS::Clean()
 {
@@ -403,8 +399,6 @@ void DIOIPADDRESS::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIP::DIOIP()
 {
@@ -418,8 +412,6 @@ DIOIP::DIOIP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIP::~DIOIP()
@@ -449,8 +441,6 @@ DIOIPADDRESS* DIOIP::GetMask()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIP::Clean()

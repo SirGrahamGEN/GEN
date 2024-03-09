@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315(): DIODEVICEI2C()
 {
@@ -84,8 +82,6 @@ DIOI2CTEMHUMSENSORAM2315::DIOI2CTEMHUMSENSORAM2315(): DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CTEMHUMSENSORAM2315::~DIOI2CTEMHUMSENSORAM2315()
@@ -234,8 +230,6 @@ bool DIOI2CTEMHUMSENSORAM2315::CalculeCRC(XBYTE* buffer, XWORD& CRC)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CTEMHUMSENSORAM2315::Clean()

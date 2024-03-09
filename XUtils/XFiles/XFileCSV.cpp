@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV_RECORD::XFILECSV_RECORD()
 {
@@ -84,8 +82,6 @@ XFILECSV_RECORD::XFILECSV_RECORD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV_RECORD::~XFILECSV_RECORD()
@@ -298,8 +294,6 @@ bool XFILECSV_RECORD::DeleteAllElements()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECSV_RECORD::Clean()
 {
@@ -319,8 +313,6 @@ void XFILECSV_RECORD::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::XFILECSV(): XFILETXT()
 {
@@ -335,8 +327,6 @@ XFILECSV::XFILECSV(): XFILETXT()
 * @ingroup    XUTILS
 *
 * @param[in]  XPATH& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
@@ -355,8 +345,6 @@ XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
 *
 * @param[in]  XFILE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::XFILECSV(XFILE* file) : XFILETXT()
 {
@@ -372,8 +360,6 @@ XFILECSV::XFILECSV(XFILE* file) : XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::~XFILECSV()
@@ -833,8 +819,6 @@ bool XFILECSV::CreateLineOfRecord(XFILECSV_RECORD* record,XSTRING& line)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECSV::Clean()

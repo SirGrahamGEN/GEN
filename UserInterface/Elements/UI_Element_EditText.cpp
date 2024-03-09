@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()    
 { 
@@ -85,8 +83,6 @@ UI_ELEMENT_EDITTEXT::UI_ELEMENT_EDITTEXT()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_EDITTEXT::~UI_ELEMENT_EDITTEXT()    
 { 
@@ -172,8 +168,6 @@ XDWORD UI_ELEMENT_EDITTEXT::Cursor_GetTimeBlink()
 *
 * @param[in]  timeblink : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_EDITTEXT::Cursor_SetTimeBlink(XDWORD timeblink)
 {
@@ -202,8 +196,6 @@ bool UI_ELEMENT_EDITTEXT::Cursor_GetStateBlink()
 * @brief      Cursor_ChangeStateBlink
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void  UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
 {
@@ -218,8 +210,6 @@ void  UI_ELEMENT_EDITTEXT::Cursor_ChangeStateBlink()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_EDITTEXT::Clean()
 {

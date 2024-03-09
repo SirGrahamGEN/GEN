@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_TEXT::UI_TEXT()    
 { 
@@ -78,8 +76,6 @@ UI_TEXT::UI_TEXT()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_TEXT::~UI_TEXT()    
 { 
@@ -124,8 +120,6 @@ XSTRING* UI_TEXT::GetText()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_TEXT::Clean()
 {

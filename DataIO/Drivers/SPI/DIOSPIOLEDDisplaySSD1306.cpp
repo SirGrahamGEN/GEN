@@ -71,8 +71,6 @@
 * @param[in]  width: 
 * @param[in]  height: 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 {
@@ -91,8 +89,6 @@ DIOSPIOLEDDISPLAYSSD1306::DIOSPIOLEDDISPLAYSSD1306(XDWORD width, XDWORD height)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIOLEDDISPLAYSSD1306::~DIOSPIOLEDDISPLAYSSD1306()
@@ -403,8 +399,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Activate(bool active)
 *
 * @param[in]  contrast :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1306::SetContrast(XBYTE contrast)
 {
@@ -572,8 +566,6 @@ bool DIOSPIOLEDDISPLAYSSD1306::Send(XBYTE* data, int size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIOLEDDISPLAYSSD1306::Clean()

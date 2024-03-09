@@ -63,8 +63,6 @@ DIOESP32STREAMI2C*        DIOESP32STREAMI2C::handles[DIOESP32STREAMI2C_MAXHANDLE
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMI2CPORT::DIOESP32STREAMI2CPORT()
 {
@@ -79,8 +77,6 @@ DIOESP32STREAMI2CPORT::DIOESP32STREAMI2CPORT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMI2CPORT::~DIOESP32STREAMI2CPORT()
@@ -114,8 +110,6 @@ XDWORD DIOESP32STREAMI2CPORT::GetCounterRef()
 *
 * @param[in]  counterref :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMI2CPORT::SetCounterRef(XDWORD counterref)
 {
@@ -148,8 +142,6 @@ I2C_HandleTypeDef* DIOESP32STREAMI2CPORT::GetHandleI2C()
 *
 * @param[in]  hi2c :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 {
@@ -164,8 +156,6 @@ void DIOESP32STREAMI2CPORT::SetHandleI2C(I2C_HandleTypeDef* hi2c)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMI2CPORT::Clean()
@@ -187,8 +177,6 @@ void DIOESP32STREAMI2CPORT::Clean()
 * @fn         DIOESP32STREAMI2C::DIOESP32STREAMI2C()
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMI2C::DIOESP32STREAMI2C() : DIOSTREAMI2C()
@@ -226,8 +214,6 @@ DIOESP32STREAMI2C::DIOESP32STREAMI2C() : DIOSTREAMI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMI2C::~DIOESP32STREAMI2C()
@@ -623,8 +609,6 @@ bool DIOESP32STREAMI2C::CleanBuffers()
 *
 * @param[in]  hi2c :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 {
@@ -676,8 +660,6 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @param[in]  hi2c :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 {
@@ -694,8 +676,6 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef* hi2c)
 *
 * @param[in]  I2C_HandleTypeDef*hi2c :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 {
@@ -711,8 +691,6 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMI2C::ThreadConnection(void* param)
@@ -804,8 +782,6 @@ void DIOESP32STREAMI2C::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMI2C::Clean()

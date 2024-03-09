@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 {
@@ -78,8 +76,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(): XSTRING()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::~DIOEMAILADDRESS()
@@ -96,8 +92,6 @@ DIOEMAILADDRESS::~DIOEMAILADDRESS()
 *
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 {
@@ -113,8 +107,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 *
 * @param[in]  const :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 {
@@ -129,8 +121,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 * @ingroup    DATAIO
 *
 * @param[in]  const :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
@@ -148,8 +138,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 * @param[in]  const :
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, size)
 {
@@ -164,8 +152,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, siz
 * @ingroup    DATAIO
 *
 * @param[in]  DIOEMAILADDRESS& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
@@ -182,8 +168,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 *
 * @param[in]  XSTRING& :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 {
@@ -198,8 +182,6 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD* :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)
@@ -294,8 +276,6 @@ bool DIOEMAILADDRESS::IsValid()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOEMAILADDRESS::Clean()

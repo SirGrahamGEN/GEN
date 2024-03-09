@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    VIDEO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 {
@@ -86,8 +84,6 @@ GRPVIDEOFILE_PROPERTYS::GRPVIDEOFILE_PROPERTYS()
 * @note       VIRTUAL
 * @ingroup    VIDEO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 {
@@ -102,8 +98,6 @@ GRPVIDEOFILE_PROPERTYS::~GRPVIDEOFILE_PROPERTYS()
 * @note       INTERNAL
 * @ingroup    VIDEO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILE_PROPERTYS::Clean()
 {
@@ -126,8 +120,6 @@ void GRPVIDEOFILE_PROPERTYS::Clean()
 * @brief      Constructor
 * @ingroup    VIDEO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE::GRPVIDEOFILE()
 {
@@ -141,8 +133,6 @@ GRPVIDEOFILE::GRPVIDEOFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    VIDEO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILE::~GRPVIDEOFILE()
@@ -258,8 +248,6 @@ bool GRPVIDEOFILE::Close()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    VIDEO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILE::Clean()

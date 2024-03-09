@@ -70,8 +70,6 @@
 *
 * @param[in]  DB_SQL_DATABASE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 {
@@ -87,8 +85,6 @@ DB_SQL_QUERY::DB_SQL_QUERY(DB_SQL_DATABASE* database)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_QUERY::~DB_SQL_QUERY()
@@ -333,8 +329,6 @@ bool DB_SQL_QUERY::Bind(XDWORD id, XDATETIME& datetime)
 * @brief      ClearBuffers
 * @ingroup    DATABASES
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_QUERY::ClearBuffers()
 {
@@ -375,8 +369,6 @@ bool DB_SQL_QUERY::UseCursor(XCHAR* cursorname)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_QUERY::Clean()

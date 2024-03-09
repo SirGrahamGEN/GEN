@@ -86,8 +86,6 @@ METHODDEF(void) GRPBITMAPFILEJPG_ErrorExit(j_common_ptr info)
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 {
@@ -104,8 +102,6 @@ GRPBITMAPFILEJPG::GRPBITMAPFILEJPG(): GRPBITMAPFILEBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEJPG::~GRPBITMAPFILEJPG()
@@ -645,8 +641,6 @@ bool GRPBITMAPFILEJPG::EncodeToFile(int width, int height,  XBYTE* buffer, int q
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEJPG::Clean()

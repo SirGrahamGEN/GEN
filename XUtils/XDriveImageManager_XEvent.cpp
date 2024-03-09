@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ XDRIVEIMAGEMANAGER_XEVENT::XDRIVEIMAGEMANAGER_XEVENT(XSUBJECT* subject, XDWORD t
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XDRIVEIMAGEMANAGER_XEVENT::~XDRIVEIMAGEMANAGER_XEVENT()
@@ -112,8 +108,6 @@ XDRIVEIMAGEMANAGER_DRIVE* XDRIVEIMAGEMANAGER_XEVENT::GetDrive()
 *
 * @param[in]  drive :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetDrive(XDRIVEIMAGEMANAGER_DRIVE* drive)
 {
@@ -143,8 +137,6 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetIndexSector()
 * @ingroup    XUTILS
 *
 * @param[in]  indexsector :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetIndexSector(XQWORD indexsector)
@@ -176,8 +168,6 @@ XQWORD XDRIVEIMAGEMANAGER_XEVENT::GetNumberSectorsInOperation()
 *
 * @param[in]  numbersectorsinoperation :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetNumberSectorsInOperation(XQWORD numbersectorsinoperation)
 {
@@ -207,8 +197,6 @@ float XDRIVEIMAGEMANAGER_XEVENT::GetOperationPercent()
 * @ingroup    XUTILS
 *
 * @param[in]  operationpercent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetOperationPercent(float operationpercent)
@@ -240,8 +228,6 @@ XDRIVEIMAGEMANAGER_ERROR XDRIVEIMAGEMANAGER_XEVENT::GetError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 {
@@ -255,8 +241,6 @@ void XDRIVEIMAGEMANAGER_XEVENT::SetError(XDRIVEIMAGEMANAGER_ERROR error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDRIVEIMAGEMANAGER_XEVENT::Clean()

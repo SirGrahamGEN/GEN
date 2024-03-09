@@ -74,8 +74,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDGPIO::DIOANDROIDGPIO(): DIOGPIO()
 {
@@ -89,8 +87,6 @@ DIOANDROIDGPIO::DIOANDROIDGPIO(): DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDGPIO::~DIOANDROIDGPIO()
@@ -188,8 +184,6 @@ bool DIOANDROIDGPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDGPIO::Clean()

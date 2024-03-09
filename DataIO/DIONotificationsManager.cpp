@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATION::DIONOTIFICATION()
 {
@@ -78,8 +76,6 @@ DIONOTIFICATION::DIONOTIFICATION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATION::~DIONOTIFICATION()
@@ -141,8 +137,6 @@ void* DIONOTIFICATION::GetApplicationHandle()
 *
 * @param[in]  applicationhandle :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
 {
@@ -173,8 +167,6 @@ void* DIONOTIFICATION::GetApplicationIcon()
 *
 * @param[in]  applicationicon :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 {
@@ -188,8 +180,6 @@ void DIONOTIFICATION::SetApplicationIcon(void* applicationicon)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATION::Clean()
@@ -211,8 +201,6 @@ void DIONOTIFICATION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 {
@@ -226,8 +214,6 @@ DIONOTIFICATIONSMANAGER::DIONOTIFICATIONSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
@@ -308,8 +294,6 @@ bool DIONOTIFICATIONSMANAGER::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONOTIFICATIONSMANAGER::Clean()

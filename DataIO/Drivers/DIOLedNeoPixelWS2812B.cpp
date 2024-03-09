@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLEDNEOPIXELWS2812B::DIOLEDNEOPIXELWS2812B()
 {
@@ -78,8 +76,6 @@ DIOLEDNEOPIXELWS2812B::DIOLEDNEOPIXELWS2812B()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLEDNEOPIXELWS2812B::~DIOLEDNEOPIXELWS2812B()
@@ -137,8 +133,6 @@ XDWORD DIOLEDNEOPIXELWS2812B::GetDataGPIOEntryID()
 *
 * @param[in]  GPIOentryID : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLEDNEOPIXELWS2812B::SetDataGPIOEntryID(XDWORD GPIOentryID)
 {
@@ -195,8 +189,6 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 * @ingroup    DATAIO
 *
 * @param[in]  brightnessLevel : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
@@ -299,8 +291,6 @@ bool DIOLEDNEOPIXELWS2812B::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLEDNEOPIXELWS2812B::Clean()

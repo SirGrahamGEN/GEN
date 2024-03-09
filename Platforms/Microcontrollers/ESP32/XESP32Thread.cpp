@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32MUTEX::XESP32MUTEX()
 {
@@ -83,8 +81,6 @@ XESP32MUTEX::XESP32MUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32MUTEX::~XESP32MUTEX()
@@ -138,8 +134,6 @@ bool XESP32MUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32MUTEX::Clean()
 {
@@ -164,8 +158,6 @@ void XESP32MUTEX::Clean()
 * @param[in]   XTHREADFUNCTION function :
 * @param[in]   void* data :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32THREAD::XESP32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data) : XTHREAD(groupID, ID, function, data)
 {
@@ -179,8 +171,6 @@ XESP32THREAD::XESP32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32THREAD::~XESP32THREAD()
@@ -258,8 +248,6 @@ bool XESP32THREAD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32THREAD::Clean()

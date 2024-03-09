@@ -71,8 +71,6 @@ XPUBLISHER*   XPUBLISHER::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHERENTRY::XPUBLISHERENTRY()
 {
@@ -87,8 +85,6 @@ XPUBLISHERENTRY::XPUBLISHERENTRY()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHERENTRY::~XPUBLISHERENTRY()
 {
@@ -102,8 +98,6 @@ XPUBLISHERENTRY::~XPUBLISHERENTRY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPUBLISHERENTRY::Clean()
@@ -413,8 +407,6 @@ bool XPUBLISHER::UnSubscribeEvent(XDWORD type, XSUBJECT* subject, XOBSERVER* obs
 * 
 * @param[in]  on : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPUBLISHER::Active(bool on)
 { 
@@ -494,8 +486,6 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHER::XPUBLISHER()
 {
@@ -514,8 +504,6 @@ XPUBLISHER::XPUBLISHER()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPUBLISHER::~XPUBLISHER()
 {
@@ -533,8 +521,6 @@ XPUBLISHER::~XPUBLISHER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPUBLISHER::Clean()

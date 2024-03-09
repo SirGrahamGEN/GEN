@@ -70,8 +70,6 @@ static uint32_t* RPI_gpio;
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 {
@@ -85,8 +83,6 @@ DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
@@ -554,8 +550,6 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_CheckHandle(uint32_t* RPI_gpio)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIORASPBERRYPI::Clean()

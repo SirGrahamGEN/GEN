@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 {
@@ -83,8 +81,6 @@ COMPRESS_GZ::COMPRESS_GZ() : COMPRESSBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_GZ::~COMPRESS_GZ()
@@ -276,8 +272,6 @@ int COMPRESS_GZ::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDWO
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_GZ::Clean()

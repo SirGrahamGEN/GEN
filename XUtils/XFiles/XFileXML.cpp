@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
 {
@@ -86,8 +84,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE()
 * @ingroup    XUTILS
 *
 * @param[in]  XSTRING& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
@@ -106,8 +102,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name)
 *
 * @param[in]  XCHAR* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
 {
@@ -125,8 +119,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name)
 *
 * @param[in]  XSTRING& :
 * @param[in]  XSTRING& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
@@ -147,8 +139,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XSTRING& name, XSTRING& value)
 * @param[in]  XCHAR* :
 * @param[in]   XCHAR* value :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 {
@@ -165,8 +155,6 @@ XFILEXMLATTRIBUTE::XFILEXMLATTRIBUTE(XCHAR* name, XCHAR* value)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLATTRIBUTE::~XFILEXMLATTRIBUTE()
@@ -288,8 +276,6 @@ bool XFILEXMLATTRIBUTE::SetValue(XCHAR* value)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEXMLATTRIBUTE::Clean()
 {
@@ -310,8 +296,6 @@ void XFILEXMLATTRIBUTE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT()
 {
@@ -327,8 +311,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT()
 * 
 * @param[in]  XSTRING& : 
 * @param[in]  XFILEXMLELEMENTTYPE type : 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
@@ -349,8 +331,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name, XFILEXMLELEMENTTYPE type)
 * @param[in]  XCHAR* :
 * @param[in]   XFILEXMLELEMENTTYPE type :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
 {
@@ -370,8 +350,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name, XFILEXMLELEMENTTYPE type)
 * @param[in]  XSTRING& :
 * @param[in]  XSTRING& :
 * @param[in]   XFILEXMLELEMENTTYPE type :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTYPE type)
@@ -394,8 +372,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XSTRING& name,XSTRING& value, XFILEXMLELEMENTTY
 * @param[in]  XCHAR* :
 * @param[in]   XFILEXMLELEMENTTYPE type :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE type)
 {
@@ -413,8 +389,6 @@ XFILEXMLELEMENT::XFILEXMLELEMENT(XCHAR* name,XCHAR* value, XFILEXMLELEMENTTYPE t
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXMLELEMENT::~XFILEXMLELEMENT()
@@ -1113,8 +1087,6 @@ bool XFILEXMLELEMENT::SetType(XFILEXMLELEMENTTYPE type)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEXMLELEMENT::Clean()
 {
@@ -1137,8 +1109,6 @@ void XFILEXMLELEMENT::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXML::XFILEXML() : XFILETXT()
 {
@@ -1152,8 +1122,6 @@ XFILEXML::XFILEXML() : XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEXML::~XFILEXML()
@@ -2076,8 +2044,6 @@ bool XFILEXML::EncodeElements(bool istabulatedline, XFILEXMLELEMENT* element)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEXML::Clean()

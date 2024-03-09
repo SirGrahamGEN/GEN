@@ -560,8 +560,6 @@ const XBYTE bmi270_config_file[]                                                
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 {
@@ -575,8 +573,6 @@ DIOI2C6AXISTRACKINGBMI270::DIOI2C6AXISTRACKINGBMI270() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2C6AXISTRACKINGBMI270::~DIOI2C6AXISTRACKINGBMI270()
@@ -643,8 +639,6 @@ bool DIOI2C6AXISTRACKINGBMI270::IsNecessaryUpdate()
 * @ingroup    DATAIO
 *
 * @param[in]  isnecessaryupdate : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::SetIsNecessaryUpdate(bool isnecessaryupdate)
@@ -1288,8 +1282,6 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::SetFeatureConfig(struct bmi2_dev *bmi2_dev)
 * @param[in]  period : 
 * @param[in]  void*intf_ptr : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::bmi2_delay_us(XDWORD period, void *intf_ptr)
 {
@@ -1364,8 +1356,6 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_interface_init(struct bmi2_dev *bmi, XB
 * @ingroup    DATAIO
 *
 * @param[in]  rslt : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::bmi2_error_codes_print_result(XBYTESIG rslt)
@@ -13647,8 +13637,6 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::enable_gyro_gain(XBYTE enable, struct bmi2_d
 *
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
 {
@@ -13665,8 +13653,6 @@ void DIOI2C6AXISTRACKINGBMI270::Handler_Interrupt(void* param)
 * @note       INTERNAL
 * @ingroup    
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2C6AXISTRACKINGBMI270::Clean()
 {

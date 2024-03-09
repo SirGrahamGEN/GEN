@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCONSOLE::APPCONSOLE()
 {
@@ -87,8 +85,6 @@ APPCONSOLE::APPCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCONSOLE::~APPCONSOLE()
@@ -305,8 +301,6 @@ bool APPCONSOLE::PrintExitMessage(XSTRING& exitmessage)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCONSOLE::Clean()

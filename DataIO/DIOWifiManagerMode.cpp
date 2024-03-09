@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()    
 { 
@@ -82,8 +80,6 @@ DIOWIFIMANAGERMODE::DIOWIFIMANAGERMODE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWIFIMANAGERMODE::~DIOWIFIMANAGERMODE()    
@@ -172,8 +168,6 @@ DIOWIFIMANAGER_MODETYPE DIOWIFIMANAGERMODE::GetModeType()
 * @ingroup    DATAIO
 *
 * @param[in]  modetype : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOWIFIMANAGERMODE::SetModeType(DIOWIFIMANAGER_MODETYPE modetype)
@@ -453,8 +447,6 @@ XVECTOR<XSTRING*>* DIOWIFIMANAGERMODE::APList_Get()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWIFIMANAGERMODE::Clean()

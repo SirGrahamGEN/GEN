@@ -76,8 +76,6 @@ using namespace std;
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 {
@@ -94,8 +92,6 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
@@ -145,8 +141,6 @@ XWINDOWSWMIINTERFACE_ERROR XWINDOWSWMIINTERFACE_RESULT::GetError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE_RESULT::SetError(XWINDOWSWMIINTERFACE_ERROR error)
 {
@@ -176,8 +170,6 @@ XSTRING* XWINDOWSWMIINTERFACE_RESULT::GetErrorDescription()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE_RESULT::Clean()
 {
@@ -197,8 +189,6 @@ void XWINDOWSWMIINTERFACE_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 {
@@ -212,8 +202,6 @@ XWINDOWSWMIINTERFACE::XWINDOWSWMIINTERFACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE::~XWINDOWSWMIINTERFACE()
@@ -1101,8 +1089,6 @@ bool XWINDOWSWMIINTERFACE::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSWMIINTERFACE::Clean()

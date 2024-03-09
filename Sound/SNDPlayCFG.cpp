@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDPLAYCFG::SNDPLAYCFG()
 {
@@ -80,8 +78,6 @@ SNDPLAYCFG::SNDPLAYCFG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDPLAYCFG::~SNDPLAYCFG()
@@ -114,8 +110,6 @@ int SNDPLAYCFG::GetVolume()
 * 
 * @param[in]  volume : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDPLAYCFG::SetVolume(int volume)
 {
@@ -145,8 +139,6 @@ float SNDPLAYCFG::GetPitch()
 * @ingroup    SOUND
 * 
 * @param[in]  pitch : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDPLAYCFG::SetPitch(float pitch)
@@ -201,8 +193,6 @@ bool SNDPLAYCFG::CopyFrom(SNDPLAYCFG& playCFG)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDPLAYCFG::Clean()

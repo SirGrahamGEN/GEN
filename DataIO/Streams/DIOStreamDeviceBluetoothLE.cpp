@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHLE::DIOSTREAMDEVICEBLUETOOTHLE()
 {
@@ -83,8 +81,6 @@ DIOSTREAMDEVICEBLUETOOTHLE::DIOSTREAMDEVICEBLUETOOTHLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEBLUETOOTHLE::~DIOSTREAMDEVICEBLUETOOTHLE()
@@ -152,8 +148,6 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::IsReadLastScan()
 *
 * @param[in]  isreadlastscan : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEBLUETOOTHLE::SetIsReadLastScan(bool isreadlastscan)
 {
@@ -191,8 +185,6 @@ bool DIOSTREAMDEVICEBLUETOOTHLE::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEBLUETOOTHLE::Clean()

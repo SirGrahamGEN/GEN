@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTRACE::XANDROIDTRACE()
 {
@@ -86,8 +84,6 @@ XANDROIDTRACE::XANDROIDTRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTRACE::~XANDROIDTRACE()
@@ -105,8 +101,6 @@ XANDROIDTRACE::~XANDROIDTRACE()
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XANDROIDTRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)

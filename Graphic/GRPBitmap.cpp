@@ -67,8 +67,6 @@
 * @param[in]  GRPPROPERTYMODE mode :
 * @param[in]  bool isbufferinverse :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)
 {
@@ -87,8 +85,6 @@ GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferi
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP::~GRPBITMAP()
@@ -494,8 +490,6 @@ XDWORD GRPBITMAP::GetHandle()
 *
 * @param[in]  handle :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAP::SetHandle(XDWORD handle)
 {
@@ -570,8 +564,6 @@ bool GRPBITMAP::IsSimilarPixel(XDWORD origin, XDWORD target, XBYTE margin)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAP::Clean()

@@ -405,8 +405,6 @@ bool APPALERTS::End()
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPALERTS::APPALERTS()
 {
@@ -420,8 +418,6 @@ APPALERTS::APPALERTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPALERTS::~APPALERTS()
@@ -438,8 +434,6 @@ APPALERTS::~APPALERTS()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPALERTS::Clean()

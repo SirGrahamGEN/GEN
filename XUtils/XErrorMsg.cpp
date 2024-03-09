@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORMSG::XERRORMSG()
 {
@@ -82,8 +80,6 @@ XERRORMSG::XERRORMSG()
 * @param[in]   XCHAR* title :
 * @param[in]   XCHAR* msg :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 {
@@ -99,8 +95,6 @@ XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORMSG::~XERRORMSG()
@@ -454,8 +448,6 @@ bool XERRORMSG::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORSMSG::XERRORSMSG()
 {
@@ -471,8 +463,6 @@ XERRORSMSG::XERRORSMSG()
 *
 * @param[in]  XCHAR* :
 * @param[in]   XCHAR* version :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
@@ -490,8 +480,6 @@ XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORSMSG::~XERRORSMSG()

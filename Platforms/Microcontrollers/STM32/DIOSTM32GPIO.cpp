@@ -52,8 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32GPIO::DIOSTM32GPIO(): DIOGPIO()
 {
@@ -68,8 +66,6 @@ DIOSTM32GPIO::DIOSTM32GPIO(): DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32GPIO::~DIOSTM32GPIO()
@@ -271,8 +267,6 @@ bool DIOSTM32GPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32GPIO::Clean()

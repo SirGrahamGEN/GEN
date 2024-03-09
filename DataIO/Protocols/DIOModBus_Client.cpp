@@ -68,8 +68,6 @@
 * @param[in]  DIOSTREAM* :
 * @param[in]   DIOMODBUS_CLIENTMODE mode :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)
 {
@@ -88,8 +86,6 @@ DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mo
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUS_CLIENT::~DIOMODBUS_CLIENT()
@@ -198,8 +194,6 @@ XBYTE DIOMODBUS_CLIENT::GetUnit()
 * @ingroup    DATAIO
 *
 * @param[in]  unit :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
@@ -537,8 +531,6 @@ XWORD DIOMODBUS_CLIENT::CRC16(XBUFFER& data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOMODBUS_CLIENT::Clean()

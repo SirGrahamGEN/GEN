@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXPCAP::DIOLINUXPCAP() : DIOPCAP()
 {
@@ -81,8 +79,6 @@ DIOLINUXPCAP::DIOLINUXPCAP() : DIOPCAP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXPCAP::~DIOLINUXPCAP()
@@ -224,8 +220,6 @@ bool DIOLINUXPCAP::CreateListNetInterfaces()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXPCAP::ThreadCapture(void* data)
 {
@@ -253,8 +247,6 @@ void DIOLINUXPCAP::ThreadCapture(void* data)
 * @param[in]  struct pcap_pkthdr* header : 
 * @param[in]  u_char* data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header, const u_char* data)
 {
@@ -271,8 +263,6 @@ void DIOLINUXPCAP::PacketHandler(u_char* param, const struct pcap_pkthdr* header
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXPCAP::Clean()

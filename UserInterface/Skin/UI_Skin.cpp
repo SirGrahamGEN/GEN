@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN_TEXTBOX_PART::UI_SKIN_TEXTBOX_PART()
 {
@@ -88,8 +86,6 @@ UI_SKIN_TEXTBOX_PART::UI_SKIN_TEXTBOX_PART()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN_TEXTBOX_PART::~UI_SKIN_TEXTBOX_PART()
 {
@@ -119,8 +115,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetLineNumber()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  linenumber : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::SetLineNumber(XDWORD linenumber)
@@ -152,8 +146,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetXPos()
 *
 * @param[in]  xpos : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::SetXPos(XDWORD xpos)
 {
@@ -183,8 +175,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetYPos()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ypos : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::SetYPos(XDWORD ypos)
@@ -231,8 +221,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetWidth()
 *
 * @param[in]  width : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::SetWidth(XDWORD width)
 {
@@ -263,8 +251,6 @@ XDWORD UI_SKIN_TEXTBOX_PART::GetHeight()
 *
 * @param[in]  height : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::SetHeight(XDWORD height)
 {
@@ -294,8 +280,6 @@ XSTRING* UI_SKIN_TEXTBOX_PART::GetText()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_PART::Clean()
 {  
@@ -321,8 +305,6 @@ void UI_SKIN_TEXTBOX_PART::Clean()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN_TEXTBOX_IMAGE::UI_SKIN_TEXTBOX_IMAGE()
 {
@@ -337,8 +319,6 @@ UI_SKIN_TEXTBOX_IMAGE::UI_SKIN_TEXTBOX_IMAGE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN_TEXTBOX_IMAGE::~UI_SKIN_TEXTBOX_IMAGE()
 {
@@ -401,8 +381,6 @@ UI_ANIMATION* UI_SKIN_TEXTBOX_IMAGE::GetAnimation()
 *
 * @param[in]  animation : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_IMAGE::SetAnimation(UI_ANIMATION* animation)
 {
@@ -455,8 +433,6 @@ bool UI_SKIN_TEXTBOX_IMAGE::IsInLine(XDWORD nline)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN_TEXTBOX_IMAGE::Clean()
 {
@@ -476,8 +452,6 @@ void UI_SKIN_TEXTBOX_IMAGE::Clean()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN::UI_SKIN()    
 { 
@@ -494,8 +468,6 @@ UI_SKIN::UI_SKIN()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN::~UI_SKIN()    
 { 
@@ -1462,8 +1434,6 @@ bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN::Clean()
 {

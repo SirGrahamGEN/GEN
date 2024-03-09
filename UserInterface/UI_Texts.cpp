@@ -237,8 +237,6 @@ bool UI_TEXTS::DeleteAll()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_TEXTS::UI_TEXTS()
 {
@@ -253,8 +251,6 @@ UI_TEXTS::UI_TEXTS()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_TEXTS::~UI_TEXTS()
 {
@@ -271,8 +267,6 @@ UI_TEXTS::~UI_TEXTS()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_TEXTS::Clean()
 {

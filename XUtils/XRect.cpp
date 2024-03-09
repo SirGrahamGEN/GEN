@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XRECT::XRECT()
 {
@@ -81,8 +79,6 @@ XRECT::XRECT()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XRECT::~XRECT()
 {
@@ -97,8 +93,6 @@ XRECT::~XRECT()
 * @ingroup    XUTILS
 *
 * @param[in]  xrect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XRECT::CopyFrom(XRECT& xrect)
@@ -118,8 +112,6 @@ void XRECT::CopyFrom(XRECT& xrect)
 *
 * @param[in]  xrect : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XRECT::CopyTo(XRECT& xrect)
 {
@@ -136,8 +128,6 @@ void XRECT::CopyTo(XRECT& xrect)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XRECT::Clean()

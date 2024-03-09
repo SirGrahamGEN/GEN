@@ -52,8 +52,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32GPIO::DIOESP32GPIO(): DIOGPIO()
 {
@@ -68,8 +66,6 @@ DIOESP32GPIO::DIOESP32GPIO(): DIOGPIO()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32GPIO::~DIOESP32GPIO()
@@ -271,8 +267,6 @@ bool DIOESP32GPIO::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32GPIO::Clean()

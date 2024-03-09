@@ -66,8 +66,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_RESULT::~SQLITE_RESULT()
 {
@@ -300,8 +298,6 @@ bool SQLITE_RESULT::HasNext()
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 {
@@ -315,8 +311,6 @@ SQLITE_RESULT::SQLITE_RESULT(): DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SQLITE_RESULT::Clean()

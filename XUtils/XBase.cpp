@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XBASE::XBASE()
 {
@@ -79,8 +77,6 @@ XBASE::XBASE()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XBASE::~XBASE()
 {
@@ -94,8 +90,6 @@ XBASE::~XBASE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBASE::Clean()

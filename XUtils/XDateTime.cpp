@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME::XDATETIME()
 {
@@ -85,8 +83,6 @@ XDATETIME::XDATETIME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME::~XDATETIME()
@@ -405,8 +401,6 @@ long XDATETIME::GetNDaysInGregorian()
 * @param[in]  ndays :
 * @param[in]  injulian :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::GetDateFromNDays(long ndays, bool injulian)
 {
@@ -511,8 +505,6 @@ XDWORD XDATETIME::GetSecondsFromADay()
 * 
 * @param[in]  islocal : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetIsLocal(bool islocal)
 {
@@ -527,8 +519,6 @@ void XDATETIME::SetIsLocal(bool islocal)
 * @ingroup    XUTILS
 *
 * @param[in]  year :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetYear(int year)
@@ -545,8 +535,6 @@ void XDATETIME::SetYear(int year)
 *
 * @param[in]  month :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetMonth(int month)
 {
@@ -561,8 +549,6 @@ void XDATETIME::SetMonth(int month)
 * @ingroup    XUTILS
 *
 * @param[in]  day :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetDay(int day)
@@ -579,8 +565,6 @@ void XDATETIME::SetDay(int day)
 *
 * @param[in]  hours :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetHours(int hours)
 {
@@ -595,8 +579,6 @@ void XDATETIME::SetHours(int hours)
 * @ingroup    XUTILS
 *
 * @param[in]  minutes :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetMinutes(int minutes)
@@ -613,8 +595,6 @@ void XDATETIME::SetMinutes(int minutes)
 *
 * @param[in]  seconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetSeconds(int seconds)
 {
@@ -629,8 +609,6 @@ void XDATETIME::SetSeconds(int seconds)
 * @ingroup    XUTILS
 *
 * @param[in]  milliseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::SetMilliSeconds(int milliseconds)
@@ -2314,8 +2292,6 @@ bool XDATETIME::Set(XDATETIME* datetime)
 *
 * @param[in]  datetime :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::Set(XDATETIME& datetime)
 {
@@ -2485,8 +2461,6 @@ long XDATETIME::GetNDaysInGregorian(int day, int month, int year)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDATETIME::Clean()

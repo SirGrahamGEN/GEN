@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 {
@@ -122,8 +120,6 @@ DIOWINDOWSSTREAMICMP::DIOWINDOWSSTREAMICMP() : DIOSTREAMICMP(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMICMP::~DIOWINDOWSSTREAMICMP()
@@ -292,8 +288,6 @@ int DIOWINDOWSSTREAMICMP::IsReadyConnect(SOCKET socket)
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMICMP::Clean()
 {
@@ -310,8 +304,6 @@ void DIOWINDOWSSTREAMICMP::Clean()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMICMP::ThreadConnection(void* data)

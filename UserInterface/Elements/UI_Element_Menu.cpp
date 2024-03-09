@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MENU_OPTION_CFG::UI_ELEMENT_MENU_OPTION_CFG()
 {
@@ -85,8 +83,6 @@ UI_ELEMENT_MENU_OPTION_CFG::UI_ELEMENT_MENU_OPTION_CFG()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MENU_OPTION_CFG::~UI_ELEMENT_MENU_OPTION_CFG()
 {
@@ -101,8 +97,6 @@ UI_ELEMENT_MENU_OPTION_CFG::~UI_ELEMENT_MENU_OPTION_CFG()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_MENU_OPTION_CFG::Clean()
 {
@@ -133,8 +127,6 @@ void UI_ELEMENT_MENU_OPTION_CFG::Clean()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MENU::UI_ELEMENT_MENU()    
 { 
@@ -153,8 +145,6 @@ UI_ELEMENT_MENU::UI_ELEMENT_MENU()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_MENU::~UI_ELEMENT_MENU()    
 { 
@@ -228,8 +218,6 @@ UI_ELEMENT_OPTION* UI_ELEMENT_MENU::Option_AddText(UI_ELEMENT_MENU_OPTION_CFG& o
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_MENU::Clean()
 {

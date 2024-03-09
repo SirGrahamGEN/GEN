@@ -58,8 +58,6 @@ DIOSTM32STREAMUART*   diostreamuartptrhandle[DIOSTM32STREAMIUART_MAXHANDLES] = {
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUART::DIOSTM32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 {
@@ -96,8 +94,6 @@ DIOSTM32STREAMUART::DIOSTM32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTM32STREAMUART::~DIOSTM32STREAMUART()
@@ -561,8 +557,6 @@ UART_HandleTypeDef* DIOSTM32STREAMUART::GetHuart()
 *
 * @param[in]  huart :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 {
@@ -581,8 +575,6 @@ void DIOSTM32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  UART_HandleTypeDef*huart :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -631,8 +623,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 * @ingroup    PLATFORM_STM32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::ThreadConnection(void* param)
@@ -725,8 +715,6 @@ void DIOSTM32STREAMUART::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTM32STREAMUART::Clean()

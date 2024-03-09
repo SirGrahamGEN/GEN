@@ -86,8 +86,6 @@
 * @param[in]   XDWORD type : 
 * @param[in]   XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -102,8 +100,6 @@ DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWOR
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
 {
@@ -117,8 +113,6 @@ DIOIEC60870_5_XEVENT::~DIOIEC60870_5_XEVENT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIEC60870_5_XEVENT::Clean()
@@ -139,8 +133,6 @@ void DIOIEC60870_5_XEVENT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 {
@@ -156,8 +148,6 @@ DIO_C_CI_NU_2_RESULT::DIO_C_CI_NU_2_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_CI_NU_2_RESULT::~DIO_C_CI_NU_2_RESULT()
@@ -220,8 +210,6 @@ XVECTOR<XDWORD>* DIO_C_CI_NU_2_RESULT::GetValues()
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIO_C_CI_NU_2_RESULT::Clean()
 {
@@ -240,8 +228,6 @@ void DIO_C_CI_NU_2_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 {
@@ -257,8 +243,6 @@ DIO_C_TR_AA_RESULT::DIO_C_TR_AA_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIO_C_TR_AA_RESULT::~DIO_C_TR_AA_RESULT()
@@ -685,8 +669,6 @@ float DIO_C_TR_AA_RESULT::SetCurrentPhase(int phase, float currentphase)
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIO_C_TR_AA_RESULT::Clean()
 {
@@ -731,8 +713,6 @@ void DIO_C_TR_AA_RESULT::Clean()
 * 
 * @param[in]  DIOSTREAM* : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 {
@@ -755,8 +735,6 @@ DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5::~DIOIEC60870_5()
@@ -1556,8 +1534,6 @@ bool DIOIEC60870_5::CancelOperations()
 * @brief      Disconnect
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIEC60870_5::Disconnect()
 {
@@ -1983,8 +1959,6 @@ int DIOIEC60870_5::GetIntFromBuffer(XBYTE* buffer,XDWORD size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOIEC60870_5::Clean()

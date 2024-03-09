@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDESKTOPMONITORS::XWINDOWSDESKTOPMONITORS()
 {
@@ -80,8 +78,6 @@ XWINDOWSDESKTOPMONITORS::XWINDOWSDESKTOPMONITORS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDESKTOPMONITORS::~XWINDOWSDESKTOPMONITORS()
@@ -126,8 +122,6 @@ RECT* XWINDOWSDESKTOPMONITORS::GetCombinedRect()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDESKTOPMONITORS::Clean()
@@ -176,8 +170,6 @@ BOOL CALLBACK XWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT 
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDESKTOPMANAGER::XWINDOWSDESKTOPMANAGER()
 {
@@ -191,8 +183,6 @@ XWINDOWSDESKTOPMANAGER::XWINDOWSDESKTOPMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDESKTOPMANAGER::~XWINDOWSDESKTOPMANAGER()
@@ -222,8 +212,6 @@ XWINDOWSDESKTOPMONITORS* XWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDESKTOPMANAGER::Clean()

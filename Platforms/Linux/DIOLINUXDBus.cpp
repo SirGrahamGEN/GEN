@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_MESSAGE::DIOLINUXDBUS_MESSAGE()
 {
@@ -86,8 +84,6 @@ DIOLINUXDBUS_MESSAGE::DIOLINUXDBUS_MESSAGE()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_MESSAGE::~DIOLINUXDBUS_MESSAGE()
 {
@@ -374,8 +370,6 @@ bool DIOLINUXDBUS_MESSAGE::GetResult(XVECTOR<XSTRING*>& result)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_MESSAGE::Clean()
 {
@@ -400,8 +394,6 @@ void DIOLINUXDBUS_MESSAGE::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_ARGUMENTS::DIOLINUXDBUS_ARGUMENTS(bool in, DIOLINUXDBUS_MESSAGE* message)
 {
@@ -432,8 +424,6 @@ DIOLINUXDBUS_ARGUMENTS::DIOLINUXDBUS_ARGUMENTS(bool in, DIOLINUXDBUS_MESSAGE* me
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_ARGUMENTS::~DIOLINUXDBUS_ARGUMENTS()
 {
@@ -628,8 +618,6 @@ bool DIOLINUXDBUS_ARGUMENTS::GetResultInteractor(XVARIANT& result)
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_ARGUMENTS::Clean()
 {
@@ -650,8 +638,6 @@ void DIOLINUXDBUS_ARGUMENTS::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_SIGNAL::DIOLINUXDBUS_SIGNAL()
 {
@@ -666,8 +652,6 @@ DIOLINUXDBUS_SIGNAL::DIOLINUXDBUS_SIGNAL()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_SIGNAL::~DIOLINUXDBUS_SIGNAL()
 {
@@ -712,8 +696,6 @@ XSTRING* DIOLINUXDBUS_SIGNAL::GetName()
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS_SIGNAL::Clean()
 {
@@ -734,8 +716,6 @@ void DIOLINUXDBUS_SIGNAL::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS::DIOLINUXDBUS()    
 { 
@@ -751,8 +731,6 @@ DIOLINUXDBUS::DIOLINUXDBUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS::~DIOLINUXDBUS()    
@@ -1050,8 +1028,6 @@ bool DIOLINUXDBUS::TraceError(DBusError& error)
 *
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS::Thread_Signals(void* param)
 {
@@ -1136,8 +1112,6 @@ void DIOLINUXDBUS::Thread_Signals(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXDBUS::Clean()

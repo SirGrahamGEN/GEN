@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 {
@@ -77,8 +75,6 @@ DIOSTREAMDEVICEIP::DIOSTREAMDEVICEIP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEIP::~DIOSTREAMDEVICEIP()
@@ -112,8 +108,6 @@ bool DIOSTREAMDEVICEIP::IsActive()
 * @ingroup    DATAIO
 * 
 * @param[in]  isactive : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEIP::SetIsActive(bool isactive)
@@ -247,8 +241,6 @@ bool DIOSTREAMDEVICEIP::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEIP::Clean()

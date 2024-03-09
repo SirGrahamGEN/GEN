@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(): XSTRING()
 {
@@ -85,8 +83,6 @@ XPATH::XPATH(): XSTRING()
 * @ingroup    XUTILS
 *
 * @param[in]  XDWORD :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XDWORD size): XSTRING(size)
@@ -103,8 +99,6 @@ XPATH::XPATH(XDWORD size): XSTRING(size)
 *
 * @param[in]  const :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const char* path) : XSTRING(path)
 {
@@ -119,8 +113,6 @@ XPATH::XPATH(const char* path) : XSTRING(path)
 * @ingroup    XUTILS
 *
 * @param[in]  const :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const XCHAR* path): XSTRING(path)
@@ -138,8 +130,6 @@ XPATH::XPATH(const XCHAR* path): XSTRING(path)
 * @param[in]  const :
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
 {
@@ -154,8 +144,6 @@ XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
 * @ingroup    XUTILS
 *
 * @param[in]  XPATH& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XPATH& path): XSTRING(path)
@@ -172,8 +160,6 @@ XPATH::XPATH(XPATH& path): XSTRING(path)
 *
 * @param[in]  XSTRING& :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XSTRING& string)  : XSTRING(string)
 {
@@ -189,8 +175,6 @@ XPATH::XPATH(XSTRING& string)  : XSTRING(string)
 *
 * @param[in]  XWORD* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XWORD* path) : XSTRING(path)
 {
@@ -204,8 +188,6 @@ XPATH::XPATH(XWORD* path) : XSTRING(path)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::~XPATH()
@@ -222,8 +204,6 @@ XPATH::~XPATH()
 *
 * @param[in]  char* path :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (const char* path)
 {
@@ -238,8 +218,6 @@ void XPATH::operator = (const char* path)
 * @ingroup    XUTILS
 *
 * @param[in]  XCHAR* path :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (const XCHAR* path)
@@ -256,8 +234,6 @@ void XPATH::operator = (const XCHAR* path)
 *
 * @param[in]  path :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (XPATH& path)
 {
@@ -272,8 +248,6 @@ void XPATH::operator = (XPATH& path)
 * @ingroup    XUTILS
 *
 * @param[in]  string :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (XSTRING& string)
@@ -290,8 +264,6 @@ void XPATH::operator = (XSTRING& string)
 *
 * @param[in]  path :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (XWORD* path)
 {
@@ -306,8 +278,6 @@ void XPATH::operator = (XWORD* path)
 * @ingroup    XUTILS
 *
 * @param[in]  char* path :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (const char* path)
@@ -324,8 +294,6 @@ void XPATH::operator += (const char* path)
 *
 * @param[in]  XCHAR* path :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (const XCHAR* path)
 {
@@ -340,8 +308,6 @@ void XPATH::operator += (const XCHAR* path)
 * @ingroup    XUTILS
 *
 * @param[in]  path :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (XPATH& path)
@@ -358,8 +324,6 @@ void XPATH::operator += (XPATH& path)
 *
 * @param[in]  string :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (XSTRING& string)
 {
@@ -374,8 +338,6 @@ void XPATH::operator += (XSTRING& string)
 * @ingroup    XUTILS
 *
 * @param[in]  path :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (XCHAR path)

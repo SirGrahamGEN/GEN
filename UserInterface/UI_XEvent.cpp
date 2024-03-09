@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ UI_XEVENT::UI_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(sub
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_XEVENT::~UI_XEVENT()
@@ -112,8 +108,6 @@ XDWORD UI_XEVENT::GetXPos()
 *
 * @param[in]  xpos : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_XEVENT::SetXPos(XDWORD xpos)
 {
@@ -143,8 +137,6 @@ XDWORD UI_XEVENT::GetYPos()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  ypos : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_XEVENT::SetYPos(XDWORD ypos)
@@ -190,8 +182,6 @@ INPCURSORMOTION* UI_XEVENT::GetCursorMotion()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  cursormotion : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_XEVENT::SetCursorMotion(INPCURSORMOTION* cursormotion)
@@ -291,8 +281,6 @@ XSTRING* UI_XEVENT::GetMaskTextResolved()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_XEVENT::Clean()

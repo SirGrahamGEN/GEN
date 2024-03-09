@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32FILE::XESP32FILE(): XFILE()
 {
@@ -81,8 +79,6 @@ XESP32FILE::XESP32FILE(): XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32FILE::~XESP32FILE()
@@ -394,8 +390,6 @@ bool XESP32FILE::ActualizeSize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32FILE::Clean()

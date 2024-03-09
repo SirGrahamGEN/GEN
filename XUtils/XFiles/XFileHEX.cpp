@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHEX_ENTRY::XFILEHEX_ENTRY()
 {
@@ -81,8 +79,6 @@ XFILEHEX_ENTRY::XFILEHEX_ENTRY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHEX_ENTRY::~XFILEHEX_ENTRY()
@@ -114,8 +110,6 @@ XBYTE XFILEHEX_ENTRY::GetSizeData()
 *
 * @param[in]  size :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHEX_ENTRY::SetSizeData(XBYTE sizedata)
 {
@@ -146,8 +140,6 @@ XWORD XFILEHEX_ENTRY::GetAddress()
 *
 * @param[in]  address :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHEX_ENTRY::SetAddress(XWORD address)
 {
@@ -177,8 +169,6 @@ XFILEHEX_ENTRYTYPE XFILEHEX_ENTRY::GetEntryType()
 * @ingroup    XUTILS
 *
 * @param[in]  entrytype :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHEX_ENTRY::SetEntryType(XFILEHEX_ENTRYTYPE entrytype)
@@ -235,8 +225,6 @@ XBYTE XFILEHEX_ENTRY::CalculeCRC(XBUFFER& data)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHEX_ENTRY::Clean()
 {
@@ -260,8 +248,6 @@ void XFILEHEX_ENTRY::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHEX::XFILEHEX(): XFILETXT()
 {
@@ -275,8 +261,6 @@ XFILEHEX::XFILEHEX(): XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEHEX::~XFILEHEX()
@@ -625,8 +609,6 @@ bool XFILEHEX::Entry_DeleteAll()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEHEX::Clean()

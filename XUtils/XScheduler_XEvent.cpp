@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ XSCHEDULER_XEVENT::XSCHEDULER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD fami
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULER_XEVENT::~XSCHEDULER_XEVENT()
@@ -112,8 +108,6 @@ XSCHEDULER*  XSCHEDULER_XEVENT::GetScheduler()
 *
 * @param[in]  xscheduler :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetScheduler(XSCHEDULER* xscheduler)
 {
@@ -143,8 +137,6 @@ XSCHEDULERTASK* XSCHEDULER_XEVENT::GetTask()
 * @ingroup    XUTILS
 *
 * @param[in]  xtask :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetTask(XSCHEDULERTASK* xtask)
@@ -176,8 +168,6 @@ XDATETIME* XSCHEDULER_XEVENT::GetDateTime()
 *
 * @param[in]  xdatetime :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 {
@@ -191,8 +181,6 @@ void XSCHEDULER_XEVENT::SetDateTime(XDATETIME* xdatetime)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSCHEDULER_XEVENT::Clean()

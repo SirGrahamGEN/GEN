@@ -67,8 +67,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -82,8 +80,6 @@ DIOWEBSERVER_XEVENT::DIOWEBSERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBSERVER_XEVENT::~DIOWEBSERVER_XEVENT()
@@ -115,8 +111,6 @@ DIOWEBSERVER* DIOWEBSERVER_XEVENT::GetServer()
 *
 * @param[in]  server :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetServer(DIOWEBSERVER* server)
 {
@@ -146,8 +140,6 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER_XEVENT::GetConnection()
 * @ingroup    DATAIO
 *
 * @param[in]  connection :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetConnection(DIOWEBSERVER_CONNECTION* connection)
@@ -179,8 +171,6 @@ DIOWEBSERVER_REQUEST* DIOWEBSERVER_XEVENT::GetRequest()
 *
 * @param[in]  request :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetRequest(DIOWEBSERVER_REQUEST* request)
 {
@@ -211,8 +201,6 @@ int DIOWEBSERVER_XEVENT::GetTimeOut()
 *
 * @param[in]  timeout :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetTimeOut(int timeout)
 {
@@ -242,8 +230,6 @@ DIOWEBSERVER_QUERYSTRINGS*  DIOWEBSERVER_XEVENT::GetQueryString()
 * @ingroup    DATAIO
 *
 * @param[in]  querystring :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetQueryString(DIOWEBSERVER_QUERYSTRINGS* querystring)
@@ -305,8 +291,6 @@ bool DIOWEBSERVER_XEVENT::IsRequestAuthenticate()
 *
 * @param[in]  isrequestauthenticate :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetIsRequestAuthenticate(bool isrequestauthenticate)
 {
@@ -336,8 +320,6 @@ DIOWEBHEADER_RESULT DIOWEBSERVER_XEVENT::GetResult()
 * @ingroup    DATAIO
 *
 * @param[in]  result :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetResult(DIOWEBHEADER_RESULT result)
@@ -369,8 +351,6 @@ bool DIOWEBSERVER_XEVENT::GetStatus()
 *
 * @param[in]  status :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 {
@@ -384,8 +364,6 @@ void DIOWEBSERVER_XEVENT::SetStatus(bool status)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBSERVER_XEVENT::Clean()

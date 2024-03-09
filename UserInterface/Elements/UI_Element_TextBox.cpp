@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()    
 { 
@@ -80,8 +78,6 @@ UI_ELEMENT_TEXTBOX::UI_ELEMENT_TEXTBOX()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_TEXTBOX::~UI_ELEMENT_TEXTBOX()    
 { 
@@ -111,8 +107,6 @@ XDWORD UI_ELEMENT_TEXTBOX::GetSizeFont()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  sizefont : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::SetSizeFont(XDWORD sizefont)
@@ -144,8 +138,6 @@ XDWORD UI_ELEMENT_TEXTBOX::GetLineSpacing()
 *
 * @param[in]  linespacing : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::SetLineSpacing(XDWORD linespacing)
 {
@@ -176,8 +168,6 @@ UI_ELEMENT_TYPE_ALIGN UI_ELEMENT_TEXTBOX::GetTextAlignment()
 * 
 * @param[in]  textalignment : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::SetTextAlignment(UI_ELEMENT_TYPE_ALIGN textalignment)
 {
@@ -207,8 +197,6 @@ bool UI_ELEMENT_TEXTBOX::IsWordClipping()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  iswordclipping : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::SetIsWordClipping(bool iswordclipping)
@@ -254,8 +242,6 @@ XSTRING* UI_ELEMENT_TEXTBOX::GetMaskText()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_TEXTBOX::Clean()
 {

@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 {
@@ -87,8 +85,6 @@ DIOPCAPNETINTERFACE::DIOPCAPNETINTERFACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPNETINTERFACE::~DIOPCAPNETINTERFACE()
@@ -150,8 +146,6 @@ bool DIOPCAPNETINTERFACE::IsUp()
 * 
 * @param[in]  isup : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::SetIsUp(bool isup)
 {
@@ -181,8 +175,6 @@ bool DIOPCAPNETINTERFACE::IsRunning()
 * @ingroup    DATAIO
 * 
 * @param[in]  isrunning : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::SetIsRunning(bool isrunning)
@@ -214,8 +206,6 @@ bool DIOPCAPNETINTERFACE::IsWireless()
 * 
 * @param[in]  iswireless : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::SetIsWireless(bool iswireless)
 {
@@ -246,8 +236,6 @@ bool DIOPCAPNETINTERFACE::IsLoopBack()
 * 
 * @param[in]  isloopback : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::SetIsLoopBack(bool isloopback)
 {
@@ -262,8 +250,6 @@ void DIOPCAPNETINTERFACE::SetIsLoopBack(bool isloopback)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPNETINTERFACE::Clean()
 {
@@ -288,8 +274,6 @@ void DIOPCAPNETINTERFACE::Clean()
 * @param[in]  bool : 
 * @param[in]   bool isloopback : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAME::DIOPCAPFRAME(bool hardwareuselittleendian, bool isloopback)
 {
@@ -310,8 +294,6 @@ DIOPCAPFRAME::DIOPCAPFRAME(bool hardwareuselittleendian, bool isloopback)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAPFRAME::~DIOPCAPFRAME()
 {
@@ -387,8 +369,6 @@ DIOPCAPPROTOCOL_TYPE DIOPCAPFRAME::GetProtocolType()
 * @ingroup    DATAIO
 * 
 * @param[in]  protocoltypestr : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAME::GetProtocolTypeString(XSTRING& protocoltypestr)
@@ -605,8 +585,6 @@ XDWORD DIOPCAPFRAME::GetAllHeadersSize()
 * @ingroup    DATAIO
 * 
 * @param[in]  allheaderssize : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAME::SetAllHeadersSize(XDWORD allheaderssize)
@@ -873,8 +851,6 @@ bool DIOPCAPFRAME::Set(XBYTE* data_payload, XDWORD data_payloadsize)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAPFRAME::Clean()
 {
@@ -911,8 +887,6 @@ void DIOPCAPFRAME::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP::DIOPCAP()
 {
@@ -927,8 +901,6 @@ DIOPCAP::DIOPCAP()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP::~DIOPCAP()
 {
@@ -1296,8 +1268,6 @@ bool DIOPCAP::Frames_Add(XBYTE* data,XDWORD size, bool isloopback)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOPCAP::Clean()
 {

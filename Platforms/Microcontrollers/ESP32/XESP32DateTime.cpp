@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DATETIME::XESP32DATETIME()
 {
@@ -75,8 +73,6 @@ XESP32DATETIME::XESP32DATETIME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32DATETIME::~XESP32DATETIME()

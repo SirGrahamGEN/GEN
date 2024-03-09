@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 {
@@ -79,8 +77,6 @@ UI_PROPERTY_SCROLLEABLE_STATUS::UI_PROPERTY_SCROLLEABLE_STATUS()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
 {
@@ -95,8 +91,6 @@ UI_PROPERTY_SCROLLEABLE_STATUS::~UI_PROPERTY_SCROLLEABLE_STATUS()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
 {
@@ -119,8 +113,6 @@ void UI_PROPERTY_SCROLLEABLE_STATUS::Clean()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()    
 { 
@@ -138,8 +130,6 @@ UI_PROPERTY_SCROLLEABLE::UI_PROPERTY_SCROLLEABLE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_PROPERTY_SCROLLEABLE::~UI_PROPERTY_SCROLLEABLE()    
 {   
@@ -310,8 +300,6 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetLimit(UI_PROPERTY_SCROLLEABLE_TYPE typ
 * @param[in]  type : 
 * @param[in]  limit : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SCROLLEABLE::Scroll_SetLimit(UI_PROPERTY_SCROLLEABLE_TYPE type, double limit)
 {
@@ -394,8 +382,6 @@ double UI_PROPERTY_SCROLLEABLE::Scroll_GetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 * @param[in]  type : 
 * @param[in]  step : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, double step)
 {
@@ -458,8 +444,6 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE type, 
 *
 * @param[in]  type : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type)
 {
@@ -490,8 +474,6 @@ void UI_PROPERTY_SCROLLEABLE::Scroll_ResetStep(UI_PROPERTY_SCROLLEABLE_TYPE type
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_PROPERTY_SCROLLEABLE::Clean()
 {  

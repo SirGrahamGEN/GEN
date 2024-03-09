@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT() : SCRIPT()
 {
@@ -91,8 +89,6 @@ SCRIPT_LNG_JAVASCRIPT::SCRIPT_LNG_JAVASCRIPT() : SCRIPT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LNG_JAVASCRIPT::~SCRIPT_LNG_JAVASCRIPT()
@@ -472,8 +468,6 @@ duk_ret_t SCRIPT_LNG_JAVASCRIPT::LibraryCallBack(duk_context* context)
 * @param[in]  udata :
 * @param[in]  msg :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 {
@@ -494,8 +488,6 @@ void SCRIPT_LNG_JAVASCRIPT::FatalErrorHandler(void* udata, const char* msg)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LNG_JAVASCRIPT::Clean()

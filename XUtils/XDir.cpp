@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XDIRELEMENT::XDIRELEMENT()
 {
@@ -84,8 +82,6 @@ XDIRELEMENT::XDIRELEMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XDIRELEMENT::~XDIRELEMENT()
@@ -117,8 +113,6 @@ XDIRELEMENTTYPE XDIRELEMENT::GetType()
 * @ingroup    XUTILS
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDIRELEMENT::SetType(XDIRELEMENTTYPE type)
@@ -240,8 +234,6 @@ void* XDIRELEMENT::GetHandle()
 *
 * @param[in]  handle :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDIRELEMENT::SetHandle(void* handle)
 {
@@ -271,8 +263,6 @@ void* XDIRELEMENT::GetFindFileData()
 * @ingroup    XUTILS
 *
 * @param[in]  findfiledata :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDIRELEMENT::SetFindFileData(void* findfiledata)
@@ -309,8 +299,6 @@ bool XDIRELEMENT::DeleteFindFileData()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDIRELEMENT::Clean()
 {
@@ -333,8 +321,6 @@ void XDIRELEMENT::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XDIR::XDIR()
 {
@@ -348,8 +334,6 @@ XDIR::XDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XDIR::~XDIR()
@@ -621,8 +605,6 @@ bool XDIR::Copy(XCHAR* xpathsource,XCHAR* xpathtarget)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XDIR::Clean()

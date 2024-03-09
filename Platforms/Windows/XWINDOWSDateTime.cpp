@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDATETIME::XWINDOWSDATETIME()
 {
@@ -81,8 +79,6 @@ XWINDOWSDATETIME::XWINDOWSDATETIME()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDATETIME::~XWINDOWSDATETIME()
@@ -285,8 +281,6 @@ bool XWINDOWSDATETIME::IsDayLigthSavingTime(int* bias)
 * @param[in]  time : 
 * @param[in]  islocal : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 {
@@ -320,8 +314,6 @@ void XWINDOWSDATETIME::GetActualDateTime(XWINDOWSDATETIME* time, bool islocal)
 * 
 * @param[in]  time : 
 * @param[in]  islocal : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDATETIME::SetActualDateTime(XWINDOWSDATETIME* time, bool islocal)

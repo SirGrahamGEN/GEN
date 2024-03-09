@@ -57,8 +57,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32TRACE::XSTM32TRACE()
 {
@@ -75,8 +73,6 @@ XSTM32TRACE::XSTM32TRACE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32TRACE::~XSTM32TRACE()
@@ -98,8 +94,6 @@ XSTM32TRACE::~XSTM32TRACE()
 * @param[in]  target : target to print the debug
 * @param[in]  level : level of debug
 * @param[in]  string : string with the line
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32TRACE::PrintSpecial(XTRACE_TARGET* target, XBYTE level, XCHAR* string)
@@ -165,8 +159,6 @@ UART_HandleTypeDef* XSTM32TRACE::GetHuart()
 *
 * @param[in]  huart :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 {
@@ -181,8 +173,6 @@ void XSTM32TRACE::SetHuart(UART_HandleTypeDef* huart)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32TRACE::Clean()

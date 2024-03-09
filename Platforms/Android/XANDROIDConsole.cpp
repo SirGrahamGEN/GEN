@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDCONSOLE::XANDROIDCONSOLE(): XLINUXCONSOLE()
 {
@@ -75,8 +73,6 @@ XANDROIDCONSOLE::XANDROIDCONSOLE(): XLINUXCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDCONSOLE::~XANDROIDCONSOLE()

@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ XFILEZIP_XEVENT::XFILEZIP_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP_XEVENT::~XFILEZIP_XEVENT()
@@ -127,8 +123,6 @@ XFILECMPZIP* XFILEZIP_XEVENT::GetFileCompress()
 * 
 * @param[in]  filecmp : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetFileCompress(XFILECMPZIP* filecmp)
 {
@@ -158,8 +152,6 @@ float XFILEZIP_XEVENT::GetOperationPercent()
 * @ingroup    XUTILS
 *
 * @param[in]  operationpercent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetOperationPercent(float operationpercent)
@@ -191,8 +183,6 @@ XFILEZIP_ERROR XFILEZIP_XEVENT::GetError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 {
@@ -206,8 +196,6 @@ void XFILEZIP_XEVENT::SetError(XFILEZIP_ERROR error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP_XEVENT::Clean()

@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
 {
@@ -88,8 +86,6 @@ DIOSPITOUCHSCREENSTMPE610::DIOSPITOUCHSCREENSTMPE610(): DIODEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPITOUCHSCREENSTMPE610::~DIOSPITOUCHSCREENSTMPE610()
@@ -371,8 +367,6 @@ DIOSTREAMSPI* DIOSPITOUCHSCREENSTMPE610::GetDIOStreamSPI()
 *
 * @param[in]  diostreamSPI :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITOUCHSCREENSTMPE610::SetDIOStreamSPI(DIOSTREAMSPI* diostreamSPI)
 {
@@ -484,8 +478,6 @@ bool DIOSPITOUCHSCREENSTMPE610::WriteRegister(XBYTE reg, XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPITOUCHSCREENSTMPE610::Clean()

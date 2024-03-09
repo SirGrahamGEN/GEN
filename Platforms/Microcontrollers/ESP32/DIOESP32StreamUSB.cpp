@@ -62,8 +62,6 @@ DIOESP32STREAMUSB*      diostreamusbptrhandle =  NULL;
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMUSB::DIOESP32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 {
@@ -100,8 +98,6 @@ DIOESP32STREAMUSB::DIOESP32STREAMUSB() : DIOSTREAMUSB(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMUSB::~DIOESP32STREAMUSB()
@@ -285,8 +281,6 @@ bool DIOESP32STREAMUSB::CleanBuffers()
 * @param[in]  buffer :
 * @param[in]  uint32_t*len :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 {
@@ -318,8 +312,6 @@ void DIOESP32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUSB::ThreadConnection(void* param)
@@ -411,8 +403,6 @@ void DIOESP32STREAMUSB::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUSB::Clean()

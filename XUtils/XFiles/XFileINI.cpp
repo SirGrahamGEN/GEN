@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINIKEY::XFILEINIKEY()
 {
@@ -83,8 +81,6 @@ XFILEINIKEY::XFILEINIKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINIKEY::~XFILEINIKEY()
@@ -168,8 +164,6 @@ bool XFILEINIKEY::SetValue(XSTRING& value)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEINIKEY::Clean()
 {
@@ -189,8 +183,6 @@ void XFILEINIKEY::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINISECTION::XFILEINISECTION()
 {
@@ -204,8 +196,6 @@ XFILEINISECTION::XFILEINISECTION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINISECTION::~XFILEINISECTION()
@@ -412,8 +402,6 @@ bool XFILEINISECTION::ResetSelectionKey()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEINISECTION::Clean()
 {
@@ -440,8 +428,6 @@ void XFILEINISECTION::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEINIREMARK::XFILEINIREMARK()
 {
@@ -456,8 +442,6 @@ XFILEINIREMARK::XFILEINIREMARK()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 XFILEINIREMARK::~XFILEINIREMARK()
 {
@@ -487,8 +471,6 @@ XFILEINI_TYPEREMARK XFILEINIREMARK::GetType()
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEINIREMARK::SetType(XFILEINI_TYPEREMARK type)
@@ -520,8 +502,6 @@ XDWORD XFILEINIREMARK::GetXPos()
 *
 * @param[in]  xpos : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEINIREMARK::SetXPos(XDWORD xpos)
 {
@@ -551,8 +531,6 @@ int XFILEINIREMARK::GetRelativeYPos()
 * @ingroup    XUTILS
 *
 * @param[in]  relativeypos : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEINIREMARK::SetRelativeYPos(int relativeypos)
@@ -689,8 +667,6 @@ bool XFILEINIREMARK::CopyFrom(XFILEINIREMARK* remake)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XFILEINIREMARK::Clean()
 {
@@ -718,8 +694,6 @@ void XFILEINIREMARK::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::XFILEINI(): XFILETXT()
 {
@@ -734,8 +708,6 @@ XFILEINI::XFILEINI(): XFILETXT()
 * @ingroup    XUTILS
 *
 * @param[in]  XPATH& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
@@ -754,8 +726,6 @@ XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
 *
 * @param[in]  XFILE* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::XFILEINI(XFILE* file): XFILETXT()
 {
@@ -771,8 +741,6 @@ XFILEINI::XFILEINI(XFILE* file): XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::~XFILEINI()
@@ -2018,8 +1986,6 @@ bool XFILEINI::Line_GetRemark(XSTRING& line, XFILEINIREMARK& remark)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEINI::Clean()

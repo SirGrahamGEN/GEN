@@ -103,8 +103,6 @@ extern "C"
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES() : DIOSTREAMBLUETOOTHREMOTEENUMDEVICES() , XFSMACHINE(0)
 {
@@ -139,8 +137,6 @@ DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::DIOANDROIDSTREAMBLUETOOTHREMOTEENUMD
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::~DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES()
@@ -610,8 +606,6 @@ bool DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ScanDeviceServices(DIOSTREAMDEV
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::ThreadEnumDevices(void* param)
 {
@@ -673,8 +667,6 @@ extern "C"
   * @param[in]  value : 
   * @param[in]  userData : 
   * 
-  * @return     Does not return anything. 
-  * 
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_class(void* value, void* userData)
   {
@@ -700,8 +692,6 @@ extern "C"
   * 
   * @param[in]  value : 
   * @param[in]  user : 
-  * 
-  * @return     Does not return anything. 
   * 
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_service_desc(void* value, void* user)
@@ -750,8 +740,6 @@ extern "C"
   * @param[in]  value : 
   * @param[in]  userData : 
   * 
-  * @return     Does not return anything. 
-  * 
   * --------------------------------------------------------------------------------------------------------------------*/
   void print_access_protos(void* value, void* userData)
   {
@@ -771,8 +759,6 @@ extern "C"
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMBLUETOOTHREMOTEENUMDEVICES::Clean()

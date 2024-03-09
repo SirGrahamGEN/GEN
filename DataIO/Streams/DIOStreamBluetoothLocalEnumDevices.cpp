@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOSTREAMENUMDEVICES()
 {
@@ -75,8 +73,6 @@ DIOSTREAMBLUETOOTHLOCALENUMDEVICES::DIOSTREAMBLUETOOTHLOCALENUMDEVICES() : DIOST
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLOCALENUMDEVICES::~DIOSTREAMBLUETOOTHLOCALENUMDEVICES()
@@ -155,8 +151,6 @@ bool DIOSTREAMBLUETOOTHLOCALENUMDEVICES::IsDeviceAvailable(XCHAR* resource)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMBLUETOOTHLOCALENUMDEVICES::Clean()

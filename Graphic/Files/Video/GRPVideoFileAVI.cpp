@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    VIDEO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
 {
@@ -85,8 +83,6 @@ GRPVIDEOFILEAVI::GRPVIDEOFILEAVI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    VIDEO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVIDEOFILEAVI::~GRPVIDEOFILEAVI()
@@ -557,8 +553,6 @@ bool GRPVIDEOFILEAVI::CreateIndexofFrames()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    VIDEO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVIDEOFILEAVI::Clean()

@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEY::CIPHERKEY()
 { 
@@ -82,8 +80,6 @@ CIPHERKEY::CIPHERKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEY::~CIPHERKEY()
@@ -114,8 +110,6 @@ CIPHERKEYTYPE CIPHERKEY::GetType()
 * @ingroup    CIPHER
 * 
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEY::SetType(CIPHERKEYTYPE type)
@@ -181,8 +175,6 @@ bool CIPHERKEY::CopyFrom(CIPHERKEY* key)
 * @note       INTERNAL
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEY::Clean()
 {
@@ -202,8 +194,6 @@ void CIPHERKEY::Clean()
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
 {
@@ -221,8 +211,6 @@ CIPHERKEYSYMMETRICAL::CIPHERKEYSYMMETRICAL() : CIPHERKEY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSYMMETRICAL::~CIPHERKEYSYMMETRICAL()
@@ -355,8 +343,6 @@ bool CIPHERKEYSYMMETRICAL::CopyFrom(CIPHERKEYSYMMETRICAL* key)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYSYMMETRICAL::Clean()

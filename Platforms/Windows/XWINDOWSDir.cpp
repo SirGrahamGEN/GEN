@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 {
@@ -81,8 +79,6 @@ XWINDOWSDIR::XWINDOWSDIR(): XDIR()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDIR::~XWINDOWSDIR()
@@ -476,8 +472,6 @@ bool XWINDOWSDIR::SetFileDate(XDIRELEMENT* searchelement)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSDIR::Clean()

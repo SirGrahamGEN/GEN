@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT::DB_SQL_VARIANT(): XVARIANT()
 {
@@ -82,8 +80,6 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(): XVARIANT()
 * @ingroup    DATABASES
 *
 * @param[in]  const :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant): XVARIANT()
@@ -100,8 +96,6 @@ DB_SQL_VARIANT::DB_SQL_VARIANT(const DB_SQL_VARIANT& variant): XVARIANT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_VARIANT::~DB_SQL_VARIANT()
@@ -135,8 +129,6 @@ DB_SQL_VARIANT_FLAGS* DB_SQL_VARIANT::GetFlags()
 *
 * @param[in]  flags :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
 {
@@ -150,8 +142,6 @@ void DB_SQL_VARIANT::SetFlags(DB_SQL_VARIANT_FLAGS flags)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_VARIANT::Clean()
@@ -173,8 +163,6 @@ void DB_SQL_VARIANT::Clean()
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ROW::DB_SQL_ROW()
 {
@@ -188,8 +176,6 @@ DB_SQL_ROW::DB_SQL_ROW()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_ROW::~DB_SQL_ROW()
@@ -245,8 +231,6 @@ bool DB_SQL_ROW::Add(DB_SQL_VARIANT* variant)
 * @fn         void DB_SQL_ROW::Clear()
 * @brief      Clear
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_ROW::Clear()

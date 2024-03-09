@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE::INPDEVICE()
 {
@@ -82,8 +80,6 @@ INPDEVICE::INPDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPDEVICE::~INPDEVICE()
@@ -130,8 +126,6 @@ bool INPDEVICE::IsEnabled()
 *
 * @param[in]  ON : true enabled.
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPDEVICE::SetEnabled(bool enabled)
 {
@@ -161,8 +155,6 @@ INPDEVICE_TYPE INPDEVICE::GetType()
 * @ingroup    INPUT
 *
 * @param[in]  type : type of device
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPDEVICE::SetType(INPDEVICE_TYPE type)
@@ -581,8 +573,6 @@ bool INPDEVICE::Update()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPDEVICE::Clean()

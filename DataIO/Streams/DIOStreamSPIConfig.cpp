@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG() : DIOSTREAMCONFIG()
 {
@@ -80,8 +78,6 @@ DIOSTREAMSPICONFIG::DIOSTREAMSPICONFIG() : DIOSTREAMCONFIG()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPICONFIG::~DIOSTREAMSPICONFIG()
 {
@@ -111,8 +107,6 @@ int DIOSTREAMSPICONFIG::GetPort()
 * @ingroup    DATAIO
 *
 * @param[in]  port : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetPort(int port)
@@ -193,8 +187,6 @@ int DIOSTREAMSPICONFIG::GetChipSelect()
 * @ingroup    DATAIO
 *
 * @param[in]  chipselect : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetChipSelect(int chipselect)                  
@@ -343,8 +335,6 @@ bool DIOSTREAMSPICONFIG::SetPinsDirectAccess(XDWORD GPIOID_CLK, XDWORD GPIOID_MI
 *
 * @param[in]  SPImode : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 { 
@@ -359,8 +349,6 @@ void DIOSTREAMSPICONFIG::SetSPIMode(XBYTE SPImode)
 * @ingroup    DATAIO
 *
 * @param[in]  nbitsword : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
@@ -377,8 +365,6 @@ void DIOSTREAMSPICONFIG::SetNBitsWord(XBYTE nbitsword)
 *
 * @param[in]  speed : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
 { 
@@ -393,8 +379,6 @@ void DIOSTREAMSPICONFIG::SetSpeed(XDWORD speed)
 * @ingroup    DATAIO
 *
 * @param[in]  delay : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
@@ -411,8 +395,6 @@ void DIOSTREAMSPICONFIG::SetDelay(XWORD delay)
 *
 * @param[in]  isonlywrite : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
 { 
@@ -427,8 +409,6 @@ void DIOSTREAMSPICONFIG::SetIsOnlyWrite(bool isonlywrite)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPICONFIG::Clean()
 {

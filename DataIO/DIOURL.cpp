@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL()
 {
@@ -79,8 +77,6 @@ DIOURL::DIOURL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::~DIOURL()
@@ -97,8 +93,6 @@ DIOURL::~DIOURL()
 *
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 {
@@ -114,8 +108,6 @@ DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 *
 * @param[in]  const :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const char* url) : XSTRING(url)
 {
@@ -130,8 +122,6 @@ DIOURL::DIOURL(const char* url) : XSTRING(url)
 * @ingroup    DATAIO
 *
 * @param[in]  const :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
@@ -149,8 +139,6 @@ DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
 * @param[in]  const :
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 {
@@ -165,8 +153,6 @@ DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 * @ingroup    DATAIO
 *
 * @param[in]  DIOURL& :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
@@ -183,8 +169,6 @@ DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
 *
 * @param[in]  XSTRING& :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 {
@@ -199,8 +183,6 @@ DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 * @ingroup    DATAIO
 *
 * @param[in]  XWORD* :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XWORD* url) : XSTRING(url)
@@ -989,8 +971,6 @@ bool DIOURL::GetFileName(XSTRING& filename)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOURL::Clean()

@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDANDROIDFACTORY::SNDANDROIDFACTORY()
 {
@@ -82,8 +80,6 @@ SNDANDROIDFACTORY::SNDANDROIDFACTORY()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
 {
@@ -97,8 +93,6 @@ SNDANDROIDFACTORY::~SNDANDROIDFACTORY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDANDROIDFACTORY::Clean()

@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPUBLICIP_RESULT::DIOPUBLICIP_RESULT()
 {
@@ -82,8 +80,6 @@ DIOPUBLICIP_RESULT::DIOPUBLICIP_RESULT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPUBLICIP_RESULT::~DIOPUBLICIP_RESULT()
@@ -114,8 +110,6 @@ DIOIP* DIOPUBLICIP_RESULT::Get()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPUBLICIP_RESULT::Clean()
 {
@@ -135,8 +129,6 @@ void DIOPUBLICIP_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBPUBLICIP::DIOSCRAPERWEBPUBLICIP() : DIOSCRAPERWEB()
 {
@@ -150,8 +142,6 @@ DIOSCRAPERWEBPUBLICIP::DIOSCRAPERWEBPUBLICIP() : DIOSCRAPERWEB()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSCRAPERWEBPUBLICIP::~DIOSCRAPERWEBPUBLICIP()
@@ -243,8 +233,6 @@ bool DIOSCRAPERWEBPUBLICIP::Get(DIOIP& IP, int timeoutforurl,  XSTRING* localIP,
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSCRAPERWEBPUBLICIP::Clean()

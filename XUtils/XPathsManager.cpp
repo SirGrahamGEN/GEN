@@ -69,8 +69,6 @@ XPATHSMANAGER*  XPATHSMANAGER::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 {
@@ -87,8 +85,6 @@ XPATHSMANAGERSECTION::XPATHSMANAGERSECTION()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 {
@@ -104,8 +100,6 @@ XPATHSMANAGERSECTION::~XPATHSMANAGERSECTION()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATHSMANAGERSECTION::Clean()
@@ -507,8 +501,6 @@ bool XPATHSMANAGER::AdjustRootPathDefault(XCHAR* assetsdirname)
 * @brief      Construct
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGER::XPATHSMANAGER()
 {
@@ -524,8 +516,6 @@ XPATHSMANAGER::XPATHSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATHSMANAGER::~XPATHSMANAGER()
@@ -547,8 +537,6 @@ XPATHSMANAGER::~XPATHSMANAGER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATHSMANAGER::Clean()

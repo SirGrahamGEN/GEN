@@ -79,8 +79,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHMD5::HASHMD5() : HASH()
 {
@@ -98,8 +96,6 @@ HASHMD5::HASHMD5() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHMD5::~HASHMD5()
@@ -159,8 +155,6 @@ int HASHMD5::GetDefaultSize()
 * @brief      Ini
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Ini()
 {
@@ -185,8 +179,6 @@ void HASHMD5::Ini()
 * 
 * @param[in]  input : 
 * @param[in]  size : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Update(XBYTE* input, XQWORD size)
@@ -234,8 +226,6 @@ void HASHMD5::Update(XBYTE* input, XQWORD size)
 * @ingroup    CIPHER
 * 
 * @param[in]  block[HASHMD5_BLOCKSIZE] : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Transform(XBYTE block[HASHMD5_BLOCKSIZE])
@@ -340,8 +330,6 @@ void HASHMD5::Transform(XBYTE block[HASHMD5_BLOCKSIZE])
 * @param[in]  input : 
 * @param[in]  size : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Decode(XDWORD* output, XBYTE* input, XDWORD size)
 {
@@ -362,8 +350,6 @@ void HASHMD5::Decode(XDWORD* output, XBYTE* input, XDWORD size)
 * @param[in]  input : 
 * @param[in]  size : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Encode(XBYTE* output, XDWORD* input, XDWORD size)
 {
@@ -382,8 +368,6 @@ void HASHMD5::Encode(XBYTE* output, XDWORD* input, XDWORD size)
 * @fn         void HASHMD5::End()
 * @brief      End
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::End()
@@ -613,8 +597,6 @@ inline void HASHMD5::II(XDWORD& a, XDWORD b, XDWORD c, XDWORD d, XDWORD x, XDWOR
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHMD5::Clean()

@@ -201,8 +201,6 @@ bool XTHREADLISTNONPREEMPTIVE::ExecuteFunctions()
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
 {
@@ -216,8 +214,6 @@ XTHREADLISTNONPREEMPTIVE::XTHREADLISTNONPREEMPTIVE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
@@ -234,8 +230,6 @@ XTHREADLISTNONPREEMPTIVE::~XTHREADLISTNONPREEMPTIVE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTHREADLISTNONPREEMPTIVE::Clean()

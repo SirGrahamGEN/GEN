@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::UI_COLOR()    
 { 
@@ -78,8 +76,6 @@ UI_COLOR::UI_COLOR()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::~UI_COLOR()    
 { 
@@ -109,8 +105,6 @@ int UI_COLOR::GetRed()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  red : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::SetRed(int red)  
@@ -142,8 +136,6 @@ int UI_COLOR::GetGreen()
 *
 * @param[in]  green : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::SetGreen(int green)
 {
@@ -174,8 +166,6 @@ int UI_COLOR::GetBlue()
 *
 * @param[in]  blue : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::SetBlue(int blue)
 {
@@ -205,8 +195,6 @@ int UI_COLOR::GetAlpha()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  alpha : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::SetAlpha(int alpha)
@@ -378,8 +366,6 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::Clean()
 {

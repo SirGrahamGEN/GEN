@@ -64,8 +64,6 @@
 * @param[in]  XDWORD type : type of event
 * @param[in]  XDWORD family : family of event
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subj
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPXEVENT::~GRPXEVENT()
@@ -112,8 +108,6 @@ GRPSCREEN* GRPXEVENT::GetScreen()
 *
 * @param[in]  screen :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPXEVENT::SetScreen(GRPSCREEN* screen)
 {
@@ -143,8 +137,6 @@ GRPVIEWPORT* GRPXEVENT::GetViewport()
 * @ingroup    GRAPHIC
 *
 * @param[in]  viewport :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPXEVENT::SetViewport(GRPVIEWPORT* viewport)
@@ -176,8 +168,6 @@ bool GRPXEVENT::GetError()
 *
 * @param[in]  error :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPXEVENT::SetError(bool error)
 {
@@ -191,8 +181,6 @@ void GRPXEVENT::SetError(bool error)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPXEVENT::Clean()

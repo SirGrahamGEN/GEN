@@ -64,8 +64,6 @@
 * @param[in]  type :
 * @param[in]  family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XEVENT::XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 {
@@ -86,8 +84,6 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @param[in]  subject :
 * @param[in]   type :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XEVENT::XEVENT(XSUBJECT* subject, XDWORD type)
 {
@@ -104,8 +100,6 @@ XEVENT::XEVENT(XSUBJECT* subject, XDWORD type)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XEVENT::~XEVENT()
@@ -137,8 +131,6 @@ XSUBJECT* XEVENT::GetSubject()
 *
 * @param[in]  subject :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XEVENT::SetSubject(XSUBJECT* subject)
 {
@@ -168,8 +160,6 @@ XDWORD XEVENT::GetEventFamily()
 * @ingroup    XUTILS
 *
 * @param[in]  family :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XEVENT::SetEventFamily(XDWORD family)
@@ -201,8 +191,6 @@ XDWORD XEVENT::GetEventType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XEVENT::SetEventType(XDWORD type)
 {
@@ -216,8 +204,6 @@ void XEVENT::SetEventType(XDWORD type)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XEVENT::Clean()

@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ANIMATION::UI_ANIMATION()    
 { 
@@ -82,8 +80,6 @@ UI_ANIMATION::UI_ANIMATION()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ANIMATION::~UI_ANIMATION()    
 { 
@@ -350,8 +346,6 @@ GRPPROPERTYMODE UI_ANIMATION::ChangeModeWithAlpha(GRPBITMAPFILE_TYPE typefile, G
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ANIMATION::Clean()
 {

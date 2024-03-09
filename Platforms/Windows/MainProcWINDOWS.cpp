@@ -166,8 +166,6 @@ BOOL                    Exception_ConsoleHandler      (DWORD fdwctrltype);
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCWINDOWS::MAINPROCWINDOWS()
 {
@@ -181,8 +179,6 @@ MAINPROCWINDOWS::MAINPROCWINDOWS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCWINDOWS::~MAINPROCWINDOWS()
@@ -744,8 +740,6 @@ bool MAINPROCWINDOWS::IsRunningAsService()
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWS::Clean()
 {
@@ -773,8 +767,6 @@ void MAINPROCWINDOWS::Clean()
 * @param[in]  can_shutdown :
 * @param[in]  can_pause :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange) : XWINDOWSSERVICEBASE(servicename, can_stop, can_shutdown, can_pause, can_powerevent, can_sessionchange)
 {
@@ -794,8 +786,6 @@ WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutd
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 WINDOWSSERVICE::~WINDOWSSERVICE()
@@ -848,8 +838,6 @@ bool WINDOWSSERVICE::MustRestartService()
 *
 * @param[in]  mustrestartservice : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 {
@@ -866,8 +854,6 @@ void WINDOWSSERVICE::SetMustRestartService(bool mustrestartservice)
 * @param[in]  argc :
 * @param[in]  args :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 {
@@ -880,8 +866,6 @@ void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 * @fn         void WINDOWSSERVICE::On_Stop()
 * @brief      On_Stop
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Stop()
@@ -920,8 +904,6 @@ void WINDOWSSERVICE::On_Stop()
 * @brief      On_Shutdown
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Shutdown()
 {
@@ -944,8 +926,6 @@ void WINDOWSSERVICE::On_Shutdown()
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
@@ -974,8 +954,6 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 * @ingroup    PLATFORM_WINDOWS
 *
 * @param[in]  eventtype :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
@@ -1008,8 +986,6 @@ void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::Clean()
@@ -1350,8 +1326,6 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
 * @param[in]  symOptions :
 * @param[in]  szUserName :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions, LPCSTR szUserName)
 {
@@ -1368,8 +1342,6 @@ void MAINPROCWINDOWSSTACKWALKER::OnSymInit(LPCSTR szSearchPath, DWORD symOptions
 *
 * @param[in]  eType :
 * @param[in]  entry :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, CallstackEntry& entry)

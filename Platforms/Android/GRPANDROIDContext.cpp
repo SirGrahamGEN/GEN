@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDCONTEXT::GRPANDROIDCONTEXT() : GRPCONTEXT()
 {
@@ -80,8 +78,6 @@ GRPANDROIDCONTEXT::GRPANDROIDCONTEXT() : GRPCONTEXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPANDROIDCONTEXT::~GRPANDROIDCONTEXT()

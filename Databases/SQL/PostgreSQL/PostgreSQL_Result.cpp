@@ -70,8 +70,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_RESULT::~POSTGRESQL_RESULT()
 {
@@ -578,8 +576,6 @@ bool POSTGRESQL_RESULT::HasNext()
 *
 * @param[in]  ) :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 {
@@ -595,8 +591,6 @@ POSTGRESQL_RESULT::POSTGRESQL_RESULT() : DB_SQL_RESULT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void POSTGRESQL_RESULT::Clean()

@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::DIOWINDOWSSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMUARTLOCALENUMDEVICES()
 {
@@ -82,8 +80,6 @@ DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::DIOWINDOWSSTREAMUARTLOCALENUMDEVICES() : D
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUARTLOCALENUMDEVICES::~DIOWINDOWSSTREAMUARTLOCALENUMDEVICES()

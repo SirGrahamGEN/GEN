@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC32::HASHCRC32() : HASH()
 {
@@ -92,8 +90,6 @@ HASHCRC32::HASHCRC32() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC32::~HASHCRC32()
@@ -245,8 +241,6 @@ XDWORD HASHCRC32::GetResultCRC32()
 * @brief      Ini
 * @ingroup    CIPHER
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCRC32::Ini()
 {
@@ -303,8 +297,6 @@ XDWORD HASHCRC32::Update(XDWORD CRC32, XBYTE data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCRC32::Clean()

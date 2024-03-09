@@ -65,8 +65,6 @@
 * @param[in]  DIOSTREAM* : 
 * @param[in]   bool iswithlog : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlog)
 {
@@ -83,8 +81,6 @@ DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlo
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOXTRACEINTERSTREAMS::~DIOXTRACEINTERSTREAMS()
@@ -158,8 +154,6 @@ bool DIOXTRACEINTERSTREAMS::Process()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOXTRACEINTERSTREAMS::Clean()

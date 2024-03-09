@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 {
@@ -86,8 +84,6 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 * @param[in]   XBYTE green : initial green component
 * @param[in]   XBYTE blue : initial blue component
 * @param[in]   XBYTE alpha : initial alpha component
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green, XBYTE blue, XBYTE alpha)
@@ -108,8 +104,6 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green,
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 {
@@ -123,8 +117,6 @@ GRPBITMAPFILEBMPCOLORPALETE::~GRPBITMAPFILEBMPCOLORPALETE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMPCOLORPALETE::Clean()
@@ -148,8 +140,6 @@ void GRPBITMAPFILEBMPCOLORPALETE::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 {
@@ -163,8 +153,6 @@ GRPBITMAPFILEBMPHEADER::GRPBITMAPFILEBMPHEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPHEADER::~GRPBITMAPFILEBMPHEADER()
@@ -488,8 +476,6 @@ bool GRPBITMAPFILEBMPHEADER::DeleteAllPalette()
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMPHEADER::Clean()
 {
@@ -510,8 +496,6 @@ void GRPBITMAPFILEBMPHEADER::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 {
@@ -525,8 +509,6 @@ GRPBITMAPFILEBMP::GRPBITMAPFILEBMP(): GRPBITMAPFILEBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMP::~GRPBITMAPFILEBMP()
@@ -922,8 +904,6 @@ bool GRPBITMAPFILEBMP::ReadHeaderBuffer(XBYTE* buffer, XDWORD size, GRPBITMAPFIL
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEBMP::Clean()

@@ -50,8 +50,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32RAND::XSTM32RAND()
 {
@@ -67,8 +65,6 @@ XSTM32RAND::XSTM32RAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32RAND::~XSTM32RAND()
@@ -166,8 +162,6 @@ int XSTM32RAND::Between(int min,int max)
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void XSTM32RAND::Clean()
 {

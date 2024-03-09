@@ -92,8 +92,6 @@
 * @param[in]  XDWORD ID :
 * @param[in]  XBUFFER& xbuffer :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
 {
@@ -112,8 +110,6 @@ DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_ANSWER::~DIOPROTOCOL_ANSWER()
@@ -174,8 +170,6 @@ XBUFFER& DIOPROTOCOL_ANSWER::GetBuffer()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_ANSWER::Clean()
 {
@@ -203,8 +197,6 @@ void DIOPROTOCOL_ANSWER::Clean()
 * @param[in]  receivedfunc :
 * @param[in]  description :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outmask, DIOPROTOCOL_RECEIVEDFUNC receivedfunc, XCHAR* description)
 {
@@ -225,8 +217,6 @@ DIOPROTOCOL_COMMAND::DIOPROTOCOL_COMMAND(XDWORD type, XCHAR* inmask, XCHAR* outm
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_COMMAND::~DIOPROTOCOL_COMMAND()
@@ -362,8 +352,6 @@ XSTRING* DIOPROTOCOL_COMMAND::GetSDescription()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_COMMAND::Clean()
 {
@@ -390,8 +378,6 @@ void DIOPROTOCOL_COMMAND::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
 {
@@ -407,8 +393,6 @@ DIOPROTOCOL_FILE::DIOPROTOCOL_FILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_FILE::~DIOPROTOCOL_FILE()
@@ -442,8 +426,6 @@ bool DIOPROTOCOL_FILE::IsActive()
 *
 * @param[in]  isactive :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetActive(bool isactive)
 {
@@ -473,8 +455,6 @@ DIOPROTOCOL_DIRECTION DIOPROTOCOL_FILE::GetDirection()
 * @ingroup    DATAIO
 *
 * @param[in]  direction :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetDirection(DIOPROTOCOL_DIRECTION direction)
@@ -608,8 +588,6 @@ XQWORD DIOPROTOCOL_FILE::GetSize()
 *
 * @param[in]  size :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetSize(XQWORD size)
 {
@@ -639,8 +617,6 @@ XDWORD DIOPROTOCOL_FILE::GetCRC32()
 * @ingroup    DATAIO
 *
 * @param[in]  crc32 :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetCRC32(XDWORD crc32)
@@ -672,8 +648,6 @@ int DIOPROTOCOL_FILE::GetSizeBlock()
 *
 * @param[in]  sizeblock :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetSizeBlock(XDWORD sizeblock)
 {
@@ -704,8 +678,6 @@ XQWORD DIOPROTOCOL_FILE::GetPosition()
 *
 * @param[in]  position :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetPosition(XQWORD position)
 {
@@ -735,8 +707,6 @@ XBYTE DIOPROTOCOL_FILE::GetPercent()
 * @ingroup    DATAIO
 *
 * @param[in]  percent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::SetPercent(XBYTE percent)
@@ -859,8 +829,6 @@ bool DIOPROTOCOL_FILE::Erase()
 * @brief      Reset
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::Reset()
 {
@@ -879,8 +847,6 @@ void DIOPROTOCOL_FILE::Reset()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_FILE::Clean()
@@ -911,8 +877,6 @@ void DIOPROTOCOL_FILE::Clean()
 * @ingroup    DATAIO
 *
 * @param[in]  diostream :
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
@@ -994,8 +958,6 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL::~DIOPROTOCOL()
@@ -1192,8 +1154,6 @@ bool DIOPROTOCOL::IsInitialized()
 * 
 * @param[in]  isinitialized : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetIsInitialized(bool isinitialized)
 {
@@ -1290,8 +1250,6 @@ void* DIOPROTOCOL::GetConnectionsManager()
 *
 * @param[in]  connectionsmanager :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetConnectionsManager(void* connectionsmanager)
 {
@@ -1321,8 +1279,6 @@ void* DIOPROTOCOL::GetConnection()
 * @ingroup    DATAIO
 *
 * @param[in]  connection :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetConnection(void* connection)
@@ -1354,8 +1310,6 @@ void* DIOPROTOCOL::GetApplicationData()
 *
 * @param[in]  applicationdata :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetApplicationData(void* applicationdata)
 {
@@ -1385,8 +1339,6 @@ bool DIOPROTOCOL::IsOwnApplicationData()
 * @ingroup    DATAIO
 *
 * @param[in]  isownapplicationdata :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetIsOwnApplicationData(bool isownapplicationdata)
@@ -2191,8 +2143,6 @@ bool DIOPROTOCOL::SendEventFileBlock(DIOPROTOCOL_FILESTATUS filestatus, bool fil
 * @param[in]  subversion :
 * @param[in]  subversionerr :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
@@ -2211,8 +2161,6 @@ void DIOPROTOCOL::GetProtocolVersion(XDWORD& version, XDWORD& subversion, XDWORD
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
@@ -2233,8 +2181,6 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 * @param[in]  subversion :
 * @param[in]  subversionerr :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
@@ -2253,8 +2199,6 @@ void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDW
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
@@ -3786,8 +3730,6 @@ int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::ThreadReceived(void* param)
 {
@@ -3816,8 +3758,6 @@ void DIOPROTOCOL::ThreadReceived(void* param)
 * @ingroup    DATAIO
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::ThreadAsks(void* param)
@@ -3857,8 +3797,6 @@ void DIOPROTOCOL::ThreadAsks(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL::Clean()

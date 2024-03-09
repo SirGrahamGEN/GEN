@@ -58,8 +58,6 @@ DIOESP32STREAMUART*   diostreamuartptrhandle[DIOESP32STREAMIUART_MAXHANDLES] = {
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMUART::DIOESP32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 {
@@ -96,8 +94,6 @@ DIOESP32STREAMUART::DIOESP32STREAMUART() : DIOSTREAMUART(), XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOESP32STREAMUART::~DIOESP32STREAMUART()
@@ -561,8 +557,6 @@ UART_HandleTypeDef* DIOESP32STREAMUART::GetHuart()
 *
 * @param[in]  huart :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 {
@@ -581,8 +575,6 @@ void DIOESP32STREAMUART::SetHuart(UART_HandleTypeDef* huart)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  UART_HandleTypeDef*huart :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -631,8 +623,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  param :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUART::ThreadConnection(void* param)
@@ -725,8 +715,6 @@ void DIOESP32STREAMUART::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUART::Clean()

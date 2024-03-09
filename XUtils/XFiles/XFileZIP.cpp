@@ -73,8 +73,6 @@
 * @param[in]  bool :
 * @param[in]  filehdl :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECMPZIP::XFILECMPZIP(bool compress, void* filehdl)
 {
@@ -123,8 +121,6 @@ XFILECMPZIP::XFILECMPZIP(bool compress, void* filehdl)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECMPZIP::~XFILECMPZIP()
@@ -260,8 +256,6 @@ XCHAR* XFILECMPZIP::GetName()
 * @ingroup    XUTILS
 *
 * @param[in]  name :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECMPZIP::SetName(XSTRING& name)
@@ -505,8 +499,6 @@ bool XFILECMPZIP::Close()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECMPZIP::Clean()
 {
@@ -563,8 +555,6 @@ bool XFILECMPZIP::SelectCurrenFile()
 *
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP::XFILEZIP(XDWORD maxsizebuffer)
 {
@@ -582,8 +572,6 @@ XFILEZIP::XFILEZIP(XDWORD maxsizebuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP::~XFILEZIP()
@@ -618,8 +606,6 @@ XDWORD XFILEZIP::GetMaxSizeBuffer()
 * @ingroup    XUTILS
 *
 * @param[in]  maxsizebuffer : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
@@ -888,8 +874,6 @@ XFILEZIP_ERROR XFILEZIP::GetLastError()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEZIP::Clean()
 {
@@ -916,8 +900,6 @@ void XFILEZIP::Clean()
 *
 * @param[in]  XDWORD :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEUNZIP::XFILEUNZIP(XDWORD maxsizebuffer)
 {
@@ -937,8 +919,6 @@ XFILEUNZIP::XFILEUNZIP(XDWORD maxsizebuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEUNZIP::~XFILEUNZIP()
@@ -975,8 +955,6 @@ XDWORD XFILEUNZIP::GetMaxSizeBuffer()
 * @ingroup    XUTILS
 *
 * @param[in]  maxsizebuffer : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEUNZIP::SetMaxSizeBuffer(XDWORD maxsizebuffer)
@@ -1514,8 +1492,6 @@ XFILECMPZIP* XFILEUNZIP::CreateCurrentFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEUNZIP::Clean()

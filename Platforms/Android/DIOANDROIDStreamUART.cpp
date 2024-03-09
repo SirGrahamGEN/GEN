@@ -90,8 +90,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 {
@@ -129,8 +127,6 @@ DIOANDROIDSTREAMUART::DIOANDROIDSTREAMUART() : DIOSTREAMUART() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUART::~DIOANDROIDSTREAMUART()
@@ -636,8 +632,6 @@ bool DIOANDROIDSTREAMUART::CleanBuffers()
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
 {
@@ -730,8 +724,6 @@ void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOANDROIDSTREAMUART::Clean()

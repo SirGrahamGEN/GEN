@@ -76,8 +76,6 @@ APPUPDATE* APPUPDATE::instance = NULL;
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPUPDATE_CFG::APPUPDATE_CFG()
 {
@@ -90,8 +88,6 @@ APPUPDATE_CFG::APPUPDATE_CFG()
 * @fn         APPUPDATE_CFG::APPUPDATE_CFG()
 * @brief      Constructor
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPUPDATE_CFG::~APPUPDATE_CFG()
@@ -137,8 +133,6 @@ XDWORD APPUPDATE_CFG::Get_Port()
 * @ingroup    APPLICATION
 *
 * @param[in]  port :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE_CFG::Set_Port(XDWORD port)
@@ -214,8 +208,6 @@ bool APPUPDATE_CFG::GetDolog()
 * @ingroup    APPLICATION
 *
 * @param[in]  dolog :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE_CFG::SetDolog(bool dolog)
@@ -295,8 +287,6 @@ bool APPUPDATE_CFG::CopyTo(APPUPDATE_CFG* updatecfg)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE_CFG::Clean()
@@ -869,8 +859,6 @@ bool APPUPDATE::LogOfEvent(DIOAPPLICATIONUPDATE_XEVENT* event)
 * @brief      Constructor
 * @ingroup    APPLICATION
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPUPDATE::APPUPDATE()
 {
@@ -884,8 +872,6 @@ APPUPDATE::APPUPDATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPUPDATE::~APPUPDATE()
@@ -994,8 +980,6 @@ bool APPUPDATE::CreateTaskUpdate(bool doajust)
 *
 * @param[in]  event :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
@@ -1016,8 +1000,6 @@ void APPUPDATE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 *
 * @param[in]  event :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE::HandleEvent_ApplicationUpdate(DIOAPPLICATIONUPDATE_XEVENT* event)
 {
@@ -1033,8 +1015,6 @@ void APPUPDATE::HandleEvent_ApplicationUpdate(DIOAPPLICATIONUPDATE_XEVENT* event
 * @ingroup    APPLICATION
 *
 * @param[in]  xevent :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE::HandleEvent(XEVENT* xevent)
@@ -1067,8 +1047,6 @@ void APPUPDATE::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPUPDATE::Clean()

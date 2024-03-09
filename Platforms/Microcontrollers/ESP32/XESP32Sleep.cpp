@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32SLEEP::XESP32SLEEP()
 {
@@ -75,8 +73,6 @@ XESP32SLEEP::XESP32SLEEP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ESP32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32SLEEP::~XESP32SLEEP()
@@ -93,8 +89,6 @@ XESP32SLEEP::~XESP32SLEEP()
 *
 * @param[in]  seconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32SLEEP::Seconds(int seconds)
 {
@@ -109,8 +103,6 @@ void XESP32SLEEP::Seconds(int seconds)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  milliseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32SLEEP::MilliSeconds(int milliseconds)
@@ -127,8 +119,6 @@ void XESP32SLEEP::MilliSeconds(int milliseconds)
 *
 * @param[in]  microseconds :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32SLEEP::MicroSeconds(int microseconds)
 {
@@ -143,8 +133,6 @@ void XESP32SLEEP::MicroSeconds(int microseconds)
 * @ingroup    PLATFORM_ESP32
 *
 * @param[in]  nanoseconds :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XESP32SLEEP::NanoSeconds(int nanoseconds)

@@ -64,8 +64,6 @@
 * @param[in]  XDWORD type : 
 * @param[in]  XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::~APPINTERNETSERVICES_XEVENT()
@@ -112,8 +108,6 @@ APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE APPINTERNETSERVICES_XEVENT::Get
 *
 * @param[in]  internetconnexionstate : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE internetconnexionstate)
 {
@@ -143,8 +137,6 @@ DIOCHECKTCPIPCONNECTION_CUT* APPINTERNETSERVICES_XEVENT::GetInternetConnextionCu
 * @ingroup    APPLICATION
 *
 * @param[in]  internetconnectioncut : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::SetInternetConnextionCut(DIOCHECKTCPIPCONNECTION_CUT* internetconnectioncut)
@@ -177,8 +169,6 @@ bool APPINTERNETSERVICES_XEVENT::IsChangePublicIP()
 * 
 * @param[in]  ischangepublicIP : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::SetIsChangePublicIP(bool ischangepublicIP)
 {
@@ -208,8 +198,6 @@ bool APPINTERNETSERVICES_XEVENT::IsChangeLocalIP()
 * @ingroup    APPLICATION
 *
 * @param[in]  ischangelocalIP : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::SetIsChangeLocalIP(bool ischangelocalIP)
@@ -254,8 +242,6 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPINTERNETSERVICES_XEVENT::Clean()

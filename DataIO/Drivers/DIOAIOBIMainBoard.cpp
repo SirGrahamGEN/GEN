@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 {
@@ -75,8 +73,6 @@ DIOAIOBIMAINBOARD::DIOAIOBIMAINBOARD()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAIOBIMAINBOARD::~DIOAIOBIMAINBOARD()
@@ -723,8 +719,6 @@ bool DIOAIOBIMAINBOARD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOAIOBIMAINBOARD::Clean()

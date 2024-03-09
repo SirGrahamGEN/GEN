@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOARM::DIOLINUXGPIOARM() : DIOLINUXGPIO()
 {
@@ -94,8 +92,6 @@ DIOLINUXGPIOARM::DIOLINUXGPIOARM() : DIOLINUXGPIO()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXGPIOARM::~DIOLINUXGPIOARM()
 {
@@ -109,8 +105,6 @@ DIOLINUXGPIOARM::~DIOLINUXGPIOARM()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXGPIOARM::Clean()

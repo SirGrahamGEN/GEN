@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
@@ -86,8 +84,6 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @note       VIRTUAL
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
@@ -101,8 +97,6 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
@@ -125,8 +119,6 @@ void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 * 
 * @param[in]  XPATH& : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM(XPATH& xpath)
 {
@@ -147,8 +139,6 @@ CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM(XPATH& xpath)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM::~CIPHERKEYSFILEPEM()
@@ -467,8 +457,6 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYSFILEPEM::Clean()

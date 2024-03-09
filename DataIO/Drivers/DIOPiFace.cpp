@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
 {
@@ -82,8 +80,6 @@ DIOPIFACE::DIOPIFACE() : DIOSPIGPIOMCP23S17()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPIFACE::~DIOPIFACE()

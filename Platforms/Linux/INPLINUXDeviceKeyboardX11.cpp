@@ -82,8 +82,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 {
@@ -103,8 +101,6 @@ INPLINUXDEVICEKEYBOARDX11::INPLINUXDEVICEKEYBOARDX11(): INPDEVICE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEKEYBOARDX11::~INPLINUXDEVICEKEYBOARDX11()
@@ -226,8 +222,6 @@ bool INPLINUXDEVICEKEYBOARDX11::SetScreen(void* screenhandle)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEKEYBOARDX11::Clean()

@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 
@@ -88,8 +86,6 @@ DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
@@ -174,8 +170,6 @@ bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& 
 * @param[in]  version : 
 * @param[in]  subversion : 
 * @param[in]  subversionerror : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
@@ -284,8 +278,6 @@ int DIOPROTOCOLCLIBUS::GetNRetries()
 * @ingroup    DATAIO
 * 
 * @param[in]  nretries : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
@@ -414,8 +406,6 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVE
 * @brief      End
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::End()
 {
@@ -467,8 +457,6 @@ void DIOPROTOCOLCLIBUS::End()
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 {
@@ -491,8 +479,6 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
@@ -532,8 +518,6 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOLCLIBUS::Clean()

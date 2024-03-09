@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 {
@@ -116,8 +114,6 @@ DIOSTREAMSPI::DIOSTREAMSPI() : DIOSTREAM(), XFSMACHINE(0)
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMSPI::~DIOSTREAMSPI()
 {
@@ -325,8 +321,6 @@ bool DIOSTREAMSPI::TransferBuffer(XBYTE* bufferread, XBYTE* bufferwrite, XDWORD 
 *
 * @param[in]  count : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPI::Sleep(int count)
 {
@@ -355,8 +349,6 @@ void DIOSTREAMSPI::Sleep(int count)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPI::Clean()
 {
@@ -449,8 +441,6 @@ bool DIOSTREAMSPI::TransferOneData(XWORD writedata,XWORD& readdata)
 * @ingroup    DATAIO
 *
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMSPI::ThreadConnection(void* data)

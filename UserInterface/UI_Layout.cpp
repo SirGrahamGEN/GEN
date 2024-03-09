@@ -64,8 +64,6 @@
 *
 * @param[in]  UI_SKINCANVAS* : 
 * 
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)    
 
@@ -83,8 +81,6 @@ UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT::~UI_LAYOUT()    
 { 
@@ -386,8 +382,6 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_LAYOUT::Clean()
 {

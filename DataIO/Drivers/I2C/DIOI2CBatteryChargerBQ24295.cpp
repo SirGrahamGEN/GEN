@@ -74,8 +74,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 {
@@ -89,8 +87,6 @@ DIOI2CBATTERYCHARGERBQ24295::DIOI2CBATTERYCHARGERBQ24295() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CBATTERYCHARGERBQ24295::~DIOI2CBATTERYCHARGERBQ24295()
@@ -150,8 +146,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::SetGPIOEntryID(int indexentry, XDWORD GPIOentr
 * @brief      Update
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::Update()
 {  
@@ -179,8 +173,6 @@ void DIOI2CBATTERYCHARGERBQ24295::Update()
 * 
 * @param[in]  enable : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 {
@@ -207,8 +199,6 @@ void DIOI2CBATTERYCHARGERBQ24295::SetChargerEnable(bool enable)
 * 
 * @param[in]  enable : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 {
@@ -224,8 +214,6 @@ void DIOI2CBATTERYCHARGERBQ24295::SetShippingModeEnable(bool enable)
 * @ingroup    DATAIO
 * 
 * @param[in]  enable : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::SetIsCharging(bool enable)
@@ -485,8 +473,6 @@ bool DIOI2CBATTERYCHARGERBQ24295::WriteRegister(XBYTE offset, XBYTE* data, XDWOR
 *
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 {
@@ -500,8 +486,6 @@ void DIOI2CBATTERYCHARGERBQ24295::Handler_Interrupt(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CBATTERYCHARGERBQ24295::Clean()

@@ -73,8 +73,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPWEBSERVER::APPWEBSERVER()
 {
@@ -90,8 +88,6 @@ APPWEBSERVER::APPWEBSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPWEBSERVER::~APPWEBSERVER()
@@ -813,8 +809,6 @@ bool APPWEBSERVER::End()
 *
 * @param[in]  event :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 {
@@ -849,8 +843,6 @@ void APPWEBSERVER::HandleEvent_WebServer(DIOWEBSERVER_XEVENT* event)
 *
 * @param[in]  xevent :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 {
@@ -874,8 +866,6 @@ void APPWEBSERVER::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPWEBSERVER::Clean()

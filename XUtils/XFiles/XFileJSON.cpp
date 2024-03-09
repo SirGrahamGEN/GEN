@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONVALUE::XFILEJSONVALUE()
 {
@@ -84,8 +82,6 @@ XFILEJSONVALUE::XFILEJSONVALUE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONVALUE::~XFILEJSONVALUE()
@@ -118,8 +114,6 @@ XFILEJSONVALUETYPE XFILEJSONVALUE::GetType()
 * @ingroup    XUTILS
 *
 * @param[in]  type : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONVALUE::SetType(XFILEJSONVALUETYPE type)
@@ -870,8 +864,6 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONVALUE::Clean()
 {
@@ -892,8 +884,6 @@ void XFILEJSONVALUE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONOBJECT::XFILEJSONOBJECT()
 {
@@ -907,8 +897,6 @@ XFILEJSONOBJECT::XFILEJSONOBJECT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONOBJECT::~XFILEJSONOBJECT()
@@ -932,8 +920,6 @@ bool XFILEJSONOBJECT::IsArray()
 * @ingroup    XUTILS
 *
 * @param[in]  isarray : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONOBJECT::SetIsArray(bool isarray)
@@ -1082,8 +1068,6 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::GetFather()
 * 
 * @param[in]  father : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONOBJECT::SetFather(XFILEJSONOBJECT* father)
 {
@@ -1166,8 +1150,6 @@ XFILEJSONOBJECT* XFILEJSONOBJECT::Clone()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONOBJECT::Clean()
 {
@@ -1188,8 +1170,6 @@ void XFILEJSONOBJECT::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONARRAY::XFILEJSONARRAY() : XFILEJSONOBJECT()
 {
@@ -1205,8 +1185,6 @@ XFILEJSONARRAY::XFILEJSONARRAY() : XFILEJSONOBJECT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSONARRAY::~XFILEJSONARRAY()
@@ -1297,8 +1275,6 @@ XFILEJSONARRAY* XFILEJSONARRAY::Clone()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONARRAY::Clean()
 {
@@ -1318,8 +1294,6 @@ void XFILEJSONARRAY::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSON::XFILEJSON(): XFILETXT()
 {
@@ -1333,8 +1307,6 @@ XFILEJSON::XFILEJSON(): XFILETXT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEJSON::~XFILEJSON()
@@ -2540,8 +2512,6 @@ bool XFILEJSON::EncodeObject(bool isobject, XFILEJSONOBJECT* object, bool istabu
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSON::Clean()

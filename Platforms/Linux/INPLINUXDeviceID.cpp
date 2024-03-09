@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEID::INPLINUXDEVICEID()
 {
@@ -75,8 +73,6 @@ INPLINUXDEVICEID::INPLINUXDEVICEID()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPLINUXDEVICEID::~INPLINUXDEVICEID()
@@ -107,8 +103,6 @@ INPDEVICE_TYPE INPLINUXDEVICEID::GetType()
 * @ingroup    PLATFORM_LINUX
 * 
 * @param[in]  type : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::SetType(INPDEVICE_TYPE type)
@@ -155,8 +149,6 @@ int INPLINUXDEVICEID::GetEventIndex()
 * 
 * @param[in]  eventindex : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::SetEventIndex(int eventindex)
 {
@@ -187,8 +179,6 @@ int INPLINUXDEVICEID::GetFileDescriptor()
 *
 * @param[in]  filedescriptor : new file descriptor
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 {
@@ -202,8 +192,6 @@ void INPLINUXDEVICEID::SetFileDescriptor(int filedescriptor)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPLINUXDEVICEID::Clean()

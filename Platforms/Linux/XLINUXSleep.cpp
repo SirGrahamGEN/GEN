@@ -76,8 +76,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSLEEP::XLINUXSLEEP()
 {
@@ -91,8 +89,6 @@ XLINUXSLEEP::XLINUXSLEEP()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLINUXSLEEP::~XLINUXSLEEP()
@@ -109,8 +105,6 @@ XLINUXSLEEP::~XLINUXSLEEP()
 *
 * @param[in]  seconds : n seconds to sleep
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::Seconds(int seconds)
 {
@@ -125,8 +119,6 @@ void XLINUXSLEEP::Seconds(int seconds)
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  milliseconds : n milliseconds to sleep
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::MilliSeconds(int milliseconds)
@@ -143,8 +135,6 @@ void XLINUXSLEEP::MilliSeconds(int milliseconds)
 *
 * @param[in]  microseconds : n microseconds to sleep
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::MicroSeconds(int microseconds)
 {
@@ -159,8 +149,6 @@ void XLINUXSLEEP::MicroSeconds(int microseconds)
 * @ingroup    PLATFORM_LINUX
 *
 * @param[in]  nanoseconds : n nanoseconds to sleep
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::NanoSeconds(int nanoseconds)
@@ -184,8 +172,6 @@ void XLINUXSLEEP::NanoSeconds(int nanoseconds)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXSLEEP::Clean()

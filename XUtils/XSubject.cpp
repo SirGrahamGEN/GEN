@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSUBJECT::XSUBJECT()
 {
@@ -77,8 +75,6 @@ XSUBJECT::XSUBJECT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSUBJECT::~XSUBJECT()
@@ -177,8 +173,6 @@ bool XSUBJECT::PostEvent(XEVENT* event, XSUBJECT* xsubject)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSUBJECT::Clean()

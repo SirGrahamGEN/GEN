@@ -77,8 +77,6 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 APPBASE::APPBASE()
 {
@@ -94,8 +92,6 @@ APPBASE::APPBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPBASE::~APPBASE()
@@ -231,8 +227,6 @@ APPBASE_APPLICATIONMODE_TYPE APPBASE::GetApplicationMode()
 *
 * @param[in]  applicationmode : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetApplicationMode(APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
@@ -262,8 +256,6 @@ void* APPBASE::GetApplicationHandle()
 * @ingroup    APPLICATION
 *
 * @param[in]  handle : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void  APPBASE::SetApplicationHandle(void* handle)
@@ -295,8 +287,6 @@ XSTRING* APPBASE::GetApplicationName()
 *
 * @param[in]  name : name of the application
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetApplicationName(XCHAR* name)
 {
@@ -326,8 +316,6 @@ XSTRING* APPBASE::GetApplicationExecutable()
 * @ingroup    APPLICATION
 *
 * @param[in]  name : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetApplicationExecutable(XCHAR* name)
@@ -388,8 +376,6 @@ APPBASE_EXITTYPE APPBASE::GetExitType()
 * @ingroup    APPLICATION
 * 
 * @param[in]  exittype : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetExitType(APPBASE_EXITTYPE exittype)
@@ -454,8 +440,6 @@ XSYSTEM_CHANGESTATUSTYPE APPBASE::GetSystemChangeStatus()
 * @ingroup    APPLICATION
 * 
 * @param[in]  systemchangestatustype : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatustype)
@@ -624,8 +608,6 @@ bool APPBASE::AppProc_PlatformEnd()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPBASE::Clean()

@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 {
@@ -83,8 +81,6 @@ GRPBITMAPFILETGAHEADER::GRPBITMAPFILETGAHEADER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGAHEADER::~GRPBITMAPFILETGAHEADER()
@@ -313,8 +309,6 @@ GRPBITMAPFILETGATYPE GRPBITMAPFILETGAHEADER::GetType()
 * @note       INTERNAL
 * @ingroup    GRAPHIC
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILETGAHEADER::Clean()
 {
@@ -338,8 +332,6 @@ void GRPBITMAPFILETGAHEADER::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 {
@@ -353,8 +345,6 @@ GRPBITMAPFILETGA::GRPBITMAPFILETGA(): GRPBITMAPFILEBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILETGA::~GRPBITMAPFILETGA()
@@ -830,8 +820,6 @@ bool GRPBITMAPFILETGA::CreateColor(GRPPROPERTYMODE mode, XBYTE* databuffer, GRP2
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILETGA::Clean()

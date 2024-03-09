@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 {
@@ -78,8 +76,6 @@ GRPBITMAPFILEPNG::GRPBITMAPFILEPNG(): GRPBITMAPFILEBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEPNG::~GRPBITMAPFILEPNG()
@@ -495,8 +491,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetIndex()
 *
 * @param[in]  index :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::BufferData_SetIndex(XDWORD index)
 {
@@ -529,8 +523,6 @@ XDWORD GRPBITMAPFILEPNG::BufferData_GetSize()
 * @param[in]  data : data of PNG
 * @param[in]  length : size of data
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t length)
 {
@@ -550,8 +542,6 @@ void GRPBITMAPFILEPNG::ReadFileData(png_structp png, png_bytep data, png_size_t 
 * @param[in]  png :
 * @param[in]  data :
 * @param[in]  length :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_t length)
@@ -580,8 +570,6 @@ void GRPBITMAPFILEPNG::ReadBufferData(png_structp png, png_bytep data, png_size_
 * @param[in]  data : data of PNG
 * @param[in]  length : size of data
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t length)
 {
@@ -598,8 +586,6 @@ void GRPBITMAPFILEPNG::WriteFileData(png_structp png, png_bytep data, png_size_t
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPBITMAPFILEPNG::Clean()

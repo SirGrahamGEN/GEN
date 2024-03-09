@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDNOTE::SNDNOTE()
 {
@@ -77,8 +75,6 @@ SNDNOTE::SNDNOTE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDNOTE::~SNDNOTE()
@@ -161,8 +157,6 @@ XDWORD SNDNOTE::SetDuration(XDWORD duration)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDNOTE::Clean()

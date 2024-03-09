@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB() : DIOSTREAMUSB() , XFSMACHINE(0)
 {
@@ -109,8 +107,6 @@ DIOWINDOWSSTREAMUSB::DIOWINDOWSSTREAMUSB() : DIOSTREAMUSB() , XFSMACHINE(0)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB()
@@ -238,8 +234,6 @@ bool DIOWINDOWSSTREAMUSB::CleanBuffers()
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @param[in]  data : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
@@ -423,8 +417,6 @@ XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSSTREAMUSB::Clean()

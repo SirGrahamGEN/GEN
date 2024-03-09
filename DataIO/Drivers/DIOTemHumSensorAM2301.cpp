@@ -74,8 +74,6 @@
 * @param[in]   int pindata : 
 * @param[in]   bool activatecache : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache) : DIODEVICE()
 {
@@ -105,8 +103,6 @@ DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache) : 
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOTEMHUMSENSORAM2301::~DIOTEMHUMSENSORAM2301()
@@ -350,8 +346,6 @@ bool DIOTEMHUMSENSORAM2301::WaitTo(bool tohigh, int timeout, int* timeelapsed)
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
 {
@@ -394,8 +388,6 @@ void DIOTEMHUMSENSORAM2301::ThreadRunFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOTEMHUMSENSORAM2301::Clean()

@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDMUTEX::XANDROIDMUTEX()
 {
@@ -78,8 +76,6 @@ XANDROIDMUTEX::XANDROIDMUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDMUTEX::~XANDROIDMUTEX()
@@ -105,8 +101,6 @@ XANDROIDMUTEX::~XANDROIDMUTEX()
 * @param[in]  function : callback to thread
 * @param[in]  param : param to callback
 **
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param) : XLINUXTHREAD(groupID, ID, function, param)
 {
@@ -120,8 +114,6 @@ XANDROIDTHREAD::XANDROIDTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTIO
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XANDROIDTHREAD::~XANDROIDTHREAD()

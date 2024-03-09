@@ -279,8 +279,6 @@ INPUTSIMULATE_KDB_PC  inputsimulare_KDB_PC_Spanish[]		= { { 0xDC  , __L("\xBA")	
 * @brief      Constructor
 * @ingroup    INPUT
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPSIMULATE::INPSIMULATE()
 {
@@ -294,8 +292,6 @@ INPSIMULATE::INPSIMULATE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPSIMULATE::~INPSIMULATE()
@@ -453,8 +449,6 @@ bool INPSIMULATE::Mouse_SetPos(int x, int y)
 * @param[in]  x : 
 * @param[in]  y : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool INPSIMULATE::Mouse_Click(int x, int y)
 {
@@ -513,8 +507,6 @@ XBYTE INPSIMULATE::GetKDBCodeByLiteral(XCHAR* literal, ALTERNATIVE_KEY& altkey)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPSIMULATE::Clean()

@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()    
 { 
@@ -81,8 +79,6 @@ UI_ELEMENT_OPTION::UI_ELEMENT_OPTION()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_OPTION::~UI_ELEMENT_OPTION()    
 {   
@@ -112,8 +108,6 @@ UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType(
 * @ingroup    USERINTERFACE
 *
 * @param[in]  allocationtexttype : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_OPTION::SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE allocationtexttype)
@@ -197,8 +191,6 @@ bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_OPTION::Clean()
 {  

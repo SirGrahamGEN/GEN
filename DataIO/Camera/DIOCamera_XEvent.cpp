@@ -64,8 +64,6 @@
 * @param[in]   XDWORD type :
 * @param[in]   XDWORD family :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCAMERA_XEVENT::DIOCAMERA_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
@@ -80,8 +78,6 @@ DIOCAMERA_XEVENT::DIOCAMERA_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCAMERA_XEVENT::~DIOCAMERA_XEVENT()
 {
@@ -95,8 +91,6 @@ DIOCAMERA_XEVENT::~DIOCAMERA_XEVENT()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA_XEVENT::Clean()

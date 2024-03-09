@@ -69,8 +69,6 @@ SNDFACTORY* SNDFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY::SNDFACTORY()
 {
@@ -94,8 +92,6 @@ SNDFACTORY::SNDFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY::~SNDFACTORY()
@@ -722,8 +718,6 @@ bool SNDFACTORY::Sound_IsAnyPlaying()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFACTORY::Clean()

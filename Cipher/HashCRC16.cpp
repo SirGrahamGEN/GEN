@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC16::HASHCRC16() : HASH()
 {
@@ -88,8 +86,6 @@ HASHCRC16::HASHCRC16() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHCRC16::~HASHCRC16()
@@ -245,8 +241,6 @@ XWORD HASHCRC16::GetResultCRC16()
 * 
 * @param[in]  void : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCRC16::Ini(void)
 {
@@ -315,8 +309,6 @@ XWORD HASHCRC16::Update(XWORD CRC16, XBYTE c)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHCRC16::Clean()

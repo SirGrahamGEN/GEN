@@ -71,8 +71,6 @@ APPMAIN  GEN_appmain;
 * @brief      Constructor
 * @ingroup    APPLICATION
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPMAIN::APPMAIN()
 
@@ -87,8 +85,6 @@ APPMAIN::APPMAIN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPMAIN::~APPMAIN()
@@ -269,8 +265,6 @@ bool APPMAIN::Delete()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPMAIN::Clean()

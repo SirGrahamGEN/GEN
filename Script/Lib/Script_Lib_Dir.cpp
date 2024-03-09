@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_DIR::SCRIPT_LIB_DIR() : SCRIPT_LIB(SCRIPT_LIB_NAME_DIR)
 {
@@ -81,8 +79,6 @@ SCRIPT_LIB_DIR::SCRIPT_LIB_DIR() : SCRIPT_LIB(SCRIPT_LIB_NAME_DIR)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_DIR::~SCRIPT_LIB_DIR()
@@ -124,8 +120,6 @@ bool SCRIPT_LIB_DIR::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_DIR::Clean()
 {
@@ -147,8 +141,6 @@ void SCRIPT_LIB_DIR::Clean()
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_IsItExists(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -192,8 +184,6 @@ void Call_IsItExists(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* pa
 * @param[in]  params : 
 * @param[in]  returnvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_ChangeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
@@ -236,8 +226,6 @@ void Call_ChangeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 * @param[in]  params : 
 * @param[in]  returnvalue : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_RemoveDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
 {
@@ -279,8 +267,6 @@ void Call_RemoveDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* par
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_MakeDir(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

@@ -81,8 +81,6 @@
 *
 * @param[in]  DIOSTREAMCONFIG* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 {
@@ -102,8 +100,6 @@ DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION::~DIOPROTOCOL_CONNECTION()
@@ -151,8 +147,6 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTION::GetDIOProtocol()
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::SetDIOProtocol(DIOPROTOCOL* protocol)
@@ -274,8 +268,6 @@ bool DIOPROTOCOL_CONNECTION::IsSendEventConnected()
 *
 * @param[in]  issendeventconnected :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 {
@@ -289,8 +281,6 @@ void DIOPROTOCOL_CONNECTION::SetIsSendEventConnected(bool issendeventconnected)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTION::Clean()
@@ -315,8 +305,6 @@ void DIOPROTOCOL_CONNECTION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 {
@@ -336,8 +324,6 @@ DIOPROTOCOL_CONNECTIONSMANAGER::DIOPROTOCOL_CONNECTIONSMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTIONSMANAGER::~DIOPROTOCOL_CONNECTIONSMANAGER()
@@ -612,8 +598,6 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNLimit()
 * @ingroup    DATAIO
 *
 * @param[in]  protocolconnectionsnlimit :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SetNLimit(int protocolconnectionsnlimit)
@@ -1361,8 +1345,6 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 * @param[in]  subversion :
 * @param[in]  subversionerr :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
@@ -1381,8 +1363,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
 * @param[in]  version :
 * @param[in]  subversion :
 * @param[in]  subversionerr :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
@@ -1413,8 +1393,6 @@ XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 * @brief      ManageProtocolConnectionsServer
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
@@ -1482,8 +1460,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 * @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 * @brief      ManageProtocolConnectionsClient
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
@@ -1649,8 +1625,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 {
@@ -1757,8 +1731,6 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ThreadProtocolConnections(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()

@@ -65,8 +65,6 @@
 *
 * @param[in]  XCHAR* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 {
@@ -82,8 +80,6 @@ SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB::~SCRIPT_LIB()
@@ -387,8 +383,6 @@ bool SCRIPT_LIB::GetParamConverted(XVARIANT* variant, XSTRING& value)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SCRIPT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB::Clean()

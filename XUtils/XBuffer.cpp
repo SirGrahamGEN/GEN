@@ -73,8 +73,6 @@ bool XBUFFER::globalhardwareuselittleendian = true;
 *
 * @param[in]  bool : Is thread safe buffer functions
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::XBUFFER(bool threadsafe)
 {
@@ -97,8 +95,6 @@ XBUFFER::XBUFFER(bool threadsafe)
 *
 * @param[in]  size : initial size of the buffer
 * @param[in]  threadsafe : true is thread safe operative buffer
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
@@ -125,8 +121,6 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 * 
 * @param[in]  const : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::XBUFFER(const XBUFFER& xbuffer)
 {
@@ -145,8 +139,6 @@ XBUFFER::XBUFFER(const XBUFFER& xbuffer)
 * @fn         XBUFFER::~XBUFFER()
 * @brief      Destructor
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::~XBUFFER()
@@ -226,8 +218,6 @@ bool XBUFFER::IsEmpty()
 * @fn         void XBUFFER::ResetPosition()
 * @brief      Set pointer position of buffer to zero.
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFER::ResetPosition()
@@ -2446,8 +2436,6 @@ int XBUFFER::Find(XSTRING& string, bool normalize, int startindex)
 * 
 * @param[in]  XBUFFER& xbuffer : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFER::operator =  (const XBUFFER& xbuffer)
 {
@@ -3062,8 +3050,6 @@ bool XBUFFER::GetGlobalHardwareUseLittleEndian()
 * 
 * @param[in]  globalhardwareuselittleendian : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFER::SetGlobalHardwareUseLittleEndian(bool globalhardwareuselittleendian)
 {
@@ -3093,8 +3079,6 @@ bool XBUFFER::GetLocalHardwareUseLittleEndian()
 * @ingroup    XUTILS
 * 
 * @param[in]  localhardwareuselittleendian : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFER::SetLocalHardwareUseLittleEndian(bool localhardwareuselittleendian)
@@ -3509,8 +3493,6 @@ bool XBUFFER::ExtractXBufferWithMask(XBUFFER& xbuffer, XSTRING* mask, va_list& a
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFER::Clean()

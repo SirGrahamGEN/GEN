@@ -250,8 +250,6 @@ XLANGUAGE_ISO_639_3_ENTRY  iso_639_3_entry[] = {   {  XLANGUAGE_ISO_639_3_CODE_E
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
 {
@@ -265,8 +263,6 @@ XLANGUAGE_ISO_639_3::XLANGUAGE_ISO_639_3()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XLANGUAGE_ISO_639_3::~XLANGUAGE_ISO_639_3()
@@ -641,8 +637,6 @@ bool XLANGUAGE_ISO_639_3::EnglishName_GetByAlias(XCHAR* alias, XSTRING& englishn
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLANGUAGE_ISO_639_3::Clean()

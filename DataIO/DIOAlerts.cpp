@@ -85,8 +85,6 @@ DIOALERTS* DIOALERTS::instance = NULL;
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT_CONDITION::DIOALERT_CONDITION()
 {
@@ -102,8 +100,6 @@ DIOALERT_CONDITION::DIOALERT_CONDITION()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT_CONDITION::~DIOALERT_CONDITION()
@@ -137,8 +133,6 @@ int DIOALERT_CONDITION::GetTimeLimitForRepeat()
 *
 * @param[in]  timelimitforrepeat : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetTimeLinitRepeat(int timelimitforrepeat)
 {
@@ -168,8 +162,6 @@ int DIOALERT_CONDITION::GetEveryNumberOfTimes()
 * @ingroup    DATAIO
 *
 * @param[in]  everynumberoftimes : 
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetEveryNumberOfTimes(int everynumberoftimes)
@@ -216,8 +208,6 @@ int DIOALERT_CONDITION::GetNSended()
 *
 * @param[in]  nsended : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetNSended(int nsended)
 {
@@ -248,8 +238,6 @@ int DIOALERT_CONDITION::GetNTimesSended()
 *
 * @param[in]  ntimessended : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 {
@@ -263,8 +251,6 @@ void DIOALERT_CONDITION::SetNTimesSended(int ntimessended)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT_CONDITION::Clean()
@@ -290,8 +276,6 @@ void DIOALERT_CONDITION::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT::DIOALERT()
 {
@@ -307,8 +291,6 @@ DIOALERT::DIOALERT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERT::~DIOALERT()
@@ -418,8 +400,6 @@ XDWORD DIOALERT::GetID()
 *
 * @param[in]  ID :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::SetID(XDWORD ID)
 {
@@ -502,8 +482,6 @@ DIOALERTLEVEL DIOALERT::GetLevel()
 * @ingroup    DATAIO
 *
 * @param[in]  level :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::SetLevel(DIOALERTLEVEL level)
@@ -594,8 +572,6 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERT::Clean()
@@ -1455,8 +1431,6 @@ bool DIOALERTS::End()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTS::DIOALERTS()
 {
@@ -1470,8 +1444,6 @@ DIOALERTS::DIOALERTS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTS::~DIOALERTS()
@@ -1818,8 +1790,6 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTS::Clean()

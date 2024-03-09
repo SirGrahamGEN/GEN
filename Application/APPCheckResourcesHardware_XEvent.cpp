@@ -64,8 +64,6 @@
 * @param[in]  XDWORD type : 
 * @param[in]  XDWORD family : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
 {
@@ -79,8 +77,6 @@ APPCHECKRESOURCESHARDWARE_XEVENT::APPCHECKRESOURCESHARDWARE_XEVENT(XSUBJECT* sub
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    APPLICATION
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCHECKRESOURCESHARDWARE_XEVENT::~APPCHECKRESOURCESHARDWARE_XEVENT()
@@ -119,8 +115,6 @@ bool APPCHECKRESOURCESHARDWARE_XEVENT::GetActualMemFree(XDWORD& memfree_inbytes,
 * @param[in]  memfree_inbytes : 
 * @param[in]  memfree_percent : 
 *
-* @return     void : does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualMemFree(XDWORD memfree_inbytes, XBYTE memfree_percent)
 {
@@ -152,8 +146,6 @@ int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualTotalCPUUsage()
 * 
 * @param[in]  CPUusage : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualTotalCPUUsage(int& CPUusage)
 {
@@ -184,8 +176,6 @@ int APPCHECKRESOURCESHARDWARE_XEVENT::GetActualAppCPUUsage()
 * 
 * @param[in]  CPUusage : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
 {
@@ -199,8 +189,6 @@ void APPCHECKRESOURCESHARDWARE_XEVENT::SetActualAppCPUUsage(int& CPUusage)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    APPLICATION
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE_XEVENT::Clean()

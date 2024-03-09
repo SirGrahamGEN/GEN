@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEMANAGER::DIONODEMANAGER()
 {
@@ -79,8 +77,6 @@ DIONODEMANAGER::DIONODEMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEMANAGER::~DIONODEMANAGER()
@@ -167,8 +163,6 @@ XVECTOR<DIONODE*>* DIONODEMANAGER::GetNodes()
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEMANAGER::ThreadNodes(void* data)
 {
@@ -195,8 +189,6 @@ void DIONODEMANAGER::ThreadNodes(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODEMANAGER::Clean()

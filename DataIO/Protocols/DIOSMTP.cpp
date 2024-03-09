@@ -72,8 +72,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
 {
@@ -87,8 +85,6 @@ DIOSMTPRECIPIENT::DIOSMTPRECIPIENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTPRECIPIENT::~DIOSMTPRECIPIENT()
@@ -119,8 +115,6 @@ DIOSMTPRECIPIENTTYPE DIOSMTPRECIPIENT::GetType()
 * @ingroup    DATAIO
 *
 * @param[in]  type :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTPRECIPIENT::SetType(DIOSMTPRECIPIENTTYPE type)
@@ -166,8 +160,6 @@ DIOEMAILADDRESS* DIOSMTPRECIPIENT::GetEmail()
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTPRECIPIENT::Clean()
 {
@@ -187,8 +179,6 @@ void DIOSMTPRECIPIENT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
 {
@@ -202,8 +192,6 @@ DIOSMTPATTACHMENT::DIOSMTPATTACHMENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTPATTACHMENT::~DIOSMTPATTACHMENT()
@@ -297,8 +285,6 @@ XQWORD DIOSMTPATTACHMENT::GetSizeLimit()
 *
 * @param[in]  sizelimit :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTPATTACHMENT::SetSizeLimit(XQWORD sizelimit)
 {
@@ -312,8 +298,6 @@ void DIOSMTPATTACHMENT::SetSizeLimit(XQWORD sizelimit)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTPATTACHMENT::Clean()
@@ -337,8 +321,6 @@ void DIOSMTPATTACHMENT::Clean()
 *
 * @param[in]  DIOSTREAM* :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
 {
@@ -354,8 +336,6 @@ DIOSMTP::DIOSMTP(DIOSTREAM* diostream)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSMTP::~DIOSMTP()
@@ -425,8 +405,6 @@ int DIOSMTP::Server_GetPort()
 *
 * @param[in]  port :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTP::Server_SetPort(int port)
 {
@@ -486,8 +464,6 @@ int DIOSMTP::Server_GetConnectionTimeout()
 * @ingroup    DATAIO
 *
 * @param[in]  timeout :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTP::Server_SetConnectionTimeout(int timeout)
@@ -565,8 +541,6 @@ DIOSSMPTCONTENTTYPE DIOSMTP::GetContentType()
 * @ingroup    DATAIO
 *
 * @param[in]  contenttype :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTP::SetContentType(DIOSSMPTCONTENTTYPE contenttype)
@@ -852,8 +826,6 @@ DIOSMTPXPRIORITY DIOSMTP::GetXPriority()
 * @ingroup    DATAIO
 *
 * @param[in]  xpriority :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTP::SetXPriority(DIOSMTPXPRIORITY xpriority)
@@ -1613,8 +1585,6 @@ bool DIOSMTP::CreateHeader(XSTRING& header)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSMTP::Clean()

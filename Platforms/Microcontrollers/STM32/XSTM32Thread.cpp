@@ -59,8 +59,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32MUTEX::XSTM32MUTEX()
 {
@@ -75,8 +73,6 @@ XSTM32MUTEX::XSTM32MUTEX()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32MUTEX::~XSTM32MUTEX()
@@ -133,8 +129,6 @@ bool XSTM32MUTEX::UnLock()
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32MUTEX::Clean()
 {
@@ -160,8 +154,6 @@ void XSTM32MUTEX::Clean()
 * @param[in]   XTHREADFUNCTION function :
 * @param[in]   void* data :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data) : XTHREAD(groupID, ID, function, data)
 {
@@ -177,8 +169,6 @@ XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION fu
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32THREAD::~XSTM32THREAD()
@@ -262,8 +252,6 @@ bool XSTM32THREAD::End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSTM32THREAD::Clean()

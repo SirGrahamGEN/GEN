@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
 {
@@ -77,8 +75,6 @@ COMPRESS_LZRW1KH::COMPRESS_LZRW1KH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_LZRW1KH::~COMPRESS_LZRW1KH()

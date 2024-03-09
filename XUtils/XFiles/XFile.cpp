@@ -74,8 +74,6 @@ XFILEOPENLIST XFileOpenList;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILE::XFILE()
 {
@@ -89,8 +87,6 @@ XFILE::XFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILE::~XFILE()
@@ -456,8 +452,6 @@ bool XFILE::InsertBlock(XBYTE* buffer, XDWORD size)
 *
 * @param[in]  attributes :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILE::ChangeAttributes(XCHAR* attributes)
 {
@@ -523,8 +517,6 @@ bool XFILE::OverwriteContent(XCHAR* xpath)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILE::Clean()
 {
@@ -546,8 +538,6 @@ void XFILE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECONTAINER::XFILECONTAINER()
 {
@@ -561,8 +551,6 @@ XFILECONTAINER::XFILECONTAINER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECONTAINER::~XFILECONTAINER()
@@ -636,8 +624,6 @@ bool XFILECONTAINER::DeletePrimaryFile()
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILECONTAINER::Clean()
 {
@@ -661,8 +647,6 @@ void XFILECONTAINER::Clean()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEOPENLIST::~XFILEOPENLIST()

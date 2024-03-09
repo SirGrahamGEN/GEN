@@ -626,8 +626,6 @@ XQWORD HASHWHIRLPOOL::rc[HASHWHIRLPOOL_ROUNDS+1]  = { LL(0x0000000000000000),
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
 {
@@ -641,8 +639,6 @@ HASHWHIRLPOOL::HASHWHIRLPOOL() : HASH()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 HASHWHIRLPOOL::~HASHWHIRLPOOL()
@@ -704,8 +700,6 @@ int HASHWHIRLPOOL::GetDefaultSize()
 * @ingroup    CIPHER
 * 
 * @param[in]  structpointer : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHWHIRLPOOL::ProcessBuffer(WHIRLPOOL* structpointer)
@@ -943,8 +937,6 @@ void HASHWHIRLPOOL::ProcessBuffer(WHIRLPOOL* structpointer)
 * 
 * @param[in]  structpointer : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHWHIRLPOOL::Ini(WHIRLPOOL* structpointer)
 {
@@ -971,8 +963,6 @@ void HASHWHIRLPOOL::Ini(WHIRLPOOL* structpointer)
 * @param[in]  source : 
 * @param[in]  sourceBits : 
 * @param[in]  structpointer : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHWHIRLPOOL::Add(XBYTE* source, XDWORD sourceBits, WHIRLPOOL* structpointer)
@@ -1094,8 +1084,6 @@ void HASHWHIRLPOOL::Add(XBYTE* source, XDWORD sourceBits, WHIRLPOOL* structpoint
 * @param[in]  structpointer : 
 * @param[in]  result : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHWHIRLPOOL::End(WHIRLPOOL* structpointer, XBYTE* result)
 {
@@ -1170,8 +1158,6 @@ void HASHWHIRLPOOL::End(WHIRLPOOL* structpointer, XBYTE* result)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void HASHWHIRLPOOL::Clean()

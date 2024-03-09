@@ -71,8 +71,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 {
@@ -91,8 +89,6 @@ XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSCONSOLE::~XWINDOWSCONSOLE()

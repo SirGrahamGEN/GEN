@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG::DIOSTREAMCONFIG()
 {
@@ -75,8 +73,6 @@ DIOSTREAMCONFIG::DIOSTREAMCONFIG()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMCONFIG::~DIOSTREAMCONFIG()
@@ -108,8 +104,6 @@ DIOSTREAMTYPE DIOSTREAMCONFIG::GetType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetType(DIOSTREAMTYPE type)
 {
@@ -139,8 +133,6 @@ DIOSTREAMMODE DIOSTREAMCONFIG::GetMode()
 * @ingroup    DATAIO
 *
 * @param[in]  mode :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
@@ -190,8 +182,6 @@ XDWORD DIOSTREAMCONFIG::GetSizeBufferSO()
 *
 * @param[in]  sizebufferSO :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetSizeBufferSO(XDWORD sizebufferSO)
 {
@@ -221,8 +211,6 @@ XTHREADPRIORITY DIOSTREAMCONFIG::GetThreadPriority()
 * @ingroup    DATAIO
 *
 * @param[in]  threadpriority :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetThreadPriority(XTHREADPRIORITY threadpriority)
@@ -254,8 +242,6 @@ XDWORD DIOSTREAMCONFIG::GetThreadWaitYield()
 *
 * @param[in]  threadwaityield :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
 {
@@ -269,8 +255,6 @@ void DIOSTREAMCONFIG::SetThreadWaitYield(XDWORD threadwaityield)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMCONFIG::Clean()

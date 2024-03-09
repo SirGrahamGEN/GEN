@@ -70,8 +70,6 @@
 * @brief      Constructor
 * @ingroup    DATABASES
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::DB_SQL_DATABASE()
 {
@@ -88,8 +86,6 @@ DB_SQL_DATABASE::DB_SQL_DATABASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATABASES
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DB_SQL_DATABASE::~DB_SQL_DATABASE()
@@ -404,8 +400,6 @@ bool DB_SQL_DATABASE::Execute(DB_SQL_QUERY* constructedquery)
 *
 * @param[in]  errorstring :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 {
@@ -427,8 +421,6 @@ void DB_SQL_DATABASE::Error(XCHAR* errorstring)
 *
 * @param[in]  errorstring :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Error(char* errorstring)
 {
@@ -445,8 +437,6 @@ void DB_SQL_DATABASE::Error(char* errorstring)
 * @fn         void DB_SQL_DATABASE::ClearPreviousErrors()
 * @brief      ClearPreviousErrors
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::ClearPreviousErrors()
@@ -748,8 +738,6 @@ bool DB_SQL_DATABASE::ExecuteQuery(DB_SQL_QUERY* wellconstructedquery)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATABASES
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DB_SQL_DATABASE::Clean()

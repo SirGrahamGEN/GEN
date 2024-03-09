@@ -86,8 +86,6 @@ MAINPROCSTM32    mainprocstm32;
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCSTM32::MAINPROCSTM32()
 {
@@ -102,8 +100,6 @@ MAINPROCSTM32::MAINPROCSTM32()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROCSTM32::~MAINPROCSTM32()
@@ -350,8 +346,6 @@ bool MAINPROCSTM32::Factorys_End()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32    PLATFORM_STM32
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROCSTM32::Clean()

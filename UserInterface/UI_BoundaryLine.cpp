@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 {
@@ -81,8 +79,6 @@ UI_BOUNDARYLINE::UI_BOUNDARYLINE()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 {
@@ -97,8 +93,6 @@ UI_BOUNDARYLINE::~UI_BOUNDARYLINE()
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
@@ -117,8 +111,6 @@ void UI_BOUNDARYLINE::CopyFrom(UI_BOUNDARYLINE& boundaryline)
 * @ingroup    USERINTERFACE
 *
 * @param[in]  boundaryline : 
-* 
-* @return     void : does not return anything. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_BOUNDARYLINE::CopyTo(UI_BOUNDARYLINE& boundaryline)
@@ -183,8 +175,6 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_BOUNDARYLINE::Clean()

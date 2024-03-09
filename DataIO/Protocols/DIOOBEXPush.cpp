@@ -78,8 +78,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
 {
@@ -93,8 +91,6 @@ DIOOBEXPUSHFILE::DIOOBEXPUSHFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSHFILE::~DIOOBEXPUSHFILE()
@@ -310,8 +306,6 @@ bool DIOOBEXPUSHFILE::SetError(DIOOBEXPUSHERROR error)
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOOBEXPUSHFILE::Clean()
 {
@@ -337,8 +331,6 @@ void DIOOBEXPUSHFILE::Clean()
 * 
 * @param[in]  DIOSTREAM* : 
 * @param[in]   bool inlittleendian : 
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE(0)
@@ -407,8 +399,6 @@ DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::~DIOOBEXPUSH()
@@ -1181,8 +1171,6 @@ bool DIOOBEXPUSH::ReadAnswer(XBUFFER& xbuffer)
 * 
 * @param[in]  data : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOOBEXPUSH::ThreadSend(void* data)
 {
@@ -1199,8 +1187,6 @@ void DIOOBEXPUSH::ThreadSend(void* data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOOBEXPUSH::Clean()

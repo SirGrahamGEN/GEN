@@ -62,8 +62,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE::DIONODE()
 
@@ -80,8 +78,6 @@ DIONODE::DIONODE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODE::~DIONODE()
@@ -115,8 +111,6 @@ XUUID& DIONODE::GetID()
 * @ingroup    DATAIO
 * 
 * @param[in]  UUID : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE::SetID(XUUID& UUID)
@@ -162,8 +156,6 @@ bool DIONODE::IsLocal()
 * @ingroup    DATAIO
 * 
 * @param[in]  islocal : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE::SetIsLocal(bool islocal)
@@ -395,8 +387,6 @@ bool DIONODE::Deserialize()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIONODE::Clean()

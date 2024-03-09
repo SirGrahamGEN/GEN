@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE::XCONSOLE()
 {
@@ -84,8 +82,6 @@ XCONSOLE::XCONSOLE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XCONSOLE::~XCONSOLE()
@@ -574,8 +570,6 @@ bool XCONSOLE::WaitKey(XCHAR* text, XDWORD margin, bool prelude, XDWORD timeout)
 *
 * @param[in]  actualpos :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XCONSOLE::EraseToEndLine(int actualpos)
 {
@@ -597,8 +591,6 @@ void XCONSOLE::EraseToEndLine(int actualpos)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XCONSOLE::Clean()

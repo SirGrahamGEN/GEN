@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICE::DIODEVICE()
 { 
@@ -76,8 +74,6 @@ DIODEVICE::DIODEVICE()
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIODEVICE::~DIODEVICE()            
 { 
@@ -139,8 +135,6 @@ bool DIODEVICE::End(void)
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void DIODEVICE::Clean()
 {

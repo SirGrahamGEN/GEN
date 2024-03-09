@@ -64,8 +64,6 @@
 *
 * @param[in]  type :
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 {
@@ -82,8 +80,6 @@ XINTERPOLATOR::XINTERPOLATOR(XINTERPOLATOR_TYPE type)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XINTERPOLATOR::~XINTERPOLATOR()
@@ -115,8 +111,6 @@ XINTERPOLATOR_TYPE XINTERPOLATOR::GetType()
 *
 * @param[in]  type :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetType(XINTERPOLATOR_TYPE type)
 {
@@ -147,8 +141,6 @@ XINTERPOLATOR_LIMITMODE XINTERPOLATOR::GetMode()
 *
 * @param[in]  mode :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 {
@@ -165,8 +157,6 @@ void XINTERPOLATOR::SetMode(XINTERPOLATOR_LIMITMODE mode)
 * @param[in]  current :
 * @param[in]  target :
 * @param[in]  speed :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
@@ -186,8 +176,6 @@ void XINTERPOLATOR::Get(XDWORD& current, XDWORD& target, float& speed)
 * @param[in]  current :
 * @param[in]  target :
 * @param[in]  speed :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Set(XDWORD current,  XDWORD target, float speed)
@@ -220,8 +208,6 @@ XDWORD XINTERPOLATOR::GetCurrent()
 * @ingroup    XUTILS
 *
 * @param[in]  current :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetCurrent(XDWORD current)
@@ -284,8 +270,6 @@ float XINTERPOLATOR::GetSpeed()
 *
 * @param[in]  speed :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetSpeed(float speed)
 {
@@ -315,8 +299,6 @@ XDWORD XINTERPOLATOR::GetMaximun()
 * @ingroup    XUTILS
 *
 * @param[in]  max :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMaximun(XDWORD max)
@@ -348,8 +330,6 @@ XDWORD XINTERPOLATOR::GetMinimun()
 *
 * @param[in]  min :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMinimun(XDWORD min)
 {
@@ -380,8 +360,6 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 *
 * @param[in]  multiplier :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 {
@@ -396,8 +374,6 @@ void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 * @ingroup    XUTILS
 *
 * @param[in]  factortype :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetFactorType(XINTERPOLATOR_FACTOR factortype)
@@ -428,8 +404,6 @@ XINTERPOLATOR_FACTOR XINTERPOLATOR::GetFactorType()
 * @ingroup    XUTILS
 *
 * @param[in]  limits :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetLimitFlags(XINTERPOLATOR_LIMITS limits)
@@ -578,8 +552,6 @@ const XINTERPOLATOR XINTERPOLATOR::operator = (XINTERPOLATOR& interpolator)
 * @ingroup    XUTILS
 *
 * @param[in]  target :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetTarget(XDWORD target)
@@ -941,8 +913,6 @@ float XINTERPOLATOR::GetCarry()
 *
 * @param[in]  carry :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetCarry(float carry)
 {
@@ -956,8 +926,6 @@ void XINTERPOLATOR::SetCarry(float carry)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::Clean()

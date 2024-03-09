@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCAMERA::DIOCAMERA()
 {
@@ -78,8 +76,6 @@ DIOCAMERA::DIOCAMERA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCAMERA::~DIOCAMERA()
@@ -139,8 +135,6 @@ bool DIOCAMERA::End()
 * 
 * @param[in]  event : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 {
@@ -161,8 +155,6 @@ void DIOCAMERA::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * @ingroup    DATAIO
 * 
 * @param[in]  xevent : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA::HandleEvent(XEVENT* xevent)
@@ -187,8 +179,6 @@ void DIOCAMERA::HandleEvent(XEVENT* xevent)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCAMERA::Clean()

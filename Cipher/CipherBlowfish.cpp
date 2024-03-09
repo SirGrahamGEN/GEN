@@ -344,8 +344,6 @@ XDWORD CIPHERBLOWFISH::S[4][256]                     =  { { 0xD1310BA6L, 0x98DFB
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 {
@@ -362,8 +360,6 @@ CIPHERBLOWFISH::CIPHERBLOWFISH() : CIPHER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERBLOWFISH::~CIPHERBLOWFISH()
@@ -546,8 +542,6 @@ XDWORD CIPHERBLOWFISH::F(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD x)
 * @param[in]  xl : 
 * @param[in]  xr : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
 {
@@ -590,8 +584,6 @@ void CIPHERBLOWFISH::BlowfishCipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDW
 * @param[in]  ctx : 
 * @param[in]  xl : 
 * @param[in]  xr : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERBLOWFISH::BlowfishUncipher(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD* xl, XDWORD* xr)
@@ -904,8 +896,6 @@ bool CIPHERBLOWFISH::BlowfishCipher_CTR(CIPHERBLOWFISH_CONTEXT* ctx, XDWORD size
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERBLOWFISH::Clean()

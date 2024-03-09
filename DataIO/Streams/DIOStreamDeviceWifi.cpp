@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 {
@@ -78,8 +76,6 @@ DIOSTREAMDEVICEWIFI::DIOSTREAMDEVICEWIFI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMDEVICEWIFI::~DIOSTREAMDEVICEWIFI()
@@ -111,8 +107,6 @@ bool DIOSTREAMDEVICEWIFI::HasSecurity()
 *
 * @param[in]  hassecurity :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::SetHasSecurity(bool hassecurity)
 {
@@ -142,8 +136,6 @@ int DIOSTREAMDEVICEWIFI::GetTransmisionPower()
 * @ingroup    DATAIO
 *
 * @param[in]  transmisionpower :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::SetTransmisionPower(int transmisionpower)
@@ -179,8 +171,6 @@ bool DIOSTREAMDEVICEWIFI::DebugPrintInfo()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMDEVICEWIFI::Clean()

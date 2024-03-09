@@ -79,8 +79,6 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUARTLOCALENUMDEVICES::DIOANDROIDSTREAMUARTLOCALENUMDEVICES() : DIOSTREAMUARTLOCALENUMDEVICES()
 {
@@ -94,8 +92,6 @@ DIOANDROIDSTREAMUARTLOCALENUMDEVICES::DIOANDROIDSTREAMUARTLOCALENUMDEVICES() : D
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_ANDROID
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOANDROIDSTREAMUARTLOCALENUMDEVICES::~DIOANDROIDSTREAMUARTLOCALENUMDEVICES()

@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHER::CIPHER()
 {
@@ -85,8 +83,6 @@ CIPHER::CIPHER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    CIPHER
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHER::~CIPHER()
@@ -130,8 +126,6 @@ CIPHERTYPE CIPHER::GetType()
 * 
 * @param[in]  type : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER::SetType(CIPHERTYPE type)
 { 
@@ -161,8 +155,6 @@ CIPHERCHAININGMODE CIPHER::GetChainingMode()
 * @ingroup    CIPHER
 * 
 * @param[in]  chainingmode : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER::SetChainingMode(CIPHERCHAININGMODE chainingmode)
@@ -194,8 +186,6 @@ XBUFFER_PADDINGTYPE CIPHER::GetPaddingType()
 * 
 * @param[in]  paddingtype : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER::SetPaddingType(XBUFFER_PADDINGTYPE paddingtype)
 { 
@@ -225,8 +215,6 @@ int CIPHER::GetPaddingAdjustSize()
 * @ingroup    CIPHER
 * 
 * @param[in]  paddingadjustsize : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER::SetPaddingAdjustSize(int paddingadjustsize)
@@ -558,8 +546,6 @@ bool CIPHER::SetKey(int index, CIPHERKEY* key)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    CIPHER
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHER::Clean()

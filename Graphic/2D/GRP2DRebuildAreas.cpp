@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 {
@@ -80,8 +78,6 @@ GRP2DREBUILDAREA::GRP2DREBUILDAREA()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREA::~GRP2DREBUILDAREA()
@@ -134,8 +130,6 @@ double GRP2DREBUILDAREA::GetYPos()
 *
 * @param[in]  xpos :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetXPos(double xpos)
 {
@@ -150,8 +144,6 @@ void GRP2DREBUILDAREA::SetXPos(double xpos)
 * @ingroup    GRAPHIC
 *
 * @param[in]  ypos :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetYPos(double ypos)
@@ -183,8 +175,6 @@ GRPBITMAP* GRP2DREBUILDAREA::GetBitmap()
 *
 * @param[in]  bitmap :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetBitmap(GRPBITMAP* bitmap)
 {
@@ -215,8 +205,6 @@ void* GRP2DREBUILDAREA::GetExtraData()
 *
 * @param[in]  extra_data : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 {
@@ -230,8 +218,6 @@ void GRP2DREBUILDAREA::SetExtraData(void* extra_data)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREA::Clean()
@@ -257,8 +243,6 @@ void GRP2DREBUILDAREA::Clean()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 {
@@ -272,8 +256,6 @@ GRP2DREBUILDAREAS::GRP2DREBUILDAREAS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    GRAPHIC
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRP2DREBUILDAREAS::~GRP2DREBUILDAREAS()
@@ -446,8 +428,6 @@ GRPBITMAP* GRP2DREBUILDAREAS::GetBitmap(double x, double y, double width, double
 * @param[in]  y :
 * @param[in]  bitmap :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 {
@@ -461,8 +441,6 @@ void GRP2DREBUILDAREAS::PutBitmapNoAlpha(double x, double y, GRPBITMAP* bitmap)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRP2DREBUILDAREAS::Clean()

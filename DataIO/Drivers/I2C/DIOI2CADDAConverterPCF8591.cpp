@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CADDACONVERTERPCF8591::DIOI2CADDACONVERTERPCF8591() : DIODEVICEI2C()
 {
@@ -83,8 +81,6 @@ DIOI2CADDACONVERTERPCF8591::DIOI2CADDACONVERTERPCF8591() : DIODEVICEI2C()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2CADDACONVERTERPCF8591::~DIOI2CADDACONVERTERPCF8591()
@@ -230,8 +226,6 @@ bool DIOI2CADDACONVERTERPCF8591::IniDevice()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOI2CADDACONVERTERPCF8591::Clean()

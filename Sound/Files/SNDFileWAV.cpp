@@ -64,8 +64,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 *
-* @return     Does not return anything. 
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILEWAV::SNDFILEWAV() : SNDFILE()
 {
@@ -79,8 +77,6 @@ SNDFILEWAV::SNDFILEWAV() : SNDFILE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-*
-* @return     Does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFILEWAV::~SNDFILEWAV()
@@ -301,8 +297,6 @@ SNDFILEWAV_FORMAT*  SNDFILEWAV::GetFormat()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-*
-* @return     void : does not return anything. 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDFILEWAV::Clean()

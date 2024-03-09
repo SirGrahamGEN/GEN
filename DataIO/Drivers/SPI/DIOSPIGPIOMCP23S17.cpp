@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 {
@@ -83,8 +81,6 @@ DIOSPIGPIOMCP23S17::DIOSPIGPIOMCP23S17() : DIODEVICESPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPIGPIOMCP23S17::~DIOSPIGPIOMCP23S17()
@@ -344,8 +340,6 @@ DIOSTREAMSPI* DIOSPIGPIOMCP23S17::GetDIOStreamSPI()
 *
 * @param[in]  diostream :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIGPIOMCP23S17::SetDIOStreamSPI(DIOSTREAMSPI* diostream)
 {
@@ -380,8 +374,6 @@ XBYTE DIOSPIGPIOMCP23S17::GetControlByte(XBYTE rw_cmd, XBYTE addr)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSPIGPIOMCP23S17::Clean()

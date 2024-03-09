@@ -70,8 +70,6 @@ XTRANSLATION_GEN* XTRANSLATION_GEN::instance  = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION_GEN_SENTENCE::XTRANSLATION_GEN_SENTENCE()
 {
@@ -85,8 +83,6 @@ XTRANSLATION_GEN_SENTENCE::XTRANSLATION_GEN_SENTENCE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION_GEN_SENTENCE::~XTRANSLATION_GEN_SENTENCE()
@@ -103,8 +99,6 @@ XTRANSLATION_GEN_SENTENCE::~XTRANSLATION_GEN_SENTENCE()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTRANSLATION_GEN_SENTENCE::Clean()
@@ -183,8 +177,6 @@ bool XTRANSLATION_GEN::DelInstance()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION_GEN::XTRANSLATION_GEN()
 {
@@ -200,8 +192,6 @@ XTRANSLATION_GEN::XTRANSLATION_GEN()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XTRANSLATION_GEN::~XTRANSLATION_GEN()
@@ -494,8 +484,6 @@ bool XTRANSLATION_GEN::Sentences_AddToTranslation(XDWORD codelanguage)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTRANSLATION_GEN::Clean()

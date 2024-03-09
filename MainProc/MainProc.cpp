@@ -68,8 +68,6 @@ MAIN_FUNCTION_TYPE  Main_Proc_PlatformEnd   = MAIN_FUNCTION_PLATFORMEND;
 * @brief      Constructor
 * @ingroup    MAIN_PROCEDURE
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROC::MAINPROC()
 {
@@ -83,8 +81,6 @@ MAINPROC::MAINPROC()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    MAIN_PROCEDURE
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 MAINPROC::~MAINPROC()
@@ -298,8 +294,6 @@ bool MAINPROC::CreateParams(XCHAR* commandline)
 * 
 * @param[in]  handle : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROC::SetHandle(void* handle)
 {
@@ -418,8 +412,6 @@ bool MAINPROC::DeleteAllExecParams()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    MAIN_PROCEDURE
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void MAINPROC::Clean()

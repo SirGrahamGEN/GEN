@@ -69,8 +69,6 @@ XMEMORY_CONTROL XMemory_Control;
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XMEMORY_CONTROL::XMEMORY_CONTROL()
 {
@@ -103,8 +101,6 @@ XMEMORY_CONTROL::XMEMORY_CONTROL()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XMEMORY_CONTROL::~XMEMORY_CONTROL()
@@ -221,8 +217,6 @@ void* XMEMORY_CONTROL::Assign(XDWORD size, char* pathfile, int line)
 * @ingroup    XUTILS
 *
 * @param[in]  ptr :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMEMORY_CONTROL::Free(void* ptr)
@@ -679,8 +673,6 @@ bool XMEMORY_CONTROL::SearchAssignIndex(bool free, void* ptr, XDWORD& index)
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XMEMORY_CONTROL::Clean()
 {
@@ -764,8 +756,6 @@ void* operator new[](size_t size, char const* namefile, int line)
 *
 * @param[in]  ptr) noexcep :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void operator delete(void* ptr) throw ()
 {
@@ -787,8 +777,6 @@ void operator delete(void* ptr) throw ()
 * @ingroup    XUTILS
 *
 * @param[in]  ptr) noexcep :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void operator delete[] (void* ptr) throw ()

@@ -270,8 +270,6 @@ bool INPMANAGER::Update()
 * @brief      Constructor
 * @ingroup    INPUT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 INPMANAGER::INPMANAGER()
 {
@@ -285,8 +283,6 @@ INPMANAGER::INPMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    INPUT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 INPMANAGER::~INPMANAGER()
@@ -303,8 +299,6 @@ INPMANAGER::~INPMANAGER()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    INPUT
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPMANAGER::Clean()

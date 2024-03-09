@@ -71,8 +71,6 @@
 * @note       VIRTUAL
 * @ingroup    DATABASES
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SQLITE_QUERY::~SQLITE_QUERY()
 {

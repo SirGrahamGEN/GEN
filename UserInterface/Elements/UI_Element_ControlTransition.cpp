@@ -60,8 +60,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_CONTROLTRANSITION::UI_ELEMENT_CONTROLTRANSITION()    
 { 
@@ -76,8 +74,6 @@ UI_ELEMENT_CONTROLTRANSITION::UI_ELEMENT_CONTROLTRANSITION()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_CONTROLTRANSITION::~UI_ELEMENT_CONTROLTRANSITION()    
 { 
@@ -92,8 +88,6 @@ UI_ELEMENT_CONTROLTRANSITION::~UI_ELEMENT_CONTROLTRANSITION()
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_CONTROLTRANSITION::Clean()
 {

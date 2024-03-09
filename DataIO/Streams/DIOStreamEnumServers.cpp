@@ -65,8 +65,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 {
@@ -82,8 +80,6 @@ DIOSTREAMENUMSERVERS::DIOSTREAMENUMSERVERS(): DIOSTREAMENUMDEVICES()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMENUMSERVERS::~DIOSTREAMENUMSERVERS()
@@ -116,8 +112,6 @@ XDWORD DIOSTREAMENUMSERVERS::GetSearchTimeout()
 * @ingroup    DATAIO
 *
 * @param[in]  searchtimeout :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMSERVERS::SetSearchTimeout(int searchtimeout)
@@ -283,8 +277,6 @@ bool DIOSTREAMENUMSERVERS::SetID(XDWORD ID)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOSTREAMENUMSERVERS::Clean()

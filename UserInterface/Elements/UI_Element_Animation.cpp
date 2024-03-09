@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()    
 { 
@@ -90,8 +88,6 @@ UI_ELEMENT_ANIMATION::UI_ELEMENT_ANIMATION()
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT_ANIMATION::~UI_ELEMENT_ANIMATION()    
 {  
@@ -228,8 +224,6 @@ int UI_ELEMENT_ANIMATION::GetMilliSecondsDelay()
 *
 * @param[in]  millisecdelay : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_ANIMATION::SetMilliSecondsDelay(int millisecdelay)
 {
@@ -339,8 +333,6 @@ XBYTE UI_ELEMENT_ANIMATION::GetAlpha()
 *
 * @param[in]  alpha : 
 * 
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
 {
@@ -355,8 +347,6 @@ void UI_ELEMENT_ANIMATION::SetAlpha(XBYTE alpha)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_ANIMATION::Clean()
 {

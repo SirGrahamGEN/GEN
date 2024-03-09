@@ -79,8 +79,6 @@
 * 
 * @param[in]  GRPSCREEN* : 
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen)
 { 
@@ -97,8 +95,6 @@ UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen
 * @note       VIRTUAL
 * @ingroup    USERINTERFACE
 *
-* @return     Does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_FLAT::~UI_SKINCANVAS_FLAT()    
 { 
@@ -178,8 +174,6 @@ bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
 * @note       INTERNAL
 * @ingroup    USERINTERFACE
 *
-* @return     void : does not return anything. 
-* 
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS_FLAT::Clean()
 {

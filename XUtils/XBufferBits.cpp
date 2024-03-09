@@ -64,8 +64,6 @@
 *
 * @param[in]  XBUFFER* : buffer of origin
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFERBITS::XBUFFERBITS(XBUFFER* xbuffer)
 {
@@ -83,8 +81,6 @@ XBUFFERBITS::XBUFFERBITS(XBUFFER* xbuffer)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFERBITS::~XBUFFERBITS()
@@ -177,8 +173,6 @@ XDWORD XBUFFERBITS::GetBitPosition()
 * @param[in]  index : index into buffer
 * @param[in]  bitindex : bit index into buffer
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::SetPosition(XDWORD index, XDWORD bitindex)
 {
@@ -192,8 +186,6 @@ void XBUFFERBITS::SetPosition(XDWORD index, XDWORD bitindex)
 * @fn         void XBUFFERBITS::SkipU1()
 * @brief      Skip one bit
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::SkipU1()
@@ -267,8 +259,6 @@ XDWORD XBUFFERBITS::ReadU1()
 * @ingroup    XUTILS
 *
 * @param[in]  n : n bits
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::SkipU(XDWORD n)
@@ -391,8 +381,6 @@ int XBUFFERBITS::ReadSE()
 *
 * @param[in]  v : bit to write
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::WriteU1(XDWORD v)
 {
@@ -424,8 +412,6 @@ void XBUFFERBITS::WriteU1(XDWORD v)
 * @param[in]  n : n bits
 * @param[in]  v : bits to write
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::WriteU(XDWORD n, XDWORD v)
 {
@@ -444,8 +430,6 @@ void XBUFFERBITS::WriteU(XDWORD n, XDWORD v)
 * @ingroup    XUTILS
 *
 * @param[in]  v :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::WriteUE(XDWORD v)
@@ -514,8 +498,6 @@ void XBUFFERBITS::WriteUE(XDWORD v)
 *
 * @param[in]  v :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::WriteSE(int v)
 {
@@ -536,8 +518,6 @@ void XBUFFERBITS::WriteSE(int v)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XBUFFERBITS::Clean()

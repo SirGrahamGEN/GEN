@@ -69,8 +69,6 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALFACTORY::SNDOPENALFACTORY() 
 {
@@ -84,8 +82,6 @@ SNDOPENALFACTORY::SNDOPENALFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SOUND
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDOPENALFACTORY::~SNDOPENALFACTORY() 
@@ -1092,8 +1088,6 @@ bool SNDOPENALFACTORY::GenerateBuffer(SNDOPENALPLAYITEM* playitem, SNDFILE* soun
 * 
 * @param[in]  param : 
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALFACTORY::ThreadPlay(void* param)
 {  
@@ -1113,8 +1107,6 @@ void SNDOPENALFACTORY::ThreadPlay(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    SOUND
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALFACTORY::Clean()

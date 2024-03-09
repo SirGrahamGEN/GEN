@@ -63,8 +63,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_PATH::SCRIPT_LIB_PATH() : SCRIPT_LIB(SCRIPT_LIB_NAME_PATH)
 {
@@ -78,8 +76,6 @@ SCRIPT_LIB_PATH::SCRIPT_LIB_PATH() : SCRIPT_LIB(SCRIPT_LIB_NAME_PATH)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_PATH::~SCRIPT_LIB_PATH()
@@ -119,8 +115,6 @@ bool SCRIPT_LIB_PATH::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_PATH::Clean()
 {
@@ -145,8 +139,6 @@ void SCRIPT_LIB_PATH::Clean()
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_GetPathScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)
@@ -176,8 +168,6 @@ void Call_GetPathScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>*
 * @param[in]  script : 
 * @param[in]  params : 
 * @param[in]  returnvalue : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_GetNameScript(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

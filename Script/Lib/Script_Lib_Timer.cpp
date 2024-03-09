@@ -66,8 +66,6 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_TIMER::SCRIPT_LIB_TIMER() : SCRIPT_LIB(SCRIPT_LIB_NAME_TIMER)
 {
@@ -81,8 +79,6 @@ SCRIPT_LIB_TIMER::SCRIPT_LIB_TIMER() : SCRIPT_LIB(SCRIPT_LIB_NAME_TIMER)
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    SCRIPT
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_TIMER::~SCRIPT_LIB_TIMER()
@@ -121,8 +117,6 @@ bool SCRIPT_LIB_TIMER::AddLibraryFunctions(SCRIPT* script)
 * @note       INTERNAL
 * @ingroup    SCRIPT
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void SCRIPT_LIB_TIMER::Clean()
 {
@@ -147,8 +141,6 @@ void SCRIPT_LIB_TIMER::Clean()
 * @param[in]  script :
 * @param[in]  params :
 * @param[in]  returnvalue :
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void Call_Sleep(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*>* params, XVARIANT* returnvalue)

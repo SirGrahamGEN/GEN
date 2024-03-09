@@ -68,8 +68,6 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 {
@@ -83,8 +81,6 @@ DIOALERTSUDPSERVER::DIOALERTSUDPSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOALERTSUDPSERVER::~DIOALERTSUDPSERVER()
@@ -436,8 +432,6 @@ bool DIOALERTSUDPSERVER::ReceivedEvents()
 *
 * @param[in]  param :
 *
-* @return     void : does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 {
@@ -454,8 +448,6 @@ void DIOALERTSUDPSERVER::ThreadReadFunction(void* param)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOALERTSUDPSERVER::Clean()

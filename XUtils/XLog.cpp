@@ -76,8 +76,6 @@ XLOG* XLOG::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGENTRY::XLOGENTRY()
 {
@@ -92,8 +90,6 @@ XLOGENTRY::XLOGENTRY()
 * @note       VIRTUAL
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGENTRY::~XLOGENTRY()
 {
@@ -107,8 +103,6 @@ XLOGENTRY::~XLOGENTRY()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLOGENTRY::Clean()
@@ -130,8 +124,6 @@ void XLOGENTRY::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGBASE::XLOGBASE()
 {
@@ -151,8 +143,6 @@ XLOGBASE::XLOGBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOGBASE::~XLOGBASE()
@@ -381,8 +371,6 @@ bool XLOGBASE::IsActive()
 * @ingroup    XUTILS
 * 
 * @param[in]  isactive : 
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLOGBASE::SetIsActive(bool isactive)                                                 
@@ -1331,8 +1319,6 @@ bool XLOGBASE::Backup_ControlLimits()
 * @note       INTERNAL
 * @ingroup    XUTILS
 * 
-* @return     void : does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLOGBASE::Clean()
 {
@@ -1431,8 +1417,6 @@ bool XLOG::DelInstance()
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOG::XLOG() : XLOGBASE()
 {
@@ -1446,8 +1430,6 @@ XLOG::XLOG() : XLOGBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XLOG::~XLOG()

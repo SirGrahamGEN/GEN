@@ -67,8 +67,6 @@
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @return     Does not return anything. 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_ZIP::COMPRESS_ZIP() : COMPRESSBASE()
 {
@@ -84,8 +82,6 @@ COMPRESS_ZIP::COMPRESS_ZIP() : COMPRESSBASE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    COMPRESS
-* 
-* @return     Does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESS_ZIP::~COMPRESS_ZIP()
@@ -290,8 +286,6 @@ int COMPRESS_ZIP::ZDecompress(XBYTE* target,XDWORD* targetsize,XBYTE* source,XDW
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    COMPRESS
-* 
-* @return     void : does not return anything. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void COMPRESS_ZIP::Clean()

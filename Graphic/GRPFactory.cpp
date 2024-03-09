@@ -66,8 +66,6 @@ GRPFACTORY* GRPFACTORY::instance = NULL;
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @return     Does not return anything.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPFACTORY::GRPFACTORY()
 {
@@ -81,8 +79,6 @@ GRPFACTORY::GRPFACTORY()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     Does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPFACTORY::~GRPFACTORY()
@@ -367,8 +363,6 @@ bool GRPFACTORY::DeleteBitmap(GRPBITMAP* bitmap)
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    GRAPHIC
-*
-* @return     void : does not return anything.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPFACTORY::Clean()
