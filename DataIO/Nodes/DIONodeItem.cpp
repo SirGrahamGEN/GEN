@@ -81,7 +81,7 @@ DIONODEITEM::DIONODEITEM()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIONODEITEMHANDLER* : 
+* @param[in]  itemhandler : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEM::DIONODEITEM(DIONODEITEMHANDLER* itemhandler)

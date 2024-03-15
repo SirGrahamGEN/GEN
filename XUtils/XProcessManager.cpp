@@ -421,7 +421,7 @@ XPROCESSMANAGER& XPROCESSMANAGER::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* instance)
+* @fn         bool XPROCESSMANAGER::SetInstance(XPROCESSMANAGER* _instance)
 * @brief      SetInstance
 * @note       STATIC
 * @ingroup    XUTILS

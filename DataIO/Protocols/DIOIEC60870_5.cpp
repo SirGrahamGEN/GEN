@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @file       DIOIEC60870_5.cpp
@@ -82,9 +69,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD type : 
-* @param[in]   XDWORD family : 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5_XEVENT::DIOIEC60870_5_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)
@@ -711,7 +698,7 @@ void DIO_C_TR_AA_RESULT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAM* : 
+* @param[in]  diostream : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOIEC60870_5::DIOIEC60870_5(DIOSTREAM* diostream)

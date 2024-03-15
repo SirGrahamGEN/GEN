@@ -68,8 +68,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD width :
-* @param[in]  XDWORD height :
+* @param[in]  width :
+* @param[in]  height :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOI2COLEDDISPLAYSSD1306::DIOI2COLEDDISPLAYSSD1306( XDWORD width, XDWORD height): DIODEVICEI2C()

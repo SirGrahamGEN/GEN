@@ -409,7 +409,7 @@ void DIONODEITEMHANDLER_ENTRYGPIO::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* : 
+* @param[in]  entrysGPIO : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMHANDLER_GPIODIGITAL::DIONODEITEMHANDLER_GPIODIGITAL(XLIST<DIONODEITEMHANDLER_ENTRYGPIO*>* entrysGPIO)

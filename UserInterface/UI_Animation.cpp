@@ -91,15 +91,16 @@ UI_ANIMATION::~UI_ANIMATION()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename)
+* @fn         bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
 * @brief      LoadFromFile
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  resourcename : 
+* @param[in]  mode : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_ANIMATION::LoadFromFile(XSTRING& resourcename, GRPPROPERTYMODE mode)
 {
   XPATH               xpathimg;   

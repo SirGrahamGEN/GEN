@@ -644,13 +644,13 @@ void XFILECOBOL_FIELD::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XFILECOBOL_RECORD::XFILECOBOL_RECORD(XVECTOR<XFILECOBOL_FIELD*>* fields)
+* 
+* @fn         XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @param[in]  XVECTOR<XFILECOBOL_FIELD*>* :
-*
+* 
+* @param[in]  handle : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_RECORD::XFILECOBOL_RECORD(XFILECOBOL_HANDLE* handle)
 {
@@ -1245,13 +1245,12 @@ XFILECOBOL_HANDLE::XFILECOBOL_HANDLE()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
-* @brief      ~XFILECOBOL_HANDLE
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    XUTILS
-*
-* @return     virtual :
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECOBOL_HANDLE::~XFILECOBOL_HANDLE()
 {

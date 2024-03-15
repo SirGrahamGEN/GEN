@@ -62,8 +62,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAM* : 
-* @param[in]   bool iswithlog : 
+* @param[in]  DIOstream : 
+* @param[in]  iswithlog : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOXTRACEINTERSTREAMS::DIOXTRACEINTERSTREAMS(DIOSTREAM* DIOstream, bool iswithlog)

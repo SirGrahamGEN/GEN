@@ -1748,17 +1748,17 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT_TEXT* element_text, XSTRING* maskvalue, XSTRING* maskresolved)
+* @fn         bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* maskvalue, XSTRING* maskresolved)
 * @brief      ChangeAutomaticTextElementValue
 * @ingroup    USERINTERFACE
-*
-* @param[in]  element_text : 
+* 
+* @param[in]  element : 
 * @param[in]  maskvalue : 
 * @param[in]  maskresolved : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::ChangeAutomaticTextElementValue(UI_ELEMENT* element, XSTRING* maskvalue, XSTRING* maskresolved)
 {
   if(!element)        return false;

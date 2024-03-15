@@ -71,7 +71,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAMUDPCONFIG* : 
+* @param[in]  config : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMUDPACKNOWLEDGE::DIOSTREAMUDPACKNOWLEDGE(DIOSTREAMUDPCONFIG* config) : DIOSTREAMUDP()

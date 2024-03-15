@@ -66,15 +66,16 @@ bool XBUFFER::globalhardwareuselittleendian = true;
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XBUFFER::XBUFFER(bool threadsafe)
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @param[in]  bool : Is thread safe buffer functions
-*
+* 
+* @param[in]  threadsafe : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::XBUFFER(bool threadsafe)
+
 {
   Clean();
 
@@ -119,7 +120,7 @@ XBUFFER::XBUFFER(XDWORD size, bool threadsafe)
 * @brief      Constructor
 * @ingroup    XUTILS
 * 
-* @param[in]  const : 
+* @param[in]  xbuffer : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFER::XBUFFER(const XBUFFER& xbuffer)
@@ -2434,10 +2435,10 @@ int XBUFFER::Find(XSTRING& string, bool normalize, int startindex)
 * @brief      operator =
 * @ingroup    XUTILS
 * 
-* @param[in]  XBUFFER& xbuffer : 
+* @param[in]  xbuffer : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XBUFFER::operator =  (const XBUFFER& xbuffer)
+void XBUFFER::operator = (const XBUFFER& xbuffer)
 {
   CopyFrom((XBUFFER&)xbuffer);
 }

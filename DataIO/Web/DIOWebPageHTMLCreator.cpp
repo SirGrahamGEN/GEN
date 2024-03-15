@@ -99,7 +99,7 @@ DIOWEBPAGEHTMLCREATOR::~DIOWEBPAGEHTMLCREATOR()
 * @brief      operator =
 * @ingroup    DATAIO
 *
-* @param[in]  char* htlmpage :
+* @param[in]  htlmpage :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
@@ -114,7 +114,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (const char* htlmpage)
 * @brief      operator =
 * @ingroup    DATAIO
 *
-* @param[in]  XCHAR* htlmpage :
+* @param[in]  htlmpage :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator = (const XCHAR* htlmpage)
@@ -174,7 +174,7 @@ void DIOWEBPAGEHTMLCREATOR::operator = (XWORD* htlmpage)
 * @brief      operator +=
 * @ingroup    DATAIO
 *
-* @param[in]  char* htlmpage :
+* @param[in]  htlmpage :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
@@ -189,7 +189,7 @@ void DIOWEBPAGEHTMLCREATOR::operator += (const char* htlmpage)
 * @brief      operator +=
 * @ingroup    DATAIO
 *
-* @param[in]  XCHAR* htlmpage :
+* @param[in]  htlmpage :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWEBPAGEHTMLCREATOR::operator += (const XCHAR* htlmpage)
@@ -535,7 +535,7 @@ bool DIOWEBPAGEHTMLCREATOR::Print(XCHAR* text)
 * @ingroup    DATAIO
 * 
 * @param[in]  border : 
-* @param[in]  addstyle : Add style ( example:  __L("font-family: Arial; font-size: 0.85em;") )
+* @param[in]  addstyle : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -603,17 +603,17 @@ bool DIOWEBPAGEHTMLCREATOR::Table_Line(int ncolumns, ...)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int ncolumns, ...)
 * @brief      Table_Line
 * @ingroup    DATAIO
-*
-* @param[in]  colorbackground :
-* @param[in]  columns :
-* @param[in]  ... :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  colorbackground : 
+* @param[in]  ncolumns : 
+* @param[in]  ... : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBPAGEHTMLCREATOR::Table_Line(XCHAR* colorbackground, int ncolumns, ...)
 {

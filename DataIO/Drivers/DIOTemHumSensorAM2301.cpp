@@ -71,8 +71,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]   int pindata : 
-* @param[in]   bool activatecache : 
+* @param[in]  pindata : 
+* @param[in]  activatecache : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOTEMHUMSENSORAM2301::DIOTEMHUMSENSORAM2301(int pindata, bool activatecache) : DIODEVICE()

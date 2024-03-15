@@ -82,7 +82,7 @@ XPATH::XPATH(): XSTRING()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XDWORD :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XDWORD size): XSTRING(size)
@@ -97,7 +97,7 @@ XPATH::XPATH(XDWORD size): XSTRING(size)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  const :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const char* path) : XSTRING(path)
@@ -112,7 +112,7 @@ XPATH::XPATH(const char* path) : XSTRING(path)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  const :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const XCHAR* path): XSTRING(path)
@@ -127,8 +127,8 @@ XPATH::XPATH(const XCHAR* path): XSTRING(path)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  const :
-* @param[in]  XDWORD :
+* @param[in]  path :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
@@ -143,7 +143,7 @@ XPATH::XPATH(const XCHAR* path,XDWORD size): XSTRING(path,size)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XPATH& :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XPATH& path): XSTRING(path)
@@ -158,7 +158,7 @@ XPATH::XPATH(XPATH& path): XSTRING(path)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XSTRING& :
+* @param[in]  string :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XSTRING& string)  : XSTRING(string)
@@ -173,7 +173,7 @@ XPATH::XPATH(XSTRING& string)  : XSTRING(string)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XWORD* :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH::XPATH(XWORD* path) : XSTRING(path)
@@ -202,7 +202,7 @@ XPATH::~XPATH()
 * @brief      operator =
 * @ingroup    XUTILS
 *
-* @param[in]  char* path :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (const char* path)
@@ -217,7 +217,7 @@ void XPATH::operator = (const char* path)
 * @brief      operator =
 * @ingroup    XUTILS
 *
-* @param[in]  XCHAR* path :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator = (const XCHAR* path)
@@ -277,7 +277,7 @@ void XPATH::operator = (XWORD* path)
 * @brief      operator +=
 * @ingroup    XUTILS
 *
-* @param[in]  char* path :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (const char* path)
@@ -292,7 +292,7 @@ void XPATH::operator += (const char* path)
 * @brief      operator +=
 * @ingroup    XUTILS
 *
-* @param[in]  XCHAR* path :
+* @param[in]  path :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void XPATH::operator += (const XCHAR* path)
@@ -826,7 +826,7 @@ bool XPATH::GetPathInSequence(int index, XSTRING& pathpart)
 * @brief      SetOnlyDrive
 * @ingroup    XUTILS
 * 
-* @return     const : 
+* @return     const XCHAR* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyDrive()
@@ -849,7 +849,7 @@ const XCHAR* XPATH::SetOnlyDrive()
 * @brief      SetOnlyPath
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyPath()
@@ -872,7 +872,7 @@ const XCHAR* XPATH::SetOnlyPath()
 * @brief      SetOnlyDriveAndPath
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyDriveAndPath()
@@ -895,7 +895,7 @@ const XCHAR* XPATH::SetOnlyDriveAndPath()
 * @brief      SetOnlyPathAndNamefile
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyPathAndNamefile()
@@ -918,7 +918,7 @@ const XCHAR* XPATH::SetOnlyPathAndNamefile()
 * @brief      SetOnlyPathAndNamefileExt
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyPathAndNamefileExt()
@@ -941,7 +941,7 @@ const XCHAR* XPATH::SetOnlyPathAndNamefileExt()
 * @brief      SetOnlyNamefile
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyNamefile()
@@ -964,7 +964,7 @@ const XCHAR* XPATH::SetOnlyNamefile()
 * @brief      SetOnlyNamefileExt
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyNamefileExt()
@@ -987,7 +987,7 @@ const XCHAR* XPATH::SetOnlyNamefileExt()
 * @brief      SetOnlyExt
 * @ingroup    XUTILS
 *
-* @return     const :
+* @return     const XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 const XCHAR* XPATH::SetOnlyExt()

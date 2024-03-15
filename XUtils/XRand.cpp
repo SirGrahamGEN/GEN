@@ -120,7 +120,7 @@ XRAND& XRAND::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XRAND::SetInstance(XRAND* instance)
+* @fn         bool XRAND::SetInstance(XRAND* _instance)
 * @brief      Set Instance of XRAND
 * @note       STATIC
 * @ingroup    XUTILS

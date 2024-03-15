@@ -92,16 +92,16 @@ DIOWEBSERVER_PLUGIN_CGI::~DIOWEBSERVER_PLUGIN_CGI()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexe)
+* 
+* @fn         bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 * @brief      Config
 * @ingroup    DATAIO
-*
-* @param[in]  pathCGIinterpreter :
-* @param[in]  nameexec :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  pathCGIinterpreter : 
+* @param[in]  nameexec : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_PLUGIN_CGI::Config(XPATH* pathCGIinterpreter, XCHAR* nameexec)
 {

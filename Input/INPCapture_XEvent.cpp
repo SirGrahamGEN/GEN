@@ -64,9 +64,9 @@
 * @brief      Constructor
 * @ingroup    INPUT
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD type : 
-* @param[in]   XDWORD family : 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPCAPTURE_XEVENT::INPCAPTURE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)

@@ -93,11 +93,11 @@ DIOI2CADDACONVERTERPCF8591::~DIOI2CADDACONVERTERPCF8591()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values[4])
+* @fn         bool DIOI2CADDACONVERTERPCF8591::ReadADChannels(XBYTE values)
 * @brief      ReadADChannels
 * @ingroup    DATAIO
 *
-* @param[in]  values[4] :
+* @param[in]  values :
 *
 * @return     bool : true if is succesful.
 *

@@ -706,15 +706,13 @@ XSTRING* UI_SKIN::Background_GetNameFile()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::Background_LoadBitmap(GRPSCREEN* screen)
+* @fn         bool UI_SKIN::Background_LoadBitmap()
 * @brief      Background_LoadBitmap
 * @ingroup    USERINTERFACE
-*
-* @param[in]  screen : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Background_LoadBitmap()
 {
   return false;
@@ -1017,13 +1015,13 @@ bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::CalculeBoundaryLine_AllElements(UI_ELEMENT* element, bool recursive)
 * @brief      CalculeBoundaryLine_AllElements
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * @param[in]  recursive : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::CalculeBoundaryLine_AllElements(UI_ELEMENT* element, bool recursive)
 {
   CalculateBoundaryLine(element);
@@ -1129,13 +1127,12 @@ bool UI_SKIN::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @fn         bool UI_SKIN::Draw(UI_ELEMENT* element)
 * @brief      Draw
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw(UI_ELEMENT* element)  
 {
   if(!element) return false;
@@ -1201,13 +1198,12 @@ bool UI_SKIN::Draw_Scroll(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_Text(UI_ELEMENT* element)
 * @brief      Draw_Text
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Text(UI_ELEMENT* element)  
 {
   return false;
@@ -1229,20 +1225,19 @@ bool UI_SKIN::Draw_TextBox(UI_ELEMENT* element)
 {
   return false;
 }
+ 
 
-  
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Image(UI_ELEMENT* element)
 * @brief      Draw_Image
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Image(UI_ELEMENT* element)  
 {
   return false;
@@ -1254,13 +1249,12 @@ bool UI_SKIN::Draw_Image(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
 * @brief      Draw_Animation
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)  
 {
   return false;
@@ -1272,13 +1266,12 @@ bool UI_SKIN::Draw_Animation(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_Option(UI_ELEMENT* element)
 * @brief      Draw_Option
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Option(UI_ELEMENT* element)  
 {
   return false;
@@ -1290,31 +1283,29 @@ bool UI_SKIN::Draw_Option(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_MultiOption(UI_ELEMENT* element)
 * @brief      Draw_MultiOption
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_MultiOption(UI_ELEMENT* element)  
 {
   return false;
 }
 
-  
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKIN::Draw_Button(UI_ELEMENT* element)
 * @brief      Draw_Button
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Button(UI_ELEMENT* element)  
 {
   return false;
@@ -1326,13 +1317,12 @@ bool UI_SKIN::Draw_Button(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)
 * @brief      Draw_CheckBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)  
 {
   return false;
@@ -1344,13 +1334,12 @@ bool UI_SKIN::Draw_CheckBox(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
 * @brief      Draw_EditText
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)  
 {
   return false;
@@ -1362,13 +1351,12 @@ bool UI_SKIN::Draw_EditText(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
 * @brief      Draw_Form
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
 {
   return false;
@@ -1380,13 +1368,12 @@ bool UI_SKIN::Draw_Form(UI_ELEMENT* element)
 * @fn         bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)
 * @brief      Draw_Menu
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKIN::Draw_Menu(UI_ELEMENT* element)  
 {
   return false;

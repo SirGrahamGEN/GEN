@@ -368,7 +368,7 @@ void DIOPROTOCOLCLI::ActiveCRC(bool activated)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, va_list& arg)
+* @fn         bool DIOPROTOCOLCLI::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
 * @brief      SendCommand
 * @ingroup    DATAIO
 * 
@@ -376,7 +376,7 @@ void DIOPROTOCOLCLI::ActiveCRC(bool activated)
 * @param[in]  target : 
 * @param[in]  answer : 
 * @param[in]  timeoutanswer : 
-* @param[in]  arg : 
+* @param[in]  ... : 
 * 
 * @return     bool : true if is succesful. 
 * 

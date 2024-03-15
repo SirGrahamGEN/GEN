@@ -65,7 +65,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOSTREAMCONFIG* : 
+* @param[in]  config : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTLS::DIOSTREAMTLS(DIOSTREAMTLSCONFIG* config) 

@@ -70,7 +70,7 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  bool :
+* @param[in]  compress :
 * @param[in]  filehdl :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -553,7 +553,7 @@ bool XFILECMPZIP::SelectCurrenFile()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XDWORD :
+* @param[in]  maxsizebuffer :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEZIP::XFILEZIP(XDWORD maxsizebuffer)
@@ -898,7 +898,7 @@ void XFILEZIP::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XDWORD :
+* @param[in]  maxsizebuffer :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEUNZIP::XFILEUNZIP(XDWORD maxsizebuffer)

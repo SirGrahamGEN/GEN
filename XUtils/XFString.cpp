@@ -73,7 +73,7 @@ XFSTRING::XFSTRING(): XSTRING()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  string :
+* @param[in]  n :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSTRING::XFSTRING(int n) : XSTRING(n)

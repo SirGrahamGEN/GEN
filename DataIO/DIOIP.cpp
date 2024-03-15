@@ -64,14 +64,12 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOIPADDRESS:: DIOIPADDRESS()
-* @brief      IOIPADDRESS
+* @fn         DIOIPADDRESS::DIOIPADDRESS()
+* @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @return     DIOIPADDRESS:: : 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOIPADDRESS:: DIOIPADDRESS()
+DIOIPADDRESS::DIOIPADDRESS()
 {
   Clean();
 }

@@ -521,7 +521,7 @@ bool SCRIPT_LNG_G_VAR::SetValueString()
 * @brief      SetHaveReservedSize
 * @ingroup    SCRIPT
 * 
-* @param[in]  nothavereservedsize : 
+* @param[in]  havereservedsize : 
 * 
 * @return     bool : true if is succesful. 
 * 

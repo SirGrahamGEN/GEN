@@ -2,7 +2,7 @@
 * 
 * @file       XWINDOWSFileBorland.cpp
 * 
-* @class      XWINDOWSFILEBORLAND
+* @class      XWINDOWSFILE
 * @brief      WINDOWS eXtended Utils Borland file class
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -46,9 +46,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <share.h>
-
-#include "XPath.h"
-#include "XString.h"
 
 #include "Cipher.h"
 
@@ -96,18 +93,18 @@ XWINDOWSFILE::~XWINDOWSFILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Exist(XCHAR* xpath)
+* @fn         bool XWINDOWSFILE::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  xpath : 
+* @param[in]  path : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Exist(XCHAR* xpath)
+bool XWINDOWSFILE::Exist(XCHAR* path)
 {
-  bool status = Open(xpath, true);
+  bool status = Open(path, true);
   if(status) Close();
 
   return status;
@@ -116,36 +113,36 @@ bool XWINDOWSFILE::Exist(XCHAR* xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
+* @fn         bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
 * @brief      Open
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  xpath : 
+* @param[in]  path : 
 * @param[in]  isreadonly : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Open(XCHAR* xpath, bool isreadonly)
+bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
 {
-  return ExtendedOpen(xpath, (isreadonly)? __L("rb") : __L("r+b"));
+  return ExtendedOpen(path, (isreadonly)? __L("rb") : __L("r+b"));
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Create(XCHAR* xpath)
+* @fn         bool XWINDOWSFILE::Create(XCHAR* path)
 * @brief      Create
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  xpath : 
+* @param[in]  path : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Create(XCHAR* xpath)
+bool XWINDOWSFILE::Create(XCHAR* path)
 {
-  return ExtendedOpen(xpath, __L("w+b"));
+  return ExtendedOpen(path, __L("w+b"));
 }
 
 
@@ -386,25 +383,25 @@ bool XWINDOWSFILE::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
+* @fn         bool XWINDOWSFILE::Erase(XCHAR* path, bool overwrite)
 * @brief      Erase
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  xpath : 
+* @param[in]  path : 
 * @param[in]  overwrite : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Erase(XCHAR* xpath,bool overwrite)
+bool XWINDOWSFILE::Erase(XCHAR* path,bool overwrite)
 {
   bool status=true;
 
-  if(Exist(xpath)!=true)  return false;
+  if(Exist(path)!=true)  return false;
 
-  if(overwrite) status = OverwriteContent(xpath);
+  if(overwrite) status = OverwriteContent(path);
 
-  if(status) status = DeleteFile(xpath)?true:false;
+  if(status) status = DeleteFile(path)?true:false;
 
   return status;
 }
@@ -428,6 +425,22 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 
   return false;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         FILE* XWINDOWSFILE::GetFileStructHandle()
+* @brief      GetFileStructHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     FILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+FILE* XWINDOWSFILE::GetFileStructHandle()                                            
+{ 
+  return filehandle;    
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -458,29 +471,29 @@ bool XWINDOWSFILE::ActualizeSize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
+* @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* path, XCHAR* mode)
 * @brief      ExtendedOpen
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  xpath : 
+* @param[in]  path : 
 * @param[in]  mode : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
+bool XWINDOWSFILE::ExtendedOpen(XCHAR* path, XCHAR* mode)
 {
   if(isopen) Close();
 
-  this->xpathnamefile = xpath;
+  this->xpathnamefile = path;
 
   int error = 0;
 
   #ifdef BUILDER
-  filehandle = _wfopen(xpath, mode);
+  filehandle = _wfopen(path, mode);
   if(!filehandle) return false;
   #else
-  error = _wfopen_s(&filehandle, xpath, mode);
+  error = _wfopen_s(&filehandle, path, mode);
   #endif
 
   if(error)        return false;
@@ -495,6 +508,20 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* xpath, XCHAR* mode)
   #endif
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XWINDOWSFILE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XWINDOWSFILE::Clean()
+{
+  filehandle  = NULL;
 }
 
 

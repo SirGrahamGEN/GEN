@@ -484,7 +484,7 @@ void XFILECFGVALUE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XCHAR* : name file of config
+* @param[in]  namefile : name file of config
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECFG::XFILECFG(XCHAR* namefile)

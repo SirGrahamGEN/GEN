@@ -560,7 +560,7 @@ bool DIOSTREAM::ReadStr(XSTRING& string, int timeout)
 * @brief      WriteStr
 * @ingroup    DATAIO
 *
-* @param[in]  char* str :
+* @param[in]  str :
 *
 * @return     bool : true if is succesful.
 *

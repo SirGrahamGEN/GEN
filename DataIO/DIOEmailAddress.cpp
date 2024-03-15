@@ -90,7 +90,7 @@ DIOEMAILADDRESS::~DIOEMAILADDRESS()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
@@ -105,7 +105,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XDWORD size): XSTRING(size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
@@ -120,7 +120,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const char* url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
@@ -135,8 +135,8 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
-* @param[in]  XDWORD :
+* @param[in]  url :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, size)
@@ -151,7 +151,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(const XCHAR* url,XDWORD size): XSTRING(url, siz
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOEMAILADDRESS& :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
@@ -166,7 +166,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(DIOEMAILADDRESS& url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XSTRING& :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
@@ -181,7 +181,7 @@ DIOEMAILADDRESS::DIOEMAILADDRESS(XSTRING& url): XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XWORD* :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOEMAILADDRESS::DIOEMAILADDRESS(XWORD* url): XSTRING(url)

@@ -223,11 +223,9 @@ int APPCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageMax()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange(XCHAR* name)
+* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUAppCPUUsageAverange()
 * @brief      GetCPUAppCPUUsageAverange
 * @ingroup    APPLICATION
-* 
-* @param[in]  name : 
 * 
 * @return     int : 
 * 

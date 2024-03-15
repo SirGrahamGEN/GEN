@@ -100,8 +100,8 @@ DIOI2CLSM303DLHCVECTOR::~DIOI2CLSM303DLHCVECTOR()
 * @brief      Cross
 * @ingroup    DATAIO
 *
-* @param[in]  DIOI2CLSM303DLHCVECTOR& a :
-* @param[in]  DIOI2CLSM303DLHCVECTOR& b :
+* @param[in]  a :
+* @param[in]  b :
 * @param[in]  out :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -119,8 +119,8 @@ void DIOI2CLSM303DLHCVECTOR::Cross(const DIOI2CLSM303DLHCVECTOR& a, const DIOI2C
 * @brief      Dot
 * @ingroup    DATAIO
 *
-* @param[in]  DIOI2CLSM303DLHCVECTOR& a :
-* @param[in]  DIOI2CLSM303DLHCVECTOR& b :
+* @param[in]  a :
+* @param[in]  b :
 *
 * @return     float :
 *

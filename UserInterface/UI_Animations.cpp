@@ -118,17 +118,15 @@ bool UI_ANIMATIONS::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_ANIMATIONS::Add(XCHAR* name, XCHAR* resource, UI_ANIMATION* animation)
+* @fn         bool UI_ANIMATIONS::Add(UI_ANIMATION* animation)
 * @brief      Add
 * @ingroup    USERINTERFACE
-*
-* @param[in]  name : 
-* @param[in]  resource : 
+* 
 * @param[in]  animation : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_ANIMATIONS::Add(UI_ANIMATION* animation)
 {
   if(!animation)  return false;

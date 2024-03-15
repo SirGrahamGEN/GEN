@@ -167,17 +167,15 @@ void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPVIEWPORT::CreateCanvas(int canvasx, int canvasy, GRPPROPERTIES* canvasproperties)
-* @brief      Create
+* 
+* @fn         bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
+* @brief      CreateCanvas
 * @ingroup    GRAPHIC
-*
-* @param[in]  canvasx :
-* @param[in]  canvasy :
-* @param[in]  canvasproperties :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  canvasproperties : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
 {

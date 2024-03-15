@@ -132,7 +132,7 @@ XSYSTEM& XSYSTEM::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSYSTEM::SetInstance(XSYSTEM* instance)
+* @fn         bool XSYSTEM::SetInstance(XSYSTEM* _instance)
 * @brief      SetInstance
 * @note       STATIC
 * @ingroup    XUTILS

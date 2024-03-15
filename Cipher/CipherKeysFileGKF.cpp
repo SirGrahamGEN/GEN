@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
-* @param[in]  XPATH& : 
+* @param[in]  xpath : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEGKF::CIPHERKEYSFILEGKF(XPATH& xpath)

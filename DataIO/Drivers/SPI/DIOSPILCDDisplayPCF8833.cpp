@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSPILCDDISPLAYPCF8833_TYPE : 
+* @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSPILCDDISPLAYPCF8833::DIOSPILCDDISPLAYPCF8833(DIOSPILCDDISPLAYPCF8833_TYPE type) : DIODEVICESPI()

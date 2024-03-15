@@ -66,8 +66,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD : 
-* @param[in]   XDWORD height : 
+* @param[in]  width : 
+* @param[in]  height : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOSPITFTDISPLAYST7789::DIOSPITFTDISPLAYST7789(XDWORD width, XDWORD height)

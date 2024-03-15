@@ -248,7 +248,7 @@ bool XSERIALIZATIONMETHODBINARY::Add(long var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
@@ -464,16 +464,17 @@ bool XSERIALIZATIONMETHODBINARY::AddStruct(XCHAR* name, bool open)
   
   return true;
 }
+   
 
-    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODBINARY::AddArray(XDWORD nelements, XCHAR* name, bool open)
 * @brief      AddArray
 * @ingroup    XUTILS
 * 
 * @param[in]  nelements : 
 * @param[in]  name : 
+* @param[in]  open : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -606,7 +607,7 @@ bool XSERIALIZATIONMETHODBINARY::Extract(long var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 

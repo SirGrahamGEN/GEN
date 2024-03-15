@@ -379,7 +379,7 @@ bool CIPHERDES::Uncipher(XBYTE* input,XDWORD size)
 * @brief      DESKeySetParity
 * @ingroup    CIPHER
 * 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  key : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
@@ -397,7 +397,7 @@ void CIPHERDES::DESKeySetParity(XBYTE key[CIPHERDES_KEYSIZE])
 * @brief      DESKeyCheckKeyParity
 * @ingroup    CIPHER
 * 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  key : 
 * 
 * @return     int : 
 * 
@@ -419,7 +419,7 @@ int CIPHERDES::DESKeyCheckKeyParity(XBYTE key[CIPHERDES_KEYSIZE])
 * @brief      DESKeyCheckWeak
 * @ingroup    CIPHER
 * 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  key : 
 * 
 * @return     int : 
 * 
@@ -441,8 +441,8 @@ int CIPHERDES::DESKeyCheckWeak(XBYTE key[CIPHERDES_KEYSIZE])
 * @brief      DESSetKey
 * @ingroup    CIPHER
 * 
-* @param[in]  SK[32] : 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  SK : 
+* @param[in]  key : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
@@ -517,7 +517,7 @@ void CIPHERDES::DESSetKey(XDWORD SK[32], XBYTE key[CIPHERDES_KEYSIZE])
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  key : 
 * 
 * @return     int : 
 * 
@@ -537,7 +537,7 @@ int CIPHERDES::DESSetKeyCipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEYSI
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
-* @param[in]  key[CIPHERDES_KEYSIZE] : 
+* @param[in]  key : 
 * 
 * @return     int : 
 * 
@@ -563,8 +563,8 @@ int CIPHERDES::DESSetKeyUncipher(CIPHERDES_CONTEXT* ctx, XBYTE key[CIPHERDES_KEY
 * @ingroup    CIPHER
 * 
 * @param[in]  ctx : 
-* @param[in]  input[8] : 
-* @param[in]  output[8] : 
+* @param[in]  input : 
+* @param[in]  output : 
 * 
 * @return     int : 
 * 
@@ -607,7 +607,7 @@ int CIPHERDES::DESCipher(CIPHERDES_CONTEXT* ctx, XBYTE input[8], XBYTE output[8]
 * @param[in]  ctx : 
 * @param[in]  mode : 
 * @param[in]  length : 
-* @param[in]  iv[8] : 
+* @param[in]  iv : 
 * @param[in]  input : 
 * @param[in]  output : 
 * 
@@ -662,7 +662,7 @@ bool CIPHERDES::DESCipher_ECB(CIPHERDES_CONTEXT* ctx, int mode, size_t length, X
 * @param[in]  ctx : 
 * @param[in]  mode : 
 * @param[in]  length : 
-* @param[in]  iv[8] : 
+* @param[in]  iv : 
 * @param[in]  input : 
 * @param[in]  output : 
 * 

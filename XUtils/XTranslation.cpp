@@ -121,6 +121,8 @@ bool XTRANSLATION::DelInstance()
 }
 
 
+
+#ifdef XFILE_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XTRANSLATION::Ini(XPATH& xpath)
@@ -132,7 +134,6 @@ bool XTRANSLATION::DelInstance()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-#ifdef XFILE_ACTIVE
 bool XTRANSLATION::Ini(XPATH& xpath)
 {
    this->xpath = xpath;
@@ -140,6 +141,15 @@ bool XTRANSLATION::Ini(XPATH& xpath)
    return LoadLanguageAvailable();
 }
 #else
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XTRANSLATION::Ini()
+* @brief      Ini
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XTRANSLATION::Ini()
 {   
    return LoadLanguageAvailable();

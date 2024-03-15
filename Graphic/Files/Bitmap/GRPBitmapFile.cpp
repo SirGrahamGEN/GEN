@@ -303,13 +303,13 @@ GRPBITMAPFILE::GRPBITMAPFILE()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 * @brief      Constructor
 * @ingroup    GRAPHIC
-*
-* @param[in]  XCHAR* : initial path to file
-*
+* 
+* @param[in]  xpath : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 {
@@ -325,7 +325,7 @@ GRPBITMAPFILE::GRPBITMAPFILE(XCHAR* xpath)
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @param[in]  XPATH& : initial path to file
+* @param[in]  xpath : initial path to file
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILE::GRPBITMAPFILE(XPATH& xpath)

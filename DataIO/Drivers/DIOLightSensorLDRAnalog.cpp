@@ -66,9 +66,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]   DIOGPIO* diogpio : 
-* @param[in]   int pindata : 
-* @param[in]   bool activatecache : 
+* @param[in]   diogpio : 
+* @param[in]   pindata : 
+* @param[in]   activatecache : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLIGHTSENSORLDRANALOG::DIOLIGHTSENSORLDRANALOG( DIOGPIO* diogpio, int pindata, bool activatecache) : DIODEVICE()

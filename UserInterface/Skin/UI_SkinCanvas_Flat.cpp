@@ -77,7 +77,7 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  GRPSCREEN* : 
+* @param[in]  screen : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen)

@@ -60,9 +60,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD family : 
-* @param[in]   XDWORD type : 
+* @param[in]  subject : 
+* @param[in]  family : 
+* @param[in]  type : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT::DIOSTREAMBLUETOOTHLEREMOTEENUMDEVICES_XEVENT(XSUBJECT* subject, XDWORD family, XDWORD type) : XEVENT(subject, family, type)

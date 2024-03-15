@@ -92,17 +92,16 @@ DIOWEBHEADER::~DIOWEBHEADER()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, XTIMER* xtimer, int timeout)
+* 
+* @fn         bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
 * @brief      Read
 * @ingroup    DATAIO
-*
-* @param[in]  diostream :
-* @param[in]  xtimer :
-* @param[in]  timeout :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  diostream : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
 {

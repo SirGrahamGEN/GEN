@@ -199,7 +199,7 @@ bool XSERIALIZATIONMETHOD::Add(long var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
@@ -488,7 +488,7 @@ bool XSERIALIZATIONMETHOD::Extract(long var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 

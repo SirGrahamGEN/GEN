@@ -291,15 +291,15 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XBER::SetFromDump(XBUFFER& xbuffer)
+* @fn         bool XBER::SetFromDump(XBUFFER& buffer)
 * @brief      SetFromDump
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  buffer : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetFromDump(XBUFFER& buffer)
 {
   totalposition = 0;
@@ -823,7 +823,6 @@ XDWORD XBER::Sequence_GetSize()
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBER::Sequence_DeleteAll()
@@ -847,15 +846,15 @@ bool XBER::Sequence_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XBER::SetFromDump(XBUFFER& xbuffer)
-* @brief      SetFromDump
+* @fn         bool XBER::SetFromDumpInternal(XBUFFER& buffer)
+* @brief      SetFromDumpInternal
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  buffer : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XBER::SetFromDumpInternal(XBUFFER& buffer)
 {
   static XASN1_OID_PROPERTY*  property  = NULL;

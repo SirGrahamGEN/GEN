@@ -54,9 +54,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  int : 
-* @param[in]  int remoteitemaddress : 
-* @param[in]  int timeout : 
+* @param[in]  port: 
+* @param[in]  remoteitemaddress : 
+* @param[in]  timeout : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIONODEITEMHANDLER_SENSORAM2315::DIONODEITEMHANDLER_SENSORAM2315(int port, int remoteitemaddress, int timeout)

@@ -88,9 +88,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD :
-* @param[in]  XDWORD ID :
-* @param[in]  XBUFFER& xbuffer :
+* @param[in]  type :
+* @param[in]  ID :
+* @param[in]  xbuffer :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_ANSWER::DIOPROTOCOL_ANSWER(XDWORD type, XDWORD ID, XBUFFER& xbuffer)

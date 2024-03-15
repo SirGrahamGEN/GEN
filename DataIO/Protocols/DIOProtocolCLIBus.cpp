@@ -182,12 +182,12 @@ void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, int enummaxtime)
+* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
 * @brief      EnumRemoteDevices
 * @ingroup    DATAIO
 * 
 * @param[in]  remotedevices : 
-* @param[in]  enummaxtime : 
+* @param[in]  maxtime : 
 * 
 * @return     bool : true if is succesful. 
 * 

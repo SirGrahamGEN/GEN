@@ -94,7 +94,7 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @param[in]  GRPSCREEN* : 
+* @param[in]  screen : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
@@ -413,7 +413,7 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @param[in]  GRPSCREEN* : 
+* @param[in]  screen : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBUILDAREAS(screen)
@@ -1726,20 +1726,19 @@ bool UI_SKINCANVAS::Draw_Scroll(UI_ELEMENT* element)
 {
   return true;
 }
-
   
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
 * @brief      Draw_Text
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)  
 {
   if(!element) return false;  
@@ -1776,15 +1775,14 @@ bool UI_SKINCANVAS::Draw_Text(UI_ELEMENT* element)
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
-* @brief      Draw_TextInBox
+* @brief      Draw_TextBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)  
 { 
   if(!element) return false;  
@@ -1878,20 +1876,19 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
   
   return true;
 }
-
   
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
 * @brief      Draw_Image
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)  
 {
   if(!element) return false;
@@ -1925,13 +1922,12 @@ bool UI_SKINCANVAS::Draw_Image(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 * @brief      Draw_Animation
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)  
 {
   if(!element) return false;
@@ -1994,13 +1990,12 @@ bool UI_SKINCANVAS::Draw_Animation(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 * @brief      Draw_Option
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)  
 {
   if(!element) return false;
@@ -2104,13 +2099,12 @@ bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 * @brief      Draw_MultiOption
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 {    
   if(!screen)  return false;
@@ -2169,20 +2163,19 @@ bool UI_SKINCANVAS::Draw_MultiOption(UI_ELEMENT* element)
 
   return true;
 }
-
   
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 * @brief      Draw_Button
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)  
 {  
   return Draw_Option(element);
@@ -2194,13 +2187,12 @@ bool UI_SKINCANVAS::Draw_Button(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 * @brief      Draw_CheckBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)  
 {
   UI_ELEMENT_CHECKBOX* checkbox = (UI_ELEMENT_CHECKBOX*)element;
@@ -2220,13 +2212,12 @@ bool UI_SKINCANVAS::Draw_CheckBox(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 * @brief      Draw_EditText
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)  
 {    
   if(!element) return false;  
@@ -2322,13 +2313,12 @@ bool UI_SKINCANVAS::Draw_EditText(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 * @brief      Draw_Form
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 {    
   if(!screen)  return false;
@@ -2396,13 +2386,12 @@ bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
 * @fn         bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 * @brief      Draw_Menu
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
-* @param[in]  scroll_legacy : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::Draw_Menu(UI_ELEMENT* element)
 {
   return Draw_Form(element);

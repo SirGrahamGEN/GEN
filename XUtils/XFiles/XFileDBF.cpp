@@ -118,7 +118,7 @@ void XFILEDBF_FIELD::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XVECTOR<XFILEDBF_FIELD*>* :
+* @param[in]  fields :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_RECORD::XFILEDBF_RECORD(XVECTOR<XFILEDBF_FIELD*>* fields)
@@ -526,7 +526,7 @@ XFILEDBF_HEADER::XFILEDBF_HEADER()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XFILE* :
+* @param[in]  fileb :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF_HEADER::XFILEDBF_HEADER(XFILE* fileb)
@@ -1131,7 +1131,7 @@ XFILEDBF::XFILEDBF()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XPATH& :
+* @param[in]  xpath :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::XFILEDBF(XPATH& xpath)
@@ -1154,7 +1154,7 @@ XFILEDBF::XFILEDBF(XPATH& xpath)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XFILE* :
+* @param[in]  fileb :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEDBF::XFILEDBF(XFILE* fileb)

@@ -329,8 +329,8 @@ void DIOOBEXPUSHFILE::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAM* : 
-* @param[in]   bool inlittleendian : 
+* @param[in]  diostream : 
+* @param[in]  inlittleendian : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOOBEXPUSH::DIOOBEXPUSH(DIOSTREAM* diostream, bool inlittleendian) : XFSMACHINE(0)

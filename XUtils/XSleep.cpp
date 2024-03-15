@@ -119,7 +119,7 @@ XSLEEP& XSLEEP::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSLEEP::SetInstance(XSLEEP* instance)
+* @fn         bool XSLEEP::SetInstance(XSLEEP* _instance)
 * @brief      Set Instance of XSLEEP
 * @note       STATIC
 * @ingroup    XUTILS

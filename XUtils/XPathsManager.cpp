@@ -345,7 +345,7 @@ bool XPATHSMANAGER::AddPathSection(XPATHSMANAGERSECTIONTYPE sectiontype, XSTRING
 * @ingroup    XUTILS
 *
 * @param[in]  sectiontype :
-* @param[in]  XCHAR* string :
+* @param[in]  string :
 *
 * @return     bool : true if is succesful.
 *

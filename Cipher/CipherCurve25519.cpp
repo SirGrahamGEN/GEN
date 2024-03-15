@@ -138,7 +138,7 @@ bool CIPHERCURVE25519::CreatePublicKey()
 * @brief      CreateSharedKey
 * @ingroup    CIPHER
 * 
-* @param[in]  publickey[CIPHERCURVE25519_MAXKEY] : 
+* @param[in]  publickey : 
 * 
 * @return     bool : true if is succesful. 
 * 

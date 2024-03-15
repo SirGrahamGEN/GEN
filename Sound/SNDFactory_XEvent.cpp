@@ -60,9 +60,9 @@
 * @brief      Constructor
 * @ingroup    SOUND
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD type : 
-* @param[in]   XDWORD family : 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 SNDFACTORY_XEVENT::SNDFACTORY_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)

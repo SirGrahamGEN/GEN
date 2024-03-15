@@ -356,18 +356,19 @@ bool GRP2DREBUILDAREAS::DeleteAllRebuildAreas()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height)
+* 
+* @fn         bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, void* extra_data)
 * @brief      CreateRebuildArea
 * @ingroup    GRAPHIC
-*
-* @param[in]  x :
-* @param[in]  y :
-* @param[in]  width :
-* @param[in]  height :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* @param[in]  width : 
+* @param[in]  height : 
+* @param[in]  extra_data : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRP2DREBUILDAREAS::CreateRebuildArea(double x, double y, double width, double height, void* extra_data)
 {

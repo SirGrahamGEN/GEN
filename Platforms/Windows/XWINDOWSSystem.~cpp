@@ -333,12 +333,10 @@ XSTRING* XWINDOWSSYSTEM::GetCPUSerialNumber()
 * --------------------------------------------------------------------------------------------------------------------*/
 float XWINDOWSSYSTEM::GetCPUTemperature()
 {
+  #ifndef BUILDER
+  XWINDOWSWMIINTERFACE wmiinterface;
   XSTRING CPUtemperaturestr;
 
-  #ifndef BUILDER
-
-  XWINDOWSWMIINTERFACE wmiinterface;
-  
   wmiinterface.DoQuery(__L("Win32_PerfFormattedData_Counters_ThermalZoneInformation"), __L("Temperature"), CPUtemperaturestr);
   #endif
 

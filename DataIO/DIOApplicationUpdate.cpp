@@ -343,9 +343,9 @@ void DIOAPPLICATIONUPDATE_VERSIONDATA::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XPATH& :
-* @param[in]   XDWORD CRC32 :
-* @param[in]   XDWORD size :
+* @param[in]  xpathfile :
+* @param[in]  CRC32 :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOAPPLICATIONUPDATE_FILE::DIOAPPLICATIONUPDATE_FILE(XPATH& xpathfile, XDWORD CRC32, XQWORD size)

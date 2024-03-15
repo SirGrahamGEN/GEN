@@ -260,15 +260,13 @@ bool DIOI2CAIRQUALITYCCS811::IsAppValid()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOI2CAIRQUALITYCCS811::IsDataAvailable(bool& error)
+* 
+* @fn         bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 * @brief      IsDataAvailable
 * @ingroup    DATAIO
-*
-* @param[in]  error :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::IsDataAvailable()
 {
@@ -551,15 +549,15 @@ bool DIOI2CAIRQUALITYCCS811::ReadData(XWORD& TVOC, XWORD& CO2)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool active)
+* 
+* @fn         bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 * @brief      SetInterrupt
 * @ingroup    DATAIO
-*
-* @param[in]  activated :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  activated : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOI2CAIRQUALITYCCS811::SetInterrupt(bool activated)
 {

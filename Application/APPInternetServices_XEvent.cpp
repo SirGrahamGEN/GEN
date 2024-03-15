@@ -60,9 +60,9 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]  XDWORD type : 
-* @param[in]  XDWORD family : 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPINTERNETSERVICES_XEVENT::APPINTERNETSERVICES_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)

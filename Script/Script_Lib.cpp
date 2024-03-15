@@ -63,7 +63,7 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @param[in]  XCHAR* :
+* @param[in]  ID :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB::SCRIPT_LIB(XCHAR* ID)

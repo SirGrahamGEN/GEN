@@ -66,7 +66,7 @@
 * @brief      Constructor
 * @ingroup    APPLICATION
 *
-* @param[in]  XCHAR* : 
+* @param[in]  namefile : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 APPCFG::APPCFG(XCHAR* namefile)

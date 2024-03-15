@@ -76,9 +76,9 @@ XERRORMSG::XERRORMSG()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  int :
-* @param[in]   XCHAR* title :
-* @param[in]   XCHAR* msg :
+* @param[in]  code :
+* @param[in]  title :
+* @param[in]  msg :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORMSG::XERRORMSG(int code, XCHAR* title, XCHAR* msg)
@@ -461,8 +461,8 @@ XERRORSMSG::XERRORSMSG()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XCHAR* :
-* @param[in]   XCHAR* version :
+* @param[in]  titleapp :
+* @param[in]  version :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XERRORSMSG::XERRORSMSG(XCHAR* titleapp, XCHAR* version)

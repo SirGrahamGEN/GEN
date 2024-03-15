@@ -707,7 +707,7 @@ XFILEINI::XFILEINI(): XFILETXT()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XPATH& :
+* @param[in]  xpath :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
@@ -724,7 +724,7 @@ XFILEINI::XFILEINI(XPATH& xpath): XFILETXT()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XFILE* :
+* @param[in]  file :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILEINI::XFILEINI(XFILE* file): XFILETXT()

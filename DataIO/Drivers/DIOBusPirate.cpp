@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAM* : 
+* @param[in]  diostream : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOBUSPIRATE::DIOBUSPIRATE(DIOSTREAM* diostream)

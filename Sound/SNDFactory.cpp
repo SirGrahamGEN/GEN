@@ -293,9 +293,9 @@ bool SNDFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimestoplay
 * @brief      Sound_Pause
 * @ingroup    SOUND
 * 
-* @param[in]  element : 
+* @param[in]  item : 
 * 
-* @return     bool : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDFACTORY::Sound_Pause(SNDITEM* item)                                   
@@ -310,7 +310,7 @@ bool SNDFACTORY::Sound_Pause(SNDITEM* item)
 * @brief      Sound_Stop
 * @ingroup    SOUND
 * 
-* @param[in]  element : 
+* @param[in]  item : 
 * 
 * @return     bool : true if is succesful. 
 * 

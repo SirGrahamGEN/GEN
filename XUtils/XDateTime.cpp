@@ -1355,7 +1355,7 @@ bool XDATETIME::IsBetween(XDATETIME& start, XDATETIME& end)
 * @brief      Read
 * @ingroup    XUTILS
 * 
-* @param[in]  ismode : 
+* @param[in]  islocal : 
 * 
 * @return     bool : true if is succesful. 
 * 

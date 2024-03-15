@@ -85,18 +85,15 @@ DIOLEDNEOPIXELWS2812B::~DIOLEDNEOPIXELWS2812B()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOLEDNEOPIXELWS2812B::Ini(DIOGPIO* diogpio, int nled, int datapin, DIOGPIO_PINSGROUP datapingroup)
+* 
+* @fn         bool DIOLEDNEOPIXELWS2812B::Ini(XDWORD nled)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @param[in]  diogpio :
-* @param[in]  nled :
-* @param[in]  datapin :
-* @param[in]  datapingroup :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  nled : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLEDNEOPIXELWS2812B::Ini(XDWORD nled)
 {

@@ -62,7 +62,7 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XBUFFER* : buffer of origin
+* @param[in]  xbuffer : buffer of origin
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XBUFFERBITS::XBUFFERBITS(XBUFFER* xbuffer)

@@ -417,13 +417,13 @@ XBYTE* GRPCANVAS::GetBuffer()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 * @brief      Clear
 * @ingroup    GRAPHIC
-*
-* @param[in]  GRP2DCOLOR* color :
-*
+* 
+* @param[in]  color : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clear(const GRP2DCOLOR* color)
 {
@@ -544,7 +544,7 @@ GRP2DCOLOR* GRPCANVAS::GetPixel(double x, double y)
 *
 * @param[in]  x : x pos to put pixel
 * @param[in]  y : y pos to put pixel
-* @param[in]  GRP2DCOLOR* color : color to put
+* @param[in]  color : color to put
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
@@ -561,7 +561,7 @@ void GRPCANVAS::PutPixel(double x, double y, const GRP2DCOLOR* color)
 *
 * @param[in]  x : x pos to put pixel
 * @param[in]  y : y pos to put pixel
-* @param[in]  GRP2DCOLOR* color : color to put
+* @param[in]  color : color to put
 * @param[in]  alpha : alpha to put pixel
 *
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -592,7 +592,7 @@ GRP2DCOLOR* GRPCANVAS::GetFillColor()
 * @brief      Set Fill Color
 * @ingroup    GRAPHIC
 *
-* @param[in]  GRP2DCOLOR* color : color to fill
+* @param[in]  color : color to fill
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetFillColor(const GRP2DCOLOR* color)
@@ -622,7 +622,7 @@ GRP2DCOLOR* GRPCANVAS::GetLineColor()
 * @brief      Set Line Color
 * @ingroup    GRAPHIC
 *
-* @param[in]  GRP2DCOLOR* color : color to lines
+* @param[in]  color : color to lines
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::SetLineColor(const GRP2DCOLOR* color)
@@ -882,6 +882,7 @@ void GRPCANVAS::PutBitmapAlpha(double x, double y, GRPBITMAP* bitmap, double alp
 * @param[in]  x : x pos of bitmap
 * @param[in]  y : y pos of bitmap
 * @param[in]  bitmapframe : bitmap frame class to draw
+* @param[in]  alpha : bitmap frame class to draw
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::PutBitmapFrame(double x, double y, GRPBITMAPFRAME* bitmapframe, double alpha)
@@ -946,11 +947,11 @@ GRP2DCOLOR* GRPCANVAS::RasterFont_GetColor()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
+* @fn         void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* color)
 * @brief      RasterFont_SetColor
 * @ingroup    GRAPHIC
 *
-* @param[in]  GRP2DCOLOR* c :
+* @param[in]  color :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::RasterFont_SetColor(const GRP2DCOLOR* c)
@@ -1066,16 +1067,16 @@ GRPCANVAS_VECTORFONT_CONFIG* GRPCANVAS::Vectorfont_GetConfig()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         double GRPCANVAS::VectorFont_GetWidth(XCHAR*string)
+* @fn         double GRPCANVAS::VectorFont_GetWidth(XCHAR* string)
 * @brief      VectorFont_GetWidth
 * @ingroup    GRAPHIC
-*
-* @param[in]  XCHAR*string : 
+* 
+* @param[in]  string : 
 * 
 * @return     double : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-double GRPCANVAS::VectorFont_GetWidth(XCHAR*string)
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPCANVAS::VectorFont_GetWidth(XCHAR* string)
 {
   return 0.0f;
 }

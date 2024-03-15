@@ -65,7 +65,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  int :
+* @param[in]  timeconnectionchecks :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)

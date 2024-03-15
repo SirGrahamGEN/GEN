@@ -1423,11 +1423,11 @@ bool XMPINTEGER::Module(XLIMB* r, XMPINTEGER* xmpintegerA, int integerb)
 * @brief      MontgomeryIni
 * @ingroup    XUTILS
 *
-* @param[in]  XLIMB*mm :
+* @param[in]  mm :
 * @param[in]  N :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XMPINTEGER::MontgomeryIni(XLIMB *mm, XMPINTEGER* N)
+void XMPINTEGER::MontgomeryIni(XLIMB* mm, XMPINTEGER* N)
 {
   XLIMB x;
   XLIMB m0 = N->GetLimbs()[0];

@@ -161,18 +161,19 @@ bool GRPSCREEN::IsActive()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::SetPropertys(int width, int height, int stride, GRPPROPERTYMODE mode)
-* @brief
+* 
+* @fn         bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode)
+* @brief      SetPropertys
 * @ingroup    GRAPHIC
-*
-* @param[in]  width :
-* @param[in]  height :
-* @param[in]  stride :
-* @param[in]  mode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  width : 
+* @param[in]  height : 
+* @param[in]  DPIs : 
+* @param[in]  stride : 
+* @param[in]  mode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode)
 {

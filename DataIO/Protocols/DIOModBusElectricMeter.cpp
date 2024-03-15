@@ -76,8 +76,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]  XDWORD : 
+* @param[in]  subject : 
+* @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type) : XEVENT(subject,type)
@@ -126,8 +126,8 @@ void DIOMODBUSELECTRICMETERXEVENT::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOSTREAM* : 
-* @param[in]   DIOMODBUS_CLIENTMODE mode : 
+* @param[in]  diostream : 
+* @param[in]  mode : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUSELECTRICMETER::DIOMODBUSELECTRICMETER(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)

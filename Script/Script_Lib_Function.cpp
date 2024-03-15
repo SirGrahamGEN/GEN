@@ -61,9 +61,9 @@
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @param[in]  SCRIPT_LIB* :
-* @param[in]   XCHAR* name :
-* @param[in]   SCRFUNCIONLIBRARY functionlibrary :
+* @param[in]  library :
+* @param[in]  name :
+* @param[in]  functionlibrary :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY functionlibrary)
@@ -82,9 +82,9 @@ SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XCHAR* name, SCRFU
 * @brief      Constructor
 * @ingroup    SCRIPT
 *
-* @param[in]  SCRIPT_LIB* :
-* @param[in]   XSTRING& name :
-* @param[in]   SCRFUNCIONLIBRARY functionlibrary :
+* @param[in]  library :
+* @param[in]  name :
+* @param[in]  functionlibrary :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_LIB_FUNCTION::SCRIPT_LIB_FUNCTION(SCRIPT_LIB* library, XSTRING& name, SCRFUNCIONLIBRARY functionlibrary)

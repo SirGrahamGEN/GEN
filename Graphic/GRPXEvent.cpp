@@ -60,9 +60,9 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @param[in]  XSUBJECT* : subject origin
-* @param[in]  XDWORD type : type of event
-* @param[in]  XDWORD family : family of event
+* @param[in]  subject : subject origin
+* @param[in]  type : type of event
+* @param[in]  family : family of event
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPXEVENT::GRPXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)

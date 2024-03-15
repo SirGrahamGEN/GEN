@@ -453,11 +453,9 @@ void SNDOPENALSOURCE::Release()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALSOURCE::Queue(SNDOPENALBUFFER* buffer)
+* @fn         void SNDOPENALSOURCE::Queue()
 * @brief      Queue
 * @ingroup    SOUND
-* 
-* @param[in]  buffer : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::Queue()
@@ -471,11 +469,9 @@ void SNDOPENALSOURCE::Queue()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SNDOPENALSOURCE::UnQueue(SNDOPENALBUFFER* buffer)
+* @fn         void SNDOPENALSOURCE::UnQueue()
 * @brief      UnQueue
 * @ingroup    SOUND
-* 
-* @param[in]  buffer : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void SNDOPENALSOURCE::UnQueue()

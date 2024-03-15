@@ -79,7 +79,7 @@ COMPRESSBASE::COMPRESSBASE()
 * @brief      Constructor
 * @ingroup    COMPRESS
 * 
-* @param[in]  COMPRESSBASE_TYPE : 
+* @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 COMPRESSBASE::COMPRESSBASE(COMPRESSBASE_TYPE type)

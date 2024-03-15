@@ -122,7 +122,7 @@ XSHAREDMEMORYMANAGER& XSHAREDMEMORYMANAGER::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSHAREDMEMORYMANAGER::SetInstance(XSHAREDMEMORYMANAGER* instance)
+* @fn         bool XSHAREDMEMORYMANAGER::SetInstance(XSHAREDMEMORYMANAGER* _instance)
 * @brief      Set Instance of XSHAREDMEMORYMANAGER
 * @note       STATIC
 * @ingroup    XUTILS

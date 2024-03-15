@@ -91,7 +91,7 @@ DIOURL::~DIOURL()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XDWORD size) : XSTRING(size)
@@ -106,7 +106,7 @@ DIOURL::DIOURL(XDWORD size) : XSTRING(size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const char* url) : XSTRING(url)
@@ -121,7 +121,7 @@ DIOURL::DIOURL(const char* url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
@@ -136,8 +136,8 @@ DIOURL::DIOURL(const XCHAR* url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  const :
-* @param[in]  XDWORD :
+* @param[in]  url :
+* @param[in]  size :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
@@ -152,7 +152,7 @@ DIOURL::DIOURL(const XCHAR* url,XDWORD size) : XSTRING(url, size)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOURL& :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
@@ -167,7 +167,7 @@ DIOURL::DIOURL(DIOURL& url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XSTRING& :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
@@ -182,7 +182,7 @@ DIOURL::DIOURL(XSTRING& url) : XSTRING(url)
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XWORD* :
+* @param[in]  url :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOURL::DIOURL(XWORD* url) : XSTRING(url)
@@ -607,7 +607,7 @@ bool DIOURL::EncodeUnsafeCharsFromString(XSTRING& string)
 * @brief      EncodeUnsafeCharsFromString
 * @ingroup    DATAIO
 *
-* @param[in]  char* string :
+* @param[in]  string :
 *
 * @return     bool : true if is succesful.
 *
@@ -626,7 +626,7 @@ bool DIOURL::EncodeUnsafeCharsFromString(const char* string)
 * @brief      EncodeUnsafeCharsFromString
 * @ingroup    DATAIO
 *
-* @param[in]  XCHAR* string :
+* @param[in]  string :
 *
 * @return     bool : true if is succesful.
 *

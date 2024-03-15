@@ -122,7 +122,7 @@ XEEPROMMEMORYMANAGER& XEEPROMMEMORYMANAGER::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* instance)
+* @fn         bool XEEPROMMEMORYMANAGER::SetInstance(XEEPROMMEMORYMANAGER* _instance)
 * @brief      Set Instance of XEEPROMMEMORYMANAGER
 * @note       STATIC
 * @ingroup    XUTILS

@@ -108,6 +108,8 @@ bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
 {
   if(!IPstring)     return false;
   if(!IPstring[0])  return false;
+
+  /*
   if(!data)         return false;
 
   data->Delete();
@@ -149,8 +151,9 @@ bool DIOSNMP_XBER::SetIPADDRESS(XCHAR* IPstring)
       data->Add((XBYTE)(number));
     }
 
-  this->type = (XBYTE)(DIOSNMPBERTYPE_IPADDRESS | XBERTYPE_ISAPPLICATION);
+  this->type = (XBYTE)(DIOSNMPBERTYPE_IPADDRESS | XBER_TAGTYPE_ISAPPLICATION);
   this->size = data->GetSize();
+  */
 
   return true;
 }
@@ -171,7 +174,7 @@ bool DIOSNMP_XBER::SetTIMETICKS(XDWORD ticks)
 {
   bool status = SetINTEGER(ticks);
 
-  this->type = (XBYTE)(DIOSNMPBERTYPE_TIMETICKS | XBERTYPE_ISAPPLICATION);
+  this->tagtype = (XBYTE)(DIOSNMPBERTYPE_TIMETICKS | XBER_TAGCLASS_APPLICATION);
 
   return status;
 }
@@ -192,7 +195,7 @@ bool DIOSNMP_XBER::Sequence_AddTo(XBER& xber)
 {
   bool status = XBER::Sequence_AddTo(xber);
 
-  this->type |= (XBYTE)(XBERTYPE_ISCONSTRUCTED);
+  this->tagtype |= (XBYTE)(XBER_TAG_MASKISCONSTRUCTED);
 
   return status;
 }
@@ -213,7 +216,7 @@ bool DIOSNMP_XBER::TrapData_AddTo(XBER& xber)
 {
   bool status = XBER::Sequence_AddTo(xber);
 
-  this->type = (XBYTE)(DIOSNMPBERTYPE_TRAPPDU | XBERTYPE_ISCONTEXTSPECIFIC | XBERTYPE_ISCONSTRUCTED);
+  this->tagtype = (XBYTE)(DIOSNMPBERTYPE_TRAPPDU | XBER_TAGTYPE_CONTEXT_SPECIFIC | XBER_TAG_MASKISCONSTRUCTED);
 
   return status;
 }
@@ -310,14 +313,14 @@ void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
 {
   this->version = version;
 }
-  
-  
+    
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOSNMP_BASE::Open(XCHAR* IPtarget, int port, bool checkavailableNMS, XCHAR* localIP)
 * @brief      Open
 * @ingroup    DATAIO
-*
+* 
 * @param[in]  IPtarget : 
 * @param[in]  port : 
 * @param[in]  checkavailableNMS : 
@@ -325,7 +328,7 @@ void DIOSNMP_BASE::SetVersion(DIOSNMP_VERSION version)
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSNMP_BASE::Open(XCHAR* IPtarget, int port, bool checkavailableNMS, XCHAR* localIP)
 {
   if(!IPtarget)     return false;
@@ -519,29 +522,31 @@ bool DIOSNMP_TRAP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int ge
 
                   switch(type)
                     {
-                      case XBERTYPE_INTEGER     : { int integer = (int)va_arg(arg, int);
-                                                    xber.SetINTEGER(integer);
-                                                    trapvar.Sequence_AddTo(xber);
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_INTEGER       : { int integer = (int)va_arg(arg, int);
+                                                          xber.SetINTEGER(integer);
+                                                          trapvar.Sequence_AddTo(xber);
+                                                        }
+                                                        break;
 
-                      case XBERTYPE_OCTETSTRING : { XCHAR* OCTETstring = (XCHAR*)va_arg(arg, XCHAR*);
-                                                    if(OCTETstring)
-                                                      {
-                                                        xber.SetOCTETSTRING(OCTETstring);
-                                                        trapvar.Sequence_AddTo(xber);
-                                                      }
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_OCTET_STRING  : { XCHAR* OCTETstring = (XCHAR*)va_arg(arg, XCHAR*);
+                                                          if(OCTETstring)
+                                                            {
+                                                              xber.SetOCTETSTRING(OCTETstring);
+                                                              trapvar.Sequence_AddTo(xber);
+                                                            }
+                                                        }
+                                                        break;
 
-                      case XBERTYPE_OID         : { XCHAR* OIDstring = (XCHAR*)va_arg(arg, XCHAR*);
-                                                    if(OIDstring)
-                                                      {
-                                                        xber.SetOID(OIDstring);
-                                                        trapvar.Sequence_AddTo(xber);
-                                                      }
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_OID_IRI       : { XCHAR* OIDstring = (XCHAR*)va_arg(arg, XCHAR*);
+                                                          if(OIDstring)
+                                                            {
+                                                              xber.SetOID(OIDstring);
+                                                              trapvar.Sequence_AddTo(xber);
+                                                            }
+                                                        }
+                                                        break;
+
+                                    default           : break;
                     }
                 }
 
@@ -702,7 +707,7 @@ bool DIOSNMP::Get(DIOSNMP_OPERATION operation, XCHAR* community, XCHAR* OIDstr, 
 
   if(xbufferdata.GetSize())
     {
-      xberout.SetType(xbufferdata.Get()[0]);
+      xberout.SetTagType(xbufferdata.Get()[0]);
       xberout.SetSize(xbufferdata.Get()[1]);  
       xberout.GetData()->Add(&xbufferdata.Get()[2], xbufferdata.GetSize());
     }
@@ -777,29 +782,31 @@ bool DIOSNMP::Send(XCHAR* community,XCHAR* enterprise,XCHAR* agentip,int generic
 
                   switch(type)
                     {
-                      case XBERTYPE_INTEGER     : { int integer = (int)va_arg(arg, int);
-                                                    xber.SetINTEGER(integer);
-                                                    trapvar.Sequence_AddTo(xber);
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_INTEGER       : { int integer = (int)va_arg(arg, int);
+                                                          xber.SetINTEGER(integer);
+                                                          trapvar.Sequence_AddTo(xber);
+                                                        }
+                                                        break;
 
-                      case XBERTYPE_OCTETSTRING : { XCHAR* OCTETstring = (XCHAR*)va_arg(arg, XCHAR*);
-                                                    if(OCTETstring)
-                                                      {
-                                                        xber.SetOCTETSTRING(OCTETstring);
-                                                        trapvar.Sequence_AddTo(xber);
-                                                      }
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_OCTET_STRING  : { XCHAR* OCTETstring = (XCHAR*)va_arg(arg, XCHAR*);
+                                                          if(OCTETstring)
+                                                            {
+                                                              xber.SetOCTETSTRING(OCTETstring);
+                                                              trapvar.Sequence_AddTo(xber);
+                                                            }
+                                                        }
+                                                        break;
 
-                      case XBERTYPE_OID         : { XCHAR* OIDstring = (XCHAR*)va_arg(arg, XCHAR*);
-                                                    if(OIDstring)
-                                                      {
-                                                        xber.SetOID(OIDstring);
-                                                        trapvar.Sequence_AddTo(xber);
-                                                      }
-                                                  }
-                                                  break;
+                      case XBER_TAGTYPE_OID_IRI       : { XCHAR* OIDstring = (XCHAR*)va_arg(arg, XCHAR*);
+                                                          if(OIDstring)
+                                                            {
+                                                              xber.SetOID(OIDstring);
+                                                              trapvar.Sequence_AddTo(xber);
+                                                            }
+                                                        }
+                                                        break;
+
+                                    default           : break;
                     }
                 }
 

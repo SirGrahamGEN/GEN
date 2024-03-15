@@ -72,7 +72,7 @@
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XSCHEDULER* :
+* @param[in]  xscheduler :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSCHEDULERTASK::XSCHEDULERTASK(XSCHEDULER* xscheduler)

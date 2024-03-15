@@ -396,15 +396,16 @@ bool DIOWEBSERVER_HEADER::Create(XSTRING* resource, int version, int subversion,
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept);
+* 
+* @fn         bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& websocketprotocol)
 * @brief      AddWebSocketKey
 * @ingroup    DATAIO
-*
-* @param[in]  websocketaccept :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  websocketaccept : 
+* @param[in]  websocketprotocol : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER_HEADER::AddWebSocketKey(XSTRING& websocketaccept, XSTRING& websocketprotocol)
 {
@@ -3318,19 +3319,19 @@ DIOWEBSERVER_CONNECTION* DIOWEBSERVER::Websocket_GetNextConnection()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
+* 
+* @fn         bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 * @brief      Websocket_Write
 * @ingroup    DATAIO
-*
-* @param[in]  string :
-* @param[in]  timeout :
-* @param[in]  protocol :
-* @param[in]  version :
-* @param[in]  resource :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  string : 
+* @param[in]  timeout : 
+* @param[in]  protocol : 
+* @param[in]  version : 
+* @param[in]  resource : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
@@ -3350,19 +3351,19 @@ bool DIOWEBSERVER::Websocket_Write(XCHAR* string, int timeout, XCHAR* protocol, 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 * @brief      Websocket_Write
 * @ingroup    DATAIO
-*
-* @param[in]  string :
-* @param[in]  timeout :
-* @param[in]  protocol :
-* @param[in]  version :
-* @param[in]  resource :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  string : 
+* @param[in]  timeout : 
+* @param[in]  protocol : 
+* @param[in]  version : 
+* @param[in]  resource : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {
@@ -3371,19 +3372,19 @@ bool DIOWEBSERVER::Websocket_Write(XSTRING& string, int timeout, XCHAR* protocol
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 * @brief      Websocket_Write
 * @ingroup    DATAIO
-*
-* @param[in]  data :
-* @param[in]  timeout :
-* @param[in]  protocol :
-* @param[in]  version :
-* @param[in]  resource :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  data : 
+* @param[in]  timeout : 
+* @param[in]  protocol : 
+* @param[in]  version : 
+* @param[in]  resource : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWEBSERVER::Websocket_Write(XBUFFER& data, int timeout, XCHAR* protocol, int version, XCHAR* resource)
 {

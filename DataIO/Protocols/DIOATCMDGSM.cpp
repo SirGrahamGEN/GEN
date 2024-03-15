@@ -222,7 +222,7 @@ void DIOATCMDGSM_ALPHABET_8859_1::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOSTREAM* :
+* @param[in]  diostream :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDGSM::DIOATCMDGSM(DIOSTREAM* diostream) : DIOATCMDS(diostream)

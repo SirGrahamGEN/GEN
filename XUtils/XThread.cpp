@@ -161,7 +161,7 @@ void XMUTEX::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XTHREADGROUPID :
+* @param[in]  groupID :
 * @param[in]  ID :
 * @param[in]  function :
 * @param[in]  param :

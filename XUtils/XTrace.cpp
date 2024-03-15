@@ -3,7 +3,7 @@
 * @file       XTrace.cpp
 * 
 * @class      XTRACE
-* @brief       eXtended Utils Trace class 
+* @brief      eXtended Utils Trace class 
 * @ingroup    XUTILS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -1650,7 +1650,7 @@ bool XTRACE::PrintMsgStatus(XBYTE level, XCHAR* name, float value)
 *
 * @param[in]  level :
 * @param[in]  name :
-* @param[in]  value[3] :
+* @param[in]  value :
 *
 * @return     bool : true if is succesful.
 *
@@ -2383,7 +2383,7 @@ bool XTRACE::ResolveAllResources()
 * @ingroup    XUTILS
 *
 * @param[in]  ntab : number of tab
-* @param[out  tab : string with the tab generated
+* @param[out] tab : string with the tab generated
 *
 * @return     bool : true if is succesful.
 *

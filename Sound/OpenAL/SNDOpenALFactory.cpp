@@ -505,13 +505,13 @@ bool SNDOPENALFACTORY::Sound_Play(SNDITEM* item, SNDPLAYCFG* playCFG, int ntimes
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SNDINSTANCE* SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
+* @fn         bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)
 * @brief      Sound_Pause
 * @ingroup    SOUND
 * 
-* @param[in]  element : 
+* @param[in]  item : 
 * 
-* @return     SNDINSTANCE* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool SNDOPENALFACTORY::Sound_Pause(SNDITEM* item)

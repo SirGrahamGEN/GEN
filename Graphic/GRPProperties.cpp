@@ -258,7 +258,7 @@ XDWORD GRPPROPERTIES::GetMaxWidth()
 * @brief      Set Width
 * @ingroup    GRAPHIC
 *
-* @param[in]  maxwidth : new max width
+* @param[in]  width : new width
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxWidth(XDWORD maxwidth)
@@ -288,7 +288,7 @@ XDWORD GRPPROPERTIES::GetMaxHeight()
 * @brief      Set Height
 * @ingroup    GRAPHIC
 *
-* @param[in]  height : new max height
+* @param[in]  maxheight : new max height
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPPROPERTIES::SetMaxHeight(XDWORD maxheight)

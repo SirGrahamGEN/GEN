@@ -178,15 +178,13 @@ void XFILERIFF_LIST::SetSize(XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD XFILERIFF_LIST::GetTypeList();
+* @fn         XDWORD XFILERIFF_LIST::GetTypeList()
 * @brief      GetTypeList
 * @ingroup    XUTILS
-*
-* @param[in]  ) : 
 * 
 * @return     XDWORD : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XDWORD XFILERIFF_LIST::GetTypeList()
 {
   return typelist;
@@ -606,18 +604,19 @@ XFILERIFF_LIST* XFILERIFF::GetChunk(XDWORD type, XDWORD fathertypelist)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XFILERIFF_LIST* XFILERIFF::GetList(XCHAR* typestr, XCHAR* fathertypeliststr)
-* @brief      GetList
+* @fn         XFILERIFF_LIST* XFILERIFF::GetChunk(XCHAR* typestr, XCHAR* fathertypeliststr)
+* @brief      GetChunk
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  typestr : 
 * @param[in]  fathertypeliststr : 
 * 
 * @return     XFILERIFF_LIST* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XFILERIFF_LIST* XFILERIFF::GetChunk(XCHAR* typestr, XCHAR* fathertypeliststr)
 {
   if(!typestr) return NULL;

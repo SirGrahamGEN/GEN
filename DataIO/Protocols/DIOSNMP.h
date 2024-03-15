@@ -128,9 +128,9 @@ class DIOSNMP_BASE
 
   protected: 
 
-    DIOSNMP_VERSION          version;
-    DIOSTREAMUDPCONFIG*      diostreamudpcfg;
-    DIOSTREAMUDP*            diostreamudp;
+    DIOSNMP_VERSION           version;
+    DIOSTREAMUDPCONFIG*       diostreamudpcfg;
+    DIOSTREAMUDP*             diostreamudp;
 
   private:
 

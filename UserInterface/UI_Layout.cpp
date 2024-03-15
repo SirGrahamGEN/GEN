@@ -62,7 +62,7 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @param[in]  UI_SKINCANVAS* : 
+* @param[in]  skin : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)    

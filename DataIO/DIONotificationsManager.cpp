@@ -223,15 +223,16 @@ DIONOTIFICATIONSMANAGER::~DIONOTIFICATIONSMANAGER()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* pathexec, XCHAR* generictitle)
+* 
+* @fn         bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 * @brief      Ini
 * @ingroup    DATAIO
-*
-* @param[in]  generictitle :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  titleowner : 
+* @param[in]  genericapp : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIONOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 {

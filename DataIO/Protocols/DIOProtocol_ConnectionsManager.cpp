@@ -79,7 +79,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOSTREAMCONFIG* :
+* @param[in]  diostreamcfg :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION::DIOPROTOCOL_CONNECTION(DIOSTREAMCONFIG* diostreamcfg)

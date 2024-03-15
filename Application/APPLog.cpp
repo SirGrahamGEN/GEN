@@ -124,19 +124,19 @@ bool APPLOG::DelInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsubversion, int appversionerror)
+* 
+* @fn         bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsubversion, int appsubversionerror)
 * @brief      Ini
 * @ingroup    APPLICATION
-*
-* @param[in]  cfg :
-* @param[in]  applicationname :
-* @param[in]  appversion :
-* @param[in]  appsubversion :
-* @param[in]  appsubversionerror :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  cfg : 
+* @param[in]  applicationname : 
+* @param[in]  appversion : 
+* @param[in]  appsubversion : 
+* @param[in]  appsubversionerror : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname, int appversion, int appsubversion, int appsubversionerror)
 {

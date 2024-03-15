@@ -59,15 +59,16 @@
 #pragma region CLASS_XFSMACHINESTATE
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 * @brief      Constructor
 * @ingroup    XUTILS
-*
-* @param[in]  int :
-* @param[in]   int ntransitions :
-*
+* 
+* @param[in]  stateID : 
+* @param[in]  ntransitions : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINESTATE::XFSMACHINESTATE(int stateID, int ntransitions)
 {
@@ -262,7 +263,7 @@ void XFSMACHINESTATE::Clean()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  int :
+* @param[in]  stateID :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFSMACHINE::XFSMACHINE(int stateID)

@@ -215,7 +215,7 @@ bool XSERIALIZATIONMETHODJSON::Add(double var, XCHAR* name)
 * @brief      Add
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 
@@ -631,7 +631,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
-* @param[in]  long var : 
+* @param[in]  var : 
 * @param[in]  name : 
 * 
 * @return     bool : true if is succesful. 

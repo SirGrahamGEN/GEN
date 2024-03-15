@@ -320,7 +320,7 @@ void DIOWEBCLIENT_HEADER::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XDWORD :
+* @param[in]  maxsizebuffer :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT::DIOWEBCLIENT(XDWORD maxsizebuffer)

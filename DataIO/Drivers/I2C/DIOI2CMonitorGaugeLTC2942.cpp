@@ -66,7 +66,6 @@
 #pragma region CLASS_MEMBERS
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOI2CMONITORGAUGELTC2942::DIOI2CMONITORGAUGELTC2942()
@@ -101,9 +100,7 @@ DIOI2CMONITORGAUGELTC2942::~DIOI2CMONITORGAUGELTC2942()
 * @fn         float DIOI2CMONITORGAUGELTC2942::GetVoltage (void)
 * @brief      GetVoltage
 * @ingroup    DATAIO
-* 
-* @param[in]  void : 
-* 
+*  
 * @return     float : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -166,9 +163,7 @@ bool DIOI2CMONITORGAUGELTC2942::SetAC(XWORD ac)
 * 
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 * @brief      GetAC
-* @ingroup    DATAIO
-* 
-* @param[in]  void : 
+* @ingroup    DATAIO 
 * 
 * @return     XWORD : 
 * 
@@ -191,9 +186,7 @@ XWORD DIOI2CMONITORGAUGELTC2942::GetAC(void)
 * @fn         XWORD DIOI2CMONITORGAUGELTC2942::GetMaxAC(void)
 * @brief      GetMaxAC
 * @ingroup    DATAIO
-* 
-* @param[in]  void : 
-* 
+*  
 * @return     XWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/

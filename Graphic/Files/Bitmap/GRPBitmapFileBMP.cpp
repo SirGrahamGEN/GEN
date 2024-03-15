@@ -80,10 +80,10 @@ GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @param[in]   XBYTE red : initial red component
-* @param[in]   XBYTE green : initial green component
-* @param[in]   XBYTE blue : initial blue component
-* @param[in]   XBYTE alpha : initial alpha component
+* @param[in]  red : initial red component
+* @param[in]  green : initial green component
+* @param[in]  blue : initial blue component
+* @param[in]  alpha : initial alpha component
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAPFILEBMPCOLORPALETE::GRPBITMAPFILEBMPCOLORPALETE(XBYTE red, XBYTE green, XBYTE blue, XBYTE alpha)

@@ -59,15 +59,13 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG()
-* @brief      ::DIOSTREAMTCPIPCONFIG
+* 
+* @fn         DIOSTREAMTCPIPCONFIG::DIOSTREAMTCPIPCONFIG()
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @return     DIOSTREAMTCPIPCONFIG :
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMTCPIPCONFIG ::DIOSTREAMTCPIPCONFIG(): DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTRING()
+DIOSTREAMTCPIPCONFIG::DIOSTREAMTCPIPCONFIG() : DIOSTREAMCONFIG(), DIOSTREAMCONFIGSTRING()
 {
   Clean();
 

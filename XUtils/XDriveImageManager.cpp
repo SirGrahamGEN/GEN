@@ -138,7 +138,7 @@ XDRIVEIMAGEMANAGER& XDRIVEIMAGEMANAGER::GetInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* instance)
+* @fn         bool XDRIVEIMAGEMANAGER::SetInstance(XDRIVEIMAGEMANAGER* _instance)
 * @brief      Set Instance of XDRIVEIMAGEMANAGER
 * @note       STATIC
 * @ingroup    XUTILS
@@ -459,7 +459,7 @@ XDWORD XDRIVEIMAGEMANAGER_DRIVE::GetRawHandle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD handle)
+* @fn         void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 * @brief      SetRawHandle
 * @ingroup    XUTILS
 *
@@ -470,6 +470,7 @@ void XDRIVEIMAGEMANAGER_DRIVE::SetRawHandle(XDWORD rawhandle)
 {
   this->rawhandle = rawhandle;
 }
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 *

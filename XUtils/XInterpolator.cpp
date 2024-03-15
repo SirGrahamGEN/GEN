@@ -353,13 +353,13 @@ XDWORD XINTERPOLATOR::GetMultiplicator()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XINTERPOLATOR::SetMultiplicator(XDWORD m)
+* 
+* @fn         void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 * @brief      SetMultiplicator
 * @ingroup    XUTILS
-*
-* @param[in]  multiplier :
-*
+* 
+* @param[in]  multiplier : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 void XINTERPOLATOR::SetMultiplicator(XDWORD multiplier)
 {
@@ -787,7 +787,7 @@ bool XINTERPOLATOR::InterpolateRelative(XQWORD delta)
 * @brief      DeSerialize
 * @ingroup    XUTILS
 *
-* @param[in]  buffer :
+* @param[in]  xbuffer :
 *
 * @return     bool : true if is succesful.
 *

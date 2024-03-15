@@ -2,7 +2,7 @@
 * 
 * @file       XWINDOWSFileBorland.h
 * 
-* @class      XWINDOWSFILEBORLAND
+* @class      XWINDOWSFILE
 * @brief      WINDOWS eXtended Utils Borland file class
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XWINDOWSFILEBORLAND_H_
-#define _XWINDOWSFILEBORLAND_H_
+#ifndef _XWINDOWSFILE_H_
+#define _XWINDOWSFILE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -35,8 +35,10 @@
 #include <stdio.h>
 
 #include "XBase.h"
-#include "XFile.h"
+#include "XString.h"
 #include "XPath.h"
+#include "XFile.h"
+
 
 #pragma endregion
 
@@ -56,48 +58,45 @@ class CIPHER;
 class XWINDOWSFILE : public XFILE
 {
   public:
-                      XWINDOWSFILE          ();
-    virtual          ~XWINDOWSFILE          ();
+                         XWINDOWSFILE          ();
+    virtual             ~XWINDOWSFILE          ();
 
-    bool              Exist                 (XCHAR* xpath);
+    bool                 Exist                        (XCHAR* path);
 
-    bool              Open                  (XCHAR* xpath, bool readonly = true);
-    bool              Create                (XCHAR* xpath);
+    bool                 Open                         (XCHAR* path, bool readonly = true);
+    bool                 Create                       (XCHAR* path);
 
-    bool              SetSize               (XQWORD size);
+    bool                 SetSize                      (XQWORD size);
 
-    bool              GetPosition           (XQWORD& position);
-    bool              SetPosition           (XQWORD position);
+    bool                 GetPosition                  (XQWORD& position);
+    bool                 SetPosition                  (XQWORD position);
 
-    bool              Read                  (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
-    bool              Read                  (XBYTE* buffer, XDWORD* size, CIPHER* cipher = NULL);
+    bool                 Read                         (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
+    bool                 Read                         (XBYTE* buffer, XDWORD* size, CIPHER* cipher = NULL);
 
-    bool              Write                 (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
+    bool                 Write                        (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
 
-    bool              Flush                 ();
+    bool                 Flush                        ();
 
-    bool              Close                 ();
+    bool                 Close                        ();
 
-    bool              Erase                 (XCHAR* xpath, bool overwrite = false);
-    bool              Rename                (XCHAR* xpathold, XCHAR* xpathnew);
+    bool                 Erase                        (XCHAR* path, bool overwrite = false);
+    bool                 Rename                       (XCHAR* pathold, XCHAR* pathnew);
 
-    FILE*             GetFileStructHandle   ()                                            { return filehandle;    };
+    FILE*                GetFileStructHandle          ();
 
 
   protected:
 
-    bool              ActualizeSize         ();
+    bool                 ActualizeSize                ();
 
   private:
+    
+    bool                 ExtendedOpen                 (XCHAR* path, XCHAR* mode);    
 
-    void              Clean                 ()
-                      {
-                        filehandle  = NULL;
-                      }
+    void                 Clean                        ();
 
-    bool              ExtendedOpen        (XCHAR* xpath, XCHAR* mode);
-
-    FILE*             filehandle;
+    FILE*                filehandle;
 };
 
 

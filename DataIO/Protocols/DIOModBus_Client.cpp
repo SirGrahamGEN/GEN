@@ -65,8 +65,8 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOSTREAM* :
-* @param[in]   DIOMODBUS_CLIENTMODE mode :
+* @param[in]  diostream :
+* @param[in]  mode :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOMODBUS_CLIENT::DIOMODBUS_CLIENT(DIOSTREAM* diostream, DIOMODBUS_CLIENTMODE mode)

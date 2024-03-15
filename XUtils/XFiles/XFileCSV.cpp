@@ -326,7 +326,7 @@ XFILECSV::XFILECSV(): XFILETXT()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XPATH& :
+* @param[in]  xpath :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
@@ -343,7 +343,7 @@ XFILECSV::XFILECSV(XPATH& xpath) : XFILETXT()
 * @brief      Constructor
 * @ingroup    XUTILS
 *
-* @param[in]  XFILE* :
+* @param[in]  file :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XFILECSV::XFILECSV(XFILE* file) : XFILETXT()

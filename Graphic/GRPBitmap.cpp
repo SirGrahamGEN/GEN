@@ -62,10 +62,10 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 *
-* @param[in]  int :
-* @param[in]  int height :
-* @param[in]  GRPPROPERTYMODE mode :
-* @param[in]  bool isbufferinverse :
+* @param[in]  width :
+* @param[in]  height :
+* @param[in]  mode :
+* @param[in]  isbufferinverse :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPBITMAP::GRPBITMAP(int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse)

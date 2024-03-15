@@ -399,8 +399,6 @@ void* XFILEJSONVALUE::GetValuePointer()
 * @brief      Set
 * @ingroup    XUTILS
 * 
-* @param[in]  void : 
-* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
@@ -518,7 +516,7 @@ bool XFILEJSONVALUE::Set(XDWORD number)
 * @brief      Set
 * @ingroup    XUTILS
 * 
-* @param[in]  long number : 
+* @param[in]  number : 
 * 
 * @return     bool : true if is succesful. 
 * 

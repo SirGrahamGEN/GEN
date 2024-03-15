@@ -62,9 +62,9 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XSUBJECT* :
-* @param[in]  XDWORD type :
-* @param[in]  XDWORD family :
+* @param[in]  subject :
+* @param[in]  type :
+* @param[in]  family :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOWEBCLIENT_XEVENT::DIOWEBCLIENT_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)

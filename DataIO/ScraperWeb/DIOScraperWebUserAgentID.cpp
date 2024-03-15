@@ -73,15 +73,14 @@ DIOUSERAGENTID_RESULT::DIOUSERAGENTID_RESULT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
-* @brief      IOUSERAGENTID_RESULT
+* 
+* @fn         DIOUSERAGENTID_RESULT::~DIOUSERAGENTID_RESULT()
+* @brief      Destructor
+* @note       VIRTUAL
 * @ingroup    DATAIO
-*
-* @return     DIOUSERAGENTID_RESULT::~ : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOUSERAGENTID_RESULT::~ DIOUSERAGENTID_RESULT()
+DIOUSERAGENTID_RESULT::~DIOUSERAGENTID_RESULT()
 {
   Clean();
 }

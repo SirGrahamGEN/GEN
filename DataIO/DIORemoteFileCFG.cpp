@@ -67,7 +67,7 @@
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  XCHAR* : name file of config
+* @param[in]  namefile : name file of config
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOREMOTEFILECFG::DIOREMOTEFILECFG(XCHAR* namefile): XFILECFG(namefile)

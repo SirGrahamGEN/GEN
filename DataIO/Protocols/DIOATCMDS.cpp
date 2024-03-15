@@ -196,7 +196,7 @@ void DIOATCMD::Clean()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
-* @param[in]  DIOSTREAM* :
+* @param[in]  diostream :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOATCMDS::DIOATCMDS(DIOSTREAM* diostream) : XFSMACHINE(0)
