@@ -346,15 +346,13 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSCONSOLE::KBHit(void)
 * @brief      KBHit
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  void :
-*
-* @return     bool : true if is succesful.
-*
+*  
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::KBHit(void)
 {

@@ -441,15 +441,13 @@ bool XLINUXSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXSYSTEM::FreeCacheMemory();
+* 
+* @fn         bool XLINUXSYSTEM::FreeCacheMemory()
 * @brief      FreeCacheMemory
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  ) : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXSYSTEM::FreeCacheMemory()
 {

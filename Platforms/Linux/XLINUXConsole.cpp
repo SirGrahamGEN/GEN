@@ -243,8 +243,6 @@ bool XLINUXCONSOLE::Clear(bool fill)
 * @brief      KBHit
 * @ingroup    PLATFORM_LINUX
 *
-* @param[in]  void :
-*
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/

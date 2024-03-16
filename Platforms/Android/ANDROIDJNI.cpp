@@ -180,7 +180,7 @@ void ANDROIDJNI::DetachJNIEnv()
 * @brief      FindJNIClass
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  XSTRING & name : 
+* @param[in]  name : 
 * 
 * @return     jclass : 
 * 
@@ -235,7 +235,7 @@ jclass ANDROIDJNI::FindJNIClass(XCHAR* name)
 * @brief      FindJNIClass
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  char* name : 
+* @param[in]  name : 
 * 
 * @return     jclass : 
 * 
@@ -263,7 +263,7 @@ jclass ANDROIDJNI::FindJNIClass(const char* name)
 * @brief      FindJNIEnvClassWrapper
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  char* name : 
+* @param[in]  name : 
 * 
 * @return     jclass : 
 * 

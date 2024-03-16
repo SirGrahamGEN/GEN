@@ -62,7 +62,7 @@
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  android_app* : 
+* @param[in]  application : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 ANDROIDNATIVEACTIVITY_EVENTLOOP::ANDROIDNATIVEACTIVITY_EVENTLOOP(android_app* application)

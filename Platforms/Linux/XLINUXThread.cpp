@@ -165,18 +165,18 @@ void XLINUXMUTEX::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data)
+* 
+* @fn         XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param)
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  groupID : group ID
-* @param[in]  ID : thread ID
-* @param[in]  function : callbak fuction
-* @param[in]  param : param of the callback
-*
+* 
+* @param[in]  groupID : 
+* @param[in]  ID : 
+* @param[in]  function : 
+* @param[in]  param : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param): XTHREAD(groupID, ID, function, param)
+XLINUXTHREAD::XLINUXTHREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* param) : XTHREAD(groupID, ID, function, param)
 {
   Clean();
 }

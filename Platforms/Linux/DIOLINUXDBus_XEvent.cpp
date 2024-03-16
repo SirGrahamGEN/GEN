@@ -58,15 +58,14 @@
 #pragma region CLASS_MEMBERS
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type)
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD type : 
+* @param[in]  subject : 
+* @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVENT(subject, type, XEVENT_TYPE_LINUX_DBUS)
@@ -84,7 +83,6 @@ DIOLINUXDBUS_XEVENT::DIOLINUXDBUS_XEVENT(XSUBJECT* subject, XDWORD type) : XEVEN
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOLINUXDBUS_XEVENT::~DIOLINUXDBUS_XEVENT()
-
 {
   Clean();
 }

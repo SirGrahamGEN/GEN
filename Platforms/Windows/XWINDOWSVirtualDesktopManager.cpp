@@ -180,15 +180,13 @@ bool XWINDOWSVIRTUALDESKTOPMANAGER::DelInstance()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops(HWINSTA handle)
+* 
+* @fn         XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops()
 * @brief      EnumAllDesktops
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  handle :
-*
-* @return     XVECTOR<XWINDOWSVIRTUALDESKTOP*>* :
-*
+* 
+* @return     XVECTOR<XWINDOWSVIRTUALDESKTOP*>* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XWINDOWSVIRTUALDESKTOP*>* XWINDOWSVIRTUALDESKTOPMANAGER::EnumAllDesktops()
 {

@@ -148,17 +148,18 @@ MAINPROCANDROID::~MAINPROCANDROID()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool MAINPROCANDROID::Ini(XSTRING* apkpath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+* 
+* @fn         bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_ANDROID
-*
-* @param[in]  apkpath :
-* @param[in]  appmain :
-* @param[in]  applicationmode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  apkpath : 
+* @param[in]  datapath : 
+* @param[in]  appmain : 
+* @param[in]  applicationmode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
 {
@@ -922,7 +923,7 @@ void MAINPROCANDROID::OnLostFocus()
 * @brief      GetPackageResourcePath
 * @ingroup    PLATFORM_ANDROID
 *
-* @param[in]  android_app* app :
+* @param[in]  app :
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -961,7 +962,7 @@ bool MAINPROCANDROID::GetPackageResourcePath(struct android_app* app, XSTRING& p
 * @brief      GetAbsolutePath
 * @ingroup    PLATFORM_ANDROID
 *
-* @param[in]  android_app* app :
+* @param[in]  app :
 * @param[in]  path :
 *
 * @return     bool : true if is succesful.
@@ -1002,7 +1003,7 @@ bool MAINPROCANDROID::GetAbsolutePath(struct android_app* app, XSTRING& path)
 * @brief      GetDPI
 * @ingroup    PLATFORM_ANDROID
 *
-* @param[in]  android_app* app :
+* @param[in]  app :
 *
 * @return     bool : true if is succesful.
 *
@@ -1528,17 +1529,17 @@ bool MAINPROCANDROID::DeleteInputDevices()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
+* @fn         JNIEXPORT jint JNI_OnLoad(JavaVM* injavavm, void* inreserved)
 * @brief      JNI_OnLoad
 * @ingroup    PLATFORM_ANDROID
 *
-* @param[in]  InJavaVM :
-* @param[in]  InReserved :
+* @param[in]  injavavm :
+* @param[in]  inreserved :
 *
 * @return     JNIEXPORT :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-JNIEXPORT jint JNI_OnLoad(JavaVM* InJavaVM, void* InReserved)
+JNIEXPORT jint JNI_OnLoad(JavaVM* injavavm, void* inreserved)
 {
   return JNI_VERSION_1_6;
 }

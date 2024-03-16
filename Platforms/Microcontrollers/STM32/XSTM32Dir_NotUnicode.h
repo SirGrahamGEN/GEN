@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32Dir.h
+* @file       XSTM32Dir_NotUnicode.h
 *
-* @class      XSTM32DIR
-* @brief      eXtended STM32 Directory class
+* @class      XSTM32DIR_NOTUNICODE
+* @brief      STM32 eXtended Not Unicode Directory class
 * @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XSTM32DIR_H_
-#define _XSTM32DIR_H_
+#ifndef _XSTM32DIR_NOTUNICODE_H_
+#define _XSTM32DIR_NOTUNICODE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -50,27 +50,27 @@ typedef struct
 } XSTM32DIR_SEARCHINFO; 
 
 
-class XSTM32DIR : public XDIR
+class XSTM32DIR_NOTUNICODE : public XDIR
 {
   public:
-                        XSTM32DIR               ();
-    virtual            ~XSTM32DIR               ();
+                        XSTM32DIR_NOTUNICODE      ();
+    virtual            ~XSTM32DIR_NOTUNICODE      ();
 
-    bool                Exist                   (XCHAR* path);
-    bool                Make                    (XCHAR* path, bool recursive = true);
-    bool                ChangeTo                (XCHAR* path);
-    bool                Delete                  (XCHAR* path, bool all);
+    bool                Exist                     (XCHAR* path);
+    bool                Make                      (XCHAR* path, bool recursive = true);
+    bool                ChangeTo                  (XCHAR* path);
+    bool                Delete                    (XCHAR* path, bool all);
 
-    bool                GetActual               (XPATH& xpath);
+    bool                GetActual                 (XPATH& xpath);
 
-    bool                FirstSearch             (XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement);
-    bool                NextSearch              (XDIRELEMENT* searchelement);
+    bool                FirstSearch               (XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement);
+    bool                NextSearch                (XDIRELEMENT* searchelement);
 
   private:
 
-    bool                ReconvertSearchData     (XDIRELEMENT* searchelement, FILINFO* fileinfo);
+    bool                ReconvertSearchData       (XDIRELEMENT* searchelement, FILINFO* fileinfo);
     
-    void                Clean                   ();
+    void                Clean                     ();
 
     FATFS               userFATFS;
     FRESULT             fresult;

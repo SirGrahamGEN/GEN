@@ -64,14 +64,13 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XSYSTEM()
+* 
+* @fn         XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  ) :
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSPROCESSMANAGER::XWINDOWSPROCESSMANAGER() : XPROCESSMANAGER()
 {

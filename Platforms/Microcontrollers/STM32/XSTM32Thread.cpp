@@ -149,10 +149,10 @@ void XSTM32MUTEX::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
-* @param[in]  XTHREADGROUPID :
-* @param[in]   XCHAR* ID :
-* @param[in]   XTHREADFUNCTION function :
-* @param[in]   void* data :
+* @param[in]  groupID :
+* @param[in]  ID :
+* @param[in]  function :
+* @param[in]  data :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTM32THREAD::XSTM32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data) : XTHREAD(groupID, ID, function, data)

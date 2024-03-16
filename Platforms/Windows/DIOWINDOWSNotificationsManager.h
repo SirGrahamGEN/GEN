@@ -111,27 +111,23 @@ class DIOWINDOWSNOTIFICATIONSMANAGER : public DIONOTIFICATIONSMANAGER
 #else
 
 MIDL_INTERFACE("53E31837-6600-4A81-9395-75CFFE746F94")
-INotificationActivationCallback : public IUnknown
+NOTIFICATIONACTIVATIONCALLBACK : public IUnknown
 {
-  public:
 
-    virtual HRESULT STDMETHODCALLTYPE         Activate                                (__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs,__RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET *data, ULONG count) = 0;
 };
 
 
 
 //The COM server which implements the callback notifcation from Action Center
 class DECLSPEC_UUID("383803B6-AFDA-4220-BFC3-0DBF810106BF")
-CToastNotificationActivationCallback : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::ClassicCom>, INotificationActivationCallback>
+TOASTNOTIFICATIONACTIVATIONCALLBACK : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::ClassicCom>, NOTIFICATIONACTIVATIONCALLBACK>
 {
   public:
                                               //Constructors / Destructors
-                                              CToastNotificationActivationCallback    ()
+                                              TOASTNOTIFICATIONACTIVATIONCALLBACK     ()
                                               {
 
-                                              }
-
-  virtual HRESULT STDMETHODCALLTYPE           Activate                                (__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count) override;
+                                              }  
 };
 
 
@@ -154,7 +150,7 @@ class DIOWINDOWSNOTIFICATIONSMANAGER : public DIONOTIFICATIONSMANAGER, public To
 
     HRESULT                                   RegisterActivator                       ();
     void                                      UnregisterActivator                     ();
-
+ 
     void                                      ReportToastNotification                 (_In_z_ LPCTSTR pszDetails, _In_ BOOL bAppend);
 
     void                                      OnToastActivated                        (_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_opt_ IInspectable* pArgs) override;
@@ -176,7 +172,7 @@ class DIOWINDOWSNOTIFICATIONSMANAGER : public DIONOTIFICATIONSMANAGER, public To
 
 #else
 
-CoCreatableClass(CToastNotificationActivationCallback);
+CoCreatableClass(TOASTNOTIFICATIONACTIVATIONCALLBACK);
 
 #endif
 

@@ -144,13 +144,11 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
+* 
+* @fn         XWINDOWSSYSTEM::XWINDOWSSYSTEM()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  ) :
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 {

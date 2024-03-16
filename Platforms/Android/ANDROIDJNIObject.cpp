@@ -60,21 +60,22 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING ClassName, XSTRING constructorsignature, ...)
+* @fn         ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING classname, XSTRING constructorsignature, ...)
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  XSTRING : 
-* @param[in]   XSTRING constructorsignature : 
-* @param[in]   ... : 
+* @param[in]  classname : 
+* @param[in]  constructorsignature : 
+* @param[in]  ... : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING ClassName, XSTRING constructorsignature, ...)
+ANDROIDJNIOBJECT::ANDROIDJNIOBJECT(XSTRING classname, XSTRING constructorsignature, ...)
+
 {
   JNIEnv*   JEnv = ANDROIDJNI::GetJNIEnv();
   char*     cstr = NULL;
   
-  ClassName.CreateOEM(cstr);
+  classname.CreateOEM(cstr);
 
   jniclass = ANDROIDJNI::FindJNIClass(cstr);  
   delete cstr;
@@ -154,7 +155,7 @@ ANDROIDJNIMETHOD ANDROIDJNIOBJECT::GetClassMethod(XSTRING method, XSTRING signat
 * @brief      GetJString
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  XSTRING& str : 
+* @param[in]  str : 
 * 
 * @return     jstring : 
 * 
@@ -178,23 +179,23 @@ jstring ANDROIDJNIOBJECT::GetJString(const XSTRING& str)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD Method, ...)
+* @fn         void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<void>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD Method, ...)
+void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  JEnv->CallVoidMethodV(jniobject, Method.method, Params);
+  va_start(Params, method);
+  JEnv->CallVoidMethodV(jniobject, method.method, Params);
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();
@@ -203,25 +204,25 @@ void ANDROIDJNIOBJECT::CallMethod<void>(ANDROIDJNIMETHOD Method, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD Method, ...)
+* @fn         bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<bool>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD Method, ...)
+bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  bool RetVal = JEnv->CallBooleanMethodV(jniobject, Method.method, Params);
+  va_start(Params, method);
+  bool RetVal = JEnv->CallBooleanMethodV(jniobject, method.method, Params);
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();
@@ -232,25 +233,25 @@ bool ANDROIDJNIOBJECT::CallMethod<bool>(ANDROIDJNIMETHOD Method, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD Method, ...)
+* @fn         int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<int>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD Method, ...)
+int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  int RetVal = JEnv->CallIntMethodV(jniobject, Method.method, Params);
+  va_start(Params, method);
+  int RetVal = JEnv->CallIntMethodV(jniobject, method.method, Params);
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();
@@ -261,25 +262,25 @@ int ANDROIDJNIOBJECT::CallMethod<int>(ANDROIDJNIMETHOD Method, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD Method, ...)
+* @fn         jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<jobject>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * @return     jobject : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD Method, ...)
+jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  jobject val = JEnv->CallObjectMethodV(jniobject, Method.method, Params);
+  va_start(Params, method);
+  jobject val = JEnv->CallObjectMethodV(jniobject, method.method, Params);
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();
@@ -294,25 +295,25 @@ jobject ANDROIDJNIOBJECT::CallMethod<jobject>(ANDROIDJNIMETHOD Method, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD Method, ...)
+* @fn         long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<long long>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * @return     long : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD Method, ...)
+long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  long long RetVal = JEnv->CallLongMethodV(jniobject, Method.method, Params);
+  va_start(Params, method);
+  long long RetVal = JEnv->CallLongMethodV(jniobject, method.method, Params);
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();
@@ -323,25 +324,25 @@ long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD Method, ...)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD Method, ...)
+* @fn         XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method, ...)
 * @brief      CallMethod<XSTRING>
 * @ingroup    PLATFORM_ANDROID
 * 
-* @param[in]  Method : 
+* @param[in]  method : 
 * @param[in]  ... : 
 * 
 * @return     XSTRING : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 template<>
-XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD Method, ...)
+XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method2, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, Method);
-  jstring RetVal = static_cast<jstring>(JEnv->CallObjectMethodV(jniobject, Method.method, Params));
+  va_start(Params, method2);
+  jstring RetVal = static_cast<jstring>(JEnv->CallObjectMethodV(jniobject, method2.method, Params));
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();

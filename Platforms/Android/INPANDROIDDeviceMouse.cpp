@@ -60,13 +60,13 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 * @brief      Constructor
 * @ingroup    PLATFORM_ANDROID
-*
-* @param[in]  GRPANDROIDSCREEN* :
-*
+* 
+* @param[in]  grpscreen : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 INPANDROIDDEVICEMOUSE::INPANDROIDDEVICEMOUSE(GRPANDROIDSCREEN* grpscreen)
 {

@@ -283,8 +283,6 @@ bool GRPWINDOWSSCREEN::Get_Position(int& x, int& y)
 * 
 * @param[in]  x : 
 * @param[in]  y : 
-* @param[in]  sizex : 
-* @param[in]  sizey : 
 * 
 * @return     bool : true if is succesful. 
 * 

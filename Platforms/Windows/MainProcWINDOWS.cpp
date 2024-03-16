@@ -757,17 +757,19 @@ void MAINPROCWINDOWS::Clean()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause)
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  servicename :
-* @param[in]  can_stop :
-* @param[in]  can_shutdown :
-* @param[in]  can_pause :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
+
+@fn         WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
+@brief      Constructor
+@ingroup    PLATFORM_WINDOWS
+
+@param[in]  servicename : 
+@param[in]  can_stop : 
+@param[in]  can_shutdown : 
+@param[in]  can_pause : 
+@param[in]  can_powerevent : 
+@param[in]  can_sessionchange : 
+
+--------------------------------------------------------------------------------------------------------------------*/
 WINDOWSSERVICE::WINDOWSSERVICE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange) : XWINDOWSSERVICEBASE(servicename, can_stop, can_shutdown, can_pause, can_powerevent, can_sessionchange)
 {
   Clean();

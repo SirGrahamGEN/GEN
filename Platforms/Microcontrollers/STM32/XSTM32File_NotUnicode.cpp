@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32File.cpp
+* @file       XSTM32File_NotUnicode.cpp
 *
-* @class      XSTM32FILE
-* @brief      eXtended STM32 File class (Use FatFs - Generic FAT file system module)
+* @class      XSTM32FILE_NOTUNICODE
+* @brief      STM32 eXtended Not Unicode File class (Use FatFs - Generic FAT file system module)
 * @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
@@ -40,7 +40,7 @@
 
 #include "Cipher.h"
 
-#include "XSTM32File.h"
+#include "XSTM32File_NotUnicode.h"
 
 #include "XMemory_Control.h"
 
@@ -52,12 +52,12 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTM32FILE::XSTM32FILE()
+* @fn         XSTM32FILE_NOTUNICODE::XSTM32FILE_NOTUNICODE()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTM32FILE::XSTM32FILE(): XFILE()
+XSTM32FILE_NOTUNICODE::XSTM32FILE_NOTUNICODE(): XFILE()
 {
   Clean();
 
@@ -70,13 +70,13 @@ XSTM32FILE::XSTM32FILE(): XFILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTM32FILE::~XSTM32FILE()
+* @fn         XSTM32FILE_NOTUNICODE::~XSTM32FILE_NOTUNICODE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTM32FILE::~XSTM32FILE()
+XSTM32FILE_NOTUNICODE::~XSTM32FILE_NOTUNICODE()
 {
   Clean();
 }
@@ -85,7 +85,7 @@ XSTM32FILE::~XSTM32FILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Exist(XCHAR* path)
+* @fn         bool XSTM32FILE_NOTUNICODE::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_STM32
 *
@@ -94,7 +94,7 @@ XSTM32FILE::~XSTM32FILE()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Exist(XCHAR* path)
+bool XSTM32FILE_NOTUNICODE::Exist(XCHAR* path)
 {  
   if(!ismount) return false;
   
@@ -120,7 +120,7 @@ bool XSTM32FILE::Exist(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Open(XCHAR* xpath, bool isreadonly)
+* @fn         bool XSTM32FILE_NOTUNICODE::Open(XCHAR* xpath, bool isreadonly)
 * @brief      Open
 * @ingroup    PLATFORM_STM32
 *
@@ -130,7 +130,7 @@ bool XSTM32FILE::Exist(XCHAR* path)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
+bool XSTM32FILE_NOTUNICODE::Open(XCHAR* path, bool isreadonly)
 {
   if(!ismount) return false;
   
@@ -166,7 +166,7 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Create(XCHAR* xpath)
+* @fn         bool XSTM32FILE_NOTUNICODE::Create(XCHAR* xpath)
 * @brief      Create
 * @ingroup    PLATFORM_STM32
 *
@@ -175,7 +175,7 @@ bool XSTM32FILE::Open(XCHAR* path, bool isreadonly)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Create(XCHAR* path)
+bool XSTM32FILE_NOTUNICODE::Create(XCHAR* path)
 {
   if(!ismount) return false;
   
@@ -207,7 +207,7 @@ bool XSTM32FILE::Create(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::SetSize(XQWORD size)
+* @fn         bool XSTM32FILE_NOTUNICODE::SetSize(XQWORD size)
 * @brief      SetSize
 * @ingroup    PLATFORM_STM32
 *
@@ -216,7 +216,7 @@ bool XSTM32FILE::Create(XCHAR* path)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::SetSize(XQWORD size)
+bool XSTM32FILE_NOTUNICODE::SetSize(XQWORD size)
 {
   if(!isopen)     return false;
   if(isreadonly)  return false;
@@ -234,7 +234,7 @@ bool XSTM32FILE::SetSize(XQWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::GetPosition(XQWORD& position)
+* @fn         bool XSTM32FILE_NOTUNICODE::GetPosition(XQWORD& position)
 * @brief      GetPosition
 * @ingroup    PLATFORM_STM32
 *
@@ -243,7 +243,7 @@ bool XSTM32FILE::SetSize(XQWORD size)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::GetPosition(XQWORD& position)
+bool XSTM32FILE_NOTUNICODE::GetPosition(XQWORD& position)
 {
   position = 0;
   
@@ -260,7 +260,7 @@ bool XSTM32FILE::GetPosition(XQWORD& position)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::SetPosition(XQWORD position)
+* @fn         bool XSTM32FILE_NOTUNICODE::SetPosition(XQWORD position)
 * @brief      SetPosition
 * @ingroup    PLATFORM_STM32
 *
@@ -269,7 +269,7 @@ bool XSTM32FILE::GetPosition(XQWORD& position)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::SetPosition(XQWORD position)
+bool XSTM32FILE_NOTUNICODE::SetPosition(XQWORD position)
 {  
   if(!isopen) return false;
   
@@ -286,7 +286,7 @@ bool XSTM32FILE::SetPosition(XQWORD position)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @fn         bool XSTM32FILE_NOTUNICODE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_STM32
 *
@@ -297,7 +297,7 @@ bool XSTM32FILE::SetPosition(XQWORD position)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+bool XSTM32FILE_NOTUNICODE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen) return false;
 
@@ -316,7 +316,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
+* @fn         bool XSTM32FILE_NOTUNICODE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_STM32
 *
@@ -327,7 +327,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
+bool XSTM32FILE_NOTUNICODE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 { 
   if(!isopen) return false;
 
@@ -347,7 +347,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @fn         bool XSTM32FILE_NOTUNICODE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Write
 * @ingroup    PLATFORM_STM32
 *
@@ -358,7 +358,7 @@ bool XSTM32FILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+bool XSTM32FILE_NOTUNICODE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen) return false;
 
@@ -382,14 +382,14 @@ bool XSTM32FILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Flush()
+* @fn         bool XSTM32FILE_NOTUNICODE::Flush()
 * @brief      Flush
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Flush()
+bool XSTM32FILE_NOTUNICODE::Flush()
 {
   if(!isopen) return false;
   
@@ -406,14 +406,14 @@ bool XSTM32FILE::Flush()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Close()
+* @fn         bool XSTM32FILE_NOTUNICODE::Close()
 * @brief      Close
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Close()
+bool XSTM32FILE_NOTUNICODE::Close()
 {
   if(!isopen) return false;
 
@@ -430,7 +430,7 @@ bool XSTM32FILE::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Erase(XCHAR* path,bool overwrite)
+* @fn         bool XSTM32FILE_NOTUNICODE::Erase(XCHAR* path,bool overwrite)
 * @brief      Erase
 * @ingroup    PLATFORM_STM32
 *
@@ -440,7 +440,7 @@ bool XSTM32FILE::Close()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
+bool XSTM32FILE_NOTUNICODE::Erase(XCHAR* path, bool overwrite)
 {
   if(!ismount) return false;
   
@@ -463,7 +463,7 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
+* @fn         bool XSTM32FILE_NOTUNICODE::Rename(XCHAR* pathold, XCHAR* pathnew)
 * @brief      Rename
 * @ingroup    PLATFORM_STM32
 *
@@ -473,7 +473,7 @@ bool XSTM32FILE::Erase(XCHAR* path, bool overwrite)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
+bool XSTM32FILE_NOTUNICODE::Rename(XCHAR* pathold, XCHAR* pathnew)
 {  
   if(!ismount) return false;
   
@@ -500,14 +500,14 @@ bool XSTM32FILE::Rename(XCHAR* pathold, XCHAR* pathnew)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         FILE* XSTM32FILE::CreateStructHandle()
+* @fn         FILE* XSTM32FILE_NOTUNICODE::CreateStructHandle()
 * @brief      CreateStructHandle
 * @ingroup    PLATFORM_STM32
 *
 * @return     FILE* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-FILE* XSTM32FILE::CreateStructHandle()
+FILE* XSTM32FILE_NOTUNICODE::CreateStructHandle()
 {
   return NULL;
 }
@@ -516,14 +516,14 @@ FILE* XSTM32FILE::CreateStructHandle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTM32FILE::DeleteStructHandle()
+* @fn         bool XSTM32FILE_NOTUNICODE::DeleteStructHandle()
 * @brief      DeleteStructHandle
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::DeleteStructHandle()
+bool XSTM32FILE_NOTUNICODE::DeleteStructHandle()
 {
   return false;
 }
@@ -532,14 +532,14 @@ bool XSTM32FILE::DeleteStructHandle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTM32FILE::ActualizeSize()
+* @fn         bool XSTM32FILE_NOTUNICODE::ActualizeSize()
 * @brief      ActualizeSize
 * @ingroup    PLATFORM_STM32
 *
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32FILE::ActualizeSize()
+bool XSTM32FILE_NOTUNICODE::ActualizeSize()
 {
   return Exist(xpathnamefile.Get());
 }
@@ -548,13 +548,13 @@ bool XSTM32FILE::ActualizeSize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XSTM32FILE::Clean()
+* @fn         void XSTM32FILE_NOTUNICODE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XSTM32FILE::Clean()
+void XSTM32FILE_NOTUNICODE::Clean()
 {
   memset(&userFATFS, 0, sizeof(FATFS));
   

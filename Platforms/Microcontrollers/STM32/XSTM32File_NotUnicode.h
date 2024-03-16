@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32File.h
+* @file       XSTM32File_NotUnicode.h
 *
-* @class      XSTM32FILE
-* @brief      eXtended STM32 File class (Use FatFs - Generic FAT file system module)
+* @class      XSTM32FILE_NOTUNICODE
+* @brief      STM32 eXtended Not Unicode File class (Use FatFs - Generic FAT file system module)
 * @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XSTM32FILE_H_
-#define _XSTM32FILE_H_
+#ifndef _XSTM32FILE_NOTUNICODE_H_
+#define _XSTM32FILE_NOTUNICODE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 
@@ -45,44 +45,44 @@
 
 class CIPHER;
 
-class XSTM32FILE : public XFILE
+class XSTM32FILE_NOTUNICODE : public XFILE
 {
   public:
-                      XSTM32FILE                ();
-    virtual          ~XSTM32FILE                ();
+                      XSTM32FILE_NOTUNICODE       ();
+    virtual          ~XSTM32FILE_NOTUNICODE       ();
 
-    bool              Exist                     (XCHAR* path);
+    bool              Exist                       (XCHAR* path);
 
-    bool              Open                      (XCHAR* path, bool readonly = true);
-    bool              Create                    (XCHAR* path);
+    bool              Open                        (XCHAR* path, bool readonly = true);
+    bool              Create                      (XCHAR* path);
 
-    bool              SetSize                   (XQWORD size);
+    bool              SetSize                     (XQWORD size);
 
-    bool              GetPosition               (XQWORD& position);
-    bool              SetPosition               (XQWORD position);
+    bool              GetPosition                 (XQWORD& position);
+    bool              SetPosition                 (XQWORD position);
 
-    bool              Read                      (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
-    bool              Read                      (XBYTE* buffer, XDWORD* size, CIPHER* cipher = NULL);
+    bool              Read                        (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
+    bool              Read                        (XBYTE* buffer, XDWORD* size, CIPHER* cipher = NULL);
 
-    bool              Write                     (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
+    bool              Write                       (XBYTE* buffer, XDWORD size , CIPHER* cipher = NULL);
 
-    bool              Flush                     ();
+    bool              Flush                       ();
 
-    bool              Close                     ();
+    bool              Close                       ();
 
-    bool              Erase                     (XCHAR* path, bool overwrite = false);
-    bool              Rename                    (XCHAR* pathold, XCHAR* pathnew);
+    bool              Erase                       (XCHAR* path, bool overwrite = false);
+    bool              Rename                      (XCHAR* pathold, XCHAR* pathnew);
     
-    FILE*             CreateStructHandle        ();
-    bool              DeleteStructHandle        ();
+    FILE*             CreateStructHandle          ();
+    bool              DeleteStructHandle          ();
   
   protected:
 
-    bool              ActualizeSize             ();
+    bool              ActualizeSize               ();
      
   private:
 
-    void              Clean                     ();  
+    void              Clean                       ();  
     
     FATFS             userFATFS;
     FRESULT           fresult; 

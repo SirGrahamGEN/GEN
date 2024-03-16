@@ -2,7 +2,7 @@
 * 
 * @file       XWINDOWSFileBorland.h
 * 
-* @class      XWINDOWSFILE
+* @class      XWINDOWSFILEBORLAND
 * @brief      WINDOWS eXtended Utils Borland file class
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XWINDOWSFILE_H_
-#define _XWINDOWSFILE_H_
+#ifndef _XWINDOWSFILEBORLAND_H_
+#define _XWINDOWSFILEBORLAND_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -55,11 +55,11 @@
 
 class CIPHER;
 
-class XWINDOWSFILE : public XFILE
+class XWINDOWSFILEBORLAND : public XFILE
 {
   public:
-                         XWINDOWSFILE          ();
-    virtual             ~XWINDOWSFILE          ();
+                         XWINDOWSFILEBORLAND          ();
+    virtual             ~XWINDOWSFILEBORLAND          ();
 
     bool                 Exist                        (XCHAR* path);
 
@@ -85,6 +85,8 @@ class XWINDOWSFILE : public XFILE
 
     FILE*                GetFileStructHandle          ();
 
+    FILE*                CreateStructHandle           ();
+    bool                 DeleteStructHandle           ();
 
   protected:
 

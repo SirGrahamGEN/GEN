@@ -184,16 +184,16 @@ bool INPLINUXFACTORY::DeleteDevice(INPDEVICE* device)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XSTRING& handlers)
+* @fn         bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices)
 * @brief      GetDeviceHandlers
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  devicetype : 
-* @param[in]  handlers : 
+* @param[in]  devices : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool INPLINUXFACTORY::GetDeviceHandlers(INPDEVICE_TYPE devicetype, XVECTOR<INPLINUXDEVICEID*>& devices)
 {
   bool status = false;

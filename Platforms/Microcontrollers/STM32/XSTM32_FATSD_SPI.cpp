@@ -75,17 +75,18 @@ XSTM32_FATSD_SPI::~XSTM32_FATSD_SPI()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, XDWORD GPIOentryID_switch)
+* @fn         bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, XDWORD GPIOentryID_switch, XDWORD timeout)
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
-*
+* 
 * @param[in]  handleSPI : 
 * @param[in]  GPIOentryID_CS : 
 * @param[in]  GPIOentryID_switch : 
+* @param[in]  timeout : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XSTM32_FATSD_SPI::Ini(SPI_HandleTypeDef* handleSPI, XDWORD GPIOentryID_CS, XDWORD GPIOentryID_switch, XDWORD timeout)
 {
   if(!handleSPI) return false;

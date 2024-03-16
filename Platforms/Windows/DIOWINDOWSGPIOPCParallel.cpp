@@ -144,15 +144,13 @@ void DIOWINDOWSGPIOPCPARALLEL::SetParallelPort(XWORD port)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWINDOWSGPIOPCPARALLEL::Ini(XPATH* xpath)
+* 
+* @fn         bool DIOWINDOWSGPIOPCPARALLEL::Ini()
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  xpath :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSGPIOPCPARALLEL::Ini()
 {

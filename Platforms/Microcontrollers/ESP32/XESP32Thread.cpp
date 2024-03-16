@@ -153,10 +153,10 @@ void XESP32MUTEX::Clean()
 * @brief      Constructor
 * @ingroup    PLATFORM_ESP32
 *
-* @param[in]  XTHREADGROUPID :
-* @param[in]   XCHAR* ID :
-* @param[in]   XTHREADFUNCTION function :
-* @param[in]   void* data :
+* @param[in]  groupID :
+* @param[in]  ID :
+* @param[in]  function :
+* @param[in]  data :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 XESP32THREAD::XESP32THREAD(XTHREADGROUPID groupID, XCHAR* ID, XTHREADFUNCTION function, void* data) : XTHREAD(groupID, ID, function, data)

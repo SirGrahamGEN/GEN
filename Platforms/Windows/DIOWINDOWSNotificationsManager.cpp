@@ -111,7 +111,7 @@ bool DIOWINDOWSNOTIFICATIONSMANAGER::Ini(XCHAR* titleowner, XCHAR* genericapp)
 
   RegisterCOMServer(sModuleName.c_str());
 
-  hr = ToastPP::CManager::RegisterForNotificationSupport(titleowner, sModuleName.c_str(), genericapp, __uuidof(CToastNotificationActivationCallback));
+  hr = ToastPP::CManager::RegisterForNotificationSupport(titleowner, sModuleName.c_str(), genericapp, __uuidof(TOASTNOTIFICATIONACTIVATIONCALLBACK));
   if(FAILED(hr)) return false;
 
   hr = manager.Create(genericapp);
@@ -252,7 +252,7 @@ BOOL DIOWINDOWSNOTIFICATIONSMANAGER::ShowBaloon(LPCTSTR title, LPCTSTR text, HWN
 * @brief      RegisterCOMServer
 * @ingroup    PLATFORM_WINDOWS
 *
-* @param[in]  PCWSTR pszExePath :
+* @param[in]  pszExePath :
 *
 * @return     HRESULT :
 *
@@ -322,26 +322,6 @@ void  DIOWINDOWSNOTIFICATIONSMANAGER::UnregisterActivator()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
-* @brief      Activate
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @param[in]  LPCWSTR appUserModelId : 
-* @param[in]  LPCWSTR invokedArgs : 
-* @param[in]  const NOTIFICATION_USER_INPUT_TICKET* data : 
-* @param[in]  count : 
-* 
-* @return     HRESULT : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-HRESULT CToastNotificationActivationCallback::Activate(__RPC__in_string LPCWSTR appUserModelId, __RPC__in_opt_string LPCWSTR invokedArgs, __RPC__in_ecount_full_opt(count) const NOTIFICATION_USER_INPUT_TICKET* data, ULONG count)
-{
-  return S_OK;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOWINDOWSNOTIFICATIONSMANAGER::ReportToastNotification(_In_z_ LPCTSTR pszDetails, _In_ BOOL bAppend)
 * @brief      ReportToastNotification
@@ -363,8 +343,8 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::ReportToastNotification(_In_z_ LPCTSTR pszD
 * @brief      OnToastActivated
 * @ingroup    PLATFORM_WINDOWS
 *
-* @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
-* @param[in]  IInspectable* pArgs :
+* @param[in]  pSender :
+* @param[in]  pArgs :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_opt_ IInspectable* pArgs)
@@ -379,8 +359,8 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastActivated(_In_opt_ ABI::Windows::UI:
 * @brief      OnToastDismissed
 * @ingroup    PLATFORM_WINDOWS
 *
-* @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
-* @param[in]  ABI::Windows::UI::Notifications::ToastDismissalReason reason :
+* @param[in]  pSender :
+* @param[in]  reason :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ ABI::Windows::UI::Notifications::ToastDismissalReason reason)
@@ -395,8 +375,8 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastDismissed(_In_opt_ ABI::Windows::UI:
 * @brief      OnToastFailed
 * @ingroup    PLATFORM_WINDOWS
 *
-* @param[in]  ABI::Windows::UI::Notifications::IToastNotification* pSender :
-* @param[in]  HRESULT errorCode :
+* @param[in]  pSender :
+* @param[in]  errorCode :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::Notifications::IToastNotification* pSender, _In_ HRESULT errorCode)
@@ -406,7 +386,6 @@ void DIOWINDOWSNOTIFICATIONSMANAGER::OnToastFailed(_In_opt_ ABI::Windows::UI::No
 
 
 #endif
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @file       XSTM32Dir.cpp
+* @file       XSTM32Dir_NotUnicode.cpp
 *
-* @class      XSTM32DIR
-* @brief      eXtended WINDOWS Directory class
+* @class      XSTM32DIR_NOTUNICODE
+* @brief      STM32 eXtended Not Unicode Directory class
 * @ingroup    PLATFORM_STM32
 *
 * @copyright  GEN Group. All rights reserved.
@@ -40,7 +40,7 @@
 #include "XPath.h"
 #include "XTrace.h"
 
-#include "XSTM32Dir.h"
+#include "XSTM32Dir_NotUnicode.h"
 
 #include "XMemory_Control.h"
 
@@ -49,15 +49,14 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTM32DIR::XSTM32DIR()
+* @fn         XSTM32DIR_NOTUNICODE::XSTM32DIR_NOTUNICODE()
 * @brief      Constructor
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTM32DIR::XSTM32DIR(): XDIR()
+XSTM32DIR_NOTUNICODE::XSTM32DIR_NOTUNICODE(): XDIR()
 {
   Clean();
   
@@ -69,13 +68,13 @@ XSTM32DIR::XSTM32DIR(): XDIR()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTM32DIR::~XSTM32DIR()
+* @fn         XSTM32DIR_NOTUNICODE::~XSTM32DIR_NOTUNICODE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTM32DIR::~XSTM32DIR()
+XSTM32DIR_NOTUNICODE::~XSTM32DIR_NOTUNICODE()
 {
   Clean();
 }
@@ -84,7 +83,7 @@ XSTM32DIR::~XSTM32DIR()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::Exist(XCHAR* path)
+* @fn         bool XSTM32DIR_NOTUNICODE::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_STM32
 *
@@ -93,7 +92,7 @@ XSTM32DIR::~XSTM32DIR()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::Exist(XCHAR* path)
+bool XSTM32DIR_NOTUNICODE::Exist(XCHAR* path)
 {   
   XSTRING pathstring;
   DIR     dir;
@@ -114,7 +113,7 @@ bool XSTM32DIR::Exist(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTM32DIR::Make(XCHAR* path, bool recursive)
+* @fn         bool XSTM32DIR_NOTUNICODE::Make(XCHAR* path, bool recursive)
 * @brief      Make
 * @ingroup    PLATFORM_STM32
 *
@@ -124,7 +123,7 @@ bool XSTM32DIR::Exist(XCHAR* path)
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::Make(XCHAR* path, bool recursive)
+bool XSTM32DIR_NOTUNICODE::Make(XCHAR* path, bool recursive)
 {
   if(!path)   return false;
   if(!path[0]) return false;
@@ -187,7 +186,7 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::ChangeTo(XCHAR* path)
+* @fn         bool XSTM32DIR_NOTUNICODE::ChangeTo(XCHAR* path)
 * @brief      ChangeTo
 * @ingroup    PLATFORM_STM32
 *
@@ -196,7 +195,7 @@ bool XSTM32DIR::Make(XCHAR* path, bool recursive)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::ChangeTo(XCHAR* path)
+bool XSTM32DIR_NOTUNICODE::ChangeTo(XCHAR* path)
 {  
   if(!path)       return false;
   if(!path[0])    return false;
@@ -222,7 +221,7 @@ bool XSTM32DIR::ChangeTo(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::Delete(XCHAR* path,bool all)
+* @fn         bool XSTM32DIR_NOTUNICODE::Delete(XCHAR* path,bool all)
 * @brief      Delete
 * @ingroup    PLATFORM_STM32
 *
@@ -232,7 +231,7 @@ bool XSTM32DIR::ChangeTo(XCHAR* path)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::Delete(XCHAR* path, bool all)
+bool XSTM32DIR_NOTUNICODE::Delete(XCHAR* path, bool all)
 {
   XDIRELEMENT search;
   XPATH       xpathname;
@@ -287,7 +286,7 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::GetActual(XPATH& xpath)
+* @fn         bool XSTM32DIR_NOTUNICODE::GetActual(XPATH& xpath)
 * @brief      GetActual
 * @ingroup    PLATFORM_STM32
 *
@@ -296,7 +295,7 @@ bool XSTM32DIR::Delete(XCHAR* path, bool all)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::GetActual(XPATH& xpath)
+bool XSTM32DIR_NOTUNICODE::GetActual(XPATH& xpath)
 { 
   char path[_MAXPATH];
   
@@ -314,7 +313,7 @@ bool XSTM32DIR::GetActual(XPATH& xpath)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
+* @fn         bool XSTM32DIR_NOTUNICODE::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
 * @brief      FirstSearch
 * @ingroup    PLATFORM_STM32
 *
@@ -325,15 +324,15 @@ bool XSTM32DIR::GetActual(XPATH& xpath)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
+bool XSTM32DIR_NOTUNICODE::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* searchelement)
 {  
   if(!xpath)         return false;
   if(!patternsearch) return false;
 
-  XBYTE* findfiledata = new XBYTE[sizeof(XSTM32DIR_SEARCHINFO)];
+  XBYTE* findfiledata = new XBYTE[sizeof(XSTM32DIR_NOTUNICODE_SEARCHINFO)];
   if(!findfiledata) return false;
 
-  memset(findfiledata, 0, sizeof(XSTM32DIR_SEARCHINFO));
+  memset(findfiledata, 0, sizeof(XSTM32DIR_NOTUNICODE_SEARCHINFO));
 
   searchelement->SetFindFileData(findfiledata);
 
@@ -351,7 +350,7 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
   
   searchelement->GetPathSearch()->Set(pathsearch);
     
-  XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
+  XSTM32DIR_NOTUNICODE_SEARCHINFO* searchinfo = (XSTM32DIR_NOTUNICODE_SEARCHINFO*)searchelement->GetFindFileData();
 
   XBUFFER charpathsearch;
   XBUFFER charpatternsearch;
@@ -383,7 +382,7 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
+* @fn         bool XSTM32DIR_NOTUNICODE::NextSearch(XDIRELEMENT* searchelement)
 * @brief      NextSearch
 * @ingroup    PLATFORM_STM32
 *
@@ -392,9 +391,9 @@ bool XSTM32DIR::FirstSearch(XCHAR* xpath, XCHAR* patternsearch, XDIRELEMENT* sea
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
+bool XSTM32DIR_NOTUNICODE::NextSearch(XDIRELEMENT* searchelement)
 {
-  XSTM32DIR_SEARCHINFO* searchinfo = (XSTM32DIR_SEARCHINFO*)searchelement->GetFindFileData();
+  XSTM32DIR_NOTUNICODE_SEARCHINFO* searchinfo = (XSTM32DIR_NOTUNICODE_SEARCHINFO*)searchelement->GetFindFileData();
   if(!searchinfo) return false;
   
   XBUFFER charstr;
@@ -427,7 +426,7 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
+* @fn         bool XSTM32DIR_NOTUNICODE::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
 * @brief      ReconvertSearchData
 * @ingroup    PLATFORM_STM32
 * 
@@ -437,7 +436,7 @@ bool XSTM32DIR::NextSearch(XDIRELEMENT* searchelement)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
+bool XSTM32DIR_NOTUNICODE::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinfo)
 {
   if(!searchelement) return false;
 
@@ -455,13 +454,13 @@ bool XSTM32DIR::ReconvertSearchData(XDIRELEMENT* searchelement, FILINFO* fileinf
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XSTM32DIR::Clean()
+* @fn         void XSTM32DIR_NOTUNICODE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_STM32
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XSTM32DIR::Clean()
+void XSTM32DIR_NOTUNICODE::Clean()
 {
   memset(&userFATFS, 0, sizeof(FATFS));
   

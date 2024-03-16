@@ -2,7 +2,7 @@
 * 
 * @file       XWINDOWSFileBorland.cpp
 * 
-* @class      XWINDOWSFILE
+* @class      XWINDOWSFILEBORLAND
 * @brief      WINDOWS eXtended Utils Borland file class
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -66,12 +66,12 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XWINDOWSFILE::XWINDOWSFILE()
+* @fn         XWINDOWSFILEBORLAND::XWINDOWSFILEBORLAND()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSFILE::XWINDOWSFILE(): XFILE()
+XWINDOWSFILEBORLAND::XWINDOWSFILEBORLAND(): XFILE()
 {
   Clean();
 }
@@ -79,13 +79,13 @@ XWINDOWSFILE::XWINDOWSFILE(): XFILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XWINDOWSFILE::~XWINDOWSFILE()
+* @fn         XWINDOWSFILEBORLAND::~XWINDOWSFILEBORLAND()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSFILE::~XWINDOWSFILE()
+XWINDOWSFILEBORLAND::~XWINDOWSFILEBORLAND()
 {
   Clean();
 }
@@ -93,7 +93,7 @@ XWINDOWSFILE::~XWINDOWSFILE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Exist(XCHAR* path)
+* @fn         bool XWINDOWSFILEBORLAND::Exist(XCHAR* path)
 * @brief      Exist
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -102,7 +102,7 @@ XWINDOWSFILE::~XWINDOWSFILE()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Exist(XCHAR* path)
+bool XWINDOWSFILEBORLAND::Exist(XCHAR* path)
 {
   bool status = Open(path, true);
   if(status) Close();
@@ -113,7 +113,7 @@ bool XWINDOWSFILE::Exist(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
+* @fn         bool XWINDOWSFILEBORLAND::Open(XCHAR* path, bool isreadonly)
 * @brief      Open
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -123,7 +123,7 @@ bool XWINDOWSFILE::Exist(XCHAR* path)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
+bool XWINDOWSFILEBORLAND::Open(XCHAR* path, bool isreadonly)
 {
   return ExtendedOpen(path, (isreadonly)? __L("rb") : __L("r+b"));
 }
@@ -131,7 +131,7 @@ bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Create(XCHAR* path)
+* @fn         bool XWINDOWSFILEBORLAND::Create(XCHAR* path)
 * @brief      Create
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -140,7 +140,7 @@ bool XWINDOWSFILE::Open(XCHAR* path, bool isreadonly)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Create(XCHAR* path)
+bool XWINDOWSFILEBORLAND::Create(XCHAR* path)
 {
   return ExtendedOpen(path, __L("w+b"));
 }
@@ -148,7 +148,7 @@ bool XWINDOWSFILE::Create(XCHAR* path)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::SetSize(XQWORD size)
+* @fn         bool XWINDOWSFILEBORLAND::SetSize(XQWORD size)
 * @brief      SetSize
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -157,7 +157,7 @@ bool XWINDOWSFILE::Create(XCHAR* path)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::SetSize(XQWORD size)
+bool XWINDOWSFILEBORLAND::SetSize(XQWORD size)
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -176,7 +176,7 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::GetPosition(XQWORD& position)
+* @fn         bool XWINDOWSFILEBORLAND::GetPosition(XQWORD& position)
 * @brief      GetPosition
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -185,7 +185,7 @@ bool XWINDOWSFILE::SetSize(XQWORD size)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::GetPosition(XQWORD& position)
+bool XWINDOWSFILEBORLAND::GetPosition(XQWORD& position)
 {
   if(!isopen)     return false;
   if(!filehandle) return false;
@@ -200,7 +200,7 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::SetPosition(XQWORD position)
+* @fn         bool XWINDOWSFILEBORLAND::SetPosition(XQWORD position)
 * @brief      SetPosition
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -209,7 +209,7 @@ bool XWINDOWSFILE::GetPosition(XQWORD& position)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::SetPosition(XQWORD position)
+bool XWINDOWSFILEBORLAND::SetPosition(XQWORD position)
 {
   if(!isopen)     return false;
   if(!filehandle) return false;
@@ -229,7 +229,7 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @fn         bool XWINDOWSFILEBORLAND::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -240,7 +240,7 @@ bool XWINDOWSFILE::SetPosition(XQWORD position)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+bool XWINDOWSFILEBORLAND::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -258,7 +258,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
+* @fn         bool XWINDOWSFILEBORLAND::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @brief      Read
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -269,7 +269,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
+bool XWINDOWSFILEBORLAND::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -298,7 +298,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+* @fn         bool XWINDOWSFILEBORLAND::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 * @brief      Write
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -309,7 +309,7 @@ bool XWINDOWSFILE::Read(XBYTE* buffer, XDWORD* size, CIPHER* cipher)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
+bool XWINDOWSFILEBORLAND::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -332,14 +332,14 @@ bool XWINDOWSFILE::Write(XBYTE* buffer, XDWORD size, CIPHER* cipher)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Flush()
+* @fn         bool XWINDOWSFILEBORLAND::Flush()
 * @brief      Flush
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Flush()
+bool XWINDOWSFILEBORLAND::Flush()
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -352,14 +352,14 @@ bool XWINDOWSFILE::Flush()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Close()
+* @fn         bool XWINDOWSFILEBORLAND::Close()
 * @brief      Close
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Close()
+bool XWINDOWSFILEBORLAND::Close()
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -383,7 +383,7 @@ bool XWINDOWSFILE::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Erase(XCHAR* path, bool overwrite)
+* @fn         bool XWINDOWSFILEBORLAND::Erase(XCHAR* path, bool overwrite)
 * @brief      Erase
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -393,7 +393,7 @@ bool XWINDOWSFILE::Close()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Erase(XCHAR* path,bool overwrite)
+bool XWINDOWSFILEBORLAND::Erase(XCHAR* path,bool overwrite)
 {
   bool status=true;
 
@@ -409,7 +409,7 @@ bool XWINDOWSFILE::Erase(XCHAR* path,bool overwrite)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
+* @fn         bool XWINDOWSFILEBORLAND::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 * @brief      Rename
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -419,7 +419,7 @@ bool XWINDOWSFILE::Erase(XCHAR* path,bool overwrite)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
+bool XWINDOWSFILEBORLAND::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 {
   if(!_wrename(xpathold, xpathnew)) return true;
 
@@ -429,30 +429,59 @@ bool XWINDOWSFILE::Rename(XCHAR* xpathold, XCHAR* xpathnew)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         FILE* XWINDOWSFILE::GetFileStructHandle()
+* @fn         FILE* XWINDOWSFILEBORLAND::GetFileStructHandle()
 * @brief      GetFileStructHandle
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     FILE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-FILE* XWINDOWSFILE::GetFileStructHandle()                                            
+FILE* XWINDOWSFILEBORLAND::GetFileStructHandle()                                            
 { 
   return filehandle;    
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         FILE* XWINDOWSFILEBORLAND::CreateStructHandle()
+* @brief      CreateStructHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     FILE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+FILE* XWINDOWSFILEBORLAND::CreateStructHandle()
+{
+  return filehandle;    
+}
+    
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::ActualizeSize()
+* @fn         bool XWINDOWSFILEBORLAND::DeleteStructHandle()
+* @brief      DeleteStructHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSFILEBORLAND::DeleteStructHandle()
+{
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSFILEBORLAND::ActualizeSize()
 * @brief      ActualizeSize
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::ActualizeSize()
+bool XWINDOWSFILEBORLAND::ActualizeSize()
 {
   if(!isopen)       return false;
   if(!filehandle)   return false;
@@ -471,7 +500,7 @@ bool XWINDOWSFILE::ActualizeSize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSFILE::ExtendedOpen(XCHAR* path, XCHAR* mode)
+* @fn         bool XWINDOWSFILEBORLAND::ExtendedOpen(XCHAR* path, XCHAR* mode)
 * @brief      ExtendedOpen
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -481,7 +510,7 @@ bool XWINDOWSFILE::ActualizeSize()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSFILE::ExtendedOpen(XCHAR* path, XCHAR* mode)
+bool XWINDOWSFILEBORLAND::ExtendedOpen(XCHAR* path, XCHAR* mode)
 {
   if(isopen) Close();
 
@@ -513,13 +542,13 @@ bool XWINDOWSFILE::ExtendedOpen(XCHAR* path, XCHAR* mode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void XWINDOWSFILE::Clean()
+* @fn         void XWINDOWSFILEBORLAND::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSFILE::Clean()
+void XWINDOWSFILEBORLAND::Clean()
 {
   filehandle  = NULL;
 }

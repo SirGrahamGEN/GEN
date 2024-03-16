@@ -67,22 +67,22 @@ LPSERVICE_FAILURE_ACTIONS   XWINDOWSSERVICEBASE::service_failureactions   = NULL
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent)
+* 
+* @fn         XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  XCHAR* :
-* @param[in]   bool can_stop :
-* @param[in]   bool can_shutdown :
-* @param[in]   bool can_pause :
-* @param[in]   bool can_powerevent :
-*
+* 
+* @param[in]  servicename : 
+* @param[in]  can_stop : 
+* @param[in]  can_shutdown : 
+* @param[in]  can_pause : 
+* @param[in]  can_powerevent : 
+* @param[in]  can_sessionchange : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSERVICEBASE::XWINDOWSSERVICEBASE(XCHAR* servicename, bool can_stop, bool can_shutdown, bool can_pause, bool can_powerevent, bool can_sessionchange)
 {
   Clean();
-
   if(servicename)  this->servicename = servicename;
 
   Setup(can_stop, can_shutdown, can_pause, can_powerevent, can_sessionchange);
