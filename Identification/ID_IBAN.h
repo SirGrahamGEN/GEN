@@ -50,25 +50,29 @@
 class ID_IBAN
 {
   public:
-                       ID_IBAN               ();
-    virtual           ~ID_IBAN               ();
+                        ID_IBAN                       ();
+    virtual            ~ID_IBAN                       ();
 
-    XSTRING*           Get                   ();
-    bool               Set                   (XCHAR* IBAN);
+    XSTRING*            Get                           ();
+    bool                Set                           (XCHAR* IBAN);
 
-    XSTRING*           GetCountry            ();
+    XSTRING*            GetCountry                    ();
 
   private:
 
-    bool               IsValidSizeCountry    (XCHAR* countrystr, int size);
+    bool                IsValidSizeCountry            (XCHAR* countrystr, int size);
+    int                 Mod97                         (XSTRING& IBANstr);
 
-    void               Clean                 ();
+    int                 Spain_CalculeControlDigit     (XSTRING& IBANstr);
+    bool                Spain_ValidateControlDigit    (XSTRING& IBANstr);
 
-    XSTRING            IBANstr;
+    void                Clean                         ();
 
-    XSTRING            IDcountry;
-    XSTRING            country;
-    int                size;
+    XSTRING             IBANstr;
+
+    XSTRING             IDcountry;
+    XSTRING             country;
+    int                 size;
 };
 
 #pragma endregion

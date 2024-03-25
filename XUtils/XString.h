@@ -218,7 +218,7 @@ class GEN_API_LIB XSTRING
     bool                  Character_IsAlpha               (XCHAR character) const;
     bool                  Character_IsUpperCase           (XCHAR character);
     bool                  Character_IsLowerCase           (XCHAR character);
-    bool                  Character_IsNumber              (XCHAR character);
+    bool                  Character_IsNumber              (XCHAR character, bool isextended = true);
     bool                  Character_IsNOT                 (XCHAR character);
     XCHAR                 Character_ToUpper               (XCHAR character) const;
     XCHAR                 Character_ToLower               (XCHAR character) const;

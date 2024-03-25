@@ -1638,18 +1638,24 @@ bool XSTRING::Character_IsLowerCase(XCHAR character)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSTRING::Character_IsNumber(XCHAR character)
+* @fn         bool XSTRING::Character_IsNumber(XCHAR character, bool isextended)
 * @brief      Character_IsNumber
 * @ingroup    XUTILS
 * 
 * @param[in]  character : 
+* @param[in]  isextended : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::Character_IsNumber(XCHAR character)
+bool XSTRING::Character_IsNumber(XCHAR character, bool isextended)
 {  
   if((character >= __C('0')) && (character <= '9'))  return true;
+
+  if(!isextended)
+    {
+      return false;
+    }
 
   if(character == __C('.')) return true;
   if(character == __C(',')) return true;
