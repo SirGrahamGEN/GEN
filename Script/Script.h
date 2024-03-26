@@ -92,7 +92,8 @@ class SCRIPT : public XSUBJECT
     static SCRIPT*                      Create                        (XCHAR* namefilescript);
     static SCRIPT*                      Create                        (SCRIPT_TYPE type);
 
-    bool                                Load                          (XPATH& xpath, bool add = false);
+    bool                                Load                          (XPATH& xpath);
+    bool                                LoadAdd                       (XPATH& xpath);
     bool                                Save                          (XPATH& xpath);
 
     static bool                         LoadScriptAndRun              (XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRARYS adjustlibrarys = NULL);

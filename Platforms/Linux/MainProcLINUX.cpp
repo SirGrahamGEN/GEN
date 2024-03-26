@@ -139,6 +139,10 @@
 
 #include "VersionFrameWork.h"
 
+#ifdef SCRIPT_CACHE_ACTIVE
+#include "Script_Cache.h"
+#endif
+
 #include "XRand.h"
 #include "XSleep.h"
 #include "XPath.h"
@@ -342,6 +346,10 @@ bool MAINPROCLINUX::End()
   #endif  
 
   DeleteAllExecParams();
+
+  #ifdef SCRIPT_CACHE_ACTIVE 
+  GEN_SCRIPT_CACHE.DelInstance();
+  #endif
 
   GEN_VERSION.DelInstance();
 

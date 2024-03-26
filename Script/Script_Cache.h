@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOLINUXGPIOARM.h
+* @file       Script_Cache.h
 * 
-* @class      DIOLINUXGPIOARM
-* @brief      LINUX Data Input/Output GPIO (General Purpose Input/Output) ARM class
-* @ingroup    PLATFORM_LINUX
+* @class      SCRIPT_CACHE
+* @brief      Script Cache class
+* @ingroup    SCRIPT
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,16 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOLINUXGPIOARM_H_
-#define _DIOLINUXGPIOARM_H_
-
-#if defined(HW_ARM) || defined(HW_ARM64)
+#ifndef _SCRIPT_CACHE_H_
+#define _SCRIPT_CACHE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIOLINUXGPIO.h"
+#include "XBase.h"
+#include "XMap.h"
+#include "XString.h"
+
 
 #pragma endregion
 
@@ -42,6 +43,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+#define SCRIPT_CACHE_NOTFOUND   NOTFOUND
 
 #pragma endregion
 
@@ -49,17 +51,37 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class DIOLINUXGPIOARM: public DIOLINUXGPIO
+class SCRIPT_CACHE
 {
   public:
-                          DIOLINUXGPIOARM                ();
-    virtual              ~DIOLINUXGPIOARM                ();
 
-  
-  private:  
+    static bool                       GetIsInstanced              ();
+    static SCRIPT_CACHE&              GetInstance                 ();
+    static bool                       DelInstance                 ();
 
-    void                  Clean                          ();
+    XDWORD                            GenerateID                  (XSTRING& stringID);    
+
+    bool                              AddCache                    (XDWORD ID, XSTRING* script);    
+    XSTRING*                          GetCache                    (XDWORD ID, int* index = NULL);
+    bool                              SetCache                    (XDWORD ID, XSTRING* script);
+    bool                              DelCache                    (XDWORD ID);
+    
+    XMAP<XDWORD, XSTRING*>*           GetAllCache                 ();
+    bool                              DeleteAllCache              ();
+
+  private:
+
+                                      SCRIPT_CACHE                ();
+                                      SCRIPT_CACHE                (SCRIPT_CACHE const&);       // Don't implement
+    virtual                          ~SCRIPT_CACHE                ();
+    void                              operator =                  (SCRIPT_CACHE const&);       // Don't implement
+
+    void                              Clean                       ();
+
+    static SCRIPT_CACHE*              instance;
+    XMAP<XDWORD, XSTRING*>            cache;
 };
+
 
 #pragma endregion
 
@@ -73,6 +95,4 @@ class DIOLINUXGPIOARM: public DIOLINUXGPIO
 
 #endif
 
-
-#endif
 

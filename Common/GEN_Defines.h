@@ -281,6 +281,13 @@
 #endif
 
 
+// --- Script -------------------------------------------------------------------------------------
+
+#ifndef GEN_SCRIPT_CACHE
+#define GEN_SCRIPT_CACHE                  SCRIPT_CACHE::GetInstance()
+#endif
+
+
 #pragma endregion
 
 

@@ -59,6 +59,10 @@
 #include "Script_Language_Javascript.h"
 #endif
 
+#ifdef SCRIPT_CACHE_ACTIVE
+#include "Script_Cache.h"
+#endif
+
 #include "Script_XEvent.h"
 
 #include "Script_Lib_Math.h"
@@ -281,27 +285,38 @@ SCRIPT* SCRIPT::Create(SCRIPT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT::Load(XPATH& xpath, bool add)
+* @fn         bool SCRIPT::Load(XPATH& xpath, bool add, XDWORD* CRCID)
 * @brief      Load
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
 * @param[in]  add : 
+* @param[in]  CRCID : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT::Load(XPATH& xpath, bool add)
+bool SCRIPT::Load(XPATH& xpath)
 {
+  #ifdef SCRIPT_CACHE_ACTIVE
+
+  XDWORD ID = GEN_SCRIPT_CACHE.GenerateID(xpath);
+
+  XSTRING* _script = GEN_SCRIPT_CACHE.GetCache(ID);
+  if(_script)
+    {
+      script.Empty();
+      script += _script->Get();      
+
+      return true;
+    }
+
+  #endif
+
+
   if(!xfiletxt) return false;
 
   bool status = false;
-
-  if(add)
-    {
-      AddReturnByType();
-      AddReturnByType();
-    }
 
   this->xpath = xpath;
 
@@ -311,10 +326,60 @@ bool SCRIPT::Load(XPATH& xpath, bool add)
     {
       if(xfiletxt->ReadAllFile()) status = true;
 
-      if(!add) 
+      script.Empty();
+
+      for(int c=0; c<xfiletxt->GetNLines(); c++)
         {
-          script.Empty();
+          script += xfiletxt->GetLine(c)->Get();
+      
+          AddReturnByType();
         }
+
+      xfiletxt->Close();
+    }
+
+  #ifdef SCRIPT_CACHE_ACTIVE
+  if(status)
+    {
+      ID = GEN_SCRIPT_CACHE.GenerateID(xpath);      
+      GEN_SCRIPT_CACHE.AddCache(ID, &script);
+    }
+  #endif
+
+  return status;
+}
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT::Load(XPATH& xpath, bool add, XDWORD ID)
+* @brief      Load
+* @ingroup    SCRIPT
+* 
+* @param[in]  xpath : 
+* @param[in]  add : 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT::LoadAdd(XPATH& xpath)
+{  
+  if(!xfiletxt) return false;
+
+  bool status = false;
+
+  AddReturnByType();
+  AddReturnByType();
+  
+  this->xpath = xpath;
+
+  xpath.GetNamefileExt(namescript);
+
+  if(xfiletxt->Open(xpath))
+    {
+      if(xfiletxt->ReadAllFile()) status = true;
 
       for(int c=0; c<xfiletxt->GetNLines(); c++)
         {
@@ -399,31 +464,68 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                   SCRIPT* script = SCRIPT::Create(namescript->Get());
                   if(script) 
                     {
+                      XPATH       allpath;
+                      XDWORD      ID = 0;
+                      bool        incache = false;
+
                       if(adjustlibrarys)
                         {
                           adjustlibrarys(script);
                         }
-
+                 
+                      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, allpath);
+    
                       for(XDWORD d=0; d<namescripts.GetSize(); d++)
                         {  
-                          namescript = namescripts.Get(d);
-                          if(namescript)
-                            {                          
-                              XPATH xpath;   
+                          allpath += __C(',');  
+                          allpath += namescript->Get();  
+                        }
+                    
+                      ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
 
-                              SCRIPT::EliminateExtraChars(namescript);
+                      #ifdef SCRIPT_CACHE_ACTIVE
+
+                      XSTRING* _script = GEN_SCRIPT_CACHE.GetCache(ID);
+                      if(_script)
+                        {                         
+                          (*script->GetScript()) += _script->Get();      
+
+                          incache = true;
+                          status  = !_script->IsEmpty();
+                        }
+
+                      #endif
+
+                      if(!incache)
+                        {
+                          for(XDWORD d=0; d<namescripts.GetSize(); d++)
+                            {  
+                              namescript = namescripts.Get(d);
+                              if(namescript)
+                                {                          
+                                  XPATH xpath;   
+
+                                  SCRIPT::EliminateExtraChars(namescript);
                   
-                              GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
-                              xpath.Slash_Add();
-                              xpath += namescript->Get();
+                                  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
+                                  xpath.Slash_Add();
+                                  xpath += namescript->Get();
 
-                              status = script->Load(xpath, true);
-                              if(!status)  
-                                {
-                                  break;
-                                }  
-                            }
-                        }                      
+                                  status = script->LoadAdd(xpath);
+                                  if(!status)  
+                                    {
+                                      break;
+                                    }  
+                                }
+                            }  
+                        }
+          
+                      #ifdef SCRIPT_CACHE_ACTIVE
+                      if(status && !incache)
+                        {                          
+                          GEN_SCRIPT_CACHE.AddCache(ID, script->GetScript());
+                        }
+                      #endif                    
 
                       if(status)
                         {                               
