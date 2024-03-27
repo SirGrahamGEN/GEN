@@ -302,7 +302,7 @@ bool SCRIPT::Load(XPATH& xpath)
 
   XDWORD ID = GEN_SCRIPT_CACHE.GenerateID(xpath);
 
-  XSTRING* _script = GEN_SCRIPT_CACHE.GetCache(ID);
+  XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
   if(_script)
     {
       script.Empty();
@@ -342,7 +342,7 @@ bool SCRIPT::Load(XPATH& xpath)
   if(status)
     {
       ID = GEN_SCRIPT_CACHE.GenerateID(xpath);      
-      GEN_SCRIPT_CACHE.AddCache(ID, &script);
+      GEN_SCRIPT_CACHE.Cache_Add(ID, &script);
     }
   #endif
 
@@ -485,7 +485,7 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
 
                       #ifdef SCRIPT_CACHE_ACTIVE
 
-                      XSTRING* _script = GEN_SCRIPT_CACHE.GetCache(ID);
+                      XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
                       if(_script)
                         {                         
                           (*script->GetScript()) += _script->Get();      
@@ -523,7 +523,7 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                       #ifdef SCRIPT_CACHE_ACTIVE
                       if(status && !incache)
                         {                          
-                          GEN_SCRIPT_CACHE.AddCache(ID, script->GetScript());
+                          GEN_SCRIPT_CACHE.Cache_Add(ID, script->GetScript());
                         }
                       #endif                    
 

@@ -40,8 +40,11 @@
 #include "Script_Cache.h"
 
 #include "XBuffer.h"
+#include "XDir.h"
 
 #include "HashCRC32.h"
+
+#include "Script.h"
 
 #include "XMemory_Control.h"
 
@@ -139,8 +142,8 @@ XDWORD SCRIPT_CACHE::GenerateID(XSTRING& stringID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT_CACHE::AddCache(XDWORD ID, XSTRING* script)
-* @brief      AddCache
+* @fn         bool SCRIPT_CACHE::Cache_Add(XDWORD ID, XSTRING* script)
+* @brief      Cache_Add
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -149,7 +152,7 @@ XDWORD SCRIPT_CACHE::GenerateID(XSTRING& stringID)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_CACHE::AddCache(XDWORD ID, XSTRING* script)
+bool SCRIPT_CACHE::Cache_Add(XDWORD ID, XSTRING* script)
 {
   if(!ID)
     {
@@ -161,9 +164,9 @@ bool SCRIPT_CACHE::AddCache(XDWORD ID, XSTRING* script)
       return false;
     }
 
-  if(SCRIPT_CACHE::GetCache(ID))
+  if(SCRIPT_CACHE::Cache_Get(ID))
     {
-      SetCache(ID, script);
+      Cache_Set(ID, script);
       return true;
     }
 
@@ -187,8 +190,8 @@ bool SCRIPT_CACHE::AddCache(XDWORD ID, XSTRING* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* SCRIPT_CACHE::GetCache(XDWORD ID, int* index)
-* @brief      GetCache
+* @fn         XSTRING* SCRIPT_CACHE::Cache_Get(XDWORD ID, int* index)
+* @brief      Cache_Get
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -197,7 +200,7 @@ bool SCRIPT_CACHE::AddCache(XDWORD ID, XSTRING* script)
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* SCRIPT_CACHE::GetCache(XDWORD ID, int* index)
+XSTRING* SCRIPT_CACHE::Cache_Get(XDWORD ID, int* index)
 {
   if(!ID)
     {
@@ -233,8 +236,8 @@ XSTRING* SCRIPT_CACHE::GetCache(XDWORD ID, int* index)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT_CACHE::SetCache(XDWORD ID, XSTRING* script)
-* @brief      SetCache
+* @fn         bool SCRIPT_CACHE::Cache_Set(XDWORD ID, XSTRING* script)
+* @brief      Cache_Set
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -243,7 +246,7 @@ XSTRING* SCRIPT_CACHE::GetCache(XDWORD ID, int* index)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_CACHE::SetCache(XDWORD ID, XSTRING* script)
+bool SCRIPT_CACHE::Cache_Set(XDWORD ID, XSTRING* script)
 {
   if(!ID)
     {
@@ -257,7 +260,7 @@ bool SCRIPT_CACHE::SetCache(XDWORD ID, XSTRING* script)
 
   int index = 0;
 
-  if(!SCRIPT_CACHE::GetCache(ID, &index))
+  if(!SCRIPT_CACHE::Cache_Get(ID, &index))
     {
       return false;
     }
@@ -281,8 +284,8 @@ bool SCRIPT_CACHE::SetCache(XDWORD ID, XSTRING* script)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT_CACHE::DelCache(XDWORD ID)
-* @brief      DelCache
+* @fn         bool SCRIPT_CACHE::Cache_Del(XDWORD ID)
+* @brief      Cache_Del
 * @ingroup    SCRIPT
 * 
 * @param[in]  ID : 
@@ -290,14 +293,14 @@ bool SCRIPT_CACHE::SetCache(XDWORD ID, XSTRING* script)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_CACHE::DelCache(XDWORD ID)
+bool SCRIPT_CACHE::Cache_Del(XDWORD ID)
 {
   if(!ID)
     {
       return NULL;
     }
   
-  if(!SCRIPT_CACHE::GetCache(ID))
+  if(!SCRIPT_CACHE::Cache_Get(ID))
     {
       return false;
     }
@@ -308,14 +311,14 @@ bool SCRIPT_CACHE::DelCache(XDWORD ID)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMAP<XSTRING*, XSTRING*> SCRIPT_CACHE::GetCache()
-* @brief      GetCache
+* @fn         XMAP<XSTRING*, XSTRING*> SCRIPT_CACHE::Cache_Get()
+* @brief      Cache_Get
 * @ingroup    SCRIPT
 * 
 * @return     XMAP<XSTRING*, XSTRING*> : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XMAP<XDWORD, XSTRING*>* SCRIPT_CACHE::GetAllCache()
+XMAP<XDWORD, XSTRING*>* SCRIPT_CACHE::Cache_GetAll()
 {
   return &cache;
 }
@@ -323,14 +326,14 @@ XMAP<XDWORD, XSTRING*>* SCRIPT_CACHE::GetAllCache()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT_CACHE::DeleteAllCache()
-* @brief      DeleteAllCache
+* @fn         bool SCRIPT_CACHE::Cache_DelAll()
+* @brief      Cache_DelAll
 * @ingroup    SCRIPT
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_CACHE::DeleteAllCache()
+bool SCRIPT_CACHE::Cache_DelAll()
 {
   if(!cache.GetSize())
     {
@@ -341,6 +344,171 @@ bool SCRIPT_CACHE::DeleteAllCache()
   cache.DeleteAll();
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT_CACHE::Cache_AllDirectory(XPATH& xpath)
+* @brief      Cache_AllDirectory
+* @ingroup    SCRIPT
+* 
+* @param[in]  xpath : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT_CACHE::Cache_AllDirectory(XPATH& xpath)
+{
+  XDIR*         xdir;
+  XDIRELEMENT   element;
+ 
+  xdir = GEN_XFACTORY.Create_Dir();
+  if(!xdir) 
+    {
+      return false;
+    }
+      
+  if(xdir->FirstSearch(xpath.Get(), __L("*"), &element))
+    {
+      do{ SCRIPT_TYPE type = SCRIPT::GetTypeByExtension(element.GetNameFile()->Get());
+          if(type != SCRIPT_TYPE_UNKNOWN)
+            {  
+              SCRIPT* script = SCRIPT::Create(element.GetNameFile()->Get());
+              if(script) 
+                {
+                  XPATH xpathnamefile;
+
+                  xpathnamefile = xpath.Get();
+                  xpathnamefile.Slash_Add();  
+                  xpathnamefile.Add(element.GetNameFile()->Get());
+                    
+                  script->Load(xpathnamefile);                                      
+                } 
+
+               delete script;
+            }
+           
+        } while(xdir->NextSearch(&element));
+    }            
+    
+  GEN_XFACTORY.Delete_Dir(xdir);
+
+  return true;
+}
+ 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool SCRIPT_CACHE::Cache_AllList(XVECTOR<XSTRING*>* listscripts)
+* @brief      Cache_AllList
+* @ingroup    SCRIPT
+* 
+* @param[in]  listscripts : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool SCRIPT_CACHE::Cache_AllList(XVECTOR<XSTRING*>* listscripts)
+{
+  if(!listscripts) 
+    {
+      return false;
+    }
+
+  bool status = false;
+                                                                                                     
+  for(XDWORD c=0; c<listscripts->GetSize(); c++)
+    {  
+      XSTRING* linescripts = listscripts->Get(c);    
+      if(linescripts)
+        {
+          if(!linescripts->IsEmpty())
+            {
+              XVECTOR<XSTRING*> namescripts;
+
+              linescripts->Split(__C(','), namescripts);
+
+              XSTRING* namescript = namescripts.Get(0);
+              if(namescript)
+                {
+                  SCRIPT::EliminateExtraChars(namescript);
+                  
+                  SCRIPT* script = SCRIPT::Create(namescript->Get());
+                  if(script) 
+                    {
+                      XPATH       allpath;
+                      XDWORD      ID = 0;
+                      bool        incache = false;
+                      
+                      GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, allpath);
+    
+                      for(XDWORD d=0; d<namescripts.GetSize(); d++)
+                        {  
+                          allpath += __C(',');  
+                          allpath += namescript->Get();  
+                        }
+                    
+                      ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
+
+                      #ifdef SCRIPT_CACHE_ACTIVE
+
+                      XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
+                      if(_script)
+                        {                         
+                          (*script->GetScript()) += _script->Get();      
+
+                          incache = true;
+                          status  = !_script->IsEmpty();
+                        }
+
+                      #endif
+
+                      if(!incache)
+                        {
+                          for(XDWORD d=0; d<namescripts.GetSize(); d++)
+                            {  
+                              namescript = namescripts.Get(d);
+                              if(namescript)
+                                {                          
+                                  XPATH xpath;   
+
+                                  SCRIPT::EliminateExtraChars(namescript);
+                  
+                                  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_SCRIPTS, xpath);
+                                  xpath.Slash_Add();
+                                  xpath += namescript->Get();
+
+                                  status = script->LoadAdd(xpath);
+                                  if(!status)  
+                                    {
+                                      break;
+                                    }  
+                                }
+                            }  
+                        }
+          
+                      #ifdef SCRIPT_CACHE_ACTIVE
+                      if(status && !incache)
+                        {                          
+                          GEN_SCRIPT_CACHE.Cache_Add(ID, script->GetScript());
+                        }
+                      #endif                                          
+                      
+                      delete script;
+                      script = NULL;
+
+                    }                    
+                }
+
+              namescripts.DeleteContents();
+              namescripts.DeleteAll();              
+            
+            } 
+        } 
+    }
+  
+  return status;
 }
 
 
@@ -367,7 +535,7 @@ SCRIPT_CACHE::SCRIPT_CACHE()
 * --------------------------------------------------------------------------------------------------------------------*/
 SCRIPT_CACHE::~SCRIPT_CACHE()
 {
-  DeleteAllCache();
+  Cache_DelAll();
 
   Clean();
 }

@@ -131,7 +131,9 @@ class SCRIPT : public XSUBJECT
     int                                 GetErrorScript                ();
     bool                                SetErrorScript                (int errorcode);
 
-    virtual bool                        HaveError                     (int errorcode);
+    virtual bool                        HaveError                     (int errorcode); 
+
+    static bool                         EliminateExtraChars     (XSTRING* namescript);  
 
   protected:
 
@@ -155,8 +157,6 @@ class SCRIPT : public XSUBJECT
     XVECTOR<SCRIPT_LIB_FUNCTION*>       libraryfunctions;
 
   private:
-
-    static bool                         EliminateExtraChars     (XSTRING* namescript);  
 
     void                                HandleEvent             (XEVENT* xevent);
 

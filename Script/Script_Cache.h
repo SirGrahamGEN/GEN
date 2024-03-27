@@ -34,6 +34,7 @@
 
 #include "XBase.h"
 #include "XMap.h"
+#include "XPath.h"
 #include "XString.h"
 
 
@@ -61,16 +62,18 @@ class SCRIPT_CACHE
 
     XDWORD                            GenerateID                  (XSTRING& stringID);    
 
-    bool                              AddCache                    (XDWORD ID, XSTRING* script);    
-    XSTRING*                          GetCache                    (XDWORD ID, int* index = NULL);
-    bool                              SetCache                    (XDWORD ID, XSTRING* script);
-    bool                              DelCache                    (XDWORD ID);
+    bool                              Cache_Add                   (XDWORD ID, XSTRING* script);    
+    XSTRING*                          Cache_Get                   (XDWORD ID, int* index = NULL);
+    bool                              Cache_Set                   (XDWORD ID, XSTRING* script);
+    bool                              Cache_Del                   (XDWORD ID);
     
-    XMAP<XDWORD, XSTRING*>*           GetAllCache                 ();
-    bool                              DeleteAllCache              ();
+    XMAP<XDWORD, XSTRING*>*           Cache_GetAll                ();
+    bool                              Cache_DelAll                ();
+
+    bool                              Cache_AllDirectory          (XPATH& xpath);
+    bool                              Cache_AllList               (XVECTOR<XSTRING*>* listscripts);
 
   private:
-
                                       SCRIPT_CACHE                ();
                                       SCRIPT_CACHE                (SCRIPT_CACHE const&);       // Don't implement
     virtual                          ~SCRIPT_CACHE                ();
