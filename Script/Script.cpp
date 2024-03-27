@@ -480,11 +480,10 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                           allpath += __C(',');  
                           allpath += namescript->Get();  
                         }
-                    
-                      ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
-
+                                       
                       #ifdef SCRIPT_CACHE_ACTIVE
 
+                      ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
                       XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
                       if(_script)
                         {                         
