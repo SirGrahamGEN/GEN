@@ -60,10 +60,10 @@
 
 enum DIOPCAPPROTOCOL_TYPE
 {
-  DIOPCAPPROTOCOL_TYPE_UNKNOWN       =  0 ,
-  DIOPCAPPROTOCOL_TYPE_ICMP               ,
-  DIOPCAPPROTOCOL_TYPE_UDP                ,
-  DIOPCAPPROTOCOL_TYPE_TCP                ,
+  DIOPCAPPROTOCOL_TYPE_UNKNOWN       =  0x00 ,
+  DIOPCAPPROTOCOL_TYPE_ICMP          =  0x01 ,
+  DIOPCAPPROTOCOL_TYPE_UDP           =  0x02 ,
+  DIOPCAPPROTOCOL_TYPE_TCP           =  0x04 ,
 };
 
 
@@ -124,6 +124,7 @@ typedef struct
 
 class XTHREADCOLLECTED;
 class XMUTEX;
+class DIOPCAP_FILTERS;
 
 class DIOPCAPNETINTERFACE
 {
@@ -170,7 +171,7 @@ class DIOPCAPFRAME
     XBUFFER*                          GetData                       ();
     bool                              SetData                       (XBYTE* data, XDWORD size);
 
-    DIOPCAPPROTOCOL_TYPE              GetProtocolType               ();
+    XDWORD                            GetProtocolType               ();
     void                              GetProtocolTypeString         (XSTRING& protocoltypestr);
     bool                              SetProtocolType               (DIOPCAPPROTOCOL_TYPE protocoltype);
    
@@ -219,7 +220,7 @@ class DIOPCAPFRAME
     DIOPCAPUDPHEADER*                 UDP_header;
     DIOPCAPTCPHEADER*                 TCP_header;  
 
-    DIOPCAPPROTOCOL_TYPE              protocoltype;
+    XDWORD                            protocoltype;
     
 
     DIOMAC                            sourceMAC;   
@@ -260,6 +261,8 @@ class DIOPCAP
     XVECTOR<DIOPCAPFRAME*>*           Frames_Get                    ();
     bool                              Frames_DeleteAll              ();
 
+    DIOPCAP_FILTERS*                  GetFilters                    ();  
+
     virtual bool                      End                           ();
 
   protected:
@@ -274,6 +277,8 @@ class DIOPCAP
     DIOPCAPNETINTERFACE*              netinterfaceselected;
     XMUTEX*                           xmutexframes;
     XVECTOR<DIOPCAPFRAME*>            frames;    
+
+    DIOPCAP_FILTERS*                  filters;
 
   private:
 

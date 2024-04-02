@@ -48,6 +48,8 @@
 #include "XVector.h"
 #include "XSystem.h"
 
+#include "DIOPCap_Filters.h"
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -349,14 +351,14 @@ bool DIOPCAPFRAME::SetData(XBYTE* data, XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOPCAPPROTOCOL_TYPE DIOPCAPFRAME::GetProtocolType()
+* @fn         XDWORD DIOPCAPFRAME::GetProtocolType()
 * @brief      GetProtocolType
 * @ingroup    DATAIO
 * 
-* @return     DIOPCAPPROTOCOL_TYPE : 
+* @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPCAPPROTOCOL_TYPE DIOPCAPFRAME::GetProtocolType()
+XDWORD DIOPCAPFRAME::GetProtocolType()
 {
   return protocoltype;
 }
@@ -891,6 +893,8 @@ void DIOPCAPFRAME::Clean()
 DIOPCAP::DIOPCAP()
 {
   Clean();
+
+  filters = new DIOPCAP_FILTERS();
 }
 
 
@@ -904,6 +908,12 @@ DIOPCAP::DIOPCAP()
 * ---------------------------------------------------------------------------------------------------------------------*/
 DIOPCAP::~DIOPCAP()
 {
+  if(filters)
+    {
+      delete filters;
+      filters = NULL;
+    }
+
   End();
 
   Clean();
@@ -1097,6 +1107,21 @@ bool DIOPCAP::Frames_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIOPCAP_FILTERS* DIOPCAP::GetFilters()
+* @brief      GetFilters
+* @ingroup    DATAIO
+* 
+* @return     DIOPCAP_FILTERS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOPCAP_FILTERS* DIOPCAP::GetFilters()
+{
+  return filters;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOPCAP::End()
 * @brief      End
 * @ingroup    DATAIO
@@ -1273,6 +1298,8 @@ void DIOPCAP::Clean()
 {
   xmutexframes          = NULL;  
   netinterfaceselected  = NULL;
+
+  filters               = NULL;
 }
 
 
