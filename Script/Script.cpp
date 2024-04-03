@@ -285,13 +285,11 @@ SCRIPT* SCRIPT::Create(SCRIPT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT::Load(XPATH& xpath, bool add, XDWORD* CRCID)
+* @fn         bool SCRIPT::Load(XPATH& xpath)
 * @brief      Load
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
-* @param[in]  add : 
-* @param[in]  CRCID : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -350,16 +348,13 @@ bool SCRIPT::Load(XPATH& xpath)
 }
 
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool SCRIPT::Load(XPATH& xpath, bool add, XDWORD ID)
-* @brief      Load
+* @fn         bool SCRIPT::LoadAdd(XPATH& xpath)
+* @brief      LoadAdd
 * @ingroup    SCRIPT
 * 
 * @param[in]  xpath : 
-* @param[in]  add : 
-* @param[in]  ID : 
 * 
 * @return     bool : true if is succesful. 
 * 

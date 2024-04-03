@@ -98,6 +98,11 @@
 * 
 * @}
 *
+* @defgroup IDENTIFICATION Identification
+* @{
+* 
+* @}
+*
 * @defgroup VIDEO Video
 * @{
 * 
