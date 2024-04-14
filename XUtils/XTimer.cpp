@@ -230,7 +230,7 @@ XTIMER::~XTIMER()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 {
-  this->more += (milliseconds*1000);
+  this->more += (milliseconds * 1000L);
 }
 
 
@@ -245,7 +245,7 @@ void XTIMER::AddMilliSeconds(XQWORD milliseconds)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XTIMER::AddSeconds(XQWORD seconds)
 {
-  AddMilliSeconds(seconds * 1000);
+  AddMilliSeconds(seconds * 1000L);
 }
 
 
@@ -282,14 +282,14 @@ void XTIMER::Reset()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD XTIMER::GetMeasureHours()
+* @fn         XQWORD XTIMER::GetMeasureHours()
 * @brief      GetMeasureHours
 * @ingroup    XUTILS
 *
-* @return     XDWORD :
+* @return     XQWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD XTIMER::GetMeasureHours()
+XQWORD XTIMER::GetMeasureHours()
 {
   XQWORD hours = GetMeasureMilliSeconds();
 
@@ -297,46 +297,46 @@ XDWORD XTIMER::GetMeasureHours()
   hours/=60;
   hours/=60;
 
-  return (XDWORD)hours;
+  return (XQWORD)hours;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD XTIMER::GetMeasureMinutes()
+* @fn         XQWORD XTIMER::GetMeasureMinutes()
 * @brief      GetMeasureMinutes
 * @ingroup    XUTILS
 *
-* @return     XDWORD :
+* @return     XQWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD XTIMER::GetMeasureMinutes()
+XQWORD XTIMER::GetMeasureMinutes()
 {
   XQWORD minutes = GetMeasureMilliSeconds();
 
   minutes/=1000;
   minutes/=60;
 
-  return (XDWORD)minutes;
+  return (XQWORD)minutes;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD XTIMER::GetMeasureSeconds()
+* @fn         XQWORD XTIMER::GetMeasureSeconds()
 * @brief      GetMeasureSeconds
 * @ingroup    XUTILS
 *
-* @return     XDWORD :
+* @return     XQWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD XTIMER::GetMeasureSeconds()
+XQWORD XTIMER::GetMeasureSeconds()
 {
   XQWORD seconds = GetMeasureMilliSeconds();
 
-  seconds/=1000L;
+  seconds /= (XQWORD)1000L;
 
-  return (XDWORD)seconds;
+  return (XQWORD)seconds;
 }
 
 
@@ -353,9 +353,9 @@ XQWORD XTIMER::GetMeasureMilliSeconds()
 {
   XQWORD milliseconds = GetMeasureMicroSeconds();
 
-  milliseconds/=1000L;
+  milliseconds /= (XQWORD)1000L;
 
-  return (XDWORD)milliseconds;
+  return (XQWORD)milliseconds;
 }
 
 
@@ -373,7 +373,9 @@ XQWORD XTIMER::GetMeasureMicroSeconds()
   XQWORD  elapsed;
   XQWORD  current = GetMicroSecondsTickCounter();
 
-  elapsed = (XQWORD)((current-last) + more);
+  elapsed  = (XQWORD)current;  
+  elapsed -= (XQWORD)last;  
+  elapsed += (XQWORD)more;
 
   return elapsed;
 }

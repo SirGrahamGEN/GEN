@@ -101,9 +101,9 @@ class XTIMER : public FACTORYBASE
 
     void                    Reset                             ();
 
-    XDWORD                  GetMeasureHours                   ();
-    XDWORD                  GetMeasureMinutes                 ();
-    XDWORD                  GetMeasureSeconds                 ();
+    XQWORD                  GetMeasureHours                   ();
+    XQWORD                  GetMeasureMinutes                 ();
+    XQWORD                  GetMeasureSeconds                 ();
     XQWORD                  GetMeasureMilliSeconds            ();
     XQWORD                  GetMeasureMicroSeconds            ();
 

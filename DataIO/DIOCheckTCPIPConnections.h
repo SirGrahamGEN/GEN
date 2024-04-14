@@ -122,7 +122,7 @@ class DIOCHECKTCPIPCONNECTION
     void                                    SetElapsedTime                        (XDWORD elapsedtime);
 
     bool                                    ResetTimeConnexionStatus              ();
-    XDWORD                                  GetTimeConnexionStatus                ();
+    XQWORD                                  GetTimeConnexionStatus                ();
 
   private:
 

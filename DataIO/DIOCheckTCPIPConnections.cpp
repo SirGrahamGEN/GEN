@@ -447,14 +447,14 @@ bool DIOCHECKTCPIPCONNECTION::ResetTimeConnexionStatus()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
+* @fn         XQWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
 * @brief      GetTimeConnexionStatus
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
+XQWORD DIOCHECKTCPIPCONNECTION::GetTimeConnexionStatus()
 {
   if(!timerconnexion) return 0;
   return timerconnexion->GetMeasureSeconds();
