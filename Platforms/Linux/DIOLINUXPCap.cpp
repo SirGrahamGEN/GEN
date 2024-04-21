@@ -111,6 +111,7 @@ bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promisc
   XBUFFER ni;
   
   (*netinterface->GetName()).ConvertToASCII(ni);
+  
   handle= pcap_open_live(ni.GetPtrChar()         , // name of the device
                          65536                   , // portion of the packet to capture.  65536 grants that the whole packet will be captured on all the MACs.
                          promiscuousmode?1:0     , // promiscuous mode (nonzero means promiscuous)
@@ -118,7 +119,29 @@ bool DIOLINUXPCAP::Capture_Start(DIOPCAPNETINTERFACE* netinterface, bool promisc
                          errbuf);                  // error buffer
   
   if(handle == NULL) return false;
+  
+  /*
+  handle = pcap_create(ni.GetPtrChar(), errbuf);
+  if(handle == NULL)
+    {    
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[PCAP] error to create..."));  
+      return false;
+    }
 
+  if(pcap_set_rfmon(handle,1) == 0)
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[PCAP] error to rfmonitor..."));    
+    }
+  
+  pcap_set_snaplen(handle, 2048);       // Set the snapshot length to 2048
+  pcap_set_promisc(handle, promiscuousmode?1:0);          // Turn promiscuous mode off
+  pcap_set_timeout(handle, timeout);    // Set the timeout to 512 milliseconds
+
+  int status = pcap_activate(handle);
+  
+  
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[PCAP] activate: %d"), status);
+  */  
 
   threadcapture = CREATEXTHREAD(XTHREADGROUPID_DIOPCAP, __L("DIOLINUXPCAP::Capture_Start"), ThreadCapture, (void*)this);
   if(!threadcapture) return false;
