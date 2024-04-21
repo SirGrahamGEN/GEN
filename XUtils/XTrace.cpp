@@ -45,11 +45,10 @@
 #include "DIOFactory.h"
 #include "DIOURL.h"
 #include "DIODNSResolver.h"
-#include "DIOStreamEnumDevices.h"
-
 #include "DIOStreamDeviceIP.h"
+#include "DIOStreamEnumDevices.h"
 #include "DIOStreamIPLocalEnumDevices.h"
-#include "DIOScraperWebPublicIP.h"
+#include "DIOWebClient.h"
 
 #include "XMemory_Control.h"
 
@@ -2161,61 +2160,28 @@ bool XTRACE::ObtainPublicIP()
 {
   bool  status = false;
 
-  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMUDP_ACTIVE))
+  #if(defined(DIO_ACTIVE) && defined(DIO_STREAMTCPIP_ACTIVE))
 
-  DIOIP                  ip;
-  DIOSCRAPERWEBPUBLICIP* publicip = new DIOSCRAPERWEBPUBLICIP();
-  if(!publicip) return false;
+  DIOWEBCLIENT  webclient;
+  DIOURL        url;
+  XBUFFER       buffer;
+  
+  url = __L("http://ipecho.net/plain");
+  webclient.Set_Port(80);
 
-  if(publicip->GetURLDownload()) publicip->GetURLDownload()->Set(scraperwebscripturldownload);
+  buffer.Resize(64);
 
-  if(publicip->Get(ip, 5))
+  status =  webclient.Get(url, buffer, NULL, 60);
+  if(status)
     {
-      XSTRING string;
-
-      ip.GetXString(string);
-      SetPublicIPString(string.Get());
+      XSTRING string = (char*)buffer.Get();      
+      SetPublicIPString(string.Get());      
     }
-
-  delete publicip;
 
   #endif
 
+
   return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XTRACE::GetScraperWebScriptURLDownload()
-* @brief      Get Web Scrapper Script URL download
-* @ingroup    XUTILS
-*
-* @return     XCHAR* : URL download
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XTRACE::GetScraperWebScriptURLDownload()
-{
-  return scraperwebscripturldownload;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
-* @brief      Get Web Scrapper Script URL download
-* @ingroup    XUTILS
-*
-* @param[in]  scraperwebscripturldownload : URL download
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetScraperWebScriptURLDownload(XCHAR* scraperwebscripturldownload)
-{
-  XDWORD size = 0;
-  if(scraperwebscripturldownload) size = XSTRING::GetSize(scraperwebscripturldownload);
-
-  memset(this->scraperwebscripturldownload, 0, _MAXSTR * sizeof(XCHAR));
-  if(scraperwebscripturldownload) memcpy(this->scraperwebscripturldownload, scraperwebscripturldownload, (size + 1) * sizeof(XCHAR));
 }
 
 

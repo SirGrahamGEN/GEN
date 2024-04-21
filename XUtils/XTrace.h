@@ -457,8 +457,6 @@ class XTRACE
     #ifndef XTRACE_NOINTERNET
 
     bool                            ObtainPublicIP                    ();
-    XCHAR*                          GetScraperWebScriptURLDownload    ();
-    void                            SetScraperWebScriptURLDownload    (XCHAR* scraperwebscripturldownload);
     XDWORD                          GetPublicIP                       ();
     bool                            SetPublicIPString                 (XCHAR* publicIPstring);
 
@@ -491,7 +489,6 @@ class XTRACE
     XCHAR                           applicationID[_MAXSTR];
 
     #ifndef XTRACE_NOINTERNET
-    XCHAR                           scraperwebscripturldownload[_MAXSTR];
     XDWORD                          publicIP;
     #endif
 
