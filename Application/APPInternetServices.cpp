@@ -768,6 +768,8 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           xevent.SetIsChangeLocalIP(true);          
           xevent.GetChangeLocalIP()->Set(actualautomaticlocalIP);
 
+          nchangeslocalIP++;
+
           automaticlocalIP  = actualautomaticlocalIP;
           sendchangeevent   = true;
         }                                                                         
@@ -786,6 +788,8 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
             {
               xevent.SetIsChangePublicIP(true);          
               xevent.GetChangePublicIP()->Set(actualpublicIP);
+
+              nchangespublicIP++;
 
               publicIP        = actualpublicIP;                                                                          
               sendchangeevent = true;                          
@@ -806,6 +810,12 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
 
   if(sendchangeevent)
     {
+      nchangesIP++;
+
+      xevent.SetNChangesIP(nchangesIP);
+      xevent.SetNChangesLocalIP(nchangeslocalIP);
+      xevent.SetNChangesPublicIP(nchangespublicIP);
+ 
       PostEvent(&xevent);                                                                      
     }
 
@@ -1025,6 +1035,10 @@ void APPINTERNETSERVICES::Clean()
 
   automaticlocalIP.Empty();
   alllocalIP.Empty();
+
+  nchangesIP              = 0;
+  nchangeslocalIP         = 0;
+  nchangespublicIP        = 0;
 
   checkinternetconnection = NULL;
 

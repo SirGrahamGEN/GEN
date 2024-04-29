@@ -238,6 +238,96 @@ XSTRING* APPINTERNETSERVICES_XEVENT::GetChangeLocalIP()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesIP()
+* @brief      GetNChangesIP
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesIP()
+{
+  return nchangesIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPINTERNETSERVICES_XEVENT::SetNChangesIP(XDWORD nchangesIP)
+* @brief      SetNChangesIP
+* @ingroup    APPLICATION
+* 
+* @param[in]  nchangesIP : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPINTERNETSERVICES_XEVENT::SetNChangesIP(XDWORD nchangesIP)
+{
+  this->nchangesIP = nchangesIP; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesLocalIP()
+* @brief      GetNChangesLocalIP
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesLocalIP()
+{
+  return nchangeslocalIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPINTERNETSERVICES_XEVENT::SetNChangesLocalIP(XDWORD nchangeslocalIP)
+* @brief      SetNChangesLocalIP
+* @ingroup    APPLICATION
+* 
+* @param[in]  nchangeslocalIP : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPINTERNETSERVICES_XEVENT::SetNChangesLocalIP(XDWORD nchangeslocalIP)
+{
+  this->nchangeslocalIP = nchangeslocalIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesPublicIP()
+* @brief      GetNChangesPublicIP
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD APPINTERNETSERVICES_XEVENT::GetNChangesPublicIP()
+{
+  return nchangespublicIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPINTERNETSERVICES_XEVENT::SetNChangesPublicIP(XDWORD nchangespublicIP)
+* @brief      SetNChangesPublicIP
+* @ingroup    APPLICATION
+* 
+* @param[in]  nchangespublicIP : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPINTERNETSERVICES_XEVENT::SetNChangesPublicIP(XDWORD nchangespublicIP)
+{
+  this->nchangespublicIP = nchangespublicIP;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void APPINTERNETSERVICES_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -253,6 +343,10 @@ void APPINTERNETSERVICES_XEVENT::Clean()
   ischangelocalIP         = false;
   changepublicIP.Empty();
   changelocalIP.Empty();
+
+  nchangesIP              = 0;
+  nchangeslocalIP         = 0;
+  nchangespublicIP        = 0;   
 }
 
 

@@ -87,7 +87,6 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
     XDATETIME*                      DateTime_GetUTC                 ();
     int                             DateTime_GetMeridian            ();
     
-
     DIOCHECKTCPIPCONNECTIONS*       GetCheckTCPIPConnections        ();
     DIOCHECKINTERNETCONNECTION*     GetCheckInternetConnection      ();
     DIODYNDNS_MANAGER*              GetDynDNSManager                ();
@@ -118,6 +117,9 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     XSTRING                         automaticlocalIP;
     XSTRING                         alllocalIP;
+    XDWORD                          nchangesIP;
+    XDWORD                          nchangeslocalIP;
+    XDWORD                          nchangespublicIP;
     
     DIOCHECKINTERNETCONNECTION*     checkinternetconnection;
 

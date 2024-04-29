@@ -88,7 +88,16 @@ class APPINTERNETSERVICES_XEVENT : public XEVENT
     void                                                SetIsChangeLocalIP                     (bool ischangelocalIP);     
 
     XSTRING*                                            GetChangePublicIP                      ();     
-    XSTRING*                                            GetChangeLocalIP                       ();     
+    XSTRING*                                            GetChangeLocalIP                       (); 
+
+    XDWORD                                              GetNChangesIP                          ();
+    void                                                SetNChangesIP                          (XDWORD nchangesIP);
+    
+    XDWORD                                              GetNChangesLocalIP                     ();
+    void                                                SetNChangesLocalIP                     (XDWORD nchangeslocalIP);
+    
+    XDWORD                                              GetNChangesPublicIP                    ();
+    void                                                SetNChangesPublicIP                    (XDWORD nchangeslocalIP);         
 
     
   private:
@@ -102,7 +111,11 @@ class APPINTERNETSERVICES_XEVENT : public XEVENT
     bool                                                ischangelocalIP;
     
     XSTRING                                             changepublicIP;     
-    XSTRING                                             changelocalIP;     
+    XSTRING                                             changelocalIP;  
+
+    XDWORD                                              nchangesIP;
+    XDWORD                                              nchangeslocalIP;
+    XDWORD                                              nchangespublicIP;   
 };
 
 #pragma endregion

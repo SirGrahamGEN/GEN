@@ -298,6 +298,8 @@ bool SCRIPT::Load(XPATH& xpath)
 {
   #ifdef SCRIPT_CACHE_ACTIVE
 
+  xpath.Slash_Normalize(false);
+
   XDWORD ID = GEN_SCRIPT_CACHE.GenerateID(xpath);
 
   XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
@@ -310,7 +312,6 @@ bool SCRIPT::Load(XPATH& xpath)
     }
 
   #endif
-
 
   if(!xfiletxt) return false;
 
@@ -340,7 +341,7 @@ bool SCRIPT::Load(XPATH& xpath)
   if(status)
     {
       ID = GEN_SCRIPT_CACHE.GenerateID(xpath);      
-      GEN_SCRIPT_CACHE.Cache_Add(ID, &script);
+      GEN_SCRIPT_CACHE.Cache_Add(ID, &script);      
     }
   #endif
 
@@ -478,6 +479,8 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                                        
                       #ifdef SCRIPT_CACHE_ACTIVE
 
+
+                      allpath.Slash_Normalize(false);
                       ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
                       XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
                       if(_script)
@@ -647,7 +650,10 @@ XPATH* SCRIPT::GetPath()
 * --------------------------------------------------------------------------------------------------------------------*/
 int SCRIPT::Run(int* returnval)
 {
-  if(script.IsEmpty()) return SCRIPT_ERRORCODE_INTERNALERROR;
+  if(script.IsEmpty()) 
+    {
+      return SCRIPT_ERRORCODE_INTERNALERROR;
+    }
 
   isrunwiththread = false;
   if(thread) isrunwiththread = thread->IsRunning();

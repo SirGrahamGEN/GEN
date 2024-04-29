@@ -131,6 +131,96 @@ bool INPCAPTURE::Deactivate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD INPCAPTURE::GetNKeys()
+* @brief      GetNKeys
+* @ingroup    INPUT
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPCAPTURE::GetNKeys()
+{
+  return nkeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE::SetNKeys(XDWORD nkeys)
+* @brief      SetNKeys
+* @ingroup    INPUT
+* 
+* @param[in]  nkeys : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE::SetNKeys(XDWORD nkeys)
+{
+  this->nkeys = nkeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD INPCAPTURE::GetLimit()
+* @brief      GetLimit
+* @ingroup    INPUT
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPCAPTURE::GetLimit()
+{
+  return limit;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE::SetLimit(XDWORD limit)
+* @brief      SetLimit
+* @ingroup    INPUT
+* 
+* @param[in]  capture_limit : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE::SetLimit(XDWORD limit)
+{
+  this->limit = limit;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* INPCAPTURE::GetBuffer()
+* @brief      GetCaptureBuffer
+* @ingroup    INPUT
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER* INPCAPTURE::GetBuffer()
+{
+  return &buffer;    
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* INPCAPTURE::GetString()
+* @brief      GetCaptureString
+* @ingroup    INPUT
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* INPCAPTURE::GetString()
+{
+  return &string;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void INPCAPTURE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -140,6 +230,12 @@ bool INPCAPTURE::Deactivate()
 void INPCAPTURE::Clean()
 {
   applicationhandle   = NULL;  
+
+  nkeys               = 0;
+  limit               = 0;
+
+  buffer.Empty();
+  string.Empty();
 }
 
 

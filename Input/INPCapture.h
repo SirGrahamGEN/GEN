@@ -35,6 +35,7 @@
 #include <stdio.h>
 
 #include "XBase.h"
+#include "XBuffer.h"
 #include "XString.h"
 #include "XSubject.h"
 
@@ -44,6 +45,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+#define INPCAPTURE_DEFAULTLIMIT  10000
 
 #pragma endregion
 
@@ -61,16 +63,28 @@ class INPCAPTURE : public XSUBJECT
 
     virtual bool                      Activate                    ();
     virtual bool                      Deactivate                  ();
+    
+    XDWORD                            GetNKeys                    ();   
+    void                              SetNKeys                    (XDWORD nkeys); 
+
+    XDWORD                            GetLimit                    ();
+    void                              SetLimit                    (XDWORD limit = INPCAPTURE_DEFAULTLIMIT);
+
+    XBUFFER*                          GetBuffer                   ();
+    XSTRING*                          GetString                   ();
 
   protected: 
 
-    void*                             applicationhandle;
+    void*                             applicationhandle; 
+    
+    XDWORD                            nkeys; 
+    XDWORD                            limit;
+    XBUFFER                           buffer;
+    XSTRING                           string; 
 
   private:
 
-    void                              Clean                       ();
-
-    
+    void                              Clean                       ();      
 };
 
 #pragma endregion

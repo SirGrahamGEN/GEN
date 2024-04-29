@@ -212,6 +212,96 @@ void INPCAPTURE_XEVENT::SetIsKeyLocked(bool iskeylocked)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD INPCAPTURE_XEVENT::GetNKeys()
+* @brief      GetNKeys
+* @ingroup    INPUT
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPCAPTURE_XEVENT::GetNKeys()
+{
+  return nkeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE_XEVENT::SetNKeys(XDWORD nkeys)
+* @brief      SetNKeys
+* @ingroup    INPUT
+* 
+* @param[in]  nkeys : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE_XEVENT::SetNKeys(XDWORD nkeys)
+{
+  this->nkeys = nkeys;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD INPCAPTURE_XEVENT::GetLimit()
+* @brief      GetLimit
+* @ingroup    INPUT
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD INPCAPTURE_XEVENT::GetLimit()
+{
+  return limit;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void INPCAPTURE_XEVENT::SetLimit(XDWORD limit)
+* @brief      SetLimit
+* @ingroup    INPUT
+* 
+* @param[in]  capture_limit : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void INPCAPTURE_XEVENT::SetLimit(XDWORD limit)
+{
+  this->limit = limit;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* INPCAPTURE_XEVENT::GetBuffer()
+* @brief      GetCaptureBuffer
+* @ingroup    INPUT
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER* INPCAPTURE_XEVENT::GetBuffer()
+{
+  return &buffer;    
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* INPCAPTURE_XEVENT::GetString()
+* @brief      GetCaptureString
+* @ingroup    INPUT
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* INPCAPTURE_XEVENT::GetString()
+{
+  return &string;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void INPCAPTURE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -224,6 +314,12 @@ void INPCAPTURE_XEVENT::Clean()
   scancode      = 0;
   flags         = 0;
   iskeylocked   = false;
+
+  nkeys         = 0;
+  limit         = 0;
+
+  buffer.Empty();
+  string.Empty();
 }
 
 

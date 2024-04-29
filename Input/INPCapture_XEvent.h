@@ -34,6 +34,7 @@
 
 #include "XEvent.h"
 #include "XSubject.h"
+#include "XBuffer.h"
 
 #pragma endregion
 
@@ -74,6 +75,15 @@ class INPCAPTURE_XEVENT : public XEVENT
 
     bool                        IsKeyLocked                     ();           
     void                        SetIsKeyLocked                  (bool iskeylocked);
+
+    XDWORD                      GetNKeys                        ();   
+    void                        SetNKeys                        (XDWORD nkeys); 
+
+    XDWORD                      GetLimit                        ();
+    void                        SetLimit                        (XDWORD limit);
+
+    XBUFFER*                    GetBuffer                       ();
+    XSTRING*                    GetString                       ();
    
   private:
 
@@ -83,6 +93,11 @@ class INPCAPTURE_XEVENT : public XEVENT
     XWORD                       scancode;
     XDWORD                      flags;
     bool                        iskeylocked;
+
+    XDWORD                      nkeys; 
+    XDWORD                      limit;
+    XBUFFER                     buffer;
+    XSTRING                     string; 
 };
 
 #pragma endregion

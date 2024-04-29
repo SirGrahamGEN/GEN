@@ -187,15 +187,43 @@ LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wpara
 
   KBDLLHOOKSTRUCT* keydata = (KBDLLHOOKSTRUCT*)lparam;
 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->vkCode);
+  //XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Windows Hook keyboard] vkCode %04X, scanCode %08X, flags %08X [%c]"), keydata->vkCode, keydata->scanCode, keydata->flags, keydata->vkCode);
 
   if(capture)
     { 
       INPCAPTURE_XEVENT xevent(capture, (keydown?INPCAPTURE_XEVENT_TYPE_PRESSKEY:INPCAPTURE_XEVENT_TYPE_UNPRESSKEY));
+      
+      if(!keydown)
+        {      
+          XCHAR character = (XCHAR)keydata->vkCode;
 
+          capture->SetNKeys(capture->GetNKeys()); 
+
+          if(capture->GetLimit())
+            {
+              if(capture->GetLimit() >= capture->GetNKeys())
+                {
+                  capture->GetString()->Empty();
+                  capture->GetBuffer()->Empty();
+                }
+            }
+
+          if(((character >= 0x20) && (character < 0x80)) || (character == 0x13) || (character == 0x10) || (character == 0x09))
+            {
+              capture->GetString()->Add(character);
+            }
+
+          capture->GetBuffer()->Add((XDWORD)keydata->vkCode);   
+        }
+        
       xevent.SetVKCode((XDWORD)keydata->vkCode); 
       xevent.SetScanCode((XWORD)keydata->scanCode);
       xevent.SetFlags((XDWORD)keydata->flags);
+
+      xevent.SetNKeys(capture->GetNKeys());
+      xevent.SetLimit(capture->GetLimit());
+      xevent.GetString()->Set(capture->GetString()->Get());
+      xevent.GetBuffer()->Add(capture->GetBuffer()->Get(), capture->GetBuffer()->GetSize());
 
       capture->PostEvent(&xevent);
       if(xevent.IsKeyLocked())
