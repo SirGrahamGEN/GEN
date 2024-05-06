@@ -46,6 +46,8 @@
 #include <tchar.h>
 #include <fcntl.h> 
 #include <io.h>
+#include <iostream>
+#include <fstream>
 
 #include "XString.h"
 #include "XFileTXT.h"
@@ -380,6 +382,103 @@ int XWINDOWSCONSOLE::GetChar()
   return _getch();
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XWINDOWSCONSOLE::RedirectIOToConsole()
+* @brief      RedirectIOToConsole
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XWINDOWSCONSOLE::RedirectIOToConsole()
+{
+  /*
+  #define MAX_CONSOLE_LINES   500
+
+  int                         hconhandle;
+  long                        lstdhandle;
+  CONSOLE_SCREEN_BUFFER_INFO  coninfo;
+  FILE*                       fp;
+
+  // allocate a console for this app
+  AllocConsole();
+
+  // set the screen buffer to be big enough to let us scroll text
+  GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &coninfo);
+  coninfo.dwSize.Y = MAX_CONSOLE_LINES;
+  SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), coninfo.dwSize);
+
+    
+  // redirect unbuffered STDOUT to the console
+  lstdhandle  = (long)GetStdHandle(STD_OUTPUT_HANDLE);
+  hconhandle  = _open_osfhandle(lstdhandle, _O_TEXT);
+  fp          = _fdopen( hconhandle, "w" );
+  *stdout     = *fp;
+  setvbuf( stdout, NULL, _IONBF, 0 );
+
+  // redirect unbuffered STDIN to the console
+  lstdhandle  = (long)GetStdHandle(STD_INPUT_HANDLE);
+  hconhandle  = _open_osfhandle(lstdhandle, _O_TEXT);
+  fp          = _fdopen( hconhandle, "r" );
+  *stdin      = *fp;
+  setvbuf( stdin, NULL, _IONBF, 0 );
+
+  // redirect unbuffered STDERR to the console
+  lstdhandle  = (long)GetStdHandle(STD_ERROR_HANDLE);
+  hconhandle  = _open_osfhandle(lstdhandle, _O_TEXT);
+  fp          = _fdopen( hconhandle, "w" );
+  *stderr     = *fp;
+  setvbuf( stderr, NULL, _IONBF, 0 );
+  
+
+  // make cout, wcout, cin, wcin, wcerr, cerr, wclog and clog
+  // point to console as well
+  std::ios::sync_with_stdio();
+  */
+
+    if(!AttachConsole(ATTACH_PARENT_PROCESS)) 
+      {
+        return;
+      }
+    
+    HANDLE  consoleoutput = GetStdHandle(STD_OUTPUT_HANDLE);
+    int     SystemOutput  = _open_osfhandle(intptr_t(consoleoutput), _O_TEXT);
+
+    // check if output is a console and not redirected to a file
+    if(!isatty(SystemOutput)) 
+      {
+        return; // return if it's not a TTY
+      }
+
+    FILE*   coutputhandle = _fdopen(SystemOutput, "w");
+
+    // Get STDERR handle
+    HANDLE  consoleerror  = GetStdHandle(STD_ERROR_HANDLE);
+    int     systemerror   = _open_osfhandle(intptr_t(consoleerror), _O_TEXT);
+    FILE*   cerrorhandle  = _fdopen(systemerror, "w");
+
+    // Get STDIN handle
+    HANDLE  consoleinput  = GetStdHandle(STD_INPUT_HANDLE);
+    int     systeminput   = _open_osfhandle(intptr_t(consoleinput), _O_TEXT);
+    FILE*   cinputhandle  = _fdopen(systeminput, "r");
+
+    //make cout, wcout, cin, wcin, wcerr, cerr, wclog and clog point to console as well
+    std::ios::sync_with_stdio(true);
+
+    // Redirect the CRT standard input, output, and error handles to the console
+    freopen_s(&cinputhandle , "CONIN$"  , "r", stdin);
+    freopen_s(&coutputhandle, "CONOUT$" , "w", stdout);
+    freopen_s(&cerrorhandle , "CONOUT$" , "w", stderr);
+
+    //Clear the error state for each of the C++ standard stream objects.
+    std::wcout.clear();
+    std::cout.clear();
+    std::wcerr.clear();
+    std::cerr.clear();
+    std::wcin.clear();
+    std::cin.clear();
+    
+}
 
 #pragma endregion
 

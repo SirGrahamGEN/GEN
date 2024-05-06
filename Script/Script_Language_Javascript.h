@@ -69,8 +69,6 @@ class SCRIPT_LNG_JAVASCRIPT : public SCRIPT
                                         SCRIPT_LNG_JAVASCRIPT       ();
     virtual                            ~SCRIPT_LNG_JAVASCRIPT       ();
 
-    bool                                Load                        (XPATH& xpath);
-
     int                                 Run                         (int* returnval = NULL);
 
     bool                                AddLibraryFunction          (SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction);

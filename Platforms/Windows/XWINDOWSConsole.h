@@ -71,6 +71,8 @@ class XWINDOWSCONSOLE : public XCONSOLE
 
     bool                KBHit                           ();
     int                 GetChar                         ();
+
+    static void         RedirectIOToConsole             ();
 };
 
 

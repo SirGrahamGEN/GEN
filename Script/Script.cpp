@@ -479,7 +479,6 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
                                        
                       #ifdef SCRIPT_CACHE_ACTIVE
 
-
                       allpath.Slash_Normalize(false);
                       ID = GEN_SCRIPT_CACHE.GenerateID(allpath);
                       XSTRING* _script = GEN_SCRIPT_CACHE.Cache_Get(ID);
@@ -526,7 +525,7 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
 
                       if(status)
                         {                               
-                          script->Run();                              
+                          script->Run();                                       
                         }
                       
                       delete script;

@@ -105,25 +105,6 @@ SCRIPT_LNG_JAVASCRIPT::~SCRIPT_LNG_JAVASCRIPT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LNG_JAVASCRIPT::Load(XPATH& xpath)
-* @brief      Load
-* @ingroup    SCRIPT
-*
-* @param[in]  xpath :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LNG_JAVASCRIPT::Load(XPATH& xpath)
-{
-  if(!SCRIPT::Load(xpath)) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_LNG_JAVASCRIPT::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT

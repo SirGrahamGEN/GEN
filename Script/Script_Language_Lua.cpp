@@ -100,35 +100,6 @@ SCRIPT_LNG_LUA::~SCRIPT_LNG_LUA()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool SCRIPT_LNG_LUA::Load(XPATH& xpath)
-* @brief      Load
-* @ingroup    SCRIPT
-*
-* @param[in]  xpath :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool SCRIPT_LNG_LUA::Load(XPATH& xpath)
-{
-  if(!state) return false;
-
-  if(!SCRIPT::Load(xpath)) return false;
-
-  XBUFFER charnamescript;
-  XBUFFER charscript;
-  
-  namescript.ConvertToASCII(charnamescript);
-  script.ConvertToASCII(charscript);
-
-  int status = luaL_loadbuffer(state, charscript.GetPtrChar(), strlen(charscript.GetPtrChar()), charnamescript.GetPtrChar());
-
-  return (status == LUA_OK )?true:false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         SCRIPT_G_ERRORCODE SCRIPT_LNG_LUA::Run(int* returnval)
 * @brief      Run
 * @ingroup    SCRIPT
@@ -140,30 +111,51 @@ bool SCRIPT_LNG_LUA::Load(XPATH& xpath)
 * --------------------------------------------------------------------------------------------------------------------*/
 int SCRIPT_LNG_LUA::Run(int* returnval)
 {
-  errorcode  = SCRIPT_ERRORCODE_NONE;
-  iscancelexec = false;
+  XBUFFER charnamescript;
+  XBUFFER charscript;
+  
+  namescript.ConvertToASCII(charnamescript);
+  script.ConvertToASCII(charscript);
 
-  int     status = 0;
+  int status = luaL_loadbuffer(state, charscript.GetPtrChar(), strlen(charscript.GetPtrChar()), charnamescript.GetPtrChar());
 
-  if(HaveMainFunction())
+  if(status == LUA_OK )  
     {
-      //Exec to ajust the Stack in Lua with Main Function. lua_getglobal don´t work well without this.
-      lua_pcall(state, 0, LUA_MULTRET, 0);
-    }
+      errorcode  = SCRIPT_ERRORCODE_NONE;
+      iscancelexec = false;
 
-  lua_getglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
+      int     status = 0;
 
-  status = lua_isfunction(state, lua_gettop(state));
-  if(status)
-    {
-      status = lua_pcall(state, 0, 0, 0);
-    }
-   else
-    {
-      lua_setglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
-      status = lua_pcall(state, 0, LUA_MULTRET, 0);
-    }
+      if(!HaveMainFunction())
+        {
+          // Exec to ajust the Stack in Lua with Main Function. lua_getglobal don´t work well without this.
+          lua_pcall(state, 0, LUA_MULTRET, 0);
+        }
+       else
+        {       
+          lua_getglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
 
+          status = lua_isfunction(state, lua_gettop(state));
+          if(status)
+            {
+              status = lua_pcall(state, 0, 1, 0);
+            }
+           else 
+            {
+              lua_setglobal(state, SCRIPT_LNG_LUA_MAINFUNCTIONNAME);
+              status = lua_pcall(state, 0, 1, 0);
+            }
+        }
+      
+      int returnvalue = (int)lua_tonumber(state, -1);
+      lua_pop(state, -1);
+
+      if(returnval)
+        {  
+          (*returnval) = (int)returnvalue;
+           
+        }          
+    }
 
   if(status != LUA_OK)
     {

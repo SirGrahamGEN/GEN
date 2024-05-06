@@ -39,9 +39,6 @@
 
 #include <winsock2.h>
 
-//#include <float.h>
-//#include <tchar.h>
-
 #pragma warning(push)
 #pragma warning (disable : 4091)
 #include <dbghelp.h>
@@ -737,7 +734,6 @@ bool MAINPROCWINDOWS::IsRunningAsService()
   if((!ssstatus.dwProcessId) && (ssstatus.dwCurrentState == SERVICE_START_PENDING)) return true;
 
   return false;
-
 }
 
 
@@ -1233,11 +1229,12 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
   cmdlinestr.Empty();
   xpathexecutable.Empty(); 
 
+
   if(!mainprocwindows.IsRunningAsService())
-    {
+    {   
       mainprocwindows.MainLoop();
     }
-    else
+   else
     {
       WINDOWSSERVICE service(APPMODE_SERVICE_NAME);
       if(!WINDOWSSERVICE::Run(service))

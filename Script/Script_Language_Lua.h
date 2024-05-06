@@ -65,9 +65,7 @@ class SCRIPT_LNG_LUA : public SCRIPT
   public:
                                         SCRIPT_LNG_LUA          ();
     virtual                            ~SCRIPT_LNG_LUA          ();
-
-    bool                                Load                    (XPATH& xpath);
-
+    
     int                                 Run                     (int* returnval = NULL);
 
     bool                                AddLibraryFunction      (SCRIPT_LIB* library, XCHAR* name, SCRFUNCIONLIBRARY ptrfunction);
