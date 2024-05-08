@@ -28,7 +28,7 @@
 
 #ifdef XTRACE_ACTIVE
 
-/*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
 #pragma region PRECOMPILATION_INCLUDES
 
 #include "GEN_Defines.h"
