@@ -159,9 +159,6 @@ bool INPWINDOWSCAPTURE::Deactivate()
 }
 
 
-
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         LRESULT CALLBACK INPWINDOWSCAPTURE::LowLevelKeyboardProc(int ncode, WPARAM wparam, LPARAM lparam)

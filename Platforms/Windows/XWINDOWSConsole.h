@@ -72,7 +72,13 @@ class XWINDOWSCONSOLE : public XCONSOLE
     bool                KBHit                           ();
     int                 GetChar                         ();
 
-    static void         RedirectIOToConsole             ();
+    static bool         Generate                        ();
+    static bool         Close                           ();
+
+  private:
+
+    static void         SendEnterKey                    ();
+   
 };
 
 
