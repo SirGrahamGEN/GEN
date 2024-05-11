@@ -306,7 +306,9 @@ bool SCRIPT::Load(XPATH& xpath)
   if(_script)
     {
       script.Empty();
-      script += _script->Get();      
+      script += _script->Get();  
+
+      GetNameScript()->Format(__L("ID%08X"), ID);
 
       return true;
     }
@@ -488,6 +490,8 @@ bool SCRIPT::LoadScriptAndRun(XVECTOR<XSTRING*>* listscripts, SCRFUNCADJUSTLIBRA
 
                           incache = true;
                           status  = !_script->IsEmpty();
+
+                          script->GetNameScript()->Format(__L("ID%08X"), ID);
                         }
 
                       #endif
@@ -1170,7 +1174,7 @@ void SCRIPT::Clean()
   xpath.Empty();
 
   xfiletxt            = NULL;
-  namescript          = __L("N/A");
+  namescript          = __L("");
   script.Empty();
 
   xtimer              = NULL;
