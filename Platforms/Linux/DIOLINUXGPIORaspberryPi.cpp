@@ -55,7 +55,7 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-static uint32_t* RPI_gpio;
+static uint32_t* RPI_map  = NULL;
 
 #pragma endregion
 
@@ -112,17 +112,23 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
       case RASPBERRYPI_MODEL_A_PLUS         :
       case RASPBERRYPI_MODEL_B_PLUS         :
       case RASPBERRYPI_MODEL_COMPUTERMODULE :
-      case RASPBERRYPI_MODEL_ZERO           : RPI_gpio_base = (RPI_BCM2708_PERI_BASE   + 0x200000);
+      case RASPBERRYPI_MODEL_ZERO           : RPI_map_base   = (RPI_BCM2708_PERI_BASE + 0x200000);
+                                              RPI_map_base64 = 0;
                                               break;
       case RASPBERRYPI_MODEL_B_2            :
       case RASPBERRYPI_MODEL_B_3            : 
       case RASPBERRYPI_MODEL_CM3P           :
-      case RASPBERRYPI_MODEL_B_3P           : RPI_gpio_base = (RPI_BCM2708_PERI_BASE_2 + 0x200000);
+      case RASPBERRYPI_MODEL_B_3P           : RPI_map_base   = (RPI_BCM2709_PERI_BASE + 0x200000);
+                                              RPI_map_base64 = 0;
                                               break;
 
-      case RASPBERRYPI_MODEL_B_4            : RPI_gpio_base = (RPI_BCM2708_PERI_BASE_4 + 0x200000);
+      case RASPBERRYPI_MODEL_B_4            : RPI_map_base   = (RPI_BCM2711_PERI_BASE + 0x200000);
+                                              RPI_map_base64 = 0;
                                               break;
-
+                                                                                      
+      case RASPBERRYPI_MODEL_B_5            : RPI_map_base   = 0;
+                                              RPI_map_base64 = RPI_BCM2712_PERI_BASE;
+                                              break;
     }
 
   
@@ -148,7 +154,8 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
      (RPI_model == RASPBERRYPI_MODEL_COMPUTERMODULE)  ||  (RPI_model == RASPBERRYPI_MODEL_B_2)    ||
      (RPI_model == RASPBERRYPI_MODEL_ZERO)            ||  (RPI_model == RASPBERRYPI_MODEL_CM3P)   ||
      (RPI_model == RASPBERRYPI_MODEL_B_3)             ||  (RPI_model == RASPBERRYPI_MODEL_B_3P)   ||
-     (RPI_model == RASPBERRYPI_MODEL_B_4)    
+     (RPI_model == RASPBERRYPI_MODEL_B_4)             ||  
+     (RPI_model == RASPBERRYPI_MODEL_B_5)  
     )
     {
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 27, DIOGPIO_INVALID);     /* 27 - I2C ID EEProm SC            */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 28, DIOGPIO_INVALID);     /* 28 - I2C ID EEProm SD          */
@@ -326,7 +333,9 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
                       if(!line->Compare(__L("b03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 2048;     revision = 1.2f; }
                       if(!line->Compare(__L("c03111") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.1f; }
                       if(!line->Compare(__L("c03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.2f; }
-                                            
+                      if(!line->Compare(__L("c04170") , true))  { model = RASPBERRYPI_MODEL_B_5;              megabytes = 4096;     revision = 1.0f; }
+                      if(!line->Compare(__L("d04170") , true))  { model = RASPBERRYPI_MODEL_B_5;              megabytes = 8192;     revision = 1.0f; }                                                                        
+            
                       if(model != RASPBERRYPI_MODEL_UNKNOWN)
                         {
                           status = true;
@@ -356,14 +365,42 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
-{
-  int fd;
+{ 
+  uint32_t* map = NULL;
+  int       fd;
 
-  if((fd = open ("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC)) < 0) return false;
+  initialization = false;
+  
+  if((fd = open ("/dev/mem", O_RDWR | O_SYNC | O_CLOEXEC)) < 0) 
+    {
+      return false;
+    }
 
-  RPI_gpio = (uint32_t *)mmap(0, RPI_BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, RPI_gpio_base) ;
-  if (!RPI_CheckHandle(RPI_gpio)) return false;
+  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+    {    
+      map = (uint32_t*)mmap(0, RPI_BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, RPI_map_base) ;      
+    }
+   else 
+    {    
+      map = (uint32_t*)mmap(NULL, 64 * 1024* 1024, PROT_READ|PROT_WRITE, MAP_SHARED, fd, RPI_map_base64);      
+    }
 
+  if(map == MAP_FAILED)
+    {
+      return false;    
+    }
+
+  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+    {
+      RPI_map  = map;
+    }
+   else
+    {           
+      RPI_map  =  map + 0xd0000 / 4;      
+    }
+
+  initialization = true;
+   
   return true;
 }
 
@@ -379,10 +416,13 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 {
-  if(!RPI_CheckHandle(RPI_gpio)) return false;
+  if(!initialization) 
+    {
+      return false;
+    }
 
   //fixme - set all gpios back to input
-  //munmap((caddr_t)RPI_gpio, RPI_BLOCK_SIZE);
+  //munmap((caddr_t)RPI_map, RPI_BLOCK_SIZE);
 
   return true;
 }
@@ -439,18 +479,30 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
   int     fsel;
   int     shift;
 
-  if(!RPI_CheckHandle(RPI_gpio))  return false;
-  if(!RPI_IsGPIOValid(GPIO))      return false;
+  if(!initialization) 
+    {
+      return false;
+    }
 
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("RPI Data Port Mode: GPIO %lld -> %s "), GPIO, isinput?__L("input"):__L("output"));
-
-  fsel    = gpiotoGPFsel[GPIO] ;
-  shift   = gpiotoshift[GPIO] ;
-
-  if(isinput) *(RPI_gpio+ fsel) = (*(RPI_gpio+ fsel) & ~(7 << shift)) ;               // Sets bits to zero = input
-        else  *(RPI_gpio+ fsel) = (*(RPI_gpio+ fsel) & ~(7 << shift)) | (1 << shift);
+  if(!RPI_IsGPIOValid(GPIO))      
+    {
+      return false;
+    }
   
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("RPI Data Port Mode: GPIO %lld -> %s "), GPIO, isinput?__L("input"):__L("output"));
 
+  fsel  = gpiotoGPFsel[GPIO];
+  shift = gpiotoshift[GPIO];
+
+  if(isinput) 
+    {
+      *(RPI_map + fsel) = (*(RPI_map + fsel) & ~(7 << shift)) ;                   // Sets bits to zero = input
+    }
+   else  
+    {
+      *(RPI_map + fsel) = (*(RPI_map + fsel) & ~(7 << shift)) | (1 << shift);
+    }
+  
   return true;
 }
 
@@ -472,16 +524,23 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
                               14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
                            };
 
-  if(!RPI_CheckHandle(RPI_gpio))  return false;
-  if(!RPI_IsGPIOValid(GPIO))      return false; 
+  if(!initialization) 
+    {
+      return false;
+    }
 
-  //XTRACE_PRINTCOLOR(1, __L("RPI Data Port Read: GPIO %lld"), GPIO);
+  if(!RPI_IsGPIOValid(GPIO))      
+    {
+      return false;
+    }
 
-  if((*(RPI_gpio + gpiotoGPLEV[GPIO]) & (1 << (GPIO & 31))) != 0)
+  XTRACE_PRINTCOLOR(1, __L("RPI Data Port Read: GPIO %lld"), GPIO);
+
+  if((*(RPI_map + gpiotoGPLEV[GPIO]) & (1 << (GPIO & 31))) != 0)
     {     
       return true;
     }
-
+  
   return false;
 }
 
@@ -509,39 +568,29 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
                              11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,
                            };
 
+  if(!initialization) 
+    {
+      return false;
+    }
 
-  if(!RPI_CheckHandle(RPI_gpio))  return false;
-  if(!RPI_IsGPIOValid(GPIO))      return false;
+  if(!RPI_IsGPIOValid(GPIO))      
+    {
+      return false;
+    }
 
-  //XTRACE_PRINTCOLOR(1, __L("RPI Data Port Write: GPIO %lld ->%s"), GPIO, isactive?__L("on"):__L("off"));
+  XTRACE_PRINTCOLOR(1, __L("RPI Data Port Write: GPIO %lld ->%s"), GPIO, isactive?__L("on"):__L("off"));
 
-  if(isactive)   *(RPI_gpio + gpiotoGPSET[GPIO]) = 1 << (GPIO & 31);
-          else   *(RPI_gpio + gpiotoGPCLR[GPIO]) = 1 << (GPIO & 31);
-
+  if(isactive)   
+    {
+      *(RPI_map + gpiotoGPSET[GPIO]) = 1 << (GPIO & 31);
+    }          
+   else   
+    {
+      *(RPI_map + gpiotoGPCLR[GPIO]) = 1 << (GPIO & 31);
+    }
   
   return true;
 }
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_CheckHandle(uint32_t* RPI_gpio)
-* @brief      RPI_CheckHandle
-* @ingroup    PLATFORM_LINUX
-* 
-* @param[in]  RPI_gpio : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOLINUXGPIORASPBERRYPI::RPI_CheckHandle(uint32_t* RPI_gpio)
-{
-  long long result = (long long)(RPI_gpio);
-
-  if(result == -1) return false;
-
-  return true;
-} 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -557,7 +606,11 @@ void DIOLINUXGPIORASPBERRYPI::Clean()
   RPI_model           = RASPBERRYPI_MODEL_UNKNOWN;
   RPI_megabytes       = 0;
   RPI_revision        = 0.0f;
-  RPI_gpio_base       = 0;
+
+  RPI_map_base        = 0;
+  RPI_map_base64      = 0;
+
+  initialization      = false;
 }
 
 

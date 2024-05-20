@@ -138,6 +138,8 @@ DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Ini(XDWORD nled)
 { 
+  return true;
+
   config.channel[0].count = nled;
 
   databuffer.Resize(nled * 3);
@@ -203,6 +205,8 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
   setpriority(PRIO_PROCESS, 0, 0);
   */
 
+  return true;
+
   XBYTE* ptrdata  = databuffer.Get();
   XDWORD data     = 0;
   int    index    = 0;
@@ -252,6 +256,8 @@ bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::Send()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI::End()
 {
+  return true;
+
   ws2811_fini(&config);
 
   return true;

@@ -70,12 +70,14 @@ enum RASPBERRYPI_MODEL
   RASPBERRYPI_MODEL_B_3                     ,
   RASPBERRYPI_MODEL_B_3P                    ,
   RASPBERRYPI_MODEL_B_4                     ,
+  RASPBERRYPI_MODEL_B_5                     ,
 };
 
 
-#define RPI_BCM2708_PERI_BASE           0x20000000     // Rapsberry Pi A+, B+
-#define RPI_BCM2708_PERI_BASE_2         0x3F000000     // Rapsberry Pi 2 y 3
-#define	RPI_BCM2708_PERI_BASE_4         0xFE000000     // Rapsberry Pi 4 
+#define RPI_BCM2708_PERI_BASE           0x20000000      // Rapsberry Pi A+, B+
+#define RPI_BCM2709_PERI_BASE           0x3F000000      // Rapsberry Pi 2 y 3
+#define	RPI_BCM2711_PERI_BASE           0xFE000000      // Rapsberry Pi 4 
+#define	RPI_BCM2712_PERI_BASE           0x1F00000000    // Rapsberry Pi 5 
 
 
 #define RPI_PAGE_SIZE                   (4*1024)
@@ -111,16 +113,16 @@ class DIOLINUXGPIORASPBERRYPI : public DIOGPIO
     bool                                RPI_IsGPIOValid             (XQWORD GPIO);
     bool                                RPI_GPIOMode                (XQWORD GPIO, bool isinput);
     bool                                RPI_GPIORead                (XQWORD GPIO);
-    bool                                RPI_GPIOWrite               (XQWORD GPIO, bool isactive);
-
-    bool                                RPI_CheckHandle             (uint32_t* RPI_gpio);
+    bool                                RPI_GPIOWrite               (XQWORD GPIO, bool isactive);    
 
     void                                Clean                       ();
 
     RASPBERRYPI_MODEL                   RPI_model;
     int                                 RPI_megabytes;
-    float                               RPI_revision;
-    XDWORD                              RPI_gpio_base;
+    float                               RPI_revision; 
+    XDWORD                              RPI_map_base;
+    XQWORD                              RPI_map_base64;
+    bool                                initialization;
 };
 
 

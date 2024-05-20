@@ -54,13 +54,19 @@
 #include "XWINDOWSTrace.h"
 #include "XWINDOWSRand.h"
 #include "XWINDOWSSleep.h"
-#include "XWINDOWSSystem.h"
 #include "XWINDOWSTrace.h"
+
+#ifdef XSYSTEM_ACTIVE
+  #include "XWINDOWSSystem.h"
+#endif
+
+#ifdef DIO_OSPIPELINE_ACTIVE
+  #include "DIOWINDOWSOSPipeline.h"
+#endif
 
 #ifdef XPROCESSMANAGER_ACTIVE
   #include "XWINDOWSProcessManager.h"
 #endif
-
 
 #ifdef XSHAREDMEMORYMANAGER_ACTIVE
   #include "XWINDOWSSharedMemoryManager.h"
@@ -402,6 +408,14 @@ bool MAINPROCWINDOWS::Factorys_Ini()
     }
   XBUFFER::SetGlobalHardwareUseLittleEndian(GEN_XSYSTEM.HardwareUseLittleEndian());
   #endif
+
+  #ifdef DIO_OSPIPELINE_ACTIVE  
+  if(!DIOOSPIPELINE::SetInstance(new DIOWINDOWSOSPIPELINE()))  
+    {
+      return false;
+    } 
+  DIOOSPIPELINE::GetInstance().Open(); 
+  #endif
   
   #ifdef XSLEEP_ACTIVE
   if(!XSLEEP::SetInstance(new XWINDOWSSLEEP())) 
@@ -612,6 +626,10 @@ bool MAINPROCWINDOWS::Factorys_End()
 
   #ifdef XSYSTEM_ACTIVE  
   XSYSTEM::DelInstance();
+  #endif
+
+  #ifdef DIO_OSPIPELINE_ACTIVE  
+  DIOOSPIPELINE::DelInstance();
   #endif
   
   #ifdef XPUBLISHER_ACTIVE
