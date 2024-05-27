@@ -35,7 +35,7 @@
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -48,6 +48,9 @@
 #include <sys/ioctl.h>
 
 #include "DIOGPIO.h"
+*/
+
+#include "DIOLINUXGPIO.h"
 
 #pragma endregion
 
@@ -73,16 +76,41 @@ enum RASPBERRYPI_MODEL
   RASPBERRYPI_MODEL_B_5                     ,
 };
 
+/*
 
 #define RPI_BCM2708_PERI_BASE           0x20000000      // Rapsberry Pi A+, B+
 #define RPI_BCM2709_PERI_BASE           0x3F000000      // Rapsberry Pi 2 y 3
 #define	RPI_BCM2711_PERI_BASE           0xFE000000      // Rapsberry Pi 4 
-#define	RPI_BCM2712_PERI_BASE           0x1F00000000    // Rapsberry Pi 5 
-
+#define	RPI_BCM2712_PERI_BASE           0x1F00000000    // Rapsberry Pi 5                                         
 
 #define RPI_PAGE_SIZE                   (4*1024)
 #define RPI_BLOCK_SIZE                  (4*1024)
 
+
+typedef struct
+{
+  uint32_t  status;
+  uint32_t  ctrl; 
+
+} RPI5_GPIOREGS;
+
+
+typedef struct
+{
+  uint32_t  out;
+  uint32_t  oe;
+  uint32_t  in;
+  uint32_t  insync;
+
+} RPI5_RIOREGS;
+
+#define RPI5_GPIO     ((RPI5_GPIOREGS*)GPIObase)
+
+#define RPI5_RIO      ((RPI5_RIOREGS*)(RIObase))
+#define RPI5_RIOXOR   ((RPI5_RIOREGS*)(RIObase + 0x1000 / 4))
+#define RPI5_RIOSET   ((RPI5_RIOREGS*)(RIObase + 0x2000 / 4))
+#define RPI5_RIOCLR   ((RPI5_RIOREGS*)(RIObase + 0x3000 / 4))
+*/
 
 #pragma endregion
 
@@ -90,39 +118,50 @@ enum RASPBERRYPI_MODEL
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class DIOLINUXGPIORASPBERRYPI : public DIOGPIO
+//class DIOLINUXGPIORASPBERRYPI : public DIOGPIO
+class DIOLINUXGPIORASPBERRYPI : public DIOLINUXGPIO
 {
   public:
                                         DIOLINUXGPIORASPBERRYPI     ();
     virtual                            ~DIOLINUXGPIORASPBERRYPI     ();
 
+      
     bool                                Ini                         ();
     
+    /*
     bool                                SetMode                     (DIOGPIO_ENTRY* entry, XWORD mode);  
 
     bool                                GetValue                    (DIOGPIO_ENTRY* entry);
     bool                                SetValue                    (DIOGPIO_ENTRY* entry, bool value);
 
     bool                                End                         ();
+    */
 
   private:
 
+    
     bool                                RPI_RevisionBoard           (RASPBERRYPI_MODEL& model, int& megabytes, float& revision);
+
+    /*
     bool                                RPI_Ini                     ();
     bool                                RPI_End                     ();
     bool                                RPI_IsGPIOValid             (XQWORD GPIO);
     bool                                RPI_GPIOMode                (XQWORD GPIO, bool isinput);
     bool                                RPI_GPIORead                (XQWORD GPIO);
     bool                                RPI_GPIOWrite               (XQWORD GPIO, bool isactive);    
+    */
 
     void                                Clean                       ();
-
+    
     RASPBERRYPI_MODEL                   RPI_model;
     int                                 RPI_megabytes;
     float                               RPI_revision; 
+
+    /*
     XDWORD                              RPI_map_base;
     XQWORD                              RPI_map_base64;
     bool                                initialization;
+    */
 };
 
 

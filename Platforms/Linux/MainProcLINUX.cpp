@@ -132,6 +132,10 @@
   #include "DIOPing.h"
   #endif
 
+  #ifdef DIO_PUBLICINTERNETIP_ACTIVE
+  #include "DIOPublicInternetIP.h"
+  #endif
+
   #ifdef DIO_ALERTS_ACTIVE
   #include "DIOAlerts.h"
   #endif
@@ -567,6 +571,10 @@ bool MAINPROCLINUX::Factorys_End()
       delete xtimerclock;
       xtimerclock = NULL;
     }
+  #endif
+
+  #ifdef DIO_PUBLICINTERNETIP_ACTIVE
+  DIOPUBLICINTERNETIP::DelInstance();
   #endif
 
   #ifdef DIO_ALERTS_ACTIVE

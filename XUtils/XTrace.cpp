@@ -48,7 +48,7 @@
 #include "DIOStreamDeviceIP.h"
 #include "DIOStreamEnumDevices.h"
 #include "DIOStreamIPLocalEnumDevices.h"
-#include "DIOWebClient.h"
+#include "DIOPublicInternetIP.h"
 
 #include "XMemory_Control.h"
 
@@ -2161,25 +2161,15 @@ bool XTRACE::ObtainPublicIP()
   bool  status = false;
 
   #if(defined(DIO_ACTIVE) && defined(DIO_STREAMTCPIP_ACTIVE))
-
-  DIOWEBCLIENT  webclient;
-  DIOURL        url;
-  XBUFFER       buffer;
-  
-  url = __L("http://ipecho.net/plain");
-  webclient.Set_Port(80);
-
-  buffer.Resize(64);
-
-  status =  webclient.Get(url, buffer, NULL, 60);
+ 
+  XSTRING string;
+  status = GEN_DIOPUBLICINTERNETIP.Get(string);
   if(status)
     {
-      XSTRING string = (char*)buffer.Get();      
       SetPublicIPString(string.Get());      
     }
 
   #endif
-
 
   return status;
 }
@@ -2242,10 +2232,16 @@ bool XTRACE::SetPublicIPString(XCHAR* publicIPstring)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XTRACE::ObtainResourcesIP()
 {
-  if(!ObtainLocalIP())  return false;
+  if(!ObtainLocalIP())  
+    {
+      return false;
+    }
 
   #ifndef XTRACE_NOINTERNET
-  if(!ObtainPublicIP()) return false;
+  if(!ObtainPublicIP()) 
+    {
+      return false;
+    }
   #endif
 
   return true;

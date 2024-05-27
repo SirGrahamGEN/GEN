@@ -134,8 +134,15 @@ bool DIOLINUXGPIO::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 
 	bool isinput = true;
 
-  if((mode & DIOGPIO_MODE_INPUT)  == DIOGPIO_MODE_INPUT)   isinput = true;
-  if((mode & DIOGPIO_MODE_OUTPUT) == DIOGPIO_MODE_OUTPUT)  isinput = false;
+  if((mode & DIOGPIO_MODE_INPUT)  == DIOGPIO_MODE_INPUT)   
+		{
+			isinput = true;
+		}
+
+  if((mode & DIOGPIO_MODE_OUTPUT) == DIOGPIO_MODE_OUTPUT)  
+		{
+			isinput = false;
+		}
 	
 	return GPIO_SetDirection(entry->GetGPIO(), isinput); 
 }
@@ -156,7 +163,10 @@ bool DIOLINUXGPIO::GetValue(DIOGPIO_ENTRY* entry)
 {
 	if(!entry) return false;
 
-	if(GPIOExport_Add(entry->GetGPIO())) GPIO_Export(entry->GetGPIO(), true);
+	if(GPIOExport_Add(entry->GetGPIO())) 
+		{
+			GPIO_Export(entry->GetGPIO(), true);
+		}
 
 	return GPIO_GetData(entry->GetGPIO());	
 }
@@ -178,7 +188,10 @@ bool DIOLINUXGPIO::SetValue(DIOGPIO_ENTRY* entry, bool value)
 {
 	if(!entry) return false;
 
-	if(GPIOExport_Add(entry->GetGPIO())) GPIO_Export(entry->GetGPIO(), true);
+	if(GPIOExport_Add(entry->GetGPIO())) 
+		{
+			GPIO_Export(entry->GetGPIO(), true);
+		}
 
   return GPIO_SetData(entry->GetGPIO(), value);	
 }
@@ -201,7 +214,10 @@ bool DIOLINUXGPIO::End()
 			for(XDWORD c=0; c<GPIO_exports->GetSize(); c++)
 				{		
 					XDWORD GPIO = GPIO_exports->Get(c);
-					if(GPIO) GPIO_Export(GPIO, false);												
+					if(GPIO) 
+						{
+							GPIO_Export(GPIO, false);												
+						}
 				}
 
 			GPIOExport_DeleteAll();
@@ -224,7 +240,10 @@ bool DIOLINUXGPIO::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIOExport_Add(XDWORD GPIO)
 {
-  if(GPIOExport_IsExport(GPIO))  return false;
+  if(GPIOExport_IsExport(GPIO))  
+		{
+			return false;
+		}
 
   return GPIOexports.Add(GPIO);
 }
@@ -246,7 +265,10 @@ bool DIOLINUXGPIO::GPIOExport_IsExport(XDWORD GPIO)
   for(XDWORD c=0; c<GPIOexports.GetSize(); c++)
     {
       XDWORD _GPIO = GPIOexports.Get(c);    
-      if(GPIO == _GPIO) return true;
+      if(GPIO == _GPIO) 
+				{
+					return true;
+				}
     }
 
   return false;
@@ -279,7 +301,10 @@ XVECTOR<XDWORD>* DIOLINUXGPIO::GPIOExport_Get()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXGPIO::GPIOExport_DeleteAll()    
 {
-  if(GPIOexports.IsEmpty()) return false;
+  if(GPIOexports.IsEmpty()) 
+		{
+			return false;
+		}
 
   GPIOexports.DeleteAll();
 
@@ -325,7 +350,7 @@ bool DIOLINUXGPIO::GPIO_Export(XDWORD GPIO, bool isexport)
 			status = true;
 		} 
 	
-	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Export %s %s"), xpath.Get(), GPIOdatastr.Get());
+	//XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Export %s %s"), xpath.Get(), GPIOdatastr.Get());
 
 	return status;
 }
@@ -369,7 +394,7 @@ bool DIOLINUXGPIO::GPIO_SetDirection(XDWORD GPIO, bool isinput)
 			status = true;
 		}
 	
-	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Direction %s %s"), xpath.Get(), GPIOdatastr.Get());
+	//XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Direction %s %s"), xpath.Get(), GPIOdatastr.Get());
 
 	return status;
 }
@@ -408,12 +433,10 @@ bool DIOLINUXGPIO::GPIO_GetData(XDWORD GPIO)
 					status = true;
 				}
 				
-			close(fd);	
-
-			status = true;	
+			close(fd);				
 		}
 	
-	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Get Data %s %s"), xpath.Get(), status?__L("1"):__L("0"));
+	//XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Get Data %s %s"), xpath.Get(), status?__L("1"):__L("0"));
 
 	return status;
 }
@@ -457,7 +480,7 @@ bool DIOLINUXGPIO::GPIO_SetData(XDWORD GPIO, bool on)
 			status = true;
 		}
 
-	XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Data %s %s"), xpath.Get(), GPIOdatastr.Get());		
+	//XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Linux GPIO] Set Data %s %s"), xpath.Get(), GPIOdatastr.Get());		
 
 	return status;
 }

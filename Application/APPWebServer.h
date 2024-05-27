@@ -55,7 +55,7 @@
 
 class APPCFG;
 class XEVENT;
-class DIOSCRAPERWEBUSERAGENTID;
+//class DIOSCRAPERWEBUSERAGENTID;
 class DIOWEBSERVER_PLUGIN_PHP;
 class DIOWEBSERVER_XEVENT;
 class DIOWEBSERVER;
@@ -103,7 +103,7 @@ class APPWEBSERVER : public XOBSERVER, public XSUBJECT
 
     XSTRING                     page_login;
     XSTRING                     page_password;
-    DIOSCRAPERWEBUSERAGENTID*   useragentID;
+  //DIOSCRAPERWEBUSERAGENTID*   useragentID;
 
     DIOWEBSERVER_PLUGIN_PHP*    pluginPHP;
 };

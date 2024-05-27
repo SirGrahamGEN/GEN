@@ -46,7 +46,7 @@
 #include "HashMD5.h"
 
 #include "DIOStreamTCPIP.h"
-#include "DIOScraperWebUserAgentID.h"
+//#include "DIOScraperWebUserAgentID.h"
 #include "DIOWebServer_Plugin_PHP.h"
 #include "DIOWebServer_XEvent.h"
 
@@ -120,11 +120,13 @@ bool APPWEBSERVER::Ini(APPCFG* cfg, bool doinitialconnectitivitytest,  bool isap
 
   if(!webserver)  return false;
 
+  /*
   if(chekuseragentid)
     {
       useragentID = new DIOSCRAPERWEBUSERAGENTID();
       if(!useragentID) return false;
     }
+  */
 
   if(!cfg->WebServer_PathPHP()->IsEmpty())
     {
@@ -487,7 +489,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
     }
 
   //-------------------------------------------------------------------------------------------------------------------------------
-
+  /*
   if(useragentID)
     {
       XSTRING browser;
@@ -498,7 +500,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
           GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Web browser    : %s, with: %s."), browser.Get(), SO.Get());
         }
     }
-
+  */  
 
   //-------------------------------------------------------------------------------------------------------------------------------
 
@@ -790,11 +792,13 @@ bool APPWEBSERVER::End()
       pluginPHP = NULL;
     }
 
+  /*
   if(useragentID)
     {
       delete useragentID;
       useragentID = NULL;
     }
+  */
 
   return true;
 }
@@ -877,7 +881,7 @@ void APPWEBSERVER::Clean()
   isauthenticatedaccess      = false;
   isapirestonly              = false;
 
-  useragentID                = NULL;
+//useragentID                = NULL;
 
   pluginPHP                  = NULL;
 }

@@ -240,6 +240,10 @@
 #define GEN_DIOPING                       DIOPING::GetInstance()
 #endif
 
+#ifndef GEN_DIOPUBLICINTERNETIP
+#define GEN_DIOPUBLICINTERNETIP           DIOPUBLICINTERNETIP::GetInstance()
+#endif
+
 #ifndef GEN_DIOALERTS
 #define GEN_DIOALERTS                     DIOALERTS::GetInstance()
 #endif

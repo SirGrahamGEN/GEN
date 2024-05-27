@@ -40,8 +40,8 @@
 #include "DIODynDNS.h"
 
 #include "DIOFactory.h"
-#include "DIOScraperWebPublicIP.h"
 #include "DIOWebClient.h"
+#include "DIOPublicInternetIP.h"
 
 #include "XMemory_Control.h"
 
@@ -167,12 +167,16 @@ bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
     }
    else
     {
+      GEN_DIOPUBLICINTERNETIP.Get(publicIP);
+
+      /*        
       DIOSCRAPERWEBPUBLICIP* scraperwebpublicip = new DIOSCRAPERWEBPUBLICIP();
       if(scraperwebpublicip)
         {
           status = scraperwebpublicip->Get(publicIP, 5, NULL, false);
           delete scraperwebpublicip;
         }
+      */
     }
 
   return status;

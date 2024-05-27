@@ -53,7 +53,7 @@
 #include "DIOStreamIPLocalEnumDevices.h"
 #include "DIOCheckTCPIPConnections.h"
 #include "DIOCheckInternetConnection.h"
-#include "DIOScraperWebPublicIP.h"
+#include "DIOPublicInternetIP.h"
 #include "DIONTP.h"
 #include "DIODynDNS_Manager.h"
 #include "APPLog.h"
@@ -212,33 +212,26 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
   if(cfg->InternetServices_GetCheckIPsChangeCadence())
     {
-      scraperwebpublicIP = new DIOSCRAPERWEBPUBLICIP();
-      status = (scraperwebpublicIP?true:false);
+      xtask = new XSCHEDULERTASK(xscheduler);
+      if(!xtask) return false;
 
-      if(status)
-        {
-          xtask = new XSCHEDULERTASK(xscheduler);
-          if(!xtask) return false;
+      xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, 5);  // Get IP first time
+      xtask->SetID(APPINTERNETSERVICES_TASKID_GETIPS);
+      xtask->SetIsStartImmediatelyCycles(false);
+      xtask->SetIsActive(true);
 
-          xtask->SetNCycles(XSCHEDULER_CYCLEFOREVER, 5);  // Get IP first time
-          xtask->SetID(APPINTERNETSERVICES_TASKID_GETIPS);
-          xtask->SetIsStartImmediatelyCycles(false);
-          xtask->SetIsActive(true);
-
-          xscheduler->Task_Add(xtask);      
+      xscheduler->Task_Add(xtask);      
            
-          #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
-          if(dyndnsmanager)
+      #ifdef APP_CFG_DYNDNSMANAGER_ACTIVE
+      if(dyndnsmanager)
+        {
+          for(XDWORD c=0; c<cfg->DNSManager_GetURLs()->GetSize(); c++)
             {
-              for(XDWORD c=0; c<cfg->DNSManager_GetURLs()->GetSize(); c++)
-                {
-                  dyndnsmanager->AddDNS((*cfg->DNSManager_GetURL(c)));
-                }
+              dyndnsmanager->AddDNS((*cfg->DNSManager_GetURL(c)));
             }
-           else return true;
-          #endif  
         }
-       else return false; 
+        else return true;
+      #endif        
     }
 
   //-------------------------------------------------------------------
@@ -580,12 +573,6 @@ bool APPINTERNETSERVICES::End()
       xscheduler = NULL;
     }
 
-  if(scraperwebpublicIP)
-    {
-      delete scraperwebpublicIP;
-      scraperwebpublicIP = NULL;
-    }
-
   if(checkinternetconnection)
     {
       delete checkinternetconnection;
@@ -775,11 +762,8 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
         }                                                                         
       
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
-
-      if(scraperwebpublicIP->Get(ip, 10, NULL, false)) 
-        {
-          ip.GetXString(actualpublicIP);
-        }
+      
+      GEN_DIOPUBLICINTERNETIP.Get(actualpublicIP);
 
       if(!actualpublicIP.IsEmpty())
         {
@@ -1046,7 +1030,7 @@ void APPINTERNETSERVICES::Clean()
 
   endservices             = false;
 
-  scraperwebpublicIP      = NULL;
+//scraperwebpublicIP      = NULL;
 
   xdatetime_local         = NULL;
   xdatetime_UTC           = NULL;

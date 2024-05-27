@@ -127,7 +127,6 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     bool                            endservices;
 
-    DIOSCRAPERWEBPUBLICIP*          scraperwebpublicIP;
     XSTRING                         publicIP;
 
     XVECTOR<XSTRING*>               NTPservers;
