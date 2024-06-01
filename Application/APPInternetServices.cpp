@@ -191,7 +191,6 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
   
   //-------------------------------------------------------------------
 
-  
   if(cfg->InternetServices_GetCheckInternetStatusCadence())
     {
       xtask = new XSCHEDULERTASK( xscheduler);
@@ -204,7 +203,7 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
       xscheduler->Task_Add(xtask);
 
-      checkinternetconnection = new DIOCHECKINTERNETCONNECTION(cfg->InternetServices_GetCheckInternetStatusCadence()/2);
+      checkinternetconnection = new DIOCHECKINTERNETCONNECTION(5);
       status =(checkinternetconnection)?true:false;
     }
 
@@ -270,22 +269,31 @@ bool APPINTERNETSERVICES::Ini(APPCFG* cfg, XDWORD timeoutgetpublicip)
 
   if(timeoutgetpublicip)  
     {
-      if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
+      bool haveinternet = true;
+
+      if(checkinternetconnection)
         {
-          XTIMER* GEN_XFACTORY_CREATE(timeout, CreateTimer())
-          if(timeout)
-            {              
-              do{ if(!publicIP.IsEmpty()) break;
+          haveinternet = checkinternetconnection->Check();
+        }
 
-                  GEN_XSLEEP.MilliSeconds(50);    
+      if(haveinternet)
+        {
+          if(cfg->InternetServices_GetCheckIPsChangeCadence() > 0)
+            {
+              XTIMER* GEN_XFACTORY_CREATE(timeout, CreateTimer())
+              if(timeout)
+                {              
+                  do{ if(!publicIP.IsEmpty()) break;
 
-                } while(timeout->GetMeasureSeconds() <= timeoutgetpublicip);
-            } 
+                      GEN_XSLEEP.MilliSeconds(50);    
 
-          GEN_XFACTORY.DeleteTimer(timeout);    
-        }         
+                    } while(timeout->GetMeasureSeconds() <= timeoutgetpublicip);
+                } 
+
+              GEN_XFACTORY.DeleteTimer(timeout);    
+            }         
+        }
     }
- 
 
   return true;
 }
@@ -555,6 +563,54 @@ XSCHEDULER* APPINTERNETSERVICES::GetXScheduler()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::IsActivedExit()
+* @brief      IsActivedExit
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::IsActivedExit()
+{
+  if(checkinternetconnection)
+    {
+      if(checkinternetconnection->GetCheckConnections())
+        {
+          return checkinternetconnection->GetCheckConnections()->IsActivedExit();
+        }
+    }
+    
+  return false;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPINTERNETSERVICES::SetActivedExit(bool actived)
+* @brief      SetActivedExit
+* @ingroup    DATAIO
+* 
+* @param[in]  actived : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPINTERNETSERVICES::SetActivedExit(bool actived)
+{  
+  if(checkinternetconnection)
+    {
+      if(checkinternetconnection->GetCheckConnections())
+        {
+          return checkinternetconnection->GetCheckConnections()->SetActivedExit(actived);
+        }
+    }
+    
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool APPINTERNETSERVICES::End()
 * @brief      End
@@ -565,6 +621,8 @@ XSCHEDULER* APPINTERNETSERVICES::GetXScheduler()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPINTERNETSERVICES::End()
 {
+  SetActivedExit(true); 
+
   endservices =  true;
 
   if(xscheduler)
@@ -629,7 +687,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
 
   xevent.SetInternetConnexionState(APPINTERNETSERVICES_CHECKINTERNETCONNEXION_STATE_CHECKING);  
   PostEvent(&xevent);
-
+ 
   haveinternetconnection = checkinternetconnection->Check();
 
   if(checkinternetconnection->IsChangeConnectionStatus())
@@ -673,7 +731,7 @@ bool APPINTERNETSERVICES::CheckInternetStatus()
             {
               // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[APP Internet Services] Get Internet Services cadence 10]"));    
 
-              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 10, false);                       
+              ChangeCadenceCheck(APPINTERNETSERVICES_TASKID_CHECKCONNECTIONINTERNET, 5, false);                       
             }
         }              
     }

@@ -1059,6 +1059,40 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::IsActivedExit()
+* @brief      IsActivedExit
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::IsActivedExit()
+{
+  return activedexit;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCHECKTCPIPCONNECTIONS::SetActivedExit(bool actived)
+* @brief      SetActivedExit
+* @ingroup    DATAIO
+* 
+* @param[in]  actived : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCHECKTCPIPCONNECTIONS::SetActivedExit(bool actived)
+{
+  activedexit = actived;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool DIOCHECKTCPIPCONNECTIONS::End()
 * @brief      End
@@ -1069,6 +1103,8 @@ bool DIOCHECKTCPIPCONNECTIONS::Connections_DeleteAll()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCHECKTCPIPCONNECTIONS::End()
 {
+  SetActivedExit(true); 
+
   if(threadcheckconnections)
     {
       threadcheckconnections->End();
@@ -1117,6 +1153,11 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
   int nconnections = checkconnections->connections.GetSize();
   if(!nconnections) return;
 
+  if(checkconnections->activedexit)
+    {
+      return;
+    }
+
   if(checkconnections->dispersionmode)
     {
       DIOCHECKTCPIPCONNECTION* checkconnection = checkconnections->connections.Get(index);
@@ -1144,23 +1185,7 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
 
           index++;
 
-          checkconnections->xmutexconnections->UnLock();
-
-          if(checkconnections->IsCheckTimeConnections())
-            {
-              for(int e=0; e<checkconnections->timeconnectionchecks; e++)
-                {
-                  if(!checkconnections->threadcheckconnections->IsRunning()) break;
-
-                  for(int d=0; d<10; d++)
-                    {
-                      if(!checkconnections->threadcheckconnections->IsRunning()) break;
-                      GEN_XSLEEP.MilliSeconds(100);
-                    }
-                }
-            }
-
-
+          checkconnections->xmutexconnections->UnLock();       
         }
     }
    else
@@ -1168,14 +1193,27 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
       checkconnections->xmutexconnections->Lock();
 
       for(int c=0; c<nconnections; c++)
-        {
+        { 
+          if(checkconnections->activedexit)
+            {
+              break; 
+            }
+
+          if(!checkconnections->threadcheckconnections->IsRunning()) 
+            {
+              break;             
+            }
+
           DIOCHECKTCPIPCONNECTION* checkconnection = checkconnections->connections.Get(c);
           if(checkconnection)
             {
               GEN_DIOPING.Set(checkconnection->GetURL()->Get());
 
               bool connexionstatus = GEN_DIOPING.Do(DIOCHECKTCPIPCONNECTIONS_DEFAULTNCHECKSFOREVERYCONNECTION, DIOCHECKTCPIPCONNECTIONS_DEFAULTTIMERCONNECTIONCHECK, checkconnections->validsomeisconnected);
-              if(connexionstatus != checkconnection->IsConnected()) checkconnection->ResetTimeConnexionStatus();
+              if(connexionstatus != checkconnection->IsConnected()) 
+                {
+                  checkconnection->ResetTimeConnexionStatus();
+                }
 
               checkconnection->SetIsConnected(connexionstatus);
               checkconnection->IncNChecks();
@@ -1184,24 +1222,44 @@ void DIOCHECKTCPIPCONNECTIONS::ThreadCheckConnections(void* param)
                       checkconnection->SetElapsedTime(GEN_DIOPING.CalculateMeanTime());
                 else checkconnection->SetElapsedTime(0);
 
-              if((checkconnections->validsomeisconnected) && (checkconnection->IsConnected())) break;
-              if(!checkconnections->threadcheckconnections->IsRunning()) break;
+              if((checkconnections->validsomeisconnected) && (checkconnection->IsConnected())) 
+                {
+                  break;
+                }              
             }
         }
 
-      checkconnections->xmutexconnections->UnLock();
+      checkconnections->xmutexconnections->UnLock();      
+    }
 
-      if(checkconnections->IsCheckTimeConnections())
+  if(checkconnections->IsCheckTimeConnections())
+    {
+      for(int e=0; e<checkconnections->timeconnectionchecks; e++)
         {
-          for(int e=0; e<checkconnections->timeconnectionchecks; e++)
+          if(checkconnections->activedexit)
             {
-              if(!checkconnections->threadcheckconnections->IsRunning()) break;
+              break; 
+            }
 
-              for(int d=0; d<10; d++)
+          if(!checkconnections->threadcheckconnections->IsRunning()) 
+            {
+              break;
+            }
+
+          // Wait One second
+          for(int d=0; d<10; d++)
+            {
+              if(checkconnections->activedexit)
                 {
-                  if(!checkconnections->threadcheckconnections->IsRunning()) break;
-                  GEN_XSLEEP.MilliSeconds(100);
+                  break; 
                 }
+
+              if(!checkconnections->threadcheckconnections->IsRunning()) 
+                {
+                  break;
+                }
+
+              GEN_XSLEEP.MilliSeconds(100);
             }
         }
     }
@@ -1227,6 +1285,8 @@ void DIOCHECKTCPIPCONNECTIONS::Clean()
 
   xmutexconnections                   = NULL;
   threadcheckconnections              = NULL;
+
+  activedexit                         = false;
 }
 
 

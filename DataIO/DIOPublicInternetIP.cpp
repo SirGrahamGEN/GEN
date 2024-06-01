@@ -39,6 +39,7 @@
 
 #include "DIOPublicInternetIP.h"
 
+#include "DIOPing.h"
 #include "DIOWebClient.h"
 
 #include "XMemory_Control.h"
@@ -132,6 +133,14 @@ bool DIOPUBLICINTERNETIP::Get(XSTRING& publicIP)
   bool          status = false;
   
   publicIP.Empty();
+
+  GEN_DIOPING.Set(__L("8.8.8.8"));
+
+  bool connexionstatus = GEN_DIOPING.Do(DIOPUBLICINTERNETIP_DEFAULTNCHECKSFOREVERYCONNECTION, DIOPUBLICINTERNETIP_DEFAULTTIMERCONNECTIONCHECK, true);
+  if(!connexionstatus)
+    {
+      return status;
+    }
   
   url = DIOPUBLICINTERNETIP_URL
   webclient.Set_Port(80);

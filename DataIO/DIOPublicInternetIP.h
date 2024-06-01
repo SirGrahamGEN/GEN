@@ -42,7 +42,10 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOPUBLICINTERNETIP_URL     __L("http://ipecho.net/plain");
+#define DIOPUBLICINTERNETIP_URL                                     __L("http://ipecho.net/plain");
+
+#define DIOPUBLICINTERNETIP_DEFAULTNCHECKSFOREVERYCONNECTION          5
+#define DIOPUBLICINTERNETIP_DEFAULTTIMERCONNECTIONCHECK             100   // milliseconds
 
 #pragma endregion
 

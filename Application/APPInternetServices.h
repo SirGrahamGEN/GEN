@@ -93,6 +93,9 @@ class APPINTERNETSERVICES : public XOBSERVER, public XSUBJECT
 
     XSCHEDULER*                     GetXScheduler                   ();
 
+    bool                            IsActivedExit                   (); 
+    bool                            SetActivedExit                  (bool actived); 
+
     bool                            End                             ();
 
   private:

@@ -177,6 +177,9 @@ class DIOCHECKTCPIPCONNECTIONS
 
     bool                                    Connections_DeleteAll                  ();
 
+    bool                                    IsActivedExit                          (); 
+    bool                                    SetActivedExit                         (bool actived); 
+
     bool                                    End                                    ();
 
 
@@ -197,6 +200,8 @@ class DIOCHECKTCPIPCONNECTIONS
     XMUTEX*                                 xmutexconnections;
     XVECTOR<DIOCHECKTCPIPCONNECTION*>       connections;
     XTHREADCOLLECTED*                       threadcheckconnections;
+
+    bool                                    activedexit;  
 };
 
 

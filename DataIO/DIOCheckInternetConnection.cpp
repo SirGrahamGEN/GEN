@@ -101,7 +101,7 @@ DIOCHECKINTERNETCONNECTION::DIOCHECKINTERNETCONNECTION(int timeconnectionchecks)
 
   GEN_XFACTORY_CREATE(xmutexconnectioncuts, Create_Mutex())
 
-  checkconnections->Ini(checkconnections->GetTimeConnectionChecks(), true, true);
+  checkconnections->Ini(timeconnectionchecks, true, true);
 
   for(int c=0; c<(sizeof(maindns)/sizeof(MAINDNS)); c++)
     {

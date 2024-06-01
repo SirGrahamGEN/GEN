@@ -39,6 +39,7 @@
 #include "XFileCFG.h"
 
 #include "DIOURL.h"
+#include "DIOPing.h"
 #include "DIOWebClient.h"
 
 #pragma endregion
@@ -68,11 +69,29 @@ class DIOREMOTEFILECFG : public XFILECFG
     template<class T>
     bool                                Ini                       (bool remoteactive = true)
                                         {
-                                          if(!webclient)         return false;
-
-                                          if(remoteactive)
+                                          bool connexionstatus = false;
+                                          bool checkremote     = remoteactive;
+ 
+                                          if(!webclient)         
                                             {
-                                              if(namefile.IsEmpty()) return false;
+                                              return false;
+                                            }
+
+                                          if(checkremote)
+                                            {
+                                              GEN_DIOPING.Set(__L("8.8.8.8"));
+
+                                              connexionstatus = GEN_DIOPING.Do(5, 100, true);
+                                             
+                                              if(namefile.IsEmpty()) 
+                                                {
+                                                  return false;
+                                                }
+
+                                              if(!connexionstatus)
+                                                {
+                                                  checkremote = false;
+                                                }
                                             }
 
                                           XPATH  xpathroot;
@@ -82,18 +101,24 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                           DoVariableMapping();
 
-                                          if(remoteactive)
+                                          if(checkremote)
                                             {
                                               AddValue(XFILECFG_VALUETYPE_STRING, DIOREMOTEFILECFG_SECTIONGENERAL, DIOREMOTEFILECFG_URLREMOTECFG, &URLremoteCFG);
                                             }
 
                                           DoDefault();
 
-                                          if(remoteactive) 
+                                          if(checkremote) 
                                             {
                                               GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, xpathroot);
+
                                               xpathfile.Set(xpathroot.Get());
-                                              if(!xpathfile.IsEmpty()) xpathfile.Slash_Add();
+
+                                              if(!xpathfile.IsEmpty()) 
+                                                {
+                                                  xpathfile.Slash_Add();
+                                                }
+
                                               xpathfile.Add(namefile.Get());
                                               xpathfile.Add(XFILECFG_EXTENSIONFILE);                                                                                  
                                             }   
@@ -102,7 +127,7 @@ class DIOREMOTEFILECFG : public XFILECFG
 
                                           LoadReadjustment();
                                            
-                                          if(remoteactive)
+                                          if(checkremote)
                                             {                                           
                                               if(!URLremoteCFG.IsEmpty())
                                                 {
@@ -152,7 +177,7 @@ class DIOREMOTEFILECFG : public XFILECFG
                                                 }
                                              }
 
-                                          if(remoteactive) 
+                                          if(checkremote) 
                                             {
                                               status[1] = Save();
                                             }
