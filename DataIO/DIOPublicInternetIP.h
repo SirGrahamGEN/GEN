@@ -59,7 +59,9 @@ class DIOPUBLICINTERNETIP
 
     static bool                     GetIsInstanced                    ();
     static DIOPUBLICINTERNETIP&     GetInstance                       ();
-    static bool                     DelInstance                       ();    
+    static bool                     DelInstance                       ();   
+
+    bool                            FastIsThereInternetConnection     ();
 
     bool                            Get                               (XSTRING& publicIP);
     bool                            Get                               (DIOIP& publicIP);

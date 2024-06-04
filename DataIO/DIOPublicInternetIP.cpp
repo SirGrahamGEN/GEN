@@ -116,6 +116,29 @@ bool DIOPUBLICINTERNETIP::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOPUBLICINTERNETIP::FastIsThereInternetConnection()
+* @brief      FastIsThereInternetConnection
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOPUBLICINTERNETIP::FastIsThereInternetConnection()
+{
+  GEN_DIOPING.Set(__L("8.8.8.8"));
+
+  bool connexionstatus = GEN_DIOPING.Do(DIOPUBLICINTERNETIP_DEFAULTNCHECKSFOREVERYCONNECTION, DIOPUBLICINTERNETIP_DEFAULTTIMERCONNECTIONCHECK, true);
+  if(!connexionstatus)
+    {
+      return false;
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOPUBLICINTERNETIP::Get(XSTRING& publicIP)
 * @brief      Get
 * @ingroup    DATAIO
@@ -134,10 +157,7 @@ bool DIOPUBLICINTERNETIP::Get(XSTRING& publicIP)
   
   publicIP.Empty();
 
-  GEN_DIOPING.Set(__L("8.8.8.8"));
-
-  bool connexionstatus = GEN_DIOPING.Do(DIOPUBLICINTERNETIP_DEFAULTNCHECKSFOREVERYCONNECTION, DIOPUBLICINTERNETIP_DEFAULTTIMERCONNECTIONCHECK, true);
-  if(!connexionstatus)
+  if(!FastIsThereInternetConnection())
     {
       return status;
     }

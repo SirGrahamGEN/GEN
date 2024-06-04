@@ -78,17 +78,13 @@ class DIOREMOTEFILECFG : public XFILECFG
                                             }
 
                                           if(checkremote)
-                                            {
-                                              GEN_DIOPING.Set(__L("8.8.8.8"));
-
-                                              connexionstatus = GEN_DIOPING.Do(5, 100, true);
-                                             
+                                            {                                              
                                               if(namefile.IsEmpty()) 
                                                 {
                                                   return false;
                                                 }
-
-                                              if(!connexionstatus)
+                                                                                               
+                                              if(!GEN_DIOPUBLICINTERNETIP.FastIsThereInternetConnection())                                              
                                                 {
                                                   checkremote = false;
                                                 }
