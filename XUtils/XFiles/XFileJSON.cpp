@@ -1509,8 +1509,8 @@ bool XFILEJSON::DeleteAllObjects()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
-* @brief      GetObject
+* @fn         XFILEJSONOBJECT* XFILEJSON::GetObj(XCHAR* name, XFILEJSONOBJECT* startobject)
+* @brief      GetObj
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1519,7 +1519,7 @@ bool XFILEJSON::DeleteAllObjects()
 * @return     XFILEJSONOBJECT* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
+XFILEJSONOBJECT* XFILEJSON::GetObj(XCHAR* name, XFILEJSONOBJECT* startobject)
 {  
   XFILEJSONOBJECT* _startobject  = startobject?startobject:GetRoot();
   if(!_startobject)  return NULL;
@@ -1539,7 +1539,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
               switch(value->GetType())
                 {
                   case XFILEJSONVALUETYPE_OBJECT  :
-                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjectSubValue(name, value);
+                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjSubValue(name, value);
                                                       if(subobject) return subobject;
                                                     }
                                                     break;
@@ -1563,7 +1563,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
               switch(value->GetType())
                 {
                   case XFILEJSONVALUETYPE_OBJECT  :
-                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjectSubValue(name, value);
+                  case XFILEJSONVALUETYPE_ARRAY   : { XFILEJSONOBJECT* subobject = GetObjSubValue(name, value);
                                                       if(subobject) return subobject;
                                                     }
                                                     break;
@@ -1579,8 +1579,8 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XFILEJSONOBJECT* XFILEJSON::GetObject(XSTRING& name, XFILEJSONOBJECT* startobject)
-* @brief      GetObject
+* @fn         XFILEJSONOBJECT* XFILEJSON::GetObj(XSTRING& name, XFILEJSONOBJECT* startobject)
+* @brief      GetObj
 * @ingroup    XUTILS
 * 
 * @param[in]  name : 
@@ -1589,9 +1589,9 @@ XFILEJSONOBJECT* XFILEJSON::GetObject(XCHAR* name, XFILEJSONOBJECT* startobject)
 * @return     XFILEJSONOBJECT* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XFILEJSONOBJECT* XFILEJSON::GetObject(XSTRING& name, XFILEJSONOBJECT* startobject)
+XFILEJSONOBJECT* XFILEJSON::GetObj(XSTRING& name, XFILEJSONOBJECT* startobject)
 {
-  return GetObject(name.Get(), startobject);
+  return GetObj(name.Get(), startobject);
 }
 
 
@@ -1713,8 +1713,8 @@ bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value)
-* @brief      GetObjectSubValue
+* @fn         XFILEJSONOBJECT* XFILEJSON::GetObjSubValue(XCHAR* name, XFILEJSONVALUE* value)
+* @brief      GetObjSubValue
 * @ingroup    XUTILS
 *
 * @param[in]  name :
@@ -1723,7 +1723,7 @@ bool XFILEJSON::ShowTraceJSON(XBYTE color, bool istabulatedline)
 * @return     XFILEJSONOBJECT* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value)
+XFILEJSONOBJECT* XFILEJSON::GetObjSubValue(XCHAR* name, XFILEJSONVALUE* value)
 {
   XFILEJSONVALUETYPE type = value->GetType();
   if(value->GetName())
@@ -1742,7 +1742,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value
 
   switch(type)
     {
-      case XFILEJSONVALUETYPE_OBJECT  : { XFILEJSONOBJECT* subobject = GetObject(name, (XFILEJSONOBJECT*)value->GetValuePointer());
+      case XFILEJSONVALUETYPE_OBJECT  : { XFILEJSONOBJECT* subobject = GetObj(name, (XFILEJSONOBJECT*)value->GetValuePointer());
                                           if(subobject) return subobject;
                                         }
                                         break;
@@ -1755,7 +1755,7 @@ XFILEJSONOBJECT* XFILEJSON::GetObjectSubValue(XCHAR* name, XFILEJSONVALUE* value
                                                   XFILEJSONVALUE* subvalue = (XFILEJSONVALUE*)subarray->GetValues()->Get(d);
                                                   if(subvalue)
                                                     {
-                                                      XFILEJSONOBJECT* subobject = GetObjectSubValue(name, subvalue);
+                                                      XFILEJSONOBJECT* subobject = GetObjSubValue(name, subvalue);
                                                       if(subobject) return subobject;
                                                     }
                                                 }

@@ -41,6 +41,7 @@
 #include "DIOURL.h"
 #include "DIOPing.h"
 #include "DIOWebClient.h"
+#include "DIOPublicInternetIP.h"
 
 #pragma endregion
 

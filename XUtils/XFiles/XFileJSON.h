@@ -243,8 +243,8 @@ class XFILEJSON : public XFILETXT
 
     bool                        DeleteAllObjects              ();
 
-    XFILEJSONOBJECT*            GetObject                     (XCHAR* name, XFILEJSONOBJECT* startobject = NULL);
-    XFILEJSONOBJECT*            GetObject                     (XSTRING& name, XFILEJSONOBJECT* startobject = NULL);
+    XFILEJSONOBJECT*            GetObj                        (XCHAR* name, XFILEJSONOBJECT* startobject = NULL);
+    XFILEJSONOBJECT*            GetObj                        (XSTRING& name, XFILEJSONOBJECT* startobject = NULL);
 
     XFILEJSONVALUE*             GetValue                      (XCHAR* name, XFILEJSONOBJECT* startobject = NULL);
     XFILEJSONVALUE*             GetValue                      (XSTRING& name, XFILEJSONOBJECT* startobject = NULL);
@@ -254,7 +254,7 @@ class XFILEJSON : public XFILETXT
 
   private:
 
-    XFILEJSONOBJECT*            GetObjectSubValue             (XCHAR* name, XFILEJSONVALUE* value);
+    XFILEJSONOBJECT*            GetObjSubValue                (XCHAR* name, XFILEJSONVALUE* value);
 
     bool                        DecodeObject                  (int& position, bool isobject, XFILEJSONOBJECT* object);
 

@@ -43,7 +43,7 @@
 #define VERSIONFRAMEWORK_NAME         "GEN FrameWork"
 #define VERSIONFRAMEWORK_VERSION      0
 #define VERSIONFRAMEWORK_SUBVERSION   22
-#define VERSIONFRAMEWORK_SUBERROR     0
+#define VERSIONFRAMEWORK_SUBERROR     1
 #define VERSIONFRAMEWORK_CODENAME     "Gorias W3"
 
 #pragma endregion
@@ -51,6 +51,7 @@
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
+
 
 class VERSIONFRAMEWORK
 {
@@ -101,6 +102,7 @@ class VERSIONFRAMEWORK
 
     static VERSIONFRAMEWORK*  instance;     
 };
+
 
 #pragma endregion
 

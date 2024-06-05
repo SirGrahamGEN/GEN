@@ -313,6 +313,12 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   languageavailables.Add(XLANGUAGE_ISO_639_3_CODE_ENG);
   languageavailables.Add(XLANGUAGE_ISO_639_3_CODE_SPA);
 
+
+  #ifdef ANONYMOUS_MODE
+
+
+  #else
+
   //--- DATETIME -----------------------------------------------------------------------------------------------------
 
   // MONTHS 
@@ -421,6 +427,8 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SHUTDOWN                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por apagado del sistema operativo")            , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_INVALIDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia invalida")                        , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_EXPIREDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia vencida")                         , 0);
+
+  #endif
 
   return true;
 }
