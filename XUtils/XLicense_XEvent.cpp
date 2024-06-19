@@ -56,7 +56,7 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
+* @fn         XLICENSE_XEVENT::XLICENSE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
 * @ingroup    XUTILS
 *
@@ -65,7 +65,7 @@
 * @param[in]  family :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
+XLICENSE_XEVENT::XLICENSE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {
   Clean();
 }
@@ -73,13 +73,13 @@ XLICENSEXEVENT::XLICENSEXEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): X
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XLICENSEXEVENT::~XLICENSEXEVENT()
+* @fn         XLICENSE_XEVENT::~XLICENSE_XEVENT()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XLICENSEXEVENT::~XLICENSEXEVENT()
+XLICENSE_XEVENT::~XLICENSE_XEVENT()
 {
   Clean();
 }
@@ -87,14 +87,14 @@ XLICENSEXEVENT::~XLICENSEXEVENT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XLICENSE* XLICENSEXEVENT::Get()
+* @fn         XLICENSE* XLICENSE_XEVENT::Get()
 * @brief      Get
 * @ingroup    XUTILS
 *
 * @return     XLICENSE* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XLICENSE* XLICENSEXEVENT::Get()
+XLICENSE* XLICENSE_XEVENT::Get()
 {
   return xlicense;
 }
@@ -102,14 +102,14 @@ XLICENSE* XLICENSEXEVENT::Get()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XLICENSEXEVENT::Set(XLICENSE* xlicense)
+* @fn         void XLICENSE_XEVENT::Set(XLICENSE* xlicense)
 * @brief      Set
 * @ingroup    XUTILS
 *
 * @param[in]  xlicense :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLICENSEXEVENT::Set(XLICENSE* xlicense)
+void XLICENSE_XEVENT::Set(XLICENSE* xlicense)
 {
   this->xlicense = xlicense;
 }
@@ -117,13 +117,13 @@ void XLICENSEXEVENT::Set(XLICENSE* xlicense)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XLICENSEXEVENT::Clean()
+* @fn         void XLICENSE_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    XUTILS
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XLICENSEXEVENT::Clean()
+void XLICENSE_XEVENT::Clean()
 {
   xlicense  = NULL;
 }

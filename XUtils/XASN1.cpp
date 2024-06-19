@@ -39,10 +39,10 @@
 
 #include "XASN1.h"
 
+#include "XBER_XEvent.h"
 #include "XBER.h"
 #include "XTrace.h"
-
-#include "XASN1.h"
+#include "XObserver.h"
 
 #include "XMemory_Control.h"
 
@@ -805,6 +805,9 @@ XASN1_OID_PROPERTY XASN1::OID_properties[] = {  { __L("0.4.0.1862.1.1"),        
 #pragma region CLASS_MEMBERS
 
 
+#pragma region CLASS_XASN1_OID_PROPERTY
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XASN1::XASN1()
@@ -893,16 +896,17 @@ XCHAR* XASN1::GetOIDPropertyDescription(XCHAR* OID)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XASN1::Decode(XBUFFER& databin)
+* @fn         bool XASN1::Decode(XBUFFER& databin, XOBSERVER* observer)
 * @brief      Decode
 * @ingroup    XUTILS
 * 
 * @param[in]  databin : 
+* @param[in]  observer : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XASN1::Decode(XBUFFER& databin)
+bool XASN1::Decode(XBUFFER& databin, XOBSERVER* observer)
 {
   if(!databin.GetSize()) return false;
 
@@ -911,11 +915,12 @@ bool XASN1::Decode(XBUFFER& databin)
       delete ber;
       ber = NULL;
     }
-
+ 
+ 
   ber = new XBER();
   if(!ber) return NULL;
 
-  if(!ber->SetFromDump(databin))
+  if(!ber->SetFromDump(databin, observer))
     {
       delete ber;
       ber = NULL;      

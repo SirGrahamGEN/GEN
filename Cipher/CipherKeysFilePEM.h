@@ -35,14 +35,26 @@
 #include "XVector.h"
 #include "XDateTime.h"
 #include "XASN1.h"
+#include "XObserver.h"
 
 #include "CipherKey.h"
+#include "CipherRootCertificates.h"
 
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
+
+
+typedef struct
+{
+  XSTRING   type;
+  XDWORD    ini_line;
+  XDWORD    end_line;
+  XBUFFER   data;  
+
+} CIPHERKEYSFILEPEM_ENTRYBUFFER;
 
 #define CIPHERKEYSFILEPEM_EXT           __L(".PEM")
 #define CIPHERKEYSFILEKEY_EXT           __L(".KEY")
@@ -65,9 +77,10 @@
 class XFACTORY;
 class CIPHERKEY;
 class XFILETXT;
+class XBER_XEVENT;
 
-    
-class CIPHERKEYSFILEPEM_TYPECERTIFICATE
+/*   
+class CIPHERKEYSFILEPEM_TYPECERTIFICATE 
 {
   public:
                             CIPHERKEYSFILEPEM_TYPECERTIFICATE   ();
@@ -110,33 +123,33 @@ class CIPHERKEYSFILEPEM_TYPECERTIFICATE
     XBYTE*                  bytes;
     XDWORD                  len;    
 };
+*/
 
 
-class CIPHERKEYSFILEPEM
+class CIPHERKEYSFILEPEM : public XOBSERVER
 {
   public:
-                            CIPHERKEYSFILEPEM                   (XPATH& xpath);
+                            CIPHERKEYSFILEPEM                   ();
     virtual                ~CIPHERKEYSFILEPEM                   ();
+
    
-    bool                    HaveKey                             (CIPHERKEYTYPE type);
-    CIPHERKEY*              GetKey                              (CIPHERKEYTYPE type);
-    bool                    AddKey                              (CIPHERKEY& key);
-    bool                    DeleteKey                           (CIPHERKEYTYPE type);
-    bool                    DeleteAllKeys                       ();
+    bool                    Key_Add                             (CIPHERKEY* key);
+    bool                    Key_Del                             (CIPHERKEY* key);
+    bool                    Key_DelAll                          ();
 
-    XPATH&                  GetXPath                            ();
-    XFILETXT*               GetXFileTXT                         ();
-
+    bool                    ReadDecodeAllFile                   (XPATH& xpath);
+    bool                    DecodeCertificates                  (CIPHERROOTCERTIFICATES certificates, int nlinescertificates);
+   
   private:
 
-    bool                    ReadAllFile                         ();
+    void                    HandleEvent_XBER                    (XBER_XEVENT* event);
+    void                    HandleEvent                         (XEVENT* xevent);
 
     void                    Clean                               ();
-                           
-    XPATH                   xpath;
-    XFILETXT*               xfiletxt;
-    
+                              
     XVECTOR<CIPHERKEY*>     keys;
+
+    CIPHERKEY*              decodekey;
 };
 
 

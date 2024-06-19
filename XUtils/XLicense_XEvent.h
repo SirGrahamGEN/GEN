@@ -55,11 +55,11 @@ enum XLICENSEXEVENT_TYPE
 
 class XLICENSE;
 
-class XLICENSEXEVENT : public XEVENT
+class XLICENSE_XEVENT : public XEVENT
 {
   public:
-                          XLICENSEXEVENT                (XSUBJECT* subject, XDWORD type = XLICENSEXEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_LICENSE);
-    virtual              ~XLICENSEXEVENT                ();
+                          XLICENSE_XEVENT               (XSUBJECT* subject, XDWORD type = XLICENSEXEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_LICENSE);
+    virtual              ~XLICENSE_XEVENT               ();
 
 
     XLICENSE*             Get                           ();

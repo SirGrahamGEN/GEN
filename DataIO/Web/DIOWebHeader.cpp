@@ -168,7 +168,7 @@ bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
       XSTRING* line = (XSTRING*)lines.Get(c);
       if(line)
         {
-          //XTRACE_PRINTCOLOR(2, __L("%s"), line->Get());
+          //XTRACE_PRINTCOLOR(2, __L("%s"), line.Get());
 
           diostream->WriteStr((*line));
           diostream->WriteStr(__L("\r\n"));

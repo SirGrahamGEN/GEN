@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XASN1.h
+* @file       CipherKeyCertificate.h
 * 
-* @class      XASN1
-* @brief      eXtended Utils ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
-* @ingroup    XUTILS
+* @class      CIPHERKEYCERTIFICATE
+* @brief      Cipher Key Certificate class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,15 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XASN1_H_
-#define _XASN1_H_
+#ifndef _CIPHERKEYCERTIFICATE_H_
+#define _CIPHERKEYCERTIFICATE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XBER.h"
-#include "XBuffer.h"
-#include "XSubject.h"
+#include "XMPInteger.h"
+
+#include "CipherKey.h"
 
 #pragma endregion
 
@@ -42,13 +42,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-typedef struct
-{
-  XCHAR*    OID;
-  XCHAR*    description; 
-  bool      isconstructed;
-   
-} XASN1_OID_PROPERTY;
 
 #pragma endregion
 
@@ -56,25 +49,27 @@ typedef struct
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XASN1 : public XSUBJECT
+
+class CIPHERKEYCERTIFICATE : public CIPHERKEY
 {
   public:
-                                      XASN1										        ();
-    virtual                          ~XASN1										        ();
+                                    CIPHERKEYCERTIFICATE              ();
+    virtual                        ~CIPHERKEYCERTIFICATE              ();
 
-    static XASN1_OID_PROPERTY*        GetOIDProperty                  (XCHAR* OID); 
+    XWORD                           GetVersion                        ();
+    void                            SetVersion                        (XWORD version);
 
-    static XCHAR*                     GetOIDPropertyDescription       (XCHAR* OID);
+    XBUFFER*                        GetSerial                         ();  
 
-		bool    				                  Decode								          (XBUFFER& databin, XOBSERVER* observer = NULL);
 
   private:
-	
-    void                              Clean										        ();
 
-    XBER*    				                  ber; 
-    static XASN1_OID_PROPERTY         OID_properties[];
+    void                            Clean                             ();  
+
+    XWORD                           version;
+    XBUFFER                         serial;  
 };
+
 
 #pragma endregion
 
@@ -87,4 +82,5 @@ class XASN1 : public XSUBJECT
 
 
 #endif
+
 

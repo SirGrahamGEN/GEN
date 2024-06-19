@@ -34,6 +34,8 @@
 
 #include "XMPInteger.h"
 
+#include "CipherKeyPublicRSA.h"
+#include "CipherKeyPrivateRSA.h"
 #include "Cipher.h"
 
 #pragma endregion
@@ -61,55 +63,6 @@ enum CIPHERRSAPKCS1VERSION
 
 class XRAND;
 class HASH;
-
-class CIPHERKEYRSAPUBLIC : public CIPHERKEY
-{
-  public:
-                                    CIPHERKEYRSAPUBLIC                ();
-    virtual                        ~CIPHERKEYRSAPUBLIC                ();
-
-    bool                            Get                               (XMPINTEGER& modulus, XMPINTEGER& exponent);
-    bool                            Set                               (XMPINTEGER& modulus, XMPINTEGER& exponent);
-
-    int                             GetSizeInBytes                    ();
-
-    bool                            CopyFrom                          (CIPHERKEYRSAPUBLIC* key);
-    
-    bool                            Check                             ();
-
-
-  private:
-
-    void                            Clean                             ();
-
-    XMPINTEGER                      modulus;
-    XMPINTEGER                      exponent;
-};
-
-
-class CIPHERKEYRSAPRIVATE : public CIPHERKEY
-{
-  public:
-                                    CIPHERKEYRSAPRIVATE               ();
-    virtual                        ~CIPHERKEYRSAPRIVATE               ();
-
-    bool                            Get                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
-    bool                            Set                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
-
-    int                             GetSizeInBytes                    ();
-
-    bool                            CopyFrom                          (CIPHERKEYRSAPRIVATE* key);
-    
-    bool                            Check                             (CIPHERKEYRSAPUBLIC& publickey);
-
-  private:
-
-    void                            Clean                             ();
-
-    XMPINTEGER                      prime1factor;
-    XMPINTEGER                      prime2factor;
-    XMPINTEGER                      exponent;
-};
 
 
 class CIPHERRSA_CONTEXT
@@ -175,7 +128,7 @@ class CIPHERRSA : public CIPHER
 
     static CIPHERRSA*               GetInstance                       ();
     XRAND*                          GetXRand                          ();
-    bool                            GenerateKeys                      (XDWORD nbits, int exponent, CIPHERKEYRSAPUBLIC& publickey, CIPHERKEYRSAPRIVATE& privatekey, XMPINTEGER_FUNCRANDOM funcrandom = NULL, void* paramrandom = NULL);
+    bool                            GenerateKeys                      (XDWORD nbits, int exponent, CIPHERKEYPUBLICRSA& publickey, CIPHERKEYPRIVATERSA& privatekey, XMPINTEGER_FUNCRANDOM funcrandom = NULL, void* paramrandom = NULL);
 
   private:
 

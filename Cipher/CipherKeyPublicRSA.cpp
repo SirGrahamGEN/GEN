@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONativeMgsBrowserExtension.cpp
+* @file       CipherKeyPublicRSA.cpp
 * 
-* @class      DIONATIVEMSGBROWSEREXTENSION
-* @brief      Data Input/Output Native Message Browser Extension class
-* @ingroup    DATAIO
+* @class      CIPHERKEYPUBLICRSA
+* @brief      Cipher Key Public RSA class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -37,12 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIONativeMgsBrowserExtension.h"
-
-#include "XFactory.h"
-#include "XTrace.h"
-
-#include "DIOOSPipeline.h"
+#include "CipherKeyPublicRSA.h"
 
 #include "XMemory_Control.h"
 
@@ -52,7 +47,6 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-
 #pragma endregion
 
 
@@ -61,153 +55,152 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
+* 
+* @fn         CIPHERKEYPUBLICRSA::CIPHERKEYPUBLICRSA()
 * @brief      Constructor
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
+CIPHERKEYPUBLICRSA::CIPHERKEYPUBLICRSA() : CIPHERKEY()
 {
   Clean();
+
+  type = CIPHERKEYTYPE_PUBLIC;
+
+  modulus.Ini();
+  exponent.Ini();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
+* 
+* @fn         CIPHERKEYPUBLICRSA::~CIPHERKEYPUBLICRSA()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
+CIPHERKEYPUBLICRSA::~CIPHERKEYPUBLICRSA()
 {
+  modulus.End();
+  exponent.End();
+
   Clean();
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::IsOpen()
-* @brief      IsOpen
-* @ingroup    DATAIO
+* @fn         bool CIPHERKEYPUBLICRSA::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
+* @brief      Get
+* @ingroup    CIPHER
+* 
+* @param[in]  modulus : 
+* @param[in]  exponent : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::IsOpen()
+bool CIPHERKEYPUBLICRSA::Get(XMPINTEGER& modulus, XMPINTEGER& exponent)
 {
-  return GEN_DIOOSPIPELINE.IsOpen();
+  modulus.CopyFrom(&this->modulus);
+  exponent.CopyFrom(&this->exponent);
+
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::Read(XFILEJSON& json)
-* @brief      Read
-* @ingroup    DATAIO
+* @fn         bool CIPHERKEYPUBLICRSA::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
+* @brief      Set
+* @ingroup    CIPHER
 * 
-* @param[in]  json : 
+* @param[in]  modulus : 
+* @param[in]  exponent : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::Read(XFILEJSON& json)
+bool CIPHERKEYPUBLICRSA::Set(XMPINTEGER& modulus, XMPINTEGER& exponent)
 {
-  if(!GEN_DIOOSPIPELINE.IsOpen())
-    {      
-      return false;
-    }
+  this->modulus.CopyFrom(&modulus);
+  this->exponent.CopyFrom(&exponent);
 
-  XBUFFER buffer;
-  bool    status;
-
-  buffer.Resize(sizeof(XDWORD));
-
-  status = GEN_DIOOSPIPELINE.Read(buffer);
-  if(status)
-    {
-      XDWORD sizebuffer = 0;
-
-      buffer.Extract(sizebuffer);
-
-      SWAPDWORD(sizebuffer);
-
-      if(sizebuffer)
-        {
-          buffer.Empty();
-          buffer.Resize(sizebuffer);
- 
-          status = GEN_DIOOSPIPELINE.Read(buffer);
-          if(status)
-            {
-              XSTRING all_string;
-
-              all_string.ConvertFromUTF8(buffer);
-      
-              buffer.Empty();
-              all_string.ConvertToUTF8(buffer);
-
-              json.AddBufferLines(XFILETXTFORMATCHAR_ASCII, buffer);
-            }
-        }
-    }
-
-  return status;
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::Write(XFILEJSON& json)
-* @brief      Write
-* @ingroup    DATAIO
+* @fn         int CIPHERKEYPUBLICRSA::GetSizeInBytes()
+* @brief      GetSizeInBytes
+* @ingroup    CIPHER
 * 
-* @param[in]  json : 
-* 
-* @return     bool : true if is succesful. 
+* @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::Write(XFILEJSON& json)
-{
-  if(!GEN_DIOOSPIPELINE.IsOpen())
-    {
-      return false;
-    }
-
-  XBUFFER buffer;
-  XSTRING all_lines;
-  XDWORD  sizebuffer;
-
-  json.EncodeAllLines();
-  json.GetAllInOneLine(all_lines, XFILETXTTYPELF_0D);  
-
-  all_lines.ConvertToUTF8(buffer);
-
-  sizebuffer = (XDWORD)buffer.GetSize() - 1;
-  
-  SWAPDWORD(sizebuffer);
-
-  buffer.Insert((XDWORD)sizebuffer, 0);
-  
-  return GEN_DIOOSPIPELINE.Write(buffer);
+int CIPHERKEYPUBLICRSA::GetSizeInBytes()
+{ 
+  return this->modulus.GetSize();         
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIONATIVEMSGBROWSEREXTENSION::Clean()
+* 
+* @fn         bool CIPHERKEYPUBLICRSA::CopyFrom(CIPHERKEYPUBLICRSA* key)
+* @brief      CopyFrom
+* @ingroup    CIPHER
+* 
+* @param[in]  key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYPUBLICRSA::CopyFrom(CIPHERKEYPUBLICRSA* key)
+{
+  if(!key) return false;
+
+  if(!CIPHERKEY::CopyFrom((CIPHERKEY*)key)) return false;
+
+  return key->Get(modulus, exponent);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYPUBLICRSA::Check()
+* @brief      Check
+* @ingroup    CIPHER
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYPUBLICRSA::Check()
+{
+  if(!modulus.GetLimbs()              || !exponent.GetLimbs())                      return false;
+  if((modulus.GetLimbs()[0] & 1) == 0 || (exponent.GetLimbs()[0] & 1 ) == 0)        return false;
+  if((modulus.GetMSB() < 128)         || (modulus.GetMSB() >  XMPINTEGER_MAXBITS )) return false;
+  if((exponent.GetMSB() < 2)          || (exponent.GetMSB() >  64 ))                return false;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYPUBLICRSA::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONATIVEMSGBROWSEREXTENSION::Clean()
-{
+void CIPHERKEYPUBLICRSA::Clean()
+{                                         
 
 }
 
 
 #pragma endregion
+
 

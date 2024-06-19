@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XASN1.h
+* @file       CipherKeyPrivateRSA.h
 * 
-* @class      XASN1
-* @brief      eXtended Utils ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
-* @ingroup    XUTILS
+* @class      CIPHERKEYPRIVATERSA
+* @brief      Cipher Key Private RSA class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XASN1_H_
-#define _XASN1_H_
+#ifndef _CIPHERKEYPRIVATERSA_H_
+#define _CIPHERKEYPRIVATERSA_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XBER.h"
-#include "XBuffer.h"
-#include "XSubject.h"
+#include "CipherKeyPublicRSA.h"
 
 #pragma endregion
 
@@ -42,13 +40,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-typedef struct
-{
-  XCHAR*    OID;
-  XCHAR*    description; 
-  bool      isconstructed;
-   
-} XASN1_OID_PROPERTY;
 
 #pragma endregion
 
@@ -56,25 +47,31 @@ typedef struct
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XASN1 : public XSUBJECT
+
+class CIPHERKEYPRIVATERSA : public CIPHERKEY
 {
   public:
-                                      XASN1										        ();
-    virtual                          ~XASN1										        ();
+                                    CIPHERKEYPRIVATERSA               ();
+    virtual                        ~CIPHERKEYPRIVATERSA               ();
 
-    static XASN1_OID_PROPERTY*        GetOIDProperty                  (XCHAR* OID); 
+    bool                            Get                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
+    bool                            Set                               (XMPINTEGER& prime1factor, XMPINTEGER& prime2factor, XMPINTEGER& exponent);
 
-    static XCHAR*                     GetOIDPropertyDescription       (XCHAR* OID);
+    int                             GetSizeInBytes                    ();
 
-		bool    				                  Decode								          (XBUFFER& databin, XOBSERVER* observer = NULL);
+    bool                            CopyFrom                          (CIPHERKEYPRIVATERSA* key);
+    
+    bool                            Check                             (CIPHERKEYPUBLICRSA& publickey);
 
   private:
-	
-    void                              Clean										        ();
 
-    XBER*    				                  ber; 
-    static XASN1_OID_PROPERTY         OID_properties[];
+    void                            Clean                             ();
+
+    XMPINTEGER                      prime1factor;
+    XMPINTEGER                      prime2factor;
+    XMPINTEGER                      exponent;
 };
+
 
 #pragma endregion
 

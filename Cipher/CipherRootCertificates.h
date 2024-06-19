@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XASN1.h
+* @file       CipherRootCertificates.h
 * 
-* @class      XASN1
-* @brief      eXtended Utils ANS.1 format buffer  (Abstract Syntax Notation One, defined in X.208)
-* @ingroup    XUTILS
+* @class      CIPHERROOTCERTIFICATES
+* @brief      Cipher Root Certificates class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,13 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XASN1_H_
-#define _XASN1_H_
+#ifndef _CIPHERROOTCERTIFICATES_H_
+#define _CIPHERROOTCERTIFICATES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XBER.h"
-#include "XBuffer.h"
-#include "XSubject.h"
+#include "XString.h"
 
 #pragma endregion
 
@@ -42,13 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-typedef struct
-{
-  XCHAR*    OID;
-  XCHAR*    description; 
-  bool      isconstructed;
-   
-} XASN1_OID_PROPERTY;
+typedef XCHAR* CIPHERROOTCERTIFICATES[];
 
 #pragma endregion
 
@@ -56,25 +48,6 @@ typedef struct
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XASN1 : public XSUBJECT
-{
-  public:
-                                      XASN1										        ();
-    virtual                          ~XASN1										        ();
-
-    static XASN1_OID_PROPERTY*        GetOIDProperty                  (XCHAR* OID); 
-
-    static XCHAR*                     GetOIDPropertyDescription       (XCHAR* OID);
-
-		bool    				                  Decode								          (XBUFFER& databin, XOBSERVER* observer = NULL);
-
-  private:
-	
-    void                              Clean										        ();
-
-    XBER*    				                  ber; 
-    static XASN1_OID_PROPERTY         OID_properties[];
-};
 
 #pragma endregion
 
@@ -82,9 +55,12 @@ class XASN1 : public XSUBJECT
 /*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
 #pragma region FUNCTIONS_PROTOTYPES
 
+extern CIPHERROOTCERTIFICATES cipherrootcertificates;
+extern int                    nlinescipherrootcertificates;
 
 #pragma endregion
 
 
 #endif
+
 

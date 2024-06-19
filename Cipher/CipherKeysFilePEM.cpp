@@ -40,11 +40,13 @@
 #include "CipherKeysFilePEM.h"
 
 #include "XBuffer.h"
+#include "XBER_XEvent.h"
 #include "XBER.h"
 #include "XFileTXT.h"
 #include "XTrace.h"
 
 #include "CipherKey.h"
+#include "CipherKeyCertificate.h"
 
 #include "XMemory_Control.h"
 
@@ -71,11 +73,12 @@
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
   Clean();
 }
-
+*/
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -85,11 +88,12 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
   Clean();
 }
-
+*/
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -99,11 +103,12 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 {
 
 }
-
+*/
 
 #pragma endregion
 
@@ -113,23 +118,16 @@ void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM(XPATH& xpath)
+* @fn         CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
 * @brief      Constructor
 * @ingroup    CIPHER
 * 
 * @param[in]  xpath : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM(XPATH& xpath)
+CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
 {
   Clean();
-
-  this->xpath  = xpath;
-
-  xfiletxt = new XFILETXT();
-  if(!xfiletxt) return;
-
-  ReadAllFile();
 }
 
 
@@ -143,73 +141,17 @@ CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM(XPATH& xpath)
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM::~CIPHERKEYSFILEPEM()
 {
-  DeleteAllKeys();
-
-  if(xfiletxt) 
-    {
-      delete xfiletxt;
-    }
+  Key_DelAll();
 
   Clean();
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool CIPHERKEYSFILEPEM::HaveKey(CIPHERKEYTYPE type)
-* @brief      HaveKey
-* @ingroup    CIPHER
-* 
-* @param[in]  type : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERKEYSFILEPEM::HaveKey(CIPHERKEYTYPE type)
-{
-  for(int c=0; c<(int)keys.GetSize(); c++)
-    {
-      CIPHERKEY* key = keys.Get(c);
-      if(key)
-        {
-          if(key->GetType() == type)  return true;
-        }
-    }
-
-  return false;
-}
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         CIPHERKEY* CIPHERKEYSFILEPEM::GetKey(CIPHERKEYTYPE type)
-* @brief      GetKey
-* @ingroup    CIPHER
-* 
-* @param[in]  type : 
-* 
-* @return     CIPHERKEY* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-CIPHERKEY* CIPHERKEYSFILEPEM::GetKey(CIPHERKEYTYPE type)
-{
-  for(int c=0; c<(int)keys.GetSize(); c++)
-    {
-      CIPHERKEY* key = keys.Get(c);
-      if(key)
-        {
-          if(key->GetType() == type)  return key;
-        }
-    }
-
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool CIPHERKEYSFILEPEM::AddKey(CIPHERKEY& key)
-* @brief      AddKey
+* @fn         bool CIPHERKEYSFILEPEM::Key_Add(CIPHERKEY* key)
+* @brief      Key_Add
 * @ingroup    CIPHER
 * 
 * @param[in]  key : 
@@ -217,51 +159,38 @@ CIPHERKEY* CIPHERKEYSFILEPEM::GetKey(CIPHERKEYTYPE type)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERKEYSFILEPEM::AddKey(CIPHERKEY& key)
+bool CIPHERKEYSFILEPEM::Key_Add(CIPHERKEY* key)
 {
-  if(HaveKey(key.GetType())) return false;
-
-  switch(key.GetType())
+  if(!key)
     {
-      case CIPHERKEYTYPE_UNKNOWN        : break;
-
-      case CIPHERKEYTYPE_SYMMETRICAL    : break;
-
-      case CIPHERKEYTYPE_PUBLIC         : break;
-
-      case CIPHERKEYTYPE_PRIVATE        : break;
+      return false;
     }
 
-  return true;
+  return keys.Add(key);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERKEYSFILEPEM::DeleteKey(CIPHERKEYTYPE type)
-* @brief      DeleteKey
+* @fn         bool CIPHERKEYSFILEPEM::Key_Del(CIPHERKEY* key)
+* @brief      Key_Del
 * @ingroup    CIPHER
 * 
-* @param[in]  type : 
+* @param[in]  key : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERKEYSFILEPEM::DeleteKey(CIPHERKEYTYPE type)
+bool CIPHERKEYSFILEPEM::Key_Del(CIPHERKEY* key)
 {
-  for(int c=0; c<(int)keys.GetSize(); c++)
+  if(!key)
     {
-      CIPHERKEY* key = keys.Get(c);
-      if(key)
-        {
-          if(key->GetType() == type)
-            {
-              keys.Delete(key);
-              delete key;
-            }
-        }
+      return false;
     }
 
+  keys.Delete(key);
+  delete key;
+ 
   return true;
 }
 
@@ -275,45 +204,17 @@ bool CIPHERKEYSFILEPEM::DeleteKey(CIPHERKEYTYPE type)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERKEYSFILEPEM::DeleteAllKeys()
+bool CIPHERKEYSFILEPEM::Key_DelAll()
 {
-  if(keys.IsEmpty()) return false;
+  if(keys.IsEmpty()) 
+    {
+      return false;
+    }
 
   keys.DeleteContents();
-
   keys.DeleteAll();
 
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XPATH& CIPHERKEYSFILEPEM::GetXPath()
-* @brief      GetXPath
-* @ingroup    CIPHER
-* 
-* @return     XPATH& : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XPATH& CIPHERKEYSFILEPEM::GetXPath()
-{ 
-  return xpath;                           
-}
-    
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XFILETXT* CIPHERKEYSFILEPEM::GetXFileTXT()
-* @brief      GetXFileTXT
-* @ingroup    CIPHER
-* 
-* @return     XFILETXT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XFILETXT* CIPHERKEYSFILEPEM::GetXFileTXT()
-{ 
-  return xfiletxt;                        
 }
 
 
@@ -326,23 +227,22 @@ XFILETXT* CIPHERKEYSFILEPEM::GetXFileTXT()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool CIPHERKEYSFILEPEM::ReadAllFile()
+bool CIPHERKEYSFILEPEM::ReadDecodeAllFile(XPATH& xpath)
 {
-  typedef struct
-  {
-    XSTRING   type;
-    XDWORD    ini_line;
-    XDWORD    end_line;
-    XBUFFER   data;  
-
-  } CIPHERKEYSFILEPEM_ENTRYBUFFER ;
-
+  XFILETXT*                               xfiletxt;
   XVECTOR<CIPHERKEYSFILEPEM_ENTRYBUFFER*> entrysbuffer;
   CIPHERKEYSFILEPEM_ENTRYBUFFER*          entrybuffer = NULL;
-  
-  if(!xfiletxt) return false;
+    
+  xfiletxt = new XFILETXT();
+  if(!xfiletxt) 
+    {
+      return false;
+    }
 
-  if(!xfiletxt->Open(xpath))  return false;
+  if(!xfiletxt->Open(xpath))  
+    {
+      return false;
+    }
 
   xfiletxt->ReadAllFile();
 
@@ -431,13 +331,24 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 
       if(entrybuffer)
         {
-          CIPHERKEYSFILEPEM_TYPECERTIFICATE certificate;
+          decodekey = NULL;
+         
+          if(!entrybuffer->type.Compare(__L("CERTIFICATE")))
+            {
+              decodekey = (CIPHERKEY*) new CIPHERKEYCERTIFICATE();  
+            }
 
-          XTRACE_PRINTHEADER(__L("Certificate"));  
-
-          asn1.Decode(entrybuffer->data);
-          
-          XTRACE_PRINTHEADER(NULL);  
+          if(decodekey)
+            {
+              if(asn1.Decode(entrybuffer->data, this))
+                {
+                  Key_Add(decodekey);
+                } 
+               else
+                {
+                  delete decodekey;
+                }   
+            }
         }  
     }
 
@@ -447,7 +358,222 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 
   xfiletxt->Close();
 
+  delete xfiletxt;
+
+  xfiletxt = NULL;
+
   return true;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool CIPHERKEYSFILEPEM::DecodeCertificates(CIPHERROOTCERTIFICATES certificates, int nlinescertificates)
+* @brief      DecodeCertificates
+* @ingroup    CIPHER
+* 
+* @param[in]  certificates : 
+* @param[in]  nlinescertificates : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool CIPHERKEYSFILEPEM::DecodeCertificates(CIPHERROOTCERTIFICATES certificates, int nlinescertificates)
+{
+  XVECTOR<CIPHERKEYSFILEPEM_ENTRYBUFFER*> entrysbuffer;
+  CIPHERKEYSFILEPEM_ENTRYBUFFER*          entrybuffer = NULL;
+  XSTRING                                 line;
+  
+  for(XDWORD c=0; c<nlinescertificates; c++)
+    {
+      XCHAR*  _line = certificates[c];     
+      int     ini;
+      int     end;    
+
+      line = _line;
+
+      ini = line.Find(CIPHERKEYSFILEPEM_BEGINKEY, true);
+      if(ini != XSTRING_NOTFOUND)
+        {
+          ini += XSTRING::GetSize(CIPHERKEYSFILEPEM_BEGINKEY);
+
+          if(!entrybuffer)
+            {
+              entrybuffer = new CIPHERKEYSFILEPEM_ENTRYBUFFER(); 
+              if(entrybuffer)
+                {
+                  entrybuffer->ini_line = c+1;  
+                  end = line.Find(CIPHERKEYSFILEPEM_FINISH, true, ini);
+                  if(end != XSTRING_NOTFOUND)
+                    {
+                      entrybuffer->type.AdjustSize(_MAXSTR);                                                                  
+                      line.Copy(ini, end, entrybuffer->type);
+                      entrybuffer->type.AdjustSize();                
+                    }
+                }
+            }
+        }
+
+      ini = line.Find(CIPHERKEYSFILEPEM_ENDKEY, true);
+      if(ini != XSTRING_NOTFOUND)
+        {
+          ini += XSTRING::GetSize(CIPHERKEYSFILEPEM_ENDKEY);
+
+          if(entrybuffer)
+            {
+              entrybuffer->end_line = c;                          
+              end = line.Find(CIPHERKEYSFILEPEM_FINISH, true, ini);
+              if(end != XSTRING_NOTFOUND)
+                {
+                  XSTRING type;  
+
+                  type.AdjustSize(_MAXSTR);                                                                  
+                  line.Copy(ini, end, type);
+                  type.AdjustSize();  
+
+                  if(!type.Compare(entrybuffer->type))
+                    {
+                      entrysbuffer.Add(entrybuffer);  
+                      entrybuffer = NULL;
+                    }                                   
+                }      
+            }  
+        }          
+   }
+
+  for(XDWORD c=0; c<entrysbuffer.GetSize(); c++)
+    {
+      CIPHERKEYSFILEPEM_ENTRYBUFFER* entrybuffer = entrysbuffer.Get(c);
+      if(entrybuffer)
+        {
+          XSTRING datastr;
+
+          XSTRING datastr1;
+
+          for(int d=entrybuffer->ini_line; d<entrybuffer->end_line; d++)
+            {
+              datastr += certificates[d];                                 
+            }
+
+          entrybuffer->data.ConvertFromBase64(datastr); 
+        }
+    }
+
+  XASN1 asn1;
+    
+  for(XDWORD c=0; c< 1 /*entrysbuffer.GetSize()*/; c++)
+    {
+      CIPHERKEYSFILEPEM_ENTRYBUFFER* entrybuffer = entrysbuffer.Get(c);
+
+      if(entrybuffer)
+        {
+          decodekey = NULL;
+         
+          if(!entrybuffer->type.Compare(__L("CERTIFICATE")))
+            {
+              decodekey = (CIPHERKEY*) new CIPHERKEYCERTIFICATE();  
+            }
+
+          if(decodekey)
+            {
+              if(asn1.Decode(entrybuffer->data, this))
+                {
+                  Key_Add(decodekey);
+                } 
+               else
+                {
+                  delete decodekey;
+                }   
+            }
+        }  
+    }
+
+  entrysbuffer.DeleteContents();
+  entrysbuffer.DeleteAll();
+
+  return true;
+}
+
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
+* @brief      Handle Event for the observer manager of this class
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @param[in]  event : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
+{  
+  if(!decodekey)
+    {
+      return;
+    }
+    
+  switch(event->GetEventType())
+    {
+      case XBERXEVENT_TYPE_DECODE_START   : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("START [%d]"), decodekey->GetType());
+                                            break;
+
+      case XBERXEVENT_TYPE_DECODE_DATA    : { XSTRING levelsstr;
+
+                                              levelsstr = event->GetLevelsString()->Get();
+
+                                              if(decodekey->GetType() == CIPHERKEYTYPE_CERTIFICATE)
+                                                {
+                                                  CIPHERKEYCERTIFICATE* certificate = (CIPHERKEYCERTIFICATE*)decodekey;
+
+                                                  if(!levelsstr.Compare(__L("1.1.1.1")))
+                                                    {
+                                                      certificate->SetVersion((XWORD)event->GetData()->Get()[0]);
+                                                    }
+
+                                                  if(!levelsstr.Compare(__L("1.1.2")))
+                                                    {
+                                                      certificate->GetSerial()->CopyFrom((*event->GetData()));
+                                                    }
+
+                                                }
+
+                                              levelsstr.AddFormat(__L(" %s"), event->GetLine()->Get());                                          
+
+                                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, levelsstr.Get(), NULL);                                                         
+                                            }
+                                            break;
+
+      case XBERXEVENT_TYPE_DECODE_END     : XTRACE_PRINTCOLOR((event->GetStatus()?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("END"));                                              
+                                            break;
+
+    } 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYSFILEPEM::HandleEvent(XEVENT* xevent)
+* @brief      Handle Event for the observer manager of this class
+* @note       INTERNAL
+* @ingroup    CIPHER
+* 
+* @param[in]  xevent : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYSFILEPEM::HandleEvent(XEVENT* xevent)
+{
+  if(!xevent) return;
+
+  switch(xevent->GetEventFamily())
+    {
+      case XEVENT_TYPE_XBER             : { XBER_XEVENT* event = (XBER_XEVENT*)xevent;
+                                            if(!event) return;
+
+                                            HandleEvent_XBER(event);
+                                          }
+                                          break;
+    }
 }
 
 
@@ -461,7 +587,7 @@ bool CIPHERKEYSFILEPEM::ReadAllFile()
 * --------------------------------------------------------------------------------------------------------------------*/
 void CIPHERKEYSFILEPEM::Clean()
 {
-  xfiletxt  = NULL;
+  decodekey = NULL;
 }
 
 

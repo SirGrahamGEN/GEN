@@ -259,10 +259,10 @@ bool DIOWEBCLIENT_HEADER::GetETag(XSTRING& etag)
       XSTRING* line = lines.Get(c);
       if(line)
         {
-          if(line->Find(DIOWEBHEADER_ETAG, true) != XSTRING_NOTFOUND)
+          if(line.Find(DIOWEBHEADER_ETAG, true) != XSTRING_NOTFOUND)
             {
-              int index = line->Find(__L(":"), true);
-              if(index != XSTRING_NOTFOUND)  line->Copy(index+1, etag);
+              int index = line.Find(__L(":"), true);
+              if(index != XSTRING_NOTFOUND)  line.Copy(index+1, etag);
             }
         }
     }

@@ -777,7 +777,7 @@ bool XLICENSE::CheckMasterCreation(XPATH& xpath, XLICENSEID& licenseID, XSTRING&
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLICENSE::SetEvent(XLICENSEXEVENT_TYPE type)
 {
-  XLICENSEXEVENT xlicenseevent(this, type);
+  XLICENSE_XEVENT xlicenseevent(this, type);
 
   xlicenseevent.Set(this);
   PostEvent(&xlicenseevent);

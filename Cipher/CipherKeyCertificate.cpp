@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIONativeMgsBrowserExtension.cpp
+* @file       CipherKeyCertificate.cpp
 * 
-* @class      DIONATIVEMSGBROWSEREXTENSION
-* @brief      Data Input/Output Native Message Browser Extension class
-* @ingroup    DATAIO
+* @class      CIPHERKEYCERTIFICATE
+* @brief      Cipher Key Certificate class
+* @ingroup    CIPHER
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -37,12 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIONativeMgsBrowserExtension.h"
-
-#include "XFactory.h"
-#include "XTrace.h"
-
-#include "DIOOSPipeline.h"
+#include "CipherKeyCertificate.h"
 
 #include "XMemory_Control.h"
 
@@ -52,7 +47,6 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-
 #pragma endregion
 
 
@@ -61,27 +55,29 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
+* 
+* @fn         CIPHERKEYCERTIFICATE::CIPHERKEYCERTIFICATE()
 * @brief      Constructor
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONATIVEMSGBROWSEREXTENSION::DIONATIVEMSGBROWSEREXTENSION()
+CIPHERKEYCERTIFICATE::CIPHERKEYCERTIFICATE() : CIPHERKEY()
 {
   Clean();
+
+  type = CIPHERKEYTYPE_CERTIFICATE;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
+* 
+* @fn         CIPHERKEYCERTIFICATE::~CIPHERKEYCERTIFICATE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
+CIPHERKEYCERTIFICATE::~CIPHERKEYCERTIFICATE()
 {
   Clean();
 }
@@ -89,125 +85,63 @@ DIONATIVEMSGBROWSEREXTENSION::~DIONATIVEMSGBROWSEREXTENSION()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::IsOpen()
-* @brief      IsOpen
-* @ingroup    DATAIO
+* @fn         XWORD CIPHERKEYCERTIFICATE::GetVersion()
+* @brief      GetVersion
+* @ingroup    CIPHER
 * 
-* @return     bool : true if is succesful. 
+* @return     XWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::IsOpen()
+XWORD CIPHERKEYCERTIFICATE::GetVersion()
 {
-  return GEN_DIOOSPIPELINE.IsOpen();
+  return version;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void CIPHERKEYCERTIFICATE::SetVersion(XWORD version)
+* @brief      SetVersion
+* @ingroup    CIPHER
+* 
+* @param[in]  version : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void CIPHERKEYCERTIFICATE::SetVersion(XWORD version)
+{
+  this->version = version;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::Read(XFILEJSON& json)
-* @brief      Read
-* @ingroup    DATAIO
+* @fn         XBUFFER* CIPHERKEYCERTIFICATE::GetSerial()
+* @brief      GetSerial
+* @ingroup    CIPHER
 * 
-* @param[in]  json : 
-* 
-* @return     bool : true if is succesful. 
+* @return     XBUFFER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::Read(XFILEJSON& json)
+XBUFFER* CIPHERKEYCERTIFICATE::GetSerial()
 {
-  if(!GEN_DIOOSPIPELINE.IsOpen())
-    {      
-      return false;
-    }
-
-  XBUFFER buffer;
-  bool    status;
-
-  buffer.Resize(sizeof(XDWORD));
-
-  status = GEN_DIOOSPIPELINE.Read(buffer);
-  if(status)
-    {
-      XDWORD sizebuffer = 0;
-
-      buffer.Extract(sizebuffer);
-
-      SWAPDWORD(sizebuffer);
-
-      if(sizebuffer)
-        {
-          buffer.Empty();
-          buffer.Resize(sizebuffer);
- 
-          status = GEN_DIOOSPIPELINE.Read(buffer);
-          if(status)
-            {
-              XSTRING all_string;
-
-              all_string.ConvertFromUTF8(buffer);
-      
-              buffer.Empty();
-              all_string.ConvertToUTF8(buffer);
-
-              json.AddBufferLines(XFILETXTFORMATCHAR_ASCII, buffer);
-            }
-        }
-    }
-
-  return status;
+  return &serial;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIONATIVEMSGBROWSEREXTENSION::Write(XFILEJSON& json)
-* @brief      Write
-* @ingroup    DATAIO
-* 
-* @param[in]  json : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIONATIVEMSGBROWSEREXTENSION::Write(XFILEJSON& json)
-{
-  if(!GEN_DIOOSPIPELINE.IsOpen())
-    {
-      return false;
-    }
-
-  XBUFFER buffer;
-  XSTRING all_lines;
-  XDWORD  sizebuffer;
-
-  json.EncodeAllLines();
-  json.GetAllInOneLine(all_lines, XFILETXTTYPELF_0D);  
-
-  all_lines.ConvertToUTF8(buffer);
-
-  sizebuffer = (XDWORD)buffer.GetSize() - 1;
-  
-  SWAPDWORD(sizebuffer);
-
-  buffer.Insert((XDWORD)sizebuffer, 0);
-  
-  return GEN_DIOOSPIPELINE.Write(buffer);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIONATIVEMSGBROWSEREXTENSION::Clean()
+* @fn         void CIPHERKEYCERTIFICATE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    DATAIO
-*
+* @ingroup    CIPHER
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONATIVEMSGBROWSEREXTENSION::Clean()
-{
-
+void CIPHERKEYCERTIFICATE::Clean()
+{                                         
+  version  = 0;
 }
 
 
 #pragma endregion
+
 

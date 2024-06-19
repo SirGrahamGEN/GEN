@@ -46,7 +46,8 @@
 #include "XFileXML.h"
 
 #include "Cipher.h"
-#include "CipherRSA.h"
+#include "CipherKeyPrivateRSA.h"
+#include "CipherKeyPublicRSA.h"
 
 #include "XMemory_Control.h"
 
@@ -227,16 +228,16 @@ bool CIPHERKEYSFILEGKF::AddKey(CIPHERKEY& key)
                                         }
                                         break;
 
-      case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYRSAPUBLIC* keypublic = new CIPHERKEYRSAPUBLIC();
+      case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYPUBLICRSA* keypublic = new CIPHERKEYPUBLICRSA();
 
-                                          keypublic->CopyFrom((CIPHERKEYRSAPUBLIC*)&key);
+                                          keypublic->CopyFrom((CIPHERKEYPUBLICRSA*)&key);
                                           keys.Add(keypublic);
                                         }
                                         break;
 
-      case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYRSAPRIVATE* keyprivate = new CIPHERKEYRSAPRIVATE();
+      case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYPRIVATERSA* keyprivate = new CIPHERKEYPRIVATERSA();
 
-                                          keyprivate->CopyFrom((CIPHERKEYRSAPRIVATE*)&key);
+                                          keyprivate->CopyFrom((CIPHERKEYPRIVATERSA*)&key);
                                           keys.Add(keyprivate);
                                         }
                                         break;
@@ -368,7 +369,7 @@ bool CIPHERKEYSFILEGKF::UpdateFile()
                                                             }
                                                             break;
 
-                          case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYRSAPUBLIC* keypublic = (CIPHERKEYRSAPUBLIC*)key;
+                          case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYPUBLICRSA* keypublic = (CIPHERKEYPUBLICRSA*)key;
                                                               XMPINTEGER          modulus;
                                                               XMPINTEGER          exponent;
 
@@ -382,7 +383,7 @@ bool CIPHERKEYSFILEGKF::UpdateFile()
                                                             }
                                                             break;
 
-                          case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYRSAPRIVATE*  keyprivate = (CIPHERKEYRSAPRIVATE*)key;
+                          case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYPRIVATERSA*  keyprivate = (CIPHERKEYPRIVATERSA*)key;
                                                               XMPINTEGER            prime1factor;
                                                               XMPINTEGER            prime2factor;
                                                               XMPINTEGER            exponent;
@@ -458,7 +459,7 @@ bool CIPHERKEYSFILEGKF::ExportToPEMFile(CIPHERKEY* key, XSTRING& publicPEM)
                                         XBER                  berseq1;
                                         XBER                  berseq2;
                                         XBER                  berseq3;
-                                        CIPHERKEYRSAPUBLIC*   publickey = (CIPHERKEYRSAPUBLIC*)key;
+                                        CIPHERKEYPUBLICRSA*   publickey = (CIPHERKEYPUBLICRSA*)key;
                                         XMPINTEGER            module;
                                         XMPINTEGER            exponent;
                                         XBUFFER               xbuffermodule;
@@ -678,7 +679,7 @@ bool CIPHERKEYSFILEGKF::ReadAllFile()
                                                                     }
                                                                     break;
 
-                                  case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYRSAPUBLIC* keypublic = new CIPHERKEYRSAPUBLIC();
+                                  case CIPHERKEYTYPE_PUBLIC       : { CIPHERKEYPUBLICRSA* keypublic = new CIPHERKEYPUBLICRSA();
                                                                       if(keypublic)
                                                                         {
                                                                           XMPINTEGER modulus;
@@ -706,7 +707,7 @@ bool CIPHERKEYSFILEGKF::ReadAllFile()
                                                                     }
                                                                     break;
 
-                                  case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYRSAPRIVATE* keyprivate = new CIPHERKEYRSAPRIVATE();
+                                  case CIPHERKEYTYPE_PRIVATE      : { CIPHERKEYPRIVATERSA* keyprivate = new CIPHERKEYPRIVATERSA();
                                                                       if(keyprivate)
                                                                         {
                                                                           XMPINTEGER prime1factor;

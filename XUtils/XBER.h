@@ -37,6 +37,7 @@
 #include "XBuffer.h"
 #include "XString.h"
 #include "XVariant.h"
+#include "XSubject.h"
 
 #pragma endregion
 
@@ -89,6 +90,8 @@ enum XBER_TAGCLASS
   XBER_TAGCLASS_APPLICATION	                        ,	  // The type is only valid for one specific application
   XBER_TAGCLASS_CONTEXT_SPECIFIC	                  ,	  // Meaning of this type depends on the context (such as within a sequence, set or choice)
   XBER_TAGCLASS_PRIVATE	                            ,	  // Defined in private specifications
+
+  XBER_TAGCLASS_UNKNOWN                               
 };
 
 
@@ -101,13 +104,15 @@ enum XBER_TAGCLASS
 // OBSOLETE
 #define XBERTYPE_ISCONSTRUCTED                  XBER_TAG_MASKISCONSTRUCTED
 
+#define XBER_MAXLEVELS                          256
+
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class XBER
+class XBER : public XSUBJECT
 {
   public:
                               XBER                      ();
@@ -126,9 +131,12 @@ class XBER
 
     XVARIANT*                 GetValue                  ();
 
-   
+    XDWORD                    GetLevel                  ();
+    XDWORD*                   GetLevels                 ();
+    bool                      GetLevels                 (XSTRING& string);
+
     bool                      GetDump                   (XBUFFER& xbuffer, bool notheader = false);
-    bool                      SetFromDump               (XBUFFER& xbuffer);
+    bool                      SetFromDump               (XBUFFER& xbuffer, XOBSERVER* observer = NULL);
 
     bool                      SetTagType                (XBYTE type);
     bool                      SetSize                   (XDWORD size);
@@ -174,7 +182,7 @@ class XBER
 
   private:
 
-    bool                      SetFromDumpInternal             (XBUFFER& xbuffer);
+    bool                      SetFromDumpInternal             (XBUFFER& xbuffer, XOBSERVER* observer = NULL);
 
     bool                      ConvertToBoolean                (XBUFFER& data, XVARIANT& variant);
     bool                      ConvertToInteger                (XBUFFER& data, XVARIANT& variant);
@@ -193,6 +201,8 @@ class XBER
     void                      Clean                           ();
 
     static XDWORD             totalposition;
+    static XDWORD             level;
+    static XDWORD             levels[XBER_MAXLEVELS];
 
 };
 

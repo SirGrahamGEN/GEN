@@ -41,6 +41,8 @@
 
 #include "XTrace.h"
 #include "XASN1.h"
+#include "XObserver.h"
+#include "XBER_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -51,6 +53,8 @@
 #pragma region GENERAL_VARIABLE
 
 XDWORD XBER::totalposition = 0;
+XDWORD XBER::level         = 0;
+XDWORD XBER::levels[_MAXBUFFER];
 
 #pragma endregion
 
@@ -71,6 +75,10 @@ XBER::XBER()
   Clean();
 
   data.Empty();
+
+  RegisterEvent(XBERXEVENT_TYPE_DECODE_START);
+  RegisterEvent(XBERXEVENT_TYPE_DECODE_DATA);
+  RegisterEvent(XBERXEVENT_TYPE_DECODE_END);
 }
 
 
@@ -84,6 +92,10 @@ XBER::XBER()
 * --------------------------------------------------------------------------------------------------------------------*/
 XBER::~XBER()
 {
+  DeRegisterEvent(XBERXEVENT_TYPE_DECODE_START);
+  DeRegisterEvent(XBERXEVENT_TYPE_DECODE_DATA);
+  DeRegisterEvent(XBERXEVENT_TYPE_DECODE_END);
+
   Sequence_DeleteAll();
 
   Clean();
@@ -257,6 +269,83 @@ XVARIANT* XBER::GetValue()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD XBER::GetLevel()
+* @brief      GetLevel
+* @ingroup    XUTILS
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD XBER::GetLevel()
+{
+  int c = 0; 
+
+  while(levels[c])
+    {  
+      c++;
+      if(c >= XBER_MAXLEVELS)
+        {
+          break;
+        }                                      
+    }
+
+  return c;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD* XBER::GetLevels()
+* @brief      GetLevels
+* @ingroup    XUTILS
+* 
+* @return     XDWORD* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD* XBER::GetLevels()
+{
+  return levels;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER::GetLevels(XSTRING& string)
+* @brief      GetLevels
+* @ingroup    XUTILS
+* 
+* @param[in]  string : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER::GetLevels(XSTRING& string)
+{
+  string.Empty();
+
+  int c=0; 
+  while(levels[c])
+    {
+      string.AddFormat(__L("%d"), levels[c]);
+
+      c++;
+      if(c >= XBER_MAXLEVELS)
+        {
+          break;
+        }
+                                  
+      if(levels[c])
+        {
+          string.AddFormat(__L("."));
+        }
+    }
+
+  return true;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 * @brief      GetDump
 * @ingroup    XUTILS
@@ -300,11 +389,46 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBER::SetFromDump(XBUFFER& buffer)
+bool XBER::SetFromDump(XBUFFER& buffer, XOBSERVER* observer)
 {
   totalposition = 0;
+
+  level = 0;
+  memset(levels, 0, sizeof(XDWORD)*XBER_MAXLEVELS);
   
-  return SetFromDumpInternal(buffer);
+  if(observer)
+    {
+      observer->SubscribeEvent(XBERXEVENT_TYPE_DECODE_START , this, observer);
+      observer->SubscribeEvent(XBERXEVENT_TYPE_DECODE_END   , this, observer);
+
+      XBER_XEVENT xevent(this, XBERXEVENT_TYPE_DECODE_START); 
+
+      xevent.SetLevel(0);   
+      xevent.GetData()->CopyFrom(buffer);       
+      xevent.SetStatus(buffer.IsEmpty()?false:true);
+
+      PostEvent(&xevent);  
+    }
+
+
+  bool status = SetFromDumpInternal(buffer, observer);
+
+
+  if(observer)
+    {
+      XBER_XEVENT xevent(this, XBERXEVENT_TYPE_DECODE_END); 
+
+      xevent.SetLevel(0);  
+      xevent.GetData()->CopyFrom(buffer);             
+      xevent.SetStatus(status);
+
+      PostEvent(&xevent);  
+
+      observer->UnSubscribeEvent(XBERXEVENT_TYPE_DECODE_START , this, observer);
+      observer->UnSubscribeEvent(XBERXEVENT_TYPE_DECODE_END   , this, observer);
+    }
+
+  return status;
 }
 
 
@@ -855,13 +979,23 @@ bool XBER::Sequence_DeleteAll()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XBER::SetFromDumpInternal(XBUFFER& buffer)
+bool XBER::SetFromDumpInternal(XBUFFER& buffer, XOBSERVER* observer)
 {
-  static XASN1_OID_PROPERTY*  property  = NULL;
-  static XBYTE                level     = 0;
+  static XASN1_OID_PROPERTY*  property       = NULL;
+  XASN1_OID_PROPERTY*         propertyevent  = NULL;
   XSTRING                     line;
   
-  if(buffer.IsEmpty()) return false;
+  if(buffer.IsEmpty()) 
+    {
+      return false;
+    }
+
+  if(observer)
+    {
+      observer->SubscribeEvent(XBERXEVENT_TYPE_DECODE_DATA, this, observer);
+    }
+
+  levels[level]++;   
 
   tagtype = (XBYTE)(buffer.Get()[0] & XBER_TAG_MASKTYPE); 
 
@@ -889,11 +1023,12 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
   data.Delete();
   data.Add(&buffer.Get()[sizehead], size);
 
-  line.Format(__L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+  //line.Format(__L("(%d, %d) %s"), totalposition, size, nametagtype.Get());  
+  line.Format(__L("%s"), nametagtype.Get());  
 
   switch(tagtype)
    {   
-     case XBER_TAGTYPE_CONTEXT_SPECIFIC    : line.AddFormat(__L(" (%d) "), contextspecificvalue);  
+     case XBER_TAGTYPE_CONTEXT_SPECIFIC    : line.AddFormat(__L(" (%d) "), contextspecificvalue);                                               
                                              break;
 
      case XBER_TAGTYPE_OBJECT_IDENTIFIER  : { XSTRING valuestr;
@@ -901,7 +1036,8 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
                                               ConvertToObjetIdentifier(data, value);
                                               value.ToString(valuestr);
 
-                                              property = XASN1::GetOIDProperty(valuestr.Get());
+                                              property        = XASN1::GetOIDProperty(valuestr.Get());
+                                              propertyevent   = property;
                                               if(property)
                                                 {
                                                   line.AddFormat(__L(": %s :"), property->description);  
@@ -942,25 +1078,40 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
     { 
       XBUFFER subdata;
       XBER*   sub_ber  = NULL; 
-      XDWORD  position = 0;    
+      XDWORD  position = 0;  
 
-      XTRACE_PRINTTAB(level, line.Get(), NULL);  
-      //XTRACE_PRINTDATABLOCKTAB(level, buffer.Get(), sizehead);
-       
-      level++;          
-
+      level++;              
+      
       totalposition += sizehead;           
 
       subdata.Delete();
-      subdata.Add(data.Get(), data.GetSize());          
-      
+      subdata.Add(data.Get(), data.GetSize());     
+
+
+      XBER_XEVENT event(this, XBERXEVENT_TYPE_DECODE_DATA); 
+
+      event.SetLevel(GetLevel());    
+      memcpy(event.GetLevels(), GetLevels(), sizeof(XDWORD)*XBER_MAXLEVELS);  
+      GetLevels((*event.GetLevelsString()));      
+      event.GetLine()->Set(line);
+      event.GetData()->CopyFrom(buffer);
+      event.SetTagType(tagtype);
+      event.GetTagTypeName()->Set(nametagtype);
+      event.SetTagClass(tagclass);
+      event.SetProperty(propertyevent);
+      event.GetValue()->Set();
+      event.SetStatus(true);
+
+      PostEvent(&event);        
+    
+                
       while(subdata.GetSize())
         {                  
           sub_ber = new XBER();
           if(sub_ber) 
-            {                           
-              if(!sub_ber->SetFromDumpInternal(subdata))
-                {
+            {                                        
+              if(!sub_ber->SetFromDumpInternal(subdata, observer))
+                {           
                   delete sub_ber;    
                   sub_ber = NULL;
 
@@ -979,11 +1130,13 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
                 
             } else return false;
         }
-
+            
+      levels[level] = 0; 
       level--;
+      
     } 
    else
-    {
+    {       
       switch(tagtype)
         {  
           case XBER_TAGTYPE_CONTEXT_SPECIFIC    : break;
@@ -1042,8 +1195,7 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
           case XBER_TAGTYPE_DURATION            : break;
           case XBER_TAGTYPE_OID_IRI             : break;
           case XBER_TAGTYPE_RELATIVE_OID_IRI    : break;
-        }            
-
+        }      
 
       if(!value.IsNull())
         {
@@ -1056,10 +1208,30 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer)
               line.AddFormat(__L(" '%s' "), valuestr.Get());  
             }         
         }
+   
+      totalposition += sizehead + size;
 
-      XTRACE_PRINTTAB(level, line.Get(), NULL);        
+      
+      XBER_XEVENT event(this, XBERXEVENT_TYPE_DECODE_DATA); 
 
-      totalposition += sizehead + size;     
+      event.SetLevel(GetLevel());    
+      memcpy(event.GetLevels(), GetLevels(), sizeof(XDWORD)*XBER_MAXLEVELS);  
+      GetLevels((*event.GetLevelsString()));  
+      event.GetLine()->Set(line);       
+      event.GetData()->CopyFrom(data);
+      event.SetTagType(tagtype);
+      event.GetTagTypeName()->Set(nametagtype);
+      event.SetTagClass(tagclass);
+      event.SetProperty(propertyevent);
+      (*event.GetValue()) = value;
+      event.SetStatus(true);
+
+      PostEvent(&event);     
+    }
+
+  if(observer)
+    {
+      observer->UnSubscribeEvent(XBERXEVENT_TYPE_DECODE_DATA, this, observer);
     }
 
   return true;
