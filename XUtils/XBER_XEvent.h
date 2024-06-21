@@ -64,11 +64,11 @@ class XBER;
 class XBER_XEVENT : public XEVENT
 {
   public:
+
+                          XBER_XEVENT                   ();
                           XBER_XEVENT                   (XSUBJECT* subject, XDWORD type = XBERXEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_XBER);
     virtual              ~XBER_XEVENT                   ();
-
-    
-
+  
     int                   GetLevel                      ();  
     void                  SetLevel                      (int level);  
 
@@ -93,7 +93,10 @@ class XBER_XEVENT : public XEVENT
     XVARIANT*             GetValue                      ();
 
     bool                  GetStatus                     ();   
-    void                  SetStatus                     (bool status);   
+    void                  SetStatus                     (bool status);  
+
+    XBER_XEVENT*          GetBeforeEvent                (); 
+    bool                  SetBeforeEvent                (XBER_XEVENT& beforeevent); 
     
   private:
 
@@ -115,6 +118,8 @@ class XBER_XEVENT : public XEVENT
     XVARIANT              value;  
 
     bool                  status;
+
+    static XBER_XEVENT    beforeevent;
 };
 
 #pragma endregion

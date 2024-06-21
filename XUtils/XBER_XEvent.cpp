@@ -47,11 +47,26 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
+XBER_XEVENT  XBER_XEVENT::beforeevent;
+
 #pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBER_XEVENT::XBER_XEVENT()
+* @brief      Constructor
+* @ingroup    XUTILS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBER_XEVENT::XBER_XEVENT() : XEVENT(NULL, 0, 0)
+{
+  Clean();
+}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -328,6 +343,59 @@ void XBER_XEVENT::SetStatus(bool status)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBER_XEVENT* XBER_XEVENT::GetBeforeEvent()
+* @brief      GetBeforeEvent
+* @ingroup    XUTILS
+* 
+* @return     XBER_XEVENT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBER_XEVENT* XBER_XEVENT::GetBeforeEvent()
+{
+  return &beforeevent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBER_XEVENT::SetBeforeEvent(XBER_XEVENT& event)
+* @brief      SetBeforeEvent
+* @ingroup    XUTILS
+* 
+* @param[in]  event : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBER_XEVENT::SetBeforeEvent(XBER_XEVENT& event)
+{
+  XBER_XEVENT::beforeevent.SetLevel(event.GetLevel());    
+
+  memcpy(XBER_XEVENT::beforeevent.GetLevels(), event.GetLevels(), (sizeof(XDWORD) * XBER_MAXLEVELS));
+  XBER_XEVENT::beforeevent.GetLevelsString()->Set(event.GetLevelsString()->Get());
+
+  XBER_XEVENT::beforeevent.GetLine()->Set(event.GetLine()->Get());
+
+  XBER_XEVENT::beforeevent.GetData()->CopyFrom((*event.GetData()));
+
+  XBER_XEVENT::beforeevent.SetTagType(event.GetTagType());    
+  
+  XBER_XEVENT::beforeevent.GetTagTypeName()->Set(event.GetTagTypeName()->Get());
+
+  XBER_XEVENT::beforeevent.SetTagClass(event.GetTagClass());    
+
+  XBER_XEVENT::beforeevent.SetProperty(event.GetProperty());    
+
+  (*XBER_XEVENT::beforeevent.GetValue()) = (*event.GetValue());
+
+  XBER_XEVENT::beforeevent.SetStatus(event.GetStatus());    
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void XBER_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -338,9 +406,15 @@ void XBER_XEVENT::SetStatus(bool status)
 void XBER_XEVENT::Clean()
 {
   level     = 0;
-  status    = false; 
+
+  memset(levels, 0, (sizeof(XDWORD) * XBER_MAXLEVELS));
+  
   tagtype   = XBER_TAGTYPE_RESERVEDBER;
   tagclass  = XBER_TAGCLASS_UNKNOWN;
+
+  property  = NULL;
+
+  status    = false; 
 }
 
 

@@ -1102,9 +1102,10 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer, XOBSERVER* observer)
       event.GetValue()->Set();
       event.SetStatus(true);
 
-      PostEvent(&event);        
-    
-                
+      PostEvent(&event);  
+
+      event.SetBeforeEvent(event);
+                    
       while(subdata.GetSize())
         {                  
           sub_ber = new XBER();
@@ -1226,7 +1227,9 @@ bool XBER::SetFromDumpInternal(XBUFFER& buffer, XOBSERVER* observer)
       (*event.GetValue()) = value;
       event.SetStatus(true);
 
-      PostEvent(&event);     
+      PostEvent(&event);   
+
+      event.SetBeforeEvent(event);  
     }
 
   if(observer)
@@ -1474,7 +1477,7 @@ bool XBER::ConvertToUTCTime(XBUFFER& data, XVARIANT& variant)
   XSTRING string; 
 
   string.Add(data);
-  string.Add(__L("Z"));
+  //string.Add(__L("Z"));
 
   variant = string;
 

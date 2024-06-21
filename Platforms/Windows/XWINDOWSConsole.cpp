@@ -393,27 +393,29 @@ int XWINDOWSCONSOLE::GetChar()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Generate()
 {
-  if(!AttachConsole(ATTACH_PARENT_PROCESS)) 
-    {    
+  #ifndef BUILDER
+  if(!AttachConsole(ATTACH_PARENT_PROCESS))
+    {
       // allocate a console for this app
       if(!AllocConsole())
         {
-          return false;  
-        }        
+          return false;
+        }
     }
+  #endif
 
   freopen("CON", "w", stdout);
   freopen("CON", "w", stderr);
   freopen("CON", "r", stdin);
-    
+
   /*
   HANDLE  consoleoutput = GetStdHandle(STD_OUTPUT_HANDLE);
   int     SystemOutput  = _open_osfhandle(intptr_t(consoleoutput), _O_TEXT);
 
   // check if output is a console and not redirected to a file
-  if(!isatty(SystemOutput)) 
+  if(!isatty(SystemOutput))
     {
-      return false; 
+      return false;
     }
 
   FILE*   coutputhandle = _fdopen(SystemOutput, "w");

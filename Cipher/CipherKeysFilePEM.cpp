@@ -526,16 +526,77 @@ void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
                                                 {
                                                   CIPHERKEYCERTIFICATE* certificate = (CIPHERKEYCERTIFICATE*)decodekey;
 
+                                                  // Version 
                                                   if(!levelsstr.Compare(__L("1.1.1.1")))
                                                     {
                                                       certificate->SetVersion((XWORD)event->GetData()->Get()[0]);
                                                     }
 
+                                                  // Serial
                                                   if(!levelsstr.Compare(__L("1.1.2")))
                                                     {
                                                       certificate->GetSerial()->CopyFrom((*event->GetData()));
                                                     }
 
+                                                  // Algorithm type
+                                                  if(!levelsstr.Compare(__L("1.1.3.1")))
+                                                    {
+                                                      certificate->SetAlgorithmType(event->GetProperty()->OID);
+                                                    }
+
+                                                  // Date Not Before
+                                                  if(!levelsstr.Compare(__L("1.1.5.1")))
+                                                    {
+                                                      XVARIANT* value;
+                                                      XSTRING   valuestr;  
+
+                                                      value     = (XVARIANT*)event->GetValue();
+                                                      valuestr  = (XSTRING)(*value);
+
+                                                      certificate->ConvertDateTime(valuestr.Get(), certificate->GetDateNotBefore());   
+                                                    }
+
+                                                  // Date Not After
+                                                  if(!levelsstr.Compare(__L("1.1.5.2")))
+                                                    {
+                                                      XVARIANT* value;
+                                                      XSTRING   valuestr;  
+
+                                                      value     = (XVARIANT*)event->GetValue();
+                                                      valuestr  = (XSTRING)(*value);
+
+                                                      certificate->ConvertDateTime(valuestr.Get(), certificate->GetDateNotAfter());       
+                                                    }
+
+                                                  if(event->GetBeforeEvent()->GetTagType() == XBER_TAGTYPE_OBJECT_IDENTIFIER)
+                                                    {
+                                                      XSTRING   _OID;
+                                                      XVARIANT* value;
+
+                                                      _OID = event->GetBeforeEvent()->GetProperty()->OID;
+                                                      
+                                                      value = (XVARIANT*)event->GetValue();
+  
+                                                      if(!_OID.Compare(__L("2.5.4.6"), false))
+                                                        {
+                                                          certificate->GetCountryName()->Set((XSTRING)(*value));  
+                                                        }
+
+                                                      if(!_OID.Compare(__L("2.5.4.10"), false))
+                                                        {
+                                                          certificate->GetOrganizationName()->Set((XSTRING)(*value));  
+                                                        }
+
+                                                      if(!_OID.Compare(__L("2.5.4.11"), false))
+                                                        {
+                                                          certificate->GetOrganizationalUnitName()->Set((XSTRING)(*value));  
+                                                        }
+
+                                                      if(!_OID.Compare(__L("2.5.4.3"), false))
+                                                        {
+                                                          certificate->GetCommonName()->Set((XSTRING)(*value));  
+                                                        }
+                                                    }
                                                 }
 
                                               levelsstr.AddFormat(__L(" %s"), event->GetLine()->Get());                                          
