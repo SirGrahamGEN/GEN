@@ -93,6 +93,23 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
   SetSize(devmode.dmPelsWidth, devmode.dmPelsHeight);
   SetMaxSize(devmode.dmPelsWidth, devmode.dmPelsHeight);
 
+
+  GRPRECTINT* rectworkarea = GetWorkRegion();
+  if(rectworkarea)
+    {
+      RECT workarea;
+
+      SystemParametersInfo(SPI_GETWORKAREA, 0, &workarea, 0);
+
+      rectworkarea->x1 = workarea.left;
+      rectworkarea->y1 = workarea.top;
+
+      rectworkarea->x2 = workarea.right;
+      rectworkarea->y2 = workarea.bottom;
+    }
+
+
+
   SetMode(GRPPROPERTYMODE_32_BGRA_8888);
 
   SetIsBufferInverse(false);

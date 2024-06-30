@@ -34,6 +34,8 @@
 
 #include "XBase.h"
 
+#include "GRPRect.h"
+
 #pragma endregion
 
 
@@ -94,6 +96,8 @@ class GRPPROPERTIES
 
     void                    SetMaxSize                  (XDWORD maxwidth, XDWORD maxheight);
 
+    GRPRECTINT*             GetWorkRegion               ();
+
     float                   GetDPI                      ();
     void                    SetDPI                      (float DPI);
 
@@ -122,6 +126,7 @@ class GRPPROPERTIES
     XDWORD                  height;
     XDWORD                  maxwidth;
     XDWORD                  maxheight;
+    GRPRECTINT              workregion;
     float                   DPIs;
     XDWORD                  stride;
     bool                    isbufferinverse;

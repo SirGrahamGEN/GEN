@@ -315,6 +315,21 @@ void GRPPROPERTIES::SetMaxSize(XDWORD maxwidth, XDWORD maxheight)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPRECTINT* GRPPROPERTIES::GetWorkRegion()
+* @brief      GetWorkRegion
+* @ingroup    GRAPHIC
+* 
+* @return     GRPRECTINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPRECTINT* GRPPROPERTIES::GetWorkRegion()
+{
+  return &workregion;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         float GRPPROPERTIES::GetDPI()
 * @brief      Get DPI
