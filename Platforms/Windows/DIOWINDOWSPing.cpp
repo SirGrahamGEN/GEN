@@ -247,7 +247,7 @@ bool DIOWINDOWSPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirs
   /*
   if(!status)
     {
-      //XTRACE_PRINTCOLOR((status?1:4), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("Ok."):__L("ERROR!")));
+      //XTRACE_PRINTCOLOR((status?1:4), __L("Ping to [%s]: %s"), targetIP.Get(), (status?__L("[Ok.]"):__L("[Error!]")));
     }
   */
 

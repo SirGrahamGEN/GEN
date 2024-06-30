@@ -289,7 +289,7 @@ bool GRPFACTORY::DeleteCanvas(GRPCANVAS* canvas)
 {
   if(!canvas) return false;
 
-  canvas->DeleteBuffers();
+  canvas->Buffer_Delete();
 
   delete canvas;
 

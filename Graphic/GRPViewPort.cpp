@@ -185,7 +185,7 @@ bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
       canvas->SetWidth(canvasproperties.GetWidth());
       canvas->SetHeight(canvasproperties.GetHeight());
 
-      canvas->CreateBuffers();
+      canvas->Buffer_Create();
     }
 
   return true;

@@ -372,7 +372,6 @@ class APPCFG
 
   protected:
 
-
     #ifdef APP_CFG_GENERAL_ACTIVE
     XSTRING              scraperwebscripturldownload;
     XSTRING              showdetailinfo;

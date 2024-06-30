@@ -109,7 +109,7 @@ GRPSCREEN::~GRPSCREEN()
 
   DeleteAllViewports();
 
-  DeleteBuffers();
+  Buffer_Delete();
 
   Clean();
 }
@@ -162,6 +162,88 @@ bool GRPSCREEN::IsActive()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool GRPSCREEN::Style_Is(XDWORD style)
+* @brief      Style_Is
+* @ingroup    GRAPHIC
+* 
+* @param[in]  style : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Style_Is(XDWORD style)
+{
+  return (styles & style)?true:false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::Style_Add(XDWORD style)
+* @brief      Style_Add
+* @ingroup    GRAPHIC
+* 
+* @param[in]  style : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::Style_Add(XDWORD style)
+{
+  Styles_Set(Styles_Get() | style);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::Style_Remove(XDWORD style)
+* @brief      Style_Remove
+* @ingroup    GRAPHIC
+* 
+* @param[in]  style : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::Style_Remove(XDWORD style)
+{
+  Styles_Set(Styles_Get() & ~style);  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD GRPSCREEN::Styles_Get()
+* @brief      Styles_Get
+* @ingroup    GRAPHIC
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD GRPSCREEN::Styles_Get()
+{
+  return styles;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::Styles_Set(XDWORD styles)
+* @brief      Styles_Set
+* @ingroup    GRAPHIC
+* 
+* @param[in]  styles : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::Styles_Set(XDWORD styles)
+{
+  this->styles = styles;
+
+  if((this->styles & GRPSCREENSTYLE_FULLSCREEN) == GRPSCREENSTYLE_FULLSCREEN)
+    {
+      this->styles &= ~GRPSCREENSTYLE_TITLE;
+    }  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode)
 * @brief      SetPropertys
 * @ingroup    GRAPHIC
@@ -189,47 +271,16 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
   return true;
 }
 
-
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::IsFullScreen()
-* @brief
+* 
+* @fn         bool GRPSCREEN::Buffer_Create()
+* @brief      Buffer_Create
 * @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::IsFullScreen()
-{
-  return isfullscreen;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
-* @brief
-* @ingroup    GRAPHIC
-*
-* @param[in]  isfullscreen :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void GRPSCREEN::SetIsFullScreen(bool isfullscreen)
-{
-  this->isfullscreen = isfullscreen;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::CreateBuffers()
-* @brief      Create Buffers
-* @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::CreateBuffers()
+bool GRPSCREEN::Buffer_Create()
 {
   buffersize = (width * height * GetBytesperPixel());
 
@@ -240,17 +291,57 @@ bool GRPSCREEN::CreateBuffers()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::DeleteBuffers()
-* @brief      DeleteBuffers
+* 
+* @fn         XBYTE* GRPSCREEN::Buffer_Get()
+* @brief      Buffer_Get
 * @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     XBYTE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::DeleteBuffers()
+XBYTE* GRPSCREEN::Buffer_Get()
 {
-  if(!buffer) return false;
+  return buffer;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Buffer_SetToZero()
+* @brief      Buffer_SetToZero
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Buffer_SetToZero()
+{
+  if(!buffer) 
+    {
+      return false;
+    }
+
+  memset(buffer, 0, buffersize);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Buffer_Delete()
+* @brief      Buffer_Delete
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Buffer_Delete()
+{
+  if(!buffer) 
+    {
+      return false;
+    }
 
   delete [] buffer;
   buffer = NULL;
@@ -258,21 +349,6 @@ bool GRPSCREEN::DeleteBuffers()
   buffersize = 0;
 
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPSCREEN::GetBuffer()
-* @brief      GetBuffer
-* @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* GRPSCREEN::GetBuffer()
-{
-  return buffer;
 }
 
 
@@ -287,7 +363,10 @@ XBYTE* GRPSCREEN::GetBuffer()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Create(bool show)
 {
-  if(!viewports.Get(0)) return false;
+  if(!viewports.Get(0)) 
+    {
+      return false;
+    }
   
   isactive = true;
 
@@ -324,6 +403,23 @@ bool GRPSCREEN::Update()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Update(GRPCANVAS* canvas)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::UpdateTransparent(GRPCANVAS* canvas)
+* @brief      UpdateTransparent
+* @ingroup    GRAPHIC
+* 
+* @param[in]  canvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::UpdateTransparent(GRPCANVAS* canvas)
 {
   return false;
 }
@@ -547,14 +643,47 @@ bool GRPSCREEN::Maximize(bool active)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPBITMAP* GRPSCREEN::CaptureContent()
+* @fn         GRPBITMAP* GRPSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
 * @brief      CaptureContent
 * @ingroup    GRAPHIC
+* 
+* @param[in]  rect : 
+* @param[in]  handle_window : 
 * 
 * @return     GRPBITMAP* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPBITMAP* GRPSCREEN::CaptureContent()
+GRPBITMAP* GRPSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
+{
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* GRPSCREEN::GetDesktopHandle()
+* @brief      GetDesktopHandle
+* @ingroup    GRAPHIC
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* GRPSCREEN::GetDesktopHandle()
+{
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* GRPSCREEN::GetShellHandle()
+* @brief      GetShellHandle
+* @ingroup    GRAPHIC
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* GRPSCREEN::GetShellHandle()
 {
   return NULL;
 }
@@ -714,7 +843,6 @@ bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, f
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::UpdateViewports()
 {
-
   #ifdef GRP_OPENGL_ACTIVE
 
 
@@ -728,7 +856,14 @@ bool GRPSCREEN::UpdateViewports()
               maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
           } 
            
-        Update(maincanvas);      
+        if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+          {
+            UpdateTransparent(maincanvas);      
+          }
+         else
+          {
+            Update(maincanvas);      
+          }    
       }
 
   #endif  
@@ -809,8 +944,9 @@ void GRPSCREEN::Clean()
 
   isvalid             = false;
   isactive            = false;
-  isfullscreen        = false;
 
+  styles              = GRPSCREENSTYLE_DEFAULT;
+    
   buffer              = NULL;
   buffersize          = 0;
 
@@ -826,4 +962,3 @@ void GRPSCREEN::Clean()
 
 
 #pragma endregion
-

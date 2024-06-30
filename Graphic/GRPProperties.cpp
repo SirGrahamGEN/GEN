@@ -406,36 +406,6 @@ void GRPPROPERTIES::SetIsBufferInverse(bool isbufferinverse)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPPROPERTIES::HasTitle()
-* @brief      HasTitle
-* @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPPROPERTIES::HasTitle()
-{
-  return hastitle;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPPROPERTIES::SetHasTitle(bool hastitle)
-* @brief      SetHasTitle
-* @ingroup    GRAPHIC
-*
-* @param[in]  hastitle :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void GRPPROPERTIES::SetHasTitle(bool hastitle)
-{
-  this->hastitle = hastitle;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         XBYTE GRPPROPERTIES::GetBitsperPixel()
 * @brief      Get Bits per Pixel
 * @ingroup    GRAPHIC
@@ -506,7 +476,6 @@ void GRPPROPERTIES::CopyPropertysFrom(GRPPROPERTIES* properties)
   DPIs            = properties->DPIs;
   stride          = properties->stride;
   isbufferinverse = properties->isbufferinverse;
-  hastitle        = properties->hastitle;
 }
 
 
@@ -531,7 +500,6 @@ void GRPPROPERTIES::CopyPropertysTo(GRPPROPERTIES* properties)
   properties->DPIs              = DPIs;
   properties->stride            = stride;
   properties->isbufferinverse   = isbufferinverse;
-  properties->hastitle          = hastitle;
 }
 
 
@@ -581,7 +549,6 @@ void GRPPROPERTIES::Default()
   DPIs            = 0;
   stride          = 0;
   isbufferinverse = false;
-  hastitle        = true;
 }
 
 
@@ -605,7 +572,6 @@ void GRPPROPERTIES::Clean()
   DPIs            = 0;
   stride          = 0;
   isbufferinverse = false;
-  hastitle        = false;
 }
 
 

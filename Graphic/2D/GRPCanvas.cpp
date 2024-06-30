@@ -369,50 +369,83 @@ GRPRECTINT* GRPCANVAS::GetScreenZone()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPCANVAS::CreateBuffers()
-* @brief      Create Buffers
+* 
+* @fn         bool GRPCANVAS::Buffer_Create()
+* @brief      Buffer_Create
 * @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCANVAS::CreateBuffers()
+bool GRPCANVAS::Buffer_Create()
 {
-  buffer = new XBYTE[width * height * GetBytesperPixel()];
-  if(!buffer) return false;
+  buffersize = (width * height * GetBytesperPixel());
+
+  buffer = new XBYTE[buffersize];
 
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPCANVAS::DeleteBuffers()
-* @brief      Delete Buffers
+* 
+* @fn         XBYTE* GRPCANVAS::Buffer_Get()
+* @brief      Buffer_Get
 * @ingroup    GRAPHIC
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     XBYTE* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPCANVAS::DeleteBuffers()
+XBYTE* GRPCANVAS::Buffer_Get()
 {
-  return false;
+  return buffer;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XBYTE* GRPCANVAS::GetBuffer()
-* @brief      Get Buffer
+* 
+* @fn         bool GRPCANVAS::Buffer_SetToZero()
+* @brief      Buffer_SetToZero
 * @ingroup    GRAPHIC
-*
-* @return     XBYTE* : buffer with data
-*
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* GRPCANVAS::GetBuffer()
+bool GRPCANVAS::Buffer_SetToZero()
 {
-  return buffer;
+  if(!Buffer_Get()) 
+    {
+      return false;
+    }
+
+  memset(Buffer_Get(), 0, buffersize);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPCANVAS::Buffer_Delete()
+* @brief      Buffer_Delete
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPCANVAS::Buffer_Delete()
+{
+  if(!buffer) 
+    {
+      return false;
+    }
+
+  delete [] buffer;
+  buffer = NULL;
+
+  buffersize = 0;
+
+  return true;
 }
 
 
@@ -1251,6 +1284,9 @@ bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPCANVAS::Clean()
 {
+  buffer        = NULL;
+  buffersize    = 0;
+
   linewidth     = 1.0f;
   dashlength    = 1.0f;
 }

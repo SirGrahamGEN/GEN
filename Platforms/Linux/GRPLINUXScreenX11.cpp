@@ -162,7 +162,7 @@ bool GRPLINUXSCREENX11::Create(bool show)
   window =  XCreateWindow(display,RootWindow(display,screen),x ,y , width, height, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
   if(!window) return false;
 
-  if(IsFullScreen())
+  if(style & GRPSCREENSTYLE_FULLSCREEN)
     {
       Atom wm_state   = XInternAtom (display, "_NET_WM_STATE", true );
       Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );

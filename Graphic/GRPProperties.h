@@ -103,9 +103,6 @@ class GRPPROPERTIES
     bool                    IsBufferInverse             ();
     void                    SetIsBufferInverse          (bool isbufferinverse);
 
-    bool                    HasTitle                    ();
-    void                    SetHasTitle                 (bool hastitle);
-
     XBYTE                   GetBitsperPixel             ();
     XBYTE                   GetBytesperPixel            ();
 
@@ -128,7 +125,6 @@ class GRPPROPERTIES
     float                   DPIs;
     XDWORD                  stride;
     bool                    isbufferinverse;
-    bool                    hastitle;
 
   private:
 

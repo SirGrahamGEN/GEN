@@ -293,12 +293,12 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   spriteregresionmap.DeleteElementContents();
                                                                                   spriteregresionmap.DeleteAll();
 
-                                                                                  DeleteBuffers();
+                                                                                  Buffer_Delete();
                                                                                   Clean();
                                                                                 }
 
 
-    bool                                                                        CreateBuffers                     ()
+    bool                                                                        Buffer_Create                     ()
                                                                                 {
                                                                                   buffer = new XBYTE[width * height * GetBytesperPixel()];
                                                                                   if(!buffer) return false;
@@ -334,7 +334,21 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                 }
 
 
-    bool                                                                        DeleteBuffers                     ()
+  bool                                                                          Buffer_SetToZero                  ()
+                                                                                {
+                                                                                  if(!buffer) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
+
+                                                                                  memset(buffer, 0, width * height * GetBytesperPixel());
+
+                                                                                  return true;
+                                                                                }
+
+
+
+    bool                                                                        Buffer_Delete                      ()
                                                                                 {
 
                                                                                   if(renderer_rastertext)
@@ -378,7 +392,6 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                       delete pixelformatbuffer;
                                                                                       pixelformatbuffer = NULL;
                                                                                     }
-
 
                                                                                   if(buffer)
                                                                                     {
@@ -1133,9 +1146,9 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                   agg::rendering_buffer screenbuffer;
 
-                                                                                  screenbuffer.attach(screen->GetBuffer(), screen->GetWidth()
-                                                                                                                         , screen->GetHeight()
-                                                                                                                         , (screen->IsBufferInverse()?1:-1) * ((int)screen->GetWidth() * screen->GetBytesperPixel()));
+                                                                                  screenbuffer.attach(screen->Buffer_Get()  , screen->GetWidth()
+                                                                                                                            , screen->GetHeight()
+                                                                                                                            , (screen->IsBufferInverse()?1:-1) * ((int)screen->GetWidth() * screen->GetBytesperPixel()));
 
                                                                                   int nlines    = (rectscreen->y2-rectscreen->y1);
                                                                                   int sizeline  = (rectscreen->x2-rectscreen->x1) * GetBytesperPixel();
@@ -1197,9 +1210,9 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                   agg::rendering_buffer origincanvasbuffer;
 
-                                                                                  origincanvasbuffer.attach(origincanvas->GetBuffer(), origincanvas->GetWidth()
-                                                                                                                                     , origincanvas->GetHeight()
-                                                                                                                                     , (origincanvas->IsBufferInverse()?1:-1) * ((int)origincanvas->GetWidth() * origincanvas->GetBytesperPixel()));
+                                                                                  origincanvasbuffer.attach(origincanvas->Buffer_Get()  , origincanvas->GetWidth()
+                                                                                                                                        , origincanvas->GetHeight()
+                                                                                                                                        , (origincanvas->IsBufferInverse()?1:-1) * ((int)origincanvas->GetWidth() * origincanvas->GetBytesperPixel()));
 
                                                                                   int nlines        = (int)viewport->GetHeight();
                                                                                   int sizeline      = (int)(viewport->GetWidth() * GetBytesperPixel());

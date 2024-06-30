@@ -714,7 +714,7 @@ bool DIOPING::Do(XDWORD nretries, XDWORD timebetweenchecks, bool exitfirstgoodre
   bool status = WasConnected();
   if(!status)
     {
-     //XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Ping] to [%s]: %s"), targetIP.Get(), (status?__L("Ok."): __L("ERROR!")));
+     //XTRACE_PRINTCOLOR((status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Ping] to [%s]: %s"), targetIP.Get(), (status?__L("[Ok.]"):__L("[Error!]")));
     }
 
   if(xmutexping)

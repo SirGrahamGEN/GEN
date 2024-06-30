@@ -106,7 +106,7 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 *
-* --------------------------------------------------------------------------------------------------------------------*/
+* -------------------------------------------------------------------------------------------------------------------*/
 GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 {
   Clean();
@@ -124,9 +124,12 @@ GRPWINDOWSSCREEN::~GRPWINDOWSSCREEN()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSSCREEN::Create(bool show)
 {
-  if(!Create_Window(show)) return false;
+  if(!Create_Window(show)) 
+    {
+      return false;
+    }
 
-  CreateBuffers();
+  Buffer_Create();
 
   listscreens.Add(hwnd, this);
 
@@ -173,8 +176,15 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 {
   #ifndef GRP_OPENGL_ACTIVE
 
-  if(!hdc)    return false;
-  if(!canvas) return false;
+  if(!hdc)    
+    {
+      return false;
+    }
+
+  if(!canvas) 
+    {
+      return false;
+    }
 
   if(IsEqualSizeTo(canvas) == ISEQUAL)
     {      
@@ -182,7 +192,7 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
                                    height ,
                                    0,0,0  ,
                                    height ,
-                                   canvas->GetBuffer() ,
+                                   canvas->Buffer_Get() ,
                                    &hinfo ,
                                    DIB_RGB_COLORS);     
     }
@@ -199,9 +209,92 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
                                    buffer ,
                                   &hinfo ,
                                    DIB_RGB_COLORS);
-
     }
 
+  return true;
+
+  #else
+
+  return false;
+
+  #endif
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
+* @brief      UpdateTransparent
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  canvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
+{
+  #ifndef GRP_OPENGL_ACTIVE
+
+  if(!hdc) 
+    {
+      return false;
+    }
+
+  if(!canvas) 
+    {
+      return false;
+    }
+
+  HDC     hdcscreen = GetDC(NULL);
+  HDC     hdcmem    = CreateCompatibleDC(hdcscreen);
+  HBITMAP hbmmem    = CreateCompatibleBitmap(hdcscreen, (LONG)width, (LONG)height);
+  HBITMAP hbmold    = (HBITMAP)SelectObject(hdcmem, hbmmem);
+
+  RECT    rect      = { 0, 0, (LONG)width, (LONG)height };
+  HBRUSH  hbrush    = CreateSolidBrush(RGB(0, 0, 0));
+
+  FillRect(hdcmem, &rect, hbrush);
+  DeleteObject(hbrush);
+
+  SetBkMode(hdcmem, TRANSPARENT);
+ 
+  if(IsEqualSizeTo(canvas) == ISEQUAL)
+    {      
+      SetDIBitsToDevice(hdcmem, 0, 0, width  ,
+                                      height ,
+                                      0,0,0  ,
+                                      height ,
+                                      canvas->Buffer_Get() ,
+                                      &hinfo ,
+                                      DIB_RGB_COLORS);     
+    }
+   else
+    {
+      if(!buffer) return false;
+
+      canvas->CopyBufferRenderToScreen(this);
+
+      SetDIBitsToDevice(hdcmem, 0, 0, width  ,
+                                      height ,
+                                      0,0,0  ,
+                                      height ,
+                                      buffer ,
+                                     &hinfo  ,
+                                      DIB_RGB_COLORS);
+    }
+
+  POINT         ptsrc   = { 0, 0 };
+  SIZE          sizewnd = { (LONG)width, (LONG)height };
+  BLENDFUNCTION blend   = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
+  POINT         ptdst   = { (LONG)positionx, (LONG)positiony };
+
+  UpdateLayeredWindow(hwnd, hdcscreen, &ptdst, &sizewnd, hdcmem, &ptsrc, 0, &blend, ULW_ALPHA);
+ 
+  SelectObject(hdcmem, hbmold);
+  DeleteObject(hbmmem);
+  DeleteDC(hdcmem);
+  ReleaseDC(NULL, hdcscreen);
 
   return true;
 
@@ -224,9 +317,12 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSSCREEN::Delete()
 {
-  DeleteBuffers();
+  Buffer_Delete();
 
-  if(IsFullScreen()) ChangeDisplaySettings(NULL,0);
+  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN)) 
+    {
+      ChangeDisplaySettings(NULL,0);
+    }
 
   if(hdc)
     {
@@ -518,20 +614,25 @@ bool GRPWINDOWSSCREEN::Maximize(bool active)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
+* @fn         GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
 * @brief      CaptureContent
 * @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  rect : 
+* @param[in]  handle_window : 
 * 
 * @return     GRPBITMAP* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
+GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent(GRPRECTINT* rect, void* handle_window)
 {
   XBUFFER xbuffer;
-  HDC     hdcsource = GetDC(hwnd);
+  HDC     hdcsource = GetDC(handle_window?(HWND)handle_window:hwnd);
   HDC     hdcmemory = CreateCompatibleDC(hdcsource);
-  int     capx      = GetWidth();
-  int     capy      = GetHeight();
+  int     x         = 0;
+  int     y         = 0;
+  int     cx        = GetWidth();
+  int     cy        = GetHeight();  
   bool    status    = false;
 
   if(!hdcsource)
@@ -545,11 +646,19 @@ GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
       return NULL;        
     }
 
-  HBITMAP hbitmap     = CreateCompatibleBitmap(hdcsource, capx, capy);
+  if(rect)
+    {
+      x         = rect->x1;
+      y         = rect->y1;
+      cx        = (rect->x2 - rect->x1);
+      cy        = (rect->y2 - rect->y1);
+    }  
+
+  HBITMAP hbitmap     = CreateCompatibleBitmap(hdcsource, cx, cy);
   HBITMAP hbitmapold  = (HBITMAP)SelectObject(hdcmemory, hbitmap);
   BITMAP  bitmap;
 
-  BitBlt(hdcmemory, 0, 0, capx, capy, hdcsource, 0, 0, SRCCOPY);
+  BitBlt(hdcmemory, 0, 0, cx, cy, hdcsource, x, y, SRCCOPY);
   hbitmap = (HBITMAP)SelectObject(hdcmemory, hbitmapold);
 
   DeleteDC(hdcsource);
@@ -592,6 +701,40 @@ GRPBITMAP* GRPWINDOWSSCREEN::CaptureContent()
     }
 
   return grpbitmap;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* GRPWINDOWSSCREEN::GetDesktopHandle()
+* @brief      GetDesktopHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* GRPWINDOWSSCREEN::GetDesktopHandle()
+{
+  HANDLE hwnd = GetDesktopWindow();
+
+  return (void*)hwnd;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void* GRPWINDOWSSCREEN::GetShellHandle()
+* @brief      GetShellHandle
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     void* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void* GRPWINDOWSSCREEN::GetShellHandle()
+{
+  HANDLE hwnd = GetShellWindow();
+
+  return (void*)hwnd;
 }
 
 
@@ -743,7 +886,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
   //-----------------------------------------------------------------------------------------------------
        
-  if(IsFullScreen())
+  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
     {
       DEVMODE devmode;
 
@@ -757,7 +900,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
       LONG status = ChangeDisplaySettings(&devmode, CDS_FULLSCREEN);
 
-      XTRACE_PRINTCOLOR(1, __L("ChangeDisplaySettings Status: %ld"), status);
+      //XTRACE_PRINTCOLOR(1, __L("ChangeDisplaySettings Status: %ld"), status);
 
       if(status != DISP_CHANGE_SUCCESSFUL) return NULL;
 
@@ -772,49 +915,98 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
                           (void*)this);
 
       if(!hwnd) return false;
+
+      SetPosition(0, 0);
     }
-    else
+   else
     {
-      RECT    rect;
-      XDWORD  style;
-
+      RECT rect;
+      int  posx = 0;
+      int  posy = 0;
+      
       GetClientRect(GetDesktopWindow(), &rect);
-
-      //SystemParametersInfo(SPI_GETWORKAREA, 0, &rect, 0);
      
-      if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) positionx = (rect.right - width)/2;
-      if(positiony == GRPPROPERTYMODE_SCREEN_CENTER) positiony = (rect.bottom- height)/2;
+      if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) 
+        {
+          posx = (rect.right - width)/2;
+        }
+       else 
+        {
+          posx = positionx; 
+        }
+
+      if(positiony == GRPPROPERTYMODE_SCREEN_CENTER) 
+        {
+          posy = (rect.bottom- height)/2;
+        }
+       else 
+        {
+          posy = positiony; 
+        }
+
+      DWORD _exstyle = 0;
+      DWORD _style   = 0;
 
 
+      if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
+        {
+          _exstyle |= WS_EX_TOOLWINDOW;
+        }
 
-      //rect.right  = (rect.right - width)/2;
-      //rect.bottom = (rect.bottom- height)/2;
+      if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+        {
+          _exstyle |= WS_EX_LAYERED;
+     
+          if(Style_Is(GRPSCREENSTYLE_ONTOP))
+            {
+              _exstyle |= WS_EX_TOPMOST;
+            }
 
-      hwnd = CreateWindowEx(0                                 ,
-                            classname.Get()                   ,
-                            NULL                              ,
-                            HasTitle()?WS_OVERLAPPED:WS_POPUP ,
-                            positionx, positiony              ,
-                            width ,height                     ,
-                            NULL                              ,
-                            NULL                              ,
-                            hinstance                         ,
+          _style |= WS_POPUP;
+        }
+       else
+        {
+          if(Style_Is(GRPSCREENSTYLE_TITLE))
+            {
+              _style |= WS_OVERLAPPED;
+            }
+           else
+            {
+              _style |= WS_POPUP;
+            }
+        }
+
+      hwnd = CreateWindowEx(_exstyle          ,
+                            classname.Get()   ,
+                            NULL              ,
+                            _style            ,
+                            posx, posy        ,
+                            width ,height     ,
+                            NULL              ,
+                            NULL              ,
+                            hinstance         ,
                             (void*)this);
 
       if(!hwnd) return false;
 
-
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
+      
       GetClientRect(hwnd, &rect);
 
       rect.right  = rect.left + width;    //+ 16;
       rect.bottom = rect.top  + height;   //+ 16;
 
-      style = GetWindowLong(hwnd, GWL_STYLE);
+      AdjustWindowRect(&rect, GetWindowLong(hwnd, GWL_STYLE), false);
+    
+      SetWindowPos(hwnd, NULL, posx, posy, (rect.right-rect.left), (rect.bottom-rect.top) , SWP_NOMOVE | SWP_NOZORDER);
+      
 
-      AdjustWindowRect(&rect, style, false);
+      POINT point = { 0, 0}; 
 
-      SetWindowPos(hwnd, NULL, positionx, positiony, (rect.right-rect.left), (rect.bottom-rect.top) , SWP_NOMOVE | SWP_NOZORDER);
-      GetClientRect(hwnd, &rect);
+      ClientToScreen(hwnd, (LPPOINT)&point);      
+      SetPosition(point.x, point.y);
+
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), point.x, point.y, GetWidth(), GetHeight());
     }
 
   if(show)
@@ -824,12 +1016,12 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
   if(!SetForegroundWindow(hwnd))
     {
-      XTRACE_PRINTCOLOR(4, __L("SetForegroundWindow Window: Error!"));
+      // XTRACE_PRINTCOLOR(4, __L("SetForegroundWindow Window: Error!"));
     }
 
   if(!SetFocus(hwnd))
     {
-      XTRACE_PRINTCOLOR(4, __L("SetFocus Window: Error!"));
+      // XTRACE_PRINTCOLOR(4, __L("SetFocus Window: Error!"));
       return false;
     } 
     
@@ -837,7 +1029,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   hdc = GetDC(hwnd);
   if(!hdc)
     {
-      XTRACE_PRINTCOLOR(4, __L("GetDC Window: Error!"));
+      // XTRACE_PRINTCOLOR(4, __L("GetDC Window: Error!"));
       return false;
     }
 
@@ -853,7 +1045,6 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   hinfo.bmiHeader.biCompression   = BI_RGB;
   hinfo.bmiHeader.biSizeImage     = (XDWORD)(hinfo.bmiHeader.biWidth*hinfo.bmiHeader.biHeight*hinfo.bmiHeader.biBitCount)/8;
   #endif
-
 
   return true;
 }
@@ -887,6 +1078,16 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
 
       case WM_ENDSESSION      : break;
 
+      case WM_MOVE            : { GRPWINDOWSSCREEN* screen = GRPWINDOWSSCREEN::GetListScreens()->Get(hwnd);
+                                  if(screen)
+                                    {
+                                      screen->SetPosition((int)(short) LOWORD(lparam),(int)(short) HIWORD(lparam));
+
+                                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] move: x=%04d, y=%04d (%04d,%04d)"), screen->GetPositionX(), screen->GetPositionY(), screen->GetWidth(), screen->GetHeight());
+                                    }
+                                }
+                                break;
+
       case WM_CLOSE           : { GRPWINDOWSSCREEN* screen = GRPWINDOWSSCREEN::GetListScreens()->Get(hwnd);
                                   if(screen)
                                     {
@@ -898,10 +1099,9 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
                                 }  
                                 break;
 
-      case WM_DESTROY         : { int a=0;
-                                  a++;
-                                }
-                                break;
+      case WM_PAINT           : break;
+
+      case WM_DESTROY         : break;
 
       case WM_POWERBROADCAST  : //Computer is suspending
                                 if(wparam == PBT_APMSUSPEND)
@@ -946,8 +1146,3 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
 
 
 #pragma endregion
-
-
-
-
-

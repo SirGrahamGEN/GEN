@@ -393,7 +393,6 @@ bool APPCFG::DoDefault()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCFG::End()
 { 
-
   #ifdef APP_CFG_GENERAL_ACTIVE
   showdetailinfo.Empty();
   #ifdef XTRACE_ACTIVE

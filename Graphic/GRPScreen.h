@@ -42,6 +42,7 @@
 #include "XPublisher.h"
 
 #include "GRPProperties.h"
+#include "GRPRect.h"
 
 #pragma endregion
 
@@ -64,6 +65,16 @@ enum GRPSCREENTYPE
 };
 
 
+#define GRPSCREENSTYLE_NONE              0x00000000
+#define GRPSCREENSTYLE_TITLE             0x00000001
+#define GRPSCREENSTYLE_FULLSCREEN        0x00000002
+#define GRPSCREENSTYLE_TRANSPARENT       0x00000004
+#define GRPSCREENSTYLE_ONTOP             0x00000008
+#define GRPSCREENSTYLE_NOICONTASKBAR     0x00000010
+
+#define GRPSCREENSTYLE_DEFAULT           GRPSCREENSTYLE_TITLE
+
+
 #pragma endregion
 
 
@@ -76,6 +87,7 @@ class GRPVIEWPORT;
 class GRPFRAMERATE;
 class GRPBITMAP;
 
+
 class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 {
   public:
@@ -86,19 +98,24 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     bool                          IsValid                       ();
     bool                          IsActive                      ();
 
+    bool                          Style_Is                      (XDWORD style);              
+    void                          Style_Add                     (XDWORD style);         
+    void                          Style_Remove                  (XDWORD style); 
+
+    XDWORD                        Styles_Get                    ();          
+    void                          Styles_Set                    (XDWORD styles);         
+
     bool                          SetPropertys                  (int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode);
-
-    bool                          IsFullScreen                  ();
-    void                          SetIsFullScreen               (bool isfullscreen);
-
-    bool                          CreateBuffers                 ();
-    bool                          DeleteBuffers                 ();
-    XBYTE*                        GetBuffer                     ();
-
-
+    
+    bool                          Buffer_Create                 ();   
+    XBYTE*                        Buffer_Get                    ();
+    bool                          Buffer_SetToZero              (); 
+    bool                          Buffer_Delete                 ();
+    
     virtual bool                  Create                        (bool show);
     virtual bool                  Update                        ();
     virtual bool                  Update                        (GRPCANVAS* canvas);
+    virtual bool                  UpdateTransparent             (GRPCANVAS* canvas);
     virtual bool                  Delete                        ();
     virtual bool                  Get_Position                  (int &x, int &y);
     virtual bool                  Set_Position                  (int x, int y);    
@@ -112,7 +129,10 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     virtual bool                  Set_Focus                     ();
     virtual bool                  Minimize                      (bool active);
     virtual bool                  Maximize                      (bool active);
-    virtual GRPBITMAP*            CaptureContent                ();
+    virtual GRPBITMAP*            CaptureContent                (GRPRECTINT* rect = NULL, void* handle_window = NULL);
+    
+    virtual void*                 GetDesktopHandle              ();
+    virtual void*                 GetShellHandle                ();
     
     bool                          UpdateSize                    (int width, int height);
 
@@ -131,8 +151,8 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     GRPSCREENTYPE                 type;
     bool                          isvalid;
     bool                          isactive;
-    bool                          isfullscreen;
-
+    XDWORD                        styles;
+    
     XBYTE*                        buffer;
     XDWORD                        buffersize;
 

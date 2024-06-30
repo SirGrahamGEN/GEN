@@ -73,7 +73,7 @@ GRPANDROIDSCREEN::GRPANDROIDSCREEN(): GRPSCREEN()
 
   SetIsBufferInverse(true);
 
-  SetIsFullScreen(true);
+  SetStyle(GRPSCREENSTYLE_FULLSCREEN);
 
   isvalid = true;
 }

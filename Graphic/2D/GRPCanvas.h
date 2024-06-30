@@ -102,7 +102,6 @@ class GRPCANVAS_VECTORFONT_CONFIG
     double                        height;    
     GRP2DCOLOR_RGBA8*             color;
     bool                          iskerning;
-
 };
 
 
@@ -114,11 +113,11 @@ class GRPCANVAS : public GRPPROPERTIES, public GRP2DREBUILDAREAS
 
     GRPRECTINT*                   GetScreenZone                       ();
 
-    virtual bool                  CreateBuffers                       ();
-    virtual bool                  DeleteBuffers                       ();
-
-    XBYTE*                        GetBuffer                           ();
-
+    virtual bool                  Buffer_Create                       ();   
+    XBYTE*                        Buffer_Get                          ();
+    virtual bool                  Buffer_SetToZero                    (); 
+    virtual bool                  Buffer_Delete                       ();
+  
     virtual void                  Clear                               (const GRP2DCOLOR* color);
 
     virtual void                  GetClipBox                          (double& x1, double& y1, double& x2, double& y2);
@@ -188,7 +187,10 @@ class GRPCANVAS : public GRPPROPERTIES, public GRP2DREBUILDAREAS
   protected:
 
     GRPRECTINT                    screenzone;
+
     XBYTE*                        buffer;
+    XDWORD                        buffersize;
+
     XRECT                         lastcliprect;
 
     double                        linewidth;

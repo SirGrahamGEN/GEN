@@ -245,7 +245,7 @@ XDWORD DIOSTREAMUDPACKNOWLEDGE::Write(XBYTE* buffer, XDWORD size)
 
   if(diostreamudp->WaitToWriteDatagramsEmpty(timeout))
     {
-      //XTRACE_PRINTCOLOR(1, __L("Write UDP %s:%d : %s"), addressremote.Get(), portremote, bw==size?__L("Ok"):__L("ERROR!"));
+      //XTRACE_PRINTCOLOR(1, __L("Write UDP %s:%d : %s"), addressremote.Get(), portremote, bw==size??__L("[Ok.]"):__L("[Error!]"));
 
       if(diostreamudp->WaitToGetFirstDatagram(false, timeout) != DIOSTREAMUDP_NOTFOUND)
         {
