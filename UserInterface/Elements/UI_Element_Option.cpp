@@ -88,6 +88,36 @@ UI_ELEMENT_OPTION::~UI_ELEMENT_OPTION()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD UI_ELEMENT_OPTION::GetVisibleLimitType()
+* @brief      GetVisibleLimitType
+* @ingroup    USERINTERFACE
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD UI_ELEMENT_OPTION::GetVisibleLimitType()
+{
+  return visiblelimittype;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void UI_ELEMENT_OPTION::SetVisibleLimitType(XDWORD visiblelimittype)
+* @brief      SetVisibleLimitType
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  visiblelimittype : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void UI_ELEMENT_OPTION::SetVisibleLimitType(XDWORD visiblelimittype)
+{
+  this->visiblelimittype = visiblelimittype;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE UI_ELEMENT_OPTION::GetAllocationTextType()
 * @brief      GetAllocationTextType
 * @ingroup    USERINTERFACE
@@ -194,6 +224,8 @@ bool UI_ELEMENT_OPTION::Set_UIAnimation(UI_ELEMENT_ANIMATION* elementanimation)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_ELEMENT_OPTION::Clean()
 {  
+  visiblelimittype    =  UI_ELEMENT_OPTION_VISIBLE_LIMIT_NONE;
+  
   allocationtexttype  = UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE_NONE;
 
   UItext              = NULL;

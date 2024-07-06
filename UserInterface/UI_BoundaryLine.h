@@ -60,6 +60,8 @@ class UI_BOUNDARYLINE
     bool             SetAround          (UI_BOUNDARYLINE& boundaryline); 
     bool             IsWithin           (XDWORD xpos, XDWORD ypos);  
 
+    bool             IsEmpty            ();
+
     double           x;
     double           y;
     double           width;

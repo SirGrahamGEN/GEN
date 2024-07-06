@@ -797,20 +797,22 @@ bool UI_MANAGER::Update()
 
   bool status;
 
+  ChangeTextElementValue(layout);
+
   status = layout->Update();  
   if(status)
     {         
-      ChangeTextElementValue(layout);    
-
       if(inall_layout != UI_MANAGER_LAYOUT_NOTSELECTED)
         {         
           layout = Layouts_Get(inall_layout);
           if(!layout) return false;          
-                    
+          
+          /*          
           ChangeTextElementValue(layout);   
   
           status = layout->Update(); 
           if(status) ChangeTextElementValue(layout);                  
+          */
         }
 
       if(element_modal)
@@ -830,6 +832,8 @@ bool UI_MANAGER::Update()
           Elements_SetToRedraw(virtualkeyboard->GetElementEditable());
         }
     }
+
+  ChangeTextElementValue(layout);
 
   return status;
 }
@@ -1936,8 +1940,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 
                                           if(element_textbox->GetMaskText()->IsEmpty()) return false;
 
-                                          change = ChangeTextElementValue(element_textbox, element_textbox->GetMaskText(), resolve);
-                                       
+                                          change = ChangeTextElementValue(element_textbox, element_textbox->GetMaskText(), resolve);                                      
                                           if(change) 
                                             {                                             
                                               if(element_textbox->GetText()->Compare(resolve.Get(), true)) 
@@ -1946,6 +1949,18 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
                                                   Elements_SetToRedraw(element);    
                                                 }
                                             }
+                                           else
+                                            {
+                                              if(element_textbox->GetText()->IsEmpty())
+                                                {
+                                                  if(!resolve.IsEmpty())  
+                                                    {
+                                                      element_textbox->GetText()->Set(resolve);
+                                                    }
+                                                }
+                                            }
+
+
                                         }  
                                         break;
     }
@@ -1984,7 +1999,6 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 
   return true;
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -2039,8 +2053,8 @@ bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJEC
   for(int c=0; c<(sizeof(eventtype) / sizeof(UI_XEVENT_TYPE)); c++)
     {
       if(active)        
-            observer->SubscribeEvent(eventtype[c]   , this);              
-      else  observer->UnSubscribeEvent(eventtype[c] , this);        
+            observer->SubscribeEvent(eventtype[c]   , subject);              
+      else  observer->UnSubscribeEvent(eventtype[c] , subject);        
     }
 
   return true;
@@ -2957,6 +2971,33 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
 	    if(!allocationtextstr.Compare(__L("left")     , true)) element_option->SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE_LEFT); 
       if(!allocationtextstr.Compare(__L("center")   , true)) element_option->SetAllocationTextType(UI_ELEMENT_OPTION_ALLOCATION_TEXT_TYPE_CENTER); 
     }
+  
+  element_option->SetVisibleLimitType(UI_ELEMENT_OPTION_VISIBLE_LIMIT_NONE);
+
+  XSTRING visiblelimittypestr;
+  if(GetLayoutElementValue(node, __L("visiblelimit"), visiblelimittypestr))
+    {
+      if(visiblelimittypestr.Find(__L("active"), true) != XSTRING_NOTFOUND) 
+        {
+          element_option->SetVisibleLimitType(element_option->GetVisibleLimitType() | UI_ELEMENT_OPTION_VISIBLE_LIMIT_ACTIVE);
+        }
+
+      if(visiblelimittypestr.Find(__L("deactive"), true) != XSTRING_NOTFOUND) 
+        {
+          element_option->SetVisibleLimitType(element_option->GetVisibleLimitType() | UI_ELEMENT_OPTION_VISIBLE_LIMIT_DEACTIVE);
+        }
+
+      if(visiblelimittypestr.Find(__L("preselect"), true) != XSTRING_NOTFOUND) 
+        {
+          element_option->SetVisibleLimitType(element_option->GetVisibleLimitType() | UI_ELEMENT_OPTION_VISIBLE_LIMIT_PRESELECT);
+        }
+
+      if(visiblelimittypestr.Find(__L("select"), true) != XSTRING_NOTFOUND) 
+        {
+          element_option->SetVisibleLimitType(element_option->GetVisibleLimitType() | UI_ELEMENT_OPTION_VISIBLE_LIMIT_SELECT);
+        }
+    }
+  
 
   for(int c=0; c<node->GetNElements(); c++)
     {
@@ -4347,7 +4388,7 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_MANAGER::HandleEvent(XEVENT* xevent)
 {
- if(!xevent) return;
+  if(!xevent) return;
 
   switch(xevent->GetEventFamily())
     {

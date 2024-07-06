@@ -51,6 +51,7 @@
 #include "DIOWebServer_XEvent.h"
 
 #include "APPCFG.h"
+#include "APPLog.h"
 
 #include "XMemory_Control.h"
 
@@ -435,7 +436,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
               XSTRING IPstring;
               connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);           
 
-              GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server password [%s]: %s"), IPstring.Get(), cfg->WebServer_GetPassword()->Get(), (ispasswordvalid)? __L("Ok."): __L("INVALID!") );
+              APP_LOG_ENTRY(XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server password [%s]: %s"), IPstring.Get(), cfg->WebServer_GetPassword()->Get(), (ispasswordvalid)? __L("Ok."): __L("INVALID!") );
 
               if(!ispasswordvalid) return true;
             }
@@ -481,7 +482,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
               leyend = __L("Invalid user or password!");
               GenerateResponse_Error(connection, DIOWEBHEADER_RESULT_NOTFOUND, leyend);
 
-              GEN_XLOG.AddEntry( XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
+              APP_LOG_ENTRY( XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
 
               return true;
             }
@@ -497,7 +498,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 
       if(useragentID->Get(request->GetUserAgent()->Get(), browser, SO, 5))
         {
-          GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Web browser    : %s, with: %s."), browser.Get(), SO.Get());
+          APP_LOG_ENTRY(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID_VERBOSE, false, __L("Web browser    : %s, with: %s."), browser.Get(), SO.Get());
         }
     }
   */  
@@ -556,13 +557,16 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
                       leyend.Format(__L("Error to execute the %s."), plugin->GetName()->Get());
 
                       GenerateResponse_Error(connection, DIOWEBHEADER_RESULT_NOTFOUND, leyend);
-                      GEN_XLOG.AddEntry(XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
+                      APP_LOG_ENTRY(XLOGLEVEL_ERROR, DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
                     }
 
                   XSTRING IPstring;
                   connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);           
 
-                  GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server \"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
+                  if(status == XLOGLEVEL_ERROR)
+                    {
+                      APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server \"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
+                    }
                   ispagepluging = true;
                 }
             }
@@ -630,13 +634,16 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
 
                   GenerateResponse_Error(connection,  DIOWEBHEADER_RESULT_NOTFOUND, leyend);
 
-                  GEN_XLOG.AddEntry(XLOGLEVEL_ERROR,  DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
+                  APP_LOG_ENTRY(XLOGLEVEL_ERROR,  DIOWEBSERVER_LOGSECTIONID, false, leyend.Get());
                 }
 
               XSTRING IPstring;
               connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);   
 
-              GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server\"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
+              if(status == XLOGLEVEL_ERROR)
+                {
+                  APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server\"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
+                }
 
               delete webHTMLpage;
             }
@@ -646,7 +653,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
           XSTRING IPstring;
           connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);  
 
-          GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server of file \"%s\" sent."), IPstring.Get(), xpathfile.Get());
+          // APP_LOG_ENTRY(XLOGLEVEL_INFO, DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server of file \"%s\" sent."), IPstring.Get(), xpathfile.Get());
         }
     }
 

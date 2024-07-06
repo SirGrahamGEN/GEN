@@ -609,11 +609,7 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                     }
 
                                                                                   
-                                                                                  if(linewidth <= 1.0)
-                                                                                    {
-                                                                                      //renderer_primitives->rectangle((int)x1, (int)y1, (int)x2, (int)y2);
-                                                                                    }
-                                                                                   else
+                                                                                  if(linewidth >= 1.0)
                                                                                     {
                                                                                       AGG_OUTLINE_INI
 
@@ -622,11 +618,13 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                       //ras.round_cap(true);                 //optional
                                                                                       //ras.accurate_join(true);             //optional
 
-                                                                                      agg::rounded_rect roundrect(x1, y1, x2, y2, radius);
+                                                                                      agg::rounded_rect roundrect (x1, y1, x2, y2, radius);
+                                                                                      //agg::rounded_rect roundrect2(x1 + 1, y1 - 1, x2, y2 + 1, radius);
+
                                                                                       ras.add_path(roundrect);
+                                                                                      //ras.add_path(roundrect2);
 
                                                                                       AGG_OUTLINE_END
-
                                                                                     }
                                                                                 }
 

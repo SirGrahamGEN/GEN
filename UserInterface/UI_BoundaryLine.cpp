@@ -170,6 +170,26 @@ bool UI_BOUNDARYLINE::IsWithin(XDWORD xpos, XDWORD ypos)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_BOUNDARYLINE::IsEmpty()
+* @brief      IsEmpty
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_BOUNDARYLINE::IsEmpty()
+{
+  if(!x && !y && !width && !height)
+    {
+      return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void UI_BOUNDARYLINE::Clean()
 * @brief      Clean the attributes of the class: Default initialice

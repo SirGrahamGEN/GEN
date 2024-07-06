@@ -764,7 +764,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
       
   APPINTERNETSERVICES_XEVENT    xevent(this, APPINTERNETSERVICES_XEVENT_TYPE_CHANGEIP);  
 
-  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
+  // APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Local IP... "));       
                                                                 
   if(enumdevices)
     {
@@ -799,7 +799,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
       GEN_DIOFACTORY.DeleteStreamEnumDevices(enumdevices);
     }
 
-  APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
+  // APP_LOG_ENTRY(status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Local IP : [%s] "), actualautomaticlocalIP.Get());       
 
   if(status)
     {
@@ -819,7 +819,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           sendchangeevent   = true;
         }                                                                         
       
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
+      // APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Get Public IP... "));                                                                    
       
       GEN_DIOPUBLICINTERNETIP.Get(actualpublicIP);
 
@@ -840,6 +840,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
           status = true;    
         }
 
+      /*
       if(actualpublicIP.IsEmpty())
         {
           APP_LOG_ENTRY(XLOGLEVEL_ERROR, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: Error not IP!"));                                                                                                                      
@@ -848,6 +849,7 @@ bool APPINTERNETSERVICES::UpdateIPs(XSTRING& actualpublicIP)
         {   
           APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Get Public IP: [%s] (%s)"), actualpublicIP.Get(), sendchangeevent?__L("has changed"):__L("has not changed"));                                                                                                                    
         }
+      */
     }
 
   if(sendchangeevent)
@@ -882,11 +884,11 @@ bool APPINTERNETSERVICES::UpdateDynDNSURLs(XSTRING& actualpublicIP)
       return false;
     }
                 
-  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Update Dyndns URLs: [%s] "), actualpublicIP.Get());  
+  // APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] Ini Update Dyndns URLs: [%s] "), actualpublicIP.Get());  
 
   bool status = dyndnsmanager->AssingAll();
 
-  APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Update Dyndns URLs: [%s]"), actualpublicIP.Get());    
+  // APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_CONNEXIONS, false, __L("[Update IPs] End Update Dyndns URLs: [%s]"), actualpublicIP.Get());    
 
   return status;
 }

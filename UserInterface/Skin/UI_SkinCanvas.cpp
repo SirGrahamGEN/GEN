@@ -2041,39 +2041,94 @@ bool UI_SKINCANVAS::Draw_Option(UI_ELEMENT* element)
       if(element->IsBlinking() && !element->GetStateBlink()) ispreselect = false;
 
       DrawBackgroundColor(element_option, canvas, x_position, y_position);
-      
+        
       if(isselected)
         { 
-          GRP2DCOLOR_RGBA8  colorred(255, 0, 0);     
-          GRP2DCOLOR_RGBA8  colorhover(0x32, 0x33, 0x36, 150);
+          if(element_option->GetVisibleLimitType() & UI_ELEMENT_OPTION_VISIBLE_LIMIT_SELECT) 
+            {     
+              GRP2DCOLOR_RGBA8  colorred(255, 0, 0);     
+              GRP2DCOLOR_RGBA8  colorhover(0x32, 0x33, 0x36, 150);
   
-          canvas->SetLineWidth(0.0f);
-          canvas->SetLineColor(&colorred);
-          canvas->SetFillColor(&colorhover);
-      
-          canvas->Rectangle(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
-                            y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
-                            x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
-                            y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , true);      
+              canvas->SetLineColor(&colorred);
+              canvas->SetFillColor(&colorhover);
+
+              canvas->SetLineWidth(1.0f);
+
+              if(element_option->GetRoundRect())
+                {
+                  canvas->RoundRect(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                    y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                    x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                    y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , element_option->GetRoundRect(), true);      
+                }
+               else
+                {
+                  canvas->Rectangle(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                    y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                    x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                    y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , true);      
+                } 
+            }
         }
        else
         {
           if(ispreselect)
-            { 
-              
-              GRP2DCOLOR_RGBA8  colorwhite(255, 255, 255);
-              GRP2DCOLOR_RGBA8  colorhover(0x32, 0x33, 0x36, 150);
+            {       
+              if(element_option->GetVisibleLimitType() & UI_ELEMENT_OPTION_VISIBLE_LIMIT_PRESELECT) 
+                {        
+                  GRP2DCOLOR_RGBA8  colorwhite(255, 255, 255);
+                  GRP2DCOLOR_RGBA8  colorhover(0x32, 0x33, 0x36, 150);
   
-              canvas->SetLineWidth(0.0f);
-              canvas->SetLineColor(&colorwhite);
-              canvas->SetFillColor(&colorhover);
+                  canvas->SetLineColor(&colorwhite);
+                  canvas->SetFillColor(&colorhover);
+
+                  canvas->SetLineWidth(1.0f);
       
-              canvas->Rectangle(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
-                                y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
-                                x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
-                                y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , true);      
+                  if(element_option->GetRoundRect())
+                    {
+                      canvas->RoundRect(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                        y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                        x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                        y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , element_option->GetRoundRect(), true);      
+                    }
+                   else
+                    {
+                      canvas->Rectangle(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                        y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                        x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                        y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , true);      
+                    } 
+                }
             }
-         }
+           else          
+            { 
+              if(element_option->GetVisibleLimitType() & UI_ELEMENT_OPTION_VISIBLE_LIMIT_ACTIVE)
+                {
+                  GRP2DCOLOR_RGBA8  colorwhite(255, 255, 255);
+                  GRP2DCOLOR_RGBA8  colorhover(0x32, 0x33, 0x36, 0);
+  
+                  canvas->SetLineColor(&colorwhite);
+                  canvas->SetFillColor(&colorhover);
+
+                  canvas->SetLineWidth(1.0f);
+      
+                  if(element_option->GetRoundRect())
+                    {
+                      canvas->RoundRect(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                        y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                        x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                        y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , element_option->GetRoundRect(), true);      
+                    }
+                   else
+                    {
+                      canvas->Rectangle(x_position  - UI_SKINCANVAS_PRESELECT_MAXEDGE                                      , 
+                                        y_position  + UI_SKINCANVAS_PRESELECT_MAXEDGE                                      ,
+                                        x_position  + element->GetBoundaryLine()->width  + UI_SKINCANVAS_PRESELECT_MAXEDGE , 
+                                        y_position  - element->GetBoundaryLine()->height - UI_SKINCANVAS_PRESELECT_MAXEDGE , true);      
+                    } 
+                }
+            }
+        }
 
       if(element_animation)  Draw(element_animation);    
       if(element_text)       Draw(element_text);  
@@ -2346,23 +2401,25 @@ bool UI_SKINCANVAS::Draw_Form(UI_ELEMENT* element)
                                   element_form->GetLineColor()->GetBlue(),
                                   element_form->GetLineColor()->GetAlpha());
 
-      canvas->SetLineWidth(0.5f);
+      
       canvas->SetLineColor(&linecolor);
       canvas->SetFillColor(&color);
 
+      canvas->SetLineWidth(1.0f);
+
       if(element_form->GetRoundRect())
-        {
+        {          
           canvas->RoundRect(element_form->GetVisibleRect()->x, 
                             element_form->GetVisibleRect()->y,
-                            element_form->GetVisibleRect()->x + element_form->GetVisibleRect()->width   , 
-                            element_form->GetVisibleRect()->y - element_form->GetVisibleRect()->height  , element_form->GetRoundRect(), true);
+                            element_form->GetVisibleRect()->x + element_form->GetVisibleRect()->width, 
+                            element_form->GetVisibleRect()->y - element_form->GetVisibleRect()->height, element_form->GetRoundRect(), true);
         }
        else
-        {
-          canvas->Rectangle(element_form->GetVisibleRect()->x, 
+        {        
+          canvas->Rectangle(element_form->GetVisibleRect()->x,
                             element_form->GetVisibleRect()->y,
-                            element_form->GetVisibleRect()->x + element_form->GetVisibleRect()->width   , 
-                            element_form->GetVisibleRect()->y - element_form->GetVisibleRect()->height  ,  true);
+                            element_form->GetVisibleRect()->x + element_form->GetVisibleRect()->width, 
+                            element_form->GetVisibleRect()->y - element_form->GetVisibleRect()->height,  true);
         }
     }
 

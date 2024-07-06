@@ -128,7 +128,6 @@ bool UI_SKINCANVAS_FLAT::Draw_Form(UI_ELEMENT* element)
   
   PreDrawFunction(element, canvas, clip_rect, x_position, y_position);
 
-
   if(element->MustReDraw()) 
     {
       GRP2DCOLOR_RGBA8    color(element_form->GetColor()->GetRed(),

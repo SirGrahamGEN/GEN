@@ -111,7 +111,10 @@ bool INPWINDOWSDEVICEKEYBOARD::Update()
 
   if(grpscreen)
     {
-      if(grpscreen->GetHandle()!=GetForegroundWindow()) return false;
+      if(grpscreen->GetHandle()!=GetForegroundWindow()) 
+        {
+          return false;
+        }
     }
 
   for(int c=0;c<(int)buttons.GetSize();c++)
