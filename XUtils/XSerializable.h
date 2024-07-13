@@ -76,17 +76,13 @@ class XSERIALIZABLE
     template<class T>
     bool                           Primitive_Add        (T var, XCHAR* name)
                                    {                               
-                                     serializationmethod->Add(var, name);
-                                 
-                                     return true;
+                                     return serializationmethod->Add(var, name);                                 
                                    }
 
     template<class T>
     bool                           Primitive_Extract    (T var, XCHAR* name)
                                    {
-                                     serializationmethod->Extract(var, name);
-                               
-                                     return true; 
+                                     return serializationmethod->Extract(var, name);                               
                                    }
 
     template<class T>
@@ -226,8 +222,8 @@ class XSERIALIZABLE
     XSERIALIZATIONMETHOD*          GetSerializationMethod     ();
     void                           SetSerializationMethod     (XSERIALIZATIONMETHOD* serializationmethod);
 
-    bool                           InitSerialize              (XSERIALIZATIONMETHOD* serializationmethod);    
-    bool                           InitDeserialize            (XSERIALIZATIONMETHOD* serializationmethod);   
+    bool                           DoSerialize                (XSERIALIZATIONMETHOD* serializationmethod);    
+    bool                           DoDeserialize              (XSERIALIZATIONMETHOD* serializationmethod);   
 
     virtual bool                   Serialize                  ();    
     virtual bool                   Deserialize                ();  

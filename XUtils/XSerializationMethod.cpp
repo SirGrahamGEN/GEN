@@ -376,7 +376,7 @@ bool XSERIALIZATIONMETHOD::AddArray(XDWORD nelements, XCHAR* name, bool open)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(bool var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(bool& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -386,7 +386,7 @@ bool XSERIALIZATIONMETHOD::AddArray(XDWORD nelements, XCHAR* name, bool open)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(bool var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(bool& var, XCHAR* name)
 {
   return false;
 }
@@ -394,7 +394,7 @@ bool XSERIALIZATIONMETHOD::Extract(bool var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(char var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(char& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -404,7 +404,7 @@ bool XSERIALIZATIONMETHOD::Extract(bool var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(char var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(char& var, XCHAR* name)
 {
   return false;
 }
@@ -412,7 +412,7 @@ bool XSERIALIZATIONMETHOD::Extract(char var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(int var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(int& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -422,7 +422,7 @@ bool XSERIALIZATIONMETHOD::Extract(char var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(int var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(int& var, XCHAR* name)
 {
   return false;
 }
@@ -430,7 +430,7 @@ bool XSERIALIZATIONMETHOD::Extract(int var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(float var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(float& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -440,7 +440,7 @@ bool XSERIALIZATIONMETHOD::Extract(int var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(float var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(float& var, XCHAR* name)
 {
   return false;
 }
@@ -448,7 +448,7 @@ bool XSERIALIZATIONMETHOD::Extract(float var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(double var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(double& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -458,7 +458,7 @@ bool XSERIALIZATIONMETHOD::Extract(float var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(double var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(double& var, XCHAR* name)
 {
   return false;
 }
@@ -466,7 +466,7 @@ bool XSERIALIZATIONMETHOD::Extract(double var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(long var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(long& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -476,7 +476,7 @@ bool XSERIALIZATIONMETHOD::Extract(double var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(long var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(long& var, XCHAR* name)
 {
   return false;
 }
@@ -484,7 +484,7 @@ bool XSERIALIZATIONMETHOD::Extract(long var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(long long var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(long long& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -494,7 +494,7 @@ bool XSERIALIZATIONMETHOD::Extract(long var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(long long var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(long long& var, XCHAR* name)
 {
   return false;
 }
@@ -502,7 +502,7 @@ bool XSERIALIZATIONMETHOD::Extract(long long var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XBYTE var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XBYTE& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -512,7 +512,7 @@ bool XSERIALIZATIONMETHOD::Extract(long long var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XBYTE var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XBYTE& var, XCHAR* name)
 {
   return false;
 }
@@ -520,7 +520,7 @@ bool XSERIALIZATIONMETHOD::Extract(XBYTE var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XWORD& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -530,7 +530,7 @@ bool XSERIALIZATIONMETHOD::Extract(XBYTE var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XWORD& var, XCHAR* name)
 {
   return false;
 }
@@ -538,7 +538,7 @@ bool XSERIALIZATIONMETHOD::Extract(XWORD var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XDWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XDWORD& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -548,7 +548,7 @@ bool XSERIALIZATIONMETHOD::Extract(XWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XDWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XDWORD& var, XCHAR* name)
 {
   return false;
 }
@@ -556,7 +556,7 @@ bool XSERIALIZATIONMETHOD::Extract(XDWORD var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XQWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XQWORD& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -566,7 +566,7 @@ bool XSERIALIZATIONMETHOD::Extract(XDWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XQWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XQWORD& var, XCHAR* name)
 {
   return false;
 }
@@ -574,7 +574,7 @@ bool XSERIALIZATIONMETHOD::Extract(XQWORD var, XCHAR* name)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XSTRING* var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XSTRING& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -584,7 +584,7 @@ bool XSERIALIZATIONMETHOD::Extract(XQWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XSTRING* var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XSTRING& var, XCHAR* name)
 {
   return false;
 }
@@ -592,7 +592,7 @@ bool XSERIALIZATIONMETHOD::Extract(XSTRING* var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XBUFFER* var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XBUFFER& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -602,7 +602,7 @@ bool XSERIALIZATIONMETHOD::Extract(XSTRING* var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XBUFFER* var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XBUFFER& var, XCHAR* name)
 {
   return false;
 }
@@ -610,7 +610,7 @@ bool XSERIALIZATIONMETHOD::Extract(XBUFFER* var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHOD::Extract(XVARIANT* var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHOD::Extract(XVARIANT& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -620,7 +620,7 @@ bool XSERIALIZATIONMETHOD::Extract(XBUFFER* var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHOD::Extract(XVARIANT* var, XCHAR* name)
+bool XSERIALIZATIONMETHOD::Extract(XVARIANT& var, XCHAR* name)
 {
   return false;
 }

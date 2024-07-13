@@ -78,22 +78,22 @@ class XSERIALIZATIONMETHOD
     virtual bool                   AddStruct            (XCHAR* name = NULL, bool open = false);
     virtual bool                   AddArray             (XDWORD nelements, XCHAR* name = NULL, bool open = false);
 
-    virtual bool                   Extract              (bool var, XCHAR* name = NULL); 
-    virtual bool                   Extract              (char var, XCHAR* name = NULL);  
-    virtual bool                   Extract              (int var, XCHAR* name = NULL);  
-    virtual bool                   Extract              (float var, XCHAR* name = NULL);  
-    virtual bool                   Extract              (double var, XCHAR* name = NULL); 
-    virtual bool                   Extract              (long var, XCHAR* name = NULL); 
-    virtual bool                   Extract              (long long var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (bool& var, XCHAR* name = NULL); 
+    virtual bool                   Extract              (char& var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (int& var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (float& var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (double& var, XCHAR* name = NULL); 
+    virtual bool                   Extract              (long& var, XCHAR* name = NULL); 
+    virtual bool                   Extract              (long long& var, XCHAR* name = NULL);  
 
-    virtual bool                   Extract              (XBYTE var, XCHAR* name = NULL);  
-    virtual bool                   Extract              (XWORD var, XCHAR* name = NULL);  
-    virtual bool                   Extract              (XDWORD var, XCHAR* name = NULL); 
-    virtual bool                   Extract              (XQWORD var, XCHAR* name = NULL); 
+    virtual bool                   Extract              (XBYTE& var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (XWORD& var, XCHAR* name = NULL);  
+    virtual bool                   Extract              (XDWORD& var, XCHAR* name = NULL); 
+    virtual bool                   Extract              (XQWORD& var, XCHAR* name = NULL); 
     
-    virtual bool                   Extract              (XSTRING* var, XCHAR* name = NULL);       
-    virtual bool                   Extract              (XBUFFER* var, XCHAR* name = NULL);
-    virtual bool                   Extract              (XVARIANT* var, XCHAR* name = NULL);
+    virtual bool                   Extract              (XSTRING& var, XCHAR* name = NULL);       
+    virtual bool                   Extract              (XBUFFER& var, XCHAR* name = NULL);
+    virtual bool                   Extract              (XVARIANT& var, XCHAR* name = NULL);
 
     virtual bool                   ExtractStruct        (XCHAR* name = NULL);
     virtual bool                   ExtractArray         (XDWORD nelements, XCHAR* name = NULL);

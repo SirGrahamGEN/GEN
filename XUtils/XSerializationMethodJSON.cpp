@@ -494,7 +494,7 @@ bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(bool var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(bool& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -504,29 +504,18 @@ bool XSERIALIZATIONMETHODJSON::AddArray(XDWORD nelements, XCHAR* name, bool open
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(bool var, XCHAR* name)
-{
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
-* @brief      Extract
-* @ingroup    XUTILS
-* 
-* @param[in]  var : 
-* @param[in]  name : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
-{
+bool XSERIALIZATIONMETHODJSON::Extract(bool& var, XCHAR* name)
+{ 
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueBoolean();
+      return true;  
     }
 
   return true;
@@ -535,7 +524,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(char& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -545,11 +534,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(char var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(char& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = (char)jsonvalue->GetValueDWord();
+      return true;  
     }
 
   return true;
@@ -558,7 +554,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(int& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -568,11 +564,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(int var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(int& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueInteger();
+      return true;  
     }
 
   return true;
@@ -581,7 +584,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(float& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -591,11 +594,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(float var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(float& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueFloating();
+      return true;  
     }
 
   return true;
@@ -604,7 +614,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(double& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -614,11 +624,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(double var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(double& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueDoubleFloat();
+      return true;  
     }
 
   return true;
@@ -627,7 +644,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(long& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -637,11 +654,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(long var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(long& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueInteger();
+      return true;  
     }
 
   return true;
@@ -650,7 +674,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(long long& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -660,11 +684,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(long long var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(long long& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueDoubleInteger();
+      return true;  
     }
 
   return true;
@@ -673,7 +704,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBYTE& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -683,11 +714,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBYTE var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XBYTE& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = (XBYTE)jsonvalue->GetValueDWord();
+      return true;  
     }
 
   return true;
@@ -696,7 +734,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XWORD& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -706,11 +744,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(XWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XWORD& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueWord();
+      return true;  
     }
 
   return true;
@@ -719,7 +764,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XDWORD& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -729,11 +774,48 @@ bool XSERIALIZATIONMETHODJSON::Extract(XDWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XDWORD& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueDWord();
+      return true;  
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XQWORD& var, XCHAR* name)
+* @brief      Extract
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODJSON::Extract(XQWORD& var, XCHAR* name)
+{
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      var = jsonvalue->GetValueQWord();
+      return true;  
     }
 
   return true;
@@ -742,7 +824,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XSTRING* var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -752,34 +834,18 @@ bool XSERIALIZATIONMETHODJSON::Extract(XQWORD var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XSTRING* var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XSTRING& var, XCHAR* name)
 {
   if(!CheckHandleActive()) 
     {
       return false;
     }
 
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
-* @brief      Extract
-* @ingroup    XUTILS
-* 
-* @param[in]  var : 
-* @param[in]  name : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
-{ 
-  if(!CheckHandleActive()) 
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
     {
-      return false;
+      var = jsonvalue->GetValueString();
+      return true;  
     }
 
   return true;
@@ -788,7 +854,7 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT* var, XCHAR* name)
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
 * @brief      Extract
 * @ingroup    XUTILS
 * 
@@ -798,7 +864,37 @@ bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER* var, XCHAR* name)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT* var, XCHAR* name)
+bool XSERIALIZATIONMETHODJSON::Extract(XBUFFER& var, XCHAR* name)
+{ 
+  if(!CheckHandleActive()) 
+    {
+      return false;
+    }
+
+  XFILEJSONVALUE* jsonvalue = fileJSON->GetValue(name);
+  if(jsonvalue)
+    {
+      //var = jsonvalue->
+      return true;  
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT& var, XCHAR* name)
+* @brief      Extract
+* @ingroup    XUTILS
+* 
+* @param[in]  var : 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZATIONMETHODJSON::Extract(XVARIANT& var, XCHAR* name)
 { 
   if(!CheckHandleActive()) 
     {

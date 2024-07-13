@@ -119,25 +119,25 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 		double														GetPositionWithoutDefine						(double position);
 		bool															SetAroundFromSubElements						(UI_ELEMENT* element);
 		bool															AddPositionSubElements							(UI_ELEMENT* element);
-		bool															CalculePosition											(UI_ELEMENT* element, double fatherwidth, double fatherheight);
+		bool															CalculePosition											(UI_ELEMENT* element, double fatherwidth, double fatherheight, bool adjustsizemargin = false);
 
     double														GetWithString                       (XCHAR* string, XDWORD sizefont = 12);  
     double														GetHeightString                     (XCHAR* string, XDWORD sizefont = 12);  
 				
-	  virtual bool                      CalculateBoundaryLine_Scroll        (UI_ELEMENT* element);
-	  virtual bool                      CalculateBoundaryLine_Text		      (UI_ELEMENT* element);
-	  virtual bool                      CalculateBoundaryLine_TextBox				(UI_ELEMENT* element);
-	  virtual bool                      CalculateBoundaryLine_Image   	    (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_Animation	    (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_Option		    (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_MultiOption	  (UI_ELEMENT* element);
-	  virtual bool                      CalculateBoundaryLine_Button		    (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_CheckBox		  (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_EditText		  (UI_ELEMENT* element);	  
-	  virtual bool                      CalculateBoundaryLine_Form          (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_Menu				  (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_ListBox			  (UI_ELEMENT* element);
-		virtual bool                      CalculateBoundaryLine_ProgressBar	  (UI_ELEMENT* element);
+	  virtual bool                      CalculateBoundaryLine_Scroll        (UI_ELEMENT* element, bool adjustsizemargin = false);
+	  virtual bool                      CalculateBoundaryLine_Text		      (UI_ELEMENT* element, bool adjustsizemargin = false);
+	  virtual bool                      CalculateBoundaryLine_TextBox				(UI_ELEMENT* element, bool adjustsizemargin = false);
+	  virtual bool                      CalculateBoundaryLine_Image   	    (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_Animation	    (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_Option		    (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_MultiOption	  (UI_ELEMENT* element, bool adjustsizemargin = false);
+	  virtual bool                      CalculateBoundaryLine_Button		    (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_CheckBox		  (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_EditText		  (UI_ELEMENT* element, bool adjustsizemargin = false);	  
+	  virtual bool                      CalculateBoundaryLine_Form          (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_Menu				  (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_ListBox			  (UI_ELEMENT* element, bool adjustsizemargin = false);
+		virtual bool                      CalculateBoundaryLine_ProgressBar	  (UI_ELEMENT* element, bool adjustsizemargin = false);
 
 		virtual bool                      SetElementPosition                  (UI_ELEMENT* element, double x_position, double y_position);
 		        
@@ -166,8 +166,8 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 		bool															PreDrawFunction											(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double& x_position, double& y_position, XDWORD edge = 5);
 		bool															PostDrawFunction										(UI_ELEMENT* element, GRPCANVAS* canvas, XRECT& clip_rect, double  x_position, double  y_position);
 			
-		double														TextBox_SizeLine										(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>* images);
-		bool															TextBox_GenerateLines								(UI_ELEMENT_TEXTBOX* element, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images); 
+		double														TextBox_SizeLine										(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts);
+		bool															TextBox_GenerateLines								(UI_ELEMENT_TEXTBOX* element, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts); 
 
 		#ifdef USERINTERFACE_DEBUG
 		bool															Debug_Draw													(UI_ELEMENT* element, double x_position, double y_position);	

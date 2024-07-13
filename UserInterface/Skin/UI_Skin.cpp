@@ -296,153 +296,6 @@ void UI_SKIN_TEXTBOX_PART::Clean()
 #pragma endregion
 
 
-#pragma region CLASS_UI_SKIN_TEXTBOX_IMAGE
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_SKIN_TEXTBOX_IMAGE::UI_SKIN_TEXTBOX_IMAGE()
-* @brief      Constructor
-* @ingroup    USERINTERFACE
-*
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN_TEXTBOX_IMAGE::UI_SKIN_TEXTBOX_IMAGE()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_SKIN_TEXTBOX_IMAGE::~UI_SKIN_TEXTBOX_IMAGE()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    USERINTERFACE
-*
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN_TEXTBOX_IMAGE::~UI_SKIN_TEXTBOX_IMAGE()
-{
-  //if(animation) delete animation;
-
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* UI_SKIN_TEXTBOX_IMAGE::GetName()
-* @brief      GetName
-* @ingroup    USERINTERFACE
-*
-* @return     XSTRING* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XSTRING* UI_SKIN_TEXTBOX_IMAGE::GetName()
-{
-  return &name;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_BOUNDARYLINE* UI_SKIN_TEXTBOX_IMAGE::GetBoundaryLine()
-* @brief      GetBoundaryLine
-* @ingroup    USERINTERFACE
-*
-* @return     UI_BOUNDARYLINE* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_BOUNDARYLINE* UI_SKIN_TEXTBOX_IMAGE::GetBoundaryLine()
-{
-  return &boundaryline;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_ANIMATION* UI_SKIN_TEXTBOX_IMAGE::GetAnimation()
-* @brief      GetAnimation
-* @ingroup    USERINTERFACE
-*
-* @return     UI_ANIMATION* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ANIMATION* UI_SKIN_TEXTBOX_IMAGE::GetAnimation()
-{
-  return animation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void UI_SKIN_TEXTBOX_IMAGE::SetAnimation(UI_ANIMATION* animation)
-* @brief      SetAnimation
-* @ingroup    USERINTERFACE
-*
-* @param[in]  animation : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-void UI_SKIN_TEXTBOX_IMAGE::SetAnimation(UI_ANIMATION* animation)
-{
-  this->animation = animation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XVECTOR<XDWORD>* UI_SKIN_TEXTBOX_IMAGE::GetLineNumbers()
-* @brief      GetLineNumbers
-* @ingroup    USERINTERFACE
-*
-* @return     XVECTOR<XDWORD>* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<XDWORD>* UI_SKIN_TEXTBOX_IMAGE::GetLineNumbers()
-{
-  return &linenumbers;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_SKIN_TEXTBOX_IMAGE::IsInLine(XDWORD nline)
-* @brief      IsInLine
-* @ingroup    USERINTERFACE
-*
-* @param[in]  nline : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN_TEXTBOX_IMAGE::IsInLine(XDWORD nline)
-{
-  for(XDWORD c=0; c<linenumbers.GetSize(); c++)
-    {
-      XDWORD _nline = linenumbers.Get(c);
-      if(nline == _nline) return true;
-    }
-
-  return false;
-}
-	
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void UI_SKIN_TEXTBOX_IMAGE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    USERINTERFACE
-*
-* ---------------------------------------------------------------------------------------------------------------------*/
-void UI_SKIN_TEXTBOX_IMAGE::Clean()
-{
-  animation    = NULL;
-}
-
-
-#pragma endregion
-
-
 #pragma region CLASS_UI_SKIN
 
 
@@ -736,36 +589,37 @@ GRPBITMAP* UI_SKIN::Background_GetBitmap()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
 {
   if(!element) return false;
 
   switch(element->GetType())
     {
-      case UI_ELEMENT_TYPE_UNKNOWN				: return false;                                                     break;	    
-	    case UI_ELEMENT_TYPE_SCROLL				  : return CalculateBoundaryLine_Scroll(element);                     break;
-	    case UI_ELEMENT_TYPE_TEXT					  : return CalculateBoundaryLine_Text(element);                       break; 	
-      case UI_ELEMENT_TYPE_TEXTBOX			  : return CalculateBoundaryLine_TextBox(element);                    break;    
-	    case UI_ELEMENT_TYPE_IMAGE     			: return CalculateBoundaryLine_Image(element);	                    break;
-      case UI_ELEMENT_TYPE_ANIMATION 			: return CalculateBoundaryLine_Animation(element);	                break;
-      case UI_ELEMENT_TYPE_OPTION					: return CalculateBoundaryLine_Option(element);                     break;
-      case UI_ELEMENT_TYPE_MULTIOPTION		: return CalculateBoundaryLine_MultiOption(element);                break;
-	    case UI_ELEMENT_TYPE_BUTTON					: return CalculateBoundaryLine_Button(element);                     break;	    	    
-      case UI_ELEMENT_TYPE_CHECKBOX 			: return CalculateBoundaryLine_CheckBox(element);                   break;	    	    
-      case UI_ELEMENT_TYPE_EDITTEXT   		: return CalculateBoundaryLine_EditText(element);                   break;	      
-      case UI_ELEMENT_TYPE_FORM						: return CalculateBoundaryLine_Form(element);                       break; 
-      case UI_ELEMENT_TYPE_MENU           : return CalculateBoundaryLine_Menu(element);                       break;                  
-      case UI_ELEMENT_TYPE_LISTBOX        : return CalculateBoundaryLine_ListBox(element);                    break;                  
-      case UI_ELEMENT_TYPE_PROGRESSBAR	  : return CalculateBoundaryLine_ProgressBar(element);                break;                  
+      case UI_ELEMENT_TYPE_UNKNOWN				: return false;                                                                       break;	    
+	    case UI_ELEMENT_TYPE_SCROLL				  : return CalculateBoundaryLine_Scroll(element, adjustsizemargin);                     break;
+	    case UI_ELEMENT_TYPE_TEXT					  : return CalculateBoundaryLine_Text(element, adjustsizemargin);                       break; 	
+      case UI_ELEMENT_TYPE_TEXTBOX			  : return CalculateBoundaryLine_TextBox(element, adjustsizemargin);                    break;    
+	    case UI_ELEMENT_TYPE_IMAGE     			: return CalculateBoundaryLine_Image(element, adjustsizemargin);	                    break;
+      case UI_ELEMENT_TYPE_ANIMATION 			: return CalculateBoundaryLine_Animation(element, adjustsizemargin);	                break;
+      case UI_ELEMENT_TYPE_OPTION					: return CalculateBoundaryLine_Option(element, adjustsizemargin);                     break;
+      case UI_ELEMENT_TYPE_MULTIOPTION		: return CalculateBoundaryLine_MultiOption(element, adjustsizemargin);                break;
+	    case UI_ELEMENT_TYPE_BUTTON					: return CalculateBoundaryLine_Button(element, adjustsizemargin);                     break;	    	    
+      case UI_ELEMENT_TYPE_CHECKBOX 			: return CalculateBoundaryLine_CheckBox(element, adjustsizemargin);                   break;	    	    
+      case UI_ELEMENT_TYPE_EDITTEXT   		: return CalculateBoundaryLine_EditText(element, adjustsizemargin);                   break;	      
+      case UI_ELEMENT_TYPE_FORM						: return CalculateBoundaryLine_Form(element, adjustsizemargin);                       break; 
+      case UI_ELEMENT_TYPE_MENU           : return CalculateBoundaryLine_Menu(element, adjustsizemargin);                       break;                  
+      case UI_ELEMENT_TYPE_LISTBOX        : return CalculateBoundaryLine_ListBox(element, adjustsizemargin);                    break;                  
+      case UI_ELEMENT_TYPE_PROGRESSBAR	  : return CalculateBoundaryLine_ProgressBar(element, adjustsizemargin);                break;                  
     }
 
   return false;
@@ -774,16 +628,17 @@ bool UI_SKIN::CalculateBoundaryLine(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Scroll
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -791,16 +646,17 @@ bool UI_SKIN::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Text
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -808,16 +664,17 @@ bool UI_SKIN::CalculateBoundaryLine_Text(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_TextBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -825,16 +682,17 @@ bool UI_SKIN::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Image
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -842,16 +700,17 @@ bool UI_SKIN::CalculateBoundaryLine_Image(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Animation
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -859,16 +718,17 @@ bool UI_SKIN::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Option
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -876,16 +736,17 @@ bool UI_SKIN::CalculateBoundaryLine_Option(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_MultiOption
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -893,16 +754,17 @@ bool UI_SKIN::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Button
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -910,16 +772,17 @@ bool UI_SKIN::CalculateBoundaryLine_Button(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_CheckBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -927,16 +790,17 @@ bool UI_SKIN::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_EditText
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -944,16 +808,17 @@ bool UI_SKIN::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Form
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -961,16 +826,17 @@ bool UI_SKIN::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Menu
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -978,16 +844,17 @@ bool UI_SKIN::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_ListBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }
@@ -995,16 +862,17 @@ bool UI_SKIN::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
+* @fn         bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_ProgressBar
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKIN::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return false;
 }

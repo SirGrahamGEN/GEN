@@ -1969,7 +1969,10 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
   for(XDWORD c=0; c<element->GetComposeElements()->GetSize(); c++)
     {
       UI_ELEMENT* subelement = element->GetComposeElements()->Get(c);
-      if(subelement) ChangeTextElementValue(subelement, skin);
+      if(subelement) 
+        {
+          ChangeTextElementValue(subelement, skin);
+        }
     }
   
   return true;
@@ -2229,17 +2232,18 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element, bool adjusttoparent)
 * @brief      GetLayoutElement_Base
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
 * @param[in]  element : 
+* @param[in]  adjusttoparent : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element)
+bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element, bool adjusttoparent)
 {
   double xpos   = 0.0f;
   double ypos   = 0.0f;    
@@ -2285,12 +2289,26 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
         else if(!size.Compare(__L("auto"), true))  width = UI_ELEMENT_TYPE_ALIGN_AUTO;          
             else GetLayoutElementValue(node, __L("width"), width); 
     }
+   else 
+    {      
+      if(element->GetFather() && adjusttoparent)
+        {
+          width = element->GetFather()->GetBoundaryLine()->width;
+        }
+    }
 
   if(GetLayoutElementValue(node, __L("height") , size))
     {
       if(!size.Compare(__L("max"), true))  height = UI_ELEMENT_TYPE_ALIGN_MAX;
         else if(!size.Compare(__L("auto"), true))  height = UI_ELEMENT_TYPE_ALIGN_AUTO;          
             else GetLayoutElementValue(node, __L("height"), height); 
+    }
+   else
+    {
+      if(element->GetFather() && adjusttoparent)
+        {
+          height = element->GetFather()->GetBoundaryLine()->height;
+        }
     }
    
   element->GetBoundaryLine()->x       = xpos;  
@@ -2357,16 +2375,17 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      GetLayoutElement_CalculateBoundaryLine
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
 {
   bool status = false;
 
@@ -2377,7 +2396,7 @@ bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element)
       case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
       case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin_selected; 
-                                          if(skincanvas) status = skincanvas->CalculateBoundaryLine(element);                                                                                    
+                                          if(skincanvas) status = skincanvas->CalculateBoundaryLine(element, adjustsizemargin);                                                                                    
                                         }
                                         break;
 
@@ -2598,7 +2617,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 
   element_textbox->SetFather(father);
 
-  if(!GetLayoutElement_Base(node, element_textbox))
+  if(!GetLayoutElement_Base(node, element_textbox, true))
     {
       delete element_textbox;
       return NULL;
@@ -2698,7 +2717,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 
   element_textbox->GetMaskText()->Set(text);
 
-  GetLayoutElement_CalculateBoundaryLine(element_textbox);
+  GetLayoutElement_CalculateBoundaryLine(element_textbox, true);
 
   return element_textbox;
 }

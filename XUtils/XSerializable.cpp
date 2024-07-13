@@ -191,8 +191,8 @@ void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationme
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      InitSerialize
+* @fn         bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
+* @brief      DoSerialize
 * @ingroup    XUTILS
 * 
 * @param[in]  serializationmethod : 
@@ -200,7 +200,7 @@ void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationme
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
+bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
   SetSerializationMethod(serializationmethod);
 
@@ -210,8 +210,8 @@ bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      InitDeserialize
+* @fn         bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
+* @brief      DoDeserialize
 * @ingroup    XUTILS
 * 
 * @param[in]  serializationmethod : 
@@ -219,7 +219,7 @@ bool XSERIALIZABLE::InitSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::InitDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
+bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
   SetSerializationMethod(serializationmethod);
 

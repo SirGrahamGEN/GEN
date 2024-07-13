@@ -778,18 +778,19 @@ bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight)
+* @fn         bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight, bool adjustsizemargin)
 * @brief      CalculePosition
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * @param[in]  fatherwidth : 
 * @param[in]  fatherheight : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight, bool adjustsizemargin)
 { 
   if(!element) return false;
 
@@ -801,23 +802,43 @@ bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, dou
       x_position = GetPositionWithoutDefine(element->GetFather()->GetXPosition());
       y_position = GetPositionWithoutDefine(element->GetFather()->GetYPosition());     
     }
-       
+
+  if(adjustsizemargin)
+    {
+      element->GetBoundaryLine()->width  -= (element->GetMargin(UI_ELEMENT_TYPE_ALIGN_LEFT) + element->GetMargin(UI_ELEMENT_TYPE_ALIGN_RIGHT));
+      element->GetBoundaryLine()->height -= (element->GetMargin(UI_ELEMENT_TYPE_ALIGN_UP)   + element->GetMargin(UI_ELEMENT_TYPE_ALIGN_DOWN));
+    }
+
   switch((int)element->GetBoundaryLine()->x)
     {
-      case UI_ELEMENT_TYPE_ALIGN_LEFT     : x_position += 0;                                                                  break;
-      case UI_ELEMENT_TYPE_ALIGN_RIGHT		: x_position += (fatherwidth - element->GetBoundaryLine()->width);                  break;
-      case UI_ELEMENT_TYPE_ALIGN_CENTER   : x_position += (int)round((fatherwidth - element->GetBoundaryLine()->width)/2);    break;
-                                default   : x_position += GetPositionWithoutDefine(element->GetBoundaryLine()->x);            break;
+      case UI_ELEMENT_TYPE_ALIGN_LEFT     : x_position += element->GetMargin(UI_ELEMENT_TYPE_ALIGN_LEFT);                                                                  
+                                            break;
+
+      case UI_ELEMENT_TYPE_ALIGN_RIGHT		: x_position += (fatherwidth - element->GetBoundaryLine()->width - element->GetMargin(UI_ELEMENT_TYPE_ALIGN_RIGHT));                  
+                                            break;
+
+      case UI_ELEMENT_TYPE_ALIGN_CENTER   : x_position += (int)round((fatherwidth - element->GetBoundaryLine()->width)/2);    
+                                            break;
+
+                                default   : x_position += GetPositionWithoutDefine(element->GetBoundaryLine()->x);            
+                                            break;
     }
 
   if(element->GetFather())
     {
       switch((int)element->GetBoundaryLine()->y)
         {
-          case UI_ELEMENT_TYPE_ALIGN_UP       : y_position -= fatherheight -element->GetBoundaryLine()->height;                   break;
-          case UI_ELEMENT_TYPE_ALIGN_DOWN   	: y_position -= 0;                                                                  break;
-          case UI_ELEMENT_TYPE_ALIGN_CENTER		: y_position -= (int)round((fatherheight - element->GetBoundaryLine()->height)/2);  break;
-                                    default   : y_position -= GetPositionWithoutDefine(element->GetBoundaryLine()->y);            break;
+          case UI_ELEMENT_TYPE_ALIGN_UP       : y_position -= fatherheight - element->GetBoundaryLine()->height - element->GetMargin(UI_ELEMENT_TYPE_ALIGN_UP);                 
+                                                break;
+
+          case UI_ELEMENT_TYPE_ALIGN_DOWN   	: y_position -= element->GetMargin(UI_ELEMENT_TYPE_ALIGN_DOWN);                                                                   
+                                                break;
+
+          case UI_ELEMENT_TYPE_ALIGN_CENTER		: y_position -= (int)round((fatherheight - element->GetBoundaryLine()->height)/2);  
+                                                break;
+
+                                    default   : y_position -= GetPositionWithoutDefine(element->GetBoundaryLine()->y);            
+                                                break;
         }
      
     }
@@ -825,15 +846,18 @@ bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, dou
     {
       switch((int)element->GetBoundaryLine()->y)
         {
-          case UI_ELEMENT_TYPE_ALIGN_UP       : y_position += element->GetBoundaryLine()->height;                                 break;
-          case UI_ELEMENT_TYPE_ALIGN_DOWN   	: y_position += fatherheight;                                                       break;
-          case UI_ELEMENT_TYPE_ALIGN_CENTER		: y_position += (int)round((fatherheight + element->GetBoundaryLine()->height)/2);  break;
+          case UI_ELEMENT_TYPE_ALIGN_UP       : y_position += element->GetBoundaryLine()->height + element->GetMargin(UI_ELEMENT_TYPE_ALIGN_UP);                                     
+                                                break;
+
+          case UI_ELEMENT_TYPE_ALIGN_DOWN   	: y_position += fatherheight + element->GetMargin(UI_ELEMENT_TYPE_ALIGN_DOWN);                                                        
+                                                break;
+
+          case UI_ELEMENT_TYPE_ALIGN_CENTER		: y_position += (int)round((fatherheight + element->GetBoundaryLine()->height)/2);  
+                                                break;
+
                                     default   : y_position += GetPositionWithoutDefine(element->GetBoundaryLine()->y);            break;
         }
     }
-
-  x_position += (element->GetMargin(UI_ELEMENT_TYPE_ALIGN_LEFT) - element->GetMargin(UI_ELEMENT_TYPE_ALIGN_RIGHT));
-  y_position += (element->GetMargin(UI_ELEMENT_TYPE_ALIGN_UP)   - element->GetMargin(UI_ELEMENT_TYPE_ALIGN_DOWN));
 
   element->SetXPosition(x_position);
   element->SetYPosition(y_position);
@@ -892,16 +916,17 @@ double  UI_SKINCANVAS::GetHeightString(XCHAR* string, XDWORD sizefont)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Scroll
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element, bool adjustsizemargin)
 {
   return true;
 }
@@ -909,16 +934,17 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Scroll(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Text
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element, bool adjustsizemargin)
 {
   if(!element) return false;
 
@@ -974,22 +1000,23 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Text(UI_ELEMENT* element)
       case UI_ELEMENT_TYPE_ALIGN_MAX   : element->GetBoundaryLine()->height  = fatherheight;                                            break;	    
     }
 
-  return CalculePosition(element, fatherwidth, fatherheight);
+  return CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
-* @brief      CalculateBoundaryLine_TextInBox
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
+* @brief      CalculateBoundaryLine_TextBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element, bool adjustsizemargin)
 {  
   UI_ELEMENT_TEXTBOX* element_textbox = (UI_ELEMENT_TEXTBOX*)element;
   if(!element_textbox) return false;
@@ -1015,22 +1042,23 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_TextBox(UI_ELEMENT* element)
                                           break;
     }
 
-  return CalculePosition(element, fatherwidth, fatherheight);  
+  return CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Image
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element, bool adjustsizemargin)
 {
   if(!element) return false;
   
@@ -1056,22 +1084,23 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Image(UI_ELEMENT* element)
       case UI_ELEMENT_TYPE_ALIGN_MAX    : element->GetBoundaryLine()->height  = fatherheight;                                       break;	    
     }
 
-  return CalculePosition(element, fatherwidth, fatherheight);
+  return CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Animation
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element, bool adjustsizemargin)
 {
   UI_ELEMENT_ANIMATION* element_animation = (UI_ELEMENT_ANIMATION*)element;
   if(!element_animation) return false;  
@@ -1119,14 +1148,14 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
                                             break;	    
     }
 
-  CalculePosition(element, fatherwidth, fatherheight);
+  CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);
 
   for(XDWORD c=0; c<element_animation->GetComposeElements()->GetSize(); c++)
     {
       UI_ELEMENT_IMAGE* element_image = (UI_ELEMENT_IMAGE*)element_animation->GetComposeElements()->Get(c);
       if(element_image)
         {
-          CalculePosition(element_image, element_animation->GetBoundaryLine()->width, element_image->GetBoundaryLine()->height);
+          CalculePosition(element_image, element_animation->GetBoundaryLine()->width, element_image->GetBoundaryLine()->height, adjustsizemargin);
         }
     }
 
@@ -1136,16 +1165,17 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Animation(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Option
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element, bool adjustsizemargin)
 {
   UI_ELEMENT_OPTION* element_option = (UI_ELEMENT_OPTION*)element;
   if(!element_option) return false;  
@@ -1213,10 +1243,10 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
         }
     }
   
-  CalculePosition(element_option, fatherwidth, fatherheight);
+  CalculePosition(element_option, fatherwidth, fatherheight, adjustsizemargin);
 
-  if(element_animation) CalculePosition(element_animation, element_option->GetBoundaryLine()->width, element_option->GetBoundaryLine()->height);
-  if(element_text)      CalculePosition(element_text     , element_option->GetBoundaryLine()->width, element_option->GetBoundaryLine()->height);  
+  if(element_animation) CalculePosition(element_animation, element_option->GetBoundaryLine()->width, element_option->GetBoundaryLine()->height,  adjustsizemargin);
+  if(element_text)      CalculePosition(element_text     , element_option->GetBoundaryLine()->width, element_option->GetBoundaryLine()->height,  adjustsizemargin);  
 
   switch(element_option->GetAllocationTextType())
     {
@@ -1234,7 +1264,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
       for(XDWORD c=0; c<element_animation->GetComposeElements()->GetSize(); c++)
         {
           UI_ELEMENT* subelement = element_animation->GetComposeElements()->Get(c);
-          if(subelement) CalculePosition(subelement, element_animation->GetBoundaryLine()->width, element_animation->GetBoundaryLine()->height);         
+          if(subelement) CalculePosition(subelement, element_animation->GetBoundaryLine()->width, element_animation->GetBoundaryLine()->height, adjustsizemargin);         
         } 
     }
 
@@ -1246,16 +1276,17 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Option(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_MultiOption
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element, bool adjustsizemargin)
 {
   UI_ELEMENT_MULTIOPTION* element_multioption = (UI_ELEMENT_MULTIOPTION*)element;
   if(!element_multioption) return false;   
@@ -1303,7 +1334,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
                                           break;	    
     }
 
-  CalculePosition(element_multioption, fatherwidth, fatherheight);
+  CalculePosition(element_multioption, fatherwidth, fatherheight, adjustsizemargin);
   
   return true;
 }
@@ -1311,50 +1342,53 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_MultiOption(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Button
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Button(UI_ELEMENT* element, bool adjustsizemargin)
 {
-  return CalculateBoundaryLine_Option(element);
+  return CalculateBoundaryLine_Option(element, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_CheckBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_CheckBox(UI_ELEMENT* element, bool adjustsizemargin)
 {
-  return CalculateBoundaryLine_Option(element);
+  return CalculateBoundaryLine_Option(element, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_EditText
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element, bool adjustsizemargin)
 {  
   if(!element) return false;
 
@@ -1397,22 +1431,23 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_EditText(UI_ELEMENT* element)
       case UI_ELEMENT_TYPE_ALIGN_MAX  : element->GetBoundaryLine()->height  = fatherheight;                                             break;	    
     }
 
-  return CalculePosition(element, fatherwidth, fatherheight);
+  return CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Form
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element, bool adjustsizemargin)
 {
   UI_ELEMENT_FORM* element_form = (UI_ELEMENT_FORM*)element;
   if(!element_form) return false;   
@@ -1460,7 +1495,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
                                           break;	    
     }
 
-  CalculePosition(element_form, fatherwidth, fatherheight);
+  CalculePosition(element_form, fatherwidth, fatherheight, adjustsizemargin);
   
   AddPositionSubElements(element_form);
 
@@ -1470,33 +1505,35 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_Form(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_Menu
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_Menu(UI_ELEMENT* element, bool adjustsizemargin)
 {  
-  return CalculateBoundaryLine_Form(element);
+  return CalculateBoundaryLine_Form(element, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_ListBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element, bool adjustsizemargin)
 {  
   if(!element) return false;
 
@@ -1539,22 +1576,23 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ListBox(UI_ELEMENT* element)
       case UI_ELEMENT_TYPE_ALIGN_MAX  : element->GetBoundaryLine()->height  = fatherheight;                                             break;	    
     }
 
-  return CalculePosition(element, fatherwidth, fatherheight);
+  return CalculePosition(element, fatherwidth, fatherheight, adjustsizemargin);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
+* @fn         bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
 * @brief      CalculateBoundaryLine_ProgressBar
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
+* @param[in]  adjustsizemargin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element, bool adjustsizemargin)
 {
   UI_ELEMENT_PROGRESSBAR* element_progressbar = (UI_ELEMENT_PROGRESSBAR*)element;
   if(!element_progressbar) return false;  
@@ -1627,11 +1665,11 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
         }
     }
   
-  CalculePosition(element_progressbar, fatherwidth, fatherheight);
+  CalculePosition(element_progressbar, fatherwidth, fatherheight, adjustsizemargin);
 
-  if(element_progressrect)  CalculePosition(element_progressrect  , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height);
-  if(element_animation)     CalculePosition(element_animation     , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height);
-  if(element_text)          CalculePosition(element_text          , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height);  
+  if(element_progressrect)  CalculePosition(element_progressrect  , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height, adjustsizemargin);
+  if(element_animation)     CalculePosition(element_animation     , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height, adjustsizemargin);
+  if(element_text)          CalculePosition(element_text          , element_progressbar->GetBoundaryLine()->width, element_progressbar->GetBoundaryLine()->height, adjustsizemargin);  
 
 
   switch(element_progressbar->GetAllocationTextType())
@@ -1667,7 +1705,7 @@ bool UI_SKINCANVAS::CalculateBoundaryLine_ProgressBar(UI_ELEMENT* element)
       for(XDWORD c=0; c<element_animation->GetComposeElements()->GetSize(); c++)
         {
           UI_ELEMENT* subelement = element_animation->GetComposeElements()->Get(c);
-          if(subelement) CalculePosition(subelement, element_animation->GetBoundaryLine()->width, element_animation->GetBoundaryLine()->height);         
+          if(subelement) CalculePosition(subelement, element_animation->GetBoundaryLine()->width, element_animation->GetBoundaryLine()->height, adjustsizemargin);         
         } 
     }
 
@@ -1796,7 +1834,7 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
   if(!canvas) return false;
  
   PreDrawFunction(element, canvas, clip_rect, x_position, y_position);
-      
+
   if(element->MustReDraw()) 
     {
       GRP2DCOLOR_RGBA8                color(element->GetColor()->GetRed(),
@@ -1804,13 +1842,11 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
                                             element->GetColor()->GetBlue(),
                                             element->GetColor()->GetAlpha());
       XVECTOR<UI_SKIN_TEXTBOX_PART*>  parts;
-      XVECTOR<UI_SKIN_TEXTBOX_IMAGE*> images;
-
-                               
+                                     
       canvas->Vectorfont_GetConfig()->SetColor(&color);
       canvas->Vectorfont_GetConfig()->SetSize(element_textbox->GetSizeFont());  
 
-      TextBox_GenerateLines(element_textbox, canvas, x_position, y_position, parts, images);
+      TextBox_GenerateLines(element_textbox, canvas, x_position, y_position, parts);
 
       for(XDWORD c=0; c<parts.GetSize(); c++)
         {
@@ -1841,35 +1877,10 @@ bool UI_SKINCANVAS::Draw_TextBox(UI_ELEMENT* element)
                                 textbox_part->GetYPos() - height);             
               #endif  
             }
-        } 
-
-     for(XDWORD c=0; c<images.GetSize(); c++)
-        {
-          UI_SKIN_TEXTBOX_IMAGE* textbox_image = images.Get(c);
-          if(textbox_image)
-            {
-              canvas->PutBitmapAlpha(textbox_image->GetBoundaryLine()->x  ,
-                                     textbox_image->GetBoundaryLine()->y  ,
-                                     textbox_image->GetAnimation()->GetBitmap(), 100);
-
-              #ifdef USERINTERFACE_DEBUG               
-              GRP2DCOLOR_RGBA8  color_debug(0, 0, 255);
-
-              canvas->SetLineWidth(1.0f);
-              canvas->SetLineColor(&color_debug);
-              canvas->Rectangle(textbox_image->GetBoundaryLine()->x ,  
-                                textbox_image->GetBoundaryLine()->y ,
-                                textbox_image->GetBoundaryLine()->x + textbox_image->GetBoundaryLine()->width, 
-                                textbox_image->GetBoundaryLine()->y + textbox_image->GetBoundaryLine()->height);              
-              #endif
-            }
-        }
+        }     
    
       parts.DeleteContents();
       parts.DeleteAll();
-
-      images.DeleteContents();
-      images.DeleteAll();
     }
 
   PostDrawFunction(element, canvas, clip_rect, x_position, y_position);
@@ -2907,10 +2918,10 @@ bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images)
+* @fn         double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
 * @brief      TextBox_SizeLine
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element_textbox : 
 * @param[in]  canvas : 
 * @param[in]  x_position : 
@@ -2919,12 +2930,11 @@ bool UI_SKINCANVAS::PostDrawFunction(UI_ELEMENT* element, GRPCANVAS* canvas, XRE
 * @param[in]  characterstr : 
 * @param[in]  index_char : 
 * @param[in]  parts : 
-* @param[in]  images : 
 * 
 * @return     double : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>* images)
+* --------------------------------------------------------------------------------------------------------------------*/
+double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, int nline, XSTRING& characterstr, XDWORD index_char, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
 {
   XSTRING _characterstr;
   XDWORD  y_pos    = 0;    
@@ -2942,25 +2952,8 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
         }                                      
     }
 
-
   _characterstr.Add(element_textbox->GetText()->Get()[index_char]); 
   sizeline += canvas->VectorFont_GetWidth(_characterstr.Get());  
-
-  if(images)
-    {
-      for(XDWORD c=0; c<images->GetSize(); c++)
-        {
-          UI_SKIN_TEXTBOX_IMAGE* textbox_image = images->Get(c);
-          if(textbox_image)
-            {
-              bool isinbox = textbox_image->GetBoundaryLine()->IsWithin((XDWORD)(x_position + sizeline), (XDWORD)(y_pos));        
-              if(isinbox) 
-                {                         
-                  sizeline += textbox_image->GetBoundaryLine()->width;
-                }            
-            }                                      
-        }
-    }
 
   return sizeline;
 }
@@ -2968,7 +2961,7 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images)
+* @fn         bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
 * @brief      TextBox_GenerateLines
 * @ingroup    USERINTERFACE
 *
@@ -2977,12 +2970,11 @@ double UI_SKINCANVAS::TextBox_SizeLine(UI_ELEMENT_TEXTBOX* element_textbox, GRPC
 * @param[in]  x_position : 
 * @param[in]  y_position : 
 * @param[in]  parts : 
-* @param[in]  images : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts, XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>& images)
+bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, GRPCANVAS* canvas, double x_position, double y_position, XVECTOR<UI_SKIN_TEXTBOX_PART*>& parts)
 {
   double                  x_text_position = x_position;
   double                  y_text_position = y_position - element_textbox->GetBoundaryLine()->height + (double)canvas->VectorFont_GetHeight(__L("A"));  
@@ -3030,8 +3022,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                   int indexend = text.FindCharacter(__C(']'), indexstart);
                                   if(indexend != XSTRING_NOTFOUND)
                                     {                                                                      
-                                      XCHAR*    keywords[] = {  __L("COLOR") ,
-                                                                __L("IMAGE") ,
+                                      XCHAR*    keywords[] = {  __L("COLOR") ,                                                              
                                                                 __L("END") ,
                                                              };
                                       XSTRING   keyword;
@@ -3061,28 +3052,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                                                             newpart = true;
                                                             break;      
 
-                                                  case  1 : { UI_SKIN_TEXTBOX_IMAGE* image = new UI_SKIN_TEXTBOX_IMAGE();
-                                                              if(image)
-                                                                {
-                                                                  image->GetName()->Set(keyword_params);                                                                  
-
-                                                                  UI_ANIMATION* animation = GEN_USERINTERFACE.GetOrAddAnimationCache(__L(""), image->GetName()->Get());
-                                                                  if(animation)
-                                                                    {
-                                                                      image->SetAnimation(animation); 
-                                                                      
-                                                                      image->GetBoundaryLine()->x       = x_text_position;
-                                                                      image->GetBoundaryLine()->y       = y_text_position - (int)(canvas->VectorFont_GetHeight(__L("A"))); 
-                                                                      image->GetBoundaryLine()->width   = animation->GetBitmap()->GetWidth();
-                                                                      image->GetBoundaryLine()->height  = animation->GetBitmap()->GetHeight(); // + lineheight; // + (int)(canvas->VectorFont_GetHeight(__L("A"))); 
-                                                                      
-                                                                      images.Add(image);                                                                     
-                                                                    }
-                                                                }    
-                                                            }
-                                                            break;        
-
-                                                  case  2 : for(int d=0; d<(sizeof(keywords)/sizeof(XCHAR*)); d++)
+                                                  case  1 : for(int d=0; d<(sizeof(keywords)/sizeof(XCHAR*)); d++)
                                                               {
                                                                 if(!keyword_params.Compare(keywords[d], true))
                                                                   {
@@ -3139,25 +3109,7 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
                               boundaryline.width  = element_textbox->GetBoundaryLine()->width;
                               boundaryline.height = element_textbox->GetBoundaryLine()->height;
 
-                              isinbox = boundaryline.IsWithin((XDWORD)(x_text_position), (XDWORD)(y_text_position));                                                           
-                              if(isinbox)
-                                {
-                                  for(XDWORD c=0; c<images.GetSize(); c++)
-                                    {                                      
-                                      UI_SKIN_TEXTBOX_IMAGE* textbox_image = images.Get(c);
-                                      if(textbox_image)
-                                        {                                                                            
-                                          isinimage = boundaryline.IsWithin((XDWORD)(x_text_position), (XDWORD)(y_text_position - textbox_image->GetBoundaryLine()->height - (int)(canvas->VectorFont_GetHeight(__L("A"))) + 1));        
-                                          if(isinimage) 
-                                            {
-                                              textbox_image->GetLineNumbers()->Add(nline);
-                                              imagewidth = textbox_image->GetBoundaryLine()->width;
-                                              break;                                          
-                                            }
-                                        }
-                                    }        
-                                }
-                                      
+                              isinbox = boundaryline.IsWithin((XDWORD)(x_text_position), (XDWORD)(y_text_position));                                                                                        
                               if(isinbox)
                                 {      
                                   if(isinimage)
@@ -3254,7 +3206,6 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
     }
 
   XVECTOR<UI_SKIN_TEXTBOX_PART*>    checkparts;
-  XVECTOR<UI_SKIN_TEXTBOX_IMAGE*>   checkimages;
   XDWORD                            maxnlines   = 0;
 
   for(XDWORD c=0; c<parts.GetSize(); c++)
@@ -3274,107 +3225,38 @@ bool UI_SKINCANVAS::TextBox_GenerateLines(UI_ELEMENT_TEXTBOX* element_textbox, G
             }
         }
 
-      for(XDWORD p=0; p<images.GetSize(); p++)
-        {          
-          UI_SKIN_TEXTBOX_IMAGE* textbox_image = images.Get(p);        
-          if(textbox_image) 
-            {
-              if(textbox_image->IsInLine(nl+1))  checkimages.Add(textbox_image);
-            }
-        }
-
       if(checkparts.GetSize())
         {  
           switch(element_textbox->GetTextAlignment())
-            {
-              /*                                      
-                                      default   :
-              case UI_ELEMENT_TYPE_ALIGN_LEFT	  : textbox_part->SetXPos((XDWORD)x_text_position);
-                                                  break;										
-
-              case UI_ELEMENT_TYPE_ALIGN_RIGHT	:	{ XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - canvas->VectorFont_GetWidth(characterstr.Get()));
-                                                    textbox_part->SetXPos((XDWORD)(x_text_position) + shift);
-                                                  }
-                                                  break;																				                  
-
-              case UI_ELEMENT_TYPE_ALIGN_CENTER	: { XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - canvas->VectorFont_GetWidth(characterstr.Get()))/2;
-                                                    textbox_part->SetXPos((XDWORD)(x_text_position) + shift);
-                                                  }
-                                                  break;								
-              */  
-
-
+            {             
                                       default   : break;
 
               case UI_ELEMENT_TYPE_ALIGN_LEFT	  : break;										
 
               case UI_ELEMENT_TYPE_ALIGN_RIGHT	:	break;																				                  
 
-              case UI_ELEMENT_TYPE_ALIGN_CENTER	: if(checkimages.GetSize())
-                                                    {
-                                                      XDWORD first_size = 0;
-
-                                                      UI_SKIN_TEXTBOX_IMAGE* first_image = checkimages.Get(0);                                                                  
-                                                      if(first_image)
-                                                        {
-                                                          for(XDWORD p=0; p<checkparts.GetSize(); p++)
-                                                            {          
-                                                              UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
-                                                              if(textbox_part)
-                                                                {
-                                                                  if(((textbox_part->GetXPos() + textbox_part->GetWidth()) <= first_image->GetBoundaryLine()->x) &&
-                                                                     (textbox_part->GetXPos() >= (first_image->GetBoundaryLine()->x + first_image->GetBoundaryLine()->width)))
-                                                                    {
-                                                                      first_size += textbox_part->GetWidth();
-                                                                    }
-                                                                }  
-                                                            }
-
-                                                          XDWORD shift = (XDWORD)(first_image->GetBoundaryLine()->x - element_textbox->GetBoundaryLine()->x - first_size);    
-                                                          
-                                                          for(XDWORD p=0; p<checkparts.GetSize(); p++)
-                                                            {          
-                                                              UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
-                                                              if(textbox_part)
-                                                                {
-                                                                  if((textbox_part->GetXPos() + textbox_part->GetWidth()) <= first_image->GetBoundaryLine()->x)
-                                                                    {
-                                                                      textbox_part->SetXPos(textbox_part->GetXPos() + first_size);
-                                                                    }
-                                                                }  
-                                                            }
-
-                                                        }
-                                                    }
-                                                   else
-                                                    {
-                                                      XDWORD sizealltext = 0;
-                                                      for(XDWORD p=0; p<checkparts.GetSize(); p++)
-                                                        {          
-                                                           UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
-                                                           if(textbox_part) sizealltext += textbox_part->GetWidth();
-                                                        }
+              case UI_ELEMENT_TYPE_ALIGN_CENTER	: { XDWORD sizealltext = 0;
+                                                    for(XDWORD p=0; p<checkparts.GetSize(); p++)
+                                                      {          
+                                                        UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
+                                                        if(textbox_part) sizealltext += textbox_part->GetWidth();
+                                                      }
                                           
-                                                      XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - sizealltext)/2;    
+                                                    XDWORD shift = (XDWORD)(element_textbox->GetBoundaryLine()->width - sizealltext)/2;    
 
-                                                      for(XDWORD p=0; p<checkparts.GetSize(); p++)
-                                                        {          
-                                                           UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
-                                                           if(textbox_part) textbox_part->SetXPos(textbox_part->GetXPos()+shift); 
-                                                        }                                                             
-                                                    }       
+                                                    for(XDWORD p=0; p<checkparts.GetSize(); p++)
+                                                      {          
+                                                        UI_SKIN_TEXTBOX_PART* textbox_part = checkparts.Get(p);        
+                                                        if(textbox_part) textbox_part->SetXPos(textbox_part->GetXPos()+shift); 
+                                                      }                                                             
+                                                  }       
                                                   break;										           
-            }
-            
-  
+            }              
         }
 
-      checkparts.DeleteAll();
-      checkimages.DeleteAll();
-                 
+      checkparts.DeleteAll();                 
     }
   
-
   return true;
 }
 

@@ -108,32 +108,6 @@ class UI_SKIN_TEXTBOX_PART
 };	
 
 
-class UI_SKIN_TEXTBOX_IMAGE
-{
-  public :
-																			UI_SKIN_TEXTBOX_IMAGE 				      ();
-		virtual													 ~UI_SKIN_TEXTBOX_IMAGE     		      ();
-
-    XSTRING*                          GetName                             ();
-    UI_BOUNDARYLINE*                  GetBoundaryLine                     ();
-
-    UI_ANIMATION*                     GetAnimation                        ();
-    void                              SetAnimation                        (UI_ANIMATION* animation);
-
-    XVECTOR<XDWORD>* 									GetLineNumbers     									();		
-    bool                							IsInLine           									(XDWORD nline);		
-	
-	private:
-
-		void															Clean																();		
-
-    XSTRING                           name;
-    UI_BOUNDARYLINE                   boundaryline;
-    UI_ANIMATION*                     animation;
-    XVECTOR<XDWORD> 									linenumbers; 
-};
-
-
 class UI_SKIN 
 {
   public:
@@ -160,22 +134,22 @@ class UI_SKIN
     virtual bool                      Background_LoadBitmap               ();    
     GRPBITMAP*                        Background_GetBitmap                ();    
     	
-    bool                              CalculateBoundaryLine               (UI_ELEMENT* element);
+    bool                              CalculateBoundaryLine               (UI_ELEMENT* element, bool adjustsizemargin = false);
 
-    virtual bool                      CalculateBoundaryLine_Scroll        (UI_ELEMENT* element);    
-	  virtual bool                      CalculateBoundaryLine_Text		      (UI_ELEMENT* element);
-    virtual bool                      CalculateBoundaryLine_TextBox	      (UI_ELEMENT* element);	  
-	  virtual bool                      CalculateBoundaryLine_Image   	    (UI_ELEMENT* element);
-    virtual bool                      CalculateBoundaryLine_Animation	    (UI_ELEMENT* element);
-    virtual bool                      CalculateBoundaryLine_Option		    (UI_ELEMENT* element);
-    virtual bool                      CalculateBoundaryLine_MultiOption	  (UI_ELEMENT* element);
-	  virtual bool                      CalculateBoundaryLine_Button		    (UI_ELEMENT* element);	
-    virtual bool                      CalculateBoundaryLine_CheckBox      (UI_ELEMENT* element);	  
-    virtual bool                      CalculateBoundaryLine_EditText      (UI_ELEMENT* element);	      
-    virtual bool                      CalculateBoundaryLine_Form          (UI_ELEMENT* element); 
-    virtual bool                      CalculateBoundaryLine_Menu				  (UI_ELEMENT* element); 
-    virtual bool                      CalculateBoundaryLine_ListBox 		  (UI_ELEMENT* element);  
-    virtual bool                      CalculateBoundaryLine_ProgressBar	  (UI_ELEMENT* element);  
+    virtual bool                      CalculateBoundaryLine_Scroll        (UI_ELEMENT* element, bool adjustsizemargin = false);    
+	  virtual bool                      CalculateBoundaryLine_Text		      (UI_ELEMENT* element, bool adjustsizemargin = false);
+    virtual bool                      CalculateBoundaryLine_TextBox	      (UI_ELEMENT* element, bool adjustsizemargin = false);	  
+	  virtual bool                      CalculateBoundaryLine_Image   	    (UI_ELEMENT* element, bool adjustsizemargin = false);
+    virtual bool                      CalculateBoundaryLine_Animation	    (UI_ELEMENT* element, bool adjustsizemargin = false);
+    virtual bool                      CalculateBoundaryLine_Option		    (UI_ELEMENT* element, bool adjustsizemargin = false);
+    virtual bool                      CalculateBoundaryLine_MultiOption	  (UI_ELEMENT* element, bool adjustsizemargin = false);
+	  virtual bool                      CalculateBoundaryLine_Button		    (UI_ELEMENT* element, bool adjustsizemargin = false);	
+    virtual bool                      CalculateBoundaryLine_CheckBox      (UI_ELEMENT* element, bool adjustsizemargin = false);	  
+    virtual bool                      CalculateBoundaryLine_EditText      (UI_ELEMENT* element, bool adjustsizemargin = false);	      
+    virtual bool                      CalculateBoundaryLine_Form          (UI_ELEMENT* element, bool adjustsizemargin = false); 
+    virtual bool                      CalculateBoundaryLine_Menu				  (UI_ELEMENT* element, bool adjustsizemargin = false); 
+    virtual bool                      CalculateBoundaryLine_ListBox 		  (UI_ELEMENT* element, bool adjustsizemargin = false);  
+    virtual bool                      CalculateBoundaryLine_ProgressBar	  (UI_ELEMENT* element, bool adjustsizemargin = false);  
 
     bool											        CalculeBoundaryLine_AllElements			(UI_ELEMENT* element, bool recursive = true);
       
