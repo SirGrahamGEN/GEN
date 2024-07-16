@@ -473,7 +473,6 @@ bool XPUBLISHER::PostEvent(XEVENT* event, XSUBJECT* subject)
 
   observers.DeleteAll();
 
-
   inevent = false;
 
   return true;

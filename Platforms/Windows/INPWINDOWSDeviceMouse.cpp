@@ -123,7 +123,10 @@ bool INPWINDOWSDEVICEMOUSE::Update()
     {
       if(grpscreen->GetHandle()!=GetForegroundWindow())
         {
-          return false;
+          if(!grpscreen->Style_Is(GRPSCREENSTYLE_ONTOP))
+            {
+              return false;
+            }
         }
     }
 

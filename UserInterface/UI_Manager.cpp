@@ -2160,11 +2160,13 @@ UI_MANAGER::~UI_MANAGER()
   if(xmutex_modal)
     {
       GEN_XFACTORY.Delete_Mutex(xmutex_modal);
+      xmutex_modal = NULL;
     }
 
   if(xmutex_UIevent)
     {
       GEN_XFACTORY.Delete_Mutex(xmutex_UIevent);
+      xmutex_UIevent = NULL;
     }
 
   Clean();                            

@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       UI_Color.h
+* @file       GRPVectorFileConfig.h
 * 
-* @class      UI_COLOR
-* @brief      User Interface Color class
-* @ingroup    USERINTERFACE
+* @class      GRPVECTORFILECONFIG
+* @brief      Graphic Vector File Config class
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _UI_COLOR_H_
-#define _UI_COLOR_H_
+#ifndef _GRPVECTORFILECONFIG_H_
+#define _GRPVECTORFILECONFIG_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -47,47 +47,19 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-
-class UI_COLOR
+class GRPVECTORFILECONFIG
 {
   public:
-                       UI_COLOR             ();
-                       UI_COLOR             (XCHAR* string);
-                       UI_COLOR             (XSTRING& string);
-    virtual           ~UI_COLOR             ();
+                      GRPVECTORFILECONFIG     ();
+    virtual          ~GRPVECTORFILECONFIG     (); 
 
-                        
-
-    int                GetRed               (); 
-    void               SetRed               (int red = 0);  
-
-    int                GetGreen             (); 
-    void               SetGreen             (int green = 0);  
-
-    int                GetBlue              (); 
-    void               SetBlue              (int blue = 0);  
-
-    int                GetAlpha             (); 
-    void               SetAlpha             (int alpha = 0);  
-
-    bool               SetFromString        (XCHAR* string);
-    bool               SetFromString        (XSTRING& string);
-
-    bool               CopyFrom             (UI_COLOR* color);
-    bool               CopyTo               (UI_COLOR* color);
+    virtual bool      Create_File             (XCHAR* pathFile);
+    virtual bool      Load_File               (XCHAR* pathFile);
 
   private:
 
-    int                GetAlphaForPercent   (int percent);
-
-    void               Clean                ();
-    
-    int                red;
-    int                green;
-    int                blue;
-    int                alpha;  
+    void              Clean                   ();
 };
-
 
 #pragma endregion
 
@@ -100,4 +72,3 @@ class UI_COLOR
 
 
 #endif
-

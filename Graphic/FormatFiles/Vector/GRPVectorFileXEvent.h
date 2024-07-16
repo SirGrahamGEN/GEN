@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       UI_Color.h
+* @file       GRPVectorFileXEvent.h
 * 
-* @class      UI_COLOR
-* @brief      User Interface Color class
-* @ingroup    USERINTERFACE
+* @class      GRPVECTORFILEXEVENT
+* @brief      Graphic Vector File eXtended Event class
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,16 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _UI_COLOR_H_
-#define _UI_COLOR_H_
+#ifndef _GRPVECTORFILEXEVENT_H_
+#define _GRPVECTORFILEXEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XString.h"
+#include "XEvent.h"
+#include "XSubject.h"
+
+#include "GRPVectorFile.h"
 
 #pragma endregion
 
@@ -40,6 +43,11 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum GRPVECTORFILE_XEVENTTYPE : XDWORD
+{
+   GRPVECTORFILE_XEVENTTYPE_UNKNOWN         = XEVENT_TYPE_VECTORFILE ,
+   GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN                             
+};
 
 #pragma endregion
 
@@ -47,47 +55,30 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class XPUBLISHER;
 
-class UI_COLOR
+class GRPVECTORFILE_XEVENT : public XEVENT
 {
   public:
-                       UI_COLOR             ();
-                       UI_COLOR             (XCHAR* string);
-                       UI_COLOR             (XSTRING& string);
-    virtual           ~UI_COLOR             ();
+                        GRPVECTORFILE_XEVENT        (XSUBJECT* subject, XDWORD type = GRPVECTORFILE_XEVENTTYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_VECTORFILE);
+    virtual            ~GRPVECTORFILE_XEVENT        ();
 
-                        
+    VECTORFILETYPE      GetType                     ();
+    void                SetType                     (VECTORFILETYPE type);
 
-    int                GetRed               (); 
-    void               SetRed               (int red = 0);  
+    XPATH*              GetPath                     ();
 
-    int                GetGreen             (); 
-    void               SetGreen             (int green = 0);  
-
-    int                GetBlue              (); 
-    void               SetBlue              (int blue = 0);  
-
-    int                GetAlpha             (); 
-    void               SetAlpha             (int alpha = 0);  
-
-    bool               SetFromString        (XCHAR* string);
-    bool               SetFromString        (XSTRING& string);
-
-    bool               CopyFrom             (UI_COLOR* color);
-    bool               CopyTo               (UI_COLOR* color);
+    XSTRING*            GetMsg                      ();
 
   private:
 
-    int                GetAlphaForPercent   (int percent);
+    void                Clean                       ();
 
-    void               Clean                ();
-    
-    int                red;
-    int                green;
-    int                blue;
-    int                alpha;  
+    XPATH               pathFile;
+    VECTORFILETYPE      type;
+    XPATH               path;
+    XSTRING             message;
 };
-
 
 #pragma endregion
 
@@ -100,4 +91,7 @@ class UI_COLOR
 
 
 #endif
+
+
+
 
