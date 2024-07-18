@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFEntityDefStringValue_h_
-#define _GRPVECTORFILEDXFEntityDefStringValue_h_
+#ifndef _GRPVECTORFILEDXFENTITYDefStringValue_h_
+#define _GRPVECTORFILEDXFENTITYDefStringValue_h_
 
 #pragma region INCLUDES
 
@@ -15,25 +15,25 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityDefStringValue 
+class GRPVECTORFILEDXFENTITYDefStringValue 
 {
    public:
    
-      GRPVECTORFILEDXFEntityDefStringValue () ;
-      GRPVECTORFILEDXFEntityDefStringValue ( int value, XCHAR* string ) ;
-      GRPVECTORFILEDXFEntityDefStringValue ( GRPVECTORFILEDXFEntityDefStringValue* point ) ;
-      ~GRPVECTORFILEDXFEntityDefStringValue () ;
+      GRPVECTORFILEDXFENTITYDefStringValue () ;
+      GRPVECTORFILEDXFENTITYDefStringValue ( int value, XCHAR* string ) ;
+      GRPVECTORFILEDXFENTITYDefStringValue ( GRPVECTORFILEDXFENTITYDefStringValue* point ) ;
+      ~GRPVECTORFILEDXFENTITYDefStringValue () ;
 
-      void operator =  (GRPVECTORFILEDXFEntityDefStringValue* stringvalue);
-      void operator =  (GRPVECTORFILEDXFEntityDefStringValue point);
+      void operator =  (GRPVECTORFILEDXFENTITYDefStringValue* stringvalue);
+      void operator =  (GRPVECTORFILEDXFENTITYDefStringValue point);
 
       int GetValue ();
       void SetValue ( int value );
 
       XSTRING* GetString ();
       
-      bool CopyTo ( GRPVECTORFILEDXFEntityDefStringValue* stringvalue );
-      bool CopyFrom ( GRPVECTORFILEDXFEntityDefStringValue* stringvalue );
+      bool CopyTo ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue );
+      bool CopyFrom ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue );
    
    private: 
 
@@ -44,19 +44,19 @@ class GRPVECTORFILEDXFEntityDefStringValue
 };
 
 
-class GRPVECTORFILEDXFEntityDefStringList
+class GRPVECTORFILEDXFENTITYDefStringList
 {
    public:
    
-      GRPVECTORFILEDXFEntityDefStringList () ;      
-      ~GRPVECTORFILEDXFEntityDefStringList () ;
+      GRPVECTORFILEDXFENTITYDefStringList () ;      
+      ~GRPVECTORFILEDXFENTITYDefStringList () ;
 
    
    private: 
 
       void Clean ();
 
-      XVECTOR<GRPVECTORFILEDXFEntityDefStringValue*> stringsvalue;   
+      XVECTOR<GRPVECTORFILEDXFENTITYDefStringValue*> stringsvalue;   
 };
 
 

@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjPoint_h_
-#define _GRPVECTORFILEDXFEntityObjPoint_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjPoint_h_
+#define _GRPVECTORFILEDXFENTITYObjPoint_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,15 +18,15 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjPoint : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjPoint : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjPoint (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjPoint ();
+      GRPVECTORFILEDXFENTITYObjPoint (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjPoint ();
 
-      GRPVECTORFILEDXFEntityDefPoint* GetPoint(); 
-      bool SetPoint(GRPVECTORFILEDXFEntityDefPoint* point); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetPoint(); 
+      bool SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
 
       double GetXAxisAngle (); 
       void SetXAxisAngle (double xAxisAngle); 
@@ -34,21 +34,21 @@ class GRPVECTORFILEDXFEntityObjPoint : public GRPVECTORFILEDXFEntityObj
       double GetThickness (); 
       void SetThickness (double thickness); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFEntityDefPoint* dirExtrusion );
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
+      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    
       void Clean ();
 
-      GRPVECTORFILEDXFEntityDefPoint point; // Point.   
+      GRPVECTORFILEDXFENTITYDEFPOINT point; // Point.   
       double xAxisAngle; // X Axis Angle;
       
       double thickness; // Thickness (default=0.0).
 
-      GRPVECTORFILEDXFEntityDefPoint dirExtrusion ; // Extrusion direction.     
+      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.     
 };
 
 #pragma endregion

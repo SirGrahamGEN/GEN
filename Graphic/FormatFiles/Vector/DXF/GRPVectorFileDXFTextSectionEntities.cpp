@@ -4,17 +4,17 @@
 #include "XVariant.h"
 #include "XFileTXT.h"
 
-#include "GRPVECTORFILE_XEVENT.h"
+#include "GRPVectorFile_XEvent.h"
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
 
 #pragma endregion
 
 
 #pragma region GENERAL_VARIABLES
 
-GRPVECTORFILEDXFTextSectionEntityDef GRPVECTORFILEDXFTextSectionEntities::defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities] = 
+GRPVECTORFILEDXFTEXTSECTIONEntityDef GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities] = 
 {    
    { __L("3DFACE")            ,  1 , { {   0 , __L(""), __L("") } } },
    { __L("3DSOLID")           ,  1 , { {   0 , __L(""), __L("") } } },
@@ -383,15 +383,15 @@ GRPVECTORFILEDXFTextSectionEntityDef GRPVECTORFILEDXFTextSectionEntities::defent
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextSectionEntities::GRPVECTORFILEDXFTextSectionEntities ( )
+GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES ( )
 {
    Clean();
 
-   type = GRPVECTORFILEDXFTextSection_TypeSection_Entities;
+   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES;
 }
 
 
-GRPVECTORFILEDXFTextSectionEntities::~GRPVECTORFILEDXFTextSectionEntities ( )
+GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES ( )
 {
    DeleteAllEntities();
    DeleteAllEntitiesObj();
@@ -400,11 +400,11 @@ GRPVECTORFILEDXFTextSectionEntities::~GRPVECTORFILEDXFTextSectionEntities ( )
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::IsKnownEntity(XSTRING& namevar)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownEntity(XSTRING& namevar)
 {  
    for(XDWORD c=0; c<GRPVECTORFILEDXFEntities_MaxNDefEntities; c++)
    {
-      GRPVECTORFILEDXFTextSectionEntityDef* entityDef  = &GRPVECTORFILEDXFTextSectionEntities::defentity[c];
+      GRPVECTORFILEDXFTEXTSECTIONEntityDef* entityDef  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
       if(entityDef)
       {
          if(!namevar.Compare(entityDef->name, true)) 
@@ -418,18 +418,18 @@ bool GRPVECTORFILEDXFTextSectionEntities::IsKnownEntity(XSTRING& namevar)
 }
 
 
-GRPVECTORFILEDXFTextSectionEntityDefType* GRPVECTORFILEDXFTextSectionEntities::IsKnownTypeValue(XSTRING& namevar, int type)
+GRPVECTORFILEDXFTEXTSECTIONEntityDefType* GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownTypeValue(XSTRING& namevar, int type)
 {  
    for(int c=0; c<GRPVECTORFILEDXFEntities_MaxNDefEntities; c++)
    {
-      GRPVECTORFILEDXFTextSectionEntityDef* entity  = &GRPVECTORFILEDXFTextSectionEntities::defentity[c];
+      GRPVECTORFILEDXFTEXTSECTIONEntityDef* entity  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
       if(entity)
       {
          if(!namevar.Compare(entity->name, true)) 
          {
             for(int d=0; d<entity->ntypes; d++)
             {
-               GRPVECTORFILEDXFTextSectionEntityDefType* typeDef = &entity->type[d]; 
+               GRPVECTORFILEDXFTEXTSECTIONEntityDefType* typeDef = &entity->type[d]; 
                if(typeDef)
                {
                   if(typeDef->type == type) 
@@ -446,7 +446,7 @@ GRPVECTORFILEDXFTextSectionEntityDefType* GRPVECTORFILEDXFTextSectionEntities::I
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::AddEntity (GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity (GRPVECTORFILEDXFENTITY* entity)
 { 
    if(!entity) return false;
 
@@ -461,13 +461,13 @@ bool GRPVECTORFILEDXFTextSectionEntities::AddEntity (GRPVECTORFILEDXFEntity* ent
 }
 
 
-XVECTOR<GRPVECTORFILEDXFEntity*>* GRPVECTORFILEDXFTextSectionEntities::GetEntities ()
+XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntities ()
 {
    return &entities;
 }
 
 
-GRPVECTORFILEDXFEntity* GRPVECTORFILEDXFTextSectionEntities::GetEntity (XCHAR* nameEntity, XDWORD index)
+GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* nameEntity, XDWORD index)
 {
    if(entities.IsEmpty()) return NULL;
 
@@ -475,7 +475,7 @@ GRPVECTORFILEDXFEntity* GRPVECTORFILEDXFTextSectionEntities::GetEntity (XCHAR* n
 
    for(XDWORD c=0; c<entities.GetSize(); c++)
    {
-      GRPVECTORFILEDXFEntity* entity = entities.Get(c);
+      GRPVECTORFILEDXFENTITY* entity = entities.Get(c);
       if(entity)
       {
          if(entity->GetName()->Find(nameEntity, false) != XSTRING_NOTFOUND)
@@ -494,11 +494,11 @@ GRPVECTORFILEDXFEntity* GRPVECTORFILEDXFTextSectionEntities::GetEntity (XCHAR* n
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::DeleteEntity(XCHAR* nameEntity, XDWORD index)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameEntity, XDWORD index)
 {
    if(entities.IsEmpty()) return false;
 
-   GRPVECTORFILEDXFEntity* entity = GetEntity (nameEntity, index);
+   GRPVECTORFILEDXFENTITY* entity = GetEntity (nameEntity, index);
    if(entity)
    { 
       entities.Delete(entity);
@@ -513,11 +513,11 @@ bool GRPVECTORFILEDXFTextSectionEntities::DeleteEntity(XCHAR* nameEntity, XDWORD
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntities(XCHAR* nameEntity)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameEntity)
 {
    if(entities.IsEmpty()) return false;
 
-   GRPVECTORFILEDXFEntity* entity;
+   GRPVECTORFILEDXFENTITY* entity;
    int index = 0;
 
    do {  entity = GetEntity (nameEntity, index);
@@ -536,7 +536,7 @@ bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntities(XCHAR* nameEntity)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntities()
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities()
 {
    if(entities.IsEmpty()) return false;
 
@@ -550,13 +550,13 @@ bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntities()
 }
 
 
-XMAP<XSTRING*, int>* GRPVECTORFILEDXFTextSectionEntities::GetEnumEntitys()
+XMAP<XSTRING*, int>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnumEntitys()
 {
    return &enumentities;
 }
     
     
-int GRPVECTORFILEDXFTextSectionEntities::GetNEntitys(XCHAR* nameEntity)
+int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameEntity)
 {
    int index = GetEntityEnumIndex(nameEntity);
    int nentities = 0;
@@ -570,13 +570,13 @@ int GRPVECTORFILEDXFTextSectionEntities::GetNEntitys(XCHAR* nameEntity)
 }
 
 
-XVECTOR<GRPVECTORFILEDXFEntityObj*>* GRPVECTORFILEDXFTextSectionEntities::GetEntitiesObj()
+XVECTOR<GRPVECTORFILEDXFENTITYObj*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
 {
    return &entitiesObj;
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntitiesObj()
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntitiesObj()
 {
    if(entitiesObj.IsEmpty()) 
    {
@@ -590,11 +590,11 @@ bool GRPVECTORFILEDXFTextSectionEntities::DeleteAllEntitiesObj()
 }
 
 
-GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFILETXT* fileTXT)
+GRPVECTORFILERESULT  GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection (XFILETXT* fileTXT)
 {
    XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
    GRPVECTORFILEDXFTextPart* part = NULL;  
-   GRPVECTORFILEDXFXDataCtrl* xDataCtrl = NULL;
+   GRPVECTORFILEDXFXDATACTRL* xDataCtrl = NULL;
    int indexline = iniline;
    XSTRING* line;
 
@@ -678,7 +678,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
       part = parts.Get(c);
       if(part)
       {
-         GRPVECTORFILEDXFEntity* entity = new GRPVECTORFILEDXFEntity();
+         GRPVECTORFILEDXFENTITY* entity = new GRPVECTORFILEDXFENTITY();
          if(entity)
          {          
             entity->GetName()->Set(part->name);
@@ -693,10 +693,10 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
                      int type = line->ConvertToInt();
                   
                                
-                     GRPVECTORFILEDXFValue* value = new GRPVECTORFILEDXFValue();
+                     GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
                      if(value)
                      {      
-                        GRPVECTORFILEDXFTextSectionEntityDefType* defType = IsKnownTypeValue(part->name, type);
+                        GRPVECTORFILEDXFTEXTSECTIONEntityDefType* defType = IsKnownTypeValue(part->name, type);
                         if(!defType)
                         {      
                            #ifdef TEST_ONLY_DEFINE_IN_ENTITITES
@@ -718,7 +718,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
 
                            #else
                            
-                           GRPVECTORFILEDXFTextSectionGenericDefType* genDefType = GetGenericDefType(type);
+                           GRPVECTORFILEDXFTEXTSECTIONGenericDefType* genDefType = GetGenericDefType(type);
                            if(genDefType)
                            {
                               value->SetType(genDefType->type);
@@ -761,7 +761,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
 
                            switch(IsXDataControl(type, (*line)))
                            {
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Not :  if(xDataCtrl) 
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not :  if(xDataCtrl) 
                                                                                     {
                                                                                        if(value) 
                                                                                        {                                                                                                            
@@ -770,9 +770,9 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
                                                                                     }
                                                                                     break;
 
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Ini :  if(!xDataCtrl)                
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini :  if(!xDataCtrl)                
                                                                                     {
-                                                                                       xDataCtrl = new GRPVECTORFILEDXFXDataCtrl();
+                                                                                       xDataCtrl = new GRPVECTORFILEDXFXDATACTRL();
                                                                                        if(xDataCtrl)                
                                                                                        {
                                                                                           XSTRING name;
@@ -783,7 +783,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
                                                                                     }
                                                                                     break;
 
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_End :  if(xDataCtrl)                
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End :  if(xDataCtrl)                
                                                                                     { 
                                                                                        entity->GetXDataCtrlList()->Add(xDataCtrl);
                                                                                        xDataCtrl = NULL;
@@ -806,7 +806,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
                
             AddEntity(entity);
 
-            {  GRPVECTORFILEDXFEntityObj* entityObj = GRPVECTORFILEDXFEntityObj::CreateInstance(entity);
+            {  GRPVECTORFILEDXFENTITYObj* entityObj = GRPVECTORFILEDXFENTITYObj::CreateInstance(entity);
                if(entityObj)
                {
                   entitiesObj.Add(entityObj); 
@@ -827,7 +827,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTextSectionEntities::ParserTextSection (XFI
 }
 
 
-int GRPVECTORFILEDXFTextSectionEntities::GetEntityEnumIndex(XCHAR* nameEntity)
+int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameEntity)
 {
    for(XDWORD c=0; c<enumentities.GetSize(); c++)
    {
@@ -842,7 +842,7 @@ int GRPVECTORFILEDXFTextSectionEntities::GetEntityEnumIndex(XCHAR* nameEntity)
 }
    
    
-bool GRPVECTORFILEDXFTextSectionEntities::AddEntityEnum(XCHAR* nameEntity)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameEntity)
 {
    int index = GetEntityEnumIndex(nameEntity);
    bool status = false;
@@ -867,7 +867,7 @@ bool GRPVECTORFILEDXFTextSectionEntities::AddEntityEnum(XCHAR* nameEntity)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::SubtractEntityEnum(XCHAR* nameEntity)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameEntity)
 {
    int index = GetEntityEnumIndex(nameEntity);
    bool status = false;
@@ -890,7 +890,7 @@ bool GRPVECTORFILEDXFTextSectionEntities::SubtractEntityEnum(XCHAR* nameEntity)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionEntities::SetZeroEntityEnum(XCHAR* nameEntity)
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameEntity)
 {
    int index = GetEntityEnumIndex(nameEntity);
    bool status = false;
@@ -912,7 +912,7 @@ bool GRPVECTORFILEDXFTextSectionEntities::SetZeroEntityEnum(XCHAR* nameEntity)
 
 
 #ifdef XTRACE_ACTIVE
-bool GRPVECTORFILEDXFTextSectionEntities::ShowTraceAllEntities()
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
 {
    for(XDWORD c=0; c<enumentities.GetSize(); c++)
    {
@@ -922,11 +922,11 @@ bool GRPVECTORFILEDXFTextSectionEntities::ShowTraceAllEntities()
          int nentities = enumentities.GetElement(c);
          if(nentities)
          {           
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTextSectionEntities] (%3d) Entity [%s] (%d) element(s). "), c, name->Get(), nentities);
+            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONENTITIES] (%3d) Entity [%s] (%d) element(s). "), c, name->Get(), nentities);
 
             for(int d=0; d<nentities; d++)
             {
-               GRPVECTORFILEDXFEntity* entity = GetEntity (name->Get(), d);
+               GRPVECTORFILEDXFENTITY* entity = GetEntity (name->Get(), d);
                if(entity)
                {
                   if(!entity->GetValues()->GetSize())
@@ -944,7 +944,7 @@ bool GRPVECTORFILEDXFTextSectionEntities::ShowTraceAllEntities()
 #endif
 
 
-void GRPVECTORFILEDXFTextSectionEntities::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean ( )
 {
   
 }

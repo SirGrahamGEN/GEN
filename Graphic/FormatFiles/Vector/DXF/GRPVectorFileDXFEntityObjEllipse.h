@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjEllipse_h_
-#define _GRPVECTORFILEDXFEntityObjEllipse_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjEllipse_h_
+#define _GRPVECTORFILEDXFENTITYObjEllipse_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,18 +18,18 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjEllipse : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjEllipse : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjEllipse (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjEllipse ();
+      GRPVECTORFILEDXFENTITYObjEllipse (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjEllipse ();
 
-      GRPVECTORFILEDXFEntityDefPoint* GetCenter(); 
-      bool SetCenter(GRPVECTORFILEDXFEntityDefPoint* point); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetCenter(); 
+      bool SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetMajorAxis(); 
-      bool SetMajorAxis(GRPVECTORFILEDXFEntityDefPoint* point); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetMajorAxis(); 
+      bool SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
 
       double GetIniParameter(); 
       void SetIniParameter(double iniParameter); 
@@ -43,17 +43,17 @@ class GRPVECTORFILEDXFEntityObjEllipse : public GRPVECTORFILEDXFEntityObj
       double GetThickness (); 
       void SetThickness (double thickness); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFEntityDefPoint* dirExtrusion );
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
+      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    
       void Clean ();   
           
-      GRPVECTORFILEDXFEntityDefPoint center; // Center point.   
-      GRPVECTORFILEDXFEntityDefPoint majorAxis;  // Major Axis point.
+      GRPVECTORFILEDXFENTITYDEFPOINT center; // Center point.   
+      GRPVECTORFILEDXFENTITYDEFPOINT majorAxis;  // Major Axis point.
    
       double iniParameter; // Start parameter (this value is 0.0 for a full ellipse)
       double endParameter; // End   parameter (this value is 2pi for a full ellipse)
@@ -64,7 +64,7 @@ class GRPVECTORFILEDXFEntityObjEllipse : public GRPVECTORFILEDXFEntityObj
       
       
 
-      GRPVECTORFILEDXFEntityDefPoint dirExtrusion ; // Extrusion direction.
+      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
 };
 
 #pragma endregion

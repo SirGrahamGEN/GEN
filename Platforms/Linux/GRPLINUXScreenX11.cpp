@@ -162,7 +162,7 @@ bool GRPLINUXSCREENX11::Create(bool show)
   window =  XCreateWindow(display,RootWindow(display,screen),x ,y , width, height, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
   if(!window) return false;
 
-  if(style & GRPSCREENSTYLE_FULLSCREEN)
+  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
     {
       Atom wm_state   = XInternAtom (display, "_NET_WM_STATE", true );
       Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );
@@ -175,7 +175,7 @@ bool GRPLINUXSCREENX11::Create(bool show)
   XMapWindow(display, window);
   XMoveWindow(display, window,x,y);
 
-  CreateBuffers();
+  Buffer_Create();
 
   XFlush(display);
 
@@ -222,7 +222,7 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 
       if(IsEqualSizeTo(canvas) == ISEQUAL)
         {
-          XImage* image = CreateXImageFromBuffer(display, DefaultScreen(display), (XBYTE*)canvas->GetBuffer(), width, height);
+          XImage* image = CreateXImageFromBuffer(display, DefaultScreen(display), (XBYTE*)canvas->Buffer_Get(), width, height);
           if(image)
             {
               XPutImage(display, window, gc, image, 0, 0, 0, 0, width, height);
@@ -264,7 +264,7 @@ bool GRPLINUXSCREENX11::Delete()
   if(!display) return false;
   if(!window)  return false;
 
-  DeleteBuffers();
+  Buffer_Delete();
 
   XDestroyWindow(display, window);
 

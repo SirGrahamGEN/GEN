@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFValue_h_
-#define _GRPVECTORFILEDXFValue_h_
+#ifndef _GRPVECTORFILEDXFVALUE_h_
+#define _GRPVECTORFILEDXFVALUE_h_
 
 #pragma region INCLUDES
 
@@ -18,12 +18,12 @@
 #pragma region CLASSES
 
 
-class GRPVECTORFILEDXFValue
+class GRPVECTORFILEDXFVALUE
 {  
    public: 
       
-      GRPVECTORFILEDXFValue ();
-      virtual ~GRPVECTORFILEDXFValue ();
+      GRPVECTORFILEDXFVALUE ();
+      virtual ~GRPVECTORFILEDXFVALUE ();
 
       int GetType();
       void SetType(int type);

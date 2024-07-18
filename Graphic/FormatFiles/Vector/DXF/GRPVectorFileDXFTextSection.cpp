@@ -1,31 +1,31 @@
 
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFXDataCtrl.h"
-#include "GRPVECTORFILEDXFTextSectionHeader.h"
-#include "GRPVECTORFILEDXFTextSectionBlocks.h"
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFXDataCtrl.h"
+#include "GRPVectorFileDXFTextSectionHeader.h"
+#include "GRPVectorFileDXFTextSectionBlocks.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
 
-#include "GRPVECTORFILEDXFTextSection.h"
+#include "GRPVectorFileDXFTextSection.h"
 
 #pragma endregion
 
 
 #pragma region GENERAL_VARIABLES
 
-GRPVECTORFILEDXFDefTextSection GRPVECTORFILEDXFTextSection::defsection[GRPVECTORFILEDXFTextSection_MaxNDefSections] = 
+GRPVECTORFILEDXFDefTextSection GRPVECTORFILEDXFTEXTSECTION::defsection[GRPVECTORFILEDXFTEXTSECTION_MaxNDefSections] = 
 { 
-   { __L("HEADER"), GRPVECTORFILEDXFTextSection_TypeSection_Header },
-   { __L("CLASSES"), GRPVECTORFILEDXFTextSection_TypeSection_Classes },
-   { __L("TABLES"), GRPVECTORFILEDXFTextSection_TypeSection_Tables },
-   { __L("BLOCKS"), GRPVECTORFILEDXFTextSection_TypeSection_Blocks },
-   { __L("ENTITIES"),GRPVECTORFILEDXFTextSection_TypeSection_Entities  },
-   { __L("OBJECTS"), GRPVECTORFILEDXFTextSection_TypeSection_Objects  },
-   { __L("ACDSDATA"), GRPVECTORFILEDXFTextSection_TypeSection_ACDSData },
-   { __L("THUMBNAILIMAGE"), GRPVECTORFILEDXFTextSection_TypeSection_ThumbNailImage },
+   { __L("HEADER"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER },
+   { __L("CLASSES"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_CLASSES },
+   { __L("TABLES"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_TABLES },
+   { __L("BLOCKS"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS },
+   { __L("ENTITIES"),GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES  },
+   { __L("OBJECTS"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_OBJECTS  },
+   { __L("ACDSDATA"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ACDSDATA },
+   { __L("THUMBNAILIMAGE"), GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_THUMBNAILIMAGE },
 };
 
-GRPVECTORFILEDXFTextSectionGenericDefType GRPVECTORFILEDXFTextSection::genericDef[GRPVECTORFILEDXFTextSection_MaxNGenericDefTypes] = 
+GRPVECTORFILEDXFTEXTSECTIONGenericDefType GRPVECTORFILEDXFTEXTSECTION::genericDef[GRPVECTORFILEDXFTEXTSECTION_MaxNGenericDefTypes] = 
 {
    {    -5,    0, __L("G_APP_REACTOR_CHAIN")                          , __L("APP: persistent reactor chain") },
    {    -4,    0, __L("G_APP_CONDITIONAL_OPERATOR")                   , __L("APP: conditional operator (used only with ssget)") },
@@ -127,57 +127,57 @@ GRPVECTORFILEDXFTextSectionGenericDefType GRPVECTORFILEDXFTextSection::genericDe
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextSection::GRPVECTORFILEDXFTextSection ( )
+GRPVECTORFILEDXFTEXTSECTION::GRPVECTORFILEDXFTEXTSECTION ( )
 {
   Clean();
 }
 
 
-GRPVECTORFILEDXFTextSection::~GRPVECTORFILEDXFTextSection ( )
+GRPVECTORFILEDXFTEXTSECTION::~GRPVECTORFILEDXFTEXTSECTION ( )
 {
   Clean();
 }
 
 
-GRPVECTORFILE* GRPVECTORFILEDXFTextSection::GetGRPVECTORFILE()
+GRPVECTORFILE* GRPVECTORFILEDXFTEXTSECTION::GetGRPVECTORFILE()
 {
    return vectorFile;
 }
    
  
-void GRPVECTORFILEDXFTextSection::SetGRPVECTORFILE(GRPVECTORFILE* vectorFile)
+void GRPVECTORFILEDXFTEXTSECTION::SetGRPVECTORFILE(GRPVECTORFILE* vectorFile)
 {
    this->vectorFile = vectorFile;
 }
 
 
-GRPVECTORFILEDXFTextSection* GRPVECTORFILEDXFTextSection::CreateInstance(GRPVECTORFILEDXFTextSection_TypeSection type)
+GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXFTEXTSECTION::CreateInstance(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type)
 {
-   GRPVECTORFILEDXFTextSection* section = NULL;
+   GRPVECTORFILEDXFTEXTSECTION* section = NULL;
 
    switch(type)
    {      
-      case GRPVECTORFILEDXFTextSection_TypeSection_Unknown        :  
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN        :  
                                                default         :  break;
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_Header         :  section = new GRPVECTORFILEDXFTextSectionHeader();                                                               
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER         :  section = new GRPVECTORFILEDXFTEXTSECTIONHEADER();                                                               
                                                                   break;  
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_Classes        :  break;   
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_CLASSES        :  break;   
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_Tables         :  break;    
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_TABLES         :  break;    
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_Blocks         :  section = new GRPVECTORFILEDXFTextSectionBlocks();
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS         :  section = new GRPVECTORFILEDXFTEXTSECTIONBLOCKS();
                                                                   break; 
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_Entities       :  section = new GRPVECTORFILEDXFTextSectionEntities();
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES       :  section = new GRPVECTORFILEDXFTEXTSECTIONENTITIES();
                                                                   break;  
                                                                
-      case GRPVECTORFILEDXFTextSection_TypeSection_Objects        :  break; 
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_OBJECTS        :  break; 
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_ACDSData       :  break;
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ACDSDATA       :  break;
 
-      case GRPVECTORFILEDXFTextSection_TypeSection_ThumbNailImage :  break; 
+      case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_THUMBNAILIMAGE :  break; 
    
    }
 
@@ -185,121 +185,121 @@ GRPVECTORFILEDXFTextSection* GRPVECTORFILEDXFTextSection::CreateInstance(GRPVECT
 }
 
 
-GRPVECTORFILEDXFTextSection_TypeSection GRPVECTORFILEDXFTextSection::GetTypeSection (XSTRING& nameSection)
+GRPVECTORFILEDXFTEXTSECTION_TYPESECTION GRPVECTORFILEDXFTEXTSECTION::GetTypeSection (XSTRING& nameSection)
 {
-   for(int c=0; c<GRPVECTORFILEDXFTextSection_MaxNDefSections ; c++)
+   for(int c=0; c<GRPVECTORFILEDXFTEXTSECTION_MaxNDefSections ; c++)
    {
-      if(!nameSection.Compare(GRPVECTORFILEDXFTextSection::defsection[c].name))
+      if(!nameSection.Compare(GRPVECTORFILEDXFTEXTSECTION::defsection[c].name))
       {
-         return GRPVECTORFILEDXFTextSection::defsection[c].type;
+         return GRPVECTORFILEDXFTEXTSECTION::defsection[c].type;
       }
    }
 
-   return GRPVECTORFILEDXFTextSection_TypeSection_Unknown;
+   return GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN;
 }
 
 
-GRPVECTORFILEDXFTextSection_BasicType GRPVECTORFILEDXFTextSection::GetTypeBasic (int type)
+GRPVECTORFILEDXFTEXTSECTION_BasicType GRPVECTORFILEDXFTEXTSECTION::GetTypeBasic (int type)
 {
    switch(type)
    {     
       case    0 ...    9   :  // String (with the introduction of extended symbol names in AutoCAD 2000, the 255-character limit has been increased to 2049 single-byte characters not including the newline at the end of the line); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case   10 ...   39   :  // Double precision 3D point value                           
       case   40 ...   59   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Double;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
       case   60 ...   79   :  // 16-bit integer value
       case   90 ...   99   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case           100   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
       case           102   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
       case           105   :  // String representing hexadecimal (hex) handle value
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
                               
       case  110 ...  119   :  // Double precision floating-point value
       case  120 ...  129   :  // Double precision floating-point value
       case  130 ...  139   :  // Double precision floating-point value
       case  140 ...  149   :  // Double precision scalar floating-point value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Double;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
       case  160 ...  169   :  // 64-bit integer value
       case  170 ...  179   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  210 ...  239   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Double;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
       case  270 ...  279   :  // 16-bit integer value
       case  280 ...  289   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  290 ...  299   :  // Boolean flag value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Boolean;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Boolean;
 
       case  300 ...  309   :  // Arbitrary text string; see the "Storage of String Values" section for more information
       case  310 ...  319   :  // String representing hex value of binary chunk
       case  320 ...  329   :  // String representing hex handle value
       case  330 ...  369   :  // String representing hex object IDs
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case  370 ...  379   :  // 16-bit integer value
       case  380 ...  389   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  390 ...  399   :  // String representing hex handle value
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case  400 ...  409   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  410 ...  419   :  // String; see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case  420 ...  429   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  430 ...  439   :  // String; see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case  440 ...  449   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  450 ...  459   :  // Long
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
       case  460 ...  469   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Double;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
       case  470 ...  479   :  // String; see the "Storage of String Values" section for more information
       case  480 ...  481   :  // String representing hex handle value
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case           999   :  // Comment (string); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case 1000 ... 1009   :  // String (same limits as indicated with 0-9 code range); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTextSection_BasicType_String;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
       case 1010 ... 1059   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTextSection_BasicType_Double;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
                         
       case 1060 ... 1070   :  // 16-bit integer value
       case          1071   :  // 32-bit integer value            
-                              return GRPVECTORFILEDXFTextSection_BasicType_Integer;
+                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
    }
 
-   return GRPVECTORFILEDXFTextSection_BasicType_Unknown;
+   return GRPVECTORFILEDXFTEXTSECTION_BasicType_Unknown;
 }
 
 
-GRPVECTORFILEDXFTextSectionGenericDefType* GRPVECTORFILEDXFTextSection::GetGenericDefType(int type)
+GRPVECTORFILEDXFTEXTSECTIONGenericDefType* GRPVECTORFILEDXFTEXTSECTION::GetGenericDefType(int type)
 {
-   for(int c=0; c<GRPVECTORFILEDXFTextSection_MaxNGenericDefTypes; c++)
+   for(int c=0; c<GRPVECTORFILEDXFTEXTSECTION_MaxNGenericDefTypes; c++)
    {
-      GRPVECTORFILEDXFTextSectionGenericDefType* defType = &genericDef[c];
+      GRPVECTORFILEDXFTEXTSECTIONGenericDefType* defType = &genericDef[c];
       if(defType)
       {
          if(defType->type)
@@ -320,22 +320,22 @@ GRPVECTORFILEDXFTextSectionGenericDefType* GRPVECTORFILEDXFTextSection::GetGener
 }
 
 
-void GRPVECTORFILEDXFTextSection::GetVariableFromLine(XCHAR* namevar, int type, XSTRING* line, XVARIANT& variant)
+void GRPVECTORFILEDXFTEXTSECTION::GetVariableFromLine(XCHAR* namevar, int type, XSTRING* line, XVARIANT& variant)
 {
-   GRPVECTORFILEDXFTextSection_BasicType basicType = GRPVECTORFILEDXFTextSection::GetTypeBasic(type);
+   GRPVECTORFILEDXFTEXTSECTION_BasicType basicType = GRPVECTORFILEDXFTEXTSECTION::GetTypeBasic(type);
 
    switch(basicType)
    {  
-      case GRPVECTORFILEDXFTextSection_BasicType_Boolean  : variant = line->ConvertToBoolean();
+      case GRPVECTORFILEDXFTEXTSECTION_BasicType_Boolean  : variant = line->ConvertToBoolean();
                                                          break;
 
-      case GRPVECTORFILEDXFTextSection_BasicType_Integer  : variant = line->ConvertToInt();
+      case GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer  : variant = line->ConvertToInt();
                                                          break;  
                                                    
-      case GRPVECTORFILEDXFTextSection_BasicType_Double   : variant = line->ConvertToDouble();
+      case GRPVECTORFILEDXFTEXTSECTION_BasicType_Double   : variant = line->ConvertToDouble();
                                                          break;          
 
-      case GRPVECTORFILEDXFTextSection_BasicType_String   : variant = line->Get();
+      case GRPVECTORFILEDXFTEXTSECTION_BasicType_String   : variant = line->Get();
                                                          break;       
       
                            default                     : XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[GRPVECTORFILEDXF] Type Variable %s Unknown [%d]"), namevar, type);
@@ -345,37 +345,37 @@ void GRPVECTORFILEDXFTextSection::GetVariableFromLine(XCHAR* namevar, int type, 
 }
 
 
-GRPVECTORFILEDXFText_XDataCtrl_Status GRPVECTORFILEDXFTextSection::IsXDataControl(int type, XSTRING& line)
+GRPVECTORFILEDXFText_XDataCtrl_Status GRPVECTORFILEDXFTEXTSECTION::IsXDataControl(int type, XSTRING& line)
 {
    switch(type)
    {
       case 102    :
       case 1002   :  if(line.Find(__L("{"), true) != XSTRING_NOTFOUND)
                      {
-                        return GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Ini;
+                        return GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini;
                      }
 
                      if(!line.Compare(__L("}"), true))
                      {
-                        return GRPVECTORFILEDXFTextSection_XDataCtrl_Status_End;
+                        return GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End;
                      }
 
                      break;
    }
 
-   return GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Not;   
+   return GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not;   
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXFTextSection::ParserTextSection (XFILETXT* fileTXT)
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTION::ParserTextSection (XFILETXT* fileTXT)
 {
    return GRPVECTORFILERESULT_OK;
 }
 
 
-void GRPVECTORFILEDXFTextSection::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTION::Clean ( )
 {
-   type       = GRPVECTORFILEDXFTextSection_TypeSection_Unknown;
+   type       = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN;
    vectorFile = NULL;
 }
 

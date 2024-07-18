@@ -1,5 +1,43 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXF.cpp
+* 
+* @class      GRPVECTORFILEDXF
+* @brief      Graphic Vector File DXF class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXF.h"
 
 #include "XFactory.h"
 #include "XTimer.h"
@@ -7,130 +45,180 @@
 #include "XFileTXT.h"
 #include "XVariant.h"
 
-#include "GRPVECTORFILE_XEVENT.h"
-#include "GRPVECTORFILEDXFTextBlock.h"
-#include "GRPVECTORFILEDXFTextSectionBlocks.h"
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFTextSectionHeader.h"
+#include "GRPVectorFile_XEvent.h"
+#include "GRPVectorFileDXFTextBlock.h"
+#include "GRPVectorFileDXFTextSectionBlocks.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFTextSectionHeader.h"
 
-#include "GRPVectorFileDXF.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
 
-GRPVECTORFILEDXF::GRPVECTORFILEDXF ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXF::GRPVECTORFILEDXF()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXF::GRPVECTORFILEDXF()
 {
-   Clean ();
+  Clean();
 }
 
 
-GRPVECTORFILEDXF::~GRPVECTORFILEDXF ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXF::~GRPVECTORFILEDXF()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXF::~GRPVECTORFILEDXF()
 {
-   sections.DeleteContents();
-   sections.DeleteAll();
+  sections.DeleteContents();
+  sections.DeleteAll();
 
-   Clean ();
+  Clean();
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType()
+* @brief      DetectType
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILERESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType()
 {  
-   GRPVECTORFILERESULT result;
+  GRPVECTORFILERESULT result;
 
-   if(pathFile.IsEmpty()) 
-   {   
+  if(pathFile.IsEmpty()) 
+    {   
       type = VECTORFILETYPE_UNKNOWN;
+
       return GRPVECTORFILERESULT_ERRORNOTFILE;
-   }
+    }
 
-   XSTRING extension;
-   pathFile.GetExt(extension);
+  XSTRING extension;
+  pathFile.GetExt(extension);
 
-   if(extension.IsEmpty())
-   {
+  if(extension.IsEmpty())
+    {
       type = VECTORFILETYPE_UNKNOWN;
-      return GRPVECTORFILERESULT_ERRORNOTFILE;  
-   }
 
-   if(!extension.Compare(GRPVECTORFILEDXF_Extension, true))
-   {
+      return GRPVECTORFILERESULT_ERRORNOTFILE;  
+    }
+
+  if(!extension.Compare(GRPVECTORFILEDXF_Extension, true))
+    {
       type = VECTORFILETYPE_DXF;  
-   }
+    }
   
-   if(DetectFileFormatText(pathFile))
-   {
+  if(DetectFileFormatText(pathFile))
+    {
       XFILETXT* file = new XFILETXT();
       if(file)  
-      {
-         if(file->Open(pathFile))
-         {
-            int nlines = 100;
-
-            file->ReadNLines(nlines);
-
-            nlines = file->GetNLines();
-
-            if(ParserHaveAnySection(file, nlines))
+        {
+          if(file->Open(pathFile))
             {
-               result = GRPVECTORFILERESULT_OK; 
-            }
-            else
-            {
-               result = GRPVECTORFILERESULT_ErrorInvalidFormat;   
-            }        
+              int nlines = 100;
+
+              file->ReadNLines(nlines);
+
+              nlines = file->GetNLines();
+
+              if(ParserHaveAnySection(file, nlines))
+                {
+                  result = GRPVECTORFILERESULT_OK; 
+                }
+               else
+                {
+                  result = GRPVECTORFILERESULT_ErrorInvalidFormat;   
+                }        
  
-            file->Close();             
+              file->Close();             
+            } 
+           else 
+            {
+              result = GRPVECTORFILERESULT_ERRORNOTFILE;
+            }
 
-         } else result = GRPVECTORFILERESULT_ERRORNOTFILE;
+          delete file;
+        } 
+       else 
+        {
+          result = GRPVECTORFILERESULT_ERRORNOTMEMORY;
+        }
+    } 
+   else 
+    {
+      result = GRPVECTORFILERESULT_ErrorInvalidFormat; 
+    }
 
-         delete file;
-
-      } else result = GRPVECTORFILERESULT_ERRORNOTMEMORY;
-
-   } else result = GRPVECTORFILERESULT_ErrorInvalidFormat; 
-
-   return result;
+  return result;
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXF::Load ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILERESULT GRPVECTORFILEDXF::Load()
+* @brief      Load
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILERESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILERESULT GRPVECTORFILEDXF::Load()
 {
-   GRPVECTORFILEDXFResult result = GRPVECTORFILERESULT_ERRORNOTMEMORY;
+  GRPVECTORFILEDXFRESULT result = GRPVECTORFILERESULT_ERRORNOTMEMORY;
 
-   XFILETXT* file = new XFILETXT();
-   if(!file)  return GRPVECTORFILERESULT_ERRORNOTMEMORY;
+  XFILETXT* file = new XFILETXT();
+  if(!file)  
+    {
+      return GRPVECTORFILERESULT_ERRORNOTMEMORY;
+    }
 
-   if(file->Open(pathFile))
-   {
+  if(file->Open(pathFile))
+    {
       XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
       if(xtimer)
-      {
-         //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Reading TXT file ..."));
+        {
+          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Reading TXT file ..."));
 
-         xtimer->Reset();
+          xtimer->Reset();
       
-         file->ReadAllFile();      
+          file->ReadAllFile();      
 
-         //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Read TXT file: %ld Milliseconds."), xtimer->GetMeasureMilliSeconds());   
+          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Read TXT file: %ld Milliseconds."), xtimer->GetMeasureMilliSeconds());   
 
-         GEN_XFACTORY.DeleteTimer(xtimer);
-      }
+          GEN_XFACTORY.DeleteTimer(xtimer);
+        }
    
       result = ParserTextFile (file);
     
       file->Close();    
-   } 
+    } 
    else 
-   {
+    {
       result = GRPVECTORFILERESULT_ERRORNOTFILE;
-   }
+    }
 
    delete file;
 
@@ -138,168 +226,243 @@ GRPVECTORFILERESULT GRPVECTORFILEDXF::Load ( )
 }
 
 
-GRPVECTORFILECONFIG* GRPVECTORFILEDXF::GetConfig ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILECONFIG* GRPVECTORFILEDXF::GetConfig()
+* @brief      GetConfig
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILECONFIG* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILECONFIG* GRPVECTORFILEDXF::GetConfig()
 {
-   return (GRPVECTORFILECONFIG*)&config;
+  return (GRPVECTORFILECONFIG*)&config;
 }
 
 
-XVECTOR<GRPVECTORFILEDXFTextSection*>* GRPVECTORFILEDXF::GetSections()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFTEXTSECTION*>* GRPVECTORFILEDXF::GetSections()
+* @brief      GetSections
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFTEXTSECTION*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<GRPVECTORFILEDXFTEXTSECTION*>* GRPVECTORFILEDXF::GetSections()
 {
-   return &sections;
+  return &sections;
 }
 
-GRPVECTORFILEDXFTextSection* GRPVECTORFILEDXF::GetSection (GRPVECTORFILEDXFTextSection_TypeSection type)
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXF::GetSection(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type)
+* @brief      GetSection
+* @ingroup    GRAPHIC
+* 
+* @param[in]  type : 
+* 
+* @return     GRPVECTORFILEDXFTEXTSECTION* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXF::GetSection(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type)
 {
-   for(XDWORD c=0; c<sections.GetSize(); c++)
-   {
-      GRPVECTORFILEDXFTextSection* section = sections.Get(c);
+  for(XDWORD c=0; c<sections.GetSize(); c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTION* section = sections.Get(c);
       if(section)
-      {
-        if(section->type == type) return section;
-      }
-   }
+        {
+          if(section->type == type) return section;
+        }
+    }
 
-   return NULL;
+  return NULL;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXF::ParserTextFilePrepareLine(XSTRING* line)
+* @brief      ParserTextFilePrepareLine
+* @ingroup    GRAPHIC
+* 
+* @param[in]  line : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXF::ParserTextFilePrepareLine(XSTRING* line)
 {
-   if(!line) return false;
-   if(line->IsEmpty()) return false;
+  if(!line) 
+    {
+      return false;
+    }
+   
+  if(line->IsEmpty()) 
+    {
+      return false;
+    }
 
-   line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
-   line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
+  line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_FROM_FIRST);
+  line->DeleteCharacter(__C(' '), XSTRINGCONTEXT_TO_END);
 
-   return true;
+  return true;
 }
 
 
-GRPVECTORFILEDXFResult GRPVECTORFILEDXF::ParserTextSections (XFILETXT* fileTXT, XVECTOR<GRPVECTORFILEDXFTextSection*>& sections)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, XVECTOR<GRPVECTORFILEDXFTEXTSECTION*>& sections)
+* @brief      ParserTextSections
+* @ingroup    GRAPHIC
+* 
+* @param[in]  fileTXT : 
+* @param[in]  sections : 
+* 
+* @return     GRPVECTORFILEDXFRESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, XVECTOR<GRPVECTORFILEDXFTEXTSECTION*>& sections)
 {
-   GRPVECTORFILEDXFTextSection* section = NULL;
-   GRPVECTORFILEDXFResult result = GRPVECTORFILERESULT_ERRORUNKNOWN;
-   int c = 0;
+  GRPVECTORFILEDXFTEXTSECTION*  section = NULL;
+  GRPVECTORFILEDXFRESULT        result  = GRPVECTORFILERESULT_ERRORUNKNOWN;
+  int                           c       = 0;
  
-   do{  if(!section)
+  do{ if(!section)
         {
-          section = new GRPVECTORFILEDXFTextSection ();
+          section = new GRPVECTORFILEDXFTEXTSECTION ();
         }
     
-        XSTRING* line = fileTXT->GetLine(c);
-        ParserTextFilePrepareLine(line);
+      XSTRING* line = fileTXT->GetLine(c);
+      ParserTextFilePrepareLine(line);
 
-        if(line && !line->Compare(__L("0"),true))
+      if(line && !line->Compare(__L("0"),true))
         {           
-           line = fileTXT->GetLine(c+1);
-           ParserTextFilePrepareLine(line);
-           if(line && !line->Compare(__L("SECTION"), false))
-           {
-             
+          line = fileTXT->GetLine(c+1);
+          ParserTextFilePrepareLine(line);
+
+          if(line && !line->Compare(__L("SECTION"), false))
+            {             
               line = fileTXT->GetLine(c+2);
               ParserTextFilePrepareLine(line);
               if(line && !line->Compare(__L("2"),true))
-              {
-                c += 3;
+                {
+                  c += 3;
 
-                line = fileTXT->GetLine(c);
-                ParserTextFilePrepareLine(line);
-                section->iniline = c+1;
-                section->name = line->Get(); 
+                  line = fileTXT->GetLine(c);
+                  ParserTextFilePrepareLine(line);
 
-                c++;
-              }
-           }
+                  section->iniline  = c+1;
+                  section->name     = line->Get(); 
 
-           if(line && !line->Compare(__L("ENDSEC"), false))
-           {
-              section->endline = c-1;                                       
-              section->type = GRPVECTORFILEDXFTextSection::GetTypeSection(section->name);  
+                  c++;
+                }
+             }
+
+          if(line && !line->Compare(__L("ENDSEC"), false))
+            {
+              section->endline  = c-1;                                       
+              section->type     = GRPVECTORFILEDXFTEXTSECTION::GetTypeSection(section->name);  
               
               #ifdef XTRACE_ACTIVE
-              if(section->type == GRPVECTORFILEDXFTextSection_TypeSection_Unknown)
-              {                 
-                 XSTRING message;
+              if(section->type == GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN)
+                {                 
+                  XSTRING message;
 
-                 message.Format(__L("section %s Unknown"), section->name.Get());   
+                  message.Format(__L("section %s Unknown"), section->name.Get());   
                                                 
-                 GRPVECTORFILE_XEVENT vfEvent(this, GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+                  GRPVECTORFILE_XEVENT vfEvent(this, GRPVECTORFILE_XEVENTTYPE_PartUnknown);
 
-                 vfEvent.SetType(VECTORFILETYPE_DXF);
-                 vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
-                 vfEvent.GetMsg()->Set(message);
+                  vfEvent.SetType(VECTORFILETYPE_DXF);
+                  vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
+                  vfEvent.GetMsg()->Set(message);
 
-                 PostEvent(&vfEvent);       
-              }
+                  PostEvent(&vfEvent);       
+                }
               #endif
 
-              GRPVECTORFILEDXFTextSection* sectionType = GRPVECTORFILEDXFTextSection::CreateInstance(section->type);
+              GRPVECTORFILEDXFTEXTSECTION* sectionType = GRPVECTORFILEDXFTEXTSECTION::CreateInstance(section->type);
               if(sectionType) 
-               { 
+                { 
                   section->CopyTo(sectionType);
                   sectionType->SetGRPVECTORFILE(this);
                   sections.Add(sectionType);
                   
                   delete section;                                         
-               }
-              else 
-               {
+                }
+               else 
+                {
                   sections.Add(section);
-               }
+                }
 
               section = NULL;
-           }
+            }
 
-           if(line && !line->Compare(__L("EOF"), false))
-           {
+          if(line && !line->Compare(__L("EOF"), false))
+            {
               c++;
               break;
-           }
+            }
         }
-        c++;
+        
+      c++;
 
-     } while(c < fileTXT->GetNLines());
+   } while(c < fileTXT->GetNLines());
      
-   if(section &&  (section->type == GRPVECTORFILEDXFTextSection_TypeSection_Unknown))
-   {
+  if(section &&  (section->type == GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN))
+    {
       delete section;
-   }
+    }
 
-   if(!sections.IsEmpty()) 
-   {    
+  if(!sections.IsEmpty()) 
+    {    
       result = GRPVECTORFILERESULT_OK;
-   } 
+    } 
    else
-   {
-      result = GRPVECTORFILEDXFResult_NotSections;
-   }
+    {
+      result = GRPVECTORFILEDXFRESULT_NotSections;
+    }
   
-  
-   return result;
+  return result;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXF::ParserHaveAnySection(XFILETXT* file, int nlinesmax)
+* @brief      ParserHaveAnySection
+* @ingroup    GRAPHIC
+* 
+* @param[in]  file : 
+* @param[in]  nlinesmax : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXF::ParserHaveAnySection(XFILETXT* file, int nlinesmax)
 {
-   bool foundSection = false;
-   int c = 0;
+  bool  foundSection  = false;
+  int   c             = 0;
  
-   do{   XSTRING* line = file->GetLine(c);
-         ParserTextFilePrepareLine(line);
+  do{ XSTRING* line = file->GetLine(c);
+      ParserTextFilePrepareLine(line);
 
-         if(line && !line->Compare(__L("0"),true))
-         {
-            c++;
-            line = file->GetLine(c);
-            ParserTextFilePrepareLine(line);
-            if(line && !line->Compare(__L("SECTION"), false))
+      if(line && !line->Compare(__L("0"),true))
+        {
+          c++;
+          line = file->GetLine(c);
+          ParserTextFilePrepareLine(line);
+
+          if(line && !line->Compare(__L("SECTION"), false))
             {
-               c++;
-               line = file->GetLine(c);
-               ParserTextFilePrepareLine(line);
-               if(line && !line->Compare(__L("2"),true))
-               {
+              c++;
+              line = file->GetLine(c);
+              ParserTextFilePrepareLine(line);
+
+              if(line && !line->Compare(__L("2"),true))
+                {
                   c++;
                   line = file->GetLine(c);
                   ParserTextFilePrepareLine(line);
@@ -307,10 +470,11 @@ bool GRPVECTORFILEDXF::ParserHaveAnySection(XFILETXT* file, int nlinesmax)
                   foundSection = true;
                 
                   break;
-               }
+                }
             }
-         }
-         c++;
+        }
+
+      c++;
 
     } while(c < nlinesmax);
 
@@ -318,139 +482,174 @@ bool GRPVECTORFILEDXF::ParserHaveAnySection(XFILETXT* file, int nlinesmax)
 }
 
 
-GRPVECTORFILEDXFResult GRPVECTORFILEDXF::ParserTextFile (XFILETXT* fileTXT)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextFile(XFILETXT* fileTXT)
+* @brief      ParserTextFile
+* @ingroup    GRAPHIC
+* 
+* @param[in]  fileTXT : 
+* 
+* @return     GRPVECTORFILEDXFRESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextFile(XFILETXT* fileTXT)
 {
-   GRPVECTORFILEDXFResult result = GRPVECTORFILERESULT_ERRORUNKNOWN;
-
-   sections.DeleteContents();
-   sections.DeleteAll();
-
-   result = ParserTextSections (fileTXT, sections);
-   if(result == (GRPVECTORFILEDXFResult)GRPVECTORFILERESULT_OK)
-   {         
+  GRPVECTORFILEDXFRESULT result = GRPVECTORFILERESULT_ERRORUNKNOWN;
+  
+  sections.DeleteContents();
+  sections.DeleteAll();
+  
+  result = ParserTextSections (fileTXT, sections);
+  if(result == (GRPVECTORFILEDXFRESULT)GRPVECTORFILERESULT_OK)
+    {         
       for(XDWORD c=0; c<sections.GetSize(); c++)
-      {
-         GRPVECTORFILEDXFTextSection* section = sections.Get(c);
-         if(section)
-         {
-            result = section->ParserTextSection(fileTXT);
-            if(result != (GRPVECTORFILEDXFResult)GRPVECTORFILERESULT_OK) break;
-         }
-      }
-
+        {
+          GRPVECTORFILEDXFTEXTSECTION* section = sections.Get(c);
+          if(section)
+            {
+              result = section->ParserTextSection(fileTXT);
+              if(result != (GRPVECTORFILEDXFRESULT)GRPVECTORFILERESULT_OK) 
+                {
+                  break;
+                }
+            }
+        }
+  
       if(!sections.GetSize()) 
         {
-          result = GRPVECTORFILEDXFResult_NotSections;
+          result = GRPVECTORFILEDXFRESULT_NotSections;
         }      
-   }
-
-   GRPVECTORFILEDXFTextSectionHeader* sectionheader = (GRPVECTORFILEDXFTextSectionHeader*)GetSection(GRPVECTORFILEDXFTextSection_TypeSection_Header);
-   if(sectionheader)
-   {
-      config.SetHeader(sectionheader);
-   }
-
-   #ifdef XTRACE_ACTIVE    
-   ShowTraceAllSections();
-   #endif
+    }
   
-   return result;
+  GRPVECTORFILEDXFTEXTSECTIONHEADER* sectionheader = (GRPVECTORFILEDXFTEXTSECTIONHEADER*)GetSection(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER);
+  if(sectionheader)
+    {
+      config.SetHeader(sectionheader);
+    }
+  
+  #ifdef XTRACE_ACTIVE    
+  ShowTraceAllSections();
+  #endif
+  
+  return result;
 }
 
 
 #ifdef XTRACE_ACTIVE         
 
-bool GRPVECTORFILEDXF::GenerateSectionsEntities(GRPVECTORFILEDXFTextSectionEntities* sectionentities, XSTRING& line)
-{
-   //line.Empty();
-
-   XMAP<XSTRING*, int>* entities = sectionentities->GetEnumEntitys();
-   if(entities)
-   {                                          
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXF::GenerateSectionsEntities(GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionentities, XSTRING& line)
+* @brief      GenerateSectionsEntities
+* @ingroup    GRAPHIC
+* 
+* @param[in]  sectionentities : 
+* @param[in]  line : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXF::GenerateSectionsEntities(GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionentities, XSTRING& line)
+{  
+  XMAP<XSTRING*, int>* entities = sectionentities->GetEnumEntitys();
+  if(entities)
+    {                                          
       for(XDWORD d=0; d<entities->GetSize(); d++)
-      {
-         XSTRING* name = entities->GetKey(d);
-         int nentities = entities->GetElement(d);
+        {
+          XSTRING*  name      = entities->GetKey(d);
+          int       nentities = entities->GetElement(d);
 
-         if(name) 
-         { 
-            line.AddFormat(__L(" %s (%d)"), name->Get(), nentities);
-            if(d < (entities->GetSize()-1)) line.Add(__L(","));
-         }
-      }
-   }
+          if(name) 
+            { 
+              line.AddFormat(__L(" %s (%d)"), name->Get(), nentities);
+              if(d < (entities->GetSize()-1)) 
+                {
+                  line.Add(__L(","));
+                }
+            }
+        }
+    }
 
-   return true;
+  return true;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXF::ShowTraceAllSections()
+* @brief      ShowTraceAllSections
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXF::ShowTraceAllSections()
 {
-   for(XDWORD c=0; c<sections.GetSize(); c++)
-   {
-      GRPVECTORFILEDXFTextSection* section = sections.Get(c);
+  for(XDWORD c=0; c<sections.GetSize(); c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTION* section = sections.Get(c);
       if(section)
-      {
-         XSTRING line;
+        {
+          XSTRING line;
 
-         line.Format(__L("[Vector file DXF load] Section [%d, %d]: %s"), section->iniline, section->endline, section->name.Get());
+          line.Format(__L("[Vector file DXF load] Section [%d, %d]: %s"), section->iniline, section->endline, section->name.Get());
 
-         switch(section->type)
-         {
-            case GRPVECTORFILEDXFTextSection_TypeSection_Unknown        :
-                                                   default           :  break;
+          switch(section->type)
+            {
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN        :
+                                                        default           :  break;
 
-            case GRPVECTORFILEDXFTextSection_TypeSection_Header         :  {  GRPVECTORFILEDXFTextSectionHeader* sectionheader = (GRPVECTORFILEDXFTextSectionHeader*)GetSection (section->type);
-                                                                           if(sectionheader) 
-                                                                              {
-                                                                                 line.AddFormat(__L(" -> NVariables (%d)"), sectionheader->GetVariables()->GetSize());                                                                                                                                                       
-                                                                                 XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
-                                                                              }
-                                                                        }
-                                                                        break;         
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER         : { GRPVECTORFILEDXFTEXTSECTIONHEADER* sectionheader = (GRPVECTORFILEDXFTEXTSECTIONHEADER*)GetSection (section->type);
+                                                                              if(sectionheader) 
+                                                                                {
+                                                                                  line.AddFormat(__L(" -> NVariables (%d)"), sectionheader->GetVariables()->GetSize());                                                                                                                                                       
+                                                                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
+                                                                                }
+                                                                            }
+                                                                            break;         
 
-            case GRPVECTORFILEDXFTextSection_TypeSection_Classes        : 
-            case GRPVECTORFILEDXFTextSection_TypeSection_Tables         :  break;
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_CLASSES        : 
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_TABLES         : break;
 
-            case GRPVECTORFILEDXFTextSection_TypeSection_Blocks         :  {  GRPVECTORFILEDXFTextSectionBlocks* sectionblocks = (GRPVECTORFILEDXFTextSectionBlocks*)GetSection(section->type);
-                                                                           if(sectionblocks)
-                                                                           {
-                                                                              line.AddFormat(__L(" -> (%d)"), sectionblocks->GetBlocks()->GetSize());
-                                                                              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS         : { GRPVECTORFILEDXFTEXTSECTIONBLOCKS* sectionblocks = (GRPVECTORFILEDXFTEXTSECTIONBLOCKS*)GetSection(section->type);
+                                                                              if(sectionblocks)
+                                                                                {
+                                                                                  line.AddFormat(__L(" -> (%d)"), sectionblocks->GetBlocks()->GetSize());
+                                                                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
 
-                                                                              for(XDWORD d=0; d<sectionblocks->GetBlocks()->GetSize(); d++)
-                                                                              {
-                                                                                 GRPVECTORFILEDXFTextBlock* block = sectionblocks->GetBlocks()->Get(d);
-                                                                                 if(block)
-                                                                                 {
-                                                                                    if(!block->IsEndBlock())
+                                                                                  for(XDWORD d=0; d<sectionblocks->GetBlocks()->GetSize(); d++)
                                                                                     {
-                                                                                       GRPVECTORFILEDXFTextSectionEntities* sectionentities = block->GetSectionEntities();  
-                                                                                       if(sectionentities)
-                                                                                       {                   
-                                                                                          line.Format(__L("[Vector file DXF load] Block (%2d) [%s] ENTITIES "), d+1, block->GetName()->Get());                                                                                          
-                                                                                          GenerateSectionsEntities(sectionentities,line);
-                                                                                          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
+                                                                                      GRPVECTORFILEDXFTextBlock* block = sectionblocks->GetBlocks()->Get(d);
+                                                                                      if(block)
+                                                                                        {
+                                                                                          if(!block->IsEndBlock())
+                                                                                            {
+                                                                                              GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionentities = block->GetSectionEntities();  
+                                                                                              if(sectionentities)
+                                                                                                {                   
+                                                                                                  line.Format(__L("[Vector file DXF load] Block (%2d) [%s] ENTITIES "), d+1, block->GetName()->Get());                                                                                          
+                                                                                                  GenerateSectionsEntities(sectionentities,line);
+                                                                                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
+                                                                                                }                                                                               
+                                                                                            }
+                                                                                        }                                                                             
+                                                                                    }                                                                            
+                                                                                }                                                                              
+                                                                            }
+                                                                            break; 
 
-                                                                                       }                                                                               
-                                                                                    }
-                                                                                 }                                                                             
-                                                                              }                                                                            
-                                                                           }                                                                              
-                                                                        }
-                                                                        break; 
-
-            case GRPVECTORFILEDXFTextSection_TypeSection_Entities       :  {  GRPVECTORFILEDXFTextSectionEntities* sectionentities = (GRPVECTORFILEDXFTextSectionEntities*)GetSection (section->type);
-                                                                           if(sectionentities) 
-                                                                           {                                                                              
-                                                                             GenerateSectionsEntities(sectionentities,line);
-                                                                             XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
-                                                                           }
-                                                                        }
-                                                                        break; 
-            case GRPVECTORFILEDXFTextSection_TypeSection_Objects        : 
-            case GRPVECTORFILEDXFTextSection_TypeSection_ACDSData       : 
-            case GRPVECTORFILEDXFTextSection_TypeSection_ThumbNailImage :  break;
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES       : { GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionentities = (GRPVECTORFILEDXFTEXTSECTIONENTITIES*)GetSection (section->type);
+                                                                              if(sectionentities) 
+                                                                                {                                                                              
+                                                                                  GenerateSectionsEntities(sectionentities,line);
+                                                                                  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, line.Get());
+                                                                                }
+                                                                            }
+                                                                            break; 
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_OBJECTS        : 
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ACDSDATA       : 
+              case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_THUMBNAILIMAGE : break;
           }           
       }
    }            
@@ -461,9 +660,19 @@ bool GRPVECTORFILEDXF::ShowTraceAllSections()
 #endif
 
 
-void GRPVECTORFILEDXF::Clean ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXF::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXF::Clean()
 {
   
 }
 
+
 #pragma endregion
+

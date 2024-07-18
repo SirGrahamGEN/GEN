@@ -1,7 +1,7 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFEntityObjLine.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFEntityObjLine.h"
 
 #pragma endregion
 
@@ -12,26 +12,26 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjLine::GRPVECTORFILEDXFEntityObjLine (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjLine::GRPVECTORFILEDXFENTITYObjLine (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_Line;
+   type = GRPVECTORFILEDXFENTITYObjType_Line;
 }
 
 
-GRPVECTORFILEDXFEntityObjLine::~GRPVECTORFILEDXFEntityObjLine ( )
+GRPVECTORFILEDXFENTITYObjLine::~GRPVECTORFILEDXFENTITYObjLine ( )
 { 
    Clean();
 }
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjLine::GetIni()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjLine::GetIni()
 {
    return &ini;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjLine::SetIni(GRPVECTORFILEDXFEntityDefPoint* point)
+bool GRPVECTORFILEDXFENTITYObjLine::SetIni(GRPVECTORFILEDXFENTITYDEFPOINT* point)
 {
    if(!point) return false;
 
@@ -41,13 +41,13 @@ bool GRPVECTORFILEDXFEntityObjLine::SetIni(GRPVECTORFILEDXFEntityDefPoint* point
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjLine::GetEnd()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjLine::GetEnd()
 {
    return &end;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjLine::SetEnd(GRPVECTORFILEDXFEntityDefPoint* point)
+bool GRPVECTORFILEDXFENTITYObjLine::SetEnd(GRPVECTORFILEDXFENTITYDEFPOINT* point)
 {
    if(!point) return false;
 
@@ -57,25 +57,25 @@ bool GRPVECTORFILEDXFEntityObjLine::SetEnd(GRPVECTORFILEDXFEntityDefPoint* point
 }
 
 
-double GRPVECTORFILEDXFEntityObjLine::GetThickness ( )
+double GRPVECTORFILEDXFENTITYObjLine::GetThickness ( )
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFEntityObjLine::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYObjLine::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjLine::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjLine::GetDirExtrusion()
 {
    return &dirExtrusion;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjLine::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoint* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYObjLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
 {
    if(!dirExtrusion) return false;
 
@@ -85,11 +85,11 @@ bool GRPVECTORFILEDXFEntityObjLine::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoi
 }
 
 
-bool GRPVECTORFILEDXFEntityObjLine::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
    value = GetDataValue(VFDXF_INI_POINT_X, entity);  
    if(value) 
@@ -155,7 +155,7 @@ bool GRPVECTORFILEDXFEntityObjLine::ApplyData(GRPVECTORFILEDXFEntity* entity)
 }
 
 
-void GRPVECTORFILEDXFEntityObjLine::Clean ( )
+void GRPVECTORFILEDXFENTITYObjLine::Clean ( )
 {
   thickness = 0.0f;    
 }

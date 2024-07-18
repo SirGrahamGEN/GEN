@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjMText_h_
-#define _GRPVECTORFILEDXFEntityObjMText_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjMText_h_
+#define _GRPVECTORFILEDXFENTITYObjMText_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,14 +18,14 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjMText : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjMText : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjMText (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjMText ();
+      GRPVECTORFILEDXFENTITYObjMText (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjMText ();
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    

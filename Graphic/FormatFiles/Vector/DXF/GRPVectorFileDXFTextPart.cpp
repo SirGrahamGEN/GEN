@@ -1,7 +1,7 @@
 
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextPart.h"
+#include "GRPVectorFileDXFTextPart.h"
 
 #pragma endregion
 

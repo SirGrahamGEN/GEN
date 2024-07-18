@@ -3,17 +3,17 @@
 #include "XMap.h"
 #include "XVariant.h"
 
-#include "GRPVECTORFILE_XEVENT.h"
+#include "GRPVectorFile_XEvent.h"
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVECTORFILEDXFTextSectionHeader.h"
+#include "GRPVectorFileDXFTextSectionHeader.h"
 
 #pragma endregion
 
 
 #pragma region GENERAL_VARIABLES
 
-GRPVECTORFILEDXFTextSectionHeaderDefVariable GRPVECTORFILEDXFTextSectionHeader::defvariable[GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar] = //
+GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar] = //
 { 
   { __L("$3DDWFPREC")               , 1, { {  40, __L("")  } } ,  __L("Controls the precision of 3D DWF or 3D DWFx publishing. Minimum AutoCAD version: R2007") },
   { __L("$ACADMAINTVER")            , 1, { {  70, __L("")  } } ,  __L("Maintenance version number (should be ignored)") },
@@ -311,15 +311,15 @@ GRPVECTORFILEDXFTextSectionHeaderDefVariable GRPVECTORFILEDXFTextSectionHeader::
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextSectionHeader::GRPVECTORFILEDXFTextSectionHeader ( )
+GRPVECTORFILEDXFTEXTSECTIONHEADER::GRPVECTORFILEDXFTEXTSECTIONHEADER ( )
 {
    Clean();
 
-   type = GRPVECTORFILEDXFTextSection_TypeSection_Header;
+   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER;
 }
 
 
-GRPVECTORFILEDXFTextSectionHeader::~GRPVECTORFILEDXFTextSectionHeader ( )
+GRPVECTORFILEDXFTEXTSECTIONHEADER::~GRPVECTORFILEDXFTEXTSECTIONHEADER ( )
 {
    DeleteAllVariables();
 
@@ -327,11 +327,11 @@ GRPVECTORFILEDXFTextSectionHeader::~GRPVECTORFILEDXFTextSectionHeader ( )
 }
 
 
-bool GRPVECTORFILEDXFTextSectionHeader::IsKnownVariable(XSTRING& namevar)
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::IsKnownVariable(XSTRING& namevar)
 {  
-   for(XDWORD c=0; c<GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar; c++)
+   for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; c++)
    {
-      GRPVECTORFILEDXFTextSectionHeaderDefVariable* variable = &GRPVECTORFILEDXFTextSectionHeader::defvariable[c];
+      GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
       if(variable)
       {
          if(!namevar.Compare(variable->name, true)) 
@@ -345,7 +345,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::IsKnownVariable(XSTRING& namevar)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionHeader::AddVariable (XCHAR* namevar, XVARIANT* variant)
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable (XCHAR* namevar, XVARIANT* variant)
 { 
    XSTRING* namevarStr = new XSTRING();
    if(!namevarStr) return false;
@@ -362,13 +362,13 @@ bool GRPVECTORFILEDXFTextSectionHeader::AddVariable (XCHAR* namevar, XVARIANT* v
 }
 
 
-XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTextSectionHeader::GetVariables ()
+XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables ()
 {
    return &variables;
 }
 
 
-XVARIANT* GRPVECTORFILEDXFTextSectionHeader::GetVariable (XCHAR* namevar)
+XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable (XCHAR* namevar)
 {
    if(variables.IsEmpty()) return NULL;
 
@@ -388,7 +388,7 @@ XVARIANT* GRPVECTORFILEDXFTextSectionHeader::GetVariable (XCHAR* namevar)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionHeader::DeleteVariable(XCHAR* namevar)
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
 {
    if(variables.IsEmpty()) return false;
 
@@ -408,7 +408,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::DeleteVariable(XCHAR* namevar)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionHeader::DeleteAllVariables(bool withcontens)
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteAllVariables(bool withcontens)
 {
    if(variables.IsEmpty()) return false;
 
@@ -422,11 +422,11 @@ bool GRPVECTORFILEDXFTextSectionHeader::DeleteAllVariables(bool withcontens)
 }
 
 
-XCHAR* GRPVECTORFILEDXFTextSectionHeader::GetVariableRemark(XSTRING& namevar)
+XCHAR* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariableRemark(XSTRING& namevar)
 {
-   for(XDWORD c=0; c<GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar; c++)
+   for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; c++)
    {
-      GRPVECTORFILEDXFTextSectionHeaderDefVariable* variable = &GRPVECTORFILEDXFTextSectionHeader::defvariable[c];
+      GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
       if(variable)
       {
          if(namevar.Find(variable->name, true) != XSTRING_NOTFOUND) 
@@ -440,7 +440,7 @@ XCHAR* GRPVECTORFILEDXFTextSectionHeader::GetVariableRemark(XSTRING& namevar)
 }
 
 
-bool GRPVECTORFILEDXFTextSectionHeader::ParserVariable (XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ...)
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable (XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ...)
 {   
    if(!part) return false;
    if(!namevar) return false;
@@ -468,7 +468,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::ParserVariable (XFILETXT* file, GRPVECTO
 
    int indexline = 0;
 
-   for(int c=0; c<GRPVECTORFILEDXFTextSectionHeader_MaxNVar; c++)
+   for(int c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar; c++)
    {
       XSTRING* line = file->GetLine(part->iniline + indexline);
       GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
@@ -499,7 +499,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::ParserVariable (XFILETXT* file, GRPVECTO
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionHeader::ParserTextSection (XFILETXT* fileTXT)
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection (XFILETXT* fileTXT)
 {
    XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
    GRPVECTORFILEDXFTextPart* part = NULL;  
@@ -579,25 +579,25 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionHeader::ParserTextSection (XFILET
          }
          else
          {
-            XSTRING  namevar[GRPVECTORFILEDXFTextSectionHeader_MaxNVar];
-            XVARIANT variant[GRPVECTORFILEDXFTextSectionHeader_MaxNVar];
+            XSTRING  namevar[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
+            XVARIANT variant[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
        
-            for(int d=0; d<GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar; d++)
+            for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; d++)
             { 
-               for(int e=0; e<GRPVECTORFILEDXFTextSectionHeader::defvariable[d].nvalues; e++)
+               for(int e=0; e<GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].nvalues; e++)
                {
-                  if(GRPVECTORFILEDXFTextSectionHeader::defvariable[d].value[e].valuetype)
+                  if(GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype)
                   {                     
-                     ParserVariable (fileTXT, part , GRPVECTORFILEDXFTextSectionHeader::defvariable[d].name
-                                                   , GRPVECTORFILEDXFTextSectionHeader::defvariable[d].value[e].valuetype
-                                                   , GRPVECTORFILEDXFTextSectionHeader::defvariable[d].value[e].valuename
+                     ParserVariable (fileTXT, part , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].name
+                                                   , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype
+                                                   , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuename
                                                    , &namevar[e]
                                                    , &variant[e]);
                   }
                }                                           
             }
          
-            for(int d=0; d<GRPVECTORFILEDXFTextSectionHeader_MaxNVar; d++)
+            for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar; d++)
             {
                if((!namevar[d].IsEmpty()) && (variant->GetType() != XVARIANT_TYPE_NULL))
                {
@@ -622,7 +622,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionHeader::ParserTextSection (XFILET
 
 
 #ifdef XTRACE_ACTIVE
-bool GRPVECTORFILEDXFTextSectionHeader::ShowTraceAllVariables()
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ShowTraceAllVariables()
 {
    for(XDWORD c=0; c<variables.GetSize(); c++)
    {
@@ -635,7 +635,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::ShowTraceAllVariables()
             XSTRING string;
 
             value->ToString(string);
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTextSectionHeader] (%3d) var [%s] %s"), c, key->Get(), string.Get());
+            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONHEADER] (%3d) var [%s] %s"), c, key->Get(), string.Get());
          }
       }    
    }
@@ -645,7 +645,7 @@ bool GRPVECTORFILEDXFTextSectionHeader::ShowTraceAllVariables()
 #endif
 
 
-void GRPVECTORFILEDXFTextSectionHeader::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTIONHEADER::Clean ( )
 {
   
 }

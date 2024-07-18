@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFTextSection_h_
-#define _GRPVECTORFILEDXFTextSection_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTION_h_
+#define _GRPVECTORFILEDXFTEXTSECTION_h_
 
 #pragma region INCLUDES
 
 #include "XSubject.h"
 
 #include "GRPVectorFile.h"
-#include "GRPVECTORFILEDXFTextPart.h"
+#include "GRPVectorFileDXFTextPart.h"
 
 
 #pragma endregion
@@ -15,39 +15,39 @@
 
 #pragma region DEFINES_ENUMS
 
-enum GRPVECTORFILEDXFTextSection_BasicType
+enum GRPVECTORFILEDXFTEXTSECTION_BasicType
 {
-   GRPVECTORFILEDXFTextSection_BasicType_Unknown = 0,
-   GRPVECTORFILEDXFTextSection_BasicType_Boolean,
-   GRPVECTORFILEDXFTextSection_BasicType_Integer,
-   GRPVECTORFILEDXFTextSection_BasicType_Double,
-   GRPVECTORFILEDXFTextSection_BasicType_String,
+   GRPVECTORFILEDXFTEXTSECTION_BasicType_Unknown = 0,
+   GRPVECTORFILEDXFTEXTSECTION_BasicType_Boolean,
+   GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer,
+   GRPVECTORFILEDXFTEXTSECTION_BasicType_Double,
+   GRPVECTORFILEDXFTEXTSECTION_BasicType_String,
 };
 
 
 enum GRPVECTORFILEDXFText_XDataCtrl_Status
 {
-   GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Not = 0,
-   GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Ini,
-   GRPVECTORFILEDXFTextSection_XDataCtrl_Status_End,
+   GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not = 0,
+   GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini,
+   GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End,
 };
 
 
-enum GRPVECTORFILEDXFTextSection_TypeSection
+enum GRPVECTORFILEDXFTEXTSECTION_TYPESECTION
 {
-  GRPVECTORFILEDXFTextSection_TypeSection_Unknown = 0,
-  GRPVECTORFILEDXFTextSection_TypeSection_Header,
-  GRPVECTORFILEDXFTextSection_TypeSection_Classes,
-  GRPVECTORFILEDXFTextSection_TypeSection_Tables, 
-  GRPVECTORFILEDXFTextSection_TypeSection_Blocks, 
-  GRPVECTORFILEDXFTextSection_TypeSection_Entities,
-  GRPVECTORFILEDXFTextSection_TypeSection_Objects,
-  GRPVECTORFILEDXFTextSection_TypeSection_ACDSData,
-  GRPVECTORFILEDXFTextSection_TypeSection_ThumbNailImage,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN = 0,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_CLASSES,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_TABLES, 
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS, 
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_OBJECTS,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ACDSDATA,
+  GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_THUMBNAILIMAGE,
 };
 
-#define GRPVECTORFILEDXFTextSection_MaxNDefSections 8
-#define GRPVECTORFILEDXFTextSection_MaxNGenericDefTypes 93
+#define GRPVECTORFILEDXFTEXTSECTION_MaxNDefSections 8
+#define GRPVECTORFILEDXFTEXTSECTION_MaxNGenericDefTypes 93
 
 #pragma endregion
 
@@ -59,7 +59,7 @@ class XFILETXT;
 typedef struct
 {
    XCHAR* name;
-   GRPVECTORFILEDXFTextSection_TypeSection type;
+   GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type;
    
 } GRPVECTORFILEDXFDefTextSection;
 
@@ -71,34 +71,34 @@ typedef struct
    XCHAR* name;
    XCHAR* remark;
 
-} GRPVECTORFILEDXFTextSectionGenericDefType;
+} GRPVECTORFILEDXFTEXTSECTIONGenericDefType;
 
 
-class GRPVECTORFILEDXFTextSection : public XSUBJECT, public GRPVECTORFILEDXFTextPart
+class GRPVECTORFILEDXFTEXTSECTION : public XSUBJECT, public GRPVECTORFILEDXFTextPart
 {
   public:
 
-    GRPVECTORFILEDXFTextSection ();
-    virtual ~GRPVECTORFILEDXFTextSection ();    
+    GRPVECTORFILEDXFTEXTSECTION ();
+    virtual ~GRPVECTORFILEDXFTEXTSECTION ();    
    
     GRPVECTORFILE* GetGRPVECTORFILE();  
     void SetGRPVECTORFILE(GRPVECTORFILE* vectorFile);  
 
-    static GRPVECTORFILEDXFTextSection* CreateInstance(GRPVECTORFILEDXFTextSection_TypeSection type);   
+    static GRPVECTORFILEDXFTEXTSECTION* CreateInstance(GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type);   
     
-    static GRPVECTORFILEDXFTextSection_TypeSection GetTypeSection (XSTRING& nameSection);
+    static GRPVECTORFILEDXFTEXTSECTION_TYPESECTION GetTypeSection (XSTRING& nameSection);
     
-    static GRPVECTORFILEDXFTextSection_BasicType GetTypeBasic (int type);    
-    GRPVECTORFILEDXFTextSectionGenericDefType* GetGenericDefType(int type);
+    static GRPVECTORFILEDXFTEXTSECTION_BasicType GetTypeBasic (int type);    
+    GRPVECTORFILEDXFTEXTSECTIONGenericDefType* GetGenericDefType(int type);
     static void GetVariableFromLine(XCHAR* namevar, int type, XSTRING* line, XVARIANT& variant);  
     GRPVECTORFILEDXFText_XDataCtrl_Status IsXDataControl(int type, XSTRING& line);
 
 
     virtual GRPVECTORFILERESULT ParserTextSection (XFILETXT* fileTXT);
     
-    GRPVECTORFILEDXFTextSection_TypeSection type;
-    static GRPVECTORFILEDXFDefTextSection defsection[GRPVECTORFILEDXFTextSection_MaxNDefSections];
-    static GRPVECTORFILEDXFTextSectionGenericDefType genericDef[GRPVECTORFILEDXFTextSection_MaxNGenericDefTypes];
+    GRPVECTORFILEDXFTEXTSECTION_TYPESECTION type;
+    static GRPVECTORFILEDXFDefTextSection defsection[GRPVECTORFILEDXFTEXTSECTION_MaxNDefSections];
+    static GRPVECTORFILEDXFTEXTSECTIONGenericDefType genericDef[GRPVECTORFILEDXFTEXTSECTION_MaxNGenericDefTypes];
 
   private:
     

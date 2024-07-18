@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjArc_h_
-#define _GRPVECTORFILEDXFEntityObjArc_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjArc_h_
+#define _GRPVECTORFILEDXFENTITYObjArc_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,15 +18,15 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjArc : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjArc : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjArc (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjArc ();
+      GRPVECTORFILEDXFENTITYObjArc (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjArc ();
 
-      GRPVECTORFILEDXFEntityDefPoint* GetCenter(); 
-      bool SetCenter(GRPVECTORFILEDXFEntityDefPoint* center); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetCenter(); 
+      bool SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center); 
 
       double GetIniAngle (); 
       void SetIniAngle (double angle); 
@@ -39,16 +39,16 @@ class GRPVECTORFILEDXFEntityObjArc : public GRPVECTORFILEDXFEntityObj
       double GetThickness (); 
       void SetThickness (double thickness); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFEntityDefPoint* dirExtrusion );
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
+      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    
       void Clean ();   
           
-      GRPVECTORFILEDXFEntityDefPoint center; // Center point.     
+      GRPVECTORFILEDXFENTITYDEFPOINT center; // Center point.     
 
       double iniAngle; // Start angle.
       double endAngle; // End   angle.
@@ -57,7 +57,7 @@ class GRPVECTORFILEDXFEntityObjArc : public GRPVECTORFILEDXFEntityObj
 
       double thickness; // Thickness (default=0.0).          
 
-      GRPVECTORFILEDXFEntityDefPoint dirExtrusion ; // Extrusion direction.
+      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
 };
 
 #pragma endregion

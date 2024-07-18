@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFXDataCtrl_h_
-#define _GRPVECTORFILEDXFXDataCtrl_h_
+#ifndef _GRPVECTORFILEDXFXDATACTRL_h_
+#define _GRPVECTORFILEDXFXDATACTRL_h_
 
 #pragma region INCLUDES
 
@@ -8,7 +8,7 @@
 #include "XVariant.h"
 #include "XVector.h"
 
-#include "GRPVECTORFILEDXFValue.h"
+#include "GRPVectorFileDXFValue.h"
 
 #pragma endregion
 
@@ -20,15 +20,15 @@
 #pragma region CLASSES
 
 
-class GRPVECTORFILEDXFXDataCtrl
+class GRPVECTORFILEDXFXDATACTRL
 {  
    public: 
       
-      GRPVECTORFILEDXFXDataCtrl ();
-      virtual ~GRPVECTORFILEDXFXDataCtrl ();
+      GRPVECTORFILEDXFXDATACTRL ();
+      virtual ~GRPVECTORFILEDXFXDATACTRL ();
 
       XSTRING* GetName ();
-      XVECTOR<GRPVECTORFILEDXFValue*>* GetValues ();
+      XVECTOR<GRPVECTORFILEDXFVALUE*>* GetValues ();
      
    
    private: 
@@ -36,7 +36,7 @@ class GRPVECTORFILEDXFXDataCtrl
       void Clean ();
 
       XSTRING name;
-      XVECTOR<GRPVECTORFILEDXFValue*> values;
+      XVECTOR<GRPVECTORFILEDXFVALUE*> values;
 };
 
 #pragma endregion

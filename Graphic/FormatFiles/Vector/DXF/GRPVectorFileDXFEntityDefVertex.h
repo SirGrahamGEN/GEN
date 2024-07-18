@@ -1,10 +1,10 @@
 
-#ifndef _GRPVECTORFILEDXFEntityDefVertex_h_
-#define _GRPVECTORFILEDXFEntityDefVertex_h_
+#ifndef _GRPVECTORFILEDXFENTITYDefVertex_h_
+#define _GRPVECTORFILEDXFENTITYDefVertex_h_
 
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
 
 #pragma endregion
 
@@ -15,19 +15,19 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityDefVertex 
+class GRPVECTORFILEDXFENTITYDefVertex 
 {
    public:
    
-      GRPVECTORFILEDXFEntityDefVertex () ;
-      GRPVECTORFILEDXFEntityDefVertex ( GRPVECTORFILEDXFEntityDefVertex* Vertex ) ;
-      ~GRPVECTORFILEDXFEntityDefVertex () ;
+      GRPVECTORFILEDXFENTITYDefVertex () ;
+      GRPVECTORFILEDXFENTITYDefVertex ( GRPVECTORFILEDXFENTITYDefVertex* Vertex ) ;
+      ~GRPVECTORFILEDXFENTITYDefVertex () ;
 
-      void operator =  (GRPVECTORFILEDXFEntityDefVertex* Vertex);
-      void operator =  (GRPVECTORFILEDXFEntityDefVertex Vertex);
+      void operator =  (GRPVECTORFILEDXFENTITYDefVertex* Vertex);
+      void operator =  (GRPVECTORFILEDXFENTITYDefVertex Vertex);
 
-      GRPVECTORFILEDXFEntityDefPoint* GetPoint(); 
-      bool SetPoint(GRPVECTORFILEDXFEntityDefPoint* point); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetPoint(); 
+      bool SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
 
       double GetIniWidth ();
       void SetIniWidth ( double iniWith );
@@ -38,14 +38,14 @@ class GRPVECTORFILEDXFEntityDefVertex
       double GetBulge ();      
       void SetBulge ( double bulge );
       
-      bool CopyTo ( GRPVECTORFILEDXFEntityDefVertex* Vertex );
-      bool CopyFrom ( GRPVECTORFILEDXFEntityDefVertex* Vertex );
+      bool CopyTo ( GRPVECTORFILEDXFENTITYDefVertex* Vertex );
+      bool CopyFrom ( GRPVECTORFILEDXFENTITYDefVertex* Vertex );
    
    private: 
 
       void Clean ();
 
-      GRPVECTORFILEDXFEntityDefPoint point; // The point;    
+      GRPVECTORFILEDXFENTITYDEFPOINT point; // The point;    
       double iniWidth; // Start width.
       double endWidth; // End width.
       double bulge; // Bulge.

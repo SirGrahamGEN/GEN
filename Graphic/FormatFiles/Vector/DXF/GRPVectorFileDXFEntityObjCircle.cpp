@@ -1,7 +1,7 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFEntityObjCircle.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFEntityObjCircle.h"
 
 #pragma endregion
 
@@ -12,26 +12,26 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjCircle::GRPVECTORFILEDXFEntityObjCircle (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjCircle::GRPVECTORFILEDXFENTITYObjCircle (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_Circle;
+   type = GRPVECTORFILEDXFENTITYObjType_Circle;
 }
 
 
-GRPVECTORFILEDXFEntityObjCircle::~GRPVECTORFILEDXFEntityObjCircle ( )
+GRPVECTORFILEDXFENTITYObjCircle::~GRPVECTORFILEDXFENTITYObjCircle ( )
 { 
    Clean();
 }
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjCircle::GetCenter()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjCircle::GetCenter()
 {
    return &center;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjCircle::SetCenter(GRPVECTORFILEDXFEntityDefPoint* center)
+bool GRPVECTORFILEDXFENTITYObjCircle::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
 {
    if(!center) return false;
 
@@ -41,37 +41,37 @@ bool GRPVECTORFILEDXFEntityObjCircle::SetCenter(GRPVECTORFILEDXFEntityDefPoint* 
 }
 
 
-double GRPVECTORFILEDXFEntityObjCircle::GetRadius ( )
+double GRPVECTORFILEDXFENTITYObjCircle::GetRadius ( )
 {
    return radius;
 }
 
 
-void GRPVECTORFILEDXFEntityObjCircle::SetRadius (double radius)
+void GRPVECTORFILEDXFENTITYObjCircle::SetRadius (double radius)
 {
    this->radius = radius;
 }
 
 
-double GRPVECTORFILEDXFEntityObjCircle::GetThickness ( )
+double GRPVECTORFILEDXFENTITYObjCircle::GetThickness ( )
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFEntityObjCircle::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYObjCircle::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjCircle::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjCircle::GetDirExtrusion()
 {
    return &dirExtrusion;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjCircle::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoint* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYObjCircle::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
 {
    if(!dirExtrusion) return false;
 
@@ -81,11 +81,11 @@ bool GRPVECTORFILEDXFEntityObjCircle::SetDirExtrusion(GRPVECTORFILEDXFEntityDefP
 }
 
 
-bool GRPVECTORFILEDXFEntityObjCircle::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjCircle::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
    value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
    if(value) 
@@ -139,7 +139,7 @@ bool GRPVECTORFILEDXFEntityObjCircle::ApplyData(GRPVECTORFILEDXFEntity* entity)
 }
 
 
-void GRPVECTORFILEDXFEntityObjCircle::Clean ( )
+void GRPVECTORFILEDXFENTITYObjCircle::Clean ( )
 {
    radius = 0.0f;
 

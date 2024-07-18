@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFTextSectionBlocks_h_
-#define _GRPVECTORFILEDXFTextSectionBlocks_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_h_
+#define _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_h_
 
 #pragma region INCLUDES
 
@@ -8,7 +8,7 @@
 #include "XVariant.h"
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFTextSection.h"
+#include "GRPVectorFileDXFTextSection.h"
 
 #pragma endregion
 
@@ -33,7 +33,7 @@ typedef struct
    XCHAR* name;   
    XCHAR* remark;   
 
-} GRPVECTORFILEDXFTextSectionBlockDefType;
+} GRPVECTORFILEDXFTEXTSECTIONBlockDefType;
 
 
 typedef struct
@@ -41,21 +41,21 @@ typedef struct
    XCHAR* name;
    int ntypes;
    bool isendblock;
-   GRPVECTORFILEDXFTextSectionBlockDefType type[GRPVECTORFILEDXFBlocks_MaxNDefTypes];
+   GRPVECTORFILEDXFTEXTSECTIONBlockDefType type[GRPVECTORFILEDXFBlocks_MaxNDefTypes];
 
-} GRPVECTORFILEDXFTextSectionBlockDef;
+} GRPVECTORFILEDXFTEXTSECTIONBlockDef;
 
 
 
-class GRPVECTORFILEDXFTextSectionBlocks : public GRPVECTORFILEDXFTextSection
+class GRPVECTORFILEDXFTEXTSECTIONBLOCKS : public GRPVECTORFILEDXFTEXTSECTION
 {
   public:
 
-    GRPVECTORFILEDXFTextSectionBlocks ();
-    virtual ~GRPVECTORFILEDXFTextSectionBlocks ();
+    GRPVECTORFILEDXFTEXTSECTIONBLOCKS ();
+    virtual ~GRPVECTORFILEDXFTEXTSECTIONBLOCKS ();
     
-    GRPVECTORFILEDXFTextSectionBlockDef* IsKnownBlock ( XSTRING& name );
-    GRPVECTORFILEDXFTextSectionBlockDefType*  IsKnownTypeValue(XSTRING& namevar, int type);
+    GRPVECTORFILEDXFTEXTSECTIONBlockDef* IsKnownBlock ( XSTRING& name );
+    GRPVECTORFILEDXFTEXTSECTIONBlockDefType*  IsKnownTypeValue(XSTRING& namevar, int type);
 
     bool AddBlock (GRPVECTORFILEDXFTextBlock* entity);
     XVECTOR<GRPVECTORFILEDXFTextBlock*>* GetBlocks ();
@@ -71,7 +71,7 @@ class GRPVECTORFILEDXFTextSectionBlocks : public GRPVECTORFILEDXFTextSection
     bool ShowTraceAllBlocks ();
     void Clean ();    
 
-    static GRPVECTORFILEDXFTextSectionBlockDef defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks];
+    static GRPVECTORFILEDXFTEXTSECTIONBlockDef defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks];
     XVECTOR<GRPVECTORFILEDXFTextBlock*> blocks;
 };
 

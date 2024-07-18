@@ -5,7 +5,7 @@
 
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVECTORFILEDXFTextBlock.h"
+#include "GRPVectorFileDXFTextBlock.h"
 
 #pragma endregion
 
@@ -53,7 +53,7 @@ void GRPVECTORFILEDXFTextBlock::SetIsEndBlock (bool isEndBlock)
 }
 
 
-bool GRPVECTORFILEDXFTextBlock::AddValue (GRPVECTORFILEDXFValue* value)
+bool GRPVECTORFILEDXFTextBlock::AddValue (GRPVECTORFILEDXFVALUE* value)
 {    
    values.Add(value);
 
@@ -61,13 +61,13 @@ bool GRPVECTORFILEDXFTextBlock::AddValue (GRPVECTORFILEDXFValue* value)
 }
 
 
-XVECTOR<GRPVECTORFILEDXFValue*>* GRPVECTORFILEDXFTextBlock::GetValues ()
+XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFTextBlock::GetValues ()
 {
    return &values;
 }
 
 
-GRPVECTORFILEDXFValue* GRPVECTORFILEDXFTextBlock::GetValue (int index)
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFTextBlock::GetValue (int index)
 {
    if(values.IsEmpty()) return NULL;
 
@@ -98,20 +98,20 @@ bool GRPVECTORFILEDXFTextBlock::DeleteAllValues()
 }
 
 
-XVECTOR<GRPVECTORFILEDXFXDataCtrl*>* GRPVECTORFILEDXFTextBlock::GetXDataCtrlList()
+XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFTextBlock::GetXDataCtrlList()
 {
    return &xDataCtrlList;
 }
 
 
 
- GRPVECTORFILEDXFTextSectionEntities* GRPVECTORFILEDXFTextBlock::GetSectionEntities()
+ GRPVECTORFILEDXFTEXTSECTIONENTITIES* GRPVECTORFILEDXFTextBlock::GetSectionEntities()
  {
    return entitiesSection;
  }
       
       
- void GRPVECTORFILEDXFTextBlock::SetSectionEntities(GRPVECTORFILEDXFTextSectionEntities* section)
+ void GRPVECTORFILEDXFTextBlock::SetSectionEntities(GRPVECTORFILEDXFTEXTSECTIONENTITIES* section)
  {
    this->entitiesSection = section;
  }

@@ -1,7 +1,7 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFEntityObjEllipse.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFEntityObjEllipse.h"
 
 #pragma endregion
 
@@ -12,27 +12,27 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjEllipse::GRPVECTORFILEDXFEntityObjEllipse (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjEllipse::GRPVECTORFILEDXFENTITYObjEllipse (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_Ellipse;
+   type = GRPVECTORFILEDXFENTITYObjType_Ellipse;
 }
 
 
-GRPVECTORFILEDXFEntityObjEllipse::~GRPVECTORFILEDXFEntityObjEllipse ( )
+GRPVECTORFILEDXFENTITYObjEllipse::~GRPVECTORFILEDXFENTITYObjEllipse ( )
 { 
    Clean();
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjEllipse::GetCenter()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetCenter()
 {
    return &center;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjEllipse::SetCenter(GRPVECTORFILEDXFEntityDefPoint* center)
+bool GRPVECTORFILEDXFENTITYObjEllipse::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
 {
    if(!center) return false;
 
@@ -42,13 +42,13 @@ bool GRPVECTORFILEDXFEntityObjEllipse::SetCenter(GRPVECTORFILEDXFEntityDefPoint*
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjEllipse::GetMajorAxis()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetMajorAxis()
 {
    return &majorAxis;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjEllipse::SetMajorAxis(GRPVECTORFILEDXFEntityDefPoint* majorAxis)
+bool GRPVECTORFILEDXFENTITYObjEllipse::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* majorAxis)
 {
    if(!majorAxis) return false;
 
@@ -58,54 +58,54 @@ bool GRPVECTORFILEDXFEntityObjEllipse::SetMajorAxis(GRPVECTORFILEDXFEntityDefPoi
 }
   
 
-double GRPVECTORFILEDXFEntityObjEllipse::GetIniParameter()
+double GRPVECTORFILEDXFENTITYObjEllipse::GetIniParameter()
 {
    return iniParameter;
 }
 
 
-void GRPVECTORFILEDXFEntityObjEllipse::SetIniParameter(double iniParameter)
+void GRPVECTORFILEDXFENTITYObjEllipse::SetIniParameter(double iniParameter)
 {
    this->iniParameter = iniParameter;
 }
 
 
-double GRPVECTORFILEDXFEntityObjEllipse::GetEndParameter()
+double GRPVECTORFILEDXFENTITYObjEllipse::GetEndParameter()
 {
    return endParameter;
 }
 
-void GRPVECTORFILEDXFEntityObjEllipse::SetEndParameter(double endParameter)
+void GRPVECTORFILEDXFENTITYObjEllipse::SetEndParameter(double endParameter)
 {
    this->endParameter = endParameter;
 }
 
 
-void GRPVECTORFILEDXFEntityObjEllipse::SetRadius (double radius)
+void GRPVECTORFILEDXFENTITYObjEllipse::SetRadius (double radius)
 {
    this->radius = radius;
 }
 
 
-double GRPVECTORFILEDXFEntityObjEllipse::GetThickness ( )
+double GRPVECTORFILEDXFENTITYObjEllipse::GetThickness ( )
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFEntityObjEllipse::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYObjEllipse::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjEllipse::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetDirExtrusion()
 {
    return &dirExtrusion;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjEllipse::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoint* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYObjEllipse::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
 {
    if(!dirExtrusion) return false;
 
@@ -115,11 +115,11 @@ bool GRPVECTORFILEDXFEntityObjEllipse::SetDirExtrusion(GRPVECTORFILEDXFEntityDef
 }
 
 
-bool GRPVECTORFILEDXFEntityObjEllipse::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjEllipse::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
    value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
    if(value) 
@@ -203,7 +203,7 @@ bool GRPVECTORFILEDXFEntityObjEllipse::ApplyData(GRPVECTORFILEDXFEntity* entity)
 }
 
 
-void GRPVECTORFILEDXFEntityObjEllipse::Clean ( )
+void GRPVECTORFILEDXFENTITYObjEllipse::Clean ( )
 {
    iniParameter = 0.0f;
    endParameter = 0.0f;

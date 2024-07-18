@@ -1,6 +1,6 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityDefStringValue.h"
+#include "GRPVectorFileDXFEntityDefStringValue.h"
 
 #pragma endregion
 
@@ -11,19 +11,19 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityDefStringValue::GRPVECTORFILEDXFEntityDefStringValue ( )
+GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( )
 {
    Clean();   
 }
 
 
-GRPVECTORFILEDXFEntityDefStringValue::GRPVECTORFILEDXFEntityDefStringValue ( int value, XCHAR* string )
+GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( int value, XCHAR* string )
 {
    Clean(); 
 }
 
       
-GRPVECTORFILEDXFEntityDefStringValue::GRPVECTORFILEDXFEntityDefStringValue ( GRPVECTORFILEDXFEntityDefStringValue* stringvalue )
+GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
 {
    Clean();
 
@@ -31,43 +31,43 @@ GRPVECTORFILEDXFEntityDefStringValue::GRPVECTORFILEDXFEntityDefStringValue ( GRP
 }
 
 
-GRPVECTORFILEDXFEntityDefStringValue::~GRPVECTORFILEDXFEntityDefStringValue ( )
+GRPVECTORFILEDXFENTITYDefStringValue::~GRPVECTORFILEDXFENTITYDefStringValue ( )
 { 
    Clean();
 }
 
 
-void GRPVECTORFILEDXFEntityDefStringValue::operator =  (GRPVECTORFILEDXFEntityDefStringValue* point)
+void GRPVECTORFILEDXFENTITYDefStringValue::operator =  (GRPVECTORFILEDXFENTITYDefStringValue* point)
 {
   CopyFrom(point);
 }
 
 
-void GRPVECTORFILEDXFEntityDefStringValue::operator =  (GRPVECTORFILEDXFEntityDefStringValue point)
+void GRPVECTORFILEDXFENTITYDefStringValue::operator =  (GRPVECTORFILEDXFENTITYDefStringValue point)
 {
   CopyFrom(&point);
 }
 
 
-int GRPVECTORFILEDXFEntityDefStringValue::GetValue () 
+int GRPVECTORFILEDXFENTITYDefStringValue::GetValue () 
 { 
    return value; 
 }
      
      
-void GRPVECTORFILEDXFEntityDefStringValue::SetValue ( int value ) 
+void GRPVECTORFILEDXFENTITYDefStringValue::SetValue ( int value ) 
 { 
    this->value = value; 
 } 
 
 
-XSTRING* GRPVECTORFILEDXFEntityDefStringValue::GetString () 
+XSTRING* GRPVECTORFILEDXFENTITYDefStringValue::GetString () 
 { 
    return &string; 
 }
 
 
-bool GRPVECTORFILEDXFEntityDefStringValue::CopyTo ( GRPVECTORFILEDXFEntityDefStringValue* stringvalue )
+bool GRPVECTORFILEDXFENTITYDefStringValue::CopyTo ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
 {
    if(!stringvalue) 
    {
@@ -81,7 +81,7 @@ bool GRPVECTORFILEDXFEntityDefStringValue::CopyTo ( GRPVECTORFILEDXFEntityDefStr
 }
       
 
-bool GRPVECTORFILEDXFEntityDefStringValue::CopyFrom ( GRPVECTORFILEDXFEntityDefStringValue* stringvalue )
+bool GRPVECTORFILEDXFENTITYDefStringValue::CopyFrom ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
 {
    if(!stringvalue)
    {
@@ -95,26 +95,26 @@ bool GRPVECTORFILEDXFEntityDefStringValue::CopyFrom ( GRPVECTORFILEDXFEntityDefS
 }
    
 
-void GRPVECTORFILEDXFEntityDefStringValue::Clean ( )
+void GRPVECTORFILEDXFENTITYDefStringValue::Clean ( )
 {
    value = 0;
    string.Empty();   
 }
 
 
-GRPVECTORFILEDXFEntityDefStringList::GRPVECTORFILEDXFEntityDefStringList ( )
+GRPVECTORFILEDXFENTITYDefStringList::GRPVECTORFILEDXFENTITYDefStringList ( )
 {
    Clean();   
 }
 
 
-GRPVECTORFILEDXFEntityDefStringList::~GRPVECTORFILEDXFEntityDefStringList ( )
+GRPVECTORFILEDXFENTITYDefStringList::~GRPVECTORFILEDXFENTITYDefStringList ( )
 { 
    Clean();
 }
 
 
-void GRPVECTORFILEDXFEntityDefStringList::Clean ( )
+void GRPVECTORFILEDXFENTITYDefStringList::Clean ( )
 {
    stringsvalue.DeleteContents();
    stringsvalue.DeleteAll();

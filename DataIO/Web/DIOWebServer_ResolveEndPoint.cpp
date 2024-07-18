@@ -118,7 +118,7 @@ bool DIOWEBSERVER_RESOLVEENDPOINT::CreateResponse(XSTRING* response)
   
   serializationmethod = XSERIALIZABLE::CreateInstance(xfileJSON);
 
-  InitSerialize(serializationmethod);
+  DoSerialize(serializationmethod);
   xfileJSON.EncodeAllLines(true);  
   
   if(response) 

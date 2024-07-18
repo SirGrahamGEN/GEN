@@ -1,6 +1,6 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityObjMText.h"
+#include "GRPVectorFileDXFEntityObjMText.h"
 
 #pragma endregion
 
@@ -11,30 +11,30 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjMText::GRPVECTORFILEDXFEntityObjMText (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjMText::GRPVECTORFILEDXFENTITYObjMText (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_MText;
+   type = GRPVECTORFILEDXFENTITYObjType_MText;
 }
 
 
-GRPVECTORFILEDXFEntityObjMText::~GRPVECTORFILEDXFEntityObjMText ( )
+GRPVECTORFILEDXFENTITYObjMText::~GRPVECTORFILEDXFENTITYObjMText ( )
 { 
    Clean();
 }
 
 
-bool GRPVECTORFILEDXFEntityObjMText::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjMText::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
    // INCOMPLETE
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
    return true;
 }
 
 
-void GRPVECTORFILEDXFEntityObjMText::Clean ( )
+void GRPVECTORFILEDXFENTITYObjMText::Clean ( )
 {
  
 }

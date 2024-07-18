@@ -1,6 +1,6 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityDefVertex.h"
+#include "GRPVectorFileDXFEntityDefVertex.h"
 
 #pragma endregion
 
@@ -11,13 +11,13 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityDefVertex::GRPVECTORFILEDXFEntityDefVertex ( )
+GRPVECTORFILEDXFENTITYDefVertex::GRPVECTORFILEDXFENTITYDefVertex ( )
 {
    Clean();   
 }
  
  
-GRPVECTORFILEDXFEntityDefVertex::GRPVECTORFILEDXFEntityDefVertex ( GRPVECTORFILEDXFEntityDefVertex* Vertex )
+GRPVECTORFILEDXFENTITYDefVertex::GRPVECTORFILEDXFENTITYDefVertex ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
 {
    Clean();
 
@@ -25,32 +25,32 @@ GRPVECTORFILEDXFEntityDefVertex::GRPVECTORFILEDXFEntityDefVertex ( GRPVECTORFILE
 }
 
 
-GRPVECTORFILEDXFEntityDefVertex::~GRPVECTORFILEDXFEntityDefVertex ( )
+GRPVECTORFILEDXFENTITYDefVertex::~GRPVECTORFILEDXFENTITYDefVertex ( )
 { 
    Clean();
 }
 
 
-void GRPVECTORFILEDXFEntityDefVertex::operator =  (GRPVECTORFILEDXFEntityDefVertex* Vertex)
+void GRPVECTORFILEDXFENTITYDefVertex::operator =  (GRPVECTORFILEDXFENTITYDefVertex* Vertex)
 {
   CopyFrom(Vertex);
 }
 
 
-void GRPVECTORFILEDXFEntityDefVertex::operator =  (GRPVECTORFILEDXFEntityDefVertex Vertex)
+void GRPVECTORFILEDXFENTITYDefVertex::operator =  (GRPVECTORFILEDXFENTITYDefVertex Vertex)
 {
   CopyFrom(&Vertex);
 }
 
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityDefVertex::GetPoint()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYDefVertex::GetPoint()
 {
    return &point;
 }
 
 
-bool GRPVECTORFILEDXFEntityDefVertex::SetPoint(GRPVECTORFILEDXFEntityDefPoint* point)
+bool GRPVECTORFILEDXFENTITYDefVertex::SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point)
 {
    if(!point) return false;
 
@@ -60,43 +60,43 @@ bool GRPVECTORFILEDXFEntityDefVertex::SetPoint(GRPVECTORFILEDXFEntityDefPoint* p
 }
 
 
-double GRPVECTORFILEDXFEntityDefVertex::GetIniWidth ( )
+double GRPVECTORFILEDXFENTITYDefVertex::GetIniWidth ( )
 {
    return iniWidth;
 }
 
 
-void GRPVECTORFILEDXFEntityDefVertex::SetIniWidth (double iniWidth)
+void GRPVECTORFILEDXFENTITYDefVertex::SetIniWidth (double iniWidth)
 {
    this->iniWidth = iniWidth;
 }
 
 
-double GRPVECTORFILEDXFEntityDefVertex::GetEndWidth ( )
+double GRPVECTORFILEDXFENTITYDefVertex::GetEndWidth ( )
 {
    return endWidth;
 }
 
 
-void GRPVECTORFILEDXFEntityDefVertex::SetEndWidth (double endWidth)
+void GRPVECTORFILEDXFENTITYDefVertex::SetEndWidth (double endWidth)
 {
    this->endWidth = endWidth;
 }
 
 
-double GRPVECTORFILEDXFEntityDefVertex::GetBulge ( )
+double GRPVECTORFILEDXFENTITYDefVertex::GetBulge ( )
 {
    return bulge;
 }
 
 
-void GRPVECTORFILEDXFEntityDefVertex::SetBulge (double bulge)
+void GRPVECTORFILEDXFENTITYDefVertex::SetBulge (double bulge)
 {
    this->bulge = bulge;
 }
 
 
-bool GRPVECTORFILEDXFEntityDefVertex::CopyTo ( GRPVECTORFILEDXFEntityDefVertex* Vertex )
+bool GRPVECTORFILEDXFENTITYDefVertex::CopyTo ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
 {
    if(!Vertex) 
    {
@@ -112,7 +112,7 @@ bool GRPVECTORFILEDXFEntityDefVertex::CopyTo ( GRPVECTORFILEDXFEntityDefVertex* 
 }
       
 
-bool GRPVECTORFILEDXFEntityDefVertex::CopyFrom ( GRPVECTORFILEDXFEntityDefVertex* Vertex )
+bool GRPVECTORFILEDXFENTITYDefVertex::CopyFrom ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
 {
    if(!Vertex)
    {
@@ -128,7 +128,7 @@ bool GRPVECTORFILEDXFEntityDefVertex::CopyFrom ( GRPVECTORFILEDXFEntityDefVertex
 }
    
 
-void GRPVECTORFILEDXFEntityDefVertex::Clean ( )
+void GRPVECTORFILEDXFENTITYDefVertex::Clean ( )
 {   
    iniWidth = 0.0f; // Start width.
    endWidth = 0.0f; // End width.

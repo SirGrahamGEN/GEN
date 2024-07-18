@@ -1,7 +1,7 @@
 
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFValue.h"
+#include "GRPVectorFileDXFValue.h"
 
 #pragma endregion
 
@@ -12,49 +12,49 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFValue::GRPVECTORFILEDXFValue ( )
+GRPVECTORFILEDXFVALUE::GRPVECTORFILEDXFVALUE ( )
 {
    Clean();   
 }
 
 
-GRPVECTORFILEDXFValue::~GRPVECTORFILEDXFValue ( )
+GRPVECTORFILEDXFVALUE::~GRPVECTORFILEDXFVALUE ( )
 {
    Clean();
 }
 
 
-int GRPVECTORFILEDXFValue::GetType()
+int GRPVECTORFILEDXFVALUE::GetType()
 {
    return type; 
 }
 
 
-void GRPVECTORFILEDXFValue::SetType(int type)
+void GRPVECTORFILEDXFVALUE::SetType(int type)
 {
    this->type = type;
 }
 
 
-XSTRING* GRPVECTORFILEDXFValue::GetName ( )
+XSTRING* GRPVECTORFILEDXFVALUE::GetName ( )
 {
    return &name;
 }
 
 
-XVARIANT* GRPVECTORFILEDXFValue::GetData ( )
+XVARIANT* GRPVECTORFILEDXFVALUE::GetData ( )
 {
    return &data;
 }
 
 
-XSTRING* GRPVECTORFILEDXFValue::GetRemark ( )
+XSTRING* GRPVECTORFILEDXFVALUE::GetRemark ( )
 {
    return &remark;
 }
 
 
-void GRPVECTORFILEDXFValue::Clean ( )
+void GRPVECTORFILEDXFVALUE::Clean ( )
 {
   type = -100;
   name.Empty();

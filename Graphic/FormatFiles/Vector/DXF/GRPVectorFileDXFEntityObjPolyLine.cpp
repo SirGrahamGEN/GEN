@@ -1,7 +1,7 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFEntityObjPolyLine.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFEntityObjPolyLine.h"
 
 #pragma endregion
 
@@ -12,39 +12,39 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjPolyLine::GRPVECTORFILEDXFEntityObjPolyLine (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjPolyLine::GRPVECTORFILEDXFENTITYObjPolyLine (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_PolyLine;
+   type = GRPVECTORFILEDXFENTITYObjType_PolyLine;
 }
 
 
-GRPVECTORFILEDXFEntityObjPolyLine::~GRPVECTORFILEDXFEntityObjPolyLine ( )
+GRPVECTORFILEDXFENTITYObjPolyLine::~GRPVECTORFILEDXFENTITYObjPolyLine ( )
 { 
    Clean();
 }
 
  
-double GRPVECTORFILEDXFEntityObjPolyLine::GetThickness ( )
+double GRPVECTORFILEDXFENTITYObjPolyLine::GetThickness ( )
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFEntityObjPolyLine::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYObjPolyLine::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjPolyLine::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjPolyLine::GetDirExtrusion()
 {
    return &dirExtrusion;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjPolyLine::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoint* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYObjPolyLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
 {
    if(!dirExtrusion) return false;
 
@@ -54,11 +54,11 @@ bool GRPVECTORFILEDXFEntityObjPolyLine::SetDirExtrusion(GRPVECTORFILEDXFEntityDe
 }
 
 
-bool GRPVECTORFILEDXFEntityObjPolyLine::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
    // INCOMPLETE
 
@@ -90,7 +90,7 @@ bool GRPVECTORFILEDXFEntityObjPolyLine::ApplyData(GRPVECTORFILEDXFEntity* entity
 }
 
 
-void GRPVECTORFILEDXFEntityObjPolyLine::Clean ( )
+void GRPVECTORFILEDXFENTITYObjPolyLine::Clean ( )
 {
    
 }

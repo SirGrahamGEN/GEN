@@ -1,33 +1,33 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObj_h_
-#define _GRPVECTORFILEDXFEntityObj_h_
+#ifndef _GRPVECTORFILEDXFENTITYObj_h_
+#define _GRPVECTORFILEDXFENTITYObj_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntity.h"
+#include "GRPVectorFileDXFEntity.h"
 
 #pragma endregion
 
 
 #pragma region DEFINES_ENUMS
 
-enum GRPVECTORFILEDXFEntityObjType
+enum GRPVECTORFILEDXFENTITYObjType
 {
-   GRPVECTORFILEDXFEntityObjType_Unknown = 0 ,
-   GRPVECTORFILEDXFEntityObjType_3DFace,  
-   GRPVECTORFILEDXFEntityObjType_Arc,  
-   GRPVECTORFILEDXFEntityObjType_Circle, 
-   GRPVECTORFILEDXFEntityObjType_Ellipse,   
-   GRPVECTORFILEDXFEntityObjType_Line,
-   GRPVECTORFILEDXFEntityObjType_LWPolyLine,
-   GRPVECTORFILEDXFEntityObjType_MText, 
-   GRPVECTORFILEDXFEntityObjType_Point, 
-   GRPVECTORFILEDXFEntityObjType_PolyLine, 
-   GRPVECTORFILEDXFEntityObjType_Text, 
+   GRPVECTORFILEDXFENTITYObjType_Unknown = 0 ,
+   GRPVECTORFILEDXFENTITYObjType_3DFace,  
+   GRPVECTORFILEDXFENTITYObjType_Arc,  
+   GRPVECTORFILEDXFENTITYObjType_Circle, 
+   GRPVECTORFILEDXFENTITYObjType_Ellipse,   
+   GRPVECTORFILEDXFENTITYObjType_Line,
+   GRPVECTORFILEDXFENTITYObjType_LWPolyLine,
+   GRPVECTORFILEDXFENTITYObjType_MText, 
+   GRPVECTORFILEDXFENTITYObjType_Point, 
+   GRPVECTORFILEDXFENTITYObjType_PolyLine, 
+   GRPVECTORFILEDXFENTITYObjType_Text, 
    
-   GRPVECTORFILEDXFEntityObjType_MaxElements
+   GRPVECTORFILEDXFENTITYObjType_MaxElements
 };
 
 #pragma endregion
@@ -35,16 +35,16 @@ enum GRPVECTORFILEDXFEntityObjType
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObj (XCHAR* name);
-      virtual ~GRPVECTORFILEDXFEntityObj ();
+      GRPVECTORFILEDXFENTITYObj (XCHAR* name);
+      virtual ~GRPVECTORFILEDXFENTITYObj ();
       
-      static GRPVECTORFILEDXFEntityObj* CreateInstance(GRPVECTORFILEDXFEntity* entity);
+      static GRPVECTORFILEDXFENTITYObj* CreateInstance(GRPVECTORFILEDXFENTITY* entity);
       
-      GRPVECTORFILEDXFEntityObjType GetType ();
+      GRPVECTORFILEDXFENTITYObjType GetType ();
       XSTRING* GetNameType ();
 
       XSTRING* GetLayerName ();
@@ -60,14 +60,14 @@ class GRPVECTORFILEDXFEntityObj
       bool GetVisibility();
       void SetVisibility(bool visibility);
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
 
-      GRPVECTORFILEDXFValue* GetDataValue(int type, GRPVECTORFILEDXFEntity* entity);
-      GRPVECTORFILEDXFValue* GetDataValue(XCHAR* name, GRPVECTORFILEDXFEntity* entity);
+      GRPVECTORFILEDXFVALUE* GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity);
+      GRPVECTORFILEDXFVALUE* GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity);
 
    protected:
 
-      GRPVECTORFILEDXFEntityObjType type;      
+      GRPVECTORFILEDXFENTITYObjType type;      
       XSTRING nameType;      
       
       XSTRING layerName;

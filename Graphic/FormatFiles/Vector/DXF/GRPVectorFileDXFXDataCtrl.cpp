@@ -1,7 +1,7 @@
 
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFXDataCtrl.h"
+#include "GRPVectorFileDXFXDataCtrl.h"
 
 #pragma endregion
 
@@ -12,30 +12,30 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFXDataCtrl::GRPVECTORFILEDXFXDataCtrl ( )
+GRPVECTORFILEDXFXDATACTRL::GRPVECTORFILEDXFXDATACTRL ( )
 {
    Clean();   
 }
 
 
-GRPVECTORFILEDXFXDataCtrl::~GRPVECTORFILEDXFXDataCtrl ( )
+GRPVECTORFILEDXFXDATACTRL::~GRPVECTORFILEDXFXDATACTRL ( )
 {
    Clean();
 }
 
-XSTRING* GRPVECTORFILEDXFXDataCtrl::GetName ( )
+XSTRING* GRPVECTORFILEDXFXDATACTRL::GetName ( )
 {
    return &name;
 }
       
       
-XVECTOR<GRPVECTORFILEDXFValue*>* GRPVECTORFILEDXFXDataCtrl::GetValues ( )
+XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFXDATACTRL::GetValues ( )
 {
    return &values;
 }
 
 
-void GRPVECTORFILEDXFXDataCtrl::Clean ( )
+void GRPVECTORFILEDXFXDATACTRL::Clean ( )
 {
   
 }

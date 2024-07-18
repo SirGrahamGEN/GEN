@@ -160,7 +160,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("ERROR! Change screen mode: error[%d]"), errno);
             }
 
-          CreateBuffers();
+          Buffer_Create();
 
           //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("X: %d, Y: %d  mode: %d"), width, height, GetMode());
 
@@ -225,7 +225,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 
   if(IsEqualSizeTo(canvas) == ISEQUAL)
     {
-      memcpy(fbp, (XBYTE*)canvas->GetBuffer(), buffersize);
+      memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), buffersize);
     }
    else
     {
@@ -254,7 +254,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Delete()
 {
   ClearScreen();
 
-  DeleteBuffers();
+  Buffer_Delete();
 
   int consoletty = open("/dev/tty1", O_RDWR);
   ioctl(consoletty, KDSETMODE, KD_TEXT);

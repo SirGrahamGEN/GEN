@@ -3,21 +3,21 @@
 #include "XMap.h"
 #include "XVariant.h"
 
-#include "GRPVECTORFILE_XEVENT.h"
+#include "GRPVectorFile_XEvent.h"
 #include "GRPVectorFileDXF.h"
-#include "GRPVECTORFILEDXFValue.h"
-#include "GRPVECTORFILEDXFXDataCtrl.h"
-#include "GRPVECTORFILEDXFTextBlock.h"
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFValue.h"
+#include "GRPVectorFileDXFXDataCtrl.h"
+#include "GRPVectorFileDXFTextBlock.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
 
-#include "GRPVECTORFILEDXFTextSectionBlocks.h"
+#include "GRPVectorFileDXFTextSectionBlocks.h"
 
 #pragma endregion
 
 
 #pragma region GENERAL_VARIABLES
 
-GRPVECTORFILEDXFTextSectionBlockDef GRPVECTORFILEDXFTextSectionBlocks::defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks] = 
+GRPVECTORFILEDXFTEXTSECTIONBlockDef GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks] = 
 {    
    { __L("BLOCK")    , 15 , false,  { {   5 , __L("HANDLE")                     , __L("Handle") },
                                       { 102 , __L("XDATAGROUP1")                , __L("Start of application-defined group '{application_name'. For example, '{ACAD_REACTORS' indicates the start of the AutoCAD persistent reactors group (optional) application-defined codes Codes and values within the 102 groups are application defined (optional)") },
@@ -49,15 +49,15 @@ GRPVECTORFILEDXFTextSectionBlockDef GRPVECTORFILEDXFTextSectionBlocks::defBlock[
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextSectionBlocks::GRPVECTORFILEDXFTextSectionBlocks ( )
+GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GRPVECTORFILEDXFTEXTSECTIONBLOCKS ( )
 {
    Clean();
 
-   type = GRPVECTORFILEDXFTextSection_TypeSection_Blocks;
+   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS;
 }
 
 
-GRPVECTORFILEDXFTextSectionBlocks::~GRPVECTORFILEDXFTextSectionBlocks ( )
+GRPVECTORFILEDXFTEXTSECTIONBLOCKS::~GRPVECTORFILEDXFTEXTSECTIONBLOCKS ( )
 {
    DeleteAllBlocks();
 
@@ -65,11 +65,11 @@ GRPVECTORFILEDXFTextSectionBlocks::~GRPVECTORFILEDXFTextSectionBlocks ( )
 }
 
 
-GRPVECTORFILEDXFTextSectionBlockDef* GRPVECTORFILEDXFTextSectionBlocks::IsKnownBlock(XSTRING& name)
+GRPVECTORFILEDXFTEXTSECTIONBlockDef* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownBlock(XSTRING& name)
 {  
    for(XDWORD c=0; c<GRPVECTORFILEDXFBlocks_MaxNDefBlocks; c++)
    {
-      GRPVECTORFILEDXFTextSectionBlockDef* blockDef = &GRPVECTORFILEDXFTextSectionBlocks::defBlock[c];
+      GRPVECTORFILEDXFTEXTSECTIONBlockDef* blockDef = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
       if(blockDef)
       {
          if(!name.Compare(blockDef->name, true)) 
@@ -83,18 +83,18 @@ GRPVECTORFILEDXFTextSectionBlockDef* GRPVECTORFILEDXFTextSectionBlocks::IsKnownB
 }
 
 
-GRPVECTORFILEDXFTextSectionBlockDefType* GRPVECTORFILEDXFTextSectionBlocks::IsKnownTypeValue(XSTRING& namevar, int type)
+GRPVECTORFILEDXFTEXTSECTIONBlockDefType* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownTypeValue(XSTRING& namevar, int type)
 {  
    for(int c=0; c<GRPVECTORFILEDXFBlocks_MaxNDefBlocks; c++)
    {
-      GRPVECTORFILEDXFTextSectionBlockDef* block  = &GRPVECTORFILEDXFTextSectionBlocks::defBlock[c];
+      GRPVECTORFILEDXFTEXTSECTIONBlockDef* block  = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
       if(block)
       {
          if(!namevar.Compare(block->name, true)) 
          {
             for(int d=0; d<block->ntypes; d++)
             {
-               GRPVECTORFILEDXFTextSectionBlockDefType* typeDef = &block->type[d]; 
+               GRPVECTORFILEDXFTEXTSECTIONBlockDefType* typeDef = &block->type[d]; 
                if(typeDef)
                {
                   if(typeDef->type == type) 
@@ -111,7 +111,7 @@ GRPVECTORFILEDXFTextSectionBlockDefType* GRPVECTORFILEDXFTextSectionBlocks::IsKn
 }
 
 
-bool GRPVECTORFILEDXFTextSectionBlocks::AddBlock (GRPVECTORFILEDXFTextBlock* block)
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::AddBlock (GRPVECTORFILEDXFTextBlock* block)
 {
    if(!block) return false;
 
@@ -124,13 +124,13 @@ bool GRPVECTORFILEDXFTextSectionBlocks::AddBlock (GRPVECTORFILEDXFTextBlock* blo
 }
 
 
-XVECTOR<GRPVECTORFILEDXFTextBlock*>* GRPVECTORFILEDXFTextSectionBlocks::GetBlocks ()
+XVECTOR<GRPVECTORFILEDXFTextBlock*>* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlocks ()
 {
   return &blocks;
 }
     
     
-GRPVECTORFILEDXFTextBlock* GRPVECTORFILEDXFTextSectionBlocks::GetBlock (XCHAR* nameBlock, XDWORD index)
+GRPVECTORFILEDXFTextBlock* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlock (XCHAR* nameBlock, XDWORD index)
 {
    if(blocks.IsEmpty()) return NULL;
 
@@ -157,7 +157,7 @@ GRPVECTORFILEDXFTextBlock* GRPVECTORFILEDXFTextSectionBlocks::GetBlock (XCHAR* n
 }
     
     
-bool GRPVECTORFILEDXFTextSectionBlocks::DeleteBlock(XCHAR* nameBlock, XDWORD index)
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteBlock(XCHAR* nameBlock, XDWORD index)
 {
    if(blocks.IsEmpty()) return false;
 
@@ -174,7 +174,7 @@ bool GRPVECTORFILEDXFTextSectionBlocks::DeleteBlock(XCHAR* nameBlock, XDWORD ind
 }
     
     
-bool GRPVECTORFILEDXFTextSectionBlocks::DeleteAllBlocks(XCHAR* nameBlock)
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks(XCHAR* nameBlock)
 {
    if(blocks.IsEmpty()) return false;
 
@@ -197,7 +197,7 @@ bool GRPVECTORFILEDXFTextSectionBlocks::DeleteAllBlocks(XCHAR* nameBlock)
 }
     
     
-bool GRPVECTORFILEDXFTextSectionBlocks::DeleteAllBlocks()
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks()
 {
    if(blocks.IsEmpty()) return false;
 
@@ -208,11 +208,11 @@ bool GRPVECTORFILEDXFTextSectionBlocks::DeleteAllBlocks()
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILETXT* fileTXT)
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ParserTextSection (XFILETXT* fileTXT)
 {    
    XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
    GRPVECTORFILEDXFTextPart* part = NULL;  
-   GRPVECTORFILEDXFXDataCtrl* xDataCtrl = NULL;
+   GRPVECTORFILEDXFXDATACTRL* xDataCtrl = NULL;
    int indexline = iniline;
    XSTRING* line;
   
@@ -282,7 +282,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
          GRPVECTORFILEDXFTextBlock* block = new GRPVECTORFILEDXFTextBlock();
          if(block)
          {               
-            GRPVECTORFILEDXFTextSectionBlockDef* blockDef = IsKnownBlock(part->name);
+            GRPVECTORFILEDXFTEXTSECTIONBlockDef* blockDef = IsKnownBlock(part->name);
             if(blockDef)
             {
                block->SetIsEndBlock(blockDef->isendblock);
@@ -317,7 +317,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
                         {  
                            GRPVECTORFILEDXF::ParserTextFilePrepareLine(line); 
                                                      
-                           GRPVECTORFILEDXFTextSectionEntities* sectionEntities = new GRPVECTORFILEDXFTextSectionEntities();
+                           GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionEntities = new GRPVECTORFILEDXFTEXTSECTIONENTITIES();
                            if(sectionEntities)
                            { 
                               sectionEntities->iniline = indexline - 1;
@@ -339,10 +339,10 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
 
                   if(!nomorevalues)    
                   {
-                     GRPVECTORFILEDXFValue* value = new GRPVECTORFILEDXFValue();
+                     GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
                      if(value)
                      {      
-                        GRPVECTORFILEDXFTextSectionBlockDefType* defType = IsKnownTypeValue(part->name, type);
+                        GRPVECTORFILEDXFTEXTSECTIONBlockDefType* defType = IsKnownTypeValue(part->name, type);
                         if(!defType)
                         {                              
                            #ifdef TEST_ONLY_DEFINE_IN_BLOCKS
@@ -366,7 +366,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
 
                            #else
 
-                           GRPVECTORFILEDXFTextSectionGenericDefType* genDefType = GetGenericDefType(type);
+                           GRPVECTORFILEDXFTEXTSECTIONGenericDefType* genDefType = GetGenericDefType(type);
                            if(genDefType)
                            {
                               value->SetType(genDefType->type);
@@ -409,7 +409,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
 
                            switch(IsXDataControl(type, (*line)))
                            {
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Not    :  if(xDataCtrl) 
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not    :  if(xDataCtrl) 
                                                                                        {
                                                                                           if(value) 
                                                                                           {                                                                                                            
@@ -418,9 +418,9 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
                                                                                        }
                                                                                        break;
 
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_Ini    :  if(!xDataCtrl)                
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini    :  if(!xDataCtrl)                
                                                                                        {
-                                                                                          xDataCtrl = new GRPVECTORFILEDXFXDataCtrl();
+                                                                                          xDataCtrl = new GRPVECTORFILEDXFXDATACTRL();
                                                                                           if(xDataCtrl)                
                                                                                           {
                                                                                              XSTRING name;
@@ -431,7 +431,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
                                                                                        }
                                                                                        break;
 
-                              case GRPVECTORFILEDXFTextSection_XDataCtrl_Status_End   :   if(xDataCtrl)                
+                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End   :   if(xDataCtrl)                
                                                                                        { 
                                                                                           block->GetXDataCtrlList()->Add(xDataCtrl);
                                                                                           xDataCtrl = NULL;
@@ -476,14 +476,14 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTextSectionBlocks::ParserTextSection (XFILET
 
 
 #ifdef XTRACE_ACTIVE
-bool GRPVECTORFILEDXFTextSectionBlocks::ShowTraceAllBlocks()
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ShowTraceAllBlocks()
 { 
    for(XDWORD c=0; c<blocks.GetSize(); c++)
    {
       GRPVECTORFILEDXFTextBlock* block = blocks.Get(c);
       if(block)
       {
-         XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTextSectionBlocks] (%3d) Block %c [%s] (%d) values."), c, (block->IsEndBlock()?__C('<'):__C('>')), block->GetName()->Get(), block->GetValues()->GetSize());
+         XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONBLOCKS] (%3d) Block %c [%s] (%d) values."), c, (block->IsEndBlock()?__C('<'):__C('>')), block->GetName()->Get(), block->GetValues()->GetSize());
       }
    }
 
@@ -492,7 +492,7 @@ bool GRPVECTORFILEDXFTextSectionBlocks::ShowTraceAllBlocks()
 #endif
 
 
-void GRPVECTORFILEDXFTextSectionBlocks::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTIONBLOCKS::Clean ( )
 {
   
 }

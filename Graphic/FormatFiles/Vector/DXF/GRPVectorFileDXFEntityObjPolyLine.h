@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjPolyLine_h_
-#define _GRPVECTORFILEDXFEntityObjPolyLine_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjPolyLine_h_
+#define _GRPVECTORFILEDXFENTITYObjPolyLine_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,20 +18,20 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjPolyLine : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjPolyLine : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjPolyLine (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjPolyLine ();
+      GRPVECTORFILEDXFENTITYObjPolyLine (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjPolyLine ();
 
       double GetThickness (); 
       void SetThickness (double thickness); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFEntityDefPoint* dirExtrusion );
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
+      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    
@@ -39,7 +39,7 @@ class GRPVECTORFILEDXFEntityObjPolyLine : public GRPVECTORFILEDXFEntityObj
       
       double thickness; // Thickness (default=0.0).
 
-      GRPVECTORFILEDXFEntityDefPoint dirExtrusion ; // Extrusion direction.
+      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
 };
 
 #pragma endregion

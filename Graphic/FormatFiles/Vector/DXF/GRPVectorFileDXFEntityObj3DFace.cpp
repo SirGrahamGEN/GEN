@@ -1,6 +1,6 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityObj3DFace.h"
+#include "GRPVectorFileDXFEntityObj3DFace.h"
 
 #pragma endregion
 
@@ -11,28 +11,28 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObj3DFace::GRPVECTORFILEDXFEntityObj3DFace (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObj3DFace::GRPVECTORFILEDXFENTITYObj3DFace (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_3DFace;
+   type = GRPVECTORFILEDXFENTITYObjType_3DFace;
 }
 
 
-GRPVECTORFILEDXFEntityObj3DFace::~GRPVECTORFILEDXFEntityObj3DFace ( )
+GRPVECTORFILEDXFENTITYObj3DFace::~GRPVECTORFILEDXFENTITYObj3DFace ( )
 { 
    Clean();
 }
 
-bool GRPVECTORFILEDXFEntityObj3DFace::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObj3DFace::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
  
    return true;
 }
 
 
-void GRPVECTORFILEDXFEntityObj3DFace::Clean ( )
+void GRPVECTORFILEDXFENTITYObj3DFace::Clean ( )
 {
    
 }

@@ -7,8 +7,8 @@
 #include "XString.h"
 #include "XVector.h"
 
-#include "GRPVECTORFILEDXFValue.h"
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFValue.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
 
 #pragma endregion
 
@@ -31,16 +31,16 @@ class GRPVECTORFILEDXFTextBlock
       bool IsEndBlock ();
       void SetIsEndBlock (bool isEndBlock);
       
-      bool AddValue (GRPVECTORFILEDXFValue* value);
-      XVECTOR<GRPVECTORFILEDXFValue*>* GetValues ();
-      GRPVECTORFILEDXFValue* GetValue (int index);
+      bool AddValue (GRPVECTORFILEDXFVALUE* value);
+      XVECTOR<GRPVECTORFILEDXFVALUE*>* GetValues ();
+      GRPVECTORFILEDXFVALUE* GetValue (int index);
       bool DeleteValue (int index);
       bool DeleteAllValues ();
       
-      XVECTOR<GRPVECTORFILEDXFXDataCtrl*>* GetXDataCtrlList();
+      XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GetXDataCtrlList();
 
-      GRPVECTORFILEDXFTextSectionEntities* GetSectionEntities ();
-      void SetSectionEntities (GRPVECTORFILEDXFTextSectionEntities* section);
+      GRPVECTORFILEDXFTEXTSECTIONENTITIES* GetSectionEntities ();
+      void SetSectionEntities (GRPVECTORFILEDXFTEXTSECTIONENTITIES* section);
       
    private: 
    
@@ -49,10 +49,10 @@ class GRPVECTORFILEDXFTextBlock
       XSTRING name;
       bool isEndBlock;
       
-      XVECTOR<GRPVECTORFILEDXFValue*> values;
-      XVECTOR<GRPVECTORFILEDXFXDataCtrl*> xDataCtrlList;
+      XVECTOR<GRPVECTORFILEDXFVALUE*> values;
+      XVECTOR<GRPVECTORFILEDXFXDATACTRL*> xDataCtrlList;
 
-      GRPVECTORFILEDXFTextSectionEntities* entitiesSection;
+      GRPVECTORFILEDXFTEXTSECTIONENTITIES* entitiesSection;
 };
 
 #pragma endregion

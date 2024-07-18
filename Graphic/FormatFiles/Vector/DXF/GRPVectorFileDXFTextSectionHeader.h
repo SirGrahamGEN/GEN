@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFTextSectionHeader_h_
-#define _GRPVECTORFILEDXFTextSectionHeader_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTIONHEADER_h_
+#define _GRPVECTORFILEDXFTEXTSECTIONHEADER_h_
 
 #pragma region INCLUDES
 
@@ -10,15 +10,15 @@
 #include "XFileTXT.h"
 
 #include "GRPVectorFile.h"
-#include "GRPVECTORFILEDXFTextSection.h"
+#include "GRPVectorFileDXFTextSection.h"
 
 #pragma endregion
 
 
 #pragma region DEFINES_ENUMS
 
-#define GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar  283
-#define GRPVECTORFILEDXFTextSectionHeader_MaxNVar     3
+#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar  283
+#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar     3
 
 #pragma endregion
 
@@ -30,25 +30,25 @@ typedef struct
    int valuetype;
    XCHAR* valuename;   
 
-} GRPVECTORFILEDXFTextSectionHeaderDefValue;
+} GRPVECTORFILEDXFTEXTSECTIONHEADERDefValue;
 
 
 typedef struct
 {
    XCHAR* name;
    int nvalues;
-   GRPVECTORFILEDXFTextSectionHeaderDefValue value[GRPVECTORFILEDXFTextSectionHeader_MaxNVar];
+   GRPVECTORFILEDXFTEXTSECTIONHEADERDefValue value[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
    XCHAR* remark;
 
-} GRPVECTORFILEDXFTextSectionHeaderDefVariable;
+} GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable;
 
 
-class GRPVECTORFILEDXFTextSectionHeader : public GRPVECTORFILEDXFTextSection
+class GRPVECTORFILEDXFTEXTSECTIONHEADER : public GRPVECTORFILEDXFTEXTSECTION
 {
   public:
 
-    GRPVECTORFILEDXFTextSectionHeader ();
-    virtual ~GRPVECTORFILEDXFTextSectionHeader ();
+    GRPVECTORFILEDXFTEXTSECTIONHEADER ();
+    virtual ~GRPVECTORFILEDXFTEXTSECTIONHEADER ();
     
     bool IsKnownVariable( XSTRING& namevar );
     bool AddVariable ( XCHAR* namevar, XVARIANT* variant );
@@ -65,7 +65,7 @@ class GRPVECTORFILEDXFTextSectionHeader : public GRPVECTORFILEDXFTextSection
     bool ShowTraceAllVariables ();
     #endif
 
-    static GRPVECTORFILEDXFTextSectionHeaderDefVariable defvariable[GRPVECTORFILEDXFTextSectionHeader_MaxNDefVar];
+    static GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar];
 
   private:
     

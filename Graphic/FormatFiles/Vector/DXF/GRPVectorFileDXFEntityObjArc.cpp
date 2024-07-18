@@ -1,7 +1,7 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFTextSectionEntities.h"
-#include "GRPVECTORFILEDXFEntityObjArc.h"
+#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "GRPVectorFileDXFEntityObjArc.h"
 
 #pragma endregion
 
@@ -12,27 +12,27 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObjArc::GRPVECTORFILEDXFEntityObjArc (XCHAR* nameType) : GRPVECTORFILEDXFEntityObj (nameType)
+GRPVECTORFILEDXFENTITYObjArc::GRPVECTORFILEDXFENTITYObjArc (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFEntityObjType_Arc;
+   type = GRPVECTORFILEDXFENTITYObjType_Arc;
 }
 
 
-GRPVECTORFILEDXFEntityObjArc::~GRPVECTORFILEDXFEntityObjArc ( )
+GRPVECTORFILEDXFENTITYObjArc::~GRPVECTORFILEDXFENTITYObjArc ( )
 { 
    Clean();
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjArc::GetCenter()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjArc::GetCenter()
 {
    return &center;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjArc::SetCenter(GRPVECTORFILEDXFEntityDefPoint* center)
+bool GRPVECTORFILEDXFENTITYObjArc::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
 {
    if(!center) return false;
 
@@ -42,61 +42,61 @@ bool GRPVECTORFILEDXFEntityObjArc::SetCenter(GRPVECTORFILEDXFEntityDefPoint* cen
 }
 
 
-double GRPVECTORFILEDXFEntityObjArc::GetIniAngle ( )
+double GRPVECTORFILEDXFENTITYObjArc::GetIniAngle ( )
 {
    return iniAngle;
 }
 
 
-void GRPVECTORFILEDXFEntityObjArc::SetIniAngle (double angle)
+void GRPVECTORFILEDXFENTITYObjArc::SetIniAngle (double angle)
 {
    this->iniAngle = angle;
 }
 
 
-double GRPVECTORFILEDXFEntityObjArc::GetEndAngle ( )
+double GRPVECTORFILEDXFENTITYObjArc::GetEndAngle ( )
 {
    return endAngle;
 }
 
 
-void GRPVECTORFILEDXFEntityObjArc::SetEndAngle (double angle)
+void GRPVECTORFILEDXFENTITYObjArc::SetEndAngle (double angle)
 {
    this->endAngle = angle;
 }
 
 
-double GRPVECTORFILEDXFEntityObjArc::GetRadius ( )
+double GRPVECTORFILEDXFENTITYObjArc::GetRadius ( )
 {
    return radius;
 }
 
 
-void GRPVECTORFILEDXFEntityObjArc::SetRadius (double radius)
+void GRPVECTORFILEDXFENTITYObjArc::SetRadius (double radius)
 {
    this->radius = radius;
 }
 
 
-double GRPVECTORFILEDXFEntityObjArc::GetThickness ( )
+double GRPVECTORFILEDXFENTITYObjArc::GetThickness ( )
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFEntityObjArc::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYObjArc::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFEntityDefPoint* GRPVECTORFILEDXFEntityObjArc::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjArc::GetDirExtrusion()
 {
    return &dirExtrusion;
 }
 
 
-bool GRPVECTORFILEDXFEntityObjArc::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoint* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYObjArc::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
 {
    if(!dirExtrusion) return false;
 
@@ -106,11 +106,11 @@ bool GRPVECTORFILEDXFEntityObjArc::SetDirExtrusion(GRPVECTORFILEDXFEntityDefPoin
 }
 
 
-bool GRPVECTORFILEDXFEntityObjArc::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObjArc::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFEntityObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
    
    value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
    if(value) 
@@ -176,7 +176,7 @@ bool GRPVECTORFILEDXFEntityObjArc::ApplyData(GRPVECTORFILEDXFEntity* entity)
 }
 
 
-void GRPVECTORFILEDXFEntityObjArc::Clean ( )
+void GRPVECTORFILEDXFENTITYObjArc::Clean ( )
 {
    radius = 0.0f;
 

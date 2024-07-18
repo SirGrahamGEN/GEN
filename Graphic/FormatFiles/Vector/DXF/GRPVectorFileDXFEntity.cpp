@@ -1,94 +1,247 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntity.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITY
+* @brief      Graphic Vector File DXF Entity class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXFEntity.h"
 
 #include "XMap.h"
 #include "XVariant.h"
 
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVECTORFILEDXFEntity.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntity::GRPVECTORFILEDXFEntity ( )
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITY::GRPVECTORFILEDXFENTITY()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITY::GRPVECTORFILEDXFENTITY()
 {
-   Clean();   
+  Clean();   
 }
 
 
-GRPVECTORFILEDXFEntity::~GRPVECTORFILEDXFEntity ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITY::~GRPVECTORFILEDXFENTITY()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITY::~GRPVECTORFILEDXFENTITY()
 {
-   DeleteAllValues();
+  DeleteAllValues();
 
-   Clean();
+  Clean();
 }
 
 
-XSTRING* GRPVECTORFILEDXFEntity::GetName ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPVECTORFILEDXFENTITY::GetName()
+* @brief      GetName
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPVECTORFILEDXFENTITY::GetName()
 {
-   return &name;
+  return &name;
 }
 
 
-bool GRPVECTORFILEDXFEntity::AddValue (GRPVECTORFILEDXFValue* value)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITY::AddValue(GRPVECTORFILEDXFVALUE* value)
+* @brief      AddValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITY::AddValue(GRPVECTORFILEDXFVALUE* value)
 {    
-   values.Add(value);
+  values.Add(value);
 
-   return true;
+  return true;
 }
 
 
-XVECTOR<GRPVECTORFILEDXFValue*>* GRPVECTORFILEDXFEntity::GetValues ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFENTITY::GetValues()
+* @brief      GetValues
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFVALUE*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<GRPVECTORFILEDXFVALUE*>* GRPVECTORFILEDXFENTITY::GetValues()
 {
-   return &values;
+  return &values;
 }
 
 
-GRPVECTORFILEDXFValue* GRPVECTORFILEDXFEntity::GetValue (int index)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITY::GetValue(int index)
+* @brief      GetValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  index : 
+* 
+* @return     GRPVECTORFILEDXFVALUE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITY::GetValue(int index)
 {
-   if(values.IsEmpty()) return NULL;
+  if(values.IsEmpty()) 
+    {
+      return NULL;
+    }
 
-   return values.Get(index);   
+  return values.Get(index);   
 }
 
-bool GRPVECTORFILEDXFEntity::DeleteValue(int index)
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITY::DeleteValue(int index)
+* @brief      DeleteValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  index : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITY::DeleteValue(int index)
 {
-   if(values.IsEmpty()) return false;
+  if(values.IsEmpty()) 
+    {
+      return false;
+    }
 
-   return values.Delete(GetValue(index));
-
+  return values.Delete(GetValue(index));
 }
 
 
-bool GRPVECTORFILEDXFEntity::DeleteAllValues()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITY::DeleteAllValues()
+* @brief      DeleteAllValues
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITY::DeleteAllValues()
 {
-   if(values.IsEmpty()) return false;
+  if(values.IsEmpty()) 
+    {
+      return false;
+    }
 
-   values.DeleteContents();
-   values.DeleteAll(); 
+  values.DeleteContents();
+  values.DeleteAll(); 
    
-   xDataCtrlList.DeleteContents();
-   xDataCtrlList.DeleteAll();
+  xdatactrllist.DeleteContents();
+  xdatactrllist.DeleteAll();
 
-   return false;
+  return false;
 }
 
 
-XVECTOR<GRPVECTORFILEDXFXDataCtrl*>* GRPVECTORFILEDXFEntity::GetXDataCtrlList()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::Getxdatactrllist()
+* @brief      Getxdatactrllist
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::Getxdatactrllist()
 {
-   return &xDataCtrlList;
+  return &xdatactrllist;
 }
 
 
-void GRPVECTORFILEDXFEntity::Clean ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITY::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITY::Clean()
 {
   
 }
 
+
 #pragma endregion
+
+
+
+
+
+
+
+

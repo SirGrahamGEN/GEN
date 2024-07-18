@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFTextSectionEntities_h_
-#define _GRPVECTORFILEDXFTextSectionEntities_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTIONENTITIES_h_
+#define _GRPVECTORFILEDXFTEXTSECTIONENTITIES_h_
 
 #pragma region INCLUDES
 
@@ -9,9 +9,9 @@
 #include "XString.h"
 
 #include "GRPVectorFile.h"
-#include "GRPVECTORFILEDXFEntity.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
-#include "GRPVECTORFILEDXFTextSection.h"
+#include "GRPVectorFileDXFEntity.h"
+#include "GRPVectorFileDXFEntityObj.h"
+#include "GRPVectorFileDXFTextSection.h"
 
 #pragma endregion
 
@@ -60,7 +60,7 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFXDataCtrl;
+class GRPVECTORFILEDXFXDATACTRL;
 
 typedef struct
 {
@@ -68,31 +68,31 @@ typedef struct
    XCHAR* name;   
    XCHAR* remark;   
 
-} GRPVECTORFILEDXFTextSectionEntityDefType;
+} GRPVECTORFILEDXFTEXTSECTIONEntityDefType;
 
 
 typedef struct
 {
    XCHAR* name;
    int ntypes;
-   GRPVECTORFILEDXFTextSectionEntityDefType type[GRPVECTORFILEDXFEntities_MaxNDefTypes];
+   GRPVECTORFILEDXFTEXTSECTIONEntityDefType type[GRPVECTORFILEDXFEntities_MaxNDefTypes];
 
-} GRPVECTORFILEDXFTextSectionEntityDef;
+} GRPVECTORFILEDXFTEXTSECTIONEntityDef;
 
 
-class GRPVECTORFILEDXFTextSectionEntities : public GRPVECTORFILEDXFTextSection
+class GRPVECTORFILEDXFTEXTSECTIONENTITIES : public GRPVECTORFILEDXFTEXTSECTION
 {
   public:
 
-    GRPVECTORFILEDXFTextSectionEntities ();
-    virtual ~GRPVECTORFILEDXFTextSectionEntities ();
+    GRPVECTORFILEDXFTEXTSECTIONENTITIES ();
+    virtual ~GRPVECTORFILEDXFTEXTSECTIONENTITIES ();
 
     bool IsKnownEntity( XSTRING& nameentity );
-    GRPVECTORFILEDXFTextSectionEntityDefType* IsKnownTypeValue( XSTRING& nameentity, int type );
+    GRPVECTORFILEDXFTEXTSECTIONEntityDefType* IsKnownTypeValue( XSTRING& nameentity, int type );
     
-    bool AddEntity ( GRPVECTORFILEDXFEntity* entity );
-    XVECTOR<GRPVECTORFILEDXFEntity*>* GetEntities ();
-    GRPVECTORFILEDXFEntity* GetEntity ( XCHAR* nameEntity, XDWORD index );
+    bool AddEntity ( GRPVECTORFILEDXFENTITY* entity );
+    XVECTOR<GRPVECTORFILEDXFENTITY*>* GetEntities ();
+    GRPVECTORFILEDXFENTITY* GetEntity ( XCHAR* nameEntity, XDWORD index );
     bool DeleteEntity( XCHAR* nameEntity, XDWORD index );
     bool DeleteAllEntities(XCHAR* nameEntity);
     bool DeleteAllEntities();
@@ -100,7 +100,7 @@ class GRPVECTORFILEDXFTextSectionEntities : public GRPVECTORFILEDXFTextSection
     XMAP<XSTRING*, int>* GetEnumEntitys();
     int GetNEntitys(XCHAR* nameEntity);
 
-    XVECTOR<GRPVECTORFILEDXFEntityObj*>* GetEntitiesObj();
+    XVECTOR<GRPVECTORFILEDXFENTITYObj*>* GetEntitiesObj();
     bool DeleteAllEntitiesObj();
 
     GRPVECTORFILERESULT ParserTextSection ( XFILETXT* fileTXT );
@@ -118,10 +118,10 @@ class GRPVECTORFILEDXFTextSectionEntities : public GRPVECTORFILEDXFTextSection
     
     void Clean ();  
     
-    static GRPVECTORFILEDXFTextSectionEntityDef defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities];
+    static GRPVECTORFILEDXFTEXTSECTIONEntityDef defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities];
     XMAP<XSTRING*, int> enumentities;
-    XVECTOR<GRPVECTORFILEDXFEntity*> entities;
-    XVECTOR<GRPVECTORFILEDXFEntityObj*> entitiesObj;
+    XVECTOR<GRPVECTORFILEDXFENTITY*> entities;
+    XVECTOR<GRPVECTORFILEDXFENTITYObj*> entitiesObj;
 };
 
 #pragma endregion

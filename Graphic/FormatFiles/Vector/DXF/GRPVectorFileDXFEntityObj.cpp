@@ -1,17 +1,17 @@
 #pragma region INCLUDES
 
-#include "GRPVECTORFILEDXFEntityObj3DFace.h"
-#include "GRPVECTORFILEDXFEntityObjArc.h"
-#include "GRPVECTORFILEDXFEntityObjCircle.h"
-#include "GRPVECTORFILEDXFEntityObjEllipse.h"
-#include "GRPVECTORFILEDXFEntityObjLine.h"
-#include "GRPVECTORFILEDXFEntityObjLWPolyLine.h"
-#include "GRPVECTORFILEDXFEntityObjMText.h"
-#include "GRPVECTORFILEDXFEntityObjPolyLine.h"
-#include "GRPVECTORFILEDXFEntityObjPoint.h"
-#include "GRPVECTORFILEDXFEntityObjText.h"
+#include "GRPVectorFileDXFEntityObj3DFace.h"
+#include "GRPVectorFileDXFEntityObjArc.h"
+#include "GRPVectorFileDXFEntityObjCircle.h"
+#include "GRPVectorFileDXFEntityObjEllipse.h"
+#include "GRPVectorFileDXFEntityObjLine.h"
+#include "GRPVectorFileDXFEntityObjLWPolyLine.h"
+#include "GRPVectorFileDXFEntityObjMText.h"
+#include "GRPVectorFileDXFEntityObjPolyLine.h"
+#include "GRPVectorFileDXFEntityObjPoint.h"
+#include "GRPVectorFileDXFEntityObjText.h"
 
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -22,7 +22,7 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFEntityObj::GRPVECTORFILEDXFEntityObj (XCHAR* nameType)
+GRPVECTORFILEDXFENTITYObj::GRPVECTORFILEDXFENTITYObj (XCHAR* nameType)
 {
    Clean();   
 
@@ -32,34 +32,34 @@ GRPVECTORFILEDXFEntityObj::GRPVECTORFILEDXFEntityObj (XCHAR* nameType)
 }
 
 
-GRPVECTORFILEDXFEntityObj::~GRPVECTORFILEDXFEntityObj ( )
+GRPVECTORFILEDXFENTITYObj::~GRPVECTORFILEDXFENTITYObj ( )
 { 
    Clean();
 }
 
-GRPVECTORFILEDXFEntityObj* GRPVECTORFILEDXFEntityObj::CreateInstance(GRPVECTORFILEDXFEntity* entity)
+GRPVECTORFILEDXFENTITYObj* GRPVECTORFILEDXFENTITYObj::CreateInstance(GRPVECTORFILEDXFENTITY* entity)
 {   
    typedef struct
    {
       XCHAR* entityName;
-      GRPVECTORFILEDXFEntityObjType objType;
+      GRPVECTORFILEDXFENTITYObjType objType;
    
    } ENTITY2CLASS;
 
-   ENTITY2CLASS entity2class[] = { { __L("3DFACE")           , GRPVECTORFILEDXFEntityObjType_3DFace         },
-                                   { __L("ARC")              , GRPVECTORFILEDXFEntityObjType_Arc            },
-                                   { __L("CIRCLE")           , GRPVECTORFILEDXFEntityObjType_Circle         },           
-                                   { __L("ACAD_CIRCLE")      , GRPVECTORFILEDXFEntityObjType_Circle         },
-                                   { __L("ELLIPSE")          , GRPVECTORFILEDXFEntityObjType_Ellipse        },
-                                   { __L("LINE")             , GRPVECTORFILEDXFEntityObjType_Line           },
-                                   { __L("LWPOLYLINE")       , GRPVECTORFILEDXFEntityObjType_LWPolyLine     },
-                                   { __L("MTEXT")            , GRPVECTORFILEDXFEntityObjType_MText          },
-                                   { __L("POINT")            , GRPVECTORFILEDXFEntityObjType_Point          },
-                                   { __L("POLYLINE")         , GRPVECTORFILEDXFEntityObjType_PolyLine       },
-                                   { __L("TEXT")             , GRPVECTORFILEDXFEntityObjType_Text           }
+   ENTITY2CLASS entity2class[] = { { __L("3DFACE")           , GRPVECTORFILEDXFENTITYObjType_3DFace         },
+                                   { __L("ARC")              , GRPVECTORFILEDXFENTITYObjType_Arc            },
+                                   { __L("CIRCLE")           , GRPVECTORFILEDXFENTITYObjType_Circle         },           
+                                   { __L("ACAD_CIRCLE")      , GRPVECTORFILEDXFENTITYObjType_Circle         },
+                                   { __L("ELLIPSE")          , GRPVECTORFILEDXFENTITYObjType_Ellipse        },
+                                   { __L("LINE")             , GRPVECTORFILEDXFENTITYObjType_Line           },
+                                   { __L("LWPOLYLINE")       , GRPVECTORFILEDXFENTITYObjType_LWPolyLine     },
+                                   { __L("MTEXT")            , GRPVECTORFILEDXFENTITYObjType_MText          },
+                                   { __L("POINT")            , GRPVECTORFILEDXFENTITYObjType_Point          },
+                                   { __L("POLYLINE")         , GRPVECTORFILEDXFENTITYObjType_PolyLine       },
+                                   { __L("TEXT")             , GRPVECTORFILEDXFENTITYObjType_Text           }
                                  };
 
-   GRPVECTORFILEDXFEntityObj* entityObj = NULL; 
+   GRPVECTORFILEDXFENTITYObj* entityObj = NULL; 
   
    if(!entity) 
    {
@@ -72,18 +72,18 @@ GRPVECTORFILEDXFEntityObj* GRPVECTORFILEDXFEntityObj::CreateInstance(GRPVECTORFI
       {
          switch(entity2class[c].objType)
          {
-            case GRPVECTORFILEDXFEntityObjType_Unknown      :
+            case GRPVECTORFILEDXFENTITYObjType_Unknown      :
                                             default      : break;
-            case GRPVECTORFILEDXFEntityObjType_3DFace       : entityObj = new GRPVECTORFILEDXFEntityObj3DFace(entity2class[c].entityName);       break; 
-            case GRPVECTORFILEDXFEntityObjType_Arc          : entityObj = new GRPVECTORFILEDXFEntityObjArc(entity2class[c].entityName);          break;            
-            case GRPVECTORFILEDXFEntityObjType_Circle       : entityObj = new GRPVECTORFILEDXFEntityObjCircle(entity2class[c].entityName);       break;          
-            case GRPVECTORFILEDXFEntityObjType_Ellipse      : entityObj = new GRPVECTORFILEDXFEntityObjEllipse(entity2class[c].entityName);      break;         
-            case GRPVECTORFILEDXFEntityObjType_Line         : entityObj = new GRPVECTORFILEDXFEntityObjLine(entity2class[c].entityName);         break;            
-            case GRPVECTORFILEDXFEntityObjType_LWPolyLine   : entityObj = new GRPVECTORFILEDXFEntityObjLWPolyLine(entity2class[c].entityName);   break;      
-            case GRPVECTORFILEDXFEntityObjType_MText        : entityObj = new GRPVECTORFILEDXFEntityObjMText(entity2class[c].entityName);        break;           
-            case GRPVECTORFILEDXFEntityObjType_Point        : entityObj = new GRPVECTORFILEDXFEntityObjPoint(entity2class[c].entityName);        break;           
-            case GRPVECTORFILEDXFEntityObjType_PolyLine     : entityObj = new GRPVECTORFILEDXFEntityObjPolyLine(entity2class[c].entityName);     break;        
-            case GRPVECTORFILEDXFEntityObjType_Text         : entityObj = new GRPVECTORFILEDXFEntityObjText(entity2class[c].entityName);         break;                              
+            case GRPVECTORFILEDXFENTITYObjType_3DFace       : entityObj = new GRPVECTORFILEDXFENTITYObj3DFace(entity2class[c].entityName);       break; 
+            case GRPVECTORFILEDXFENTITYObjType_Arc          : entityObj = new GRPVECTORFILEDXFENTITYObjArc(entity2class[c].entityName);          break;            
+            case GRPVECTORFILEDXFENTITYObjType_Circle       : entityObj = new GRPVECTORFILEDXFENTITYObjCircle(entity2class[c].entityName);       break;          
+            case GRPVECTORFILEDXFENTITYObjType_Ellipse      : entityObj = new GRPVECTORFILEDXFENTITYObjEllipse(entity2class[c].entityName);      break;         
+            case GRPVECTORFILEDXFENTITYObjType_Line         : entityObj = new GRPVECTORFILEDXFENTITYObjLine(entity2class[c].entityName);         break;            
+            case GRPVECTORFILEDXFENTITYObjType_LWPolyLine   : entityObj = new GRPVECTORFILEDXFENTITYObjLWPolyLine(entity2class[c].entityName);   break;      
+            case GRPVECTORFILEDXFENTITYObjType_MText        : entityObj = new GRPVECTORFILEDXFENTITYObjMText(entity2class[c].entityName);        break;           
+            case GRPVECTORFILEDXFENTITYObjType_Point        : entityObj = new GRPVECTORFILEDXFENTITYObjPoint(entity2class[c].entityName);        break;           
+            case GRPVECTORFILEDXFENTITYObjType_PolyLine     : entityObj = new GRPVECTORFILEDXFENTITYObjPolyLine(entity2class[c].entityName);     break;        
+            case GRPVECTORFILEDXFENTITYObjType_Text         : entityObj = new GRPVECTORFILEDXFENTITYObjText(entity2class[c].entityName);         break;                              
          }
       }
    }
@@ -97,69 +97,69 @@ GRPVECTORFILEDXFEntityObj* GRPVECTORFILEDXFEntityObj::CreateInstance(GRPVECTORFI
 }
 
 
-GRPVECTORFILEDXFEntityObjType GRPVECTORFILEDXFEntityObj::GetType()
+GRPVECTORFILEDXFENTITYObjType GRPVECTORFILEDXFENTITYObj::GetType()
 {
    return type;
 }
 
 
-XSTRING* GRPVECTORFILEDXFEntityObj::GetNameType()
+XSTRING* GRPVECTORFILEDXFENTITYObj::GetNameType()
 {
    return &nameType;
 }
 
 
-XSTRING* GRPVECTORFILEDXFEntityObj::GetLayerName ( )
+XSTRING* GRPVECTORFILEDXFENTITYObj::GetLayerName ( )
 {
    return &layerName;
 }
 
 
-int GRPVECTORFILEDXFEntityObj::GetLineColor ( )
+int GRPVECTORFILEDXFENTITYObj::GetLineColor ( )
 {
    return lineColor;
 }
 
 
-void GRPVECTORFILEDXFEntityObj::SetLineColor (int lineColor)
+void GRPVECTORFILEDXFENTITYObj::SetLineColor (int lineColor)
 {
    this->lineColor = lineColor;
 }
 
 
-XSTRING* GRPVECTORFILEDXFEntityObj::GetLineTypeName ( )
+XSTRING* GRPVECTORFILEDXFENTITYObj::GetLineTypeName ( )
 {
    return &lineTypeName;
 }
 
 
-int GRPVECTORFILEDXFEntityObj::GetTypeSpace ()
+int GRPVECTORFILEDXFENTITYObj::GetTypeSpace ()
 {
    return typeSpace;
 }
  
 
-void GRPVECTORFILEDXFEntityObj::SetTypeSpace (int typeSpace)
+void GRPVECTORFILEDXFENTITYObj::SetTypeSpace (int typeSpace)
 {
    this->typeSpace = typeSpace;
 }
 
 
-bool GRPVECTORFILEDXFEntityObj::GetVisibility()
+bool GRPVECTORFILEDXFENTITYObj::GetVisibility()
 {
    return visibility;
 }
       
      
-void GRPVECTORFILEDXFEntityObj::SetVisibility(bool visibility)
+void GRPVECTORFILEDXFENTITYObj::SetVisibility(bool visibility)
 {
    this->visibility = visibility;
 }
 
 
-bool GRPVECTORFILEDXFEntityObj::ApplyData(GRPVECTORFILEDXFEntity* entity)
+bool GRPVECTORFILEDXFENTITYObj::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFValue* value;
+   GRPVECTORFILEDXFVALUE* value;
    
    value = GetDataValue(__L("G_LAYER_NAME"), entity);   
    if(value) 
@@ -195,13 +195,13 @@ bool GRPVECTORFILEDXFEntityObj::ApplyData(GRPVECTORFILEDXFEntity* entity)
 }
 
 
-GRPVECTORFILEDXFValue* GRPVECTORFILEDXFEntityObj::GetDataValue(int type, GRPVECTORFILEDXFEntity* entity)
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYObj::GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity)
 {
    if(!entity) return NULL;
 
    for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
    {
-      GRPVECTORFILEDXFValue* value = entity->GetValues()->Get(c);
+      GRPVECTORFILEDXFVALUE* value = entity->GetValues()->Get(c);
       if(value)
       {
          if(value->GetType() == type)
@@ -215,13 +215,13 @@ GRPVECTORFILEDXFValue* GRPVECTORFILEDXFEntityObj::GetDataValue(int type, GRPVECT
 }
 
 
-GRPVECTORFILEDXFValue* GRPVECTORFILEDXFEntityObj::GetDataValue(XCHAR* name, GRPVECTORFILEDXFEntity* entity)
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYObj::GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity)
 {
    if(!entity) return NULL;
 
    for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
    {
-      GRPVECTORFILEDXFValue* value = entity->GetValues()->Get(c);
+      GRPVECTORFILEDXFVALUE* value = entity->GetValues()->Get(c);
       if(value)
       {
          if(!value->GetName()->Compare(name, true))
@@ -234,9 +234,9 @@ GRPVECTORFILEDXFValue* GRPVECTORFILEDXFEntityObj::GetDataValue(XCHAR* name, GRPV
    return NULL;
 }
 
-void GRPVECTORFILEDXFEntityObj::Clean ( )
+void GRPVECTORFILEDXFENTITYObj::Clean ( )
 {
-   type = GRPVECTORFILEDXFEntityObjType_Unknown;
+   type = GRPVECTORFILEDXFENTITYObjType_Unknown;
    nameType.Empty();
 
    layerName.Empty();

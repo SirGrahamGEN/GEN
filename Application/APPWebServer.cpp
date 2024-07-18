@@ -563,10 +563,11 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
                   XSTRING IPstring;
                   connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);           
 
-                  if(status == XLOGLEVEL_ERROR)
+                  if(!status)
                     {
                       APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server \"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
                     }
+
                   ispagepluging = true;
                 }
             }
@@ -640,7 +641,7 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
               XSTRING IPstring;
               connection->GetDIOStream()->GetClientIP()->GetXString(IPstring);   
 
-              if(status == XLOGLEVEL_ERROR)
+              if(!status)
                 {
                   APP_LOG_ENTRY((status?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), DIOWEBSERVER_LOGSECTIONID, false, __L("Request from [%s] to the web server\"%s\" %s."), IPstring.Get(), resourceconv.Get(), status?__L("sent"):__L("not send"));
                 }

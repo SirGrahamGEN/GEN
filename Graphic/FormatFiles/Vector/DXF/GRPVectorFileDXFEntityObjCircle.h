@@ -1,13 +1,13 @@
 
-#ifndef _GRPVECTORFILEDXFEntityObjCircle_h_
-#define _GRPVECTORFILEDXFEntityObjCircle_h_
+#ifndef _GRPVECTORFILEDXFENTITYObjCircle_h_
+#define _GRPVECTORFILEDXFENTITYObjCircle_h_
 
 #pragma region INCLUDES
 
 #include "XString.h"
 
-#include "GRPVECTORFILEDXFEntityDefPoint.h"
-#include "GRPVECTORFILEDXFEntityObj.h"
+#include "GRPVectorFileDXFEntityDefPoint.h"
+#include "GRPVectorFileDXFEntityObj.h"
 
 #pragma endregion
 
@@ -18,15 +18,15 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFEntityObjCircle : public GRPVECTORFILEDXFEntityObj
+class GRPVECTORFILEDXFENTITYObjCircle : public GRPVECTORFILEDXFENTITYObj
 {  
    public: 
       
-      GRPVECTORFILEDXFEntityObjCircle (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFEntityObjCircle ();
+      GRPVECTORFILEDXFENTITYObjCircle (XCHAR* nameType);
+      virtual ~GRPVECTORFILEDXFENTITYObjCircle ();
 
-      GRPVECTORFILEDXFEntityDefPoint* GetCenter(); 
-      bool SetCenter(GRPVECTORFILEDXFEntityDefPoint* center); 
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetCenter(); 
+      bool SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center); 
       
       double GetRadius (); 
       void SetRadius (double radius); 
@@ -34,22 +34,22 @@ class GRPVECTORFILEDXFEntityObjCircle : public GRPVECTORFILEDXFEntityObj
       double GetThickness (); 
       void SetThickness (double thickness); 
 
-      GRPVECTORFILEDXFEntityDefPoint* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFEntityDefPoint* dirExtrusion );
+      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
+      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
 
-      virtual bool ApplyData(GRPVECTORFILEDXFEntity* entity);
+      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
    private: 
    
       void Clean ();   
           
-      GRPVECTORFILEDXFEntityDefPoint center; // Center point.     
+      GRPVECTORFILEDXFENTITYDEFPOINT center; // Center point.     
       
       double radius; // Radius.
 
       double thickness; // Thickness (default=0.0).          
 
-      GRPVECTORFILEDXFEntityDefPoint dirExtrusion ; // Extrusion direction.
+      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
 };
 
 #pragma endregion
