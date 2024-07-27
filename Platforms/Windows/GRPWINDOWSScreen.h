@@ -63,21 +63,29 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     virtual                              ~GRPWINDOWSSCREEN                    ();
 
     bool                                  Create                              (bool show);
+
     bool                                  Update                              ();
     bool                                  Update                              (GRPCANVAS* canvas);
     bool                                  UpdateTransparent                   (GRPCANVAS* canvas);
+
     bool                                  Get_Position                        (int &x, int &y);
     bool                                  Set_Position                        (int x, int y);
+
     bool                                  Delete                              ();
+
     bool                                  Resize                              (int width, int height);
+    
     bool                                  Show                                (bool active);
     bool                                  ShowCursor                          (bool active);
-    bool                                  ShowTopMost                         (bool active);
+    
     void*                                 GetHandle                           ();
     void                                  SetHandle                           (void* handle_window);
+
     bool                                  Set_Focus                           ();
+
     bool                                  Minimize                            (bool active);
     bool                                  Maximize                            (bool active);
+
     GRPBITMAP*                            CaptureContent                      (GRPRECTINT* rect = NULL, void* handle_window = NULL);
     
     void*                                 GetDesktopHandle                    ();
@@ -90,16 +98,16 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
   
     bool                                  IsBlockClose                        ();
     void                                  SetIsBlockClose                     (bool activated);
-
-    static XMAP<HWND, GRPWINDOWSSCREEN*>* GetListScreens                      (); 
-  
+    
   private:
 
-    void                                  Clean                               ();
+    int                                   GetTaskbarHeight                    ();
 
     bool                                  Create_Window                       (bool show);
 
-    static  LRESULT CALLBACK              BaseWndProc                         (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);
+    static  LRESULT CALLBACK              BaseWndProc                         (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam); 
+
+    void                                  Clean                               ();
 
     WNDCLASSEX                            wndclass;
     XSTRING                               classname;
@@ -112,8 +120,6 @@ class GRPWINDOWSSCREEN : public GRPSCREEN
     DEVMODE                               devmode;
 
     BITMAPINFO                            hinfo;
-
-    static XMAP<HWND, GRPWINDOWSSCREEN*>  listscreens;
 };
 
 #pragma endregion

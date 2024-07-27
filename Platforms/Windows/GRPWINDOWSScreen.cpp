@@ -40,6 +40,8 @@
 
 #include "GRPWINDOWSScreen.h"
 
+#include "XWINDOWSDesktopManager.h"
+
 #include "XTrace.h"
 #include "XSystem.h"
 
@@ -49,6 +51,7 @@
 #include "GRPCanvas.h"
 #include "GRPBitmap.h"
 
+
 #include "XMemory_Control.h"
 
 
@@ -57,8 +60,6 @@
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
-
-XMAP<HWND, GRPWINDOWSSCREEN*>  GRPWINDOWSSCREEN::listscreens;
 
 #pragma endregion
 
@@ -108,8 +109,6 @@ GRPWINDOWSSCREEN::GRPWINDOWSSCREEN(): GRPSCREEN()
       rectworkarea->y2 = workarea.bottom;
     }
 
-
-
   SetMode(GRPPROPERTYMODE_32_BGRA_8888);
 
   SetIsBufferInverse(false);
@@ -148,7 +147,7 @@ bool GRPWINDOWSSCREEN::Create(bool show)
 
   Buffer_Create();
 
-  listscreens.Add(hwnd, this);
+   GRPSCREEN::GetListScreens()->Add((void*)hwnd, this);
 
   return GRPSCREEN::Create(show);
 }
@@ -460,6 +459,7 @@ bool GRPWINDOWSSCREEN::Resize(int width, int height)
 }
 
 
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPWINDOWSSCREEN::Show(bool active)
@@ -500,28 +500,6 @@ bool GRPWINDOWSSCREEN::ShowCursor(bool active)
   if(!hwnd) return false;
 
   return ::ShowCursor(active?TRUE:FALSE)?true:false;
-}
-
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPWINDOWSSCREEN::ShowTopMost(bool active)
-* @brief      ShowTopMost
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  active :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPWINDOWSSCREEN::ShowTopMost(bool active)
-{
-  if(!hwnd) return false;
-
-  ::SetWindowPos(hwnd, (active ? HWND_TOPMOST : HWND_NOTOPMOST), 0, 0 , 0 , 0, SWP_NOMOVE | SWP_NOSIZE);
-
-  return true;
 }
 
 
@@ -832,32 +810,25 @@ void GRPWINDOWSSCREEN::SetIsBlockClose(bool activated)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
-* @brief      GetListScreens
+* @fn         int GRPWINDOWSSCREEN::GetTaskbarHeight()
+* @brief      GetTaskbarHeight
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     XMAP<HWND, GRPWINDOWSSCREEN*>* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XMAP<HWND, GRPWINDOWSSCREEN*>* GRPWINDOWSSCREEN::GetListScreens()
-{
-  return &listscreens;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void GRPWINDOWSSCREEN::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-*
+* @return     int : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPWINDOWSSCREEN::Clean()
+int GRPWINDOWSSCREEN::GetTaskbarHeight()
 {
-  hinstance       = NULL;
-  hwnd            = NULL;
-  hdc             = NULL;
+  int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+  int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+  RECT workArea;
+  SystemParametersInfo(SPI_GETWORKAREA, 0, &workArea, 0);
+
+  
+  int taskbarHeight = screenHeight - (workArea.bottom - workArea.top);
+
+  return taskbarHeight;
 }
 
 
@@ -872,10 +843,12 @@ void GRPWINDOWSSCREEN::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSSCREEN::Create_Window(bool show)
 {
-  // need to move actual windows creation code to it's own function
-  // add a function to destroy the window
+  //-----------------------------------------------------------------------------------------------------
 
-  if(hwnd) return false;
+  if(hwnd) 
+    {
+      return false;
+    }
 
   hinstance = (HINSTANCE)mainprocwindows.GetHandle();
 
@@ -885,7 +858,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   title                   = __L(" ");
 
   wndclass.cbSize         = sizeof(wndclass);
-  wndclass.style          = CS_HREDRAW | CS_VREDRAW| CS_OWNDC;
+  wndclass.style          = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
   wndclass.lpfnWndProc    = BaseWndProc;
   wndclass.cbClsExtra     = 0;
   wndclass.cbWndExtra     = 0;
@@ -902,45 +875,117 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   RegisterClassEx(&wndclass);
 
   //-----------------------------------------------------------------------------------------------------
-       
-  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
+
+  DWORD   _exstyle = 0;
+  DWORD   _style   = 0;
+  int     posx     = 0;
+  int     posy     = 0;
+
+
+  if(Styles_IsFullScreen())          
     {
-      DEVMODE devmode;
+      if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
+        {
+           DEVMODE devmode;
 
-      memset(&devmode, 0, sizeof(DEVMODE));
+          memset(&devmode, 0, sizeof(DEVMODE));
 
-      devmode.dmSize       = sizeof(DEVMODE);
-      devmode.dmPelsWidth  = width;
-      devmode.dmPelsHeight = height;
-      devmode.dmBitsPerPel = GetBitsperPixel();
-      devmode.dmFields     = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+          devmode.dmSize       = sizeof(DEVMODE);
+          devmode.dmPelsWidth  = width;
+          devmode.dmPelsHeight = height;
+          devmode.dmBitsPerPel = GetBitsperPixel();
+          devmode.dmFields     = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
 
-      LONG status = ChangeDisplaySettings(&devmode, CDS_FULLSCREEN);
+          LONG status = ChangeDisplaySettings(&devmode, CDS_FULLSCREEN);
 
-      //XTRACE_PRINTCOLOR(1, __L("ChangeDisplaySettings Status: %ld"), status);
+          //XTRACE_PRINTCOLOR(1, __L("ChangeDisplaySettings Status: %ld"), status);
 
-      if(status != DISP_CHANGE_SUCCESSFUL) return NULL;
+          if(status != DISP_CHANGE_SUCCESSFUL) return NULL;
+        }
+       else 
+        {
+       
+          if( Style_Is(GRPSCREENSTYLE_FULLSCREEN)    || Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN) || 
+              Style_Is(GRPSCREENSTYLE_FULLSCREEN_1)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_2)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_3)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_4) || 
+              Style_Is(GRPSCREENSTYLE_FULLSCREEN_5)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_6)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_7)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))          
+            {
+              XWINDOWSDESKTOPMANAGER    desktopmanager;
+              RECT*                     rect             =  NULL;
+              int                       nscreen          = -1; 
+      
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN)) nscreen  = 0;                 
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_1))   nscreen  = 0;      
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_2))   nscreen  = 1;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_3))   nscreen  = 2;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_4))   nscreen  = 3;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_5))   nscreen  = 4;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_6))   nscreen  = 5;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_7))   nscreen  = 6;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))   nscreen  = 7;
 
-      hwnd = CreateWindow(classname.Get()       ,
-                          NULL                  ,
-                          WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP ,
-                          0,0                   ,
-                          width,height          ,
-                          NULL                  ,
-                          NULL                  ,
-                          hinstance             ,
-                          (void*)this);
+              if(nscreen >= 0)
+                {
+                  rect = desktopmanager.GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
+                }
+       
 
-      if(!hwnd) return false;
+              if(nscreen == -1)
+                {
+                  rect = desktopmanager.GetDesktopMonitors()->GetCombinedRect(); 
+                }
 
-      SetPosition(0, 0);
+              if(!rect)
+                {
+                  return false;          
+                }
+
+              width  = abs(abs(rect->left) - rect->right);
+              height = abs(abs(rect->top)  - rect->bottom);
+
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR))
+                {
+                  height -= GetTaskbarHeight();
+                }  
+
+              posx   = rect->left;
+              posy   = rect->top;
+          }
+
+       }
+
+      _exstyle  = WS_EX_TOPMOST | WS_EX_TOOLWINDOW;
+      _style    = WS_POPUP;
+
+      if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+        {
+          _exstyle |= WS_EX_LAYERED;
+        }
+
+      hwnd = CreateWindowEx(_exstyle          ,
+                            classname.Get()   ,
+                            NULL              ,
+                            _style            ,
+                            posx, posy        ,
+                            width             ,
+                            height            ,
+                            NULL              ,
+                            NULL              ,
+                            hinstance         ,
+                            (void*)this);
+
+      if(!hwnd) 
+        {
+          return false;
+        }
+
+      SetPosition(posx, posy);  
+      SetSize(width ,height);
+      SetMaxSize(width ,height);      
     }
    else
-    {
-      RECT rect;
-      int  posx = 0;
-      int  posy = 0;
-      
+    {     
+      RECT rect; 
+
       GetClientRect(GetDesktopWindow(), &rect);
      
       if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) 
@@ -960,26 +1005,23 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
         {
           posy = positiony; 
         }
-
-      DWORD _exstyle = 0;
-      DWORD _style   = 0;
-
-
+   
       if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
         {
-          _exstyle |= WS_EX_TOOLWINDOW;
+          _style |= WS_OVERLAPPED;  // _exstyle |= WS_EX_TOOLWINDOW;
+        }
+       else _style |= WS_SYSMENU | WS_CAPTION | WS_MINIMIZEBOX; 
+
+
+      if(Style_Is(GRPSCREENSTYLE_ONTOP))
+        {
+          _exstyle |= WS_EX_TOPMOST;
         }
 
       if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
         {
-          _exstyle |= WS_EX_LAYERED;
-     
-          if(Style_Is(GRPSCREENSTYLE_ONTOP))
-            {
-              _exstyle |= WS_EX_TOPMOST;
-            }
-
-          _style |= WS_POPUP;
+          _exstyle |= WS_EX_LAYERED;             
+          _style   |= WS_POPUP;
         }
        else
         {
@@ -992,10 +1034,10 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
               _style |= WS_POPUP;
             }
         }
-
+     
       hwnd = CreateWindowEx(_exstyle          ,
                             classname.Get()   ,
-                            NULL              ,
+                            GetTitle()->Get() ,
                             _style            ,
                             posx, posy        ,
                             width ,height     ,
@@ -1004,7 +1046,10 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
                             hinstance         ,
                             (void*)this);
 
-      if(!hwnd) return false;
+      if(!hwnd) 
+        {
+          return false;
+        }
 
       //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
       
@@ -1020,11 +1065,15 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
       POINT point = { 0, 0}; 
 
-      ClientToScreen(hwnd, (LPPOINT)&point);      
+      ClientToScreen(hwnd, (LPPOINT)&point);  
+    
       SetPosition(point.x, point.y);
-
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), point.x, point.y, GetWidth(), GetHeight());
+      SetSize(width ,height);
+      SetMaxSize(width ,height);
+      
     }
+
+  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows Create] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
 
   if(show)
     {
@@ -1095,7 +1144,7 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
 
       case WM_ENDSESSION      : break;
 
-      case WM_MOVE            : { GRPWINDOWSSCREEN* screen = GRPWINDOWSSCREEN::GetListScreens()->Get(hwnd);
+      case WM_MOVE            : { GRPWINDOWSSCREEN* screen =  (GRPWINDOWSSCREEN*)GRPSCREEN::GetListScreens()->Get((void*)hwnd);
                                   if(screen)
                                     {
                                       screen->SetPosition((int)(short) LOWORD(lparam),(int)(short) HIWORD(lparam));
@@ -1105,7 +1154,7 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
                                 }
                                 break;
 
-      case WM_CLOSE           : { GRPWINDOWSSCREEN* screen = GRPWINDOWSSCREEN::GetListScreens()->Get(hwnd);
+      case WM_CLOSE           : { GRPWINDOWSSCREEN* screen = (GRPWINDOWSSCREEN*)GRPSCREEN::GetListScreens()->Get((void*)hwnd);
                                   if(screen)
                                     {
                                       if(screen->IsBlockClose())
@@ -1159,6 +1208,22 @@ LRESULT CALLBACK GRPWINDOWSSCREEN::BaseWndProc(HWND hwnd, UINT msg, WPARAM wpara
     }
 
   return DefWindowProc(hwnd, msg, wparam, lparam);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void GRPWINDOWSSCREEN::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPWINDOWSSCREEN::Clean()
+{
+  hinstance       = NULL;
+  hwnd            = NULL;
+  hdc             = NULL;
 }
 
 

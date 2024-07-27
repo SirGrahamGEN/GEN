@@ -65,14 +65,25 @@ enum GRPSCREENTYPE
 };
 
 
-#define GRPSCREENSTYLE_NONE              0x00000000
-#define GRPSCREENSTYLE_TITLE             0x00000001
-#define GRPSCREENSTYLE_FULLSCREEN        0x00000002
-#define GRPSCREENSTYLE_TRANSPARENT       0x00000004
-#define GRPSCREENSTYLE_ONTOP             0x00000008
-#define GRPSCREENSTYLE_NOICONTASKBAR     0x00000010
+#define GRPSCREENSTYLE_NONE                           0x00000000
+#define GRPSCREENSTYLE_TITLE                          0x00000001
+#define GRPSCREENSTYLE_FULLSCREEN                     0x00000002
+#define GRPSCREENSTYLE_FULLSCREENMAIN                 0x00000004
+#define GRPSCREENSTYLE_FULLSCREEN_1                   0x00000004
+#define GRPSCREENSTYLE_FULLSCREEN_2                   0x00000008
+#define GRPSCREENSTYLE_FULLSCREEN_3                   0x00000010
+#define GRPSCREENSTYLE_FULLSCREEN_4                   0x00000020
+#define GRPSCREENSTYLE_FULLSCREEN_5                   0x00000040
+#define GRPSCREENSTYLE_FULLSCREEN_6                   0x00000080
+#define GRPSCREENSTYLE_FULLSCREEN_7                   0x00000100
+#define GRPSCREENSTYLE_FULLSCREEN_8                   0x00000200
+#define GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR      0x00000400
+#define GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION    0x00000800
+#define GRPSCREENSTYLE_TRANSPARENT                    0x00001000
+#define GRPSCREENSTYLE_ONTOP                          0x00002000
+#define GRPSCREENSTYLE_NOICONTASKBAR                  0x00004000
 
-#define GRPSCREENSTYLE_DEFAULT           GRPSCREENSTYLE_TITLE
+#define GRPSCREENSTYLE_DEFAULT                        GRPSCREENSTYLE_TITLE
 
 
 #pragma endregion
@@ -91,85 +102,104 @@ class GRPBITMAP;
 class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 {
   public:
-                                  GRPSCREEN                     ();
-    virtual                      ~GRPSCREEN                     ();
+                                          GRPSCREEN                     ();
+    virtual                              ~GRPSCREEN                     ();
 
-    GRPSCREENTYPE                 GetType                       ();
-    bool                          IsValid                       ();
-    bool                          IsActive                      ();
+    GRPSCREENTYPE                         GetType                       ();
+    bool                                  IsValid                       ();
+    bool                                  IsActive                      ();
 
-    bool                          Style_Is                      (XDWORD style);              
-    void                          Style_Add                     (XDWORD style);         
-    void                          Style_Remove                  (XDWORD style); 
+    bool                                  Style_Is                      (XDWORD style);              
+    void                                  Style_Add                     (XDWORD style);         
+    void                                  Style_Remove                  (XDWORD style); 
 
-    XDWORD                        Styles_Get                    ();          
-    void                          Styles_Set                    (XDWORD styles);         
+    XDWORD                                Styles_Get                    ();          
+    void                                  Styles_Set                    (XDWORD styles);   
 
-    bool                          SetPropertys                  (int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode);
-    
-    bool                          Buffer_Create                 ();   
-    XBYTE*                        Buffer_Get                    ();
-    bool                          Buffer_SetToZero              (); 
-    bool                          Buffer_Delete                 ();
-    
-    virtual bool                  Create                        (bool show);
-    virtual bool                  Update                        ();
-    virtual bool                  Update                        (GRPCANVAS* canvas);
-    virtual bool                  UpdateTransparent             (GRPCANVAS* canvas);
-    virtual bool                  Delete                        ();
-    virtual bool                  Get_Position                  (int &x, int &y);
-    virtual bool                  Set_Position                  (int x, int y);    
-    virtual bool                  Resize                        (int width, int height);
-    virtual bool                  IsShow                        ();
-    virtual bool                  Show                          (bool active);
-    virtual bool                  ShowCursor                    (bool active);
-    virtual bool                  ShowTopMost                   (bool active);
-    virtual void*                 GetHandle                     ();    
-    virtual void                  SetHandle                     (void* handle_window);
-    virtual bool                  Set_Focus                     ();
-    virtual bool                  Minimize                      (bool active);
-    virtual bool                  Maximize                      (bool active);
-    virtual GRPBITMAP*            CaptureContent                (GRPRECTINT* rect = NULL, void* handle_window = NULL);
-    
-    virtual void*                 GetDesktopHandle              ();
-    virtual void*                 GetShellHandle                ();
-    
-    bool                          UpdateSize                    (int width, int height);
+    bool                                  Styles_IsFullScreen           ();      
 
-    XVECTOR<GRPVIEWPORT*>*        GetViewports                  ();
-    GRPVIEWPORT*                  GetViewport                   (int index);
-    GRPVIEWPORT*                  GetViewport                   (XCHAR* ID);
-    bool                          CreateViewport                (XCHAR* ID, float posx, float posy, float width, float height, XDWORD canvasposx, XDWORD canvasposy, XDWORD canvaswidth, XDWORD canvasheight);
-    bool                          UpdateViewports               ();
-    bool                          DeleteViewport                (GRPVIEWPORT* viewport);
-    bool                          DeleteAllViewports            ();
+    bool                                  SetPropertys                  (int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode);
     
-    GRPFRAMERATE*                 GetFrameRate                  ();
+    bool                                  Buffer_Create                 ();   
+    XBYTE*                                Buffer_Get                    ();
+    bool                                  Buffer_SetToZero              (); 
+    bool                                  Buffer_Delete                 ();
+    
+    virtual bool                          Create                        (bool show);
+
+    virtual bool                          Update                        ();
+    virtual bool                          Update                        (GRPCANVAS* canvas);
+    virtual bool                          UpdateTransparent             (GRPCANVAS* canvas);
+
+    virtual bool                          Delete                        ();
+
+    virtual bool                          Get_Position                  (int &x, int &y);
+    virtual bool                          Set_Position                  (int x, int y);    
+
+    virtual bool                          Resize                        (int width, int height);
+    
+    virtual bool                          IsShow                        ();
+    virtual bool                          Show                          (bool active);
+
+    virtual bool                          ShowCursor                    (bool active);
+
+    virtual void*                         GetHandle                     ();    
+    virtual void                          SetHandle                     (void* handle_window);
+ 
+    virtual bool                          Set_Focus                     ();
+
+    virtual bool                          Minimize                      (bool active);
+    virtual bool                          Maximize                      (bool active);
+
+    virtual GRPBITMAP*                    CaptureContent                (GRPRECTINT* rect = NULL, void* handle_window = NULL);
+    
+    virtual void*                         GetDesktopHandle              ();
+    virtual void*                         GetShellHandle                ();
+
+    XSTRING*                              GetTitle                      ();
+    
+    bool                                  UpdateSize                    (int width, int height);
+
+    XVECTOR<GRPVIEWPORT*>*                GetViewports                  ();
+    GRPVIEWPORT*                          GetViewport                   (int index);
+    GRPVIEWPORT*                          GetViewport                   (XCHAR* ID);
+    bool                                  CreateViewport                (XCHAR* ID, float posx, float posy, float width, float height, XDWORD canvasposx, XDWORD canvasposy, XDWORD canvaswidth, XDWORD canvasheight);
+    bool                                  UpdateViewports               ();
+    bool                                  DeleteViewport                (GRPVIEWPORT* viewport);
+    bool                                  DeleteAllViewports            ();
+    
+    GRPFRAMERATE*                         GetFrameRate                  ();
+
+    static XMAP<void*, GRPSCREEN*>*       GetListScreens                (); 
 
   protected:    
 
-    GRPSCREENTYPE                 type;
-    bool                          isvalid;
-    bool                          isactive;
-    XDWORD                        styles;
+    GRPSCREENTYPE                         type;
+    bool                                  isvalid;
+    bool                                  isactive;
+    XDWORD                                styles;
     
-    XBYTE*                        buffer;
-    XDWORD                        buffersize;
+    XBYTE*                                buffer;
+    XDWORD                                buffersize;
 
-    bool                          isblockclose;
+    bool                                  isblockclose;
 
-    XVECTOR<GRPVIEWPORT*>         viewports;  
+    XVECTOR<GRPVIEWPORT*>                 viewports;  
 
-    XDWORD                        index_maincanvas;
-    GRPCANVAS*                    maincanvas;    
+    XDWORD                                index_maincanvas;
+    GRPCANVAS*                            maincanvas;    
     
-    GRPFRAMERATE*                 framerate;
+    GRPFRAMERATE*                         framerate;
 
-    bool                          isshow;
+    bool                                  isshow;
+
+    XSTRING                               title;
 
   private:
 
-    void                          Clean                         ();
+    void                                  Clean                         ();
+
+    static XMAP<void*, GRPSCREEN*>        listscreens;
 };
 
 

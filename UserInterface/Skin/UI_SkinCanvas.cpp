@@ -792,7 +792,10 @@ bool UI_SKINCANVAS::AddPositionSubElements(UI_ELEMENT* element)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool UI_SKINCANVAS::CalculePosition(UI_ELEMENT* element, double fatherwidth, double fatherheight, bool adjustsizemargin)
 { 
-  if(!element) return false;
+  if(!element) 
+    {
+      return false;
+    }
 
   double x_position = 0.0f;
   double y_position = 0.0f;

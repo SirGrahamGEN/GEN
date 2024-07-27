@@ -120,7 +120,8 @@ APPGRAPHICS::~APPGRAPHICS()
 bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 {
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
-  RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
+  RegisterEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING);
+  RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);  
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
 
@@ -149,6 +150,7 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
 bool APPGRAPHICS::End()
 { 
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
@@ -230,76 +232,82 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
     }
   #endif
 
-  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATING , this);
-  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED  , this);
-
-  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETING , this);
-  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETED  , this);
+  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATING       , this);
+  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING , this);
+  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED        , this);
+  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETING       , this);
+  SubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETED        , this);
 
   #ifndef ANDROID
 
-    GRPXEVENT grpeventini(this, GRPXEVENT_TYPE_SCREEN_CREATING);
-    grpeventini.SetScreen(mainscreen);
-    PostEvent(&grpeventini);    
+  GRPXEVENT grpeventini(this, GRPXEVENT_TYPE_SCREEN_CREATING);
+  grpeventini.SetScreen(mainscreen);
+  PostEvent(&grpeventini);    
 
-    bool status = !grpeventini.GetError();
+  bool status = !grpeventini.GetError();
 
-    if(status)  
-      {
-        GRPVIEWPORT*  viewport = mainscreen->GetViewport(0);
-        if(!viewport)
-          {
-            if(!mainscreen->CreateViewport(GRPVIEWPORT_ID_MAIN , 0.0f, 0.0f, (float)mainscreen->GetWidth()   , (float)mainscreen->GetHeight(), 0,  0, mainscreen->GetWidth(), mainscreen->GetHeight()))
-              {
-                return false;
-              }                  
-          }
+  if(status)  
+    {
+      status = mainscreen->Create(show);
+      if(status)
+        {
+          GRPXEVENT grpeventini(this, GRPXEVENT_TYPE_SCREEN_CANVASCREATING);
+          grpeventini.SetScreen(mainscreen);
+          PostEvent(&grpeventini);    
 
-        status = mainscreen->Create(show);
-      }
+          GRPVIEWPORT*  viewport = mainscreen->GetViewport(0);
+          if(!viewport)
+            {
+              if(!mainscreen->CreateViewport(GRPVIEWPORT_ID_MAIN , 0.0f, 0.0f, (float)mainscreen->GetWidth()   , (float)mainscreen->GetHeight(), 0,  0, mainscreen->GetWidth(), mainscreen->GetHeight()))
+                {
+                  return false;
+                }                  
+            }
+        }        
+    }
 
-    if(status)
-      {
-        XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Screen Created."));
+  if(status)
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Screen Created."));
 
-        GRPXEVENT grpeventend(this, GRPXEVENT_TYPE_SCREEN_CREATED);
-        grpeventend.SetScreen(mainscreen);
-        grpeventend.SetError(status);
-        PostEvent(&grpeventend);
-      }
-     else
-      {
-        XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Error to creating screen ..."));
-      }
+      GRPXEVENT grpeventend(this, GRPXEVENT_TYPE_SCREEN_CREATED);
+      grpeventend.SetScreen(mainscreen);
+      grpeventend.SetError(status);
+      PostEvent(&grpeventend);
+    }
+    else
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Error to creating screen ..."));
+    }
 
-    if(!status) return false;
+  if(!status) return false;
 
-    #ifdef INP_ACTIVE
-    if(initoptions & APPGRAPHICS_INIOPTION_INPUT)
-      {
-        keyboard = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_KEYBOARD);
-        if(!keyboard)
-          {
-            keyboard = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_KEYBOARD, mainscreen);
-            if(keyboard)  GEN_INPMANAGER.AddDevice(keyboard);
-          }
+  #ifdef INP_ACTIVE
+  if(initoptions & APPGRAPHICS_INIOPTION_INPUT)
+    {
+      keyboard = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_KEYBOARD);
+      if(!keyboard)
+        {
+          keyboard = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_KEYBOARD, mainscreen);
+          if(keyboard)  GEN_INPMANAGER.AddDevice(keyboard);
+        }
 
-        mouse = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_MOUSE);
-        if(!mouse)
-          {
-            mouse = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_MOUSE, mainscreen);
-            if(mouse) GEN_INPMANAGER.AddDevice(mouse);
-          }
+      mouse = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_MOUSE);
+      if(!mouse)
+        {
+          mouse = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_MOUSE, mainscreen);
+          if(mouse) GEN_INPMANAGER.AddDevice(mouse);
+        }
 
-        touchscreen = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_TOUCHSCREEN);
-        if(!touchscreen)
-          {
-            touchscreen = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_TOUCHSCREEN, mainscreen);
-            if(touchscreen) GEN_INPMANAGER.AddDevice(touchscreen);
-          }
+      touchscreen = GEN_INPMANAGER.GetDevice(INPDEVICE_TYPE_TOUCHSCREEN);
+      if(!touchscreen)
+        {
+          touchscreen = INPFACTORY::GetInstance().CreateDevice(INPDEVICE_TYPE_TOUCHSCREEN, mainscreen);
+          if(touchscreen) GEN_INPMANAGER.AddDevice(touchscreen);
+        }
 
-      }
-    #endif
+    }
+  #endif
 
   #endif
 
@@ -327,8 +335,9 @@ bool APPGRAPHICS::DeleteMainScreenProcess()
   grpeventini.SetScreen(mainscreen);
   PostEvent(&grpeventini);
 
-  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATING, this);
-  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED , this);
+  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATING       , this);
+  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING , this);
+  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED        , this);
 
   if(mainscreen)
     {
@@ -341,8 +350,8 @@ bool APPGRAPHICS::DeleteMainScreenProcess()
   grpeventini.SetScreen(mainscreen);
   PostEvent(&grpeventend);
 
-  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETED, this);
-  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED , this);
+  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_DELETED        , this);
+  UnSubscribeEvent(GRPXEVENT_TYPE_SCREEN_CREATED        , this);
 
   return true;
 }

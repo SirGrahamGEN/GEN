@@ -52,6 +52,7 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
+XMAP<void*, GRPSCREEN*>  GRPSCREEN::listscreens;
 
 #pragma endregion
 
@@ -73,6 +74,7 @@ GRPSCREEN::GRPSCREEN()
 
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
+  RegisterEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CHANGEPOSITION);
@@ -100,6 +102,7 @@ GRPSCREEN::~GRPSCREEN()
     }
 
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
+  DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CANVASCREATING);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATED);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
@@ -235,10 +238,44 @@ void GRPSCREEN::Styles_Set(XDWORD styles)
 {
   this->styles = styles;
 
-  if((this->styles & GRPSCREENSTYLE_FULLSCREEN) == GRPSCREENSTYLE_FULLSCREEN)
+  if(Styles_IsFullScreen())
     {
       this->styles &= ~GRPSCREENSTYLE_TITLE;
+      this->styles &= ~GRPSCREENSTYLE_NOICONTASKBAR;
+      this->styles |=  GRPSCREENSTYLE_ONTOP;
     }  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Styles_IsFullScreen()
+* @brief      Styles_IsFullScreen
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Styles_IsFullScreen()
+{
+  if( ((this->styles & GRPSCREENSTYLE_FULLSCREEN)                   == GRPSCREENSTYLE_FULLSCREEN)                 || 
+      ((this->styles & GRPSCREENSTYLE_FULLSCREENMAIN)               == GRPSCREENSTYLE_FULLSCREENMAIN)             ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_1)                 == GRPSCREENSTYLE_FULLSCREEN_1)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_2)                 == GRPSCREENSTYLE_FULLSCREEN_2)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_3)                 == GRPSCREENSTYLE_FULLSCREEN_3)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_4)                 == GRPSCREENSTYLE_FULLSCREEN_4)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_5)                 == GRPSCREENSTYLE_FULLSCREEN_5)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_6)                 == GRPSCREENSTYLE_FULLSCREEN_6)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_7)                 == GRPSCREENSTYLE_FULLSCREEN_7)               ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_8)                 == GRPSCREENSTYLE_FULLSCREEN_8)               || 
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)    == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)  ||
+      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION)  == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR) 
+    )
+    {
+      return true;
+    }
+
+  return false;
 }
 
 
@@ -363,11 +400,13 @@ bool GRPSCREEN::Buffer_Delete()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Create(bool show)
 {
+  /*
   if(!viewports.Get(0)) 
     {
       return false;
     }
-  
+  */
+
   isactive = true;
 
   if(framerate) framerate->Reset();
@@ -547,23 +586,6 @@ bool GRPSCREEN::ShowCursor(bool active)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPSCREEN::ShowTopMost(bool active)
-* @brief      ShowTopMost
-* @ingroup    GRAPHIC
-*
-* @param[in]  active :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::ShowTopMost(bool active)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         void* GRPSCREEN::GetHandle()
 * @brief
 * @ingroup    GRAPHIC
@@ -686,6 +708,21 @@ void* GRPSCREEN::GetDesktopHandle()
 void* GRPSCREEN::GetShellHandle()
 {
   return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPSCREEN::GetTitle()
+* @brief      GetTitle
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPSCREEN::GetTitle()
+{
+  return &title;
 }
 
 
@@ -927,6 +964,21 @@ bool GRPSCREEN::DeleteAllViewports()
 GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 {
   return framerate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
+* @brief      GetListScreens
+* @ingroup    GRAPHIC
+* 
+* @return     XMAP<void*, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
+{
+  return &listscreens;
 }
 
 

@@ -80,7 +80,7 @@ class GRPLINUXSCREENX11 : public GRPSCREEN
                                           GRPLINUXSCREENX11           ();
     virtual                              ~GRPLINUXSCREENX11           ();
 
-     bool                                 Create                      (bool show);
+    bool                                  Create                      (bool show);
 
     bool                                  Update                      ();
     bool                                  Update                      (GRPCANVAS* canvas);
@@ -92,9 +92,7 @@ class GRPLINUXSCREENX11 : public GRPSCREEN
     bool                                  ShowCursor                  (bool active);
 
     void*                                 GetHandle                   ();
-
-    bool                                  CreateX11Window             ();
-
+    
     bool                                  IsDesktop                   ();
     void                                  SetIsDesktop                (bool isdesktop);
 
@@ -113,9 +111,12 @@ class GRPLINUXSCREENX11 : public GRPSCREEN
 
   private:
 
+    bool                                  Create_Window               (bool show);
+
     int                                   ScreenResolution            (Display* display, Window root, int xsz, int ysz, int rate, int just_checking);
 
     XImage*                               CreateXImageFromBuffer      (Display* display, int screen, XBYTE* buffer, int width, int height);
+
     int                                   GetByteOrder                ();
 
     void                                  Clean                       ();

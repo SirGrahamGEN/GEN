@@ -219,23 +219,6 @@ bool GRPDISPLAYDEVICE::ShowCursor(bool active)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPDISPLAYDEVICE::ShowTopMost(bool active)
-* @brief      ShowTopMost
-* @ingroup    GRAPHIC
-*
-* @param[in]  active :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPDISPLAYDEVICE::ShowTopMost(bool active)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         void* GRPDISPLAYDEVICE::GetHandle()
 * @brief
 * @ingroup    GRAPHIC

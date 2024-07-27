@@ -82,6 +82,9 @@ XWINDOWSDESKTOPMONITORS::XWINDOWSDESKTOPMONITORS()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSDESKTOPMONITORS::~XWINDOWSDESKTOPMONITORS()
 {
+  monitorsrects.DeleteContents();
+  monitorsrects.DeleteAll();
+
   Clean();
 }
 
@@ -146,15 +149,24 @@ void XWINDOWSDESKTOPMONITORS::Clean()
 * --------------------------------------------------------------------------------------------------------------------*/
 BOOL CALLBACK XWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
 {
-  XWINDOWSDESKTOPMONITORS* monitorrect = (XWINDOWSDESKTOPMONITORS*)pdata;
-  if(!monitorrect)
+  XWINDOWSDESKTOPMONITORS* deskmonitors = (XWINDOWSDESKTOPMONITORS*)pdata;
+  if(!deskmonitors)
     {
       return FALSE;  
     }
 
-  monitorrect->GetMonitorsRects()->Add(rectmonitor);
+  RECT* _rectmonitor = new RECT();
+  if(_rectmonitor)
+    {
+      _rectmonitor->left    = rectmonitor->left;
+      _rectmonitor->right   = rectmonitor->right;
+      _rectmonitor->top     = rectmonitor->top;
+      _rectmonitor->bottom  = rectmonitor->bottom;
 
-  return UnionRect(monitorrect->GetCombinedRect(), monitorrect->GetCombinedRect(), rectmonitor);  
+      deskmonitors->GetMonitorsRects()->Add(_rectmonitor);
+    }
+
+  return UnionRect(deskmonitors->GetCombinedRect(), deskmonitors->GetCombinedRect(), rectmonitor);  
 }
 
 

@@ -541,7 +541,7 @@ bool MAINPROCWINDOWS::Factorys_Ini()
 bool MAINPROCWINDOWS::Factorys_End()
 {
   #ifdef GRP_ACTIVE
-  GRPWINDOWSSCREEN::GetListScreens()->DeleteAll();
+  GRPSCREEN::GetListScreens()->DeleteAll();
   GRPFACTORY::DelInstance();
   #endif
 

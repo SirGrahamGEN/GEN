@@ -45,6 +45,7 @@ enum GRPXEVENT_TYPE
   GRPXEVENT_TYPE_UNKNOWN                   = XEVENT_TYPE_GRAPHICS ,
 
   GRPXEVENT_TYPE_SCREEN_CREATING                                 ,
+  GRPXEVENT_TYPE_SCREEN_CANVASCREATING                           ,
   GRPXEVENT_TYPE_SCREEN_CREATED                                  ,
   GRPXEVENT_TYPE_SCREEN_DELETING                                 ,
   GRPXEVENT_TYPE_SCREEN_DELETED                                  ,

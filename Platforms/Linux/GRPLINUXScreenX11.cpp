@@ -75,28 +75,31 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
   type = GRPSCREENTYPE_LINUX_X11;
 
   display = XOpenDisplay(NULL);
-  if(display)
+  if(!display)
     {
-      int width  = DisplayWidth  (display, DefaultScreen (display));
-      int height = DisplayHeight (display, DefaultScreen (display));
-      int depth  = DefaultDepth  (display, DefaultScreen (display));
-
-      originalwidth   = width;
-      originalheight  = height;
-
-      SetSize(width, height);
-      SetMaxSize(width, height);
-
-      switch(depth)
-        {
-          case   8 : SetMode(GRPPROPERTYMODE_08_INDEX);     break;
-          case  16 : SetMode(GRPPROPERTYMODE_16_RGB_565);   break;
-          case  24 : SetMode(GRPPROPERTYMODE_24_BGR_888);   break;
-          case  32 : SetMode(GRPPROPERTYMODE_32_BGRA_8888); break;
-        }
-
-      SetIsBufferInverse(true);
+      return;
     }
+    
+  int width  = DisplayWidth  (display, DefaultScreen (display));
+  int height = DisplayHeight (display, DefaultScreen (display));
+  int depth  = DefaultDepth  (display, DefaultScreen (display));
+
+  originalwidth   = width;
+  originalheight  = height;
+
+  SetSize(width, height);
+  SetMaxSize(width, height);
+
+  switch(depth)
+    {
+      case   8 : SetMode(GRPPROPERTYMODE_08_INDEX);     break;
+      case  16 : SetMode(GRPPROPERTYMODE_16_RGB_565);   break;
+      case  24 : SetMode(GRPPROPERTYMODE_24_BGR_888);   break;
+      case  32 : SetMode(GRPPROPERTYMODE_32_BGRA_8888); break;
+    }
+
+  SetIsBufferInverse(true);
+    
 }
 
 
@@ -115,7 +118,7 @@ GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
       return;
     }
       
-  ScreenResolution(display, root, originalwidth, originalheight, 60, false);
+  //ScreenResolution(display, root, originalwidth, originalheight, 60, false);
 
   Delete();
 
@@ -138,42 +141,10 @@ GRPLINUXSCREENX11::~GRPLINUXSCREENX11()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENX11::Create(bool show)
 {
-  if(!display) return false;
-
-  int                   screen;
-  int                   depth;
-  Visual*               visual;
-  XSetWindowAttributes  attributes;
-  int                   wndwidth  = DisplayWidth (display, DefaultScreen (display));
-  int                   wndheight = DisplayHeight (display, DefaultScreen (display));
-
-  screen     = DefaultScreen(display);
-  root       = RootWindow(display,screen);
-  depth      = DefaultDepth(display,screen);
-  visual     = DefaultVisual(display,screen);
-
-  attributes.background_pixel   = XBlackPixel(display,screen);
-  attributes.border_pixel       = XBlackPixel(display,screen);
-  attributes.override_redirect  = false;
-
-  int x = (wndwidth  - width)  / 2;
-  int y = (wndheight - height) / 2;
-
-  window =  XCreateWindow(display,RootWindow(display,screen),x ,y , width, height, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
-  if(!window) return false;
-
-  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
+  if(!Create_Window(show)) 
     {
-      Atom wm_state   = XInternAtom (display, "_NET_WM_STATE", true );
-      Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );
-
-      XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_fullscreen, 1);
-
-      ScreenResolution(display, root, width, height, 60, false);
+      return false;
     }
-
-  XMapWindow(display, window);
-  XMoveWindow(display, window,x,y);
 
   Buffer_Create();
 
@@ -448,6 +419,96 @@ Display* GRPLINUXSCREENX11::GetDisplay()
 Window* GRPLINUXSCREENX11::GetWindow()
 {
   return &window;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPLINUXSCREENX11::Create_Window(bool show)
+* @brief      Create_Window
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  show : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPLINUXSCREENX11::Create_Window(bool show)
+{
+  if(!display) 
+    {
+      return false;
+    }
+
+  int                   numscreen;
+  int                   depth;
+  Visual*               visual;
+  XSetWindowAttributes  attributes;
+  int                   desktopwidth  = DisplayWidth(display , DefaultScreen (display));
+  int                   desktopheight = DisplayHeight(display, DefaultScreen (display));
+  int                   screenwidth    = 0;
+  int                   screenheight   = 0;
+
+  numscreen  = DefaultScreen(display);
+  root       = RootWindow(display,numscreen);
+  depth      = DefaultDepth(display,numscreen);
+  visual     = DefaultVisual(display,numscreen);
+
+  attributes.background_pixel   = XBlackPixel(display, numscreen);
+  attributes.border_pixel       = XBlackPixel(display, numscreen);
+  attributes.override_redirect  = false;
+
+  // Obtiene la pantalla predeterminada
+  Screen* screen = ScreenOfDisplay(display, numscreen);
+
+    // Obtiene la resolución de la pantalla
+  screenwidth  = screen->width;
+  screenheight = screen->height;
+            
+  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
+    {
+      window =  XCreateWindow(display, root, 0, 0, screenwidth, screenheight, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
+      if(!window) return false;
+
+      Atom wm_state      = XInternAtom (display, "_NET_WM_STATE", true );
+      Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );
+
+      XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_fullscreen, 1);
+
+      ScreenResolution(display, root, width, height, 60, false);
+    }
+   else
+    {      
+      int  posx           = 0;
+      int  posy           = 0;
+
+      if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) 
+        {
+          posx = (screenwidth - width)/2;
+        }
+       else 
+        {
+          posx = positionx; 
+        }
+
+      if(positiony == GRPPROPERTYMODE_SCREEN_CENTER) 
+        {
+          posy = (screenheight - height)/2;
+        }
+       else 
+        {
+          posy = positiony; 
+        }
+
+      window =  XCreateWindow(display, root, posx, posy, width, height, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
+      if(!window) return false;
+    }
+
+  XMapWindow(display , window);
+
+  //XMoveWindow(display, window, x, y);
+
+  return true;
 }
 
 

@@ -65,7 +65,6 @@ class GRPDISPLAYDEVICE : public GRPSCREEN
     virtual bool                  IsShow                        ();
     virtual bool                  Show                          (bool active);
     virtual bool                  ShowCursor                    (bool active);
-    virtual bool                  ShowTopMost                   (bool active);
     virtual void*                 GetHandle                     ();
 
   private:
