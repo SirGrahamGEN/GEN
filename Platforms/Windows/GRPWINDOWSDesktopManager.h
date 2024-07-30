@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       GRPLINUXFactory.h
+* @file       GRPWINDOWSDesktopManager.h
 * 
-* @class      GRPLINUXFACTORY
-* @brief      LINUX Graphics factory class
-* @ingroup    PLATFORM_LINUX
+* @class      GRPWINDOWSDESKTOPMANAGER
+* @brief      WINDOWS Graphics Desktop Manager class
+* @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,17 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPLINUXFACTORY_H_
-#define _GRPLINUXFACTORY_H_
+#ifndef _GRPWINDOWSDESKTOPMANAGER_H_
+#define _GRPWINDOWSDESKTOPMANAGER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "GRPFactory.h"
+#include <windows.h>
+
+#include "XVector.h"
+
+#include "GRPDesktopManager.h"
 
 #pragma endregion
 
@@ -47,25 +51,36 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-
-class GRPLINUXFACTORY : public GRPFACTORY
+class  GRPWINDOWSDESKTOPMONITORS : public GRPDESKTOPMONITORS
 {
   public:
-
-    GRPSCREEN*                  CreateScreen              ();
-    bool                        DeleteScreen              (GRPSCREEN* screen);
-
-    #ifdef GRP_OPENGL_ACTIVE
-    GRPCONTEXT*                 CreateContext             ();
-    bool                        DeleteContext             (GRPCONTEXT* context);
-    #endif
-
-    #ifdef GRP_DESKTOPMANAGER_ACTIVE
-    GRPDESKTOPMANAGER*          CreateDesktopManager      ();
-    bool                        DeleteDesktopManager      (GRPDESKTOPMANAGER* desktopmanager);
-    #endif
+                                          GRPWINDOWSDESKTOPMONITORS                   ();
+    virtual                              ~GRPWINDOWSDESKTOPMONITORS                   ();
+    
+  private:
+    
+    static BOOL CALLBACK                  MonitorEnum                                 (HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata);
+    
+    void                                  Clean                                       ();    
 };
 
+
+class GRPWINDOWSDESKTOPMANAGER : public GRPDESKTOPMANAGER
+{
+  public:
+                                          GRPWINDOWSDESKTOPMANAGER                    ();
+    virtual                              ~GRPWINDOWSDESKTOPMANAGER                    ();
+
+    GRPDESKTOPMONITORS*                   GetDesktopMonitors                          ();
+
+  protected:
+
+  private:
+
+    void                                  Clean                                       ();
+
+    GRPWINDOWSDESKTOPMONITORS             desktopmonitors;
+};
 
 #pragma endregion
 
@@ -78,4 +93,5 @@ class GRPLINUXFACTORY : public GRPFACTORY
 
 
 #endif
+
 

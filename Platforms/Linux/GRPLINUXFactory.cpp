@@ -53,6 +53,10 @@
 #include "GRP3DContext.h"
 #endif
 
+#ifdef GRP_DESKTOPMANAGER_ACTIVE
+#include "GRPLINUXDesktopManager.h"
+#endif
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -152,9 +156,13 @@ bool GRPLINUXFACTORY::DeleteContext(GRPCONTEXT* context)
   return true;
 }
 
-
-#pragma endregion
-
-
 #endif
 
+
+#ifdef GRP_DESKTOPMANAGER_ACTIVE
+CREATEFUNC(GRPLINUXFACTORY, GRPDESKTOPMANAGER     , GRPLINUXDESKTOPMANAGER    , CreateDesktopManager)
+DELETEFUNC(GRPLINUXFACTORY, GRPDESKTOPMANAGER     , GRPLINUXDESKTOPMANAGER    , DeleteDesktopManager)
+#endif
+
+
+#pragma endregion

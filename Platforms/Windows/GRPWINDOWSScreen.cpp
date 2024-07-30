@@ -40,7 +40,8 @@
 
 #include "GRPWINDOWSScreen.h"
 
-#include "XWINDOWSDesktopManager.h"
+#include "GRPFactory.h"
+#include "GRPDesktopManager.h"
 
 #include "XTrace.h"
 #include "XSystem.h"
@@ -886,7 +887,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
     {
       if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
         {
-           DEVMODE devmode;
+          DEVMODE devmode;
 
           memset(&devmode, 0, sizeof(DEVMODE));
 
@@ -904,14 +905,13 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
         }
        else 
         {
-       
           if( Style_Is(GRPSCREENSTYLE_FULLSCREEN)    || Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN) || 
               Style_Is(GRPSCREENSTYLE_FULLSCREEN_1)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_2)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_3)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_4) || 
               Style_Is(GRPSCREENSTYLE_FULLSCREEN_5)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_6)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_7)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))          
             {
-              XWINDOWSDESKTOPMANAGER    desktopmanager;
-              RECT*                     rect             =  NULL;
-              int                       nscreen          = -1; 
+             
+              GRPRECTINT* rect      =  NULL;
+              int         nscreen   = -1; 
       
               if(Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN)) nscreen  = 0;                 
               if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_1))   nscreen  = 0;      
@@ -922,36 +922,43 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
               if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_6))   nscreen  = 5;
               if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_7))   nscreen  = 6;
               if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))   nscreen  = 7;
+ 
+              GRPDESKTOPMANAGER* desktopmanager = GEN_GRPFACTORY.CreateDesktopManager();
+              if(!desktopmanager)
+                {
+                  return false;
+                }
 
               if(nscreen >= 0)
                 {
-                  rect = desktopmanager.GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
+                  rect = desktopmanager->GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
                 }
        
-
               if(nscreen == -1)
                 {
-                  rect = desktopmanager.GetDesktopMonitors()->GetCombinedRect(); 
+                  rect = desktopmanager->GetDesktopMonitors()->GetCombinedRect(); 
                 }
-
+     
               if(!rect)
                 {
                   return false;          
                 }
-
-              width  = abs(abs(rect->left) - rect->right);
-              height = abs(abs(rect->top)  - rect->bottom);
+         
+              width  = rect->GetWidth();    //abs(rect->x2 - rect->x1);
+              height = rect->GetHeight();   //abs(rect->y2 - rect->y1);
 
               if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR))
                 {
                   height -= GetTaskbarHeight();
                 }  
 
-              posx   = rect->left;
-              posy   = rect->top;
-          }
+              posx   = rect->x1;
+              posy   = rect->y1; 
 
-       }
+              GEN_GRPFACTORY.DeleteDesktopManager(desktopmanager);
+            }
+
+        }
 
       _exstyle  = WS_EX_TOPMOST | WS_EX_TOOLWINDOW;
       _style    = WS_POPUP;

@@ -268,7 +268,7 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
 
   if(status)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Screen Created."));
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[App Graphics] Screen created"));
 
       GRPXEVENT grpeventend(this, GRPXEVENT_TYPE_SCREEN_CREATED);
       grpeventend.SetScreen(mainscreen);
@@ -277,7 +277,7 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
     }
     else
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Error to creating screen ..."));
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[App Graphics] Error to creating screen..."));
     }
 
   if(!status) return false;

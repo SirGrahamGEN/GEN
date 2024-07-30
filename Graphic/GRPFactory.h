@@ -58,37 +58,43 @@ class GRPSCREEN;
 class GRPCONTEXT;
 class GRPCANVAS;
 class GRPBITMAP;
+class GRPDESKTOPMANAGER;
 
 class GRPFACTORY
 {
   public:
-                                GRPFACTORY            ();
-    virtual                    ~GRPFACTORY            ();
+                                      GRPFACTORY                ();
+    virtual                          ~GRPFACTORY                ();
 
-    static bool                 GetIsInstanced        ();
-    static GRPFACTORY&          GetInstance           ();
-    static bool                 SetInstance           (GRPFACTORY* instance);
-    static bool                 DelInstance           ();
+    static bool                       GetIsInstanced            ();
+    static GRPFACTORY&                GetInstance               ();
+    static bool                       SetInstance               (GRPFACTORY* instance);
+    static bool                       DelInstance               ();
 
-    virtual GRPSCREEN*          CreateScreen          ();
-    virtual bool                DeleteScreen          (GRPSCREEN* screen);
+    virtual GRPSCREEN*                CreateScreen              ();
+    virtual bool                      DeleteScreen              (GRPSCREEN* screen);
 
     #ifdef GRP_OPENGL_ACTIVE
-    virtual GRPCONTEXT*         CreateContext         ();
-    virtual bool                DeleteContext         (GRPCONTEXT* context);
+    virtual GRPCONTEXT*               CreateContext             ();
+    virtual bool                      DeleteContext             (GRPCONTEXT* context);
     #endif
 
-    GRPCANVAS*                  CreateCanvas          (GRPPROPERTIES* properties);
-    bool                        DeleteCanvas          (GRPCANVAS* canvas);
+    GRPCANVAS*                        CreateCanvas              (GRPPROPERTIES* properties);
+    bool                              DeleteCanvas              (GRPCANVAS* canvas);
 
-    GRPBITMAP*                  CreateBitmap          (int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse = false);
-    bool                        DeleteBitmap          (GRPBITMAP* bitmap);
+    GRPBITMAP*                        CreateBitmap              (int width, int height, GRPPROPERTYMODE mode, bool isbufferinverse = false);
+    bool                              DeleteBitmap              (GRPBITMAP* bitmap);
+
+    #ifdef GRP_DESKTOPMANAGER_ACTIVE
+    virtual GRPDESKTOPMANAGER*        CreateDesktopManager      ();
+    virtual bool                      DeleteDesktopManager      (GRPDESKTOPMANAGER* desktopmanager);
+    #endif
 
   private:
 
-    void                        Clean                 ();
+    void                              Clean                     ();
 
-    static GRPFACTORY*          instance;
+    static GRPFACTORY*                instance;
 };
 
 

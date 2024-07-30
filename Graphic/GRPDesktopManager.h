@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       GRPLINUXFactory.h
+* @file       GRPDesktopManager.h
 * 
-* @class      GRPLINUXFACTORY
-* @brief      LINUX Graphics factory class
-* @ingroup    PLATFORM_LINUX
+* @class      GRPDESKTOPMANAGER
+* @brief      Graphics Desktop Manager class
+* @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,15 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPLINUXFACTORY_H_
-#define _GRPLINUXFACTORY_H_
+#ifndef _GRPDESKTOPMANAGER_H_
+#define _GRPDESKTOPMANAGER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "GRPFactory.h"
+#include "XVector.h"
+
+#include "GRPRect.h"
 
 #pragma endregion
 
@@ -48,22 +50,39 @@
 #pragma region CLASS
 
 
-class GRPLINUXFACTORY : public GRPFACTORY
+class  GRPDESKTOPMONITORS
 {
   public:
+                                          GRPDESKTOPMONITORS                 ();
+    virtual                              ~GRPDESKTOPMONITORS                 ();
 
-    GRPSCREEN*                  CreateScreen              ();
-    bool                        DeleteScreen              (GRPSCREEN* screen);
+    XVECTOR<GRPRECTINT*>*                 GetMonitorsRects                   ();
+    GRPRECTINT*                           GetCombinedRect                    ();
+  
+  protected:
 
-    #ifdef GRP_OPENGL_ACTIVE
-    GRPCONTEXT*                 CreateContext             ();
-    bool                        DeleteContext             (GRPCONTEXT* context);
-    #endif
+    XVECTOR<GRPRECTINT*>                  monitorsrects;
+    GRPRECTINT                            combinedrect;    
 
-    #ifdef GRP_DESKTOPMANAGER_ACTIVE
-    GRPDESKTOPMANAGER*          CreateDesktopManager      ();
-    bool                        DeleteDesktopManager      (GRPDESKTOPMANAGER* desktopmanager);
-    #endif
+  private:
+        
+    void                                  Clean                              (); 
+};
+
+
+class GRPDESKTOPMANAGER
+{
+  public:
+                                          GRPDESKTOPMANAGER                  ();
+    virtual                              ~GRPDESKTOPMANAGER                  ();
+
+    virtual GRPDESKTOPMONITORS*           GetDesktopMonitors                 ();
+
+  protected:
+
+  private:
+
+    void                                  Clean                              ();
 };
 
 

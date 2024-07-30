@@ -40,13 +40,16 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+
 #include "GRPLINUXScreenX11.h"
 
 #include "XTrace.h"
 
 #include "GRPCanvas.h"
+#include "GRPDesktopManager.h"
 
 #include "XMemory_Control.h"
+
 
 #pragma endregion
 
@@ -440,14 +443,13 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
       return false;
     }
 
-  int                   numscreen;
+  int                   numscreen = 0;
   int                   depth;
   Visual*               visual;
   XSetWindowAttributes  attributes;
   int                   desktopwidth  = DisplayWidth(display , DefaultScreen (display));
   int                   desktopheight = DisplayHeight(display, DefaultScreen (display));
-  int                   screenwidth    = 0;
-  int                   screenheight   = 0;
+  
 
   numscreen  = DefaultScreen(display);
   root       = RootWindow(display,numscreen);
@@ -458,29 +460,94 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
   attributes.border_pixel       = XBlackPixel(display, numscreen);
   attributes.override_redirect  = false;
 
-  // Obtiene la pantalla predeterminada
-  Screen* screen = ScreenOfDisplay(display, numscreen);
-
-    // Obtiene la resolución de la pantalla
-  screenwidth  = screen->width;
-  screenheight = screen->height;
+  int posx = 0;
+  int posy = 0;
             
-  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
+   if(Styles_IsFullScreen())          
     {
-      window =  XCreateWindow(display, root, 0, 0, screenwidth, screenheight, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
-      if(!window) return false;
+      if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
+        {
 
-      Atom wm_state      = XInternAtom (display, "_NET_WM_STATE", true );
-      Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );
 
-      XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_fullscreen, 1);
 
-      ScreenResolution(display, root, width, height, 60, false);
+        }
+       else
+        {
+          if( Style_Is(GRPSCREENSTYLE_FULLSCREEN)    || Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN) || 
+              Style_Is(GRPSCREENSTYLE_FULLSCREEN_1)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_2)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_3)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_4) || 
+              Style_Is(GRPSCREENSTYLE_FULLSCREEN_5)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_6)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_7)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))          
+            {
+             
+              GRPRECTINT* rect      =  NULL;
+              int         nscreen   = -1; 
+      
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN)) nscreen  = 0;                 
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_1))   nscreen  = 0;      
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_2))   nscreen  = 1;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_3))   nscreen  = 2;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_4))   nscreen  = 3;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_5))   nscreen  = 4;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_6))   nscreen  = 5;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_7))   nscreen  = 6;
+              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))   nscreen  = 7;
+
+              GRPDESKTOPMANAGER* desktopmanager = GEN_GRPFACTORY.CreateDesktopManager();
+              if(!desktopmanager)
+                {
+                  return false;
+                }
+
+              if(nscreen >= 0)
+                {
+                  rect = desktopmanager->GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
+                }
+       
+              if(nscreen == -1)
+                {
+                  rect = desktopmanager->GetDesktopMonitors()->GetCombinedRect(); 
+                }
+     
+              if(!rect)
+                {
+                  return false;          
+                }
+         
+              width  = rect->GetWidth();    
+              height = rect->GetHeight();   
+           
+              posx   = rect->x1;
+              posy   = rect->y1; 
+         
+              window =  XCreateWindow(display, root, posx, posy, width, height, 1, depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect, &attributes);
+              if(!window) 
+                {
+                  return false;
+                }
+
+              
+              Atom wm_state      = XInternAtom (display, "_NET_WM_STATE", true );
+              Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true );
+
+              XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_fullscreen, 1);
+              
+              //ScreenResolution(display, root, width, height, 60, false);  
+              
+
+
+              GEN_GRPFACTORY.DeleteDesktopManager(desktopmanager);
+            }
+        }
     }
    else
     {      
-      int  posx           = 0;
-      int  posy           = 0;
+      int screenwidth  = 0;
+      int screenheight = 0;
+    
+      Screen* screen = ScreenOfDisplay(display, numscreen);
+
+      screenwidth  = screen->width;
+      screenheight = screen->height;
+    
 
       if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) 
         {
@@ -500,7 +567,7 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
           posy = positiony; 
         }
 
-      window =  XCreateWindow(display, root, posx, posy, width, height, 1,depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect,&attributes);
+      window =  XCreateWindow(display, root, posx, posy, width, height, 1, depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect, &attributes);
       if(!window) return false;
     }
 

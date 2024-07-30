@@ -357,6 +357,42 @@ bool GRPFACTORY::DeleteBitmap(GRPBITMAP* bitmap)
 }
 
 
+#ifdef GRP_DESKTOPMANAGER_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPDESKTOPMANAGER* GRPFACTORY::CreateDesktopManager()
+* @brief      CreateDesktopManager
+* @ingroup    GRAPHIC
+* 
+* @return     GRPDESKTOPMANAGER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPDESKTOPMANAGER* GRPFACTORY::CreateDesktopManager()
+{
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPFACTORY::DeleteDesktopManager(GRPDESKTOPMANAGER* desktopmanager)
+* @brief      DeleteDesktopManager
+* @ingroup    GRAPHIC
+* 
+* @param[in]  desktopmanager : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPFACTORY::DeleteDesktopManager(GRPDESKTOPMANAGER* desktopmanager)
+{
+  return false;
+}
+
+#endif
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPFACTORY::Clean()

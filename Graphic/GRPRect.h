@@ -32,6 +32,8 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include <math.h>
+
 #include "XBase.h"
 #include "XMemory_Control.h"
 
@@ -83,6 +85,21 @@ class GRPRECTBASE
                                 this->y2  = y2;
                               }
 
+    T                         GetWidth                          ()
+                              {
+                                T width  = abs(this->x2 - this->x1);
+
+                                return width;
+                              }
+
+
+    T                         GetHeight                         ()
+                              {
+                                T height = abs(this->y2 - this->y1);
+
+                                return height;
+                              }
+
 
     const SELFTYPE&           Normalize                         ()
                               {
@@ -120,7 +137,6 @@ class GRPRECTBASE
 
                                 return true;
                               }
-
 
 
     bool                      IsHit                             (T x, T y) const

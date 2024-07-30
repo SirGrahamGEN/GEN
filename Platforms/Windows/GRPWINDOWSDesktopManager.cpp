@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XWINDOWSDesktopManager.cpp
+* @file       GRPWINDOWSDesktopManager.cpp
 * 
-* @class      XWINDOWSDESKTOPMANAGER
-* @brief      WINDOWS eXtended Utils Desktop Manager class
+* @class      GRPWINDOWSDESKTOPMANAGER
+* @brief      WINDOWS Graphics Desktop Manager class
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XWINDOWSDesktopManager.h"
+#include "GRPWINDOWSDesktopManager.h"
 
 #include "XMemory_Control.h"
 
@@ -53,34 +53,33 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-#pragma region CLASS_XWINDOWSDESKTOPMONITORS
+#pragma region CLASS_GRPWINDOWSDESKTOPMONITORS
 
    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XWINDOWSDESKTOPMONITORS::XWINDOWSDESKTOPMONITORS()
+* @fn         GRPWINDOWSDESKTOPMONITORS::GRPWINDOWSDESKTOPMONITORS()
 * @brief      Constructor
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSDESKTOPMONITORS::XWINDOWSDESKTOPMONITORS()
+GRPWINDOWSDESKTOPMONITORS::GRPWINDOWSDESKTOPMONITORS() : GRPDESKTOPMONITORS()
 {
   Clean();
 
-  SetRectEmpty(&combinedrect);
   EnumDisplayMonitors(0, 0, MonitorEnum, (LPARAM)this);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XWINDOWSDESKTOPMONITORS::~XWINDOWSDESKTOPMONITORS()
+* @fn         GRPWINDOWSDESKTOPMONITORS::~GRPWINDOWSDESKTOPMONITORS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSDESKTOPMONITORS::~XWINDOWSDESKTOPMONITORS()
+GRPWINDOWSDESKTOPMONITORS::~GRPWINDOWSDESKTOPMONITORS()
 {
   monitorsrects.DeleteContents();
   monitorsrects.DeleteAll();
@@ -91,51 +90,7 @@ XWINDOWSDESKTOPMONITORS::~XWINDOWSDESKTOPMONITORS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<RECT*>* XWINDOWSDESKTOPMONITORS::GetMonitorsRects()
-* @brief      GetMonitorsRects
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     XVECTOR<RECT*>* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<RECT*>* XWINDOWSDESKTOPMONITORS::GetMonitorsRects()
-{
-  return &monitorsrects;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         RECT* XWINDOWSDESKTOPMONITORS::GetCombinedRect()
-* @brief      GetCombinedRect
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     RECT* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-RECT* XWINDOWSDESKTOPMONITORS::GetCombinedRect()
-{
-  return &combinedrect;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XWINDOWSDESKTOPMONITORS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSDESKTOPMONITORS::Clean()
-{
-
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         static BOOL CALLBACK XWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
+* @fn         static BOOL CALLBACK GRPWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
 * @brief      MonitorEnum
 * @ingroup    PLATFORM_WINDOWS
 * 
@@ -147,86 +102,110 @@ void XWINDOWSDESKTOPMONITORS::Clean()
 * @return     static : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-BOOL CALLBACK XWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
+BOOL CALLBACK GRPWINDOWSDESKTOPMONITORS::MonitorEnum(HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata)
 {
-  XWINDOWSDESKTOPMONITORS* deskmonitors = (XWINDOWSDESKTOPMONITORS*)pdata;
+  GRPWINDOWSDESKTOPMONITORS* deskmonitors = (GRPWINDOWSDESKTOPMONITORS*)pdata;
   if(!deskmonitors)
     {
       return FALSE;  
     }
 
-  RECT* _rectmonitor = new RECT();
-  if(_rectmonitor)
+  GRPRECTINT* newmonitor = new GRPRECTINT();
+  if(newmonitor)
     {
-      _rectmonitor->left    = rectmonitor->left;
-      _rectmonitor->right   = rectmonitor->right;
-      _rectmonitor->top     = rectmonitor->top;
-      _rectmonitor->bottom  = rectmonitor->bottom;
+      newmonitor->x1  = rectmonitor->left;
+      newmonitor->x2  = rectmonitor->right;
+      newmonitor->y1  = rectmonitor->top;
+      newmonitor->y2  = rectmonitor->bottom;
 
-      deskmonitors->GetMonitorsRects()->Add(_rectmonitor);
+      deskmonitors->GetMonitorsRects()->Add(newmonitor);
     }
 
-  return UnionRect(deskmonitors->GetCombinedRect(), deskmonitors->GetCombinedRect(), rectmonitor);  
-}
+  GRPRECTINT* allmonitor = deskmonitors->GetCombinedRect();
+  if(!allmonitor)
+    {
+      return false;
+    }
 
+  GRPRECTINT allmonitortempo =  UniteRectangles((*allmonitor), (*newmonitor));
 
-#pragma endregion
+  allmonitor->CopyFrom(&allmonitortempo);
 
-
-#pragma region CLASS_XWINDOWSDESKTOPMANAGER
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSDESKTOPMANAGER::XWINDOWSDESKTOPMANAGER()
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSDESKTOPMANAGER::XWINDOWSDESKTOPMANAGER()
-{
-  Clean();
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XWINDOWSDESKTOPMANAGER::~XWINDOWSDESKTOPMANAGER()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSDESKTOPMANAGER::~XWINDOWSDESKTOPMANAGER()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSDESKTOPMONITORS* XWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
-* @brief      GetDesktopMonitors
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     XWINDOWSDESKTOPMONITORS* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSDESKTOPMONITORS* XWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
-{
-  return &desktopmonitors;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XWINDOWSDESKTOPMANAGER::Clean()
+* @fn         void GRPWINDOWSDESKTOPMONITORS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSDESKTOPMANAGER::Clean()
+void GRPWINDOWSDESKTOPMONITORS::Clean()
+{
+
+}
+
+
+#pragma endregion
+
+
+#pragma region CLASS_GRPWINDOWSDESKTOPMANAGER
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPWINDOWSDESKTOPMANAGER::GRPWINDOWSDESKTOPMANAGER()
+* @brief      Constructor
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPWINDOWSDESKTOPMANAGER::GRPWINDOWSDESKTOPMANAGER()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPWINDOWSDESKTOPMANAGER::~GRPWINDOWSDESKTOPMANAGER()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPWINDOWSDESKTOPMANAGER::~GRPWINDOWSDESKTOPMANAGER()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPWINDOWSDESKTOPMONITORS* GRPWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
+* @brief      GetDesktopMonitors
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XDESKTOPMONITORS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPDESKTOPMONITORS* GRPWINDOWSDESKTOPMANAGER::GetDesktopMonitors()
+{
+  return (GRPDESKTOPMONITORS*)&desktopmonitors;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPWINDOWSDESKTOPMANAGER::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPWINDOWSDESKTOPMANAGER::Clean()
 {
 
 }
@@ -236,6 +215,5 @@ void XWINDOWSDESKTOPMANAGER::Clean()
 
 
 #pragma endregion
-
 
 

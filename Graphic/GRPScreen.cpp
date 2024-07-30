@@ -39,6 +39,7 @@
 
 #include "GRPScreen.h"
 
+#include "GRPFactory.h"
 #include "GRPXEvent.h"
 #include "GRPCanvas.h"
 #include "GRPViewport.h"
@@ -82,6 +83,8 @@ GRPSCREEN::GRPSCREEN()
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_CHANGEFOCUS);
 
   framerate = new GRPFRAMERATE();
+
+  desktopmanager = GEN_GRPFACTORY.CreateDesktopManager();
 }
 
 
@@ -99,6 +102,12 @@ GRPSCREEN::~GRPSCREEN()
     {
       delete framerate;
       framerate = NULL;
+    }
+
+  if(desktopmanager)
+    {
+      GEN_GRPFACTORY.DeleteDesktopManager(desktopmanager);
+      desktopmanager = NULL;
     }
 
   DeRegisterEvent(GRPXEVENT_TYPE_SCREEN_CREATING);
@@ -258,18 +267,18 @@ void GRPSCREEN::Styles_Set(XDWORD styles)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Styles_IsFullScreen()
 {
-  if( ((this->styles & GRPSCREENSTYLE_FULLSCREEN)                   == GRPSCREENSTYLE_FULLSCREEN)                 || 
-      ((this->styles & GRPSCREENSTYLE_FULLSCREENMAIN)               == GRPSCREENSTYLE_FULLSCREENMAIN)             ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_1)                 == GRPSCREENSTYLE_FULLSCREEN_1)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_2)                 == GRPSCREENSTYLE_FULLSCREEN_2)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_3)                 == GRPSCREENSTYLE_FULLSCREEN_3)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_4)                 == GRPSCREENSTYLE_FULLSCREEN_4)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_5)                 == GRPSCREENSTYLE_FULLSCREEN_5)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_6)                 == GRPSCREENSTYLE_FULLSCREEN_6)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_7)                 == GRPSCREENSTYLE_FULLSCREEN_7)               ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_8)                 == GRPSCREENSTYLE_FULLSCREEN_8)               || 
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)    == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)  ||
-      ((this->styles & GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION)  == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR) 
+  if(((this->styles & GRPSCREENSTYLE_FULLSCREEN)                   == GRPSCREENSTYLE_FULLSCREEN)                 ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREENMAIN)               == GRPSCREENSTYLE_FULLSCREENMAIN)             ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_1)                 == GRPSCREENSTYLE_FULLSCREEN_1)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_2)                 == GRPSCREENSTYLE_FULLSCREEN_2)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_3)                 == GRPSCREENSTYLE_FULLSCREEN_3)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_4)                 == GRPSCREENSTYLE_FULLSCREEN_4)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_5)                 == GRPSCREENSTYLE_FULLSCREEN_5)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_6)                 == GRPSCREENSTYLE_FULLSCREEN_6)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_7)                 == GRPSCREENSTYLE_FULLSCREEN_7)               ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_8)                 == GRPSCREENSTYLE_FULLSCREEN_8)               || 
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)    == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)  ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION)  == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)     
     )
     {
       return true;
@@ -969,6 +978,51 @@ GRPFRAMERATE* GRPSCREEN::GetFrameRate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
+* @brief      GetDesktopManager
+* @ingroup    GRAPHIC
+* 
+* @return     GRPDESKTOPMANAGER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
+{
+  return desktopmanager;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+* @brief      GetDesktopScreenSelected
+* @ingroup    GRAPHIC
+* 
+* @return     GRPSCREENTYPE_DESKTOP : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+{
+  return desktopscreenselected;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
+* @brief      SetDesktopScreenSelected
+* @ingroup    GRAPHIC
+* 
+* @param[in]  desktopscreenselected : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
+{
+  this->desktopscreenselected = desktopscreenselected;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
 * @brief      GetListScreens
 * @ingroup    GRAPHIC
@@ -992,24 +1046,27 @@ XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPSCREEN::Clean()
 {
-  type                = GRPSCREENTYPE_UNKNOW;
+  type                    = GRPSCREENTYPE_UNKNOW;
 
-  isvalid             = false;
-  isactive            = false;
+  isvalid                 = false;
+  isactive                = false;
 
-  styles              = GRPSCREENSTYLE_DEFAULT;
+  styles                  = GRPSCREENSTYLE_DEFAULT;
     
-  buffer              = NULL;
-  buffersize          = 0;
+  buffer                  = NULL;
+  buffersize              = 0;
 
-  isblockclose        = false;
+  isblockclose            = false;
 
-  index_maincanvas    = 0;
-  maincanvas          = NULL;
+  index_maincanvas        = 0;
+  maincanvas              = NULL;
 
-  framerate           = NULL;
+  framerate               = NULL;
 
-  isshow              = false;
+  desktopmanager          = NULL;
+  desktopscreenselected   = GRPSCREENTYPE_DESKTOP_ALL;
+
+  isshow                  = false;
 }
 
 

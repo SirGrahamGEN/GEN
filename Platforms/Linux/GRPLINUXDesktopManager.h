@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XWINDOWSDesktopManager.h
+* @file       GRPLINUXDesktopManager.h
 * 
-* @class      XWINDOWSDESKTOPMANAGER
-* @brief      WINDOWS eXtended Utils Desktop Manager class
-* @ingroup    PLATFORM_WINDOWS
+* @class      GRPLINUXDESKTOPMANAGER
+* @brief      LINUX Graphics Desktop Manager class
+* @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,15 +26,15 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XWINDOWSDESKTOPMANAGER_H_
-#define _XWINDOWSDESKTOPMANAGER_H_
+#ifndef _GRPLINUXDESKTOPMANAGER_H_
+#define _GRPLINUXDESKTOPMANAGER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include <windows.h>
-
 #include "XVector.h"
+
+#include "GRPDesktopManager.h"
 
 #pragma endregion
 
@@ -49,40 +49,35 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class  XWINDOWSDESKTOPMONITORS
+class  GRPLINUXDESKTOPMONITORS : public GRPDESKTOPMONITORS
 {
   public:
-                                          XWINDOWSDESKTOPMONITORS                   ();
-    virtual                              ~XWINDOWSDESKTOPMONITORS                   ();
-
-    XVECTOR<RECT*>*                       GetMonitorsRects                          ();
-    RECT*                                 GetCombinedRect                           ();
-  
+                                          GRPLINUXDESKTOPMONITORS                     ();
+    virtual                              ~GRPLINUXDESKTOPMONITORS                     ();
+    
   private:
-    
-    static BOOL CALLBACK                  MonitorEnum                               (HMONITOR hmon,HDC hdc,LPRECT rectmonitor,LPARAM pdata);
-    
-    void                                  Clean                                     ();
+        
+    bool                                  MonitorEnum                                 ();
 
-    XVECTOR<RECT*>                        monitorsrects;
-    RECT                                  combinedrect;    
+    void                                  Clean                                       ();    
 };
 
 
-class XWINDOWSDESKTOPMANAGER
+class GRPLINUXDESKTOPMANAGER : public GRPDESKTOPMANAGER
 {
   public:
-                                          XWINDOWSDESKTOPMANAGER                    ();
-    virtual                              ~XWINDOWSDESKTOPMANAGER                    ();
+                                          GRPLINUXDESKTOPMANAGER                      ();
+    virtual                              ~GRPLINUXDESKTOPMANAGER                      ();
 
-    XWINDOWSDESKTOPMONITORS*              GetDesktopMonitors                        ();
+    GRPDESKTOPMONITORS*                   GetDesktopMonitors                          ();
 
   protected:
 
   private:
 
-    void                                  Clean                                     ();
-    XWINDOWSDESKTOPMONITORS               desktopmonitors;
+    void                                  Clean                                       ();
+
+    GRPLINUXDESKTOPMONITORS               desktopmonitors;
 };
 
 #pragma endregion
