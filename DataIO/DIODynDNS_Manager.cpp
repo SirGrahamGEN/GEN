@@ -189,45 +189,78 @@ bool DIODYNDNS_MANAGER::AssingAll()
 {
   DIODYNDNS_STATUSCODE  statusupdate;
   DIOURL                url;
-  DIOIP                 IP;
-  int                   result = 0;
-  bool                  status = true;
-
+  DIOIP                 IP; 
+  bool                  error    = false;
+  int                   nerrors  = 0;
+  
   DIODYNDNS* dyndns = new DIODYNDNS();
   if(!dyndns) return false;
 
   dyndns->GetLogin()->Set(login.Get());
   dyndns->GetPassword()->Set(password.Get());
 
-  if(!DNSlist.GetSize()) status = false;
-
-  for(XDWORD c=0; c<DNSlist.GetSize(); c++)
+  if(!DNSlist.GetSize()) 
     {
-      XSTRING* DNS = DNSlist.Get(c);
-      if(DNS)
+      return true;
+   }
+
+  for(int d=0; d<3; d++)
+    {
+      nerrors = 0;
+
+      for(XDWORD c=0; c<DNSlist.GetSize(); c++)
         {
-          url.Set(DNS->Get());
-
-          bool ischanged = false;
-
-          if(dyndns->IsChangedPublicIP(url, ischanged, &IP))
+          XSTRING* DNS = DNSlist.Get(c);
+          if(DNS)
             {
-              if(ischanged)
+              url.Set(DNS->Get());
+
+              bool ischanged = false;   
+ 
+              error  = false;        
+
+              if(dyndns->IsChangedPublicIP(url, ischanged, &IP))
                 {
-                  statusupdate = dyndns->Update(url, IP);
-                  if(statusupdate == DIODYNDNS_STATUSCODE_GOOD) result = 1;
+                  if(ischanged)
+                    {
+                      statusupdate = dyndns->Update(url, IP);
+                      if(statusupdate == DIODYNDNS_STATUSCODE_GOOD) 
+                        {
+                          error = false;
+                        }
+                       else
+                        {
+                          error = true;
+                        }     
 
-                } else result = 2;
+                    } 
+                   else 
+                    {
+                      error = false;
+                    }
 
-            } else result = 0;
+                } 
+               else 
+                {
+                  error = true;
+                }
+            }
+
+          if(error) 
+            {
+              nerrors++;
+            }
         }
 
-      if(!result) status = false;
+      if(!nerrors)
+        {
+          break;
+        }
     }
 
   delete dyndns;
 
-  return status;
+  return nerrors?false:true;
 }
 
 

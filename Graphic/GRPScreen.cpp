@@ -250,7 +250,7 @@ void GRPSCREEN::Styles_Set(XDWORD styles)
   if(Styles_IsFullScreen())
     {
       this->styles &= ~GRPSCREENSTYLE_TITLE;
-      this->styles &= ~GRPSCREENSTYLE_NOICONTASKBAR;
+      this->styles &= ~GRPSCREENSTYLE_NOWINDOWICONS;
       this->styles |=  GRPSCREENSTYLE_ONTOP;
     }  
 }
@@ -267,19 +267,8 @@ void GRPSCREEN::Styles_Set(XDWORD styles)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Styles_IsFullScreen()
 {
-  if(((this->styles & GRPSCREENSTYLE_FULLSCREEN)                   == GRPSCREENSTYLE_FULLSCREEN)                 ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREENMAIN)               == GRPSCREENSTYLE_FULLSCREENMAIN)             ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_1)                 == GRPSCREENSTYLE_FULLSCREEN_1)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_2)                 == GRPSCREENSTYLE_FULLSCREEN_2)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_3)                 == GRPSCREENSTYLE_FULLSCREEN_3)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_4)                 == GRPSCREENSTYLE_FULLSCREEN_4)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_5)                 == GRPSCREENSTYLE_FULLSCREEN_5)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_6)                 == GRPSCREENSTYLE_FULLSCREEN_6)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_7)                 == GRPSCREENSTYLE_FULLSCREEN_7)               ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_8)                 == GRPSCREENSTYLE_FULLSCREEN_8)               || 
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)    == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)  ||
-     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION)  == GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR)     
-    )
+  if(((this->styles & GRPSCREENSTYLE_FULLSCREEN)                   == GRPSCREENSTYLE_FULLSCREEN)                    ||
+     ((this->styles & GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION)  == GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
     {
       return true;
     }
@@ -899,7 +888,9 @@ bool GRPSCREEN::UpdateViewports()
         for(XDWORD c=0; c<viewports.GetSize(); c++)
           {
             if(index_maincanvas != c) 
-              maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
+              { 
+                maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
+              }
           } 
            
         if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))

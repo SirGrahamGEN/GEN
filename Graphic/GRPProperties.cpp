@@ -115,14 +115,14 @@ void GRPPROPERTIES::SetMode(GRPPROPERTYMODE mode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD GRPPROPERTIES::GetPositionX()
+* @fn         int GRPPROPERTIES::GetPositionX()
 * @brief      GetPositionX
 * @ingroup    GRAPHIC
 *
-* @return     XDWORD :
+* @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD GRPPROPERTIES::GetPositionX()
+int GRPPROPERTIES::GetPositionX()
 {
   return positionx;
 }
@@ -130,14 +130,14 @@ XDWORD GRPPROPERTIES::GetPositionX()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD GRPPROPERTIES::GetPositionY()
+* @fn         int GRPPROPERTIES::GetPositionY()
 * @brief      GetPositionY
 * @ingroup    GRAPHIC
 *
-* @return     XDWORD :
+* @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD GRPPROPERTIES::GetPositionY()
+int GRPPROPERTIES::GetPositionY()
 {
   return positiony;
 }
@@ -145,7 +145,7 @@ XDWORD GRPPROPERTIES::GetPositionY()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
+* @fn         void GRPPROPERTIES::SetPosition(int x, int y)
 * @brief      Set Position
 * @ingroup    GRAPHIC
 *
@@ -153,7 +153,7 @@ XDWORD GRPPROPERTIES::GetPositionY()
 * @param[in]  y : new y position
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPPROPERTIES::SetPosition(XDWORD x, XDWORD y)
+void GRPPROPERTIES::SetPosition(int x, int y)
 {
   positionx = x;
   positiony = y;

@@ -313,7 +313,7 @@ bool DIONODE::CreateJSONSerialization()
   serializationmethod = XSERIALIZABLE::CreateInstance(xfileJSON);
   if(!serializationmethod) return false;
   
-  InitSerialize(serializationmethod);
+  DoSerialize(serializationmethod);
 
   XPATH path;
   GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_ROOT, path);
@@ -371,8 +371,8 @@ bool DIONODE::Deserialize()
 {
   XSTRING ID;
 
-  Primitive_Extract<XSTRING*>(&ID, __L("ID"));
-  Primitive_Extract<XSTRING*>(&group, __L("group"));
+  Primitive_Extract<XSTRING&>(ID, __L("ID"));
+  Primitive_Extract<XSTRING&>(group, __L("group"));
   XVectorClass_Extract<DIONODEITEM>(&items, __L("items"), __L("item"));
 
   UUID.SetFromString(ID);

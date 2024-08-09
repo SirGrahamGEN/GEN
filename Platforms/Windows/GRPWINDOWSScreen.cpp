@@ -877,11 +877,26 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
   //-----------------------------------------------------------------------------------------------------
 
-  DWORD   _exstyle = 0;
-  DWORD   _style   = 0;
-  int     posx     = 0;
-  int     posy     = 0;
+  GRPRECTINT* alldesktoprect  = NULL;
+  int         nscreen         = GetDesktopScreenSelected(); 
+  DWORD       _exstyle        = 0;
+  DWORD       _style          = 0;
+  int         posx            = 0;
+  int         posy            = 0;  
 
+  if(nscreen == GRPSCREENTYPE_DESKTOP_ALL)
+    {
+      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
+    }
+   else 
+    {
+      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
+    }
+  
+  if(!alldesktoprect)
+    {
+      return false;          
+    }            
 
   if(Styles_IsFullScreen())          
     {
@@ -904,68 +919,30 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
           if(status != DISP_CHANGE_SUCCESSFUL) return NULL;
         }
        else 
-        {
-          if( Style_Is(GRPSCREENSTYLE_FULLSCREEN)    || Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN) || 
-              Style_Is(GRPSCREENSTYLE_FULLSCREEN_1)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_2)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_3)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_4) || 
-              Style_Is(GRPSCREENSTYLE_FULLSCREEN_5)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_6)   || Style_Is(GRPSCREENSTYLE_FULLSCREEN_7)  || Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))          
-            {
-             
-              GRPRECTINT* rect      =  NULL;
-              int         nscreen   = -1; 
-      
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREENMAIN)) nscreen  = 0;                 
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_1))   nscreen  = 0;      
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_2))   nscreen  = 1;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_3))   nscreen  = 2;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_4))   nscreen  = 3;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_5))   nscreen  = 4;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_6))   nscreen  = 5;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_7))   nscreen  = 6;
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_8))   nscreen  = 7;
- 
-              GRPDESKTOPMANAGER* desktopmanager = GEN_GRPFACTORY.CreateDesktopManager();
-              if(!desktopmanager)
-                {
-                  return false;
-                }
+        {                         
+          _exstyle  = WS_EX_TOPMOST | WS_EX_TOOLWINDOW;
+          _style    = WS_POPUP;
 
-              if(nscreen >= 0)
-                {
-                  rect = desktopmanager->GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
-                }
-       
-              if(nscreen == -1)
-                {
-                  rect = desktopmanager->GetDesktopMonitors()->GetCombinedRect(); 
-                }
-     
-              if(!rect)
-                {
-                  return false;          
-                }
-         
-              width  = rect->GetWidth();    //abs(rect->x2 - rect->x1);
-              height = rect->GetHeight();   //abs(rect->y2 - rect->y1);
-
-              if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_WITHOUTTASKBAR))
-                {
-                  height -= GetTaskbarHeight();
-                }  
-
-              posx   = rect->x1;
-              posy   = rect->y1; 
-
-              GEN_GRPFACTORY.DeleteDesktopManager(desktopmanager);
-            }
-
+          width  = alldesktoprect->GetWidth();    
+          height = alldesktoprect->GetHeight(); 
+   
+          posx   = alldesktoprect->x1;
+          posy   = alldesktoprect->y1;   
         }
 
-      _exstyle  = WS_EX_TOPMOST | WS_EX_TOOLWINDOW;
-      _style    = WS_POPUP;
+      if(Style_Is(GRPSCREENSTYLE_HEIGHTWITHOUTTASKBAR))
+        {
+          height -= GetTaskbarHeight();
+        }  
 
       if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
         {
           _exstyle |= WS_EX_LAYERED;
+        }
+
+      if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
+        {
+          _exstyle |= WS_EX_TOOLWINDOW;
         }
 
       hwnd = CreateWindowEx(_exstyle          ,
@@ -987,17 +964,13 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
       SetPosition(posx, posy);  
       SetSize(width ,height);
-      SetMaxSize(width ,height);      
+      SetMaxSize(width ,height);              
     }
    else
-    {     
-      RECT rect; 
-
-      GetClientRect(GetDesktopWindow(), &rect);
-     
+    {          
       if(positionx == GRPPROPERTYMODE_SCREEN_CENTER) 
         {
-          posx = (rect.right - width)/2;
+          posx = (alldesktoprect->GetWidth() - width)/2;
         }
        else 
         {
@@ -1006,14 +979,14 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
       if(positiony == GRPPROPERTYMODE_SCREEN_CENTER) 
         {
-          posy = (rect.bottom- height)/2;
+          posy = (alldesktoprect->GetHeight() - height)/2;
         }
        else 
         {
           posy = positiony; 
         }
    
-      if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
+      if(Style_Is(GRPSCREENSTYLE_NOWINDOWICONS))
         {
           _style |= WS_OVERLAPPED;  // _exstyle |= WS_EX_TOOLWINDOW;
         }
@@ -1041,12 +1014,18 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
               _style |= WS_POPUP;
             }
         }
-     
+
+      if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
+        {
+          _exstyle |= WS_EX_TOOLWINDOW;
+        }
+
       hwnd = CreateWindowEx(_exstyle          ,
                             classname.Get()   ,
                             GetTitle()->Get() ,
                             _style            ,
-                            posx, posy        ,
+                            posx              , 
+                            posy              ,
                             width ,height     ,
                             NULL              ,
                             NULL              ,
@@ -1059,7 +1038,9 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
         }
 
       //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
-      
+       
+      RECT rect;
+
       GetClientRect(hwnd, &rect);
 
       rect.right  = rect.left + width;    //+ 16;
@@ -1067,17 +1048,24 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
       AdjustWindowRect(&rect, GetWindowLong(hwnd, GWL_STYLE), false);
     
-      SetWindowPos(hwnd, NULL, posx, posy, (rect.right-rect.left), (rect.bottom-rect.top) , SWP_NOMOVE | SWP_NOZORDER);
+      SetWindowPos(hwnd, NULL, posx , posy, (rect.right-rect.left), (rect.bottom-rect.top) , SWP_NOMOVE | SWP_NOZORDER);
       
-
       POINT point = { 0, 0}; 
 
       ClientToScreen(hwnd, (LPPOINT)&point);  
+
+      if(Style_Is(GRPSCREENSTYLE_HEIGHTWITHOUTTASKBAR))
+        {
+          point.y -= GetTaskbarHeight();
+        }  
+
+      point.x  += alldesktoprect->x1;
+      point.y  += alldesktoprect->y1;   
     
-      SetPosition(point.x, point.y);
+      SetPosition(point.x,  point.y);
+
       SetSize(width ,height);
       SetMaxSize(width ,height);
-      
     }
 
   //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows Create] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);

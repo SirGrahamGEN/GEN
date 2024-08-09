@@ -175,8 +175,8 @@ bool DIONODEITEMVALUEUNITFORMAT::Serialize()
 bool DIONODEITEMVALUEUNITFORMAT::Deserialize()
 {
   Primitive_Extract<int>(type, __L("type"));
-  Primitive_Extract<XVARIANT*>(&name, __L("name"));
-  Primitive_Extract<XVARIANT*>(&symbol, __L("symbol"));
+  Primitive_Extract<XVARIANT&>(name, __L("name"));
+  Primitive_Extract<XVARIANT&>(symbol, __L("symbol"));
 
   return true;
 }

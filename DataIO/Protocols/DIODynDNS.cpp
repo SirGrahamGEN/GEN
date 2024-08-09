@@ -200,12 +200,17 @@ bool DIODYNDNS::GetPublicIP(DIOIP& publicIP, int timeout, XSTRING* IPlocal)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIODYNDNS::IsChangedPublicIP(DIOURL& url, bool& ischanged, DIOIP* newpublicip, int timeout, XSTRING* IPlocal)
 {
-  ischanged = false;
-
   DIOIP   publicIP[2];
   bool    status  = false;
-  DIOURL* _url    = new DIOURL();
-  if(!_url) return false;
+  DIOURL* _url    = NULL; 
+
+  ischanged = false;
+
+  _url    = new DIOURL();
+  if(!_url) 
+    {
+      return false;
+    }
 
   (*_url) = url;
 

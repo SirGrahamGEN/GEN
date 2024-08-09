@@ -76,9 +76,9 @@ class GRPPROPERTIES
     GRPPROPERTYMODE         GetMode                     ();
     void                    SetMode                     (GRPPROPERTYMODE mode);
 
-    XDWORD                  GetPositionX                ();
-    XDWORD                  GetPositionY                ();
-    void                    SetPosition                 (XDWORD x, XDWORD y);
+    int                     GetPositionX                ();
+    int                     GetPositionY                ();
+    void                    SetPosition                 (int x, int y);
 
     XDWORD                  GetWidth                    ();
     void                    SetWidth                    (XDWORD width);
@@ -120,8 +120,8 @@ class GRPPROPERTIES
   protected:
 
     GRPPROPERTYMODE         mode;
-    XDWORD                  positionx;
-    XDWORD                  positiony;
+    int                     positionx;
+    int                     positiony;
     XDWORD                  width;
     XDWORD                  height;
     XDWORD                  maxwidth;
