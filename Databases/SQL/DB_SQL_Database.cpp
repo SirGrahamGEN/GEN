@@ -538,9 +538,9 @@ bool DB_SQL_DATABASE::Table_IsThere(XSTRING& nametable, XCHAR* constfield, bool&
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfields)
 {
-  XSTRING      querystring;
-  DB_SQL_QUERY*  query  = NULL;
-  bool         status = false;
+  XSTRING         querystring;
+  DB_SQL_QUERY*   query  = NULL;
+  bool            status = false;
 
   query = CreateQuery();
   if(!query) return false;
@@ -556,9 +556,7 @@ bool DB_SQL_DATABASE::Table_Create(XCHAR* nametable, XCHAR* fields[], int nfield
     }
 
   querystring.Add(__L(");"));
-
-  //XTRACE_PRINTCOLOR(2,__L("%s"), querystring.Get());
-
+  
   query->Set(querystring.Get());
 
   status = Execute(query);

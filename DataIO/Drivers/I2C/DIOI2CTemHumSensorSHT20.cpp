@@ -239,9 +239,7 @@ bool DIOI2CTEMHUMSENSORSHT20::IniDevice()
 bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
 {
   if(!diostream)
-    {
-      XTRACE_PRINTCOLOR(4, __L("Not datastream comand %02X"), cmd);
-
+    {     
       return false;
     }
 
@@ -252,9 +250,7 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
   if(status) status = diostream->WaitToFlushOutXBuffer(timeout);
 
   if(!status)
-    {
-      XTRACE_PRINTCOLOR(4, __L("Not write comand %02X"), cmd);
-
+    {    
       return false;
     }
 
@@ -267,15 +263,12 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
     {
       status = (diostream->Read(data, 3) == 3)?true:false;
       if(!status)
-        {
-          XTRACE_PRINTCOLOR(4, __L("Not read comand %02X"), cmd);
-
+        {         
           return false;
         }
     }
    else
     {
-      XTRACE_PRINTCOLOR(4, __L("Not data to read comand %02X"), cmd);
       return false;
     }
 
@@ -289,7 +282,6 @@ bool DIOI2CTEMHUMSENSORSHT20::ReadValue(XBYTE cmd, XWORD& value)
     {
       return false;
     }
-
 
   value = rawvalue & 0xFFFC;
 

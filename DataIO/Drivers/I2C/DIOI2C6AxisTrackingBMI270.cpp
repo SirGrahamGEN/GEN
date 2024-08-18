@@ -681,7 +681,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
   // To check the interrupt status of any-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_ANY_MOT_STATUS_MASK)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Any-motion interrupt is generated"));         
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Any-motion interrupt is generated"));         
       any_motion          = 1;       
     }
    else
@@ -692,7 +692,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
   // To check the interrupt status of no-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_NO_MOT_STATUS_MASK)
     {      
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] No-motion interrupt is generated"));       
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] No-motion interrupt is generated"));       
       no_motion           = 1;      
     }
    else
@@ -703,7 +703,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
   // To check the interrupt status of no-motion. 
   if(int_status & DIOI2C6AXISTRACKINGBMI270_SIG_MOT_STATUS_MASK)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Significant motion interrupt is generated"));  
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Significant motion interrupt is generated"));  
       sig_motion          = 1;      
     }
    else
@@ -713,7 +713,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
     
   if(int_status & DIOI2C6AXISTRACKINGBMI270_STEP_CNT_STATUS_MASK)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Counter interrupt is generated"));       
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Counter interrupt is generated"));       
       step_event          = 1;      
     }
    else
@@ -723,7 +723,7 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::Update()
     
   if(int_status & DIOI2C6AXISTRACKINGBMI270_STEP_ACT_STATUS_MASK)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Activity interrupt is generated"));      
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL] Activity interrupt is generated"));      
     }
 	
   prev_status = (XDWORDSIG)int_status;
@@ -993,7 +993,7 @@ bool DIOI2C6AXISTRACKINGBMI270::Inicializate()
                     rslt = bmi270_map_feat_int(sens_int, 4, &bmi2_dev);
                     bmi2_error_codes_print_result(rslt);
                     
-                    XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL: Move the board]"));                  
+                    // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[ACCEL: Move the board]"));                  
                 }
           }
     }

@@ -122,9 +122,7 @@ bool DIOI2CTEMHUMSENSORAM2315::Read(float& temperature, float& humidity)
   if(status) status = diostream->Read(answer, 8)?true:false;
 
   if(status)
-    {
-      //XTRACE_PRINTCOLOR(2, __L("%02X %02X %02X %02X %02X %02X %02X %02X"), answer[0], answer[1], answer[2], answer[3], answer[4], answer[5], answer[6], answer[7]);
-
+    {     
       XWORD  CRC       = (answer[7]<<8) + answer[6];
       XWORD  CRCbuffer = 0;
       double rhtfactor = 0.1;

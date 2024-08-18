@@ -219,7 +219,7 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
   mainscreen = GEN_GRPFACTORY.CreateScreen();
   if(!mainscreen)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Could not initialize the main screen ..."));
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[APP Graphics] Could not initialize the main screen ..."));
       return false;
     }
 
@@ -227,7 +227,7 @@ bool APPGRAPHICS::CreateMainScreenProcess(bool show)
   maincontext = GRPFACTORY::GetInstance().CreateContext();
   if(!maincontext)
     {
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Could not initialize the Graphics Context ..."));
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[APP Graphics] Could not initialize the Graphics Context ..."));
       return false;
     }
   #endif

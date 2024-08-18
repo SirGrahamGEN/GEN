@@ -365,9 +365,7 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 
                                               XBYTE offset = (address % maxsizepage);
 
-                                              xbuffer.Add((XBYTE)offset);
-
-                                              //XTRACE_PRINTCOLOR(1, __L("%d, %d"), page, offset);
+                                              xbuffer.Add((XBYTE)offset);                                             
                                             }
                                             break;
 
@@ -382,8 +380,6 @@ bool DIOI2CEEPROM24XXX::ReadBYTE(XDWORD address, XBYTE& data)
 
   status = diostream->WaitToFilledReadingBuffer(1, timeout);
   if(status) status = diostream->Read(&data, 1)?true:false;
-
-  //XTRACE_PRINTCOLOR(1, __L("%02X, %02X"), xbuffer.GetByte(0), data);
 
   diostreamcfg->SetRemoteAddress(remotebasebackup);
 

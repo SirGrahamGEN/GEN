@@ -515,7 +515,7 @@ void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
     
   switch(event->GetEventType())
     {
-      case XBERXEVENT_TYPE_DECODE_START   : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("START [%d]"), decodekey->GetType());
+      case XBERXEVENT_TYPE_DECODE_START   : XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Cipher Keys File PEM] Start [%d]"), decodekey->GetType());
                                             break;
 
       case XBERXEVENT_TYPE_DECODE_DATA    : { XSTRING levelsstr;
@@ -605,7 +605,7 @@ void CIPHERKEYSFILEPEM::HandleEvent_XBER(XBER_XEVENT* event)
                                             }
                                             break;
 
-      case XBERXEVENT_TYPE_DECODE_END     : XTRACE_PRINTCOLOR((event->GetStatus()?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("END"));                                              
+      case XBERXEVENT_TYPE_DECODE_END     : XTRACE_PRINTCOLOR((event->GetStatus()?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED), __L("[Cipher Keys File PEM] End"));                                              
                                             break;
 
     } 

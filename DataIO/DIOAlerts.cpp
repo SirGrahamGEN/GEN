@@ -1688,9 +1688,7 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
                   json.DeleteAllLines();
                   json.DeleteAllObjects();
                 }
-            }                    
-
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"), contents.Get());
+            }                              
 
           XBUFFER postdata;
           

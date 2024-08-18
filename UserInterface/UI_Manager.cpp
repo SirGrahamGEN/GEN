@@ -4022,7 +4022,7 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
   UI_PROPERTY_SELECTABLE* element_selectable = dynamic_cast<UI_PROPERTY_SELECTABLE*>(element);
   if(!element_selectable) return false;
 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("UI Element [%s]: Selected. "), element->GetName()->Get());
+  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("UI Element [%s]: Selected. "), element->GetName()->Get());
 
   if(dynamic_cast<UI_PROPERTY_EDITABLE*>(element))        
     {
@@ -4036,13 +4036,13 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
         {
           bool status = element_checkbox->GetStatus();
 
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Checkbox select] name %s status: %s"), element_checkbox->GetName()->Get(), (status?__L("true"):__L("false"))); 
+          // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Checkbox select] name %s status: %s"), element_checkbox->GetName()->Get(), (status?__L("true"):__L("false"))); 
           
           status=!status;
 
           element_checkbox->SetStatus(status);
           
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Checkbox select] name %s status: %s"), element_checkbox->GetName()->Get(), (status?__L("true"):__L("false"))); 
+          // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Checkbox select] name %s status: %s"), element_checkbox->GetName()->Get(), (status?__L("true"):__L("false"))); 
 
           Elements_SetToRedraw(element);  
       }

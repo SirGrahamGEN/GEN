@@ -238,8 +238,8 @@ bool SQLITE_RESULT::ProcessRow()
                                   }
                                   break;
 
-          case SQLITE_BLOB      : { //unsupported
-                                   XTRACE_PRINTCOLOR(0,__L("Unsupported BLOB type"));
+          case SQLITE_BLOB      : { // unsupported
+                                    // XTRACE_PRINTCOLOR(0,__L("Unsupported BLOB type"));
                                   }
                                   break;
 

@@ -44,6 +44,7 @@
 #include "GRPLINUXScreenX11.h"
 
 #include "XTrace.h"
+#include "XBuffer.h"
 
 #include "GRPCanvas.h"
 #include "GRPDesktopManager.h"
@@ -77,22 +78,22 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 
   type = GRPSCREENTYPE_LINUX_X11;
 
-  display = XOpenDisplay(NULL);
+  display = XOpenDisplay(":0.0");
   if(!display)
     {
       return;
     }
+
+  XSetErrorHandler(ErrorHandler);
     
   int width  = DisplayWidth  (display, DefaultScreen (display));
   int height = DisplayHeight (display, DefaultScreen (display));
   int depth  = DefaultDepth  (display, DefaultScreen (display));
 
-  originalwidth   = width;
-  originalheight  = height;
-
   SetSize(width, height);
   SetMaxSize(width, height);
 
+  /*
   switch(depth)
     {
       case   8 : SetMode(GRPPROPERTYMODE_08_INDEX);     break;
@@ -100,6 +101,9 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
       case  24 : SetMode(GRPPROPERTYMODE_24_BGR_888);   break;
       case  32 : SetMode(GRPPROPERTYMODE_32_BGRA_8888); break;
     }
+  */
+
+  SetMode(GRPPROPERTYMODE_32_BGRA_8888);
 
   SetIsBufferInverse(true);
     
@@ -168,7 +172,8 @@ bool GRPLINUXSCREENX11::Create(bool show)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENX11::Update()
 {
-  return false;
+  
+  return true;
 }
 
 
@@ -200,11 +205,11 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
     {
       return false;
     }
-
+  
   GC gc = XCreateGC(display, window, 0, NULL);
   if(gc)
     {
-      XSync(display,false);
+      XSync(display, false);
 
       if(IsEqualSizeTo(canvas) == ISEQUAL)
         {
@@ -234,6 +239,25 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
 
   return true;
 }
+
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPLINUXSCREENX11::UpdateTransparent(GRPCANVAS* canvas)
+* @brief      UpdateTransparent
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  canvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPLINUXSCREENX11::UpdateTransparent(GRPCANVAS* canvas)
+{
+  return Update(canvas);  
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -439,6 +463,36 @@ Window* GRPLINUXSCREENX11::GetWindow()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         Window* GRPLINUXSCREENX11::GetWindowRoot()
+* @brief      GetWindowRoot
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     Window* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+Window* GRPLINUXSCREENX11::GetWindowRoot()
+{
+  return &root;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVisualInfo* GRPLINUXSCREENX11::GetVisualInfo()
+* @brief      GetVisualInfo
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     XVisualInfo* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVisualInfo* GRPLINUXSCREENX11::GetVisualInfo()
+{
+  return &vinfo;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool GRPLINUXSCREENX11::Create_Window(bool show)
 * @brief      Create_Window
 * @ingroup    PLATFORM_LINUX
@@ -450,77 +504,77 @@ Window* GRPLINUXSCREENX11::GetWindow()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENX11::Create_Window(bool show)
 {
+  typedef struct  
+  {
+    unsigned long flags;
+    unsigned long functions;
+    unsigned long decorations;
+    long          inputMode;
+    unsigned long status;
+
+  } MOTIFWMHINTS;
+
   if(!display) 
     {
       return false;
     }
 
   GRPRECTINT*           alldesktoprect  = NULL;
-  int                   nscreen         = GetDesktopScreenSelected(); 
-
-  int                   numscreen = 0;
-  int                   depth;
-  Visual*               visual;
-  XSetWindowAttributes  attributes;
-  
-
-  numscreen  = DefaultScreen(display);
-  root       = RootWindow(display,numscreen);
-  depth      = DefaultDepth(display,numscreen);
-  visual     = DefaultVisual(display,numscreen);
-
-  attributes.background_pixel   = XBlackPixel(display, numscreen);
-  attributes.border_pixel       = XBlackPixel(display, numscreen);
-  attributes.override_redirect  = false;
-
-  int posx = 0;
-  int posy = 0;
+  int                   screenselected  = GetDesktopScreenSelected();   
+  XSetWindowAttributes  attr;  
+  int                   posx            = 0;
+  int                   posy            = 0;
+  int                   status          = false;   
 
 
-  if(nscreen == GRPSCREENTYPE_DESKTOP_ALL)
+  root = DefaultRootWindow(display);    
+
+  //ShowDebugNetSupportedPropertys();
+
+  if(screenselected == GRPSCREENTYPE_DESKTOP_ALL)
     {
       alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
     }
    else 
     {
-      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetMonitorsRects()->Get(nscreen);
+      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetMonitorsRects()->Get(screenselected); 
+      
     }
   
   if(!alldesktoprect)
     {
       return false;          
     }            
-
             
    if(Styles_IsFullScreen())          
     {
-      if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
+      posx   = alldesktoprect->x1;
+      posy   = alldesktoprect->y1; 
+
+      if(!alldesktoprect->x1)
         {
-
-
-
+          posx++;              
         }
-       else
-        {               
+
+      if(!alldesktoprect->y1)
+        {
+          posy++;              
+        }
+
+      if(Style_Is(GRPSCREENSTYLE_FULLSCREEN_ADJUSTRESOLUTION))
+        {          
+          ChangeScreenResolution(width, height);          
+        }
+       else 
+        {
           width  = alldesktoprect->GetWidth();    
-          height = alldesktoprect->GetHeight();   
-          
-          posx   = alldesktoprect->x1;
-          posy   = alldesktoprect->y1; 
-                  
-          window =  XCreateWindow(display, root, posx, posy, width, height, 1, depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect, &attributes);
-          if(!window) 
+          height = alldesktoprect->GetHeight(); 
+
+          if(Style_Is(GRPSCREENSTYLE_HEIGHTWITHOUTTASKBAR))
             {
-              return false;
-            } 
-             
-          Atom wm_state      = XInternAtom (display, "_NET_WM_STATE", true );
-          Atom wm_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true);  
-           
-          XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_fullscreen, 1);
-          
-          ScreenResolution(display, root, width, height, 60, false);                        
-        }
+              height -= GetTaskBarHeight();
+            }
+        }                      
     }
    else
     {         
@@ -543,152 +597,219 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
         }
 
       posx  += alldesktoprect->x1;
-      posy  += alldesktoprect->y1;   
+      posy  += alldesktoprect->y1;       
+    } 
+  
+  
+  XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &vinfo);
 
-      Atom wm_state       = XInternAtom (display, "_NET_WM_STATE", true );
-      Atom wm_state_above = XInternAtom(display, "_NET_WM_STATE_ABOVE", False);
+  attr.colormap         = XCreateColormap(display, root, vinfo.visual, AllocNone);
+  attr.border_pixel     = 0;
+  attr.background_pixel = Style_Is(GRPSCREENSTYLE_TRANSPARENT)?0x00000000:0xFFFFFFFF;
 
-      XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_state_above, 1);
-               
-      window =  XCreateWindow(display, root, posx, posy, width, height, 1, depth, 0 /*InputOutput*/, visual, CWBackPixel | CWBorderPixel | CWOverrideRedirect, &attributes);
-      if(!window) 
+  window = XCreateWindow(display, root, posx, posy, width, height, 0, vinfo.depth, InputOutput, vinfo.visual, CWColormap | CWBorderPixel | CWBackPixel, &attr);        
+  
+  //window =  XCreateSimpleWindow(display, root, posx, posy, width, height, 0,  BlackPixel(display, 0), WhitePixel(display, 0));          
+  if(!window) 
+    {
+      return false;
+    }      
+
+  /*
+  if(Style_Is(GRPSCREENSTYLE_FULLSCREEN))
+    {
+      Atom wm_state            = XInternAtom (display, "_NET_WM_STATE", true );
+      Atom wm_state_fullscreen = XInternAtom (display, "_NET_WM_STATE_FULLSCREEN", true);  
+
+      if(wm_state == None || wm_state_fullscreen == None)        
         {
-          return false;
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom FULLSCREEN  (fullscreen)"));
+        }
+       else
+        {           
+          XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_state_fullscreen, 1);          
+        }
+    }
+  */
+ 
+
+  if(!Style_Is(GRPSCREENSTYLE_TITLE))
+    {
+      Atom          wmhintsatom = XInternAtom(display , "_MOTIF_WM_HINTS", True);
+      MOTIFWMHINTS  hints; 
+
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom HINTS Decorations (no title) active"));
+
+      if(wmhintsatom  == None)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom HINTS Decorations (no title)"));
+        }
+       else
+        {
+          memset(&hints, 0, sizeof(hints));
+
+          hints.flags        = GRPLINUXSCREENX11_MWM_HINTS_DECORATIONS;   
+          hints.decorations  = 0;  
+
+          XChangeProperty(display, window, wmhintsatom, wmhintsatom, 32, PropModeReplace, (unsigned char *)&hints, 5); 
+        }
+    }
+   else
+    {
+      if(!title.IsEmpty())
+        {
+          XBUFFER xbuffer;
+
+          title.ConvertToASCII(xbuffer);
+
+          XStoreName(display, window, (char*)xbuffer.Get());
+        }
+
+      if(Style_Is(GRPSCREENSTYLE_NOWINDOWICONS))
+        {
+          Atom          wmhintsatom = XInternAtom(display , "_MOTIF_WM_HINTS", True);
+          MOTIFWMHINTS  hints;
+
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom HINTS Decorations (no icons) active"));
+
+          if(wmhintsatom  == None)
+            {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom HINTS Decorations (no icons)"));
+            }
+           else
+            { 
+              memset(&hints, 0, sizeof(hints));
+
+              hints.flags       = GRPLINUXSCREENX11_MWM_HINTS_DECORATIONS;
+              hints.decorations = GRPLINUXSCREENX11_MWM_FUNC_CLOSE; 
+
+              XChangeProperty(display, window, wmhintsatom, wmhintsatom, 32, PropModeReplace, (unsigned char*)&hints, 5);
+            }
+        }
+    } 
+
+  if(Style_Is(GRPSCREENSTYLE_NOICONTASKBAR))
+    {
+      Atom wm_state             = XInternAtom(display , "_NET_WM_STATE"             , True);
+      Atom wm_state_skiptaskbar = XInternAtom(display , "_NET_WM_STATE_SKIP_TASKBAR", True);
+
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom SKIP_TASKBAR active"));
+        
+      if(wm_state == None || wm_state_skiptaskbar == None)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom SKIP_TASKBAR (No Icon Taskbar)"));
+        }
+       else
+        {
+          XChangeProperty(display, window, wm_state, XA_ATOM, 32,PropModeReplace, (unsigned char *)&wm_state_skiptaskbar, 1);          
         }
     }
 
-  XMapWindow(display , window);
+  if(Style_Is(GRPSCREENSTYLE_ONTOP))
+    {
+      Atom wm_state       = XInternAtom(display , "_NET_WM_STATE"       , True);
+      Atom wm_state_above = XInternAtom(display , "_NET_WM_STATE_ABOVE" , True);
 
-  XMoveWindow(display, window, posx, posy);
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom ABOVE active"));
+
+      if(wm_state == None || wm_state_above == None)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom ABOVE (On top)"));
+        }
+       else
+        {
+          XChangeProperty(display, window, wm_state, XA_ATOM, 32, PropModeReplace, (unsigned char *)&wm_state_above, 1);              
+        }
+    }
+
+
+  if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+    {       
+      /*
+      Atom wm_opacity = XInternAtom(display, "_NET_WM_WINDOW_OPACITY", True);
+      unsigned long opacity = (unsigned long)(0x01010101);
+
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom OPACITY active"));
+
+      if(wm_opacity == None)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom OPACITY (Transparent)"));
+        }
+       else
+        {
+          XChangeProperty(display, window, wm_opacity, XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&opacity, 1L);
+        }
+      */
+
+      /*
+      Atom           wm_opacity = XInternAtom(display, "_NET_WM_WINDOW_OPACITY", True);      
+      int            alpha = 0;
+          
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] Atom OPACITY active"));
+
+      if(wm_opacity == None)
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom OPACITY (Transparent)"));
+        }
+       else
+        {
+          XChangeProperty (display, window, wm_opacity, XA_CARDINAL, 32, PropModeReplace, (unsigned char *)&alpha, 1);          
+          XFlush(display);
+        }
+      */
+    }
+  
+  XMapWindow(display , window);
+  XMoveWindow(display, window, posx, posy);    
 
   return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window root, int xsz, int ysz, int rate, int just_checking)
-* @brief      ScreenResolution
+* 
+* @fn         bool GRPLINUXSCREENX11::ChangeScreenResolution(int width, int height)
+* @brief      ChangeScreenResolution
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  display :
-* @param[in]  root :
-* @param[in]  xsz :
-* @param[in]  ysz :
-* @param[in]  rate :
-* @param[in]  just_checking :
-*
-* @return     int :
-*
+* 
+* @param[in]  width : 
+* @param[in]  height : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window  root, int xsz, int ysz, int rate, int just_checking)
-{
-  XRRScreenConfiguration*   xrr_config = 0;
-  int                       event_base;
-  int                       error_base;
-  int                       ver_major;
-  int                       ver_minor;
-  int                       use_rate;
-  Status                    result = -1;
-
-  if(!display) return -1;
-
-  // must check at runtime for the availability of the extension
-  if(!XRRQueryExtension(display, &event_base, &error_base))
+bool GRPLINUXSCREENX11::ChangeScreenResolution(int width, int height)
+{   
+  int                     num_sizes;
+  XRRScreenSize*          xrrs;
+  XRRScreenConfiguration* conf;
+  short                   original_rate;
+  Rotation                original_rotation;
+  SizeID                  original_size_id;
+ 
+  root  = RootWindow(display, 0);
+  xrrs  = XRRSizes(display, 0, &num_sizes);
+ 
+  for(int c=0; c<num_sizes; c++) 
     {
-        return -1;
+      if((xrrs[c].width  == width) && (xrrs[c].height == height))
+        {
+          short*  rates;
+          int     num_rates;
+
+          rates = XRRRates(display, 0, c, &num_rates);
+                      
+          conf             = XRRGetScreenInfo(display, root);
+          original_rate    = XRRConfigCurrentRate(conf);
+          original_size_id = XRRConfigCurrentConfiguration(conf, &original_rotation);
+              
+          int status = XRRSetScreenConfigAndRate(display, conf, root, c, original_rotation, rates[0], CurrentTime);
+
+          return true;        
+        }
     }
 
-  XRRQueryVersion(display, &ver_major, &ver_minor);
-
-  // we only heed the rate if we CAN actually use it (Xrandr >= 1.1) and the user actually cares about it (rate > 0)
-  use_rate = ( rate > 0 ) && ( ( ver_major > 1 ) || (( ver_major == 1 ) && ( ver_minor >= 1 )));
-
-  // this loop is only so that the whole thing will be repeated if someone else changes video mode between our query of the current information and the attempt to change it.
-  do{
-        XRRScreenSize*  ssizes;
-        short*          rates;
-        Rotation        rot;
-        int             i;
-        int             ssizes_count;
-        int             rates_count;
-        int             curr;
-        int             res_idx = -1;
-        Time timestamp, cfg_timestamp;
-
-        if(xrr_config) XRRFreeScreenConfigInfo(xrr_config);
-
-        if(!(xrr_config = XRRGetScreenInfo(display, root)))
-          {
-            //fgWarning("XRRGetScreenInfo failed");
-            break;
-          }
-
-        ssizes    = XRRConfigSizes(xrr_config, &ssizes_count);
-        curr      = XRRConfigCurrentConfiguration(xrr_config, &rot);
-        timestamp = XRRConfigTimes(xrr_config, &cfg_timestamp);
-
-        // if either of xsz or ysz are unspecified, use the current values
-        if(xsz <= 0) xsz =  ssizes[curr].width;
-        if(ysz <= 0) ysz =  ssizes[curr].height;
-
-        if(xsz == ssizes[curr].width && ysz == ssizes[curr].height)
-          {
-            // no need to switch, we're already in the requested resolution
-            res_idx = curr;
-          }
-         else
-          {
-            for(i=0; i<ssizes_count; i++)
-              {
-                if(ssizes[i].width == xsz && ssizes[i].height == ysz)
-                  {
-                    res_idx = i;
-                    break;  // found it
-                  }
-              }
-          }
-
-        if(res_idx == -1) break;  // no matching resolution
-
-        #if ( RANDR_MAJOR > 1 ) || ( ( RANDR_MAJOR == 1 ) && ( RANDR_MINOR >= 1 ) )
-        if(use_rate)
-          {
-            // for the selected resolution, let's find out if there is a matching refresh rate available.
-            rates = XRRConfigRates(xrr_config, res_idx, &rates_count);
-
-            for(i=0; i<rates_count; i++)
-              {
-                if(rates[i] == rate)
-                  {
-                    break;
-                  }
-              }
-
-            if(i == rates_count) break; // no matching rate
-          }
-        #endif
-
-        if(just_checking)
-          {
-            result = 0;
-            break;
-          }
-
-        #if ( RANDR_MAJOR > 1 ) || ( ( RANDR_MAJOR == 1 ) && ( RANDR_MINOR >= 1 ) )
-        if(use_rate)
-              result = XRRSetScreenConfigAndRate(display, xrr_config, root, res_idx, rot, rate, timestamp);
-        else
-        #endif
-              result = XRRSetScreenConfig(display, xrr_config, root, res_idx, rot, timestamp);
-
-    } while(result == RRSetConfigInvalidTime);
-
-  if(xrr_config) XRRFreeScreenConfigInfo(xrr_config);
-
-  if(result == 0) return 0;
-
-  return -1;
+  return false;
 }
 
 
@@ -709,23 +830,18 @@ int GRPLINUXSCREENX11::ScreenResolution(Display* display, Window  root, int xsz,
 * --------------------------------------------------------------------------------------------------------------------*/
 XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, XBYTE* buffer, int width, int height)
 {
-  XImage* image = NULL;
-  int     depth;
-  Visual* visual;
+  XImage* image = NULL; 
   double  rratio;
   double  gratio;
   double  bratio;
   int     outindex       = 0;
-  int     numbufferbytes = (3 * (width * height));
+  int     numbufferbytes = (4 * (width * height));
 
-  depth  = DefaultDepth(display,screen);
-  visual = DefaultVisual(display,screen);
+  rratio = vinfo.visual->red_mask   / 255.0;
+  gratio = vinfo.visual->green_mask / 255.0;
+  bratio = vinfo.visual->blue_mask  / 255.0;
 
-  rratio = visual->red_mask   / 255.0;
-  gratio = visual->green_mask / 255.0;
-  bratio = visual->blue_mask  / 255.0;
-
-  if(depth >= 24)
+  if(vinfo.depth >= 24)
     {
       int    numnewbufferbytes = (4 * (width * height));
       XDWORD* newbuffer        = (XDWORD*)malloc(numnewbufferbytes);
@@ -734,22 +850,33 @@ XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, 
         {
           XDWORD b = (buffer[index++] * bratio);
           XDWORD g = (buffer[index++] * gratio);
-          XDWORD r = (buffer[index++] * rratio);
+          XDWORD r = (buffer[index++] * rratio);         
+          XDWORD a;
 
-          r &= visual->red_mask;
-          g &= visual->green_mask;
-          b &= visual->blue_mask;
+          if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+            {
+              a = buffer[index++] << 24;         
+            }
+           else
+            {
+              a = 0xFF000000;
+              index++;
+            } 
 
-          newbuffer[outindex] = r | g | b;
+          r &= vinfo.visual->red_mask;
+          g &= vinfo.visual->green_mask;
+          b &= vinfo.visual->blue_mask;            
+
+          newbuffer[outindex] = r | g | b | a;
 
           ++outindex;
         }
 
-      image = XCreateImage (display, CopyFromParent, depth,  ZPixmap, 0, (char *)newbuffer,width, height, 32, 0);
+      image = XCreateImage (display, vinfo.visual, vinfo.depth,  ZPixmap, 0, (char *)newbuffer,width, height, 32, 0);
     }
     else
     {
-      if(depth >= 15)
+      if(vinfo.depth >= 15)
         {
           int   numnewbufferbytes = (2 * (width * height));
           XWORD* newbuffer          = (XWORD*)malloc(numnewbufferbytes);
@@ -760,30 +887,144 @@ XImage* GRPLINUXSCREENX11::CreateXImageFromBuffer(Display* display, int screen, 
               XDWORD g = (buffer[index++] * gratio);
               XDWORD r = (buffer[index++] * rratio);
 
-              r &= visual->red_mask;
-              g &= visual->green_mask;
-              b &= visual->blue_mask;
+              r &= vinfo.visual->red_mask;
+              g &= vinfo.visual->green_mask;
+              b &= vinfo.visual->blue_mask;
 
               newbuffer[outindex] = r | g | b;
 
               ++outindex;
             }
 
-          image = XCreateImage(display, CopyFromParent, depth, ZPixmap, 0, (char*)newbuffer, width, height, 16, 0);
+          image = XCreateImage(display, vinfo.visual, vinfo.depth, ZPixmap, 0, (char*)newbuffer, width, height, 16, 0);
 
-        }  else return NULL;
+        }  
+       else 
+        {
+          return NULL;
+        }
     }
 
   XInitImage(image);
 
   if(LSBFirst == GetByteOrder())
-          image->byte_order = LSBFirst;
+         image->byte_order = LSBFirst;
     else image->byte_order = MSBFirst;
 
   image->bitmap_bit_order = MSBFirst;
 
   return image;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPLINUXSCREENX11::GetTaskBarHeight()
+* @brief      GetTaskBarHeight
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPLINUXSCREENX11::GetTaskBarHeight()
+{
+  int screen              = DefaultScreen(display);    
+  int screen_width        = DisplayWidth(display, screen);
+  int screen_height       = DisplayHeight(display, screen);
+
+    
+  Atom atomworkarea = XInternAtom(display, "_NET_WORKAREA", True);
+  if(atomworkarea == None) 
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error Atom WORKAREA (Get Taskbar height)"));      
+      return 0;
+    }
+
+  Atom           actual_type;
+  int            actual_format;
+  unsigned long  nitems;
+  unsigned long  bytes_after;
+  unsigned char* data     = nullptr;
+
+  int status = XGetWindowProperty(display, root, atomworkarea, 0, 4 * sizeof(long), False, XA_CARDINAL, &actual_type, &actual_format, &nitems, &bytes_after, &data);
+  if(status != Success || !data) 
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error XGetWindowProperty (Get Taskbar height)"));     
+      return 0;
+    }
+    
+  long*   workarea        = reinterpret_cast<long*>(data);
+  int     work_width      = workarea[2];
+  int     work_height     = workarea[3];
+  int     taskbar_height  = screen_height - work_height;
+
+  XFree(data);  
+
+  return taskbar_height;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPLINUXSCREENX11::ShowDebugNetSupportedPropertys()
+* @brief      ShowDebugNetSupportedPropertys
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPLINUXSCREENX11::ShowDebugNetSupportedPropertys()
+{
+  // Get the atom for _NET_SUPPORTED
+  Atom netsupported = XInternAtom(display, "_NET_SUPPORTED", True);
+  if(netsupported == None) 
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Error NET_SUPPORTED"));          
+      return false;
+    }
+
+  // Get the _NET_SUPPORTED property from the root window
+  Atom            type;
+  int             format;
+  unsigned long   nitems;
+  unsigned long   bytesafter;
+  Atom*           atoms = nullptr;
+
+  int status = XGetWindowProperty(display, root, netsupported, 0, 1024, False, XA_ATOM, &type, &format, &nitems, &bytesafter, reinterpret_cast<unsigned char **>(&atoms));
+  if(status != Success || type != XA_ATOM || format != 32) 
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[Screen X11] Failed to retrieve _NET_SUPPORTED property"));   
+
+      if(atoms) 
+        {
+          XFree(atoms);
+        }
+        
+      return 1;
+    }
+
+  // Print the list of supported atoms
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen X11] _NET_SUPPORTED Atoms [%d]: "), nitems);
+
+  for(unsigned long c=0; c<nitems; ++c) 
+    {
+      char* atomname = XGetAtomName(display, atoms[c]);
+      if(atomname) 
+        {
+          XSTRING _atomname;
+
+          _atomname = atomname;
+
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"), _atomname.Get());
+          
+          XFree(atomname);
+        }
+    }
+
+  return true;
+}
+
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -813,6 +1054,27 @@ int GRPLINUXSCREENX11::GetByteOrder()
     {
       return MSBFirst;
     }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPLINUXSCREENX11::ErrorHandler(Display* display, XErrorEvent* errorevent)
+* @brief      ErrorHandler
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  display : 
+* @param[in]  errorevent : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPLINUXSCREENX11::ErrorHandler(Display* display, XErrorEvent* errorevent)
+{
+  int a=0;
+  a++;
+
+  return 0; 
 }
 
 

@@ -364,8 +364,6 @@ bool DIOI2CLIGHTSENSORTSL2561::ReadData16(XBYTE reg, XWORD& value, int timeout)
   value <<= 8;
   value  |= xbuffer.GetByte(0);
 
-  //XTRACE_PRINTCOLOR(XDEBUG_COLORGREEN, __L("%02X %02X"), xbuffer.GetByte(1), xbuffer.GetByte(0));
-
   return true;
 }
 

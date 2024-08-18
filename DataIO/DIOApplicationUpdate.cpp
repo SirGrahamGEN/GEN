@@ -1562,9 +1562,7 @@ bool DIOAPPLICATIONUPDATE::EliminateOldRestorations(int maxrestorations)
                   GEN_XFACTORY.Delete_Dir(xdir);
 
                   if(!status) break;
-                }
-
-              //XTRACE_PRINTCOLOR(3, xpath.Get());
+                }              
             }
         }
     }
@@ -1683,9 +1681,7 @@ bool DIOAPPLICATIONUPDATE::FilesToUpdate_CreateList(XPATH& xpathupdate)
       do{ xpathadd   = xpathupdate;
           xpathadd.Slash_Add();
           xpathadd  += xdirelement.GetNameFile()->Get();
-
-          // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"), xpathadd.Get());  
-
+        
           if(xdirelement.GetType() == XDIRELEMENTTYPE_FILE)
             {
               HASHCRC32 CRC32file;

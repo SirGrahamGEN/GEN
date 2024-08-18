@@ -270,8 +270,7 @@ DB_SQL_QUERY* SQLITE_DATABASE::CreateQuery()
 {
   DB_SQL_QUERY* query = new SQLITE_QUERY(this);
   if(!query)
-    {
-      //XTRACE_PRINTCOLOR(4,__L("SQLITE_DATABASE::CreateQuery  unable to create SQLITE_QUERY"));
+    {      
       return NULL;
     }
 

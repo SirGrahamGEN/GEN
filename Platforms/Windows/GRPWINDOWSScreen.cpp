@@ -148,7 +148,7 @@ bool GRPWINDOWSSCREEN::Create(bool show)
 
   Buffer_Create();
 
-   GRPSCREEN::GetListScreens()->Add((void*)hwnd, this);
+  GRPSCREEN::GetListScreens()->Add((void*)hwnd, this);
 
   return GRPSCREEN::Create(show);
 }
@@ -205,6 +205,8 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
 
   if(IsEqualSizeTo(canvas) == ISEQUAL)
     {      
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Normal (Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
+
       SetDIBitsToDevice(hdc, 0, 0, width  ,
                                    height ,
                                    0,0,0  ,
@@ -216,6 +218,8 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
    else
     {
       if(!buffer) return false;
+
+      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Normal (Not Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
 
       canvas->CopyBufferRenderToScreen(this);
 
@@ -277,7 +281,9 @@ bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
   SetBkMode(hdcmem, TRANSPARENT);
  
   if(IsEqualSizeTo(canvas) == ISEQUAL)
-    {      
+    { 
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Transparent (Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
+     
       SetDIBitsToDevice(hdcmem, 0, 0, width  ,
                                       height ,
                                       0,0,0  ,
@@ -289,6 +295,8 @@ bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
    else
     {
       if(!buffer) return false;
+
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Transparent (Not Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
 
       canvas->CopyBufferRenderToScreen(this);
 
@@ -914,9 +922,12 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
 
           LONG status = ChangeDisplaySettings(&devmode, CDS_FULLSCREEN);
 
-          //XTRACE_PRINTCOLOR(1, __L("ChangeDisplaySettings Status: %ld"), status);
+          //XTRACE_PRINTCOLOR(1, __L("[Screen Windows] ChangeDisplaySettings Status: %ld"), status);
 
-          if(status != DISP_CHANGE_SUCCESSFUL) return NULL;
+          if(status != DISP_CHANGE_SUCCESSFUL) 
+            {
+              return NULL;
+            }
         }
        else 
         {                         
@@ -1037,7 +1048,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
           return false;
         }
 
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Part 1 Ini: x=%04d, y=%04d (%04d,%04d)  Bitxpixel (%d)"), posx, posy, width, height, GetBitsperPixel());
        
       RECT rect;
 
@@ -1068,21 +1079,23 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
       SetMaxSize(width ,height);
     }
 
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Windows Create] Ini: x=%04d, y=%04d (%04d,%04d)"), posx, posy, width, height);
+  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Part 2 Ini: x=%04d, y=%04d (%04d,%04d)  Bitxpixel (%d)"), posx, posy, width, height, GetBitsperPixel());
 
   if(show)
     {
       if(!Show(show)) return false;
     }
 
+  /*
   if(!SetForegroundWindow(hwnd))
     {
-      // XTRACE_PRINTCOLOR(4, __L("SetForegroundWindow Window: Error!"));
+      XTRACE_PRINTCOLOR(4, __L("[Screen Windows] SetForegroundWindow Window: Error!"));
     }
+  */
 
   if(!SetFocus(hwnd))
     {
-      // XTRACE_PRINTCOLOR(4, __L("SetFocus Window: Error!"));
+      //XTRACE_PRINTCOLOR(4, __L("[Screen Windows] SetFocus Window: Error!"));
       return false;
     } 
     
@@ -1090,7 +1103,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   hdc = GetDC(hwnd);
   if(!hdc)
     {
-      // XTRACE_PRINTCOLOR(4, __L("GetDC Window: Error!"));
+      //XTRACE_PRINTCOLOR(4, __L("[Screen Windows] GetDC Window: Error!"));
       return false;
     }
 

@@ -469,7 +469,7 @@ void APPBASE::SetSystemChangeStatus(XSYSTEM_CHANGESTATUSTYPE systemchangestatust
       case XSYSTEM_CHANGESTATUSTYPE_SUSPEND             : statusstr = __L("suspend");               break;
     }
 
-  //XTRACE_PRINTCOLOR(XTRACE_COLOR_GREEN, __L("[System] Mode change to [%s]"), statusstr.Get());
+  //XTRACE_PRINTCOLOR(XTRACE_COLOR_GREEN, __L("[APP Base System] Mode change to [%s]"), statusstr.Get());
 
   APP_XEVENT  xevent(this, APP_XEVENT_TYPE_CHANGESTATUSTYPE);      
   xevent.SetChangeStatusType(systemchangestatustype);

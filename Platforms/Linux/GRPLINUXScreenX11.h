@@ -53,6 +53,14 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+#define GRPLINUXSCREENX11_MWM_HINTS_DECORATIONS (1L << 1)
+
+#define GRPLINUXSCREENX11_MWM_FUNC_ALL          (1L << 0)
+#define GRPLINUXSCREENX11_MWM_FUNC_RESIZE       (1L << 1)
+#define GRPLINUXSCREENX11_MWM_FUNC_MOVE         (1L << 2)
+#define GRPLINUXSCREENX11_MWM_FUNC_MINIMIZE     (1L << 3)
+#define GRPLINUXSCREENX11_MWM_FUNC_MAXIMIZE     (1L << 4)
+#define GRPLINUXSCREENX11_MWM_FUNC_CLOSE        (1L << 5)
 
 #pragma endregion
 
@@ -77,52 +85,59 @@ class GRPCANVAS;
 class GRPLINUXSCREENX11 : public GRPSCREEN
 {
   public:
-                                          GRPLINUXSCREENX11           ();
-    virtual                              ~GRPLINUXSCREENX11           ();
+                                          GRPLINUXSCREENX11                 ();
+    virtual                              ~GRPLINUXSCREENX11                 ();
 
-    bool                                  Create                      (bool show);
+    bool                                  Create                            (bool show);
 
-    bool                                  Update                      ();
-    bool                                  Update                      (GRPCANVAS* canvas);
-    bool                                  Delete                      ();
+    bool                                  Update                            ();
+    bool                                  Update                            (GRPCANVAS* canvas);
+    bool                                  UpdateTransparent                 (GRPCANVAS* canvas);
+    bool                                  Delete                            ();
 
-    bool                                  Resize                      (int width, int height);
+    bool                                  Resize                            (int width, int height);
 
-    bool                                  Show                        (bool active);
-    bool                                  ShowCursor                  (bool active);
+    bool                                  Show                              (bool active);
+    bool                                  ShowCursor                        (bool active);
 
-    void*                                 GetHandle                   ();
+    void*                                 GetHandle                         ();
     
-    bool                                  IsDesktop                   ();
-    void                                  SetIsDesktop                (bool isdesktop);
+    bool                                  IsDesktop                         ();
+    void                                  SetIsDesktop                      (bool isdesktop);
 
-    bool                                  HasFocus                    ();
+    bool                                  HasFocus                          ();
 
-    Display*                              GetDisplay                  ();
-    Window*                               GetWindow                   ();
+    Display*                              GetDisplay                        ();
+    Window*                               GetWindow                         ();
+    Window*                               GetWindowRoot                     ();
+    XVisualInfo*                          GetVisualInfo                     ();
 
   protected:
 
     Display*                              display;
     Window                                window;
     Window                                root;
+    XVisualInfo                           vinfo;
 
     bool                                  isdesktop;
 
   private:
 
-    bool                                  Create_Window               (bool show);
+    bool                                  Create_Window                     (bool show);
 
-    int                                   ScreenResolution            (Display* display, Window root, int xsz, int ysz, int rate, int just_checking);
+    bool                                  ChangeScreenResolution            (int width, int height);
 
-    XImage*                               CreateXImageFromBuffer      (Display* display, int screen, XBYTE* buffer, int width, int height);
+    XImage*                               CreateXImageFromBuffer            (Display* display, int screen, XBYTE* buffer, int width, int height);
 
-    int                                   GetByteOrder                ();
+    int                                   GetTaskBarHeight                  ();
 
-    void                                  Clean                       ();
+    bool                                  ShowDebugNetSupportedPropertys    ();
 
-    int                                   originalwidth;
-    int                                   originalheight;
+    int                                   GetByteOrder                      ();
+
+    static int                            ErrorHandler                      (Display* display, XErrorEvent* errorevent);
+
+    void                                  Clean                             ();
 };
 
 

@@ -142,16 +142,17 @@ bool INPLINUXDEVICEMOUSEX11::Update()
     {
       return false;
     }  
-
+  
+  Display*     display = grpscreenx11->GetDisplay();
   Window       root;
   Window       child;
   int          rootx;
   int          rooty;
-  int          mousex = -1;
-  int          mousey = -1;
+  int          mousex  = -1;
+  int          mousey  = -1;
   unsigned int mask;
 
-  XQueryPointer(grpscreenx11->GetDisplay(), (*grpscreenx11->GetWindow()), &root, &child, &rootx, &rooty, &mousex, &mousey, &mask);
+  XQueryPointer(display, (*grpscreenx11->GetWindow()), &root, &child, &rootx, &rooty, &mousex, &mousey, &mask);
 
   INPCURSOR* cursor = GetCursor(INPCURSOR_ID_MOUSE);
   if(cursor)
@@ -194,16 +195,19 @@ bool INPLINUXDEVICEMOUSEX11::Update()
             }
            else
             {
-              if(button->GetState() == INPBUTTON_STATE_PRESSED) button->SetState(INPBUTTON_STATE_HOLD);
-           }
+              if(button->GetState() == INPBUTTON_STATE_PRESSED) 
+                {
+                  button->SetState(INPBUTTON_STATE_HOLD);
+                }
+            }
         }
     }
     
   XEvent event; 
  
-  if(XPending(grpscreenx11->GetDisplay()))
+  if(XPending(display))
     {       
-      XNextEvent(grpscreenx11->GetDisplay(), &event);
+      XNextEvent(display, &event);
     
       switch(event.type)
         {
@@ -264,16 +268,14 @@ bool INPLINUXDEVICEMOUSEX11::SetScreen(void* screenhandle)
     {
       return false;
     }
-  
+    
   XSelectInput(grpscreenx11->GetDisplay(), (*grpscreenx11->GetWindow()), KeyPressMask | KeyReleaseMask);
 
-  
-  Window root = DefaultRootWindow(grpscreenx11->GetDisplay());
-  XGrabButton(grpscreenx11->GetDisplay(), AnyButton, AnyModifier, root, False, ButtonPressMask | ButtonReleaseMask, GrabModeAsync, GrabModeAsync, None, None);  
+  XGrabButton(grpscreenx11->GetDisplay(), AnyButton, AnyModifier, (*grpscreenx11->GetWindowRoot()), False, ButtonPressMask | ButtonReleaseMask, GrabModeAsync, GrabModeAsync, None, None);  
     
-  //XSetWindowAttributes attr;
-  //attr.event_mask = ButtonPressMask | ButtonReleaseMask;  
-  //XChangeWindowAttributes(grpscreenx11->GetDisplay(), root, CWEventMask, &attr);
+  // XSetWindowAttributes attr;
+  // attr.event_mask = ButtonPressMask | ButtonReleaseMask;  
+  // XChangeWindowAttributes(grpscreenx11->GetDisplay(), (*grpscreenx11->GetWindowRoot()), CWEventMask, &attr);
    
   XFlush(grpscreenx11->GetDisplay());
 

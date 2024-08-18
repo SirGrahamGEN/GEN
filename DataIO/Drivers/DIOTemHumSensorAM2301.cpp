@@ -251,9 +251,7 @@ bool DIOTEMHUMSENSORAM2301::ReadDirect(float& temperature, float& humidity)
   GEN_DIOGPIO.SetValue(pindata, DIOTEMHUMSENSORAM2301_HIGH);
 
   GEN_XSLEEP.MilliSeconds(1);
- 
-  // XTRACE_PRINTCOLOR(XTRACE_PRINTCOLOR, __L(" %X %X %X %X "), value[0], value[1], value[2],  value[3]);
- 
+  
   // Verify checksum
   XBYTE x = value[0] + value[1] + value[2] + value[3];
   if(x != value[4]) return false;

@@ -270,8 +270,6 @@ bool DIOBUSPIRATE::ReadI2CSnifferCommand(XBUFFER& in, XBUFFER& out)
 
   delete [] buffer;
 
- XTRACE_PRINTCOLOR(1, __L("%s"), string.Get());
-
   return true;
 }
 

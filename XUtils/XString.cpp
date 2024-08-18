@@ -715,8 +715,15 @@ bool XSTRING::Add(const char* string)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::Add(const XCHAR* string)
 {
-  if(!string)     return false;
-  if(!string[0]) return false;
+  if(!string)     
+    {
+      return false;
+    }
+
+  if(!string[0]) 
+    {
+      return false;
+    }
 
   XSTRING* xstring = new XSTRING(string);
   if(!xstring) return false;

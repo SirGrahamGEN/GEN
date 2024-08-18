@@ -223,9 +223,7 @@ bool DIOMACMANUFACTURED::File_GetManufacturedMACs(XPATH& xpath, XSTRING& manufac
                     {
                       XDWORD ID =  xfilexdb->GetIndexMap()->GetKey(c);
 
-                      MACs.Add(ID);
-
-                      //XTRACE_PRINTCOLOR(2,__L("[%08X] [%s]"), ID, _manufactured.Get());
+                      MACs.Add(ID);                      
                     }
 
                   delete xbuffer;
@@ -265,7 +263,6 @@ bool DIOMACMANUFACTURED::File_Download(XBUFFER& xbuffer, int timeout)
   DIOWEBCLIENT* webclient = new DIOWEBCLIENT;
   if(!webclient) return false;
 
-  //XTRACE_PRINTCOLOR(2,__L("Get File %s "), url.Get());
   status = webclient->Get(url, xbuffer, DIOWEBCLIENT_DEFAULTUSERAGENT, timeout);
 
   delete webclient;
@@ -317,9 +314,7 @@ bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
               if(start!=XSTRING_NOTFOUND)
                 {
                   XDWORD  ID = 0;
-
-                  //XTRACE_PRINTCOLOR(2,__L("Line %d / %d"), c, nlines);
-
+                
                   start+=11;
                   line->UnFormat(__L("%X    (base 16)\t\t"),&ID);
 
@@ -330,8 +325,6 @@ bool DIOMACMANUFACTURED::File_Convert(XBUFFER& xbuffer, XPATH& xpath)
                         {
                           line->Copy(start,(*name));
                           idmap.Add(ID,name);
-
-                          //XTRACE_PRINTCOLOR(2,__L("[%08X] [%s]"), ID, name->Get());
                         }
                     }
                 }

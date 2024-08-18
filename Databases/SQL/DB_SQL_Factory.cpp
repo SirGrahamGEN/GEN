@@ -109,8 +109,6 @@ DB_SQL_DATABASE* DB_SQL_FACTORY::Create( DB_SQL_DATABASE_TYPE databasetype)
                               default       : break;
     }
 
-  //XTRACE_PRINTCOLOR(4, __L("Unrecognized database type"));
-
   return NULL;
 }
 
