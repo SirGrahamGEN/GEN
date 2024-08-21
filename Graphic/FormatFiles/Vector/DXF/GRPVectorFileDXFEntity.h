@@ -69,7 +69,7 @@ class GRPVECTORFILEDXFENTITY
 
     XVECTOR<GRPVECTORFILEDXFXDATACTRL*>*    GetXDataCtrlList            ();
    
-   private: 
+  private: 
    
     void                                    Clean                       ();
 

@@ -12,13 +12,13 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextPart::GRPVECTORFILEDXFTextPart ( )
+GRPVECTORFILEDXFTextPart::GRPVECTORFILEDXFTextPart()
 {
   Clean();
 }
 
 
-GRPVECTORFILEDXFTextPart::~GRPVECTORFILEDXFTextPart ( )
+GRPVECTORFILEDXFTextPart::~GRPVECTORFILEDXFTextPart()
 {
   Clean();
 }
@@ -36,7 +36,7 @@ bool GRPVECTORFILEDXFTextPart::CopyTo(GRPVECTORFILEDXFTextPart* part)
 }
 
 
-void GRPVECTORFILEDXFTextPart::Clean ( )
+void GRPVECTORFILEDXFTextPart::Clean()
 {
    name.Empty();
    iniline = -1;

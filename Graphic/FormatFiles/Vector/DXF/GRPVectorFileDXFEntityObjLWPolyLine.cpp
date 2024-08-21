@@ -12,100 +12,100 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObjLWPolyLine::GRPVECTORFILEDXFENTITYObjLWPolyLine (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
+GRPVECTORFILEDXFENTITYOBJLWPolyLine::GRPVECTORFILEDXFENTITYOBJLWPolyLine (XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFENTITYObjType_LWPolyLine;
+   type = GRPVECTORFILEDXFENTITYOBJTYPE_LWPOLYLINE;
 }
 
 
-GRPVECTORFILEDXFENTITYObjLWPolyLine::~GRPVECTORFILEDXFENTITYObjLWPolyLine ( )
+GRPVECTORFILEDXFENTITYOBJLWPolyLine::~GRPVECTORFILEDXFENTITYOBJLWPolyLine()
 { 
    Clean();
 }
 
 
-int GRPVECTORFILEDXFENTITYObjLWPolyLine::GetNVertex()
+int GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetNVertex()
 {
    return nVertex;
 }
       
       
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::SetNVertex(int nVertex)
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetNVertex(int nVertex)
 {
    this->nVertex = nVertex;
 }
 
 
-int GRPVECTORFILEDXFENTITYObjLWPolyLine::GetPolyLineFlag()
+int GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetPolyLineFlag()
 {
    return polyLineFlag;
 }
       
       
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::SetPolyLineFlag(int polyLineFlag)
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetPolyLineFlag(int polyLineFlag)
 {
    this->polyLineFlag = polyLineFlag;
 }
 
 
-double GRPVECTORFILEDXFENTITYObjLWPolyLine::GetConstantWidth ( )
+double GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetConstantWidth()
 {
    return constantWidth;
 }
       
       
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::SetConstantWidth(double constantWidth)
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetConstantWidth(double constantWidth)
 {
    this->constantWidth = constantWidth;
 }
 
-double GRPVECTORFILEDXFENTITYObjLWPolyLine::GetElevation ( )
+double GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetElevation()
 {
    return elevation;
 }
       
       
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::SetElevation(double elevation)
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetElevation(double elevation)
 {
    this->elevation = elevation;
 }
       
       
-double GRPVECTORFILEDXFENTITYObjLWPolyLine::GetThickness ( )
+double GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetThickness()
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjLWPolyLine::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJLWPolyLine::GetDirExtrusion()
 {
-   return &dirExtrusion;
+   return &dirextrusion;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjLWPolyLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYOBJLWPolyLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
 {
-   if(!dirExtrusion) return false;
+   if(!dirextrusion) return false;
 
-   this->dirExtrusion = dirExtrusion;
+   this->dirextrusion = dirextrusion;
 
    return true;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjLWPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+bool GRPVECTORFILEDXFENTITYOBJLWPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
    GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYOBJ::ApplyData(entity);
 
    value = GetDataValue( 90, entity);  if(value) nVertex = (*value->GetData());
 
@@ -122,26 +122,26 @@ bool GRPVECTORFILEDXFENTITYObjLWPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* enti
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
    if(value) 
    {
-      dirExtrusion.SetX((*value->GetData()));      
+      dirextrusion.SetX((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
       
    return true;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjLWPolyLine::Clean ( )
+void GRPVECTORFILEDXFENTITYOBJLWPolyLine::Clean()
 {
   thickness = 0.0f;    
 }

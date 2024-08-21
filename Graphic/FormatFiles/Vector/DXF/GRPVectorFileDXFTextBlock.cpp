@@ -16,13 +16,13 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTextBlock::GRPVECTORFILEDXFTextBlock ( )
+GRPVECTORFILEDXFTextBlock::GRPVECTORFILEDXFTextBlock()
 {
    Clean();   
 }
 
 
-GRPVECTORFILEDXFTextBlock::~GRPVECTORFILEDXFTextBlock ( )
+GRPVECTORFILEDXFTextBlock::~GRPVECTORFILEDXFTextBlock()
 {
    DeleteAllValues();
 

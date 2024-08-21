@@ -12,27 +12,27 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObjPoint::GRPVECTORFILEDXFENTITYObjPoint (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
+GRPVECTORFILEDXFENTITYOBJPoint::GRPVECTORFILEDXFENTITYOBJPoint (XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFENTITYObjType_Point;
+   type = GRPVECTORFILEDXFENTITYOBJTYPE_POINT;
 }
 
 
-GRPVECTORFILEDXFENTITYObjPoint::~GRPVECTORFILEDXFENTITYObjPoint ( )
+GRPVECTORFILEDXFENTITYOBJPoint::~GRPVECTORFILEDXFENTITYOBJPoint()
 { 
    Clean();
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjPoint::GetPoint ( )
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJPoint::GetPoint()
 {
    return &point;
 }
 
       
-bool GRPVECTORFILEDXFENTITYObjPoint::SetPoint (GRPVECTORFILEDXFENTITYDEFPOINT* point)
+bool GRPVECTORFILEDXFENTITYOBJPoint::SetPoint (GRPVECTORFILEDXFENTITYDEFPOINT* point)
 {
    if(!point) return false;
 
@@ -42,51 +42,51 @@ bool GRPVECTORFILEDXFENTITYObjPoint::SetPoint (GRPVECTORFILEDXFENTITYDEFPOINT* p
 }
 
    
-double GRPVECTORFILEDXFENTITYObjPoint::GetXAxisAngle ( )
+double GRPVECTORFILEDXFENTITYOBJPoint::GetXAxisAngle()
 {
    return xAxisAngle;
 }
       
       
-void GRPVECTORFILEDXFENTITYObjPoint::SetXAxisAngle (double xAxisAngle)
+void GRPVECTORFILEDXFENTITYOBJPoint::SetXAxisAngle (double xAxisAngle)
 {
    this->xAxisAngle = xAxisAngle; 
 }
 
 
-double GRPVECTORFILEDXFENTITYObjPoint::GetThickness ( )
+double GRPVECTORFILEDXFENTITYOBJPoint::GetThickness()
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjPoint::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYOBJPoint::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjPoint::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJPoint::GetDirExtrusion()
 {
-   return &dirExtrusion;
+   return &dirextrusion;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjPoint::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYOBJPoint::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
 {
-   if(!dirExtrusion) return false;
+   if(!dirextrusion) return false;
 
-   this->dirExtrusion = dirExtrusion;
+   this->dirextrusion = dirextrusion;
 
    return true;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjPoint::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+bool GRPVECTORFILEDXFENTITYOBJPoint::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
    GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);   
+   GRPVECTORFILEDXFENTITYOBJ::ApplyData(entity);   
 
    value = GetDataValue( VFDXF_POINT_X, entity); 
    if(value) 
@@ -121,19 +121,19 @@ bool GRPVECTORFILEDXFENTITYObjPoint::ApplyData(GRPVECTORFILEDXFENTITY* entity)
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
    if(value) 
    {
-      dirExtrusion.SetX((*value->GetData()));      
+      dirextrusion.SetX((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
 
 
@@ -141,7 +141,7 @@ bool GRPVECTORFILEDXFENTITYObjPoint::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 }
 
 
-void GRPVECTORFILEDXFENTITYObjPoint::Clean ( )
+void GRPVECTORFILEDXFENTITYOBJPoint::Clean()
 {
    xAxisAngle = 0.0f;
 }

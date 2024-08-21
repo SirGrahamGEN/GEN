@@ -1,7 +1,35 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityDefVertex.h
+* 
+* @class      GRPVECTORFILEDXFENTITYDEFVERTEX
+* @brief      Graphic Vector File DXF Entity DefVertex class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPVECTORFILEDXFENTITYDefVertex_h_
-#define _GRPVECTORFILEDXFENTITYDefVertex_h_
+#ifndef _GRPVECTORFILEDXFENTITYDEFVERTEX_H_
+#define _GRPVECTORFILEDXFENTITYDEFVERTEX_H_
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "GRPVectorFileDXFEntityDefPoint.h"
@@ -9,52 +37,62 @@
 #pragma endregion
 
 
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
+
+
 #pragma endregion
 
 
-#pragma region CLASSES
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
-class GRPVECTORFILEDXFENTITYDefVertex 
+
+class GRPVECTORFILEDXFENTITYDEFVERTEX 
 {
-   public:
+  public:
    
-      GRPVECTORFILEDXFENTITYDefVertex () ;
-      GRPVECTORFILEDXFENTITYDefVertex ( GRPVECTORFILEDXFENTITYDefVertex* Vertex ) ;
-      ~GRPVECTORFILEDXFENTITYDefVertex () ;
+                                        GRPVECTORFILEDXFENTITYDEFVERTEX       ();
+                                        GRPVECTORFILEDXFENTITYDEFVERTEX       (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex);
+                                       ~GRPVECTORFILEDXFENTITYDEFVERTEX       ();
 
-      void operator =  (GRPVECTORFILEDXFENTITYDefVertex* Vertex);
-      void operator =  (GRPVECTORFILEDXFENTITYDefVertex Vertex);
+    void                                operator =                            (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex);
+    void                                operator =                            (GRPVECTORFILEDXFENTITYDEFVERTEX vertex);
 
-      GRPVECTORFILEDXFENTITYDEFPOINT* GetPoint(); 
-      bool SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
+    GRPVECTORFILEDXFENTITYDEFPOINT*     GetPoint                              (); 
+    bool                                SetPoint                              (GRPVECTORFILEDXFENTITYDEFPOINT* point); 
 
-      double GetIniWidth ();
-      void SetIniWidth ( double iniWith );
+    double                              GetIniWidth                           ();
+    void                                SetIniWidth                           (double iniwith);
 
-      double GetEndWidth ();      
-      void SetEndWidth ( double endWidth );
+    double                              GetEndWidth                           ();      
+    void                                SetEndWidth                           (double endwidth);
 
-      double GetBulge ();      
-      void SetBulge ( double bulge );
+    double                              GetBulge                              ();      
+    void                                SetBulge                              (double bulge);
       
-      bool CopyTo ( GRPVECTORFILEDXFENTITYDefVertex* Vertex );
-      bool CopyFrom ( GRPVECTORFILEDXFENTITYDefVertex* Vertex );
+    bool                                CopyTo                                (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex);
+    bool                                CopyFrom                              (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex);
    
    private: 
 
-      void Clean ();
+    void                                Clean                                 ();
 
-      GRPVECTORFILEDXFENTITYDEFPOINT point; // The point;    
-      double iniWidth; // Start width.
-      double endWidth; // End width.
-      double bulge; // Bulge.
+    GRPVECTORFILEDXFENTITYDEFPOINT      point;                                // The point;    
+    double                              iniwidth;                             // Start width.
+    double                              endwidth;                             // End width.
+    double                              bulge;                                // Bulge.
 };
 
 #pragma endregion
 
 
-#pragma region EXTERN_INLINE_FUNCTIONS
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
 #pragma endregion
 
+
 #endif
+

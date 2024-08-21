@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFENTITYObjPoint_h_
-#define _GRPVECTORFILEDXFENTITYObjPoint_h_
+#ifndef _GRPVECTORFILEDXFENTITYOBJPoint_h_
+#define _GRPVECTORFILEDXFENTITYOBJPoint_h_
 
 #pragma region INCLUDES
 
@@ -18,12 +18,12 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFENTITYObjPoint : public GRPVECTORFILEDXFENTITYObj
+class GRPVECTORFILEDXFENTITYOBJPoint : public GRPVECTORFILEDXFENTITYOBJ
 {  
    public: 
       
-      GRPVECTORFILEDXFENTITYObjPoint (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFENTITYObjPoint ();
+      GRPVECTORFILEDXFENTITYOBJPoint (XCHAR* nametype);
+      virtual ~GRPVECTORFILEDXFENTITYOBJPoint ();
 
       GRPVECTORFILEDXFENTITYDEFPOINT* GetPoint(); 
       bool SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point); 
@@ -35,7 +35,7 @@ class GRPVECTORFILEDXFENTITYObjPoint : public GRPVECTORFILEDXFENTITYObj
       void SetThickness (double thickness); 
 
       GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
+      bool SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion);
 
       virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
@@ -48,7 +48,7 @@ class GRPVECTORFILEDXFENTITYObjPoint : public GRPVECTORFILEDXFENTITYObj
       
       double thickness; // Thickness (default=0.0).
 
-      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.     
+      GRPVECTORFILEDXFENTITYDEFPOINT dirextrusion ; // Extrusion direction.     
 };
 
 #pragma endregion

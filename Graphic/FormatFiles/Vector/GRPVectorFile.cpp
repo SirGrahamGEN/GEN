@@ -39,6 +39,8 @@
 
 #include "GRPVectorFile.h"
 
+#include "GRPVectorFile_XEvent.h"
+
 #include "XFactory.h"
 #include "XFileTXT.h"
 
@@ -72,7 +74,7 @@ GRPVECTORFILE::GRPVECTORFILE()
 {
   Clean();
 
-  RegisterEvent(GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+  RegisterEvent(GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 }
 
 
@@ -97,7 +99,7 @@ GRPVECTORFILE::~GRPVECTORFILE()
   
     }
   
-   DeRegisterEvent(GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+   DeRegisterEvent(GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
   
    Clean();
 }

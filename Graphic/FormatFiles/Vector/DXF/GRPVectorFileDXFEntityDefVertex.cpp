@@ -1,138 +1,328 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVECTORFILEDXFENTITYDEFVERTEX.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITYDEFVERTEX
+* @brief      Graphic Vector File DXF Entity DefVertex class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "GRPVectorFileDXFEntityDefVertex.h"
 
+#include "XMemory_Control.h"
+
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYDefVertex::GRPVECTORFILEDXFENTITYDefVertex ( )
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX()
 {
-   Clean();   
+  Clean();   
 }
  
  
-GRPVECTORFILEDXFENTITYDefVertex::GRPVECTORFILEDXFENTITYDefVertex ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  GRPVECTORFILEDXFENTITYDEFVERTEX* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
 {
-   Clean();
+  Clean();
 
-   CopyFrom (Vertex);
+  CopyFrom(vertex);
 }
 
 
-GRPVECTORFILEDXFENTITYDefVertex::~GRPVECTORFILEDXFENTITYDefVertex ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFVERTEX::~GRPVECTORFILEDXFENTITYDEFVERTEX()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFVERTEX::~GRPVECTORFILEDXFENTITYDEFVERTEX()
 { 
-   Clean();
+  Clean();
 }
 
 
-void GRPVECTORFILEDXFENTITYDefVertex::operator =  (GRPVECTORFILEDXFENTITYDefVertex* Vertex)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::operator = (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
+* @brief      operator =
+* @ingroup    GRAPHIC
+* 
+* @param[in]  vertex : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::operator =  (GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
 {
-  CopyFrom(Vertex);
+  CopyFrom(vertex);
 }
 
 
-void GRPVECTORFILEDXFENTITYDefVertex::operator =  (GRPVECTORFILEDXFENTITYDefVertex Vertex)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::operator = (GRPVECTORFILEDXFENTITYDEFVERTEX vertex)
+* @brief      operator =
+* @ingroup    GRAPHIC
+* 
+* @param[in]  vertex : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::operator =  (GRPVECTORFILEDXFENTITYDEFVERTEX vertex)
 {
-  CopyFrom(&Vertex);
+  CopyFrom(&vertex);
 }
 
 
-
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYDefVertex::GetPoint()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYDEFVERTEX::GetPoint()
+* @brief      GetPoint
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYDEFVERTEX::GetPoint()
 {
-   return &point;
+  return &point;
 }
 
 
-bool GRPVECTORFILEDXFENTITYDefVertex::SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYDEFVERTEX::SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point)
+* @brief      SetPoint
+* @ingroup    GRAPHIC
+* 
+* @param[in]  point : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYDEFVERTEX::SetPoint(GRPVECTORFILEDXFENTITYDEFPOINT* point)
 {
-   if(!point) return false;
+  if(!point) return false;
 
-   this->point = point;
+  this->point = point;
 
-   return true;
+  return true;
 }
 
 
-double GRPVECTORFILEDXFENTITYDefVertex::GetIniWidth ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYDEFVERTEX::GetIniWidth()
+* @brief      GetIniWidth
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYDEFVERTEX::GetIniWidth()
 {
-   return iniWidth;
+  return iniwidth;
 }
 
 
-void GRPVECTORFILEDXFENTITYDefVertex::SetIniWidth (double iniWidth)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::SetIniWidth (double iniwidth)
+* @brief      SetIniWidth
+* @ingroup    GRAPHIC
+* 
+* @param[in]  iniwidth : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::SetIniWidth (double iniwidth)
 {
-   this->iniWidth = iniWidth;
+  this->iniwidth = iniwidth;
 }
 
 
-double GRPVECTORFILEDXFENTITYDefVertex::GetEndWidth ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYDEFVERTEX::GetEndWidth()
+* @brief      GetEndWidth
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYDEFVERTEX::GetEndWidth()
 {
-   return endWidth;
+   return endwidth;
 }
 
 
-void GRPVECTORFILEDXFENTITYDefVertex::SetEndWidth (double endWidth)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::SetEndWidth(double endwidth)
+* @brief      SetEndWidth
+* @ingroup    GRAPHIC
+* 
+* @param[in]  endwidth : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::SetEndWidth(double endwidth)
 {
-   this->endWidth = endWidth;
+  this->endwidth = endwidth;
 }
 
 
-double GRPVECTORFILEDXFENTITYDefVertex::GetBulge ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYDEFVERTEX::GetBulge()
+* @brief      GetBulge
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYDEFVERTEX::GetBulge()
 {
-   return bulge;
+  return bulge;
 }
 
 
-void GRPVECTORFILEDXFENTITYDefVertex::SetBulge (double bulge)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::SetBulge(double bulge)
+* @brief      SetBulge
+* @ingroup    GRAPHIC
+* 
+* @param[in]  bulge : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::SetBulge(double bulge)
 {
    this->bulge = bulge;
 }
 
 
-bool GRPVECTORFILEDXFENTITYDefVertex::CopyTo ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYDEFVERTEX::CopyTo(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
+* @brief      CopyTo
+* @ingroup    GRAPHIC
+* 
+* @param[in]  vertex : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYDEFVERTEX::CopyTo(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
 {
-   if(!Vertex) 
-   {
+  if(!vertex) 
+    {
       return false;
-   }
+    }
 
-   Vertex->SetPoint(&point);
-   Vertex->SetIniWidth(iniWidth);
-   Vertex->SetEndWidth(endWidth);
-   Vertex->SetBulge(bulge);
+  vertex->SetPoint(&point);
+  vertex->SetIniWidth(iniwidth);
+  vertex->SetEndWidth(endwidth);
+  vertex->SetBulge(bulge);
    
-   return true;
+  return true;
 }
       
 
-bool GRPVECTORFILEDXFENTITYDefVertex::CopyFrom ( GRPVECTORFILEDXFENTITYDefVertex* Vertex )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYDEFVERTEX::CopyFrom(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
+* @brief      CopyFrom
+* @ingroup    GRAPHIC
+* 
+* @param[in]  vertex : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYDEFVERTEX::CopyFrom(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)
 {
-   if(!Vertex)
-   {
+  if(!vertex)
+    {
       return false;
-   }
+    }
 
-   point = Vertex->GetPoint();
-   iniWidth = Vertex->GetIniWidth();
-   endWidth = Vertex->GetEndWidth();
-   bulge = Vertex->GetBulge();
+  point     = vertex->GetPoint();
+  iniwidth  = vertex->GetIniWidth();
+  endwidth  = vertex->GetEndWidth();
+  bulge     = vertex->GetBulge();
   
-   return true;
+  return true;
 }
    
 
-void GRPVECTORFILEDXFENTITYDefVertex::Clean ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFVERTEX::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFVERTEX::Clean()
 {   
-   iniWidth = 0.0f; // Start width.
-   endWidth = 0.0f; // End width.
-   bulge = 0.0f; // Bulge.
+  iniwidth  = 0.0f;     // Start width.
+  endwidth  = 0.0f;     // End width.
+  bulge     = 0.0f;     // Bulge.
 }
 
+
 #pragma endregion
+

@@ -1,216 +1,446 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityObjEllipse.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITYOBJELLIPSE
+* @brief      Graphic Vector File DXF Entity ObjEllipse class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "GRPVectorFileDXFTextSectionEntities.h"
 #include "GRPVectorFileDXFEntityObjEllipse.h"
 
+#include "GRPVectorFileDXFTextSectionEntities.h"
+
+#include "XMemory_Control.h"
+
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObjEllipse::GRPVECTORFILEDXFENTITYObjEllipse (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
-{
-   Clean();   
 
-   type = GRPVECTORFILEDXFENTITYObjType_Ellipse;
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJELLIPSE::GRPVECTORFILEDXFENTITYOBJELLIPSE(XCHAR* nametype)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJELLIPSE::GRPVECTORFILEDXFENTITYOBJELLIPSE(XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
+{
+  Clean();   
+
+  type = GRPVECTORFILEDXFENTITYOBJTYPE_ELLIPSE;
 }
 
 
-GRPVECTORFILEDXFENTITYObjEllipse::~GRPVECTORFILEDXFENTITYObjEllipse ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJELLIPSE::~GRPVECTORFILEDXFENTITYOBJELLIPSE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJELLIPSE::~GRPVECTORFILEDXFENTITYOBJELLIPSE()
 { 
-   Clean();
+  Clean();
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetCenter()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetCenter()
+* @brief      GetCenter
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetCenter()
 {
-   return &center;
+  return &center;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjEllipse::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
+* @brief      SetCenter
+* @ingroup    GRAPHIC
+* 
+* @param[in]  center : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
 {
-   if(!center) return false;
+  if(!center) 
+    {
+      return false;
+    }
 
-   this->center = center;
+  this->center = center;
 
-   return true;
+  return true;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetMajorAxis()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetMajorAxis()
+* @brief      GetMajorAxis
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetMajorAxis()
 {
-   return &majorAxis;
+  return &majoraxis;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjEllipse::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* majorAxis)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* majoraxis)
+* @brief      SetMajorAxis
+* @ingroup    GRAPHIC
+* 
+* @param[in]  majoraxis : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetMajorAxis(GRPVECTORFILEDXFENTITYDEFPOINT* majoraxis)
 {
-   if(!majorAxis) return false;
+  if(!majoraxis) 
+    {
+      return false;
+    }
 
-   this->majorAxis = majorAxis;
+  this->majoraxis = majoraxis;
 
-   return true;
+  return true;
 }
   
 
-double GRPVECTORFILEDXFENTITYObjEllipse::GetIniParameter()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetIniParameter()
+* @brief      GetIniParameter
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetIniParameter()
 {
-   return iniParameter;
+  return iniparameter;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjEllipse::SetIniParameter(double iniParameter)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetIniParameter(double iniparameter)
+* @brief      SetIniParameter
+* @ingroup    GRAPHIC
+* 
+* @param[in]  iniparameter : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetIniParameter(double iniparameter)
 {
-   this->iniParameter = iniParameter;
+  this->iniparameter = iniparameter;
 }
 
 
-double GRPVECTORFILEDXFENTITYObjEllipse::GetEndParameter()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetEndParameter()
+* @brief      GetEndParameter
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetEndParameter()
 {
-   return endParameter;
-}
-
-void GRPVECTORFILEDXFENTITYObjEllipse::SetEndParameter(double endParameter)
-{
-   this->endParameter = endParameter;
-}
-
-
-void GRPVECTORFILEDXFENTITYObjEllipse::SetRadius (double radius)
-{
-   this->radius = radius;
-}
-
-
-double GRPVECTORFILEDXFENTITYObjEllipse::GetThickness ( )
-{
-   return thickness;
+  return endparameter;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjEllipse::SetThickness (double thickness)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetEndParameter(double endparameter)
+* @brief      SetEndParameter
+* @ingroup    GRAPHIC
+* 
+* @param[in]  endparameter : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetEndParameter(double endparameter)
 {
-   this->thickness = thickness;
+  this->endparameter = endparameter;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjEllipse::GetDirExtrusion()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetRadius()
+* @brief      GetRadius
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetRadius()
 {
-   return &dirExtrusion;
+  return radius;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjEllipse::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetRadius(double radius)
+* @brief      SetRadius
+* @ingroup    GRAPHIC
+* 
+* @param[in]  radius : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetRadius(double radius)
 {
-   if(!dirExtrusion) return false;
-
-   this->dirExtrusion = dirExtrusion;
-
-   return true;
+  this->radius = radius;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjEllipse::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetThickness()
+* @brief      GetThickness
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJELLIPSE::GetThickness()
 {
-   GRPVECTORFILEDXFVALUE* value;
+  return thickness;
+}
 
-   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
 
-   value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
-   if(value) 
-   {
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetThickness(double thickness)
+* @brief      SetThickness
+* @ingroup    GRAPHIC
+* 
+* @param[in]  thickness : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJELLIPSE::SetThickness(double thickness)
+{
+  this->thickness = thickness;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetDirExtrusion()
+* @brief      GetDirExtrusion
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJELLIPSE::GetDirExtrusion()
+{
+  return &dirextrusion;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
+* @brief      SetDirExtrusion
+* @ingroup    GRAPHIC
+* 
+* @param[in]  dirextrusion : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJELLIPSE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
+{
+  if(!dirextrusion) 
+    {
+      return false;
+    }
+
+  this->dirextrusion = dirextrusion;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJELLIPSE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+* @brief      ApplyData
+* @ingroup    GRAPHIC
+* 
+* @param[in]  entity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJELLIPSE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+{
+  GRPVECTORFILEDXFVALUE* value;
+
+  GRPVECTORFILEDXFENTITYOBJ::ApplyData(entity);
+
+  value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
+  if(value) 
+    {
       center.SetX((*value->GetData()));         
-   }
+    }
 
-   value = GetDataValue( VFDXF_CENTER_POINT_Y, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_CENTER_POINT_Y, entity); 
+  if(value) 
+    {
       center.SetY((*value->GetData()));      
-   }
+    }
 
-   value = GetDataValue( VFDXF_CENTER_POINT_Z, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_CENTER_POINT_Z, entity); 
+  if(value) 
+    {
       center.SetZ((*value->GetData()));             
-   }
+    }
    
-   value = GetDataValue(VFDXF_END_POINT_X , entity); 
-   if(value) 
-   {
-      majorAxis.SetX((*value->GetData()));         
-   }
+  value = GetDataValue(VFDXF_END_POINT_X , entity); 
+  if(value) 
+    {
+      majoraxis.SetX((*value->GetData()));         
+    }
 
-   value = GetDataValue(VFDXF_END_POINT_Y , entity); 
-   if(value) 
-   {
-      majorAxis.SetY((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_END_POINT_Y , entity); 
+  if(value) 
+    {
+      majoraxis.SetY((*value->GetData()));      
+    }
 
-   value = GetDataValue(VFDXF_END_POINT_Z , entity); 
-   if(value) 
-   {
-      majorAxis.SetZ((*value->GetData()));  
-   }  
+  value = GetDataValue(VFDXF_END_POINT_Z , entity); 
+  if(value) 
+    {
+      majoraxis.SetZ((*value->GetData()));  
+    }  
    
-   value = GetDataValue(VFDXF_INI_PARAMETER, entity);
-   if(value) 
-   {
-      iniParameter = (*value->GetData());  
-   }
+  value = GetDataValue(VFDXF_INI_PARAMETER, entity);
+  if(value) 
+    {
+      iniparameter = (*value->GetData());  
+    }
 
-   value = GetDataValue(VFDXF_END_PARAMETER, entity);
-   if(value) 
-   {
-      endParameter = (*value->GetData());  
-   }
+  value = GetDataValue(VFDXF_END_PARAMETER, entity);
+  if(value) 
+    {
+      endparameter = (*value->GetData());  
+    }
  
-   value = GetDataValue( VFDXF_RADIOUS, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_RADIOUS, entity); 
+  if(value) 
+    {
       radius =(*value->GetData());      
-   }
+    }
    
-   value = GetDataValue(VFDXF_THICKNESS, entity);  
-   if(value) 
-   {
+  value = GetDataValue(VFDXF_THICKNESS, entity);  
+  if(value) 
+    {
       thickness = (*value->GetData());
-   }
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetX((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
+  if(value) 
+    {
+      dirextrusion.SetX((*value->GetData()));      
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetY((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
+  if(value) 
+    {
+      dirextrusion.SetY((*value->GetData()));      
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetY((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
+  if(value) 
+    {
+      dirextrusion.SetY((*value->GetData()));      
+    }
       
-   return true;
+  return true;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjEllipse::Clean ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJELLIPSE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJELLIPSE::Clean()
 {
-   iniParameter = 0.0f;
-   endParameter = 0.0f;
+  iniparameter = 0.0f;
+  endparameter = 0.0f;
 
-   radius = 0.0f;
+  radius = 0.0f;
 
-   thickness= 0.0f;
+  thickness= 0.0f;
 }
+
 
 #pragma endregion
+

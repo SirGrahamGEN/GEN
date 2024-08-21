@@ -1,7 +1,35 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityObjArc.h
+* 
+* @class      GRPVECTORFILEDXFENTITYOBJARC
+* @brief      Graphic Vector File DXF Entity ObjArc class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPVECTORFILEDXFENTITYObjArc_h_
-#define _GRPVECTORFILEDXFENTITYObjArc_h_
+#ifndef _GRPVECTORFILEDXFENTITYOBJARC_H_
+#define _GRPVECTORFILEDXFENTITYOBJARC_H_
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "XString.h"
@@ -12,58 +40,70 @@
 #pragma endregion
 
 
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
+
+
 #pragma endregion
 
 
-#pragma region CLASSES
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
-class GRPVECTORFILEDXFENTITYObjArc : public GRPVECTORFILEDXFENTITYObj
+
+class GRPVECTORFILEDXFENTITYOBJARC : public GRPVECTORFILEDXFENTITYOBJ
 {  
-   public: 
+  public: 
       
-      GRPVECTORFILEDXFENTITYObjArc (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFENTITYObjArc ();
+                                          GRPVECTORFILEDXFENTITYOBJARC      (XCHAR* nametype);
+    virtual                              ~GRPVECTORFILEDXFENTITYOBJARC      ();
 
-      GRPVECTORFILEDXFENTITYDEFPOINT* GetCenter(); 
-      bool SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center); 
+    GRPVECTORFILEDXFENTITYDEFPOINT*       GetCenter                         (); 
+    bool                                  SetCenter                         (GRPVECTORFILEDXFENTITYDEFPOINT* center); 
 
-      double GetIniAngle (); 
-      void SetIniAngle (double angle); 
-      double GetEndAngle (); 
-      void SetEndAngle (double angle); 
+    double                                GetIniAngle                       (); 
+    void                                  SetIniAngle                       (double angle); 
 
-      double GetRadius (); 
-      void SetRadius (double radius); 
+    double                                GetEndAngle                       (); 
+    void                                  SetEndAngle                       (double angle); 
 
-      double GetThickness (); 
-      void SetThickness (double thickness); 
+    double                                GetRadius                         (); 
+    void                                  SetRadius                         (double radius); 
 
-      GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
+    double                                GetThickness                      (); 
+    void                                  SetThickness                      (double thickness); 
 
-      virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
+    GRPVECTORFILEDXFENTITYDEFPOINT*       GetDirExtrusion                   (); 
+    bool                                  SetDirExtrusion                   (GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion);
+
+    virtual bool                          ApplyData                         (GRPVECTORFILEDXFENTITY* entity);
             
-   private: 
+  private: 
    
-      void Clean ();   
+    void                                  Clean                             ();   
           
-      GRPVECTORFILEDXFENTITYDEFPOINT center; // Center point.     
+    GRPVECTORFILEDXFENTITYDEFPOINT        center;                           // Center point.     
 
-      double iniAngle; // Start angle.
-      double endAngle; // End   angle.
+    double                                iniangle;                         // Start angle.
+    double                                endangle;                         // End   angle.
 
-      double radius; // Radius.
+    double                                radius;                           // Radius.
 
-      double thickness; // Thickness (default=0.0).          
+    double                                thickness;                        // Thickness (default=0.0).          
 
-      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
+    GRPVECTORFILEDXFENTITYDEFPOINT        dirextrusion ;                    // Extrusion direction.
 };
 
+
 #pragma endregion
 
 
-#pragma region EXTERN_INLINE_FUNCTIONS
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
 #pragma endregion
+
 
 #endif
+

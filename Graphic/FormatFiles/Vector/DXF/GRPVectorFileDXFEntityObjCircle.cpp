@@ -1,149 +1,314 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityObjCircle.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITYOBJCIRCLE
+* @brief      Graphic Vector File DXF Entity ObjCircle class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "GRPVectorFileDXFTextSectionEntities.h"
 #include "GRPVectorFileDXFEntityObjCircle.h"
 
+#include "GRPVectorFileDXFTextSectionEntities.h"
+
+#include "XMemory_Control.h"
+
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObjCircle::GRPVECTORFILEDXFENTITYObjCircle (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
-{
-   Clean();   
 
-   type = GRPVECTORFILEDXFENTITYObjType_Circle;
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJCIRCLE::GRPVECTORFILEDXFENTITYOBJCIRCLE(XCHAR* nametype)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJCIRCLE::GRPVECTORFILEDXFENTITYOBJCIRCLE(XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
+{
+  Clean();   
+
+  type = GRPVECTORFILEDXFENTITYOBJTYPE_CIRCLE;
 }
 
 
-GRPVECTORFILEDXFENTITYObjCircle::~GRPVECTORFILEDXFENTITYObjCircle ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJCIRCLE::~GRPVECTORFILEDXFENTITYOBJCIRCLE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJCIRCLE::~GRPVECTORFILEDXFENTITYOBJCIRCLE()
 { 
-   Clean();
-}
-
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjCircle::GetCenter()
-{
-   return &center;
+  Clean();
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjCircle::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetCenter()
+* @brief      GetCenter
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetCenter()
 {
-   if(!center) return false;
-
-   this->center = center;
-
-   return true;
+  return &center;
 }
 
 
-double GRPVECTORFILEDXFENTITYObjCircle::GetRadius ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
+* @brief      SetCenter
+* @ingroup    GRAPHIC
+* 
+* @param[in]  center : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetCenter(GRPVECTORFILEDXFENTITYDEFPOINT* center)
 {
-   return radius;
+  if(!center) 
+    {
+      return false;
+    }
+
+  this->center = center;
+
+  return true;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjCircle::SetRadius (double radius)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetRadius()
+* @brief      GetRadius
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetRadius()
 {
-   this->radius = radius;
+  return radius;
 }
 
 
-double GRPVECTORFILEDXFENTITYObjCircle::GetThickness ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetRadius(double radius)
+* @brief      SetRadius
+* @ingroup    GRAPHIC
+* 
+* @param[in]  radius : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetRadius(double radius)
 {
-   return thickness;
+  this->radius = radius;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjCircle::SetThickness (double thickness)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetThickness()
+* @brief      GetThickness
+* @ingroup    GRAPHIC
+* 
+* @return     double : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+double GRPVECTORFILEDXFENTITYOBJCIRCLE::GetThickness()
 {
-   this->thickness = thickness;
+  return thickness;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjCircle::GetDirExtrusion()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetThickness(double thickness)
+* @brief      SetThickness
+* @ingroup    GRAPHIC
+* 
+* @param[in]  thickness : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJCIRCLE::SetThickness(double thickness)
 {
-   return &dirExtrusion;
+  this->thickness = thickness;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjCircle::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetDirExtrusion()
+* @brief      GetDirExtrusion
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJCIRCLE::GetDirExtrusion()
 {
-   if(!dirExtrusion) return false;
-
-   this->dirExtrusion = dirExtrusion;
-
-   return true;
+  return &dirextrusion;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjCircle::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
+* @brief      SetDirExtrusion
+* @ingroup    GRAPHIC
+* 
+* @param[in]  dirextrusion : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJCIRCLE::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
 {
-   GRPVECTORFILEDXFVALUE* value;
+  if(!dirextrusion) 
+    {
+      return false;
+    }
 
-   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
+  this->dirextrusion = dirextrusion;
 
-   value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
-   if(value) 
-   {
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJCIRCLE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+* @brief      ApplyData
+* @ingroup    GRAPHIC
+* 
+* @param[in]  entity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJCIRCLE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+{
+  GRPVECTORFILEDXFVALUE* value;
+
+  GRPVECTORFILEDXFENTITYOBJ::ApplyData(entity);
+
+  value = GetDataValue( VFDXF_CENTER_POINT_X, entity); 
+  if(value) 
+    {
       center.SetX((*value->GetData()));         
-   }
+    }
 
-   value = GetDataValue( VFDXF_CENTER_POINT_Y, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_CENTER_POINT_Y, entity); 
+  if(value) 
+    {
       center.SetY((*value->GetData()));      
-   }
+    }
 
-   value = GetDataValue( VFDXF_CENTER_POINT_Z, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_CENTER_POINT_Z, entity); 
+  if(value) 
+    {
       center.SetZ((*value->GetData()));             
-   }
+    }
  
-   value = GetDataValue( VFDXF_RADIOUS, entity); 
-   if(value) 
-   {
+  value = GetDataValue( VFDXF_RADIOUS, entity); 
+  if(value) 
+    {
       radius =(*value->GetData());      
-   }
+    }
    
-   value = GetDataValue(VFDXF_THICKNESS, entity);  
-   if(value) 
-   {
+  value = GetDataValue(VFDXF_THICKNESS, entity);  
+  if(value) 
+    {
       thickness = (*value->GetData());
-   }
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetX((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
+  if(value) 
+    {
+      dirextrusion.SetX((*value->GetData()));      
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetY((*value->GetData()));      
-   }
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
+  if(value) 
+    {
+      dirextrusion.SetY((*value->GetData()));      
+    }
 
-   value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
-   if(value) 
-   {
-      dirExtrusion.SetY((*value->GetData()));      
-   }
-      
-   return true;
+  value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
+  if(value) 
+    {
+      dirextrusion.SetY((*value->GetData()));      
+    }
+
+  return true;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjCircle::Clean ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJCIRCLE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJCIRCLE::Clean()
 {
    radius = 0.0f;
 
    thickness= 0.0f;
 }
 
+
 #pragma endregion
+

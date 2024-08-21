@@ -1,4 +1,43 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityObj.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITYOBJ
+* @brief      Graphic Vector File DXF Entity Obj class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXFEntityObj.h"
 
 #include "GRPVectorFileDXFEntityObj3DFace.h"
 #include "GRPVectorFileDXFEntityObjArc.h"
@@ -11,241 +50,415 @@
 #include "GRPVectorFileDXFEntityObjPoint.h"
 #include "GRPVectorFileDXFEntityObjText.h"
 
-#include "GRPVectorFileDXFEntityObj.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObj::GRPVECTORFILEDXFENTITYObj (XCHAR* nameType)
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJ::GRPVECTORFILEDXFENTITYOBJ(XCHAR* nametype)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJ::GRPVECTORFILEDXFENTITYOBJ(XCHAR* nametype)
 {
-   Clean();   
+  Clean();   
 
-   this->nameType = nameType;
+  this->nametype = nametype;
 
-   visibility = true;
+  visibility = true;
 }
 
 
-GRPVECTORFILEDXFENTITYObj::~GRPVECTORFILEDXFENTITYObj ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJ::~GRPVECTORFILEDXFENTITYOBJ()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJ::~GRPVECTORFILEDXFENTITYOBJ()
 { 
-   Clean();
+  Clean();
 }
 
-GRPVECTORFILEDXFENTITYObj* GRPVECTORFILEDXFENTITYObj::CreateInstance(GRPVECTORFILEDXFENTITY* entity)
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJ* GRPVECTORFILEDXFENTITYOBJ::CreateInstance(GRPVECTORFILEDXFENTITY* entity)
+* @brief      CreateInstance
+* @ingroup    GRAPHIC
+* 
+* @param[in]  entity : 
+* 
+* @return     GRPVECTORFILEDXFENTITYOBJ* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJ* GRPVECTORFILEDXFENTITYOBJ::CreateInstance(GRPVECTORFILEDXFENTITY* entity)
 {   
-   typedef struct
-   {
-      XCHAR* entityName;
-      GRPVECTORFILEDXFENTITYObjType objType;
+  typedef struct
+  {
+    XCHAR*                          entityname;
+    GRPVECTORFILEDXFENTITYOBJTYPE   objtype;
    
-   } ENTITY2CLASS;
+  } ENTITY2CLASS;
 
-   ENTITY2CLASS entity2class[] = { { __L("3DFACE")           , GRPVECTORFILEDXFENTITYObjType_3DFace         },
-                                   { __L("ARC")              , GRPVECTORFILEDXFENTITYObjType_Arc            },
-                                   { __L("CIRCLE")           , GRPVECTORFILEDXFENTITYObjType_Circle         },           
-                                   { __L("ACAD_CIRCLE")      , GRPVECTORFILEDXFENTITYObjType_Circle         },
-                                   { __L("ELLIPSE")          , GRPVECTORFILEDXFENTITYObjType_Ellipse        },
-                                   { __L("LINE")             , GRPVECTORFILEDXFENTITYObjType_Line           },
-                                   { __L("LWPOLYLINE")       , GRPVECTORFILEDXFENTITYObjType_LWPolyLine     },
-                                   { __L("MTEXT")            , GRPVECTORFILEDXFENTITYObjType_MText          },
-                                   { __L("POINT")            , GRPVECTORFILEDXFENTITYObjType_Point          },
-                                   { __L("POLYLINE")         , GRPVECTORFILEDXFENTITYObjType_PolyLine       },
-                                   { __L("TEXT")             , GRPVECTORFILEDXFENTITYObjType_Text           }
-                                 };
+  ENTITY2CLASS                entity2class[] = {  { __L("3DFACE")           , GRPVECTORFILEDXFENTITYOBJTYPE_3DFACE         },
+                                                  { __L("ARC")              , GRPVECTORFILEDXFENTITYOBJTYPE_ARC            },
+                                                  { __L("CIRCLE")           , GRPVECTORFILEDXFENTITYOBJTYPE_CIRCLE         },           
+                                                  { __L("ACAD_CIRCLE")      , GRPVECTORFILEDXFENTITYOBJTYPE_CIRCLE         },
+                                                  { __L("ELLIPSE")          , GRPVECTORFILEDXFENTITYOBJTYPE_ELLIPSE        },
+                                                  { __L("LINE")             , GRPVECTORFILEDXFENTITYOBJTYPE_LINE           },
+                                                  { __L("LWPOLYLINE")       , GRPVECTORFILEDXFENTITYOBJTYPE_LWPOLYLINE     },
+                                                  { __L("MTEXT")            , GRPVECTORFILEDXFENTITYOBJTYPE_MTEXT          },
+                                                  { __L("POINT")            , GRPVECTORFILEDXFENTITYOBJTYPE_POINT          },
+                                                  { __L("POLYLINE")         , GRPVECTORFILEDXFENTITYOBJTYPE_POLYLINE       },
+                                                  { __L("TEXT")             , GRPVECTORFILEDXFENTITYOBJTYPE_TEXT           }
+                                               };
 
-   GRPVECTORFILEDXFENTITYObj* entityObj = NULL; 
+  GRPVECTORFILEDXFENTITYOBJ*  entityobj     = NULL; 
   
-   if(!entity) 
-   {
-      return entityObj;
-   }
+  if(!entity) 
+    {
+      return entityobj;
+    }
 
-   for(int c=0; c<sizeof(entity2class)/sizeof(ENTITY2CLASS); c++)
-   { 
-      if(!entity->GetName()->Compare(entity2class[c].entityName, true))
-      {
-         switch(entity2class[c].objType)
-         {
-            case GRPVECTORFILEDXFENTITYObjType_Unknown      :
-                                            default      : break;
-            case GRPVECTORFILEDXFENTITYObjType_3DFace       : entityObj = new GRPVECTORFILEDXFENTITYObj3DFace(entity2class[c].entityName);       break; 
-            case GRPVECTORFILEDXFENTITYObjType_Arc          : entityObj = new GRPVECTORFILEDXFENTITYObjArc(entity2class[c].entityName);          break;            
-            case GRPVECTORFILEDXFENTITYObjType_Circle       : entityObj = new GRPVECTORFILEDXFENTITYObjCircle(entity2class[c].entityName);       break;          
-            case GRPVECTORFILEDXFENTITYObjType_Ellipse      : entityObj = new GRPVECTORFILEDXFENTITYObjEllipse(entity2class[c].entityName);      break;         
-            case GRPVECTORFILEDXFENTITYObjType_Line         : entityObj = new GRPVECTORFILEDXFENTITYObjLine(entity2class[c].entityName);         break;            
-            case GRPVECTORFILEDXFENTITYObjType_LWPolyLine   : entityObj = new GRPVECTORFILEDXFENTITYObjLWPolyLine(entity2class[c].entityName);   break;      
-            case GRPVECTORFILEDXFENTITYObjType_MText        : entityObj = new GRPVECTORFILEDXFENTITYObjMText(entity2class[c].entityName);        break;           
-            case GRPVECTORFILEDXFENTITYObjType_Point        : entityObj = new GRPVECTORFILEDXFENTITYObjPoint(entity2class[c].entityName);        break;           
-            case GRPVECTORFILEDXFENTITYObjType_PolyLine     : entityObj = new GRPVECTORFILEDXFENTITYObjPolyLine(entity2class[c].entityName);     break;        
-            case GRPVECTORFILEDXFENTITYObjType_Text         : entityObj = new GRPVECTORFILEDXFENTITYObjText(entity2class[c].entityName);         break;                              
-         }
-      }
-   }
+  for(int c=0; c<sizeof(entity2class)/sizeof(ENTITY2CLASS); c++)
+    { 
+      if(!entity->GetName()->Compare(entity2class[c].entityname, true))
+        {
+          switch(entity2class[c].objtype)
+            {
+              case GRPVECTORFILEDXFENTITYOBJTYPE_UNKNOWN      :
+                                                 default      : break;
+              case GRPVECTORFILEDXFENTITYOBJTYPE_3DFACE       : entityobj = new GRPVECTORFILEDXFENTITYOBJ3DFACE(entity2class[c].entityname);       break; 
+              case GRPVECTORFILEDXFENTITYOBJTYPE_ARC          : entityobj = new GRPVECTORFILEDXFENTITYOBJARC(entity2class[c].entityname);          break;            
+              case GRPVECTORFILEDXFENTITYOBJTYPE_CIRCLE       : entityobj = new GRPVECTORFILEDXFENTITYOBJCIRCLE(entity2class[c].entityname);       break;          
+              case GRPVECTORFILEDXFENTITYOBJTYPE_ELLIPSE      : entityobj = new GRPVECTORFILEDXFENTITYOBJELLIPSE(entity2class[c].entityname);      break;         
+              case GRPVECTORFILEDXFENTITYOBJTYPE_LINE         : entityobj = new GRPVECTORFILEDXFENTITYOBJLINE(entity2class[c].entityname);         break;            
+              case GRPVECTORFILEDXFENTITYOBJTYPE_LWPOLYLINE   : entityobj = new GRPVECTORFILEDXFENTITYOBJLWPolyLine(entity2class[c].entityname);   break;      
+              case GRPVECTORFILEDXFENTITYOBJTYPE_MTEXT        : entityobj = new GRPVECTORFILEDXFENTITYOBJMText(entity2class[c].entityname);        break;           
+              case GRPVECTORFILEDXFENTITYOBJTYPE_POINT        : entityobj = new GRPVECTORFILEDXFENTITYOBJPoint(entity2class[c].entityname);        break;           
+              case GRPVECTORFILEDXFENTITYOBJTYPE_POLYLINE     : entityobj = new GRPVECTORFILEDXFENTITYOBJPolyLine(entity2class[c].entityname);     break;        
+              case GRPVECTORFILEDXFENTITYOBJTYPE_TEXT         : entityobj = new GRPVECTORFILEDXFENTITYOBJText(entity2class[c].entityname);         break;                              
+            }
+        }
+    }
 
-   if(entityObj)
-   {
-      entityObj->ApplyData(entity);
-   }
+  if(entityobj)
+    {
+      entityobj->ApplyData(entity);
+    }
   
-   return entityObj;
+  return entityobj;
 }
 
 
-GRPVECTORFILEDXFENTITYObjType GRPVECTORFILEDXFENTITYObj::GetType()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYOBJTYPE GRPVECTORFILEDXFENTITYOBJ::GetType()
+* @brief      GetType
+* @ingroup    GRAPHIC
+* 
+* @return     GRPVECTORFILEDXFENTITYOBJTYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYOBJTYPE GRPVECTORFILEDXFENTITYOBJ::GetType()
 {
-   return type;
+  return type;
 }
 
 
-XSTRING* GRPVECTORFILEDXFENTITYObj::GetNameType()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetNameType()
+* @brief      GetNameType
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetNameType()
 {
-   return &nameType;
+  return &nametype;
 }
 
 
-XSTRING* GRPVECTORFILEDXFENTITYObj::GetLayerName ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLayerName()
+* @brief      GetLayerName
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLayerName()
 {
-   return &layerName;
+  return &layername;
 }
 
 
-int GRPVECTORFILEDXFENTITYObj::GetLineColor ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPVECTORFILEDXFENTITYOBJ::GetLineColor()
+* @brief      GetLineColor
+* @ingroup    GRAPHIC
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPVECTORFILEDXFENTITYOBJ::GetLineColor()
 {
-   return lineColor;
+  return linecolor;
 }
 
 
-void GRPVECTORFILEDXFENTITYObj::SetLineColor (int lineColor)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int lineColor)
+* @brief      SetLineColor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  lineColor : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int lineColor)
 {
-   this->lineColor = lineColor;
+  this->linecolor = linecolor;
 }
 
 
-XSTRING* GRPVECTORFILEDXFENTITYObj::GetLineTypeName ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLineTypeName()
+* @brief      GetLineTypeName
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPVECTORFILEDXFENTITYOBJ::GetLineTypeName()
 {
-   return &lineTypeName;
+  return &linetypename;
 }
 
 
-int GRPVECTORFILEDXFENTITYObj::GetTypeSpace ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPVECTORFILEDXFENTITYOBJ::GetTypeSpace()
+* @brief      GetTypeSpace
+* @ingroup    GRAPHIC
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPVECTORFILEDXFENTITYOBJ::GetTypeSpace()
 {
-   return typeSpace;
+  return typespace;
 }
  
 
-void GRPVECTORFILEDXFENTITYObj::SetTypeSpace (int typeSpace)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJ::SetTypeSpace(int typeSpace)
+* @brief      SetTypeSpace
+* @ingroup    GRAPHIC
+* 
+* @param[in]  typeSpace : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJ::SetTypeSpace(int typeSpace)
 {
-   this->typeSpace = typeSpace;
+  this->typespace = typespace;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObj::GetVisibility()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJ::GetVisibility()
+* @brief      GetVisibility
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJ::GetVisibility()
 {
-   return visibility;
+  return visibility;
 }
       
      
-void GRPVECTORFILEDXFENTITYObj::SetVisibility(bool visibility)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJ::SetVisibility(bool visibility)
+* @brief      SetVisibility
+* @ingroup    GRAPHIC
+* 
+* @param[in]  visibility : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJ::SetVisibility(bool visibility)
 {
-   this->visibility = visibility;
+  this->visibility = visibility;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObj::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYOBJ::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+* @brief      ApplyData
+* @ingroup    GRAPHIC
+* 
+* @param[in]  entity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYOBJ::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
-   GRPVECTORFILEDXFVALUE* value;
+  GRPVECTORFILEDXFVALUE* value;
    
-   value = GetDataValue(__L("G_LAYER_NAME"), entity);   
-   if(value) 
-   {
-      layerName.Set((XCHAR*)(*value->GetData()));
-   }
+  value = GetDataValue(__L("G_LAYER_NAME"), entity);   
+  if(value) 
+    {
+      layername.Set((XCHAR*)(*value->GetData()));
+    }
 
-   value = GetDataValue(__L("G_COLOR_NUMBER"), entity);   
-   if(value) 
-   {
-      lineColor = (int)(*value->GetData());
-   }
+  value = GetDataValue(__L("G_COLOR_NUMBER"), entity);   
+  if(value) 
+    {
+      linecolor = (int)(*value->GetData());
+    }
 
-   value = GetDataValue(__L("G_LINETYPE_NAME"), entity);      
-   if(value) 
-   {
-      lineTypeName.Set((XCHAR*)(*value->GetData()));
-   }
+  value = GetDataValue(__L("G_LINETYPE_NAME"), entity);      
+  if(value) 
+    {
+      linetypename.Set((XCHAR*)(*value->GetData()));
+    }
 
-   value = GetDataValue(__L("G_TYPE_SPACE"), entity);      
-   if(value) 
-   {
-      typeSpace = (int)(*value->GetData());
-   }
+  value = GetDataValue(__L("G_TYPE_SPACE"), entity);      
+  if(value) 
+    {
+      typespace = (int)(*value->GetData());
+    }
 
-   value = GetDataValue(__L("G_ENTITY_VISIBILITY"), entity);      
-   if(value) 
-   {
+  value = GetDataValue(__L("G_ENTITY_VISIBILITY"), entity);      
+  if(value) 
+    {
       visibility = ((int)(*value->GetData()))?false:true;
-   }
+    }
 
-   return true;
+  return true;
 }
 
 
-GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYObj::GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity)
+* @brief      GetDataValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  type : 
+* @param[in]  entity : 
+* 
+* @return     GRPVECTORFILEDXFVALUE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(int type, GRPVECTORFILEDXFENTITY* entity)
 {
-   if(!entity) return NULL;
+  if(!entity) 
+    {
+      return NULL;
+    }
 
-   for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
-   {
+  for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
+    {
       GRPVECTORFILEDXFVALUE* value = entity->GetValues()->Get(c);
       if(value)
-      {
-         if(value->GetType() == type)
-         {
-            return value;
-         }           
-      }           
-   }
+        {
+          if(value->GetType() == type)
+            {
+              return value;
+            }           
+        }           
+    }
 
-   return NULL;
+  return NULL;
 }
 
 
-GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYObj::GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity)
+* @brief      GetDataValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  name : 
+* @param[in]  entity : 
+* 
+* @return     GRPVECTORFILEDXFVALUE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFVALUE* GRPVECTORFILEDXFENTITYOBJ::GetDataValue(XCHAR* name, GRPVECTORFILEDXFENTITY* entity)
 {
-   if(!entity) return NULL;
+  if(!entity) 
+    {
+      return NULL;
+    }
 
-   for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
-   {
+  for(XDWORD c=0; c<entity->GetValues()->GetSize(); c++)
+    {
       GRPVECTORFILEDXFVALUE* value = entity->GetValues()->Get(c);
       if(value)
-      {
-         if(!value->GetName()->Compare(name, true))
-         {
-            return value;
-         }           
-      }           
-   }
+        {
+          if(!value->GetName()->Compare(name, true))
+            {
+              return value;
+            }           
+        }           
+    }
 
-   return NULL;
+  return NULL;
 }
 
-void GRPVECTORFILEDXFENTITYObj::Clean ( )
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYOBJ::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYOBJ::Clean()
 {
-   type = GRPVECTORFILEDXFENTITYObjType_Unknown;
-   nameType.Empty();
+  type        = GRPVECTORFILEDXFENTITYOBJTYPE_UNKNOWN;
+  
+  nametype.Empty();
+  layername.Empty();
+  linetypename.Empty();
 
-   layerName.Empty();
-   lineTypeName.Empty();
-   lineColor = 0;  
+  linecolor   = 0;  
 
-   typeSpace = 0;
+  typespace   = 0;
 
-   visibility = false;
+  visibility  = false;
 }
 
 #pragma endregion

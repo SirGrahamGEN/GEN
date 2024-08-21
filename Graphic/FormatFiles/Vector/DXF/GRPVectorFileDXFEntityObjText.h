@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFENTITYObjText_h_
-#define _GRPVECTORFILEDXFENTITYObjText_h_
+#ifndef _GRPVECTORFILEDXFENTITYOBJText_h_
+#define _GRPVECTORFILEDXFENTITYOBJText_h_
 
 #pragma region INCLUDES
 
@@ -18,12 +18,12 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFENTITYObjText : public GRPVECTORFILEDXFENTITYObj
+class GRPVECTORFILEDXFENTITYOBJText : public GRPVECTORFILEDXFENTITYOBJ
 {  
    public: 
       
-      GRPVECTORFILEDXFENTITYObjText (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFENTITYObjText ();
+      GRPVECTORFILEDXFENTITYOBJText (XCHAR* nametype);
+      virtual ~GRPVECTORFILEDXFENTITYOBJText ();
 
       virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             

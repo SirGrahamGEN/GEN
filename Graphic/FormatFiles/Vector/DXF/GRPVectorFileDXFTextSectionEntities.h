@@ -87,23 +87,23 @@ class GRPVECTORFILEDXFTEXTSECTIONENTITIES : public GRPVECTORFILEDXFTEXTSECTION
     GRPVECTORFILEDXFTEXTSECTIONENTITIES ();
     virtual ~GRPVECTORFILEDXFTEXTSECTIONENTITIES ();
 
-    bool IsKnownEntity( XSTRING& nameentity );
-    GRPVECTORFILEDXFTEXTSECTIONEntityDefType* IsKnownTypeValue( XSTRING& nameentity, int type );
+    bool IsKnownEntity( XSTRING& nameentity);
+    GRPVECTORFILEDXFTEXTSECTIONEntityDefType* IsKnownTypeValue( XSTRING& nameentity, int type);
     
-    bool AddEntity ( GRPVECTORFILEDXFENTITY* entity );
+    bool AddEntity(GRPVECTORFILEDXFENTITY* entity);
     XVECTOR<GRPVECTORFILEDXFENTITY*>* GetEntities ();
-    GRPVECTORFILEDXFENTITY* GetEntity ( XCHAR* nameEntity, XDWORD index );
-    bool DeleteEntity( XCHAR* nameEntity, XDWORD index );
+    GRPVECTORFILEDXFENTITY* GetEntity(XCHAR* nameEntity, XDWORD index);
+    bool DeleteEntity( XCHAR* nameEntity, XDWORD index);
     bool DeleteAllEntities(XCHAR* nameEntity);
     bool DeleteAllEntities();
 
     XMAP<XSTRING*, int>* GetEnumEntitys();
     int GetNEntitys(XCHAR* nameEntity);
 
-    XVECTOR<GRPVECTORFILEDXFENTITYObj*>* GetEntitiesObj();
+    XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GetEntitiesObj();
     bool DeleteAllEntitiesObj();
 
-    GRPVECTORFILERESULT ParserTextSection ( XFILETXT* fileTXT );
+    GRPVECTORFILERESULT ParserTextSection(XFILETXT* fileTXT);
 
     #ifdef XTRACE_ACTIVE    
     bool ShowTraceAllEntities();
@@ -111,17 +111,17 @@ class GRPVECTORFILEDXFTEXTSECTIONENTITIES : public GRPVECTORFILEDXFTEXTSECTION
 
   private:
     
-    int GetEntityEnumIndex( XCHAR* nameEntity );
-    bool AddEntityEnum( XCHAR* nameEntity );
-    bool SubtractEntityEnum( XCHAR* nameEntity );
-    bool SetZeroEntityEnum( XCHAR* nameEntity );
+    int GetEntityEnumIndex( XCHAR* nameEntity);
+    bool AddEntityEnum( XCHAR* nameEntity);
+    bool SubtractEntityEnum( XCHAR* nameEntity);
+    bool SetZeroEntityEnum( XCHAR* nameEntity);
     
     void Clean ();  
     
     static GRPVECTORFILEDXFTEXTSECTIONEntityDef defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities];
     XMAP<XSTRING*, int> enumentities;
     XVECTOR<GRPVECTORFILEDXFENTITY*> entities;
-    XVECTOR<GRPVECTORFILEDXFENTITYObj*> entitiesObj;
+    XVECTOR<GRPVECTORFILEDXFENTITYOBJ*> entitiesObj;
 };
 
 #pragma endregion

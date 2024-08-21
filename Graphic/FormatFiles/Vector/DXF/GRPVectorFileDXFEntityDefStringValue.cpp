@@ -1,124 +1,305 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFEntityDefStringValue.cpp
+* 
+* @class      GRPVECTORFILEDXFENTITYDEFSTRINGVALUE
+* @brief      Graphic Vector File DXF Entity DefStringValue class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "GRPVectorFileDXFEntityDefStringValue.h"
 
+#include "XMemory_Control.h"
+
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
 #pragma endregion
 
 
-#pragma region CLASS_MEMBERS
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS_GRPVECTORFILEDXFENTITYDEFSTRINGVALUE
 
-GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( )
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
 {
-   Clean();   
+  Clean();   
 }
 
 
-GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( int value, XCHAR* string )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int value, XCHAR* string)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  int : 
+* @param[in]  XCHAR* string : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int value, XCHAR* string)
 {
-   Clean(); 
+  Clean(); 
 }
 
       
-GRPVECTORFILEDXFENTITYDefStringValue::GRPVECTORFILEDXFENTITYDefStringValue ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* @param[in]  GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
 {
-   Clean();
+  Clean();
 
-   CopyFrom (stringvalue);
+  CopyFrom (stringvalue);
 }
 
 
-GRPVECTORFILEDXFENTITYDefStringValue::~GRPVECTORFILEDXFENTITYDefStringValue ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::~GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::~GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
 { 
-   Clean();
+  Clean();
 }
 
 
-void GRPVECTORFILEDXFENTITYDefStringValue::operator =  (GRPVECTORFILEDXFENTITYDefStringValue* point)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator = (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* point)
+* @brief      operator =
+* @ingroup    GRAPHIC
+* 
+* @param[in]  point : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator =  (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* point)
 {
   CopyFrom(point);
 }
 
 
-void GRPVECTORFILEDXFENTITYDefStringValue::operator =  (GRPVECTORFILEDXFENTITYDefStringValue point)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator = (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE point)
+* @brief      operator =
+* @ingroup    GRAPHIC
+* 
+* @param[in]  point : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::operator =  (GRPVECTORFILEDXFENTITYDEFSTRINGVALUE point)
 {
   CopyFrom(&point);
 }
 
 
-int GRPVECTORFILEDXFENTITYDefStringValue::GetValue () 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetValue()
+* @brief      GetValue
+* @ingroup    GRAPHIC
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetValue() 
 { 
-   return value; 
+  return value; 
 }
      
      
-void GRPVECTORFILEDXFENTITYDefStringValue::SetValue ( int value ) 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::SetValue(int value)
+* @brief      SetValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  value : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::SetValue(int value) 
 { 
-   this->value = value; 
+  this->value = value; 
 } 
 
 
-XSTRING* GRPVECTORFILEDXFENTITYDefStringValue::GetString () 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetString()
+* @brief      GetString
+* @ingroup    GRAPHIC
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GetString() 
 { 
    return &string; 
 }
 
 
-bool GRPVECTORFILEDXFENTITYDefStringValue::CopyTo ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyTo(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
+* @brief      CopyTo
+* @ingroup    GRAPHIC
+* 
+* @param[in]  stringvalue : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyTo(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
 {
-   if(!stringvalue) 
-   {
+  if(!stringvalue) 
+    {
       return false;
-   }
+    }
 
-   stringvalue->SetValue(GetValue());
-   stringvalue->GetString()->Set(GetString()->Get());
+  stringvalue->SetValue(GetValue());
+  stringvalue->GetString()->Set(GetString()->Get());
    
-   return true;
+  return true;
 }
       
 
-bool GRPVECTORFILEDXFENTITYDefStringValue::CopyFrom ( GRPVECTORFILEDXFENTITYDefStringValue* stringvalue )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyFrom(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
+* @brief      CopyFrom
+* @ingroup    GRAPHIC
+* 
+* @param[in]  stringvalue : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::CopyFrom(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)
 {
-   if(!stringvalue)
-   {
+  if(!stringvalue)
+    {
       return false;
-   }
+    }
 
-   value  = stringvalue->GetValue();
-   string = stringvalue->GetString()->Get();   
+  value  = stringvalue->GetValue();
+  string = stringvalue->GetString()->Get();   
 
-   return true;
+  return true;
 }
    
 
-void GRPVECTORFILEDXFENTITYDefStringValue::Clean ( )
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::Clean()
 {
-   value = 0;
-   string.Empty();   
-}
-
-
-GRPVECTORFILEDXFENTITYDefStringList::GRPVECTORFILEDXFENTITYDefStringList ( )
-{
-   Clean();   
-}
-
-
-GRPVECTORFILEDXFENTITYDefStringList::~GRPVECTORFILEDXFENTITYDefStringList ( )
-{ 
-   Clean();
-}
-
-
-void GRPVECTORFILEDXFENTITYDefStringList::Clean ( )
-{
-   stringsvalue.DeleteContents();
-   stringsvalue.DeleteAll();
+  value = 0;
+  string.Empty();   
 }
 
 
 #pragma endregion
+
+
+#pragma region CLASS_MEMBERS_GRPVECTORFILEDXFENTITYDEFSTRINGLIST
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGLIST::GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGLIST::GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
+{
+  Clean();   
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITYDEFSTRINGLIST::~GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITYDEFSTRINGLIST::~GRPVECTORFILEDXFENTITYDEFSTRINGLIST()
+{ 
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFENTITYDEFSTRINGLIST::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPVECTORFILEDXFENTITYDEFSTRINGLIST::Clean()
+{
+  stringsvalue.DeleteContents();
+  stringsvalue.DeleteAll();
+}
+
+#pragma endregion
+

@@ -150,7 +150,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType()
                 }
                else
                 {
-                  result = GRPVECTORFILERESULT_ErrorInvalidFormat;   
+                  result = GRPVECTORFILERESULT_ERRORINVALIDFORMAT;   
                 }        
  
               file->Close();             
@@ -169,7 +169,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType()
     } 
    else 
     {
-      result = GRPVECTORFILERESULT_ErrorInvalidFormat; 
+      result = GRPVECTORFILERESULT_ERRORINVALIDFORMAT; 
     }
 
   return result;
@@ -373,7 +373,7 @@ GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, X
 
                   message.Format(__L("section %s Unknown"), section->name.Get());   
                                                 
-                  GRPVECTORFILE_XEVENT vfEvent(this, GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+                  GRPVECTORFILE_XEVENT vfEvent(this, GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
                   vfEvent.SetType(VECTORFILETYPE_DXF);
                   vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
@@ -422,7 +422,7 @@ GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, X
     } 
    else
     {
-      result = GRPVECTORFILEDXFRESULT_NotSections;
+      result = GRPVECTORFILEDXFRESULT_NOTSECTIONS;
     }
   
   return result;
@@ -518,7 +518,7 @@ GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextFile(XFILETXT* fileTXT)
   
       if(!sections.GetSize()) 
         {
-          result = GRPVECTORFILEDXFRESULT_NotSections;
+          result = GRPVECTORFILEDXFRESULT_NOTSECTIONS;
         }      
     }
   

@@ -12,53 +12,53 @@
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFENTITYObjPolyLine::GRPVECTORFILEDXFENTITYObjPolyLine (XCHAR* nameType) : GRPVECTORFILEDXFENTITYObj (nameType)
+GRPVECTORFILEDXFENTITYOBJPolyLine::GRPVECTORFILEDXFENTITYOBJPolyLine (XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
 {
    Clean();   
 
-   type = GRPVECTORFILEDXFENTITYObjType_PolyLine;
+   type = GRPVECTORFILEDXFENTITYOBJTYPE_POLYLINE;
 }
 
 
-GRPVECTORFILEDXFENTITYObjPolyLine::~GRPVECTORFILEDXFENTITYObjPolyLine ( )
+GRPVECTORFILEDXFENTITYOBJPolyLine::~GRPVECTORFILEDXFENTITYOBJPolyLine()
 { 
    Clean();
 }
 
  
-double GRPVECTORFILEDXFENTITYObjPolyLine::GetThickness ( )
+double GRPVECTORFILEDXFENTITYOBJPolyLine::GetThickness()
 {
    return thickness;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjPolyLine::SetThickness (double thickness)
+void GRPVECTORFILEDXFENTITYOBJPolyLine::SetThickness (double thickness)
 {
    this->thickness = thickness;
 }
 
 
-GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYObjPolyLine::GetDirExtrusion()
+GRPVECTORFILEDXFENTITYDEFPOINT* GRPVECTORFILEDXFENTITYOBJPolyLine::GetDirExtrusion()
 {
-   return &dirExtrusion;
+   return &dirextrusion;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjPolyLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion)
+bool GRPVECTORFILEDXFENTITYOBJPolyLine::SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion)
 {
-   if(!dirExtrusion) return false;
+   if(!dirextrusion) return false;
 
-   this->dirExtrusion = dirExtrusion;
+   this->dirextrusion = dirextrusion;
 
    return true;
 }
 
 
-bool GRPVECTORFILEDXFENTITYObjPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
+bool GRPVECTORFILEDXFENTITYOBJPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 {
    GRPVECTORFILEDXFVALUE* value;
 
-   GRPVECTORFILEDXFENTITYObj::ApplyData(entity);
+   GRPVECTORFILEDXFENTITYOBJ::ApplyData(entity);
 
    // INCOMPLETE
 
@@ -71,26 +71,26 @@ bool GRPVECTORFILEDXFENTITYObjPolyLine::ApplyData(GRPVECTORFILEDXFENTITY* entity
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_X, entity);  
    if(value) 
    {
-      dirExtrusion.SetX((*value->GetData()));      
+      dirextrusion.SetX((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Y, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
 
    value = GetDataValue(VFDXF_EXTRUSION_DIRECTION_Z, entity);  
    if(value) 
    {
-      dirExtrusion.SetY((*value->GetData()));      
+      dirextrusion.SetY((*value->GetData()));      
    }
       
    return true;
 }
 
 
-void GRPVECTORFILEDXFENTITYObjPolyLine::Clean ( )
+void GRPVECTORFILEDXFENTITYOBJPolyLine::Clean()
 {
    
 }

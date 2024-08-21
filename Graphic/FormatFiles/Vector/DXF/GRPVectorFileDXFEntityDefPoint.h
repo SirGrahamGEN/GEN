@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityDefPoint.h
 * 
 * @class      GRPVECTORFILEDXFENTITYDEFPOINT
-* @brief      Graphic Vector File DXF DefPoint class
+* @brief      Graphic Vector File DXF Entity DefPoint class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

@@ -127,13 +127,13 @@ GRPVECTORFILEDXFTEXTSECTIONGenericDefType GRPVECTORFILEDXFTEXTSECTION::genericDe
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTEXTSECTION::GRPVECTORFILEDXFTEXTSECTION ( )
+GRPVECTORFILEDXFTEXTSECTION::GRPVECTORFILEDXFTEXTSECTION()
 {
   Clean();
 }
 
 
-GRPVECTORFILEDXFTEXTSECTION::~GRPVECTORFILEDXFTEXTSECTION ( )
+GRPVECTORFILEDXFTEXTSECTION::~GRPVECTORFILEDXFTEXTSECTION()
 {
   Clean();
 }
@@ -158,20 +158,20 @@ GRPVECTORFILEDXFTEXTSECTION* GRPVECTORFILEDXFTEXTSECTION::CreateInstance(GRPVECT
    switch(type)
    {      
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN        :  
-                                               default         :  break;
+                                                  default         :  break;
 
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER         :  section = new GRPVECTORFILEDXFTEXTSECTIONHEADER();                                                               
-                                                                  break;  
+                                                                     break;  
 
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_CLASSES        :  break;   
 
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_TABLES         :  break;    
 
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS         :  section = new GRPVECTORFILEDXFTEXTSECTIONBLOCKS();
-                                                                  break; 
+                                                                     break; 
 
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES       :  section = new GRPVECTORFILEDXFTEXTSECTIONENTITIES();
-                                                                  break;  
+                                                                     break;  
                                                                
       case GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_OBJECTS        :  break; 
 
@@ -203,91 +203,531 @@ GRPVECTORFILEDXFTEXTSECTION_BasicType GRPVECTORFILEDXFTEXTSECTION::GetTypeBasic 
 {
    switch(type)
    {     
-      case    0 ...    9   :  // String (with the introduction of extended symbol names in AutoCAD 2000, the 255-character limit has been increased to 2049 single-byte characters not including the newline at the end of the line); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case    0   :  
+      case    1   :
+      case    2   :
+      case    3   :
+      case    4   :
+      case    5   :
+      case    6   :
+      case    7   :
+      case    8   :
+      case    9   :  // String (with the introduction of extended symbol names in AutoCAD 2000, the 255-character limit has been increased to 2049 single-byte characters not including the newline at the end of the line); see the "Storage of String Values" section for more information      
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
-      case   10 ...   39   :  // Double precision 3D point value                           
-      case   40 ...   59   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+      case   10   :  
+      case   11   :
+      case   12   :
+      case   13   :
+      case   14   :
+      case   15   :
+      case   16   :
+      case   17   :
+      case   18   :
+      case   19   :  
+      case   20   :  
+      case   21   :
+      case   22   :
+      case   23   :
+      case   24   :
+      case   25   :
+      case   26   :
+      case   27   :
+      case   28   :
+      case   29   :  
+      case   30   :  
+      case   31   :
+      case   32   :
+      case   33   :
+      case   34   :
+      case   35   :
+      case   36   :
+      case   37   :
+      case   38   :
+      case   39   :  // Double precision 3D point value
+                                                
+      case   40   :  
+      case   41   :
+      case   42   :
+      case   43   :
+      case   44   :
+      case   45   :
+      case   46   :
+      case   47   :
+      case   48   :
+      case   49   :  
+      case   50   :  
+      case   51   :
+      case   52   :
+      case   53   :
+      case   54   :
+      case   55   :
+      case   56   :
+      case   57   :
+      case   58   :
+      case   59   :  // Double-precision floating-point value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
-      case   60 ...   79   :  // 16-bit integer value
-      case   90 ...   99   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case   60   :  
+      case   61   :
+      case   62   :
+      case   63   :
+      case   64   :
+      case   65   :
+      case   66   :
+      case   67   :
+      case   68   :
+      case   69   :  
+      case   70   :  
+      case   71   :
+      case   72   :
+      case   73   :
+      case   74   :
+      case   75   :
+      case   76   :
+      case   77   :
+      case   78   :
+      case   79   :  // 16-bit integer value
 
-      case           100   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
-      case           102   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
-      case           105   :  // String representing hexadecimal (hex) handle value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
-                              
-      case  110 ...  119   :  // Double precision floating-point value
-      case  120 ...  129   :  // Double precision floating-point value
-      case  130 ...  139   :  // Double precision floating-point value
-      case  140 ...  149   :  // Double precision scalar floating-point value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+      case   90   :  
+      case   91   :
+      case   92   :
+      case   93   :
+      case   94   :
+      case   95   :
+      case   96   :
+      case   97   :
+      case   98   :
+      case   99   :  // 32-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
-      case  160 ...  169   :  // 64-bit integer value
-      case  170 ...  179   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  100   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
+      case  102   :  // String (255-character maximum, less for Unicode strings); see the "Storage of String Values" section for more information
+      case  105   :  // String representing hexadecimal (hex) handle value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+                     
+      case  110   :  
+      case  111   :
+      case  112   :
+      case  113   :
+      case  114   :
+      case  115   :
+      case  116   :
+      case  117   :
+      case  118   :
+      case  119   :  // Double precision floating-point value
 
-      case  210 ...  239   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+      case  120   :  
+      case  121   :
+      case  122   :
+      case  123   :
+      case  124   :
+      case  125   :
+      case  126   :
+      case  127   :
+      case  128   :
+      case  129   :  // Double precision floating-point value
 
-      case  270 ...  279   :  // 16-bit integer value
-      case  280 ...  289   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
-      case  290 ...  299   :  // Boolean flag value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Boolean;
+      case  130   :  
+      case  131   :
+      case  132   :
+      case  133   :
+      case  134   :
+      case  135   :
+      case  136   :
+      case  137   :
+      case  138   :
+      case  139   :  // Double precision floating-point value
 
-      case  300 ...  309   :  // Arbitrary text string; see the "Storage of String Values" section for more information
-      case  310 ...  319   :  // String representing hex value of binary chunk
-      case  320 ...  329   :  // String representing hex handle value
-      case  330 ...  369   :  // String representing hex object IDs
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  140   : 
+      case  141   :
+      case  142   :
+      case  143   :
+      case  144   :
+      case  145   :
+      case  146   :
+      case  147   :
+      case  148   :
+      case  149   :  // Double precision scalar floating-point value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
-      case  370 ...  379   :  // 16-bit integer value
-      case  380 ...  389   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  160   :  
+      case  161   :
+      case  162   :
+      case  163   :
+      case  164   :
+      case  165   :
+      case  166   :
+      case  167   :
+      case  168   :
+      case  169   :  // 64-bit integer value
 
-      case  390 ...  399   :  // String representing hex handle value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  170   :  
+      case  171   :
+      case  172   :
+      case  173   :
+      case  174   :
+      case  175   :
+      case  176   :
+      case  177   :
+      case  178   :
+      case  179   :  // 16-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
-      case  400 ...  409   :  // 16-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  210   :  
+      case  211   :
+      case  212   :
+      case  213   :
+      case  214   :
+      case  215   :
+      case  216   :
+      case  217   :
+      case  218   :
+      case  219   : 
+      case  220   :
+      case  221   :
+      case  222   :
+      case  223   :
+      case  224   :
+      case  225   :
+      case  226   :
+      case  227   :
+      case  228   :
+      case  229   :
+      case  230   :
+      case  231   :
+      case  232   :
+      case  233   :
+      case  234   :
+      case  235   :
+      case  236   :
+      case  237   :
+      case  238   :
+      case  239   :  // Double-precision floating-point value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
 
-      case  410 ...  419   :  // String; see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  270   :  
+      case  271   :
+      case  272   :
+      case  273   :
+      case  274   :
+      case  275   :
+      case  276   :
+      case  277   :
+      case  278   :
+      case  279   :  // 16-bit integer value
 
-      case  420 ...  429   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  280   :  
+      case  281   :
+      case  282   :
+      case  283   :
+      case  284   :
+      case  285   :
+      case  286   :
+      case  287   :
+      case  288   :
+      case  289   :  // 16-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
-      case  430 ...  439   :  // String; see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  290   :  
+      case  291   :
+      case  292   :
+      case  293   :
+      case  294   :
+      case  295   :
+      case  296   :
+      case  297   :
+      case  298   :
+      case  299   :  // Boolean flag value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Boolean;
 
-      case  440 ...  449   :  // 32-bit integer value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  300   :  
+      case  301   :
+      case  302   :
+      case  303   :
+      case  304   :
+      case  305   :
+      case  306   :
+      case  307   :
+      case  308   :
+      case  309   :  // Arbitrary text string; see the "Storage of String Values" section for more information
 
-      case  450 ...  459   :  // Long
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+      case  310   :  
+      case  311   :
+      case  312   :
+      case  313   :
+      case  314   :
+      case  315   :
+      case  316   :
+      case  317   :
+      case  318   :
+      case  319   :  // String representing hex value of binary chunk
 
-      case  460 ...  469   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+      case  320   :  
+      case  321   :
+      case  322   :
+      case  323   :
+      case  324   :
+      case  325   :
+      case  326   :
+      case  327   :
+      case  328   :
+      case  329   :  // String representing hex handle value
 
-      case  470 ...  479   :  // String; see the "Storage of String Values" section for more information
-      case  480 ...  481   :  // String representing hex handle value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  330   :  
+      case  331   :
+      case  332   :
+      case  333   :
+      case  334   :
+      case  335   :
+      case  336   :
+      case  337   :
+      case  338   :
+      case  339   : 
+      case  341   :
+      case  342   :
+      case  343   :
+      case  344   :
+      case  345   :
+      case  346   :
+      case  347   :
+      case  348   :
+      case  349   : 
+      case  351   :
+      case  352   :
+      case  353   :
+      case  354   :
+      case  355   :
+      case  356   :
+      case  357   :
+      case  358   :
+      case  359   :
+      case  361   :
+      case  362   :
+      case  363   :
+      case  364   :
+      case  365   :
+      case  366   :
+      case  367   :
+      case  368   :
+      case  369   :  // String representing hex object IDs
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
 
-      case           999   :  // Comment (string); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  370   :  
+      case  371   :
+      case  372   :
+      case  373   :
+      case  374   :
+      case  375   :
+      case  376   :
+      case  377   :
+      case  378   :
+      case  379   :  // 16-bit integer value
 
-      case 1000 ... 1009   :  // String (same limits as indicated with 0-9 code range); see the "Storage of String Values" section for more information
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+      case  380   :  
+      case  381   :
+      case  382   :
+      case  383   :
+      case  384   :
+      case  385   :
+      case  386   :
+      case  387   :
+      case  388   :
+      case  389   :  // 16-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
 
-      case 1010 ... 1059   :  // Double-precision floating-point value
-                              return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
-                        
-      case 1060 ... 1070   :  // 16-bit integer value
-      case          1071   :  // 32-bit integer value            
+      case  390   :  
+      case  391   :
+      case  392   :
+      case  393   :
+      case  394   :
+      case  395   :
+      case  396   :
+      case  397   :
+      case  398   :
+      case  399   :  // String representing hex handle value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case  400   :  
+      case  401   :
+      case  402   :
+      case  403   :
+      case  404   :
+      case  405   :
+      case  406   :
+      case  407   :
+      case  408   :
+      case  409   :  // 16-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+
+      case  410   :  
+      case  411   :
+      case  412   :
+      case  413   :
+      case  414   :
+      case  415   :
+      case  416   :
+      case  417   :
+      case  418   :
+      case  419   :  // String; see the "Storage of String Values" section for more information
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case  420   :  
+      case  421   :
+      case  422   :
+      case  423   :
+      case  424   :
+      case  425   :
+      case  426   :
+      case  427   :
+      case  428   :
+      case  429   :  // 32-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+
+      case  430   :  
+      case  431   :
+      case  432   :
+      case  433   :
+      case  434   :
+      case  435   :
+      case  436   :
+      case  437   :
+      case  438   :
+      case  439   :  // String; see the "Storage of String Values" section for more information
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case  440   :  
+      case  441   :
+      case  442   :
+      case  443   :
+      case  444   :
+      case  445   :
+      case  446   :
+      case  447   :
+      case  448   :
+      case  449   :  // 32-bit integer value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+
+      case  450   : 
+      case  451   :
+      case  452   :
+      case  453   :
+      case  454   :
+      case  455   :
+      case  456   :
+      case  457   :
+      case  458   :
+      case  459   :  // Long
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
+
+      case  460   :  
+      case  461   :
+      case  462   :
+      case  463   :
+      case  464   :
+      case  465   :
+      case  466   :
+      case  467   :
+      case  468   :
+      case  469   :  // Double-precision floating-point value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+
+      case  470   :  
+      case  471   :
+      case  472   :
+      case  473   :
+      case  474   :
+      case  475   :
+      case  476   :
+      case  477   :
+      case  478   :
+      case  479   :  // String; see the "Storage of String Values" section for more information
+
+      case  480   :  
+      case  481   :  // String representing hex handle value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case  999   :  // Comment (string); see the "Storage of String Values" section for more information
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case 1000   :  
+      case 1001   :
+      case 1002   :
+      case 1003   :
+      case 1004   :
+      case 1005   :
+      case 1006   :
+      case 1007   :
+      case 1008   :
+      case 1009   :  // String (same limits as indicated with 0-9 code range); see the "Storage of String Values" section for more information
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_String;
+
+      case 1010   :  
+      case 1011   :
+      case 1012   :
+      case 1013   :
+      case 1014   :
+      case 1015   :
+      case 1016   :
+      case 1017   :
+      case 1018   :
+      case 1019   :
+      case 1020   :
+      case 1021   :
+      case 1022   :
+      case 1023   :
+      case 1024   :
+      case 1025   :
+      case 1026   :
+      case 1027   :
+      case 1028   :
+      case 1029   :
+      case 1030   :
+      case 1031   :
+      case 1032   :
+      case 1033   :
+      case 1034   :
+      case 1035   :
+      case 1036   :
+      case 1037   :
+      case 1038   :
+      case 1039   :
+      case 1040   :
+      case 1041   :
+      case 1042   :
+      case 1043   :
+      case 1044   :
+      case 1045   :
+      case 1046   :
+      case 1047   :
+      case 1048   :
+      case 1049   :
+      case 1050   :
+      case 1051   :
+      case 1052   :
+      case 1053   :
+      case 1054   :
+      case 1055   :
+      case 1056   :
+      case 1057   :
+      case 1058   :
+      case 1059   :  // Double-precision floating-point value
+                     return GRPVECTORFILEDXFTEXTSECTION_BasicType_Double;
+                
+      case 1060   :  
+      case 1061   :
+      case 1062   :
+      case 1063   :
+      case 1064   :
+      case 1065   :
+      case 1066   :
+      case 1067   :
+      case 1068   :
+      case 1069   :
+      case 1070   :  // 16-bit integer value
+
+      case 1071   : // 32-bit integer value            
                               return GRPVECTORFILEDXFTEXTSECTION_BasicType_Integer;
    }
 
@@ -373,7 +813,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTION::ParserTextSection (XFILETXT* fi
 }
 
 
-void GRPVECTORFILEDXFTEXTSECTION::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTION::Clean()
 {
    type       = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_UNKNOWN;
    vectorFile = NULL;

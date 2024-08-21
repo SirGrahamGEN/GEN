@@ -383,7 +383,7 @@ GRPVECTORFILEDXFTEXTSECTIONEntityDef GRPVECTORFILEDXFTEXTSECTIONENTITIES::defent
 
 #pragma region CLASS_MEMBERS
 
-GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES ( )
+GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 {
    Clean();
 
@@ -391,7 +391,7 @@ GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES ( )
 }
 
 
-GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES ( )
+GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 {
    DeleteAllEntities();
    DeleteAllEntitiesObj();
@@ -498,13 +498,13 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameEntity, XDWORD
 {
    if(entities.IsEmpty()) return false;
 
-   GRPVECTORFILEDXFENTITY* entity = GetEntity (nameEntity, index);
+   GRPVECTORFILEDXFENTITY* entity = GetEntity(nameEntity, index);
    if(entity)
    { 
       entities.Delete(entity);
       delete entity;
 
-       SubtractEntityEnum(entity->GetName()->Get());
+      SubtractEntityEnum(entity->GetName()->Get());
 
       return true;
    }
@@ -570,7 +570,7 @@ int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameEntity)
 }
 
 
-XVECTOR<GRPVECTORFILEDXFENTITYObj*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
+XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
 {
    return &entitiesObj;
 }
@@ -640,7 +640,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection (XFI
 
                      message.Format(__L("entity %s Unknown"), line->Get());
                                
-                     GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+                     GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
                      vfEvent.SetType(VECTORFILETYPE_DXF);
                      vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
@@ -731,7 +731,7 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection (XFI
 
                               message.Format(__L("type data of entitity %s not register in definition [%d]"), part->name.Get(), type);
                                
-                              GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+                              GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
                               vfEvent.SetType(VECTORFILETYPE_DXF);
                               vfEvent.GetPath()->Set(__L(""));
@@ -806,10 +806,10 @@ GRPVECTORFILERESULT  GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection (XFI
                
             AddEntity(entity);
 
-            {  GRPVECTORFILEDXFENTITYObj* entityObj = GRPVECTORFILEDXFENTITYObj::CreateInstance(entity);
-               if(entityObj)
+            {  GRPVECTORFILEDXFENTITYOBJ* entitybbj = GRPVECTORFILEDXFENTITYOBJ::CreateInstance(entity);
+               if(entitybbj)
                {
-                  entitiesObj.Add(entityObj); 
+                  entitiesObj.Add(entitybbj); 
                }
             }
          }
@@ -944,7 +944,7 @@ bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
 #endif
 
 
-void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean ( )
+void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean()
 {
   
 }

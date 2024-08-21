@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityDefPoint.cpp
 * 
 * @class      GRPVECTORFILEDXFENTITYDEFPOINT
-* @brief      Graphic Vector File DXF DefPoint class
+* @brief      Graphic Vector File DXF Entity DefPoint class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -160,7 +160,7 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::operator =  (GRPVECTORFILEDXFENTITYDEFPOINT
 * --------------------------------------------------------------------------------------------------------------------*/
 double GRPVECTORFILEDXFENTITYDEFPOINT::GetX() 
 { 
-  return xPoint; 
+  return xpoint; 
 }
      
      
@@ -309,133 +309,3 @@ void GRPVECTORFILEDXFENTITYDEFPOINT::Clean()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT ( )
-{
-   Clean();   
-}
-
-
-GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT ( double xPoint , double yPoint , double zPoint )
-{
-   Clean(); 
-
-   this->xPoint = xPoint;
-   this->yPoint = yPoint;
-   this->zPoint = zPoint;
-}
-
-      
-GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT ( GRPVECTORFILEDXFENTITYDEFPOINT* point )
-{
-   Clean();
-
-   CopyFrom (point);
-}
-
-
-GRPVECTORFILEDXFENTITYDEFPOINT::~GRPVECTORFILEDXFENTITYDEFPOINT ( )
-{ 
-   Clean();
-}
-
-
-void GRPVECTORFILEDXFENTITYDEFPOINT::operator =  (GRPVECTORFILEDXFENTITYDEFPOINT* point)
-{
-  CopyFrom(point);
-}
-
-
-void GRPVECTORFILEDXFENTITYDEFPOINT::operator =  (GRPVECTORFILEDXFENTITYDEFPOINT point)
-{
-  CopyFrom(&point);
-}
-
-
-double GRPVECTORFILEDXFENTITYDEFPOINT::GetX () 
-{ 
-   return xPoint; 
-}
-     
-     
-void GRPVECTORFILEDXFENTITYDEFPOINT::SetX ( double xPoint ) 
-{ 
-   this->xPoint = xPoint; 
-} 
-
-
-double GRPVECTORFILEDXFENTITYDEFPOINT::GetY () 
-{ 
-   return yPoint; 
-}
-
-
-void GRPVECTORFILEDXFENTITYDEFPOINT::SetY ( double yPoint ) 
-{ 
-   this->yPoint = yPoint; 
-}
-      
-      
-double GRPVECTORFILEDXFENTITYDEFPOINT::GetZ () 
-{ 
-   return zPoint ; 
-};    
-
-    
-void GRPVECTORFILEDXFENTITYDEFPOINT::SetZ ( double zPoint ) 
-{ 
-   this->zPoint = zPoint; 
-} 
-
-
-bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyTo ( GRPVECTORFILEDXFENTITYDEFPOINT* point )
-{
-   if(!point) 
-   {
-      return false;
-   }
-
-   point->SetX(xPoint);
-   point->SetY(yPoint);
-   point->SetZ(zPoint);
-
-   return true;
-}
-      
-
-bool GRPVECTORFILEDXFENTITYDEFPOINT::CopyFrom ( GRPVECTORFILEDXFENTITYDEFPOINT* point )
-{
-   if(!point)
-   {
-      return false;
-   }
-
-   xPoint = point->GetX();
-   yPoint = point->GetY();
-   zPoint = point->GetY();
-
-   return true;
-}
-   
-
-void GRPVECTORFILEDXFENTITYDEFPOINT::Clean ( )
-{
-   xPoint = 0.0f;
-   yPoint = 0.0f;  
-   zPoint = 0.0f;
-}

@@ -50,16 +50,16 @@ class GRPVECTORFILEDXFTEXTSECTIONHEADER : public GRPVECTORFILEDXFTEXTSECTION
     GRPVECTORFILEDXFTEXTSECTIONHEADER ();
     virtual ~GRPVECTORFILEDXFTEXTSECTIONHEADER ();
     
-    bool IsKnownVariable( XSTRING& namevar );
-    bool AddVariable ( XCHAR* namevar, XVARIANT* variant );
+    bool IsKnownVariable( XSTRING& namevar);
+    bool AddVariable(XCHAR* namevar, XVARIANT* variant);
     XMAP<XSTRING*, XVARIANT*>* GetVariables ();
-    XVARIANT* GetVariable ( XCHAR* namevar );
-    bool DeleteVariable ( XCHAR* namevar );
-    bool DeleteAllVariables ( bool withcontents = true );
-    XCHAR* GetVariableRemark( XSTRING& namevar );
+    XVARIANT* GetVariable(XCHAR* namevar);
+    bool DeleteVariable(XCHAR* namevar);
+    bool DeleteAllVariables(bool withcontents = true);
+    XCHAR* GetVariableRemark( XSTRING& namevar);
 
-    bool ParserVariable ( XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ... );
-    GRPVECTORFILERESULT ParserTextSection ( XFILETXT* fileTXT );
+    bool ParserVariable(XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ...);
+    GRPVECTORFILERESULT ParserTextSection(XFILETXT* fileTXT);
    
     #ifdef XTRACE_ACTIVE
     bool ShowTraceAllVariables ();

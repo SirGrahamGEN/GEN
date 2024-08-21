@@ -209,14 +209,14 @@ bool GRPVECTORFILEDXFENTITY::DeleteAllValues()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::Getxdatactrllist()
-* @brief      Getxdatactrllist
+* @fn         XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::GetXDataCtrlList()
+* @brief      GetXDataCtrlList
 * @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::Getxdatactrllist()
+XVECTOR<GRPVECTORFILEDXFXDATACTRL*>* GRPVECTORFILEDXFENTITY::GetXDataCtrlList()
 {
   return &xdatactrllist;
 }
@@ -237,11 +237,4 @@ void GRPVECTORFILEDXFENTITY::Clean()
 
 
 #pragma endregion
-
-
-
-
-
-
-
 

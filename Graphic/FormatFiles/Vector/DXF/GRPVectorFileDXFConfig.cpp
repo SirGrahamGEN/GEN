@@ -284,15 +284,3 @@ void GRPVECTORFILEDXFCONFIG::Clean()
 
 #pragma endregion
 
-
-
-
-
-
-
-
-
-
-
-
-

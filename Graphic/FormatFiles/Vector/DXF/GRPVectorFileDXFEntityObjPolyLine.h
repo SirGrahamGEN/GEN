@@ -1,6 +1,6 @@
 
-#ifndef _GRPVECTORFILEDXFENTITYObjPolyLine_h_
-#define _GRPVECTORFILEDXFENTITYObjPolyLine_h_
+#ifndef _GRPVECTORFILEDXFENTITYOBJPolyLine_h_
+#define _GRPVECTORFILEDXFENTITYOBJPolyLine_h_
 
 #pragma region INCLUDES
 
@@ -18,18 +18,18 @@
 
 #pragma region CLASSES
 
-class GRPVECTORFILEDXFENTITYObjPolyLine : public GRPVECTORFILEDXFENTITYObj
+class GRPVECTORFILEDXFENTITYOBJPolyLine : public GRPVECTORFILEDXFENTITYOBJ
 {  
    public: 
       
-      GRPVECTORFILEDXFENTITYObjPolyLine (XCHAR* nameType);
-      virtual ~GRPVECTORFILEDXFENTITYObjPolyLine ();
+      GRPVECTORFILEDXFENTITYOBJPolyLine (XCHAR* nametype);
+      virtual ~GRPVECTORFILEDXFENTITYOBJPolyLine ();
 
       double GetThickness (); 
       void SetThickness (double thickness); 
 
       GRPVECTORFILEDXFENTITYDEFPOINT* GetDirExtrusion (); 
-      bool SetDirExtrusion ( GRPVECTORFILEDXFENTITYDEFPOINT* dirExtrusion );
+      bool SetDirExtrusion(GRPVECTORFILEDXFENTITYDEFPOINT* dirextrusion);
 
       virtual bool ApplyData(GRPVECTORFILEDXFENTITY* entity);
             
@@ -39,7 +39,7 @@ class GRPVECTORFILEDXFENTITYObjPolyLine : public GRPVECTORFILEDXFENTITYObj
       
       double thickness; // Thickness (default=0.0).
 
-      GRPVECTORFILEDXFENTITYDEFPOINT dirExtrusion ; // Extrusion direction.
+      GRPVECTORFILEDXFENTITYDEFPOINT dirextrusion ; // Extrusion direction.
 };
 
 #pragma endregion

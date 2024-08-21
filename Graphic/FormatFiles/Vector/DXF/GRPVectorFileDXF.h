@@ -36,7 +36,7 @@
 #include "XString.h"
 #include "XVariant.h"
 
-#include "GRPVectorFileDXFCconfig.h"
+#include "GRPVectorFileDXFConfig.h"
 #include "GRPVectorFileDXFTextSection.h"
 
 #include "GRPVectorFile.h"
