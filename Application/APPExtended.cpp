@@ -41,6 +41,7 @@
 
 #include "XLog.h"
 #include "XSystem.h"
+#include "XConsole.h"
 #include "XTranslation.h"
 #include "XTranslation_GEN.h"
 #include "XTranslation.h"
@@ -51,6 +52,7 @@
 #include "APPBase.h"
 #include "APPCFG.h"
 #include "APPLOG.h"
+#include "APPConsole.h"
 
 #include "XMemory_Control.h"
 
@@ -113,9 +115,7 @@ APPEXTENDED& APPEXTENDED::GetInstance()
 bool APPEXTENDED::DelInstance()
 {
   if(instance)
-    {
-      instance->End();
-
+    {      
       delete instance;
       instance = NULL;
 
@@ -128,17 +128,21 @@ bool APPEXTENDED::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::APPStart()
+* @fn         bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
 * @brief      APPStart
 * @ingroup    APPLICATION
+* 
+* @param[in]  cfg : 
+* @param[in]  console : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::APPStart(APPCFG* cfg)
+bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
 {  
-  XSTRING string;
-  XSTRING stringresult;
+  XSTRING   string;
+  XSTRING   stringresult;
+  bool      status;
 
   if(!cfg)
     { 
@@ -148,38 +152,44 @@ bool APPEXTENDED::APPStart(APPCFG* cfg)
   if(!cfg->Log_IsActive())
     {
       return false;
-    }
-     
-  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, __L("Activando sistema LOG"));
-  console->PrintMessage(string.Get(), 1, true, false);
-
-  status = APP_LOG.Ini(&APP_CFG, APPLICATION_NAMEFILE , APPLICATION_VERSION
-                                                      , APPLICATION_SUBVERSION
-                                                      , APPLICATION_SUBVERSIONERR);
-
-  stringresult.Format((status)?__L("Ok."):__L("ERROR!"));
-  console->PrintMessage(stringresult.Get(), 0, false, true);
+    }      
 
   XSTRING SO_ID;
   status = GEN_XSYSTEM.GetOperativeSystemID(SO_ID);
- 
+
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"),  GEN_VERSION.GetAppVersion()->Get()); 
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Application ROOT path: %s"),  GEN_XPATHSMANAGER.GetPathSection(XPATHSMANAGERSECTIONTYPE_ROOT)->xpath->Get()); 
-  XTRACE_PRINTMSGSTATUS(__L("S.O. version"), SO_ID.Get()); 
+  
+  XTRACE_PRINTMSGSTATUS(__L("Version App")  ,  GEN_VERSION.GetAppVersion()->Get()); 
+  XTRACE_PRINTMSGSTATUS(__L("S.O. version") , SO_ID.Get()); 
 
+  status = APP_LOG.Ini(cfg, GEN_VERSION.GetAppName()->Get()); 
+
+  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, __L("Activando sistema LOG"));  
   stringresult.Format((status)?__L("Ok."):__L("ERROR!"));
-  APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("%s: %s") , string.Get(), stringresult.Get());
-       
-  APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false,  __L("S.O. version: %s"), SO_ID.Get());
 
-  XDWORD total = 0;
-  XDWORD free  = 0;
+  if(status)
+    { 
+      XDWORD total = 0;
+      XDWORD free  = 0;
 
-  GEN_XSYSTEM.GetMemoryInfo(total,free);
+      GEN_XSYSTEM.GetMemoryInfo(total,free);
 
-  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
-   
-  return true;
+      APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false,  __L("S.O. version: %s"), SO_ID.Get());
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
+
+      APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("%s: %s") , string.Get(), stringresult.Get());       
+    }
+  
+  #ifdef APP_CONSOLE_ACTIVE
+  if(console)
+    {     
+      console->PrintMessage(string.Get(), 1, true, false);
+      console->PrintMessage(stringresult.Get(), 0, false, true);      
+    }
+  #endif
+
+  return status;
 }
 
 
@@ -206,8 +216,6 @@ APPEXTENDED::APPEXTENDED()
 * --------------------------------------------------------------------------------------------------------------------*/
 APPEXTENDED::~APPEXTENDED()
 {
-  End();
-
   Clean();
 }
 

@@ -65,8 +65,8 @@ class VERSIONFRAMEWORK
     XSTRING*                  GetVersion                    ();
     void                      GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& versionerror);
     XSTRING*                  GetCodeName                   ();
-      
-      
+    
+    XSTRING*                  GetAppName                    ();            
     void                      GetAppVersion                 (XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror);    
     XSTRING*                  GetAppOwner                   ();
     XDWORD                    GetAppCreationYear            ();    

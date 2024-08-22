@@ -182,6 +182,21 @@ XSTRING* VERSIONFRAMEWORK::GetCodeName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XSTRING* VERSIONFRAMEWORK::GetAppName()
+* @brief      GetAppName
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* VERSIONFRAMEWORK::GetAppName()
+{
+  return &app_name;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
 * @brief      GetAppVersion
 * @ingroup    PLATFORM_COMMON
@@ -339,6 +354,8 @@ bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD
 {
   app_titlestr.Empty();
   app_versionstr.Empty();
+
+  this->app_name = app_name;
 
   app_versionstr.Format(__L("%s %d.%d.%d"), app_name?app_name:__L(""), app_version, app_subversion, app_versionerror);
  

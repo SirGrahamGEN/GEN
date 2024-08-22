@@ -63,7 +63,7 @@ class APPLOG
     static APPLOG&                      GetInstance                     ();
     static bool                         DelInstance                     ();
 
-    bool                                Ini                             (APPCFG* cfg, XCHAR* applicationname, int appversion, int appsubversion, int appversionerror);
+    bool                                Ini                             (APPCFG* cfg, XCHAR* applicationname);
 
     bool                                End                             ();
 

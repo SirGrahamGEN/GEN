@@ -50,6 +50,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class XCONSOLE;
 class APPCFG;
 
 class APPEXTENDED
@@ -60,10 +61,8 @@ class APPEXTENDED
     static APPEXTENDED&                 GetInstance                     ();
     static bool                         DelInstance                     ();
 
-    bool                                APPStart                        (APPCFG* cfg);
-
-    bool                                End                             ();
-
+    bool                                APPStart                        (APPCFG* cfg, XCONSOLE* console = NULL);
+    
   private:
                                         APPEXTENDED                     ();
                                         APPEXTENDED                     (APPEXTENDED const&);        // Don't implement
