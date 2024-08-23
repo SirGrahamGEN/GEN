@@ -175,6 +175,7 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
 
       GEN_XSYSTEM.GetMemoryInfo(total,free);
 
+      APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("-------------------------------------------------------------------------------------------------------------"));    
       APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false,  __L("S.O. version: %s"), SO_ID.Get());
       APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
 
