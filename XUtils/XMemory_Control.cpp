@@ -321,17 +321,21 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
 
   #ifdef XTRACE_ACTIVE
 
-  XTRACE_PRINTHEADER((!nassigned)?__L("ALL FREE MEMORY RESOURCES"):__L("NOT FREE MEMORY RESOURCES"));
   XTRACE_PRINT(__L(" "));
-  XTRACE_PRINT(__L("Maximum allocated blocks at a time : %d") , maxnassigns);
-  XTRACE_PRINT(__L("Maximum memory used at a time      : %dk"), maxused/1024); 
+
+  XBYTE level = ((!nassigned)?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED);
+
+  XTRACE_PRINTHEADER((level | XTRACE_LEVEL_WITHCOLOR), (!nassigned)?__L("ALL FREE MEMORY RESOURCES"):__L("NOT FREE MEMORY RESOURCES"));
+  XTRACE_PRINT(__L(" "));
+  XTRACE_PRINTCOLOR(level, __L("Maximum allocated blocks at a time : %d") , maxnassigns);
+  XTRACE_PRINTCOLOR(level, __L("Maximum memory used at a time      : %dk"), maxused/1024); 
   XTRACE_PRINT(__L(" "));
 
   if(nassigned)
     {
-      XTRACE_PRINT(__L("Number memory blocks not free      : %d"), nassigned);
-      XTRACE_PRINT(__L(" "));
-      XTRACE_PRINT(__L("         Address  Size    Line  Module"));
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Number memory blocks not free      : %d"), nassigned);
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L(" "));
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("         Address  Size    Line  Module"));
 
       XDWORD count = 0;
 
@@ -374,7 +378,7 @@ bool XMEMORY_CONTROL::DisplayAll(bool displaydata)
             }
         }
 
-      XTRACE_PRINTHEADER(NULL);
+      XTRACE_PRINTHEADER(0, NULL);
     }
 
   #endif

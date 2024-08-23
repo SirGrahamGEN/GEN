@@ -319,6 +319,15 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   #else
 
+  //--- GENERIC  -----------------------------------------------------------------------------------------------------
+
+  Sentence_Add(XTRANSLATION_GEN_ID_OK                                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Ok")                                                              , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_ERROR                                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Error")                                                           , 0); 
+
+  Sentence_Add(XTRANSLATION_GEN_ID_OK                                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Correcto")                                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_ERROR                                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Error")                                                           , 0); 
+
+
   //--- DATETIME -----------------------------------------------------------------------------------------------------
 
   // MONTHS 
@@ -402,11 +411,19 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   //--- APPLICATION LOG ----------------------------------------------------------------------------------------------
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPLOG_INITMSG                                               , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Initializing application log (ver %d.%d.%d) %s")                  , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Total memory %d Kb, free %d Kb (%d%%).")                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating LOG system")                                           , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling LOG system")                                            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application Root Path")                                           , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_ENG , __L("APP version")                                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("S.O. version")                                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Total memory %d Kb, free %d Kb (%d%%).")                          , 0);
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPLOG_INITMSG                                               , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Inicializando log de la aplicacion (ver %d.%d.%d) %s")            , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Memoria total %d Kb, libre %d Kb (%d%%).")                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando sistema de LOG")                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando sistema de LOG")                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Camino raiz de application")                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version APP")                                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version S.O.")                                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Memoria total %d Kb, libre %d Kb (%d%%).")                        , 0);
   
   //--- APPLICATION CONSOLE EXIT CODE --------------------------------------------------------------------------------
 

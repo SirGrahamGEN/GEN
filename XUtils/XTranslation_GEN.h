@@ -45,6 +45,9 @@ enum XTRANSLATION_GEN_ID
 {
   XTRANSLATION_GEN_ID_UNKWON                                                  = 0 ,
 
+  XTRANSLATION_GEN_ID_OK                                                          ,
+  XTRANSLATION_GEN_ID_ERROR                                                       ,
+
   XTRANSLATION_GEN_ID_XDATETIME_MONTH_JANUARY                                     ,
   XTRANSLATION_GEN_ID_XDATETIME_MONTH_FEBRUARY                                    ,
   XTRANSLATION_GEN_ID_XDATETIME_MONTH_MARCH                                       ,
@@ -81,8 +84,12 @@ enum XTRANSLATION_GEN_ID
   XTRANSLATION_GEN_ID_XTIMER_ONE_SECOND                                           ,
   XTRANSLATION_GEN_ID_XTIMER_ZERO_SECONDS                                         ,
 
-  XTRANSLATION_GEN_ID_APPLOG_INITMSG                                              ,
-  XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY                                          ,  
+  XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                          ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                          ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                      ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                       ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                     ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY                                     ,  
 
   XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_NOTINFO                                     ,
   XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SERIOUSERROR                             ,

@@ -62,6 +62,7 @@ class APPEXTENDED
     static bool                         DelInstance                     ();
 
     bool                                APPStart                        (APPCFG* cfg, XCONSOLE* console = NULL);
+    bool                                APPEnd                          (APPCFG* cfg, XCONSOLE* console = NULL);
     
   private:
                                         APPEXTENDED                     ();

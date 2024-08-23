@@ -734,13 +734,14 @@ bool XFILEOPENLIST::DisplayAll()
 
   if(!nfilesopen)
     {
+
     }
    else
     {
-      XTRACE_PRINTHEADER(__L("NOT ALL FILES ARE CLOSED"));
+      XTRACE_PRINTHEADER((XTRACE_COLOR_RED|XTRACE_LEVEL_WITHCOLOR), __L("NOT ALL FILES ARE CLOSED"));
 
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Number files not closed: %d"), nfilesopen);
-      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLACK, __L("Path + File Name"), NULL);
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Number files not closed: %d"), nfilesopen);
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED,__L("Path + File Name"), NULL);
       XTRACE_PRINT(__L(" "), NULL);
 
       for(XDWORD c=0; c<nfilesopen; c++)
@@ -750,7 +751,7 @@ bool XFILEOPENLIST::DisplayAll()
           if(xfile) XTRACE_PRINT(__L("%s")  , xfile->GetPathNameFile());
         }
 
-      XTRACE_PRINTHEADER(NULL);
+      XTRACE_PRINTHEADER((XTRACE_COLOR_RED|XTRACE_LEVEL_WITHCOLOR), NULL);
     }
 
   CloseAll();

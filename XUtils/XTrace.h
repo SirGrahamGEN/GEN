@@ -164,7 +164,7 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_SETLOCALIPFILTER(LOCALIPFILTER)                                                          XTRACE::instance->SetLocalIPFilter(LOCALIPFILTER)
   #define XTRACE_SETLOCALIP(IP)                                                                           XTRACE::instance->SetLocalIPString(IP)
   #define XTRACE_RESOLVEALLRESOURCES                                                                      XTRACE::instance->ResolveAllResources()
-  #define XTRACE_PRINTHEADER(header)                                                                      XTRACE::instance->PrintHeader(header)
+  #define XTRACE_PRINTHEADER(level, header)                                                               XTRACE::instance->PrintHeader(level, header)
 
   #define XTRACE_PRINTMSGSTATUS(name, value)                                                              XTRACE::instance->PrintMsgStatus(0, name, value)
   
@@ -426,7 +426,7 @@ class XTRACE
     void                            SetApplicationID                  (XSTRING& applicationID);   
 
     bool                            ClearScreen                       (XBYTE level);
-    void                            PrintHeader                       (XCHAR* header);
+    void                            PrintHeader                       (XBYTE level, XCHAR* header);
     bool                            Print                             (XBYTE level, XCHAR* mask,...);
     bool                            PrintDataBlock                    (XBYTE level, XBYTE* data, XDWORD _size, XDWORD marginsize = 0, XDWORD sizeline = 32, bool showoffset = true, bool showtext = true);
     bool                            PrintDataBlock                    (XBYTE level, XBUFFER& data, XDWORD marginsize = 0, XDWORD sizeline = 32, bool showoffset = true, bool showtext = true);

@@ -157,16 +157,20 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
   XSTRING SO_ID;
   status = GEN_XSYSTEM.GetOperativeSystemID(SO_ID);
 
+  XTRACE_PRINT(__L(" "));
+
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s"),  GEN_VERSION.GetAppVersion()->Get()); 
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Application ROOT path: %s"),  GEN_XPATHSMANAGER.GetPathSection(XPATHSMANAGERSECTIONTYPE_ROOT)->xpath->Get()); 
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%s: %s"), XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH),  GEN_XPATHSMANAGER.GetPathSection(XPATHSMANAGERSECTIONTYPE_ROOT)->xpath->Get()); 
+
+  XTRACE_PRINT(__L(" "));
   
-  XTRACE_PRINTMSGSTATUS(__L("Version App")  ,  GEN_VERSION.GetAppVersion()->Get()); 
-  XTRACE_PRINTMSGSTATUS(__L("S.O. version") , SO_ID.Get()); 
+  XTRACE_PRINTMSGSTATUS(XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION),  GEN_VERSION.GetAppVersion()->Get()); 
+  XTRACE_PRINTMSGSTATUS(XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION),  SO_ID.Get()); 
 
   status = APP_LOG.Ini(cfg, GEN_VERSION.GetAppName()->Get()); 
 
-  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, __L("Activando sistema LOG"));  
-  stringresult.Format((status)?__L("Ok."):__L("ERROR!"));
+  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG));  
+  stringresult.Format(__L("%s."), (status)?XT_L(XTRANSLATION_GEN_ID_OK):XT_L(XTRANSLATION_GEN_ID_ERROR));
 
   if(status)
     { 
@@ -175,9 +179,9 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
 
       GEN_XSYSTEM.GetMemoryInfo(total,free);
 
-      APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("-------------------------------------------------------------------------------------------------------------"));    
-      APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false,  __L("S.O. version: %s"), SO_ID.Get());
-      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPLOG_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, __L("-------------------------------------------------------------------------------------------------------------"));    
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false,  __L("%s: %s"), XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION), SO_ID.Get());
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_INITIATION, false, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY), total, free, GEN_XSYSTEM.GetFreeMemoryPercent());
 
       APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("%s: %s") , string.Get(), stringresult.Get());       
     }
@@ -191,6 +195,53 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
   #endif
 
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
+* @brief      APPEnd
+* @ingroup    APPLICATION
+* 
+* @param[in]  cfg : 
+* @param[in]  console : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
+{
+  XSTRING   string;
+  XSTRING   stringresult;
+  
+  if(!cfg)
+    { 
+      return false;
+    }
+
+  if(!cfg->Log_IsActive())
+    {
+      return false;
+    }      
+
+  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK,  XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG));
+  stringresult.Format(__L("%s."), XT_L(XTRANSLATION_GEN_ID_OK));
+  
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_ENDING, false, __L("%s: %s") , string.Get(), stringresult.Get());       
+  APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_ENDING, false, __L("-------------------------------------------------------------------------------------------------------------"));
+
+  APP_LOG.DelInstance();
+
+  #ifdef APP_CONSOLE_ACTIVE
+  if(console)
+    {     
+      console->PrintMessage(string.Get(), 1, true, false);
+      console->PrintMessage(stringresult.Get(), 0, false, true);     
+    }
+  #endif
+      
+  return true;
 }
 
 

@@ -1263,15 +1263,16 @@ bool XTRACE::ClearScreen(XBYTE level)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XTRACE::PrintHeader(XCHAR* header)
-* @brief      Print Header
+* 
+* @fn         void XTRACE::PrintHeader(XBYTE level, XCHAR* header)
+* @brief      PrintHeader
 * @ingroup    XUTILS
-*
-* @param[in]  header : header string
-*
+* 
+* @param[in]  level : 
+* @param[in]  header : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::PrintHeader(XCHAR* header)
+void XTRACE::PrintHeader(XBYTE level, XCHAR* header)
 {
   XSTRING line;
 
@@ -1291,7 +1292,7 @@ void XTRACE::PrintHeader(XCHAR* header)
       line += __L("-");
     }
 
-  Print(XTRACE_LEVEL_WITHCOLOR,line.Get());
+  Print(level, line.Get());
 
   openheader = header?true:false;
 }
