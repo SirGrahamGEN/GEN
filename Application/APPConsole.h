@@ -70,6 +70,8 @@ class APPCONSOLE : public APPBASE, public XOBSERVER
 
     bool                          End                         ();
 
+    XCONSOLE*                     GetConsole                  ();
+
     bool                          PrintExitMessage_Active     (bool isprintexitmessageactive);
     virtual bool                  PrintExitMessage            (XSTRING& message);
 

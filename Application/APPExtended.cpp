@@ -39,6 +39,7 @@
 
 #include "APPExtended.h"
 
+#include "XFactory.h"
 #include "XLog.h"
 #include "XSystem.h"
 #include "XConsole.h"
@@ -53,6 +54,7 @@
 #include "APPCFG.h"
 #include "APPLOG.h"
 #include "APPConsole.h"
+#include "APPExtended_ApplicationStatus.h"
 
 #include "XMemory_Control.h"
 
@@ -152,7 +154,15 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
   if(!cfg->Log_IsActive())
     {
       return false;
-    }      
+    }  
+
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  applicationstatus = new APPEXTENDED_APPLICATIONSTATUS(cfg);
+  if(!applicationstatus)
+    {
+      return false;
+    }
+  #endif
 
   XSTRING SO_ID;
   status = GEN_XSYSTEM.GetOperativeSystemID(SO_ID);
@@ -240,7 +250,165 @@ bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
       console->PrintMessage(stringresult.Get(), 0, false, true);     
     }
   #endif
+ 
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  if(applicationstatus)
+    {
+      delete applicationstatus;
+      applicationstatus = NULL;  
+    }
+  #endif
       
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPEXTENDED::Show_Line(XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab, bool linefeed)
+* @brief      Show_Line
+* @ingroup    APPLICATION
+* 
+* @param[in]  console : 
+* @param[in]  string : 
+* @param[in]  string2 : 
+* @param[in]  tab : 
+* @param[in]  linefeed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPEXTENDED::ShowLine(XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab, bool linefeed)
+{
+  XSTRING line1;
+  XSTRING line2;
+  
+  if(!console)
+    {
+      return false;
+    }
+
+  console->Format_Message(string.Get(), tab , false, false, line1);
+  if(tab)
+    {
+      int _tab = tab;
+
+      if(_tab<37) _tab = 37;
+      line1.AdjustSize(_tab, false, __L(" "));
+    }
+
+  console->Format_Message(string2.Get(), 0 , false, linefeed, line2);
+
+  console->Print(line1.Get());
+  console->Print(line2.Get());
+
+  return true;
+}
+
+
+#ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPEXTENDED::ShowHeader(XCONSOLE* console, bool separator)
+* @brief      ShowHeader
+* @ingroup    APPLICATION
+* 
+* @param[in]  console : 
+* @param[in]  separator : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPEXTENDED::ShowHeader(XCONSOLE* console, bool separator)
+{
+  XSTRING header;
+
+  header = GEN_VERSION.GetAppTitle()->Get();
+  
+  console->Printf(__L(" %s"),header.Get());
+  console->Printf(__L("\n"));
+
+  if(separator) 
+    {
+      console->Printf(__L("\n"));
+    }
+
+  return true;
+}
+#endif
+
+
+#ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         APPEXTENDED_APPLICATIONSTATUS* APPEXTENDED::GetApplicationStatus()
+* @brief      GetApplicationStatus
+* @ingroup    APPLICATION
+* 
+* @return     APPEXTENDED_APPLICATIONSTATUS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+APPEXTENDED_APPLICATIONSTATUS* APPEXTENDED::GetApplicationStatus()
+{
+  return applicationstatus;
+}
+#endif
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMUTEX* APPEXTENDED::GetXMutexShowAll()
+* @brief      GetXMutexShowAll
+* @ingroup    APPLICATION
+* 
+* @return     XMUTEX* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMUTEX* APPEXTENDED::GetXMutexShowAll()
+{
+  return xmutexshowall;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPEXTENDED::ShowAll(XCONSOLE* console)
+* @brief      ShowAll
+* @ingroup    APPLICATION
+* 
+* @param[in]  console : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPEXTENDED::ShowAll(XCONSOLE* console)
+{
+  console->Clear();
+
+  if(xmutexshowall) 
+    {
+      xmutexshowall->Lock();
+    }
+
+  #ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
+  if(APP_EXTENDED.ShowHeader(console, false))      
+    {
+      console->PrintMessage(__L(""),0, false, true);
+    }
+  #endif
+
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  if(APP_EXTENDED.GetApplicationStatus()->Show(console))
+    {
+      console->PrintMessage(__L(""),0, false, true);
+    }
+  #endif
+  
+  if(xmutexshowall) 
+    {
+      xmutexshowall->UnLock();
+    }
+
   return true;
 }
 
@@ -255,6 +423,8 @@ bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
 APPEXTENDED::APPEXTENDED()
 {
   Clean();
+
+  xmutexshowall = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -268,6 +438,11 @@ APPEXTENDED::APPEXTENDED()
 * --------------------------------------------------------------------------------------------------------------------*/
 APPEXTENDED::~APPEXTENDED()
 {
+  if(xmutexshowall)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexshowall);
+    }
+
   Clean();
 }
 
@@ -282,7 +457,13 @@ APPEXTENDED::~APPEXTENDED()
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPEXTENDED::Clean()
 {
- 
+  cfg               = NULL;
+
+  xmutexshowall     =  NULL;
+  
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  applicationstatus = NULL;
+  #endif
 }
 
 

@@ -52,6 +52,7 @@
 
 class XCONSOLE;
 class APPCFG;
+class APPEXTENDED_APPLICATIONSTATUS;
 
 class APPEXTENDED
 {
@@ -63,6 +64,20 @@ class APPEXTENDED
 
     bool                                APPStart                        (APPCFG* cfg, XCONSOLE* console = NULL);
     bool                                APPEnd                          (APPCFG* cfg, XCONSOLE* console = NULL);
+
+    bool                                ShowLine                        (XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
+    
+    #ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
+    bool                                ShowHeader                      (XCONSOLE* console, bool separator);
+    #endif
+   
+    #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+    APPEXTENDED_APPLICATIONSTATUS*      GetApplicationStatus            (); 
+
+    XMUTEX*                             GetXMutexShowAll                (); 
+    bool                                ShowAll                         (XCONSOLE* console);
+
+    #endif
     
   private:
                                         APPEXTENDED                     ();
@@ -76,6 +91,11 @@ class APPEXTENDED
     static APPEXTENDED*                 instance;
 
     APPCFG*                             cfg;
+    XMUTEX*                             xmutexshowall; 
+
+    #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+    APPEXTENDED_APPLICATIONSTATUS*      applicationstatus;
+    #endif
 };
 
 #pragma endregion

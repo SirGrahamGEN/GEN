@@ -206,7 +206,7 @@ XSTRING* VERSIONFRAMEWORK::GetAppName()
 * @param[in]  app_versionerror : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
+void VERSIONFRAMEWORK::GetAppVersions(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
 {
   app_version       = this->app_version;
   app_subversion    = this->app_subversion;
@@ -355,7 +355,10 @@ bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD
   app_titlestr.Empty();
   app_versionstr.Empty();
 
-  this->app_name = app_name;
+  this->app_name          = app_name;
+  this->app_version       = app_version;
+  this->app_subversion    = app_subversion;
+  this->app_versionerror  = app_versionerror;
 
   app_versionstr.Format(__L("%s %d.%d.%d"), app_name?app_name:__L(""), app_version, app_subversion, app_versionerror);
  

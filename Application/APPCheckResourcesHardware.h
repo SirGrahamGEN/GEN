@@ -69,6 +69,10 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
 
     bool                            Ini                             (APPCFG* cfg);
 
+    XDWORD                          GetCPUTotalMemory               ();
+    XDWORD                          GetCPUFreeMemory                ();
+    int                             GetCPUFreePercentMemory         ();
+
     int                             GetCPUTotalCPUUsageAverange     ();  
     int                             GetCPUTotalCPUUsageMax          ();  
 
@@ -92,8 +96,11 @@ class APPCHECKRESOURCESHARDWARE : public XOBSERVER, public XSUBJECT
     APPCFG*                         cfg;
 
     bool                            inexit;
-  //XMUTEX*                         exitmutex;
     XSCHEDULER*                     xscheduler;
+
+    XDWORD                          mem_total;
+    XDWORD                          mem_free;
+    int                             mem_freepercent;
 
     XDWORD                          ntotalCPUusage;
     XDWORD                          ntotalCPUsamples; 

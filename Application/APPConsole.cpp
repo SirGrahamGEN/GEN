@@ -254,6 +254,21 @@ bool APPCONSOLE::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XCONSOLE* APPCONSOLE::GetConsole()
+* @brief      GetConsole
+* @ingroup    APPLICATION
+* 
+* @return     XCONSOLE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XCONSOLE* APPCONSOLE::GetConsole()
+{
+  return console;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool APPCONSOLE::PrintExitMessage_Active(bool isprintexitmessageactive)
 * @brief      PrintExitMessage_Active
 * @ingroup    APPLICATION

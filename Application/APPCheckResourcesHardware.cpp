@@ -77,8 +77,6 @@ APPCHECKRESOURCESHARDWARE::APPCHECKRESOURCESHARDWARE()
   RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);
   RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT);
   RegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT);
-
-  // GEN_XFACTORY_CREATE(exitmutex, Create_Mutex());
 }
 
 
@@ -97,8 +95,6 @@ APPCHECKRESOURCESHARDWARE::~APPCHECKRESOURCESHARDWARE()
   DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);
   DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_TOTALCPUUSAGELIMIT);
   DeRegisterEvent(APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_APPCPUUSAGELIMIT);
-
-  // GEN_XFACTORY.Delete_Mutex(exitmutex);
 
   Clean();
 }
@@ -191,6 +187,51 @@ bool APPCHECKRESOURCESHARDWARE::Ini(APPCFG* cfg)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD APPCHECKRESOURCESHARDWARE::GetCPUTotalMemory()
+* @brief      GetCPUTotalMemory
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD APPCHECKRESOURCESHARDWARE::GetCPUTotalMemory()
+{
+  return mem_total;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD APPCHECKRESOURCESHARDWARE::GetCPUFreeMemory()
+* @brief      GetCPUFreeMemory
+* @ingroup    APPLICATION
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD APPCHECKRESOURCESHARDWARE::GetCPUFreeMemory()
+{
+  return mem_free;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int APPCHECKRESOURCESHARDWARE::GetCPUFreePercentMemory()
+* @brief      GetCPUFreePercentMemory
+* @ingroup    APPLICATION
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPCHECKRESOURCESHARDWARE::GetCPUFreePercentMemory()
+{
+  return mem_freepercent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         int APPCHECKRESOURCESHARDWARE::GetCPUTotalCPUUsageAverange()
 * @brief      GetCPUTotalCPUUsageAverange
 * @ingroup    APPLICATION
@@ -266,14 +307,6 @@ bool APPCHECKRESOURCESHARDWARE::End()
 {
   inexit =  true;
 
-  /*
-  if(exitmutex)
-    {
-      exitmutex->Lock();
-      exitmutex->UnLock();
-    }
-  */
-
   if(xscheduler)
     {
       delete xscheduler;
@@ -295,17 +328,16 @@ bool APPCHECKRESOURCESHARDWARE::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 {
-  if(!cfg) return false;
+  if(!cfg) 
+    {
+      return false;
+    }
 
-  XDWORD  total;
-  XDWORD  free;
-  int     freepercent = 0;
+  GEN_XSYSTEM.GetMemoryInfo(mem_total,mem_free);
 
-  GEN_XSYSTEM.GetMemoryInfo(total,free);
+  mem_freepercent = GEN_XSYSTEM.GetFreeMemoryPercent();
 
-  freepercent = GEN_XSYSTEM.GetFreeMemoryPercent();
-
-  if(freepercent < cfg->CheckResourcesHardware_GetMemStatusLimitPercent())
+  if(mem_freepercent < cfg->CheckResourcesHardware_GetMemStatusLimitPercent())
     {
       GEN_XSYSTEM.FreeCacheMemory();
 
@@ -313,7 +345,7 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
       //GEN_XLOG.AddEntry((status?XLOGLEVEL_INFO:XLOGLEVEL_WARNING), APP_CFG_LOG_SECTIONID_STATUSAPP, false, __L("Low free memory: %d Kb (%d%%). Cache memory released: %s"), free,  freepercent, (status?__L("Ok."):__L("Error!")));      
      
       APPCHECKRESOURCESHARDWARE_XEVENT  xevent(this, APPCHECKRESOURCESHARDWARE_XEVENT_TYPE_MEMFREELIMIT);      
-      xevent.SetActualMemFree(free, GEN_XSYSTEM.GetFreeMemoryPercent());      
+      xevent.SetActualMemFree(mem_free, GEN_XSYSTEM.GetFreeMemoryPercent());      
       PostEvent(&xevent);
     }
 
@@ -332,7 +364,10 @@ bool APPCHECKRESOURCESHARDWARE::CheckMemoryStatus()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
 {
-  if(!cfg) return false;
+  if(!cfg) 
+    {
+      return false;
+    }
 
   int cpuusage = GEN_XSYSTEM.GetCPUUsageTotal();
 
@@ -369,7 +404,10 @@ bool APPCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
 {
-  if(!cfg) return false;
+  if(!cfg) 
+    {
+      return false;
+    }
 
   int cpuusage = 0;
 
@@ -439,9 +477,10 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent_Scheduler(XSCHEDULER_XEVENT* event)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
 {
-  if(!xevent) return; 
-
-//  if(exitmutex) exitmutex->Lock();
+  if(!xevent) 
+    {
+      return; 
+    }
 
   switch(xevent->GetEventFamily())
     {
@@ -452,8 +491,6 @@ void APPCHECKRESOURCESHARDWARE::HandleEvent(XEVENT* xevent)
                                         }
                                         break;
     } 
-  
-//  if(exitmutex) exitmutex->UnLock(); 
 }
 
 
@@ -470,7 +507,6 @@ void APPCHECKRESOURCESHARDWARE::Clean()
   cfg                     = NULL;
 
   inexit                  = false;
-//exitmutex               = NULL;
   xscheduler              = NULL;
 
   ntotalCPUusage          = 0;
