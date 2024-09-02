@@ -49,6 +49,7 @@
 
 #include "APPCheckResourcesHardware.h"
 #include "APPCFG.h"
+#include "APPConsole.h"
 #include "APPExtended.h"
 
 #include "XMemory_Control.h"
@@ -81,16 +82,17 @@ APPEXTENDED_APPLICATIONSTATUS::APPEXTENDED_APPLICATIONSTATUS(APPCFG* cfg) : DIOW
 
   this->cfg = cfg;
 
-  updatemutex = GEN_XFACTORY.Create_Mutex();
+  GEN_XSYSTEM.GetOperativeSystemID(osversion);
+
+  XDWORD app_version      = 0;
+  XDWORD app_subversion   = 0;
+  XDWORD app_versionerror = 0;
+
+  GEN_VERSION.GetAppVersions(app_version, app_subversion, app_versionerror);
+  GEN_VERSION.GetAppVersion(app_version, app_subversion, app_versionerror, appversion);
+
   xtimeroperatingtime = GEN_XFACTORY.CreateTimer();
-
   appcheckresourceshardware = new APPCHECKRESOURCESHARDWARE();
-
-  updatethread = GEN_XFACTORY.CreateThread(XTHREADGROUPID_APPEXTENDEDAPPLICATIONSTATUS, __L("APPEXTENDED_APPLICATIONSTATUS::APPEXTENDED_APPLICATIONSTATUS"), ThreadFunction_Update, this);
-  if(updatethread) 
-    {
-      updatethread->Ini();
-    }
 }
 
 
@@ -105,21 +107,7 @@ APPEXTENDED_APPLICATIONSTATUS::APPEXTENDED_APPLICATIONSTATUS(APPCFG* cfg) : DIOW
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 APPEXTENDED_APPLICATIONSTATUS::~APPEXTENDED_APPLICATIONSTATUS()
-{
-  if(updatethread)
-    {
-      updatethread->End();
-
-      GEN_XFACTORY.DeleteThread(XTHREADGROUPID_APPEXTENDEDAPPLICATIONSTATUS, updatethread);
-
-      updatethread = NULL;
-    }
-
-  if(updatemutex)
-    {
-      GEN_XFACTORY.Delete_Mutex(updatemutex);
-    }
-
+{  
   if(xtimeroperatingtime)
     {
       GEN_XFACTORY.DeleteTimer(xtimeroperatingtime);
@@ -133,6 +121,21 @@ APPEXTENDED_APPLICATIONSTATUS::~APPEXTENDED_APPLICATIONSTATUS()
     }
 
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         APPCHECKRESOURCESHARDWARE* APPEXTENDED_APPLICATIONSTATUS::GetAPPCheckResourcesHardware()
+* @brief      GetAPPCheckResourcesHardware
+* @ingroup    APPLICATION
+* 
+* @return     APPCHECKRESOURCESHARDWARE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+APPCHECKRESOURCESHARDWARE* APPEXTENDED_APPLICATIONSTATUS::GetAPPCheckResourcesHardware()
+{
+  return appcheckresourceshardware; 
 }
 
 
@@ -309,21 +312,6 @@ XSTRING* APPEXTENDED_APPLICATIONSTATUS::GetOperatingTime()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMUTEX* APPEXTENDED_APPLICATIONSTATUS::GetUpdateMutex()
-* @brief      GetUpdateMutex
-* @ingroup    
-* 
-* @return     XMUTEX* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XMUTEX* APPEXTENDED_APPLICATIONSTATUS::GetUpdateMutex()
-{
-  return updatemutex;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool APPEXTENDED_APPLICATIONSTATUS::Update()
 * @brief      Update
 * @ingroup    
@@ -333,21 +321,8 @@ XMUTEX* APPEXTENDED_APPLICATIONSTATUS::GetUpdateMutex()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPEXTENDED_APPLICATIONSTATUS::Update()
 {  
-  if(updatemutex) 
-    {
-      updatemutex->Lock();
-    }
-
-  GEN_XSYSTEM.GetOperativeSystemID(osversion);
-
-  XDWORD app_version      = 0;
-  XDWORD app_subversion   = 0;
-  XDWORD app_versionerror = 0;
-
-  GEN_VERSION.GetAppVersions(app_version, app_subversion, app_versionerror);
-  GEN_VERSION.GetAppVersion(app_version, app_subversion, app_versionerror, appversion);
-
- if(appcheckresourceshardware && cfg)
+  
+  if(appcheckresourceshardware && cfg)
     { 
       static bool iniappcheck = false;           
 
@@ -403,11 +378,6 @@ bool APPEXTENDED_APPLICATIONSTATUS::Update()
     {
       xtimeroperatingtime->GetMeasureString(operatingtime, true);
     }
-  
-  if(updatemutex) 
-    {
-      updatemutex->UnLock();
-    }
 
   return true;
 }
@@ -426,17 +396,17 @@ bool APPEXTENDED_APPLICATIONSTATUS::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPEXTENDED_APPLICATIONSTATUS::Show(XCONSOLE* console)
 {
-  XSTRING   string;
-  XSTRING   string2;
+  XSTRING string;
+  XSTRING string2;
 
-  if(updatemutex) 
-    {
-      updatemutex->Lock();
+  if(!APP_EXTENDED.GetAppConsole())
+    { 
+      return false;
     }
 
   string  = __L("O.S Version");
   string2 = GetOSVersion()->Get();
-  APP_EXTENDED.ShowLine(console, string, string2);
+  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   // string  = __L("Application Version");
   // string2 = GetAppVersion()->Get();
@@ -444,24 +414,19 @@ bool APPEXTENDED_APPLICATIONSTATUS::Show(XCONSOLE* console)
   
   string  = __L("CPU Memory");
   string2.Format(__L("%d Kb, free %d Kb (%d%%)"), GetMemoryTotal(), GetMemoryFree(), GetMemoryFreePercent());
-  APP_EXTENDED.ShowLine(console, string, string2);
+  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   string  = __L("Averange");
   string2 = GetAverange()->Get();
-  APP_EXTENDED.ShowLine(console, string, string2);
+  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   string  = __L("Current date");
   string2 = GetCurrentDate()->Get();
-  APP_EXTENDED.ShowLine(console, string, string2);
+  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   string  = __L("Operating time");
   string2 = GetOperatingTime()->Get();
-  APP_EXTENDED.ShowLine(console, string, string2);
-
-  if(updatemutex) 
-    {
-      updatemutex->UnLock();
-    }
+  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   return true;
 }
@@ -523,29 +488,6 @@ bool APPEXTENDED_APPLICATIONSTATUS::Deserialize()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void APPEXTENDED_APPLICATIONSTATUS::ThreadFunction_Update(void* param)
-* @brief      ThreadFunction_Update
-* @ingroup    APPLICATION
-* 
-* @param[in]  param : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void APPEXTENDED_APPLICATIONSTATUS::ThreadFunction_Update(void* param)
-{
-  APPEXTENDED_APPLICATIONSTATUS* appstatus = (APPEXTENDED_APPLICATIONSTATUS*)param;
-  if(!appstatus)
-    {
-       return;
-    }
-
-  appstatus->Update();
-
-  GEN_XSLEEP.Seconds(1);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         void APPEXTENDED_APPLICATIONSTATUS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -556,12 +498,11 @@ void APPEXTENDED_APPLICATIONSTATUS::ThreadFunction_Update(void* param)
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPEXTENDED_APPLICATIONSTATUS::Clean()
 {
-  cfg                         = NULL;
 
-  updatemutex                 = NULL;
+  cfg                         = NULL;
   xtimeroperatingtime         = NULL;
-  appcheckresourceshardware   = NULL;;
-  updatethread                = NULL;
+  appcheckresourceshardware   = NULL;
+  
 
   osversion.Empty();
   appversion.Empty();

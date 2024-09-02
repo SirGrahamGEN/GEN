@@ -401,7 +401,7 @@ bool XSYSTEM::FreeCacheMemory()
 * --------------------------------------------------------------------------------------------------------------------*/
 int XSYSTEM::GetCPUUsageTotal()
 {
-  return 0;
+  return XSYSTEM_CPUUSAGE_ERROR;
 }
 
 
@@ -418,7 +418,7 @@ int XSYSTEM::GetCPUUsageTotal()
 * --------------------------------------------------------------------------------------------------------------------*/
 int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {
-  return 0;
+  return XSYSTEM_CPUUSAGE_ERROR;
 }
 
 
@@ -435,7 +435,7 @@ int XSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * --------------------------------------------------------------------------------------------------------------------*/
 int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 {
-  return 0;
+  return XSYSTEM_CPUUSAGE_ERROR;
 }
 
 

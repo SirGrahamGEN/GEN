@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       APPExtended_ApplicationStatus.h
+* @file       APPExtended_InternetStatus.h
 * 
-* @class      APPEXTENDED_APPLICATIONSTATUS
-* @brief      Application Extended Application Status class
+* @class      APPEXTENDED_INTERNETSTATUS
+* @brief      Application Extended Internet Status class
 * @ingroup    APPLICATION
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _APPEXTENDED_APPLICATIONSTATUS_H_
-#define _APPEXTENDED_APPLICATIONSTATUS_H_
+#ifndef _APPEXTENDED_INTERNETSTATUS_H_
+#define _APPEXTENDED_INTERNETSTATUS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -49,35 +49,22 @@
 
 class APPCFG;
 class XCONSOLE;
-class XTIMER;
-class APPCHECKRESOURCESHARDWARE;
+class APPINTERNETSERVICES;
 
 
-class APPEXTENDED_APPLICATIONSTATUS : public DIOWEBSERVER_RESOLVEENDPOINT
+class APPEXTENDED_INTERNETSTATUS : public DIOWEBSERVER_RESOLVEENDPOINT
 {
   public:
-                                        APPEXTENDED_APPLICATIONSTATUS               (APPCFG* cfg);
-    virtual                            ~APPEXTENDED_APPLICATIONSTATUS               ();
+                                        APPEXTENDED_INTERNETSTATUS                  (APPCFG* cfg);
+    virtual                            ~APPEXTENDED_INTERNETSTATUS                  ();
 
-    APPCHECKRESOURCESHARDWARE*          GetAPPCheckResourcesHardware                ();
+    APPINTERNETSERVICES*                GetAPPInternetServices                      ();
 
-    XSTRING*                            GetOSVersion                                ();
-    XSTRING*                            GetAppVersion                               ();
+    XSTRING*                            GetLocalIP                                  ();
 
-    XDWORD                              GetMemoryTotal                              ();
-    void                                SetMemoryTotal                              (XDWORD memory_total);
-
-    XDWORD                              GetMemoryFree                               ();
-    void                                SetMemoryFree                               (XDWORD memory_free);
-
-    XDWORD                              GetMemoryFreePercent                        ();
-    void                                SetMemoryFreePercent                        (XDWORD memory_freepercent);
-
-    XSTRING*                            GetAverange                                 ();    
-
-    XSTRING*                            GetCurrentDate                              ();
-    XSTRING*                            GetOperatingTime                            ();
-
+    bool                                GetHaveInternetConnection                   ();
+    XSTRING*                            GetPublicIP                                 ();    
+   
     bool                                Update                                      (); 
     bool                                Show                                        (XCONSOLE* console);
 
@@ -85,25 +72,16 @@ class APPEXTENDED_APPLICATIONSTATUS : public DIOWEBSERVER_RESOLVEENDPOINT
     bool                                Deserialize                                 ();
                                                                
   private:
-   
-    void                                Clean                                       ();
+
+    void                                Clean                                      ();
 
     APPCFG*                             cfg;
-    XTIMER*                             xtimeroperatingtime;
-    APPCHECKRESOURCESHARDWARE*          appcheckresourceshardware;
+    APPINTERNETSERVICES*                appinternetservices;
 
-    
-    XSTRING                             osversion;
-    XSTRING                             appversion;
-     
-    XDWORD                              memory_total;
-    XDWORD                              memory_free;
-    XDWORD                              memory_freepercent;
+    XSTRING                             localIP;
 
-    XSTRING                             averange;
-
-    XSTRING                             currentdate;
-    XSTRING                             operatingtime;
+    bool                                haveinternetconnection;
+    XSTRING                             publicIP;    
 };
 
 

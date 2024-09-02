@@ -81,8 +81,7 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 {
   Clean();
 
-  results.DeleteContents();
-  results.DeleteAll();
+  DeleteAllResults();
 }
 
 
@@ -96,8 +95,7 @@ XWINDOWSWMIINTERFACE_RESULT::XWINDOWSWMIINTERFACE_RESULT()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 {
-  results.DeleteContents();
-  results.DeleteAll();
+  DeleteAllResults();
 
   Clean();
 }
@@ -112,10 +110,43 @@ XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 * @return     XVECTOR<XSTRING*>* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResults()
+XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsString()
 {
-  return &results;
+  return &resultsstring;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XVARIANT*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsVariant()
+* @brief      GetResultsVariant
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     XVECTOR<XVARIANT*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XVARIANT*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsVariant()
+{
+  return &resultsvariant;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XWINDOWSWMIINTERFACE_RESULT::DeleteAllResults()
+* @brief      DeleteAllResults
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XWINDOWSWMIINTERFACE_RESULT::DeleteAllResults()
+{
+  resultsstring.DeleteContents();
+  resultsstring.DeleteAll();
+
+  resultsvariant.DeleteContents();
+  resultsvariant.DeleteAll();
+}
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -393,37 +424,72 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
                                     switch(vtprop.vt)
                                       {
                                         case VT_NULL  : { XSTRING* resultstr = new XSTRING();
-                                                          if(resultstr) result->GetResults()->Add(resultstr);
+                                                          if(resultstr) 
+                                                            {
+                                                              result->GetResultsString()->Add(resultstr);
+                                                            }
+
+                                                          XVARIANT* resultvariant = new XVARIANT();
+                                                          if(resultvariant) 
+                                                            {
+                                                              (*resultvariant) = NULL;
+                                                              result->GetResultsVariant()->Add(resultvariant);
+                                                            }
                                                         }
                                                         break;
 
                                         case VT_I2    : { XWORD data = vtprop.intVal;
+
                                                           XSTRING* resultstr = new XSTRING();
                                                           if(resultstr)
                                                             {
                                                               resultstr->ConvertFromInt(data);
-                                                              result->GetResults()->Add(resultstr);
+                                                              result->GetResultsString()->Add(resultstr);
+                                                            }
+
+                                                          XVARIANT* resultvariant = new XVARIANT();
+                                                          if(resultvariant) 
+                                                            {
+                                                              (*resultvariant) = data;
+                                                              result->GetResultsVariant()->Add(resultvariant);
                                                             }
                                                         }
                                                         break;
 
                                         case VT_I4    : { XDWORD data = vtprop.lVal;
+
                                                           XSTRING* resultstr = new XSTRING();
                                                           if(resultstr)
                                                             {
                                                               resultstr->ConvertFromInt(data);
-                                                              result->GetResults()->Add(resultstr);
+                                                              result->GetResultsString()->Add(resultstr);
+                                                            }
+
+                                                          XVARIANT* resultvariant = new XVARIANT();
+                                                          if(resultvariant) 
+                                                            {
+                                                              (*resultvariant) = data;
+                                                              result->GetResultsVariant()->Add(resultvariant);
                                                             }
                                                         }
                                                         break;
 
                                         case VT_BOOL  : { BOOL data = vtprop.lVal;
+
                                                           XSTRING* resultstr = new XSTRING();
                                                           if(resultstr)
                                                             {
                                                               resultstr->Format(__L("%s"), (data?__L("true"):__L("false")));
-                                                              result->GetResults()->Add(resultstr);
+                                                              result->GetResultsString()->Add(resultstr);
                                                             }
+
+                                                          XVARIANT* resultvariant = new XVARIANT();
+                                                          if(resultvariant) 
+                                                            {
+                                                              (*resultvariant) = data;
+                                                              result->GetResultsVariant()->Add(resultvariant);
+                                                            }
+
                                                         }
                                                         break;
 
@@ -438,7 +504,14 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
                                                                   XSTRING* resultstr = new XSTRING();
                                                                   if(resultstr)
                                                                     {
-                                                                      result->GetResults()->Add(resultstr);
+                                                                      result->GetResultsString()->Add(resultstr);
+                                                                    }
+
+                                                                  XVARIANT* resultvariant = new XVARIANT();
+                                                                  if(resultvariant) 
+                                                                    {
+                                                                      (*resultvariant) = (*resultstr);
+                                                                      result->GetResultsVariant()->Add(resultvariant);
                                                                     }
                                                                 }
                                                             }
@@ -448,8 +521,15 @@ XWINDOWSWMIINTERFACE_RESULT* XWINDOWSWMIINTERFACE::DoQuery(XCHAR* query, XCHAR* 
                                                               if(resultstr)
                                                                 {
                                                                   (*resultstr) = (XCHAR*)val;
-                                                                  result->GetResults()->Add(resultstr);
-                                                                  //XTRACE_PRINTCOLOR(1, __L("%s"), resultstr->Get());
+                                                                  result->GetResultsString()->Add(resultstr);
+                                                                  
+                                                                }
+
+                                                              XVARIANT* resultvariant = new XVARIANT();
+                                                              if(resultvariant) 
+                                                                {
+                                                                  (*resultvariant) = (*resultstr);
+                                                                  result->GetResultsVariant()->Add(resultvariant);
                                                                 }
                                                             }
                                                         }
@@ -511,9 +591,9 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XSTRING& ans
     {
       if(result->GetError() == XWINDOWSWMIINTERFACE_ERROR_NONE)
         {
-          if(result->GetResults()->GetSize())
+          if(result->GetResultsString()->GetSize())
             {
-              answer = (XCHAR*)result->GetResults()->Get(0)->Get();
+              answer = (XCHAR*)result->GetResultsString()->Get(0)->Get();
               status = true;
             }
         }
@@ -552,15 +632,108 @@ bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTR
     {
       if(result->GetError() == XWINDOWSWMIINTERFACE_ERROR_NONE)
         {
-          if(result->GetResults()->GetSize())
+          if(result->GetResultsString()->GetSize())
             {
-              for(XDWORD c=0; c<result->GetResults()->GetSize(); c++)
+              for(XDWORD c=0; c<result->GetResultsString()->GetSize(); c++)
                 {
                   XSTRING* resultstring = new XSTRING();
                   if(resultstring)
                     {
-                      (*resultstring) = (XCHAR*)result->GetResults()->Get(c)->Get();
+                      (*resultstring) = (XCHAR*)result->GetResultsString()->Get(c)->Get();
                       answers->Add(resultstring);
+                    }
+                }
+
+              status = true;
+            }
+        }
+    }
+
+  delete result;
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVARIANT& answer)
+* @brief      DoQuery
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  _class : 
+* @param[in]  namedata : 
+* @param[in]  answer : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVARIANT& answer)
+{
+  XWINDOWSWMIINTERFACE_RESULT*  result       = NULL;
+  bool                          status       = false;
+
+  answer = NULL;
+
+  XSTRING xstringclass;
+
+  xstringclass.Format(__L("SELECT * FROM %s"), _class);
+
+  result = DoQuery(xstringclass.Get(), namedata);
+  if(result)
+    {
+      if(result->GetError() == XWINDOWSWMIINTERFACE_ERROR_NONE)
+        {
+          if(result->GetResultsString()->GetSize())
+            {
+              answer = (XVARIANT)(*result->GetResultsVariant()->Get(0));
+              status = true;
+            }
+        }
+    }
+
+  delete result;
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata, XVECTOR<XVARIANT*>* answers)
+* @brief      DoQuery
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  _class : 
+* @param[in]  namedata : 
+* @param[in]  answers : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSWMIINTERFACE::DoQuery(XCHAR* _class, XCHAR* namedata,  XVECTOR<XVARIANT*>* answers)
+{
+  XWINDOWSWMIINTERFACE_RESULT*  result = NULL;
+  bool                          status = false;
+
+  XSTRING xstringclass;
+
+  xstringclass.Format(__L("SELECT * FROM %s"), _class);
+
+  result = DoQuery(xstringclass.Get(), namedata);
+  if(result)
+    {
+      if(result->GetError() == XWINDOWSWMIINTERFACE_ERROR_NONE)
+        {
+          if(result->GetResultsString()->GetSize())
+            {
+              for(XDWORD c=0; c<result->GetResultsString()->GetSize(); c++)
+                {
+                  XVARIANT* resultvariant = new XVARIANT();
+                  if(resultvariant)
+                    {
+                      (*resultvariant) = (XVARIANT)(*result->GetResultsVariant()->Get(c));
+                      answers->Add(resultvariant);
                     }
                 }
 

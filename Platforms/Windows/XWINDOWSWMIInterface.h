@@ -34,6 +34,7 @@
 
 #include "XVector.h"
 #include "XString.h"
+#include "XVariant.h"
 
 #pragma endregion
 
@@ -66,7 +67,10 @@ class XWINDOWSWMIINTERFACE_RESULT
                                     XWINDOWSWMIINTERFACE_RESULT       ();
     virtual                        ~XWINDOWSWMIINTERFACE_RESULT       ();
 
-    XVECTOR<XSTRING*>*              GetResults                        ();
+    XVECTOR<XSTRING*>*              GetResultsString                  ();
+    XVECTOR<XVARIANT*>*             GetResultsVariant                 ();
+
+    void                            DeleteAllResults                  ();
 
     XWINDOWSWMIINTERFACE_ERROR      GetError                          ();
     void                            SetError                          (XWINDOWSWMIINTERFACE_ERROR error);
@@ -78,7 +82,8 @@ class XWINDOWSWMIINTERFACE_RESULT
 
     void                            Clean                             ();
 
-    XVECTOR<XSTRING*>               results;
+    XVECTOR<XSTRING*>               resultsstring;
+    XVECTOR<XVARIANT*>              resultsvariant;                        
     XWINDOWSWMIINTERFACE_ERROR      error;
     XSTRING                         errordescription;
 };
@@ -96,6 +101,9 @@ class XWINDOWSWMIINTERFACE
 
     bool                            DoQuery                           (XCHAR* _class, XCHAR* namedata,  XSTRING& answer);
     bool                            DoQuery                           (XCHAR* _class, XCHAR* namedata,  XVECTOR<XSTRING*>* answers);
+
+    bool                            DoQuery                           (XCHAR* _class, XCHAR* namedata,  XVARIANT& answer);
+    bool                            DoQuery                           (XCHAR* _class, XCHAR* namedata,  XVECTOR<XVARIANT*>* answers);
 
     bool                            NetWorkInterfaceEnable            (int ID, bool enabled);
     bool                            NetWorkInterfaceSetMetric         (int ID, int metric);

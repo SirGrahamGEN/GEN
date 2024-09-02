@@ -48,25 +48,25 @@
 #include <Commctrl.h>
 #include <Security.h>
 #include <powrprof.h>
+#include <winternl.h>
 
 #ifndef BUILDER
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
-#endif
+#include <pdh.h>
 
+  #if(_MSC_PLATFORM_TOOLSET == 'v140')
+  #include <versionhelpers.h>
+  #endif
 
-#ifndef BUILDER
-#if(_MSC_PLATFORM_TOOLSET == 'v140')
-#include <versionhelpers.h>
-#endif
-#endif
-
-#ifndef BUILDER
 #include "XWINDOWSWMIInterface.h"
+
+#pragma comment(lib, "pdh.lib")
 #endif
 
 #include "XWINDOWSRegistryManager.h"
 
+#include "XBase.h"
 #include "XFactory.h"
 #include "XSleep.h"
 #include "XFile.h"
@@ -79,6 +79,8 @@
 #pragma endregion
 
 
+
+
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
@@ -87,257 +89,6 @@
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
-
-
-#pragma region CLASS_XWINDOWSSYSTEM_CPUUSAGE
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSSYSTEM_CPUUSAGE::XWINDOWSSYSTEM_CPUUSAGE()
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGE::XWINDOWSSYSTEM_CPUUSAGE()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XWINDOWSSYSTEM_CPUUSAGE::~XWINDOWSSYSTEM_CPUUSAGE()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGE::~XWINDOWSSYSTEM_CPUUSAGE()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         double XWINDOWSSYSTEM_CPUUSAGE::GetTotalCpuUsage()
-* @brief      GetTotalCpuUsage
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     double : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-double XWINDOWSSYSTEM_CPUUSAGE::GetTotalCpuUsage() 
-{
-  FILETIME idletime;
-  FILETIME kerneltime;
-  FILETIME usertime;
-
-  if(GetSystemTimes(&idletime, &kerneltime, &usertime) == 0) 
-    {
-      return -1;
-    }
-
-  ULONGLONG sysidlediff   = SubtractTimes(idletime    , lastsysidletime);
-  ULONGLONG syskerneldiff = SubtractTimes(kerneltime  , lastsyskerneltime);
-  ULONGLONG sysuserdiff   = SubtractTimes(usertime    , lastsysusertime);
-
-  ULONGLONG systotal      = syskerneldiff + sysuserdiff;
-  ULONGLONG totalsystime  = systotal + sysidlediff;
-
-  lastsysidletime         = idletime;
-  lastsyskerneltime       = kerneltime;
-  lastsysusertime         = usertime;
-
-  if(totalsystime == 0) 
-    {
-      return -1;
-    }
-
-  return (systotal * 100.0) / totalsystime;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         double XWINDOWSSYSTEM_CPUUSAGE::GetProcessCpuUsage(DWORD processID)
-* @brief      GetProcessCpuUsage
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @param[in]  processID : 
-* 
-* @return     double : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-double XWINDOWSSYSTEM_CPUUSAGE::GetProcessCpuUsage(DWORD processID) 
-{
-  HANDLE hprocess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
-  if(hprocess == NULL) 
-    {
-      return -1;
-    }
-
-  FILETIME proccreationtime;
-  FILETIME procexittime; 
-  FILETIME prockerneltime;
-  FILETIME procusertime;
-
-  if(GetProcessTimes(hprocess, &proccreationtime, &procexittime, &prockerneltime, &procusertime) == 0) 
-    {
-      CloseHandle(hprocess);
-      return -1;
-    }
-
-  ULONGLONG prockerneldiff  = SubtractTimes(prockerneltime, lastprockerneltime);
-  ULONGLONG procuserdiff    = SubtractTimes(procusertime, lastprocusertime);
-
-  lastprockerneltime  = prockerneltime;
-  lastprocusertime    = procusertime;
-
-  CloseHandle(hprocess);
-
-  if(!lastsystemtime) 
-    {
-      lastsystemtime  = GetTickCount64();
-      lastprocesstime = prockerneldiff + procuserdiff;
-
-      return -1;
-    }
-
-  ULONGLONG currenttime     = GetTickCount64();
-  ULONGLONG timediff        = currenttime - lastsystemtime;
-  ULONGLONG processtime     = prockerneldiff + procuserdiff;
-  ULONGLONG processtimediff = processtime - lastprocesstime;
-
-  lastsystemtime  = currenttime;
-  lastprocesstime = processtime;
-
-  return (processtimediff * 100.0) / (timediff * GetNumberOfProcessors());
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         ULONGLONG XWINDOWSSYSTEM_CPUUSAGE::SubtractTimes(const FILETIME& fta, const FILETIME& ftb)
-* @brief      SubtractTimes
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @param[in]  FILETIME& fta : 
-* @param[in]  FILETIME& ftb : 
-* 
-* @return     ULONGLONG : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-ULONGLONG XWINDOWSSYSTEM_CPUUSAGE::SubtractTimes(const FILETIME& fta, const FILETIME& ftb) 
-{
-  ULARGE_INTEGER a, b;
-
-  a.LowPart   = fta.dwLowDateTime;
-  a.HighPart  = fta.dwHighDateTime;
-
-  b.LowPart   = ftb.dwLowDateTime;
-  b.HighPart  = ftb.dwHighDateTime;
-
-  return a.QuadPart - b.QuadPart;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         int XWINDOWSSYSTEM_CPUUSAGE::GetNumberOfProcessors()
-* @brief      GetNumberOfProcessors
-* @ingroup    PLATFORM_WINDOWS
-* 
-* @return     int : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-int XWINDOWSSYSTEM_CPUUSAGE::GetNumberOfProcessors() 
-{
-  SYSTEM_INFO sysInfo;
-  
-  GetSystemInfo(&sysInfo);
-  
-  return sysInfo.dwNumberOfProcessors;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XWINDOWSSYSTEM_CPUUSAGE::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSSYSTEM_CPUUSAGE::Clean()
-{
-  lastsystemtime    = 0;
-  lastprocesstime   = 0;
-	      
-  ZeroMemory(&lastsysidletime     , sizeof(FILETIME));
-  ZeroMemory(&lastsyskerneltime   , sizeof(FILETIME));
-  ZeroMemory(&lastsysusertime     , sizeof(FILETIME));
-  ZeroMemory(&lastprockerneltime  , sizeof(FILETIME));
-  ZeroMemory(&lastprocusertime    , sizeof(FILETIME));
-}
-
-
-#pragma endregion
-
-
-#pragma region CLASS_XWINDOWSSYSTEM_CPUUSAGESTATUS
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
-* @brief      Constructor
-* @ingroup    PLATFORM_WINDOWS
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS::XWINDOWSSYSTEM_CPUUSAGESTATUS()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    PLATFORM_WINDOWS
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS::~XWINDOWSSYSTEM_CPUUSAGESTATUS()
-{
-  Clean();
-}
-
-	
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    PLATFORM_WINDOWS
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
-{
-  processname.Empty();		
-	processID                  = 0xFFFFFFFF;
-  firsttime                   = true;
-	oldvalue                    = 0;
-  oldperftime100nsec.QuadPart = 0;
-}
-
-
-#pragma endregion
-
-
-#pragma region CLASS_XWINDOWSSYSTEM_XWINDOWSSYSTEM
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -350,6 +101,17 @@ void XWINDOWSSYSTEM_CPUUSAGESTATUS::Clean()
 XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 {
   Clean();
+  
+  wmiinterface = new XWINDOWSWMIINTERFACE();
+  if(wmiinterface)  
+    { 
+      if(!wmiinterface->Ini())
+        {
+          delete wmiinterface;
+          wmiinterface = NULL;
+  
+        }
+    }
 }
 
 
@@ -363,7 +125,11 @@ XWINDOWSSYSTEM::XWINDOWSSYSTEM() : XSYSTEM()
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 {
-  DeleteAllCPUUsageStatus();
+  if(wmiinterface)  
+    { 
+      wmiinterface->End();
+      delete wmiinterface;
+    }
 
   Clean();
 }
@@ -423,27 +189,17 @@ bool XWINDOWSSYSTEM::GetOperativeSystemID(XSTRING& ID)
   ID.Empty();
 
   #ifndef BUILDER
-  XWINDOWSWMIINTERFACE*  wmiinterface;
   XSTRING                wmianswer[4];
-
-  wmiinterface = new XWINDOWSWMIINTERFACE();
-  if(!wmiinterface)  return false;
-
-  wmiinterface->Ini();
-
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("Caption")        , wmianswer[0]);
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("BuildNumber")    , wmianswer[1]);
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("CSDVersion")     , wmianswer[2]);
-  wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("OSArchitecture") , wmianswer[3]);
-
-  ID.Format(__L("%s Build(%s) %s %s"), wmianswer[0].Get(), wmianswer[1].Get(), wmianswer[2].Get(), wmianswer[3].Get());
 
   if(wmiinterface)
     {
-      wmiinterface->End();
-      delete wmiinterface;
-      wmiinterface = NULL;
+      wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("Caption")        , wmianswer[0]);
+      wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("BuildNumber")    , wmianswer[1]);
+      wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("CSDVersion")     , wmianswer[2]);
+      wmiinterface->DoQuery(__L("Win32_OperatingSystem"), __L("OSArchitecture") , wmianswer[3]);
     }
+
+  ID.Format(__L("%s Build(%s) %s %s"), wmianswer[0].Get(), wmianswer[1].Get(), wmianswer[2].Get(), wmianswer[3].Get());  
   #endif
 
   return true;
@@ -487,9 +243,11 @@ XDWORD XWINDOWSSYSTEM::GetLanguageSO()
 XSTRING* XWINDOWSSYSTEM::GetBIOSSerialNumber()
 {
   #ifndef BUILDER
-  XWINDOWSWMIINTERFACE wmiinterface;
-
-  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), BIOSserialnumber);
+  
+  if(wmiinterface)
+    {
+      wmiinterface->DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), BIOSserialnumber);
+    }
   #endif
 
   return &BIOSserialnumber;
@@ -508,9 +266,11 @@ XSTRING* XWINDOWSSYSTEM::GetBIOSSerialNumber()
 XSTRING* XWINDOWSSYSTEM::GetCPUSerialNumber()
 {
   #ifndef BUILDER
-  XWINDOWSWMIINTERFACE wmiinterface;
-
-  wmiinterface.DoQuery(__L("Win32_Processor"), __L("ProcessorId"), CPUserialnumber);
+  if(wmiinterface)
+    {
+      wmiinterface->DoQuery(__L("Win32_Processor"), __L("ProcessorId"), CPUserialnumber);
+    }
+  
   #endif
 
   return &CPUserialnumber;
@@ -532,9 +292,10 @@ float XWINDOWSSYSTEM::GetCPUTemperature()
 
   #ifndef BUILDER
 
-  XWINDOWSWMIINTERFACE wmiinterface;
-  
-  wmiinterface.DoQuery(__L("Win32_PerfFormattedData_Counters_ThermalZoneInformation"), __L("Temperature"), CPUtemperaturestr);
+  if(wmiinterface)
+    {
+      wmiinterface->DoQuery(__L("Win32_PerfFormattedData_Counters_ThermalZoneInformation"), __L("Temperature"), CPUtemperaturestr);
+    }
   #endif
 
   int   CPUtemperature = 0;
@@ -585,57 +346,53 @@ bool XWINDOWSSYSTEM::GetMemoryInfo(XDWORD& total,XDWORD& free)
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageTotal()
 {
-  int				                              cpuusage            = 0;
-  
   #ifndef BUILDER
-  XWINDOWSSYSTEM_PERFCOUNTERS<LONGLONG>   perfcounters;
-	DWORD                                   objectindex;
-	DWORD                                   cpuusageindex;	
-	LONGLONG		                            newvalue            = 0;
-	PPERF_DATA_BLOCK                        perfdata            = NULL;
-	LARGE_INTEGER	                          newperftime100nsec;
-  XSTRING                                 processstr;
-  XWINDOWSSYSTEM_CPUUSAGESTATUS*          cus                 = NULL;
 
-  newperftime100nsec.HighPart = 0;
-  newperftime100nsec.LowPart  = 0;
+  HQUERY                query         = NULL;
+  HCOUNTER              hcounter      = NULL; 
+  DWORD                 countertype;
+  PDH_FMT_COUNTERVALUE  counterval;
+  double                cpuusage      = 0.0f;
+  bool                  ok            = false;
+  PDH_STATUS            status;
+  
+  status = PdhOpenQuery(NULL, NULL, &query);
+  if(status == ERROR_SUCCESS)
+    {      
+      status = PdhAddEnglishCounter(query, L"\\Processor(_Total)\\% Processor Time", 0, &hcounter);
+      if(status == ERROR_SUCCESS)
+        {             
+          for(int c=0; c<5; c++)
+            {
+              status = PdhCollectQueryData(query);
+              if(status == ERROR_SUCCESS)
+                {                
+                  status = PdhGetFormattedCounterValue(hcounter, PDH_FMT_DOUBLE, &countertype, &counterval);
+                  if(status == ERROR_SUCCESS)
+                    {
+                      cpuusage = counterval.doubleValue;
+                      ok       = true;
+                      break;
+                    }
+                }
+            }
+        }    
+  
+      PdhCloseQuery(&query);
+    }
 
-  objectindex     = XWINDOWSSYSTEM_PROCESSOR_OBJECT_INDEX;
-  cpuusageindex   = XWINDOWSSYSTEM_PROCESSOR_TIME_COUNTER_INDEX;
+  if(!ok)
+    {
+      return XSYSTEM_CPUUSAGE_ERROR;
+    }
+              
+  return (int)RoundOff(cpuusage, 1);
+   
+  #else
 
-  processstr     = __L("_Total");
+  return XSYSTEM_CPUUSAGE_ERROR;
 
-  cus = AddCPUUsageStatus(processstr.Get());
-  if(!cus) return 0;
-
-  newvalue = perfcounters.GetCounterValue(&perfdata, objectindex, cpuusageindex, (LPCTSTR)processstr.Get());
-
-	newperftime100nsec = perfdata->PerfTime100nSec;
-
-	if(cus->firsttime)
-	  {
-		  cus->firsttime           = false;
-		  cus->oldvalue            = newvalue;
-		  cus->oldperftime100nsec  = newperftime100nsec;
-
-		  return 0;
-	  }
-
-	LONGLONG  lnValueDelta         = newvalue - cus->oldvalue;
-	double    DeltaPerfTime100nSec = (double)newperftime100nsec.QuadPart - (double)cus->oldperftime100nsec.QuadPart;
-
-	cus->oldvalue            = newvalue;
-	cus->oldperftime100nsec  = newperftime100nsec;
-
-	double a = (double)lnValueDelta / DeltaPerfTime100nSec;
-
-  double f = (1.0 - a) * 100.0;
-  cpuusage = (int)(f + 0.5);	// rounding the result
-
-  if(cpuusage < 0)  return 0;
   #endif
-
-	return cpuusage;
 }
 
 
@@ -652,9 +409,10 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {
-  int				       cpuusage = 0;
+  int				       percent = 0;
 
   #ifndef BUILDER
+
   HANDLE           hprocesssnap;
   PROCESSENTRY32   pe32;  
 
@@ -676,11 +434,11 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
   // Now walk the snapshot of processes
   do{ XSTRING  nametask(pe32.szExeFile);
 
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Process %s  : [%s]"), processname, nametask.Get());
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Process %s  : [%s]"), processname, nametask.Get());
 
-      if(!nametask.Compare(processname, true))
+      if(nametask.Find(processname, true) != XSTRING_NOTFOUND)
         {
-           cpuusage = GetCPUUsageForProcessID((XDWORD)pe32.th32ProcessID);
+          percent = GetCPUUsageForProcessID((XDWORD)pe32.th32ProcessID);
         }
 
     } while(Process32Next(hprocesssnap, &pe32));
@@ -689,7 +447,7 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 
   #endif
 
-  return cpuusage;
+  return percent;
 }
 
 
@@ -705,53 +463,71 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
-{ int				                              cpuusage            = 0;
-
+{ 
   #ifndef BUILDER
-  XWINDOWSSYSTEM_PERFCOUNTERS<LONGLONG>   perfcounters;
-	DWORD                                   objectindex;
-	DWORD                                   cpuusageindex;
-	LONGLONG		                            newvalue            = 0;
-	PPERF_DATA_BLOCK                        perfdata            = NULL;
-	LARGE_INTEGER	                          newperftime100nsec;
-  XWINDOWSSYSTEM_CPUUSAGESTATUS*          cus                 = NULL;
 
-  newperftime100nsec.HighPart = 0;
-  newperftime100nsec.LowPart  = 0;
+  static int      processor_count_ = -1;
+  static int64_t  last_time_ = 0;
+  static int64_t  last_system_time_ = 0;
 
-  cus = AddCPUUsageStatus(processID);
-  if(!cus) return 0;
+  FILETIME        now;
+  FILETIME        creation_time;
+  FILETIME        exit_time;
+  FILETIME        kernel_time;
+  FILETIME        user_time;
+  int64_t         system_time;
+  int64_t         time;
+  int64_t         system_time_delta;
+  int64_t         time_delta;
 
-	objectindex     = XWINDOWSSYSTEM_PROCESS_OBJECT_INDEX;
-	cpuusageindex   = XWINDOWSSYSTEM_PROCESSOR_TIME_COUNTER_INDEX;
+  double          cpu_percent = -1;
 
-	newvalue = perfcounters.GetCounterValueForProcessID(&perfdata, objectindex, cpuusageindex, (DWORD)processID);
-	newperftime100nsec = perfdata->PerfTime100nSec;
+  if(processor_count_ == -1)
+    {
+      SYSTEM_INFO info;
 
-	if(cus->firsttime)
-	  {
-		  cus->firsttime           = false;
-		  cus->oldvalue            = newvalue;
-		  cus->oldperftime100nsec  = newperftime100nsec;
+      GetSystemInfo(&info);    
+      processor_count_ = (int)info.dwNumberOfProcessors;
+    }
 
-		  return 0;
-	  }
+  GetSystemTimeAsFileTime(&now);
 
-	LONGLONG  lnValueDelta         = newvalue - cus->oldvalue;
-	double    DeltaPerfTime100nSec = (double)newperftime100nsec.QuadPart - (double)cus->oldperftime100nsec.QuadPart;
+  HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, false, processID);
+  if(!GetProcessTimes(hProcess, &creation_time, &exit_time, &kernel_time, &user_time))
+    {
+      return XSYSTEM_CPUUSAGE_ERROR;      
+    }
 
-	cus->oldvalue            = newvalue;
-	cus->oldperftime100nsec  = newperftime100nsec;
+  system_time = (FileTime2UTC(&kernel_time) + FileTime2UTC(&user_time)) / processor_count_;
+  time        = FileTime2UTC(&now);
 
-	double a = (double)lnValueDelta / DeltaPerfTime100nSec;
+  if((last_system_time_ == 0) || (last_time_ == 0))
+    {
+      last_system_time_ = system_time;
+      last_time_        = time;
 
-  cpuusage = (int) (a*100);
+      return GetCPUUsageForProcessID(processID);
+  }
 
-  if(cpuusage < 0)  return 0;
+  system_time_delta = system_time - last_system_time_;
+  time_delta        = time        - last_time_;
+
+  if(time_delta == 0)
+    {
+      return GetCPUUsageForProcessID(processID);
+    }
+
+  cpu_percent        = (double)((system_time_delta * 100 + time_delta / 2) / time_delta);
+  last_system_time_ = system_time;
+  last_time_        = time;
+
+  return (int)RoundOff(cpu_percent, 1);
+  
+  #else
+
+  return XSYSTEM_CPUUSAGE_ERROR;
 
   #endif
-
-  return cpuusage;
 }
 
 
@@ -1219,174 +995,24 @@ bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processname)
-* @brief      AddCPUUsageStatus
+* 
+* @fn         uint64_t XWINDOWSSYSTEM::FileTime2UTC(const FILETIME*ftime)
+* @brief      FileTime2UTC
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  processname : 
-*
-* @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
-*
+* 
+* @param[in]  FILETIME*ftime : 
+* 
+* @return     uint64_t : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XCHAR* processname)
+uint64_t XWINDOWSSYSTEM::FileTime2UTC(const FILETIME *ftime)
 {
-  XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = GetCPUUsageStatus(processname);
-  if(cus) return cus;
-  
-  cus = new XWINDOWSSYSTEM_CPUUSAGESTATUS();
-  if(!cus) return NULL;
+  LARGE_INTEGER li;
 
-  cus->processname = processname;
-  
-  cpuusagestatus.Add(cus);
-  
-  return cus;
-}
+  li.LowPart  = ftime->dwLowDateTime;
+  li.HighPart = ftime->dwHighDateTime;
 
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
-* @brief      GetCPUUsageStatus
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  processname :
-*
-* @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* :
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XCHAR* processname)
-{
-  if(cpuusagestatus.IsEmpty()) 
-    {
-      return NULL;
-    }
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  for(XDWORD c=0; c<cpuusagestatus.GetSize(); c++)
-    {
-      XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = cpuusagestatus.Get(c);
-      if(cus)
-        {
-          if(!cus->processname.Compare(processname, true)) 
-            {
-              if(xmutexcheckCPUusage)
-                {
-                  xmutexcheckCPUusage->UnLock();
-                }
-
-              return cus;
-            }
-        }
-    }
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processID)
-* @brief      AddCPUUsageStatus
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  processID : 
-*
-* @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::AddCPUUsageStatus(XDWORD processID)
-{
-  XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = GetCPUUsageStatus(processID);
-  if(cus) return cus;
-  
-  cus = new XWINDOWSSYSTEM_CPUUSAGESTATUS();
-  if(!cus) return NULL;
-
-  cus->processID = processID;
-
-  cpuusagestatus.Add(cus);
-  
-  return cus;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
-* @brief      GetCPUUsageStatus
-* @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  processID : 
-*
-* @return     XWINDOWSSYSTEM_CPUUSAGESTATUS* : 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-XWINDOWSSYSTEM_CPUUSAGESTATUS* XWINDOWSSYSTEM::GetCPUUsageStatus(XDWORD processID)
-{
-  if(cpuusagestatus.IsEmpty()) 
-    {
-      return NULL;
-    }
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->Lock();
-    }
-
-  for(XDWORD c=0; c<cpuusagestatus.GetSize(); c++)
-    {
-      XWINDOWSSYSTEM_CPUUSAGESTATUS* cus = cpuusagestatus.Get(c);
-      if(cus)
-        {
-          if(cus->processID == processID) 
-            {
-              if(xmutexcheckCPUusage)
-                {
-                  xmutexcheckCPUusage->UnLock();
-                }
-
-              return cus;
-            }
-        }    
-    }
-
-  if(xmutexcheckCPUusage)
-    {
-      xmutexcheckCPUusage->UnLock();
-    }
-
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
-* @brief      DeleteAllCPUUsageStatus
-* @ingroup    PLATFORM_WINDOWS
-*
-* @return     bool : true if is succesful. 
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
-{
-  if(cpuusagestatus.IsEmpty()) return false;
-
-  cpuusagestatus.DeleteContents();
-  cpuusagestatus.DeleteAll();
-
-  return true;
+  return li.QuadPart;
 }
 
 
@@ -1400,13 +1026,9 @@ bool XWINDOWSSYSTEM::DeleteAllCPUUsageStatus()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSSYSTEM::Clean()
 {
-
+  wmiinterface    =  NULL;
 }
 
 
 #pragma endregion
-
-
-#pragma endregion
-
 

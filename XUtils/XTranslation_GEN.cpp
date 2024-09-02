@@ -413,6 +413,10 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating LOG system")                                           , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling LOG system")                                            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating App status")                                           , 0);        
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling App status")                                            , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating Internet status")                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling Internet status")                                       , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application Root Path")                                           , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_ENG , __L("APP version")                                                     , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("S.O. version")                                                    , 0);
@@ -420,6 +424,10 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando sistema de LOG")                                        , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando sistema de LOG")                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado aplicacion")                                     , 0);        
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado aplicacion")                                  , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado Internet")                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado Internet")                                    , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Camino raiz de application")                                      , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version APP")                                                     , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version S.O.")                                                    , 0);

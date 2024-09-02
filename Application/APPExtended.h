@@ -51,8 +51,11 @@
 #pragma region CLASS
 
 class XCONSOLE;
+class XTHREAD;
 class APPCFG;
+class APPCONSOLE;
 class APPEXTENDED_APPLICATIONSTATUS;
+class APPEXTENDED_INTERNETSTATUS;
 
 class APPEXTENDED
 {
@@ -62,23 +65,22 @@ class APPEXTENDED
     static APPEXTENDED&                 GetInstance                     ();
     static bool                         DelInstance                     ();
 
-    bool                                APPStart                        (APPCFG* cfg, XCONSOLE* console = NULL);
-    bool                                APPEnd                          (APPCFG* cfg, XCONSOLE* console = NULL);
-
-    bool                                ShowLine                        (XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab = 3, bool linefeed = true);
+    bool                                APPStart                        (APPCFG* appcfg, APPCONSOLE* appconsole = NULL);
+    bool                                APPEnd                          ();
     
-    #ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
-    bool                                ShowHeader                      (XCONSOLE* console, bool separator);
-    #endif
-   
+    APPCFG*                             GetAppCFG                       ();
+    APPCONSOLE*                         GetAppConsole                   ();
+
     #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
     APPEXTENDED_APPLICATIONSTATUS*      GetApplicationStatus            (); 
-
-    XMUTEX*                             GetXMutexShowAll                (); 
-    bool                                ShowAll                         (XCONSOLE* console);
-
     #endif
-    
+
+    #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+    APPEXTENDED_INTERNETSTATUS*         GetInternetStatus               (); 
+    #endif
+
+    bool                                ShowAll                         ();
+         
   private:
                                         APPEXTENDED                     ();
                                         APPEXTENDED                     (APPEXTENDED const&);        // Don't implement
@@ -86,17 +88,28 @@ class APPEXTENDED
 
     void                                operator =                      (APPEXTENDED const&);        // Don't implement
 
+    static void                         ThreadFunction_Update       (void* param);
+
     void                                Clean                           ();
 
     static APPEXTENDED*                 instance;
 
-    APPCFG*                             cfg;
-    XMUTEX*                             xmutexshowall; 
-
+    APPCFG*                             appcfg;
+    APPCONSOLE*                         appconsole;
+    
+    XMUTEX*                             updatemutex;
+    XTHREAD*                            updatethread;  
+    bool                                exitincurse;
+    
     #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
     APPEXTENDED_APPLICATIONSTATUS*      applicationstatus;
     #endif
+
+    #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+    APPEXTENDED_INTERNETSTATUS*         internetstatus;
+    #endif
 };
+
 
 #pragma endregion
 

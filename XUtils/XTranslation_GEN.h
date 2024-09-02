@@ -86,6 +86,10 @@ enum XTRANSLATION_GEN_ID
 
   XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                          ,
   XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                          ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS                                    ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS                                    ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS                               ,
+  XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS                               ,
   XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                      ,
   XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                       ,
   XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                     ,

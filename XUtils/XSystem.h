@@ -119,6 +119,8 @@ enum XSYSTEM_CHANGESTATUSTYPE
 };
 
 
+#define XSYSTEM_CPUUSAGE_ERROR              -1
+
 #pragma endregion
 
 

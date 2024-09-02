@@ -43,6 +43,8 @@
 #include "XLog.h"
 #include "XSystem.h"
 #include "XConsole.h"
+#include "XSleep.h"
+#include "XThread.h"
 #include "XTranslation.h"
 #include "XTranslation_GEN.h"
 #include "XTranslation.h"
@@ -54,7 +56,12 @@
 #include "APPCFG.h"
 #include "APPLOG.h"
 #include "APPConsole.h"
+#ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
 #include "APPExtended_ApplicationStatus.h"
+#endif
+#ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+#include "APPExtended_InternetStatus.h"
+#endif
 
 #include "XMemory_Control.h"
 
@@ -130,39 +137,52 @@ bool APPEXTENDED::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
+* @fn         bool APPEXTENDED::APPStart(APPCFG* appcfg, APPCONSOLE* appconsole)
 * @brief      APPStart
 * @ingroup    APPLICATION
 * 
-* @param[in]  cfg : 
-* @param[in]  console : 
+* @param[in]  appcfg : 
+* @param[in]  appconsole : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
+bool APPEXTENDED::APPStart(APPCFG* appcfg, APPCONSOLE* appconsole)
 {  
   XSTRING   string;
   XSTRING   stringresult;
   bool      status;
 
-  if(!cfg)
+  if(!appcfg)
     { 
       return false;
     }
 
-  if(!cfg->Log_IsActive())
+  if(!appcfg->Log_IsActive())
     {
       return false;
     }  
 
-  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
-  applicationstatus = new APPEXTENDED_APPLICATIONSTATUS(cfg);
-  if(!applicationstatus)
+ //---------------------------------------------------------------------------------------------------------------------------------
+
+  updatemutex = GEN_XFACTORY.Create_Mutex();  
+  if(!updatemutex)
     {
       return false;
     }
-  #endif
+      
+  updatethread = GEN_XFACTORY.CreateThread(XTHREADGROUPID_APPEXTENDED, __L("APPEXTENDED::APPEXTENDED"), ThreadFunction_Update, this);
+  if(!updatethread) 
+    {
+      return false;
+    }
+
+  updatethread->Ini();   
+
+  //---------------------------------------------------------------------------------------------------------------------------------
+
+  this->appcfg      = appcfg;
+  this->appconsole  = appconsole;
 
   XSTRING SO_ID;
   status = GEN_XSYSTEM.GetOperativeSystemID(SO_ID);
@@ -177,7 +197,7 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
   XTRACE_PRINTMSGSTATUS(XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION),  GEN_VERSION.GetAppVersion()->Get()); 
   XTRACE_PRINTMSGSTATUS(XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION),  SO_ID.Get()); 
 
-  status = APP_LOG.Ini(cfg, GEN_VERSION.GetAppName()->Get()); 
+  status = APP_LOG.Ini(appcfg, GEN_VERSION.GetAppName()->Get()); 
 
   string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG));  
   stringresult.Format(__L("%s."), (status)?XT_L(XTRANSLATION_GEN_ID_OK):XT_L(XTRANSLATION_GEN_ID_ERROR));
@@ -197,11 +217,71 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
     }
   
   #ifdef APP_CONSOLE_ACTIVE
-  if(console)
+  if(appconsole)
     {     
-      console->PrintMessage(string.Get(), 1, true, false);
-      console->PrintMessage(stringresult.Get(), 0, false, true);      
+      appconsole->GetConsole()->Clear();
+
+      #ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
+      appconsole->Show_Header(true);
+      #endif
+
+      appconsole->GetConsole()->PrintMessage(string.Get(), 1, true, false);
+      appconsole->GetConsole()->PrintMessage(stringresult.Get(), 0, false, true);      
     }
+  #endif 
+
+
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  applicationstatus = new APPEXTENDED_APPLICATIONSTATUS(appcfg);
+  if(!applicationstatus)
+    {
+      return false;
+    }
+   else 
+    {
+      status = true;
+    }
+
+  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS));  
+  stringresult.Format(__L("%s."), (status)?XT_L(XTRANSLATION_GEN_ID_OK):XT_L(XTRANSLATION_GEN_ID_ERROR));
+
+  APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("%s: %s") , string.Get(), stringresult.Get());       
+
+    #ifdef APP_CONSOLE_ACTIVE
+    if(appconsole)
+      {          
+        appconsole->GetConsole()->PrintMessage(string.Get(), 1, true, false);
+        appconsole->GetConsole()->PrintMessage(stringresult.Get(), 0, false, true);      
+      }
+    #endif  
+
+  #endif
+
+
+  #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+  internetstatus = new APPEXTENDED_INTERNETSTATUS(appcfg);
+  if(!internetstatus)
+    {
+      return false;
+    }
+   else 
+    {
+      status = true;
+    }
+
+  string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS));  
+  stringresult.Format(__L("%s."), (status)?XT_L(XTRANSLATION_GEN_ID_OK):XT_L(XTRANSLATION_GEN_ID_ERROR));
+
+  APP_LOG_ENTRY(((status)?XLOGLEVEL_INFO:XLOGLEVEL_ERROR), APP_CFG_LOG_SECTIONID_INITIATION, false, __L("%s: %s") , string.Get(), stringresult.Get());       
+
+    #ifdef APP_CONSOLE_ACTIVE
+    if(appconsole)
+      {          
+        appconsole->GetConsole()->PrintMessage(string.Get(), 1, true, false);
+        appconsole->GetConsole()->PrintMessage(stringresult.Get(), 0, false, true);      
+      }
+    #endif  
+
   #endif
 
   return status;
@@ -210,31 +290,73 @@ bool APPEXTENDED::APPStart(APPCFG* cfg, XCONSOLE* console)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
+* @fn         bool APPEXTENDED::APPEnd()
 * @brief      APPEnd
 * @ingroup    APPLICATION
-* 
-* @param[in]  cfg : 
-* @param[in]  console : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
+bool APPEXTENDED::APPEnd()
 {
   XSTRING   string;
   XSTRING   stringresult;
   
-  if(!cfg)
+  if(!appcfg)
     { 
       return false;
     }
 
-  if(!cfg->Log_IsActive())
+  if(!appcfg->Log_IsActive())
     {
       return false;
-    }      
+    } 
+ 
 
+  #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+  if(internetstatus)
+    {
+      delete internetstatus;
+      internetstatus = NULL;  
+    
+      string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS));
+      stringresult.Format(__L("%s."), XT_L(XTRANSLATION_GEN_ID_OK));    
+
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_ENDING, false, __L("%s: %s") , string.Get(), stringresult.Get()); 
+
+      #ifdef APP_CONSOLE_ACTIVE
+      if(appconsole)
+        {        
+          appconsole->GetConsole()->PrintMessage(string.Get()       , 1, true, false);
+          appconsole->GetConsole()->PrintMessage(stringresult.Get() , 0, false, true);     
+        }
+      #endif
+    }
+  #endif 
+
+
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  if(applicationstatus)
+    {
+      delete applicationstatus;
+      applicationstatus = NULL;  
+
+      string.Format(APPCONSOLE_DEFAULTMESSAGEMASK, XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS));
+      stringresult.Format(__L("%s."), XT_L(XTRANSLATION_GEN_ID_OK));    
+
+      APP_LOG_ENTRY(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_ENDING, false, __L("%s: %s") , string.Get(), stringresult.Get()); 
+
+      #ifdef APP_CONSOLE_ACTIVE
+      if(appconsole)
+        {        
+          appconsole->GetConsole()->PrintMessage(string.Get()       , 1, true, false);
+          appconsole->GetConsole()->PrintMessage(stringresult.Get() , 0, false, true);     
+        }
+      #endif
+    }
+  #endif
+
+     
   string.Format(APPCONSOLE_DEFAULTMESSAGEMASK,  XT_L(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG));
   stringresult.Format(__L("%s."), XT_L(XTRANSLATION_GEN_ID_OK));
   
@@ -244,20 +366,30 @@ bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
   APP_LOG.DelInstance();
 
   #ifdef APP_CONSOLE_ACTIVE
-  if(console)
+  if(appconsole)
     {     
-      console->PrintMessage(string.Get(), 1, true, false);
-      console->PrintMessage(stringresult.Get(), 0, false, true);     
+      appconsole->GetConsole()->PrintMessage(string.Get()       , 1, true, false);
+      appconsole->GetConsole()->PrintMessage(stringresult.Get() , 0, false, true);     
     }
   #endif
- 
-  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
-  if(applicationstatus)
+
+  if(updatethread)
     {
-      delete applicationstatus;
-      applicationstatus = NULL;  
+      updatethread->End();
+
+      GEN_XFACTORY.DeleteThread(XTHREADGROUPID_APPEXTENDED, updatethread);
+
+      updatethread = NULL;
     }
-  #endif
+
+  if(updatemutex)
+    {
+      GEN_XFACTORY.Delete_Mutex(updatemutex);
+      updatemutex = NULL;
+    }
+ 
+  appcfg      = NULL;
+  appconsole  = NULL;
       
   return true;
 }
@@ -265,77 +397,32 @@ bool APPEXTENDED::APPEnd(APPCFG* cfg, XCONSOLE* console)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::Show_Line(XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab, bool linefeed)
-* @brief      Show_Line
+* @fn         APPCFG* APPEXTENDED::GetAppCFG()
+* @brief      GetAppCFG
 * @ingroup    APPLICATION
 * 
-* @param[in]  console : 
-* @param[in]  string : 
-* @param[in]  string2 : 
-* @param[in]  tab : 
-* @param[in]  linefeed : 
-* 
-* @return     bool : true if is succesful. 
+* @return     APPCFG* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::ShowLine(XCONSOLE* console, XSTRING& string, XSTRING& string2, int tab, bool linefeed)
+APPCFG* APPEXTENDED::GetAppCFG()
 {
-  XSTRING line1;
-  XSTRING line2;
-  
-  if(!console)
-    {
-      return false;
-    }
-
-  console->Format_Message(string.Get(), tab , false, false, line1);
-  if(tab)
-    {
-      int _tab = tab;
-
-      if(_tab<37) _tab = 37;
-      line1.AdjustSize(_tab, false, __L(" "));
-    }
-
-  console->Format_Message(string2.Get(), 0 , false, linefeed, line2);
-
-  console->Print(line1.Get());
-  console->Print(line2.Get());
-
-  return true;
+  return appcfg;
 }
 
 
-#ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::ShowHeader(XCONSOLE* console, bool separator)
-* @brief      ShowHeader
+* @fn         APPCONSOLE* APPEXTENDED::GetAppConsole()
+* @brief      GetAppConsole
 * @ingroup    APPLICATION
 * 
-* @param[in]  console : 
-* @param[in]  separator : 
-* 
-* @return     bool : true if is succesful. 
+* @return     APPCONSOLE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::ShowHeader(XCONSOLE* console, bool separator)
+APPCONSOLE* APPEXTENDED::GetAppConsole()
 {
-  XSTRING header;
-
-  header = GEN_VERSION.GetAppTitle()->Get();
-  
-  console->Printf(__L(" %s"),header.Get());
-  console->Printf(__L("\n"));
-
-  if(separator) 
-    {
-      console->Printf(__L("\n"));
-    }
-
-  return true;
+  return appconsole;
 }
-#endif
 
 
 #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
@@ -355,24 +442,26 @@ APPEXTENDED_APPLICATIONSTATUS* APPEXTENDED::GetApplicationStatus()
 #endif
 
 
+#ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMUTEX* APPEXTENDED::GetXMutexShowAll()
-* @brief      GetXMutexShowAll
+* @fn         APPEXTENDED_INTERNETSTATUS* APPEXTENDED::GetInternetStatus()
+* @brief      GetInternetStatus
 * @ingroup    APPLICATION
 * 
-* @return     XMUTEX* : 
+* @return     APPEXTENDED_INTERNETSTATUS* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XMUTEX* APPEXTENDED::GetXMutexShowAll()
+APPEXTENDED_INTERNETSTATUS* APPEXTENDED::GetInternetStatus()
 {
-  return xmutexshowall;
-}
+  return internetstatus;
+}    
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool APPEXTENDED::ShowAll(XCONSOLE* console)
+* @fn         bool APPEXTENDED::ShowAll()
 * @brief      ShowAll
 * @ingroup    APPLICATION
 * 
@@ -381,17 +470,30 @@ XMUTEX* APPEXTENDED::GetXMutexShowAll()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool APPEXTENDED::ShowAll(XCONSOLE* console)
+bool APPEXTENDED::ShowAll()
 {
-  console->Clear();
+  #ifdef APP_CONSOLE_ACTIVE
 
-  if(xmutexshowall) 
-    {
-      xmutexshowall->Lock();
+  if(!appconsole)
+    { 
+      return false;
     }
 
+  if(updatemutex) 
+    {
+      updatemutex->Lock();
+    }
+
+  XCONSOLE* console = appconsole->GetConsole();
+  if(!console)
+    {
+      return false;
+    }
+
+  console->Clear();
+
   #ifdef APP_EXTENDED_APPLICATIONHEADER_ACTIVE
-  if(APP_EXTENDED.ShowHeader(console, false))      
+  if(appconsole->Show_Header(false))      
     {
       console->PrintMessage(__L(""),0, false, true);
     }
@@ -403,11 +505,20 @@ bool APPEXTENDED::ShowAll(XCONSOLE* console)
       console->PrintMessage(__L(""),0, false, true);
     }
   #endif
-  
-  if(xmutexshowall) 
+
+  #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+  if(APP_EXTENDED.GetInternetStatus()->Show(console))
     {
-      xmutexshowall->UnLock();
+      console->PrintMessage(__L(""),0, false, true);
     }
+  #endif
+ 
+  if(updatemutex) 
+    {
+      updatemutex->UnLock();
+    }
+
+  #endif
 
   return true;
 }
@@ -423,8 +534,6 @@ bool APPEXTENDED::ShowAll(XCONSOLE* console)
 APPEXTENDED::APPEXTENDED()
 {
   Clean();
-
-  xmutexshowall = GEN_XFACTORY.Create_Mutex();
 }
 
 
@@ -438,12 +547,65 @@ APPEXTENDED::APPEXTENDED()
 * --------------------------------------------------------------------------------------------------------------------*/
 APPEXTENDED::~APPEXTENDED()
 {
-  if(xmutexshowall)
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPEXTENDED::ThreadFunction_Update(void* param)
+* @brief      ThreadFunction_Update
+* @ingroup    APPLICATION
+* 
+* @param[in]  param : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPEXTENDED::ThreadFunction_Update(void* param)
+{
+  APPEXTENDED* appextended = (APPEXTENDED*)param;
+  if(!appextended)
     {
-      GEN_XFACTORY.Delete_Mutex(xmutexshowall);
+      return;
     }
 
-  Clean();
+  if(appextended->exitincurse)
+    {
+      return;
+    }
+
+  if(appextended->updatemutex) 
+    {
+      appextended->updatemutex->Lock();
+    }
+
+  #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
+  if(appextended->GetApplicationStatus())
+    {
+      appextended->GetApplicationStatus()->Update();
+    }  
+  #endif
+
+  #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+  if(appextended->GetInternetStatus())
+    {
+      appextended->GetInternetStatus()->Update();
+    }  
+  #endif  
+
+  for(int c=0; c<100; c++) 
+    {
+      if(appextended->exitincurse)
+        {
+          return;
+        }
+
+      GEN_XSLEEP.MilliSeconds(10);
+    }
+
+  if(appextended->updatemutex) 
+    {
+      appextended->updatemutex->UnLock();
+    }
 }
 
 
@@ -457,12 +619,19 @@ APPEXTENDED::~APPEXTENDED()
 * --------------------------------------------------------------------------------------------------------------------*/
 void APPEXTENDED::Clean()
 {
-  cfg               = NULL;
+  appcfg            = NULL;
+  appconsole        = NULL;
 
-  xmutexshowall     =  NULL;
+  updatemutex       = NULL;
+  updatethread      = NULL;  
+  exitincurse       = false;
   
   #ifdef APP_EXTENDED_APPLICATIONSTATUS_ACTIVE
   applicationstatus = NULL;
+  #endif
+
+  #ifdef APP_EXTENDED_INTERNETSTATUS_ACTIVE
+  internetstatus    = NULL;
   #endif
 }
 

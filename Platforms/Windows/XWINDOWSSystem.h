@@ -37,6 +37,10 @@
 #include <comdef.h>			// for using bstr_t class
 #include <vector>
 
+
+#include <iostream>
+#include <psapi.h>
+
 #include "XSystem.h"
 
 #pragma endregion
@@ -390,6 +394,32 @@ class XWINDOWSSYSTEM_CPUUSAGESTATUS
 	private:
 
     void																				Clean																							();
+};
+
+
+class XWINDOWSSYSTEM_CPUUSAGE 
+{
+	public:
+																								XWINDOWSSYSTEM_CPUUSAGE			();
+																							 ~XWINDOWSSYSTEM_CPUUSAGE			();
+
+    double																			GetTotalCpuUsage						();
+    double																			GetProcessCpuUsage					(DWORD processID);
+      
+	private:
+   
+    ULONGLONG																		SubtractTimes								(const FILETIME& fta, const FILETIME& ftb);		
+    int																					GetNumberOfProcessors				();
+
+		void																				Clean												();
+
+		FILETIME																		lastsysidletime;
+		FILETIME																		lastsyskerneltime;
+		FILETIME																		lastsysusertime;
+    FILETIME																		lastprockerneltime;
+		FILETIME																		lastprocusertime;
+    ULONGLONG																		lastsystemtime;
+    ULONGLONG																		lastprocesstime;		
 };
 
 

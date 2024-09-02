@@ -433,7 +433,7 @@ bool GRPVECTORFILE::DetectFile(XPATH& pathFile)
   XFILE* file = GEN_XFACTORY.Create_File();
   if(!file) 
     {
-      return GRPVECTORFILERESULT_ERRORNOTMEMORY;
+      return false;
     }
   
   bool result = file->Exist(pathFile);  

@@ -371,13 +371,16 @@ bool APPCHECKRESOURCESHARDWARE::CheckTotalCPUUsageStatus()
 
   int cpuusage = GEN_XSYSTEM.GetCPUUsageTotal();
 
-  if(cpuusage > maxtotalCPUusage) 
+  if(cpuusage != XSYSTEM_CPUUSAGE_ERROR)
     {
-      maxtotalCPUusage = cpuusage;
-    }
+      if(cpuusage > maxtotalCPUusage) 
+        {
+          maxtotalCPUusage = cpuusage;
+        }
   
-  ntotalCPUusage  += cpuusage;
-  ntotalCPUsamples++;
+      ntotalCPUusage  += cpuusage;
+      ntotalCPUsamples++;
+    }
    
   if(ntotalCPUsamples > 5)
     {
@@ -415,15 +418,18 @@ bool APPCHECKRESOURCESHARDWARE::CheckAppCPUUsageStatus()
     {
       cpuusage = GEN_XSYSTEM.GetCPUUsageForProcessName(cfg->CheckResourcesHardware_GetAppCPUUsageProcessName()->Get());  
 
-      if(cpuusage > maxappCPUusage) 
+      if(cpuusage != XSYSTEM_CPUUSAGE_ERROR)
         {
-          maxappCPUusage = cpuusage;
+          if(cpuusage > maxappCPUusage) 
+            {
+              maxappCPUusage = cpuusage;
+            } 
+
+          nappCPUusage  += cpuusage;
+          nappCPUsamples++;
         }
     }
 
-  nappCPUusage  += cpuusage;
-  nappCPUsamples++;
-   
   if(nappCPUsamples > 5)
     {
       if(GetCPUAppCPUUsageAverange() > (XDWORD)cfg->CheckResourcesHardware_GetAppCPUUsageLimitPercent())
