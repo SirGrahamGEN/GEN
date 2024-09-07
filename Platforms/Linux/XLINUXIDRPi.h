@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOLINUXLedNeoPixelWS2812BRaspberryPi.h
+* @file       XLINUXIDRPi.h
 * 
-* @class      DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI
-* @brief      LINUX Data Input/Output Led Neopixel WS2812B Raspberry Pi class
+* @class      XLINUXIDRPI
+* @brief      LINUX eXtended Utils IDentification Raspberry Pi class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,15 +26,16 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI_H_
-#define _DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI_H_
+#ifndef _XLINUXIDRPI_H_
+#define _XLINUXIDRPI_H_
+
+
+#ifdef HW_RASPBERRYPI
+
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "ws2811.h"
-
-#include "DIOLedNeoPixelWS2812B.h"
 
 #pragma endregion
 
@@ -42,17 +43,23 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-// defaults 
-#define NEOPIXELWS2812BRPI_DEFAULT_TARGET_FREQ             WS2811_TARGET_FREQ
-#define NEOPIXELWS2812BRPI_DEFAULT_GPIO_PIN                18
-#define NEOPIXELWS2812BRPI_DEFAULT_DMA                     10
-//#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE            WS2811_STRIP_RGB		// WS2812/SK6812RGB integrated chip+leds
-#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE              WS2811_STRIP_GBR		// WS2812/SK6812RGB integrated chip+leds
-//#define NEOPIXELWS2812BRPI_DEFAULT_STRIP_TYPE            SK6812_STRIP_RGBW		// SK6812RGBW (NOT SK6812RGB)
-
-#define NEOPIXELWS2812BRPI_DEFAULT_WIDTH                   8
-#define NEOPIXELWS2812BRPI_DEFAULT_HEIGHT                  8
-#define NEOPIXELWS2812BRPI_DEFAULT_LED_COUNT               (NEOPIXELWS2812BRPI_DEFAULT_WIDTH * NEOPIXELWS2812BRPI_DEFAULT_HEIGHT)
+enum RPI_MODEL
+{
+  RPI_MODEL_UNKNOWN           =   0 ,
+  RPI_MODEL_A                       ,
+  RPI_MODEL_B                       ,
+  RPI_MODEL_A_PLUS                  ,
+  RPI_MODEL_B_PLUS                  ,
+  RPI_MODEL_COMPUTERMODULE          ,
+  RPI_MODEL_B_2                     ,
+  RPI_MODEL_ZERO                    ,
+  RPI_MODEL_CM3                     ,
+  RPI_MODEL_CM3P                    ,
+  RPI_MODEL_B_3                     ,
+  RPI_MODEL_B_3P                    ,
+  RPI_MODEL_B_4                     ,
+  RPI_MODEL_B_5                     ,
+};
 
 #pragma endregion
 
@@ -60,24 +67,28 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-class DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI : public DIOLEDNEOPIXELWS2812B
+class XLINUXIDRPI 
 {
   public:
-                              DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI     ();
-    virtual                  ~DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI     ();
+                                        XLINUXIDRPI           ();
+    virtual                            ~XLINUXIDRPI           ();
+  
+    RPI_MODEL                           GetModel              ();
+    int                                 GetRAMMegabytes       ();
+    float                               GetRevision           (); 
 
-    bool                      Ini                                       (XDWORD nled);
-    
-    bool                      Send                                      ();
-
-    bool                      End                                       ();
-
+   
   private:
 
-    void                      Clean                                     ();
+    bool                                DetectBoard           (RPI_MODEL& model, int& megabytes, float& revision);
     
-    ws2811_t                  config;    
+    void                                Clean                 ();
+    
+    RPI_MODEL                           model;
+    int                                 megabytes;
+    float                               revision; 
 };
+
 
 #pragma endregion
 
@@ -87,6 +98,9 @@ class DIOLINUXLEDNEOPIXELWS2812BRASPBERRYPI : public DIOLEDNEOPIXELWS2812B
 
 
 #pragma endregion
+
+
+#endif
 
 
 #endif

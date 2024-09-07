@@ -42,6 +42,8 @@
 #include "XTrace.h"
 #include "XSleep.h"
 
+#include "DIOGPIO.h"
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -175,22 +177,22 @@ bool DIOLEDNEOPIXELWS2812B::SendData(XBYTE* data, XDWORD size)
 * ---------------------------------------------------------------------------------------------------------------------*/
 XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 {
-  return brightnessLevel;
+  return brightnesslevel;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
-* @brief      SetBrightnessLevel
+* @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
+* @brief      SetBrightnesslevel
 * @ingroup    DATAIO
 *
 * @param[in]  brightnessLevel : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnessLevel)
+void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
 {
-  this->brightnessLevel = brightnessLevel;
+  this->brightnesslevel = brightnesslevel;
 }
 
 
@@ -295,7 +297,7 @@ void DIOLEDNEOPIXELWS2812B::Clean()
   nled              = 0;
   GPIOentryID       = DIOGPIO_ID_NOTDEFINED;
 
-  brightnessLevel   = 255;
+  brightnesslevel   = 255;
 }
 
 

@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOLINUXGPIORaspberryPi.cpp
+* @file       DIOLINUXGPIORPi.cpp
 * 
-* @class      DIOLINUXGPIORASPBERRYPI
+* @class      DIOLINUXGPIORPI
 * @brief      LINUX Data Input/Output GPIO (General Purpose Input/Output) Raspberry Pi class
 * @ingroup    PLATFORM_LINUX
 * 
@@ -40,7 +40,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIOLINUXGPIORaspberryPi.h"
+#include "DIOLINUXGPIORPi.h"
 
 #include "XTrace.h"
 #include "XSleep.h"
@@ -66,13 +66,13 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI()
+* @fn         DIOLINUXGPIORPI::DIOLINUXGPIORPI()
 * @brief      Constructor
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-//DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOGPIO()
-DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOLINUXGPIO()
+//DIOLINUXGPIORPI::DIOLINUXGPIORPI(): DIOGPIO()
+DIOLINUXGPIORPI::DIOLINUXGPIORPI(): DIOLINUXGPIO()
 {
   Clean();
 }
@@ -80,13 +80,13 @@ DIOLINUXGPIORASPBERRYPI::DIOLINUXGPIORASPBERRYPI(): DIOLINUXGPIO()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
+* @fn         DIOLINUXGPIORPI::~DIOLINUXGPIORPI()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
+DIOLINUXGPIORPI::~DIOLINUXGPIORPI()
 {
   Clean();
 }
@@ -94,52 +94,52 @@ DIOLINUXGPIORASPBERRYPI::~DIOLINUXGPIORASPBERRYPI()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOLINUXGPIORASPBERRYPI::Ini(XPATH* xpath)
+* @fn         bool DIOLINUXGPIORPI::Ini(XPATH* xpath)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOLINUXGPIORASPBERRYPI::Ini()
+bool DIOLINUXGPIORPI::Ini()
 {
-  if(!RPI_RevisionBoard(RPI_model, RPI_megabytes, RPI_revision)) 
-    {
-      return false;
-    }
+  XLINUXIDRPI   IDpi;
+  RPI_MODEL     model = IDpi.GetModel();
+
 
   /*
-  switch(RPI_model)
+  switch(model)
     {
-      case RASPBERRYPI_MODEL_UNKNOWN        :
-      case RASPBERRYPI_MODEL_A              :
-      case RASPBERRYPI_MODEL_B              :
-      case RASPBERRYPI_MODEL_A_PLUS         :
-      case RASPBERRYPI_MODEL_B_PLUS         :
-      case RASPBERRYPI_MODEL_COMPUTERMODULE :
-      case RASPBERRYPI_MODEL_ZERO           : RPI_map_base   = (RPI_BCM2708_PERI_BASE + 0x200000);
-                                              RPI_map_base64 = 0;
-                                              break;
-      case RASPBERRYPI_MODEL_B_2            :
-      case RASPBERRYPI_MODEL_B_3            : 
-      case RASPBERRYPI_MODEL_CM3P           :
-      case RASPBERRYPI_MODEL_B_3P           : RPI_map_base   = (RPI_BCM2709_PERI_BASE + 0x200000);
-                                              RPI_map_base64 = 0;
-                                              break;
+      case RPI_MODEL_UNKNOWN        :
+      case RPI_MODEL_A              :
+      case RPI_MODEL_B              :
+      case RPI_MODEL_A_PLUS         :
+      case RPI_MODEL_B_PLUS         :
+      case RPI_MODEL_COMPUTERMODULE :
+      case RPI_MODEL_ZERO           : RPI_map_base   = (RPI_BCM2708_PERI_BASE + 0x200000);
+                                      RPI_map_base64 = 0;
+                                      break;
+      case RPI_MODEL_B_2            :
+      case RPI_MODEL_B_3            : 
+      case RPI_MODEL_CM3P           :
+      case RPI_MODEL_B_3P           : RPI_map_base   = (RPI_BCM2709_PERI_BASE + 0x200000);
+                                      RPI_map_base64 = 0;
+                                      break;
 
-      case RASPBERRYPI_MODEL_B_4            : RPI_map_base   = (RPI_BCM2711_PERI_BASE + 0x200000);
-                                              RPI_map_base64 = 0;
-                                              break;
+      case RPI_MODEL_B_4            : RPI_map_base   = (RPI_BCM2711_PERI_BASE + 0x200000);
+                                      RPI_map_base64 = 0;
+                                      break;
                                                                                       
-      case RASPBERRYPI_MODEL_B_5            : RPI_map_base   = 0;
-                                              RPI_map_base64 = RPI_BCM2712_PERI_BASE;
-                                              break;
+      case RPI_MODEL_B_5            : RPI_map_base   = 0;
+                                      RPI_map_base64 = RPI_BCM2712_PERI_BASE;
+                                      break;
     }
   */
   
+
   // ------------- All Common ---------------------------------------------------------
 
-  if(RPI_model == RASPBERRYPI_MODEL_B_5)  
+  if(model == RPI_MODEL_B_5)  
     {
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED,  1, DIOGPIO_INVALID);     /* 01 - Not available (3v3 Power)   */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED,  2, DIOGPIO_INVALID);     /* 02 - Not available (5v  Power) */
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED,  3,             401);     /* 03 - I2C (SDA)                   */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED,  4, DIOGPIO_INVALID);     /* 04 - Not available (5v  Power) */
@@ -174,7 +174,7 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
 
   // ------------- Extended PI2 -------------------------------------------------------
 
-  if(RPI_model == RASPBERRYPI_MODEL_B_5)  
+  if(model == RPI_MODEL_B_5)  
     {
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 27, DIOGPIO_INVALID);     /* 27 - I2C ID EEProm SC            */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 28, DIOGPIO_INVALID);     /* 28 - I2C ID EEProm SD          */
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 29,             404);     /* 29 - Generic I/O                 */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 30, DIOGPIO_INVALID);     /* 30 - Not available  (Ground)   */
@@ -187,11 +187,11 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
     }
 
 
-  if((RPI_model == RASPBERRYPI_MODEL_A_PLUS)          ||  (RPI_model == RASPBERRYPI_MODEL_B_PLUS) ||
-     (RPI_model == RASPBERRYPI_MODEL_COMPUTERMODULE)  ||  (RPI_model == RASPBERRYPI_MODEL_B_2)    ||
-     (RPI_model == RASPBERRYPI_MODEL_ZERO)            ||  (RPI_model == RASPBERRYPI_MODEL_CM3P)   ||
-     (RPI_model == RASPBERRYPI_MODEL_B_3)             ||  (RPI_model == RASPBERRYPI_MODEL_B_3P)   ||
-     (RPI_model == RASPBERRYPI_MODEL_B_4)                   
+  if((model == RPI_MODEL_A_PLUS)          ||  (model == RPI_MODEL_B_PLUS) ||
+     (model == RPI_MODEL_COMPUTERMODULE)  ||  (model == RPI_MODEL_B_2)    ||
+     (model == RPI_MODEL_ZERO)            ||  (model == RPI_MODEL_CM3P)   ||
+     (model == RPI_MODEL_B_3)             ||  (model == RPI_MODEL_B_3P)   ||
+     (model == RPI_MODEL_B_4)                   
     )
     {
       GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 27, DIOGPIO_INVALID);     /* 27 - I2C ID EEProm SC            */      GPIOEntry_Create(DIOGPIO_ID_NOTDEFINED, 28, DIOGPIO_INVALID);     /* 28 - I2C ID EEProm SD          */
@@ -212,7 +212,7 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
+* @fn         bool DIOLINUXGPIORPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * @brief      SetMode
 * @ingroup    PLATFORM_LINUX
 *
@@ -223,7 +223,7 @@ bool DIOLINUXGPIORASPBERRYPI::Ini()
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
+bool DIOLINUXGPIORPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 {
   if(!entry) return false;
   if(entry->GetGPIO() == DIOGPIO_INVALID) return false;
@@ -240,7 +240,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
+* @fn         bool DIOLINUXGPIORPI::GetValue(DIOGPIO_ENTRY* entry)
 * @brief      GetValue
 * @ingroup    PLATFORM_LINUX
 *
@@ -250,7 +250,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetMode(DIOGPIO_ENTRY* entry, XWORD mode)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
+bool DIOLINUXGPIORPI::GetValue(DIOGPIO_ENTRY* entry)
 {  
   if(!entry) return false;
   if(entry->GetGPIO() == DIOGPIO_INVALID) return false;
@@ -262,7 +262,7 @@ bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
+* @fn         bool DIOLINUXGPIORPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 * @brief      SetValue
 * @ingroup    PLATFORM_LINUX
 *
@@ -273,7 +273,7 @@ bool DIOLINUXGPIORASPBERRYPI::GetValue(DIOGPIO_ENTRY* entry)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
+bool DIOLINUXGPIORPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 {
   if(!entry) return false;
   if(entry->GetGPIO() == DIOGPIO_INVALID) return false;
@@ -285,7 +285,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOLINUXGPIORASPBERRYPI::End()
+* @fn         bool DIOLINUXGPIORPI::End()
 * @brief      End
 * @ingroup    PLATFORM_LINUX
 *
@@ -293,7 +293,7 @@ bool DIOLINUXGPIORASPBERRYPI::SetValue(DIOGPIO_ENTRY* entry, bool value)
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::End()
+bool DIOLINUXGPIORPI::End()
 {
   return RPI_End();
 }
@@ -302,104 +302,7 @@ bool DIOLINUXGPIORASPBERRYPI::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& megabytes, float& revision)
-* @brief      RPI_RevisionBoard
-* @ingroup    PLATFORM_LINUX
-*
-* @param[in]  model :
-* @param[in]  megabytes :
-* @param[in]  revision :
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& megabytes, float& revision)
-{
-  XPATH     xpath;
-  XFILETXT* xfiletxt;
-  bool      status = false;
-
-  xpath = __L("/proc/cpuinfo");
-  
-  xfiletxt = new XFILETXT();
-  if(!xfiletxt) return false;
-
-  if(xfiletxt->Open(xpath))
-    {
-      xfiletxt->ReadAllFile();
-
-      for(int c=0;c< xfiletxt->GetNLines(); c++)
-        {
-          XSTRING* line = xfiletxt->GetLine(c);
-          if(line)
-            {
-              if(line->Find(__L("Revision"), false) != XSTRING_NOTFOUND)
-                {
-                  int position = line->Find(__L(":"), true);
-                  if(position != XSTRING_NOTFOUND)
-                    {
-                      line->DeleteCharacters(0, position+1);
-                      line->DeleteCharacter(0x20);
-
-                      model = RASPBERRYPI_MODEL_UNKNOWN;
-
-                      // https://www.raspberrypi.org/documentation/hardware/raspberrypi/revision-codes/README.md
-
-                      if(!line->Compare(__L("0002")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 256;      revision = 1.0f; }
-                      if(!line->Compare(__L("0003")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 256;      revision = 1.0f; }
-                      if(!line->Compare(__L("0004")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("0005")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("0006")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("0007")   , true))  { model = RASPBERRYPI_MODEL_A;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("0008")   , true))  { model = RASPBERRYPI_MODEL_A;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("0009")   , true))  { model = RASPBERRYPI_MODEL_A;                megabytes = 256;      revision = 2.0f; }
-                      if(!line->Compare(__L("000d")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 512;      revision = 2.0f; }
-                      if(!line->Compare(__L("000e")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 512;      revision = 2.0f; }
-                      if(!line->Compare(__L("000f")   , true))  { model = RASPBERRYPI_MODEL_B;                megabytes = 512;      revision = 2.0f; }
-                      if(!line->Compare(__L("0010")   , true))  { model = RASPBERRYPI_MODEL_B_PLUS;           megabytes = 512;      revision = 1.0f; }
-                      if(!line->Compare(__L("0011")   , true))  { model = RASPBERRYPI_MODEL_COMPUTERMODULE;   megabytes = 512;      revision = 1.0f; }
-                      if(!line->Compare(__L("0012")   , true))  { model = RASPBERRYPI_MODEL_A_PLUS;           megabytes = 256;      revision = 1.0f; }
-                      if(!line->Compare(__L("0013")   , true))  { model = RASPBERRYPI_MODEL_B_PLUS;           megabytes = 512;      revision = 1.2f; }
-                      if(!line->Compare(__L("a01041") , true))  { model = RASPBERRYPI_MODEL_B_2;              megabytes = 1024;     revision = 1.1f; }
-                      if(!line->Compare(__L("a21041") , true))  { model = RASPBERRYPI_MODEL_B_2;              megabytes = 1024;     revision = 1.1f; }
-                      if(!line->Compare(__L("900092") , true))  { model = RASPBERRYPI_MODEL_ZERO;             megabytes = 512;      revision = 1.2f; }
-                      if(!line->Compare(__L("900093") , true))  { model = RASPBERRYPI_MODEL_ZERO;             megabytes = 512;      revision = 1.2f; }
-                      if(!line->Compare(__L("a220a0") , true))  { model = RASPBERRYPI_MODEL_CM3;            	megabytes = 1024;     revision = 1.0f; }
-                      if(!line->Compare(__L("a02082") , true))  { model = RASPBERRYPI_MODEL_B_3;              megabytes = 1024;     revision = 1.2f; }
-                      if(!line->Compare(__L("a22082") , true))  { model = RASPBERRYPI_MODEL_B_3;              megabytes = 1024;     revision = 1.2f; }
-                      if(!line->Compare(__L("a22083") , true))  { model = RASPBERRYPI_MODEL_B_3;              megabytes = 1024;     revision = 1.3f; }	
-                      if(!line->Compare(__L("a02100") , true))  { model = RASPBERRYPI_MODEL_CM3P;            	megabytes = 1024;     revision = 1.0f; }
-                      if(!line->Compare(__L("a020d3") , true))  { model = RASPBERRYPI_MODEL_B_3P;             megabytes = 1024;     revision = 1.2f; }                      
-                      if(!line->Compare(__L("a03111") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 1024;     revision = 1.1f; }
-                      if(!line->Compare(__L("b03111") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 2048;     revision = 1.1f; }
-                      if(!line->Compare(__L("b03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 2048;     revision = 1.2f; }
-                      if(!line->Compare(__L("c03111") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.1f; }
-                      if(!line->Compare(__L("c03112") , true))  { model = RASPBERRYPI_MODEL_B_4;              megabytes = 4096;     revision = 1.2f; }
-                      if(!line->Compare(__L("c04170") , true))  { model = RASPBERRYPI_MODEL_B_5;              megabytes = 4096;     revision = 1.0f; }
-                      if(!line->Compare(__L("d04170") , true))  { model = RASPBERRYPI_MODEL_B_5;              megabytes = 8192;     revision = 1.0f; }                                                                        
-                               
-                      if(model != RASPBERRYPI_MODEL_UNKNOWN)
-                        {
-                          status = true;
-                          break;
-                        }
-                    }
-                }
-            }
-        }
-
-      xfiletxt->Close();
-    }
-
-  delete xfiletxt;
-
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
+* @fn         bool DIOLINUXGPIORPI::RPI_Ini()
 * @brief      RPI_Ini
 * @ingroup    PLATFORM_LINUX
 *
@@ -407,7 +310,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_RevisionBoard(RASPBERRYPI_MODEL& model, int& m
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
+bool DIOLINUXGPIORPI::RPI_Ini()
 { 
   uint32_t* map = NULL;
   int       fd;
@@ -419,7 +322,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
       return false;
     }
 
-  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+  if(model != RPI_MODEL_B_5)
     {    
       map = (uint32_t*)mmap(0, RPI_BLOCK_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, RPI_map_base) ;      
     }
@@ -444,7 +347,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_End()
+* @fn         bool DIOLINUXGPIORPI::RPI_End()
 * @brief      RPI_End
 * @ingroup    PLATFORM_LINUX
 *
@@ -452,7 +355,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_Ini()
 *
 * --------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_End()
+bool DIOLINUXGPIORPI::RPI_End()
 {
   if(!initialization) 
     {
@@ -469,7 +372,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
+* @fn         bool DIOLINUXGPIORPI::RPI_IsGPIOValid(XQWORD GPIO)
 * @brief      RPI_IsGPIOValid
 * @ingroup    PLATFORM_LINUX
 *
@@ -479,7 +382,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_End()
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
+bool DIOLINUXGPIORPI::RPI_IsGPIOValid(XQWORD GPIO)
 {
   if(GPIO<2 || GPIO>27) return false;
 
@@ -490,7 +393,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
+* @fn         bool DIOLINUXGPIORPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 * @brief      RPI_GPIOMode
 * @ingroup    PLATFORM_LINUX
 *
@@ -501,7 +404,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_IsGPIOValid(XQWORD GPIO)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
+bool DIOLINUXGPIORPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 {
   if(!initialization) 
     {
@@ -513,7 +416,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
       return false;
     }
   
-  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+  if(model != RPI_MODEL_B_5)
     {
       uint8_t gpiotoGPFsel[] = {  0,0,0,0,0,0,0,0,0,0,
                                   1,1,1,1,1,1,1,1,1,1,
@@ -557,7 +460,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
+* @fn         bool DIOLINUXGPIORPI::RPI_GPIORead(XQWORD GPIO)
 * @brief      RPI_GPIORead
 * @ingroup    PLATFORM_LINUX
 *
@@ -567,7 +470,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOMode(XQWORD GPIO, bool isinput)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
+bool DIOLINUXGPIORPI::RPI_GPIORead(XQWORD GPIO)
 {
   if(!initialization) 
     {
@@ -579,7 +482,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
       return false;
     }
 
-  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+  if(model != RPI_MODEL_B_5)
     {
       uint8_t gpiotoGPLEV [] = {  13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
                                   14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
@@ -602,7 +505,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
+* @fn         bool DIOLINUXGPIORPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 * @brief      RPI_GPIOWrite
 * @ingroup    PLATFORM_LINUX
 *
@@ -613,7 +516,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIORead(XQWORD GPIO)
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 /*
-bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
+bool DIOLINUXGPIORPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 {
   if(!initialization) 
     {
@@ -625,7 +528,7 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
       return false;
     }
 
-  if(RPI_model != RASPBERRYPI_MODEL_B_5)
+  if(model != RPI_MODEL_B_5)
     {
       uint8_t gpiotoGPSET [] = {  7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
                                   8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
@@ -671,17 +574,15 @@ bool DIOLINUXGPIORASPBERRYPI::RPI_GPIOWrite(XQWORD GPIO, bool isactive)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOLINUXGPIORASPBERRYPI::Clean()
+* @fn         void DIOLINUXGPIORPI::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    PLATFORM_LINUX
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOLINUXGPIORASPBERRYPI::Clean()
+void DIOLINUXGPIORPI::Clean()
 {
-  RPI_model           = RASPBERRYPI_MODEL_UNKNOWN;
-  RPI_megabytes       = 0;
-  RPI_revision        = 0.0f;
+  model               = RPI_MODEL_UNKNOWN;
   
   /*
   RPI_map_base        = 0;

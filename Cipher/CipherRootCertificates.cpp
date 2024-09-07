@@ -3935,7 +3935,7 @@ CIPHERROOTCERTIFICATES cipherrootcertificates =  {  __L("##                     
                                                     __L("-----END CERTIFICATE-----                                                   ")
                                                 };  
 
-extern int nlinescipherrootcertificates =  (sizeof(cipherrootcertificates)/sizeof(XCHAR*));                                                                                
+int nlinescipherrootcertificates =  (sizeof(cipherrootcertificates)/sizeof(XCHAR*));                                                                                
                                                                                                                           
 #pragma endregion                                                                                                         
                                                                                                                           

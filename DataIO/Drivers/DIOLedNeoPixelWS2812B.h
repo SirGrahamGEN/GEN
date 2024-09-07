@@ -34,8 +34,6 @@
 
 #include "XBuffer.h"
 
-#include "DIOGPIO.h"
-
 #pragma endregion
 
 
@@ -63,7 +61,7 @@ class DIOLEDNEOPIXELWS2812B
     void                      SetDataGPIOEntryID        (XDWORD GPIOentryID);
 
     XBYTE                     GetBrightnessLevel        ();
-    void                      SetBrightnessLevel        (XBYTE brightnessLevel = 255);
+    void                      SetBrightnessLevel        (XBYTE brightnesslevel = 255);
 
     bool                      SendData                  (XBUFFER* data);
     bool                      SendData                  (XBYTE* data, XDWORD size); 
@@ -77,7 +75,7 @@ class DIOLEDNEOPIXELWS2812B
     XDWORD                    nled;
     XDWORD                    GPIOentryID;
 
-    XBYTE                     brightnessLevel;
+    XBYTE                     brightnesslevel;
 
     XBUFFER                   databuffer;  
     

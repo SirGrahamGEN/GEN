@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOLINUXGPIORaspberryPi.h
+* @file       DIOLINUXGPIORPi.h
 * 
-* @class      DIOLINUXGPIORASPBERRYPI
+* @class      DIOLINUXGPIORPI
 * @brief      LINUX Data Input/Output GPIO (General Purpose Input/Output) Raspberry Pi class
 * @ingroup    PLATFORM_LINUX
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOLINUXGPIORASPBERRYPI_H_
-#define _DIOLINUXGPIORASPBERRYPI_H_
+#ifndef _DIOLINUXGPIORPI_H_
+#define _DIOLINUXGPIORPI_H_
 
 
 #ifdef HW_RASPBERRYPI
@@ -50,31 +50,16 @@
 #include "DIOGPIO.h"
 */
 
+#include "XLINUXIDRPi.h"
+
 #include "DIOLINUXGPIO.h"
+#include "DIOLINUXGPIORPi.h"
 
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
-
-enum RASPBERRYPI_MODEL
-{
-  RASPBERRYPI_MODEL_UNKNOWN           =   0 ,
-  RASPBERRYPI_MODEL_A                       ,
-  RASPBERRYPI_MODEL_B                       ,
-  RASPBERRYPI_MODEL_A_PLUS                  ,
-  RASPBERRYPI_MODEL_B_PLUS                  ,
-  RASPBERRYPI_MODEL_COMPUTERMODULE          ,
-  RASPBERRYPI_MODEL_B_2                     ,
-  RASPBERRYPI_MODEL_ZERO                    ,
-  RASPBERRYPI_MODEL_CM3                     ,
-  RASPBERRYPI_MODEL_CM3P                    ,
-  RASPBERRYPI_MODEL_B_3                     ,
-  RASPBERRYPI_MODEL_B_3P                    ,
-  RASPBERRYPI_MODEL_B_4                     ,
-  RASPBERRYPI_MODEL_B_5                     ,
-};
 
 /*
 
@@ -118,12 +103,12 @@ typedef struct
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-//class DIOLINUXGPIORASPBERRYPI : public DIOGPIO
-class DIOLINUXGPIORASPBERRYPI : public DIOLINUXGPIO
+//class DIOLINUXGPIORPI : public DIOGPIO
+class DIOLINUXGPIORPI : public DIOLINUXGPIO
 {
   public:
-                                        DIOLINUXGPIORASPBERRYPI     ();
-    virtual                            ~DIOLINUXGPIORASPBERRYPI     ();
+                                        DIOLINUXGPIORPI             ();
+    virtual                            ~DIOLINUXGPIORPI             ();
 
       
     bool                                Ini                         ();
@@ -135,12 +120,9 @@ class DIOLINUXGPIORASPBERRYPI : public DIOLINUXGPIO
     bool                                SetValue                    (DIOGPIO_ENTRY* entry, bool value);
 
     bool                                End                         ();
-    */
+    */     
 
   private:
-
-    
-    bool                                RPI_RevisionBoard           (RASPBERRYPI_MODEL& model, int& megabytes, float& revision);
 
     /*
     bool                                RPI_Ini                     ();
@@ -153,9 +135,7 @@ class DIOLINUXGPIORASPBERRYPI : public DIOLINUXGPIO
 
     void                                Clean                       ();
     
-    RASPBERRYPI_MODEL                   RPI_model;
-    int                                 RPI_megabytes;
-    float                               RPI_revision; 
+    RPI_MODEL                           model;
 
     /*
     XDWORD                              RPI_map_base;

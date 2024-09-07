@@ -118,7 +118,7 @@
     #endif
     
     #ifdef HW_RASPBERRYPI
-    #include "DIOLINUXGPIORaspberryPi.h"
+    #include "DIOLINUXGPIORPi.h"
     #endif
     
     #if defined(HW_ARM) || defined(HW_ARM64)
@@ -465,7 +465,7 @@ bool MAINPROCLINUX::Factorys_Ini()
       #endif
 
       #ifdef HW_RASPBERRYPI
-      if(!DIOGPIO::SetInstance(new DIOLINUXGPIORASPBERRYPI())) 
+      if(!DIOGPIO::SetInstance(new DIOLINUXGPIORPI())) 
         {
           return false;
         }
