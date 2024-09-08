@@ -182,6 +182,10 @@ bool APPEXTENDED_INTERNETSTATUS::Update()
     {
       publicIP = appinternetservices->GetPublicIP()->Get();
     }
+   else
+    {
+      publicIP = __L("");
+    }
 
   return true;
 }
@@ -216,9 +220,12 @@ bool APPEXTENDED_INTERNETSTATUS::Show(XCONSOLE* console)
   string2.Format(__L("%s"), haveinternetconnection?__L("yes"):__L("no"));
   APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
-  string  = __L("Public IP");
-  string2.Format(__L("[%s]"), publicIP.Get());
-  APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
+  if(haveinternetconnection)
+    {
+      string  = __L("Public IP");
+      string2.Format(__L("[%s]"), publicIP.Get());
+      APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
+    }
  
   return true;
 }

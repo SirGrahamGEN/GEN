@@ -63,6 +63,7 @@
 #include "pwm.h"
 #include "version.h"
 
+#include "XBase.h"
 #include "XTrace.h"
 #include "XSleep.h"
 #include "XBuffer.h"
@@ -598,12 +599,22 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::Send()
 
       buffer.CopyFrom(databuffer);
 
+      for(int c=0; c<buffer.GetSize(); c+=3)
+        {
+          SWAPVAR(buffer.Get()[c], buffer.Get()[c+1])
+        }
+ 
       for(int c=0; c<buffer.GetSize(); c++)
         {
           XBYTE value = (XBYTE) ((float)buffer.Get()[c] * normalizebrightness);  
-          buffer.Get()[c] = RotateByte(value);
+          buffer.Get()[c] = value;            
         }    
-
+     
+      for(int c=0; c<buffer.GetSize(); c++)
+        {
+          buffer.Get()[c] = RotateByte(buffer.Get()[c]);            
+        }    
+        
       RP1SPIWriteArrayBlocking(spi, buffer.Get(), buffer.GetSize());
 
       return true;

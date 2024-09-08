@@ -215,7 +215,7 @@ bool XLINUXIDRPI::DetectBoard(RPI_MODEL& model, int& megabytes, float& revision)
                       if(!line->Compare(__L("c04170") , true))  { model = RPI_MODEL_B_5;              megabytes = 4096;     revision = 1.0f; }
                       if(!line->Compare(__L("d04170") , true))  { model = RPI_MODEL_B_5;              megabytes = 8192;     revision = 1.0f; }                                                                        
                             
-                      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L(" Rpi ID: %d"), model);
+                      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L(" Rpi ID: %d"), model);
    
                       if(model != RPI_MODEL_UNKNOWN)
                         {

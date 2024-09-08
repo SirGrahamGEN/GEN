@@ -176,11 +176,17 @@ bool APPMAIN::Ini(MAINPROC* mainproc, APPBASE_APPLICATIONMODE_TYPE applicationmo
     GEN_XPATHSMANAGER.GetAppExecPath()->Set(mainproc->GetXPathExec()->Get());
     GEN_XPATHSMANAGER.AddPathSection(XPATHSMANAGERSECTIONTYPE_ROOT , (*mainproc->GetXPathExec()));
 	
-	  if(!application->Ini(mainproc->GetExecParams())) return false;
+	  if(!application->Ini(mainproc->GetExecParams())) 
+      {
+        return false;
+      }
 	
   #else
 
-    if(!application->Ini(NULL)) return false;
+    if(!application->Ini(NULL)) 
+      {
+        return false;
+      }
 
   #endif
 

@@ -137,6 +137,10 @@ typedef void*                 POINTER;
 #define SWAPDWORD(data)       data = SwapDWORD(data);
 #define SWAPQWORD(data)       data = SwapQWORD(data);
 
+#define SWAPVAR(a, b)          a = a ^ b; \
+                               b = a ^ b; \
+                               a = a ^ b;  
+
 
 #ifdef APPMODE_API_LIB_ACTIVE
 
