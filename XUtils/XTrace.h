@@ -207,8 +207,9 @@ enum XTRACE_TYPE_STATUS_MSG
 
 #else
 
-  #define XTRACE_SETTARGET(index, type , aim)
-  #define XTRACE_ADDTARGET(type, aim)
+  #define XTRACE_SETTARGET(index, type , aim)                                                             true
+  #define XTRACE_ADDTARGET(type, aim)                                                       
+  #define XTRACE_DEACTIVATEALLTARGETS()                                                                   true
   #define XTRACE_SETSIZELIMIT(sizelimit)
   #define XTRACE_SETAPPLICATIONNAME(name)
   #define XTRACE_SETAPPLICATIONVERSION(version, subversion, subversionerr)
