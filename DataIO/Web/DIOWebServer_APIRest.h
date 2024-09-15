@@ -52,6 +52,7 @@
 
 class DIOWEBSERVER_REQUEST;
 class DIOWEBSERVER_QUERYSTRINGS;
+class DIOWEBSERVER_XEVENT;
 
 
 class DIOWEBSERVER_ENDPOINT
@@ -72,8 +73,8 @@ class DIOWEBSERVER_APIREST
                                       DIOWEBSERVER_APIREST        ();
     virtual                          ~DIOWEBSERVER_APIREST        ();
 
-    virtual bool                      ResolveEndPoint             (DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystring, DIOWEBHEADER_RESULT* result, XSTRING* output);
-
+    virtual bool                      ResolveEndPoint             (DIOWEBSERVER_XEVENT* event);
+    
   private:
 
     void                              Clean                       ();

@@ -95,7 +95,8 @@ class DIOWEBSERVER_XEVENT : public XEVENT
 
     XBUFFER*                            GetReadDataWebSocket              ();
 
-    XSTRING*                            GetOutput                         ();
+    XSTRING*                            GetOutputString                   ();
+    XBUFFER*                            GetOutputBuffer                   ();
 
     bool                                IsRequestAuthenticate             ();
     void                                SetIsRequestAuthenticate          (bool isauthenticate);
@@ -116,7 +117,8 @@ class DIOWEBSERVER_XEVENT : public XEVENT
     int                                 timeout;
     DIOWEBSERVER_QUERYSTRINGS*          querystring;
     XBUFFER                             readdatawebsocket;
-    XSTRING                             output;
+    XSTRING                             outputstring;
+    XBUFFER                             outputbuffer;
     bool                                isrequestauthenticate;
     DIOWEBHEADER_RESULT                 result;
     bool                                status;

@@ -255,16 +255,31 @@ XBUFFER* DIOWEBSERVER_XEVENT::GetReadDataWebSocket()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
-* @brief      GetOutput
+* @fn         XSTRING* DIOWEBSERVER_XEVENT::GetOutputString()
+* @brief      GetOutputString
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOWEBSERVER_XEVENT::GetOutput()
+XSTRING* DIOWEBSERVER_XEVENT::GetOutputString()
 {
-  return &output;
+  return &outputstring;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* DIOWEBSERVER_XEVENT::GetOutputBuffer()
+* @brief      GetOutputBuffer
+* @ingroup    DATAIO
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER* DIOWEBSERVER_XEVENT::GetOutputBuffer()
+{
+  return &outputbuffer;
 }
 
 

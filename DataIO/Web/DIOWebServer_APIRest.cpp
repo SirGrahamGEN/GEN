@@ -39,6 +39,8 @@
 
 #include "DIOWebServer_APIRest.h"
 
+#include "DIOWebServer_XEvent.h"
+
 #include "XMemory_Control.h"
 
 #pragma endregion
@@ -132,20 +134,17 @@ DIOWEBSERVER_APIREST::~DIOWEBSERVER_APIREST()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystring, DIOWEBHEADER_RESULT& result, XSTRING* output)
+* 
+* @fn         bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_XEVENT* event)
 * @brief      ResolveEndPoint
 * @ingroup    DATAIO
-*
-* @param[in]  request :
-* @param[in]  querystring :
-* @param[in]  result :
-* @param[in]  output :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  event : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_REQUEST* request, DIOWEBSERVER_QUERYSTRINGS* querystring, DIOWEBHEADER_RESULT* result, XSTRING* output)
+bool DIOWEBSERVER_APIREST::ResolveEndPoint(DIOWEBSERVER_XEVENT* event)
 {
   return true;
 }

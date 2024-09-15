@@ -623,8 +623,15 @@ bool APPWEBSERVER::ResolveRequest(DIOWEBSERVER* server, DIOWEBSERVER_CONNECTION*
               status = xevent.GetStatus();
               if(status)
                 {
-                  webHTMLpage->Set(xevent.GetOutput()->Get());
-                  status = SendRequest(connection, DIOWEBHEADER_RESULT_OK, (*webHTMLpage), 5);
+                  if(!xevent.GetOutputString()->IsEmpty())
+                    {
+                      webHTMLpage->Set(xevent.GetOutputString()->Get());
+                      status = SendRequest(connection, DIOWEBHEADER_RESULT_OK, (*webHTMLpage), 5);
+                    }
+                   else
+                    {
+                      status = SendRequest(connection, DIOWEBHEADER_RESULT_OK, xevent.GetOutputBuffer(), 5);
+                    } 
                 }
                else
                 {
