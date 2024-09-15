@@ -446,14 +446,14 @@ bool APPEXTENDED_APPLICATIONSTATUS::Serialize()
   Primitive_Add<XSTRING*>(&osversion      , __L("osversion"));
   Primitive_Add<XSTRING*>(&appversion     , __L("appversion"));
 
-  Primitive_Add<int>(memory_total         , __L("memory_total"));
-  Primitive_Add<int>(memory_free          , __L("memory_free"));
-  Primitive_Add<int>(memory_freepercent   , __L("memory_freepercent"));
+  Primitive_Add<int>(memory_total         , __L("memorytotal"));
+  Primitive_Add<int>(memory_free          , __L("memoryfree"));
+  Primitive_Add<int>(memory_freepercent   , __L("memoryfreepercent"));
 
   Primitive_Add<XSTRING*>(&averange       , __L("averange"));
 
-  Primitive_Add<XSTRING*>(&currentdate    , __L("current_date"));
-  Primitive_Add<XSTRING*>(&operatingtime  , __L("operating_time"));
+  Primitive_Add<XSTRING*>(&currentdate    , __L("currentdate"));
+  Primitive_Add<XSTRING*>(&operatingtime  , __L("operatingtime"));
 
   return true;
 }
@@ -473,14 +473,14 @@ bool APPEXTENDED_APPLICATIONSTATUS::Deserialize()
   Primitive_Extract<XSTRING&>(osversion       , __L("osversion"));  
   Primitive_Extract<XSTRING&>(appversion      , __L("appversion"));
 
-  Primitive_Extract<int>(memory_total         , __L("memory_total"));
-  Primitive_Extract<int>(memory_free          , __L("memory_free"));
-  Primitive_Extract<int>(memory_freepercent   , __L("memory_freepercent"));  
+  Primitive_Extract<int>(memory_total         , __L("memorytotal"));
+  Primitive_Extract<int>(memory_free          , __L("memoryfree"));
+  Primitive_Extract<int>(memory_freepercent   , __L("memoryfreepercent"));  
 
   Primitive_Extract<XSTRING&>(averange        , __L("averange"));
 
-  Primitive_Extract<XSTRING&>(currentdate     , __L("current_date"));
-  Primitive_Extract<XSTRING&>(operatingtime   , __L("operating_time"));
+  Primitive_Extract<XSTRING&>(currentdate     , __L("currentdate"));
+  Primitive_Extract<XSTRING&>(operatingtime   , __L("operatingtime"));
 
   return true;
 }
