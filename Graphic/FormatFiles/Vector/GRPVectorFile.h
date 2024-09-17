@@ -56,10 +56,10 @@ enum GRPVECTORFILERESULT
 };
 
 
-enum VECTORFILETYPE
+enum GRPVECTORFILETYPE
 {
-  VECTORFILETYPE_UNKNOWN                        = 0 ,
-  VECTORFILETYPE_DXF                                ,   
+  GRPVECTORFILETYPE_UNKNOWN                        = 0 ,
+  GRPVECTORFILETYPE_DXF                                ,   
 };
 
 #pragma endregion
@@ -76,14 +76,14 @@ class GRPVECTORFILE : public XSUBJECT
                                       GRPVECTORFILE             ();    
     virtual                          ~GRPVECTORFILE             ();
 
-    static GRPVECTORFILE*             CreateInstance            (XPATH& pathFile);   
-    static GRPVECTORFILE*             CreateInstance            (VECTORFILETYPE type);
+    static GRPVECTORFILE*             CreateInstance            (XPATH& pathfile);   
+    static GRPVECTORFILE*             CreateInstance            (GRPVECTORFILETYPE type);
      
     XPATH*                            GetPathFile               ();
 
-    VECTORFILETYPE                    GetType                   ();
-    void                              SetType                   (VECTORFILETYPE type);
-    static XCHAR*                     GetTypeText               (VECTORFILETYPE type);
+    GRPVECTORFILETYPE                 GetType                   ();
+    void                              SetType                   (GRPVECTORFILETYPE type);
+    static XCHAR*                     GetTypeText               (GRPVECTORFILETYPE type);
 
     
     virtual GRPVECTORFILERESULT       DetectType                ();
@@ -94,20 +94,20 @@ class GRPVECTORFILE : public XSUBJECT
 
   protected:
     
-    bool                              DetectFileFormatText      (XPATH& pathFile);
+    bool                              DetectFileFormatText      (XPATH& pathfile);
     
-    XPATH                             pathFile;
-    VECTORFILETYPE                    type;
+    XPATH                             pathfile;
+    GRPVECTORFILETYPE                 type;
       
   private:
 
-    static bool                       DetectFile                (XPATH& pathFile); 
+    static bool                       DetectFile                (XPATH& pathfile); 
     bool                              IsConversionFile          ();
     void                              SetIsConversionFile       (bool isconversionfile);
     
     void                              Clean                     ();
 
-    bool isconversionfile;
+    bool                              isconversionfile;
 };
 
 

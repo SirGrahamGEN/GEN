@@ -53,8 +53,8 @@ class GRPVECTORFILECONFIG
                       GRPVECTORFILECONFIG     ();
     virtual          ~GRPVECTORFILECONFIG     (); 
 
-    virtual bool      Create_File             (XCHAR* pathFile);
-    virtual bool      Load_File               (XCHAR* pathFile);
+    virtual bool      Create_File             (XCHAR* pathfile);
+    virtual bool      Load_File               (XCHAR* pathfile);
 
   private:
 

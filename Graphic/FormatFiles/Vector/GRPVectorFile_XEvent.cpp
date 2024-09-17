@@ -88,14 +88,14 @@ GRPVECTORFILE_XEVENT::~GRPVECTORFILE_XEVENT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         VECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
+* @fn         GRPVECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
 * @brief      GetType
 * @ingroup    GRAPHIC
 * 
-* @return     VECTORFILETYPE : 
+* @return     GRPVECTORFILETYPE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-VECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
+GRPVECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
 {
   return type;
 }
@@ -103,14 +103,14 @@ VECTORFILETYPE GRPVECTORFILE_XEVENT::GetType()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void GRPVECTORFILE_XEVENT::SetType(VECTORFILETYPE type)
+* @fn         void GRPVECTORFILE_XEVENT::SetType(GRPVECTORFILETYPE type)
 * @brief      SetType
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPVECTORFILE_XEVENT::SetType(VECTORFILETYPE type)
+void GRPVECTORFILE_XEVENT::SetType(GRPVECTORFILETYPE type)
 {
   this->type = type;
 }

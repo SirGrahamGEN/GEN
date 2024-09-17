@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjCircle.cpp
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJCIRCLE
-* @brief      Graphic Vector File DXF Entity ObjCircle class
+* @brief      Graphic Vector File DXF Entity Obj Circle class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -304,9 +304,9 @@ bool GRPVECTORFILEDXFENTITYOBJCIRCLE::ApplyData(GRPVECTORFILEDXFENTITY* entity)
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFENTITYOBJCIRCLE::Clean()
 {
-   radius = 0.0f;
+  radius = 0.0f;
 
-   thickness= 0.0f;
+  thickness= 0.0f;
 }
 
 

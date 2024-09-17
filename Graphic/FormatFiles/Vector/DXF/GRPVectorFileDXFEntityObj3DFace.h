@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObj3DFace.h
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJ3DFACE
-* @brief      Graphic Vector File DXF Entity Obj3DFace class
+* @brief      Graphic Vector File DXF Entity Obj 3DFace class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

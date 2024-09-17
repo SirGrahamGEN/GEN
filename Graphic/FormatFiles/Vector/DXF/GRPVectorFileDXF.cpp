@@ -46,7 +46,7 @@
 #include "XVariant.h"
 
 #include "GRPVectorFile_XEvent.h"
-#include "GRPVectorFileDXFTextBlock.h"
+#include "GRPVECTORFILEDXFTEXTBLOCK.h"
 #include "GRPVectorFileDXFTextSectionBlocks.h"
 #include "GRPVectorFileDXFTextSectionEntities.h"
 #include "GRPVectorFileDXFTextSectionHeader.h"
@@ -109,34 +109,34 @@ GRPVECTORFILERESULT GRPVECTORFILEDXF::DetectType()
 {  
   GRPVECTORFILERESULT result;
 
-  if(pathFile.IsEmpty()) 
+  if(pathfile.IsEmpty()) 
     {   
-      type = VECTORFILETYPE_UNKNOWN;
+      type = GRPVECTORFILETYPE_UNKNOWN;
 
       return GRPVECTORFILERESULT_ERRORNOTFILE;
     }
 
   XSTRING extension;
-  pathFile.GetExt(extension);
+  pathfile.GetExt(extension);
 
   if(extension.IsEmpty())
     {
-      type = VECTORFILETYPE_UNKNOWN;
+      type = GRPVECTORFILETYPE_UNKNOWN;
 
       return GRPVECTORFILERESULT_ERRORNOTFILE;  
     }
 
-  if(!extension.Compare(GRPVECTORFILEDXF_Extension, true))
+  if(!extension.Compare(GRPVECTORFILEDXF_EXTENSION, true))
     {
-      type = VECTORFILETYPE_DXF;  
+      type = GRPVECTORFILETYPE_DXF;  
     }
   
-  if(DetectFileFormatText(pathFile))
+  if(DetectFileFormatText(pathfile))
     {
       XFILETXT* file = new XFILETXT();
       if(file)  
         {
-          if(file->Open(pathFile))
+          if(file->Open(pathfile))
             {
               int nlines = 100;
 
@@ -195,7 +195,7 @@ GRPVECTORFILERESULT GRPVECTORFILEDXF::Load()
       return GRPVECTORFILERESULT_ERRORNOTMEMORY;
     }
 
-  if(file->Open(pathFile))
+  if(file->Open(pathfile))
     {
       XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
       if(xtimer)
@@ -375,7 +375,7 @@ GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, X
                                                 
                   GRPVECTORFILE_XEVENT vfEvent(this, GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
-                  vfEvent.SetType(VECTORFILETYPE_DXF);
+                  vfEvent.SetType(GRPVECTORFILETYPE_DXF);
                   vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
                   vfEvent.GetMsg()->Set(message);
 
@@ -387,7 +387,7 @@ GRPVECTORFILEDXFRESULT GRPVECTORFILEDXF::ParserTextSections(XFILETXT* fileTXT, X
               if(sectionType) 
                 { 
                   section->CopyTo(sectionType);
-                  sectionType->SetGRPVECTORFILE(this);
+                  sectionType->SetGrpVectorFile(this);
                   sections.Add(sectionType);
                   
                   delete section;                                         
@@ -620,7 +620,7 @@ bool GRPVECTORFILEDXF::ShowTraceAllSections()
 
                                                                                   for(XDWORD d=0; d<sectionblocks->GetBlocks()->GetSize(); d++)
                                                                                     {
-                                                                                      GRPVECTORFILEDXFTextBlock* block = sectionblocks->GetBlocks()->Get(d);
+                                                                                      GRPVECTORFILEDXFTEXTBLOCK* block = sectionblocks->GetBlocks()->Get(d);
                                                                                       if(block)
                                                                                         {
                                                                                           if(!block->IsEndBlock())

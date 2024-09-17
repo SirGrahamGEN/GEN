@@ -63,8 +63,8 @@ class GRPVECTORFILE_XEVENT : public XEVENT
                         GRPVECTORFILE_XEVENT        (XSUBJECT* subject, XDWORD type = GRPVECTORFILE_XEVENTTYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_VECTORFILE);
     virtual            ~GRPVECTORFILE_XEVENT        ();
 
-    VECTORFILETYPE      GetType                     ();
-    void                SetType                     (VECTORFILETYPE type);
+    GRPVECTORFILETYPE      GetType                     ();
+    void                SetType                     (GRPVECTORFILETYPE type);
 
     XPATH*              GetPath                     ();
 
@@ -74,8 +74,8 @@ class GRPVECTORFILE_XEVENT : public XEVENT
 
     void                Clean                       ();
 
-    XPATH               pathFile;
-    VECTORFILETYPE      type;
+    XPATH               pathfile;
+    GRPVECTORFILETYPE      type;
     XPATH               path;
     XSTRING             message;
 };

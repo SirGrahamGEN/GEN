@@ -1,4 +1,43 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFTextSectionHeader.cpp
+* 
+* @class      GRPVECTORFILEDXFTEXTSECTIONHEADER
+* @brief      Graphic Vector File DXF Entity Text Section Header class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXFTextSectionHeader.h"
 
 #include "XMap.h"
 #include "XVariant.h"
@@ -6,14 +45,16 @@
 #include "GRPVectorFile_XEvent.h"
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVectorFileDXFTextSectionHeader.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar] = //
+
+GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR] = //
 { 
   { __L("$3DDWFPREC")               , 1, { {  40, __L("")  } } ,  __L("Controls the precision of 3D DWF or 3D DWFx publishing. Minimum AutoCAD version: R2007") },
   { __L("$ACADMAINTVER")            , 1, { {  70, __L("")  } } ,  __L("Maintenance version number (should be ignored)") },
@@ -304,93 +345,176 @@ GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable GRPVECTORFILEDXFTEXTSECTIONHEADER::
   { __L("$VIEWSIZE")                , 1, { {  40, __L("")  } } ,  __L("Height of view") }                             
 }; 
 
+
 #pragma endregion
 
 
-
-
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONHEADER::GRPVECTORFILEDXFTEXTSECTIONHEADER()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONHEADER::GRPVECTORFILEDXFTEXTSECTIONHEADER()
 {
-   Clean();
+  Clean();
 
-   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER;
+  type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_HEADER;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONHEADER::~GRPVECTORFILEDXFTEXTSECTIONHEADER()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONHEADER::~GRPVECTORFILEDXFTEXTSECTIONHEADER()
 {
-   DeleteAllVariables();
+  DeleteAllVariables();
 
-   Clean();
+  Clean();
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::IsKnownVariable(XSTRING& namevar)
+* @brief      IsKnownVariable
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONHEADER::IsKnownVariable(XSTRING& namevar)
 {  
-   for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
+  for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
       if(variable)
-      {
-         if(!namevar.Compare(variable->name, true)) 
-         {
-            return true;
-         }    
-      }
-   }
+        {
+          if(!namevar.Compare(variable->name, true)) 
+            {
+              return true;
+            }    
+        }
+    }
   
-   return false;
+  return false;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable (XCHAR* namevar, XVARIANT* variant)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable(XCHAR* namevar, XVARIANT* variant)
+* @brief      AddVariable
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* @param[in]  variant : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::AddVariable(XCHAR* namevar, XVARIANT* variant)
 { 
-   XSTRING* namevarStr = new XSTRING();
-   if(!namevarStr) return false;
+  XSTRING* namevarStr = new XSTRING();
+  if(!namevarStr) 
+    {
+      return false;
+    }
 
-   XVARIANT* variantCpy = new XVARIANT();
-   if(!variantCpy) return false;
+  XVARIANT* variantCpy = new XVARIANT();
+  if(!variantCpy) 
+    {
+      return false;
+    }
 
-   namevarStr->Add(namevar);
-   (*variantCpy) = (*variant);
+  namevarStr->Add(namevar);
 
-   variables.Add(namevarStr, variantCpy);
+  (*variantCpy) = (*variant);
 
-   return true;
+  variables.Add(namevarStr, variantCpy);
+
+  return true;
 }
 
 
-XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables()
+* @brief      GetVariables
+* @ingroup    GRAPHIC
+* 
+* @return     XMAP<XSTRING*, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMAP<XSTRING*, XVARIANT*>* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariables()
 {
-   return &variables;
+  return &variables;
 }
 
 
-XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable (XCHAR* namevar)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable(XCHAR* namevar)
+* @brief      GetVariable
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* 
+* @return     XVARIANT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVARIANT* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariable(XCHAR* namevar)
 {
-   if(variables.IsEmpty()) return NULL;
+  if(variables.IsEmpty()) 
+    {
+      return NULL;
+    }
 
-   for(XDWORD c=0; c<variables.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<variables.GetSize(); c++)
+    {
       XSTRING* key = variables.GetKey(c);
       if(key)
-      {
-         if(key->Find(namevar, false) != XSTRING_NOTFOUND)
-         {
-            return variables.GetElement(c);               
-         }
-      }    
-   }
+        {
+          if(key->Find(namevar, false) != XSTRING_NOTFOUND)
+            {
+              return variables.GetElement(c);               
+            }
+        }    
+    }
   
-   return NULL;
+  return NULL;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
+* @brief      DeleteVariable
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
 {
-   if(variables.IsEmpty()) return false;
+  if(variables.IsEmpty()) 
+    {
+      return false;
+    }
 
    for(XDWORD c=0; c<variables.GetSize(); c++)
    {
@@ -408,75 +532,124 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteVariable(XCHAR* namevar)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteAllVariables(bool withcontens)
+* @brief      DeleteAllVariables
+* @ingroup    GRAPHIC
+* 
+* @param[in]  withcontens : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONHEADER::DeleteAllVariables(bool withcontens)
 {
-   if(variables.IsEmpty()) return false;
+  if(variables.IsEmpty()) 
+    {
+      return false;
+    }
 
-   variables.DeleteKeyContents();
+  variables.DeleteKeyContents();
 
-   if(withcontens) variables.DeleteElementContents();
+  if(withcontens) 
+    {
+      variables.DeleteElementContents();
+    }
 
-   variables.DeleteAll();
+  variables.DeleteAll();
 
-   return false;
+  return false;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XCHAR* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariableRemark(XSTRING& namevar)
+* @brief      GetVariableRemark
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* 
+* @return     XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* GRPVECTORFILEDXFTEXTSECTIONHEADER::GetVariableRemark(XSTRING& namevar)
 {
-   for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
+  for(XDWORD c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE* variable = &GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[c];
       if(variable)
-      {
-         if(namevar.Find(variable->name, true) != XSTRING_NOTFOUND) 
-         {
-            return variable->remark;
-         }    
-      }
-   }
+        {
+          if(namevar.Find(variable->name, true) != XSTRING_NOTFOUND) 
+            {
+              return variable->remark;
+            }    
+        }
+    }
   
   return NULL;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable (XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ...)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable(XFILETXT* file, GRPVECTORFILEDXFTEXTPART* part, XCHAR* namevar, ...)
+* @brief      ParserVariable
+* @ingroup    GRAPHIC
+* 
+* @param[in]  file : 
+* @param[in]  part : 
+* @param[in]  namevar : 
+* @param[in]  ... : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable(XFILETXT* file, GRPVECTORFILEDXFTEXTPART* part, XCHAR* namevar, ...)
 {   
-   if(!part) return false;
-   if(!namevar) return false;
-
-   if(part->name.Compare(namevar, false))
-   {
-     return false;
-   }
-
-   int type;
-   XSTRING  extname;
-   XSTRING* namevarext =  NULL;
-   XVARIANT* variant = NULL;
-  
-   va_list arg;
-
-   va_start(arg, namevar);
-
-   type = (int)va_arg(arg, int);
-   extname = (XCHAR*)va_arg(arg, XCHAR*);
-   namevarext = (XSTRING*)va_arg(arg, XSTRING*);
-   variant = (XVARIANT*)va_arg(arg, XVARIANT*);
+  if(!part) 
+    {
+      return false;
+    }
    
-   va_end(arg);
+  if(!namevar) 
+    {
+      return false;
+    }
 
-   int indexline = 0;
+  if(part->name.Compare(namevar, false))
+    {
+      return false;
+    }
 
-   for(int c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar; c++)
-   {
+  int         type;
+  XSTRING     extname;
+  XSTRING*    namevarext  = NULL;
+  XVARIANT*   variant     = NULL;
+  
+  va_list arg;
+
+  va_start(arg, namevar);
+
+  type        = (int)va_arg(arg, int);
+  extname     = (XCHAR*)va_arg(arg, XCHAR*);
+  namevarext  = (XSTRING*)va_arg(arg, XSTRING*);
+  variant     = (XVARIANT*)va_arg(arg, XVARIANT*);
+   
+  va_end(arg);
+
+  int indexline = 0;
+
+  for(int c=0; c<GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR; c++)
+    {
       XSTRING* line = file->GetLine(part->iniline + indexline);
       GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
       indexline++;
 
       if(type == line->ConvertToInt())
-      {
+        {
           line = file->GetLine(part->iniline + indexline);
           GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);  
 
@@ -485,166 +658,194 @@ bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserVariable (XFILETXT* file, GRPVECTO
           namevarext->Format(__L("%s_%d"), part->name.Get(), type);
 
           if(!extname.IsEmpty())
-          {
-             namevarext->AddFormat(__L("_%s"), extname.Get());          
-          }
+            {
+              namevarext->AddFormat(__L("_%s"), extname.Get());          
+            }
 
           GetVariableFromLine(namevar, type, line, (*variant));         
 
           break;
-      }
-   }
+        }
+    }
 
   return true;
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection (XFILETXT* fileTXT)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection(XFILETXT* fileTXT)
+* @brief      ParserTextSection
+* @ingroup    GRAPHIC
+* 
+* @param[in]  fileTXT : 
+* 
+* @return     GRPVECTORFILERESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONHEADER::ParserTextSection(XFILETXT* fileTXT)
 {
-   XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
-   GRPVECTORFILEDXFTextPart* part = NULL;  
-   int c = iniline;
+  XVECTOR<GRPVECTORFILEDXFTEXTPART*> parts;
+  GRPVECTORFILEDXFTEXTPART*          part  = NULL;  
+  int                                c     = iniline;
 
-   do{   if(!part)
-         {
-            part = new GRPVECTORFILEDXFTextPart ();
-         }
+  do{ if(!part)
+        {
+          part = new GRPVECTORFILEDXFTEXTPART ();
+        }
 
-         XSTRING* line = fileTXT->GetLine(c);
-         if(!line) 
-         {  
-            c++;
-            continue;
-         }
+      XSTRING* line = fileTXT->GetLine(c);
+      if(!line) 
+        {  
+          c++;
+          continue;
+        }
 
-         GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+      GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-         if(line && !line->Compare(__L("9"),true))
-         {
-            c++;
-            line = fileTXT->GetLine(c);
-            GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+      if(line && !line->Compare(__L("9"),true))
+        {
+          c++;
+          line = fileTXT->GetLine(c);
+          GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-            if(line->Get()[0]== __C('$'))
+          if(line->Get()[0]== __C('$'))
             {
-               part->iniline = c+1;
-               part->name = line->Get();
+              part->iniline = c+1;
+              part->name = line->Get();
 
-               if(parts.GetSize())
-               {
-                  GRPVECTORFILEDXFTextPart* partbefore = parts.Get(parts.GetSize()-1);
+              if(parts.GetSize())
+                {
+                  GRPVECTORFILEDXFTEXTPART* partbefore = parts.Get(parts.GetSize()-1);
                   partbefore->endline = c-2;
-               }
+                }
 
-               parts.Add(part); 
-               part = NULL;
+              parts.Add(part); 
+              part = NULL;
 
-               c++;
+              c++;
             } 
 
-         } else c++;
+        } else c++;
 
-     } while(c < endline);
+    } while(c < endline);
 
-   if(parts.GetSize())
-   {
-      GRPVECTORFILEDXFTextPart* partbefore = parts.Get(parts.GetSize()-1);
+  if(parts.GetSize())
+    {
+      GRPVECTORFILEDXFTEXTPART* partbefore = parts.Get(parts.GetSize()-1);
       partbefore->endline = c-1;
-   }
+    }
 
-   if(part && part->iniline == -1)
-   {
+  if(part && part->iniline == -1)
+    {
       delete part;
       part = NULL;    
-   }
+    }
 
-   for(c=0; c<parts.GetSize(); c++)
-   {     
+  for(c=0; c<parts.GetSize(); c++)
+    {     
       part = parts.Get(c);
       if(part)
-      {
-         if(!IsKnownVariable(part->name))
-         {            
-            XSTRING message;
+        {
+          if(!IsKnownVariable(part->name))
+            {            
+              XSTRING message;
 
-            message.Format(__L("Header Variable Unknown [%s]"), part->name.Get());
+              message.Format(__L("Header Variable Unknown [%s]"), part->name.Get());
                                
-            GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
+              GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
-            vfEvent.SetType(VECTORFILETYPE_DXF);
-            vfEvent.GetPath()->Set(__L(""));
-            vfEvent.GetMsg()->Set(message);
+              vfevent.SetType(GRPVECTORFILETYPE_DXF);
+              vfevent.GetPath()->Set(__L(""));
+              vfevent.GetMsg()->Set(message);
 
-            PostEvent(&vfEvent, GetGRPVECTORFILE());          
-         }
-         else
-         {
-            XSTRING  namevar[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
-            XVARIANT variant[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
-       
-            for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar; d++)
-            { 
-               for(int e=0; e<GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].nvalues; e++)
-               {
-                  if(GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype)
-                  {                     
-                     ParserVariable (fileTXT, part , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].name
-                                                   , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype
-                                                   , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuename
-                                                   , &namevar[e]
-                                                   , &variant[e]);
-                  }
-               }                                           
+              PostEvent(&vfevent, GetGrpVectorFile());          
             }
-         
-            for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar; d++)
+           else
             {
-               if((!namevar[d].IsEmpty()) && (variant->GetType() != XVARIANT_TYPE_NULL))
-               {
-                  AddVariable(namevar[d].Get(), &variant[d]);                                                  
-               }         
+              XSTRING  namevar[GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR];
+              XVARIANT variant[GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR];
+       
+              for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR; d++)
+                { 
+                  for(int e=0; e<GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].nvalues; e++)
+                    {
+                      if(GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype)
+                        {                     
+                          ParserVariable (fileTXT, part , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].name
+                                                        , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuetype
+                                                        , GRPVECTORFILEDXFTEXTSECTIONHEADER::defvariable[d].value[e].valuename
+                                                        , &namevar[e]
+                                                        , &variant[e]);
+                        }
+                    }                                           
+                }
+         
+              for(int d=0; d<GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR; d++)
+                {
+                  if((!namevar[d].IsEmpty()) && (variant->GetType() != XVARIANT_TYPE_NULL))
+                    {
+                      AddVariable(namevar[d].Get(), &variant[d]);                                                  
+                    }         
+                }
             }
-         }
-      }  
-   }
+        }  
+    }
 
-   parts.DeleteContents();
-   parts.DeleteAll();
+  parts.DeleteContents();
+  parts.DeleteAll();
 
-   //config.SetHeader(&header);
+  //config.SetHeader(&header);
 
-   #ifdef XTRACE_ACTIVE
-   //ShowTraceAllVariables();
-   #endif
+  #ifdef XTRACE_ACTIVE
+  //ShowTraceAllVariables();
+  #endif
 
-   return GRPVECTORFILERESULT_OK;
+  return GRPVECTORFILERESULT_OK;
 }
 
 
 #ifdef XTRACE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ShowTraceAllVariables()
+* @brief      ShowTraceAllVariables
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONHEADER::ShowTraceAllVariables()
 {
-   for(XDWORD c=0; c<variables.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<variables.GetSize(); c++)
+    {
       XSTRING* key = variables.GetKey(c);
       if(key)
-      {
-         XVARIANT* value = variables.GetElement(c);
-         if(value)
-         {
-            XSTRING string;
+        {
+          XVARIANT* value = variables.GetElement(c);
+          if(value)
+            {
+              XSTRING string;
 
-            value->ToString(string);
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONHEADER] (%3d) var [%s] %s"), c, key->Get(), string.Get());
-         }
-      }    
-   }
+              value->ToString(string);
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONHEADER] (%3d) var [%s] %s"), c, key->Get(), string.Get());
+            }
+        }    
+    }
 
-   return true;
+  return true;
 }
 #endif
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFTEXTSECTIONHEADER::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFTEXTSECTIONHEADER::Clean()
 {
   

@@ -1,7 +1,35 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFTextSectionBlocks.h
+* 
+* @class      GRPVECTORFILEDXFTEXTSECTIONBLOCKS
+* @brief      Graphic Vector File DXF Text Section Blocks class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_h_
-#define _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_H_
+#define _GRPVECTORFILEDXFTEXTSECTIONBLOCKS_H_
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "XMap.h"
@@ -13,74 +41,79 @@
 #pragma endregion
 
 
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define GRPVECTORFILEDXFBlocks_MaxNDefBlocks 2
-#define GRPVECTORFILEDXFBlocks_MaxNDefTypes  35
+#define GRPVECTORFILEDXFBLOCKS_MAXNDEFBLOCKS    2
+#define GRPVECTORFILEDXFBLOCKS_MAXNDEFTYPES     35
 
 #undef TEST_ONLY_DEFINE_IN_BLOCKS
 
 #pragma endregion
 
 
-#pragma region CLASSES
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
-class GRPVECTORFILEDXFTextBlock;
 
-typedef struct
-{
-   int type;
-   XCHAR* name;   
-   XCHAR* remark;   
-
-} GRPVECTORFILEDXFTEXTSECTIONBlockDefType;
-
+class GRPVECTORFILEDXFTEXTBLOCK;
 
 typedef struct
 {
-   XCHAR* name;
-   int ntypes;
-   bool isendblock;
-   GRPVECTORFILEDXFTEXTSECTIONBlockDefType type[GRPVECTORFILEDXFBlocks_MaxNDefTypes];
+  int                                             type;
+  XCHAR*                                          name;   
+  XCHAR*                                          remark;   
 
-} GRPVECTORFILEDXFTEXTSECTIONBlockDef;
+} GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE;
 
+
+typedef struct
+{
+   XCHAR*                                         name;
+   int                                            ntypes;
+   bool                                           isendblock;
+   GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE        type[GRPVECTORFILEDXFBLOCKS_MAXNDEFTYPES];
+
+} GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF;
 
 
 class GRPVECTORFILEDXFTEXTSECTIONBLOCKS : public GRPVECTORFILEDXFTEXTSECTION
 {
   public:
 
-    GRPVECTORFILEDXFTEXTSECTIONBLOCKS ();
-    virtual ~GRPVECTORFILEDXFTEXTSECTIONBLOCKS ();
+                                                  GRPVECTORFILEDXFTEXTSECTIONBLOCKS               ();
+    virtual                                      ~GRPVECTORFILEDXFTEXTSECTIONBLOCKS               ();
     
-    GRPVECTORFILEDXFTEXTSECTIONBlockDef* IsKnownBlock(XSTRING& name);
-    GRPVECTORFILEDXFTEXTSECTIONBlockDefType*  IsKnownTypeValue(XSTRING& namevar, int type);
+    GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF*          IsKnownBlock                                    (XSTRING& name);
+    GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE*      IsKnownTypeValue                                (XSTRING& namevar, int type);
 
-    bool AddBlock (GRPVECTORFILEDXFTextBlock* entity);
-    XVECTOR<GRPVECTORFILEDXFTextBlock*>* GetBlocks ();
-    GRPVECTORFILEDXFTextBlock* GetBlock (XCHAR* nameBlock, XDWORD index);
-    bool DeleteBlock(XCHAR* nameBlock, XDWORD index);
-    bool DeleteAllBlocks(XCHAR* nameBlock);
-    bool DeleteAllBlocks();
+    bool                                          AddBlock                                        (GRPVECTORFILEDXFTEXTBLOCK* entity);
+    XVECTOR<GRPVECTORFILEDXFTEXTBLOCK*>*          GetBlocks                                       ();
+    GRPVECTORFILEDXFTEXTBLOCK*                    GetBlock                                        (XCHAR* nameblock, XDWORD index);
+    bool                                          DeleteBlock                                     (XCHAR* nameblock, XDWORD index);
+    bool                                          DeleteAllBlocks                                 (XCHAR* nameblock);
+    bool                                          DeleteAllBlocks                                 ();
 
-    GRPVECTORFILERESULT ParserTextSection(XFILETXT* file);
+    GRPVECTORFILERESULT                           ParserTextSection                               (XFILETXT* file);
 
   private:
         
-    bool ShowTraceAllBlocks ();
-    void Clean ();    
+    bool                                          ShowTraceAllBlocks                              ();
+    void                                          Clean                                           ();    
 
-    static GRPVECTORFILEDXFTEXTSECTIONBlockDef defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks];
-    XVECTOR<GRPVECTORFILEDXFTextBlock*> blocks;
+    static GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF    defBlock[GRPVECTORFILEDXFBLOCKS_MAXNDEFBLOCKS];
+    XVECTOR<GRPVECTORFILEDXFTEXTBLOCK*>           blocks;
 };
 
 #pragma endregion
 
 
-#pragma region EXTERN_INLINE_FUNCTIONS
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
 #pragma endregion
 
-#endif
 
+#endif
 

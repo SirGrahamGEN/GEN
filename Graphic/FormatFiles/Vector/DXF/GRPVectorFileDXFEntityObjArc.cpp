@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjArc.cpp
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJARC
-* @brief      Graphic Vector File DXF Entity ObjArc class
+* @brief      Graphic Vector File DXF Entity Obj Arc class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

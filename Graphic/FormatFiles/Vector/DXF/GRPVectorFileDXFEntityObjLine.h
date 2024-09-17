@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjLine.h
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJLINE
-* @brief      Graphic Vector File DXF Entity ObjLine class
+* @brief      Graphic Vector File DXF Entity Obj Line class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

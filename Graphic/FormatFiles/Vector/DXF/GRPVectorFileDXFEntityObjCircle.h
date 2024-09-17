@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjCircle.h
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJCIRCLE
-* @brief      Graphic Vector File DXF Entity ObjCircle class
+* @brief      Graphic Vector File DXF Entity Obj Circle class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

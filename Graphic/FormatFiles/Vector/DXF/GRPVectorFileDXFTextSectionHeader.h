@@ -1,7 +1,35 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFTextSectionHeader.h
+* 
+* @class      GRPVECTORFILEDXFTEXTSECTIONHEADER
+* @brief      Graphic Vector File DXF Entity Text Section Header class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPVECTORFILEDXFTEXTSECTIONHEADER_h_
-#define _GRPVECTORFILEDXFTEXTSECTIONHEADER_h_
+#ifndef _GRPVECTORFILEDXFTEXTSECTIONHEADER_H_
+#define _GRPVECTORFILEDXFTEXTSECTIONHEADER_H_
 
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "XMap.h"
@@ -15,70 +43,80 @@
 #pragma endregion
 
 
+/*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar  283
-#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar     3
+#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR    283
+#define GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR       3
 
 #pragma endregion
 
 
-#pragma region CLASSES
-
-typedef struct
-{
-   int valuetype;
-   XCHAR* valuename;   
-
-} GRPVECTORFILEDXFTEXTSECTIONHEADERDefValue;
+/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+#pragma region CLASS
 
 
 typedef struct
 {
-   XCHAR* name;
-   int nvalues;
-   GRPVECTORFILEDXFTEXTSECTIONHEADERDefValue value[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNVar];
-   XCHAR* remark;
+  int                                                       valuetype;
+  XCHAR*                                                    valuename;   
 
-} GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable;
+} GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVALUE;
+
+
+typedef struct
+{
+  XCHAR*                                                    name;
+  int                                                       nvalues;
+  GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVALUE                 value[GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNVAR];
+  XCHAR*                                                    remark;
+
+} GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE;
 
 
 class GRPVECTORFILEDXFTEXTSECTIONHEADER : public GRPVECTORFILEDXFTEXTSECTION
 {
   public:
-
-    GRPVECTORFILEDXFTEXTSECTIONHEADER ();
-    virtual ~GRPVECTORFILEDXFTEXTSECTIONHEADER ();
+                                                            GRPVECTORFILEDXFTEXTSECTIONHEADER         ();
+    virtual                                                ~GRPVECTORFILEDXFTEXTSECTIONHEADER         ();
     
-    bool IsKnownVariable( XSTRING& namevar);
-    bool AddVariable(XCHAR* namevar, XVARIANT* variant);
-    XMAP<XSTRING*, XVARIANT*>* GetVariables ();
-    XVARIANT* GetVariable(XCHAR* namevar);
-    bool DeleteVariable(XCHAR* namevar);
-    bool DeleteAllVariables(bool withcontents = true);
-    XCHAR* GetVariableRemark( XSTRING& namevar);
+    bool                                                    IsKnownVariable                           (XSTRING& namevar);
+    bool                                                    AddVariable                               (XCHAR* namevar, XVARIANT* variant);
+    XMAP<XSTRING*, XVARIANT*>*                              GetVariables                              ();
+    XVARIANT*                                               GetVariable                               (XCHAR* namevar);
+    bool                                                    DeleteVariable                            (XCHAR* namevar);
+    bool                                                    DeleteAllVariables                        (bool withcontents = true);
+    XCHAR*                                                  GetVariableRemark                         (XSTRING& namevar);
 
-    bool ParserVariable(XFILETXT* file, GRPVECTORFILEDXFTextPart* part, XCHAR* namevar, ...);
-    GRPVECTORFILERESULT ParserTextSection(XFILETXT* fileTXT);
+    bool                                                    ParserVariable                            (XFILETXT* file, GRPVECTORFILEDXFTEXTPART* part, XCHAR* namevar, ...);
+    GRPVECTORFILERESULT                                     ParserTextSection                         (XFILETXT* fileTXT);
    
     #ifdef XTRACE_ACTIVE
-    bool ShowTraceAllVariables ();
+    bool                                                    ShowTraceAllVariables                     ();
     #endif
 
-    static GRPVECTORFILEDXFTEXTSECTIONHEADERDefVariable defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MaxNDefVar];
+    static GRPVECTORFILEDXFTEXTSECTIONHEADERDEFVARIABLE     defvariable[GRPVECTORFILEDXFTEXTSECTIONHEADER_MAXNDEFVAR];
 
   private:
     
-    void Clean ();
+    void                                                    Clean                                     ();
 
-    XMAP<XSTRING*, XVARIANT*> variables;
+    XMAP<XSTRING*, XVARIANT*>                               variables;
 };
 
+
 #pragma endregion
 
 
-#pragma region EXTERN_INLINE_FUNCTIONS
+/*---- INLINE FUNCTIONS + PROTOTYPES ---------------------------------------------------------------------------------*/
+#pragma region FUNCTIONS_PROTOTYPES
+
+
 #pragma endregion
+
 
 #endif
+
+
+
 

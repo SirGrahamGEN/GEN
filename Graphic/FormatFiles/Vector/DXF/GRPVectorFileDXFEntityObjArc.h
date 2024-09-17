@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjArc.h
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJARC
-* @brief      Graphic Vector File DXF Entity ObjArc class
+* @brief      Graphic Vector File DXF Entity Obj Arc class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -91,7 +91,7 @@ class GRPVECTORFILEDXFENTITYOBJARC : public GRPVECTORFILEDXFENTITYOBJ
 
     double                                thickness;                        // Thickness (default=0.0).          
 
-    GRPVECTORFILEDXFENTITYDEFPOINT        dirextrusion ;                    // Extrusion direction.
+    GRPVECTORFILEDXFENTITYDEFPOINT        dirextrusion;                     // Extrusion direction.
 };
 
 

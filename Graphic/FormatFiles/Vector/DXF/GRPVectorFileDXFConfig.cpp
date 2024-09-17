@@ -128,17 +128,17 @@ bool GRPVECTORFILEDXFCONFIG::SetHeader(GRPVECTORFILEDXFTEXTSECTIONHEADER* header
   
   for(XDWORD c=0; c<header->GetVariables()->GetSize(); c++)
     {   
-      XSTRING* namekey = header->GetVariables()->GetKey(c);
+      XSTRING*  namekey = header->GetVariables()->GetKey(c);
       XVARIANT* variant = header->GetVariables()->GetElement(c);
      
       if(namekey && variant)
         {
           switch(variant->GetType())
             {         
-              case XVARIANT_TYPE_BOOLEAN        : fileCFG->AddValue(XFILECFG_VALUETYPE_BOOLEAN, VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (bool*)(variant->GetData()));      break;  
-              case XVARIANT_TYPE_INTEGER        : fileCFG->AddValue(XFILECFG_VALUETYPE_INT, VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (int*)(variant->GetData()));           break;  
-              case XVARIANT_TYPE_FLOAT          : fileCFG->AddValue(XFILECFG_VALUETYPE_FLOAT, VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (float*)(variant->GetData()));       break;  
-              case XVARIANT_TYPE_STRING         : fileCFG->AddValue(XFILECFG_VALUETYPE_STRING, VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (XSTRING*)(variant->GetData()));    break;
+              case XVARIANT_TYPE_BOOLEAN        : fileCFG->AddValue(XFILECFG_VALUETYPE_BOOLEAN  , VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (bool*)(variant->GetData()));      break;  
+              case XVARIANT_TYPE_INTEGER        : fileCFG->AddValue(XFILECFG_VALUETYPE_INT      , VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (int*)(variant->GetData()));       break;  
+              case XVARIANT_TYPE_FLOAT          : fileCFG->AddValue(XFILECFG_VALUETYPE_FLOAT    , VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (float*)(variant->GetData()));     break;  
+              case XVARIANT_TYPE_STRING         : fileCFG->AddValue(XFILECFG_VALUETYPE_STRING   , VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), (XSTRING*)(variant->GetData()));   break;
   
               case XVARIANT_TYPE_NULL           :
               case XVARIANT_TYPE_DOUBLEINTEGER  :            
@@ -152,9 +152,7 @@ bool GRPVECTORFILEDXFCONFIG::SetHeader(GRPVECTORFILEDXFTEXTSECTIONHEADER* header
                                                   break;
             }         
   
-          XCHAR* remark = NULL;
-          remark = header->GetVariableRemark((*namekey));
-  
+          XCHAR* remark = header->GetVariableRemark((*namekey)); 
           if(remark) 
             {
               fileCFG->AddRemark(VECTORFILEDXFCONFIG_SECTION_DFX_CFG, namekey->Get(), remark, 64, 0);
@@ -169,22 +167,25 @@ bool GRPVECTORFILEDXFCONFIG::SetHeader(GRPVECTORFILEDXFTEXTSECTIONHEADER* header
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathFile)
+* @fn         bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathfile)
 * @brief      Create_File
 * @ingroup    GRAPHIC
 * 
-* @param[in]  pathFile : 
+* @param[in]  pathfile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathFile)
+bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathfile)
 {
-  if(!fileCFG) return false;
+  if(!fileCFG) 
+    {
+      return false;
+    }
 
   XPATH path;
    
-  path = pathFile;
+  path = pathfile;
 
   return fileCFG->Save(path);
 }
@@ -192,16 +193,16 @@ bool GRPVECTORFILEDXFCONFIG::Create_File(XCHAR* pathFile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathFile)
+* @fn         bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathfile)
 * @brief      Load_File
 * @ingroup    GRAPHIC
 * 
-* @param[in]  pathFile : 
+* @param[in]  pathfile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathFile)
+bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathfile)
 {
   if(!fileCFG) 
     {
@@ -216,7 +217,7 @@ bool GRPVECTORFILEDXFCONFIG::Load_File(XCHAR* pathFile)
   XPATH path;
   bool  status = false;
   
-  path = pathFile;
+  path = pathfile;
   
   header->DeleteAllVariables();
   
@@ -277,7 +278,7 @@ void GRPVECTORFILEDXFCONFIG::Clean()
 {
   header    = NULL;
 
-  pathFile.Empty();
+  pathfile.Empty();
 
   fileCFG   = NULL;
 }

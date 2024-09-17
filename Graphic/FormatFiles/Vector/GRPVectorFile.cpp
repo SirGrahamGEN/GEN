@@ -44,7 +44,7 @@
 #include "XFactory.h"
 #include "XFileTXT.h"
 
-#ifdef VECTORFILEDXF_ACTIVE
+#ifdef GRP_VECTOR_FILE_DXF_ACTIVE
 #include "GRPVectorFileDXF.h"
 #endif
 
@@ -99,9 +99,9 @@ GRPVECTORFILE::~GRPVECTORFILE()
   
     }
   
-   DeRegisterEvent(GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
+  DeRegisterEvent(GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
   
-   Clean();
+  Clean();
 }
 
 
@@ -116,20 +116,20 @@ GRPVECTORFILE::~GRPVECTORFILE()
 * --------------------------------------------------------------------------------------------------------------------*/
 XPATH* GRPVECTORFILE::GetPathFile()
 {
-  return &pathFile;
+  return &pathfile;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         VECTORFILETYPE GRPVECTORFILE::GetType()
+* @fn         GRPVECTORFILETYPE GRPVECTORFILE::GetType()
 * @brief      GetType
 * @ingroup    GRAPHIC
 * 
-* @return     VECTORFILETYPE : 
+* @return     GRPVECTORFILETYPE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-VECTORFILETYPE GRPVECTORFILE::GetType()
+GRPVECTORFILETYPE GRPVECTORFILE::GetType()
 {
   return type;
 }
@@ -137,14 +137,14 @@ VECTORFILETYPE GRPVECTORFILE::GetType()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void GRPVECTORFILE::SetType(VECTORFILETYPE type)
+* @fn         void GRPVECTORFILE::SetType(GRPVECTORFILETYPE type)
 * @brief      SetType
 * @ingroup    GRAPHIC
 * 
 * @param[in]  type : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPVECTORFILE::SetType(VECTORFILETYPE type)
+void GRPVECTORFILE::SetType(GRPVECTORFILETYPE type)
 {
   this->type = type;
 }
@@ -152,38 +152,42 @@ void GRPVECTORFILE::SetType(VECTORFILETYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathFile)
+* @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathfile)
 * @brief      CreateInstance
 * @ingroup    GRAPHIC
 * 
-* @param[in]  pathFile : 
+* @param[in]  pathfile : 
 * 
 * @return     GRPVECTORFILE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathFile)
+GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathfile)
 {
-  if(!GRPVECTORFILE::DetectFile(pathFile)) 
+  if(!GRPVECTORFILE::DetectFile(pathfile)) 
     {
       return NULL;
     }
 
-  GRPVECTORFILE* vectorFile = NULL;
-  VECTORFILETYPE list[]     = { VECTORFILETYPE_DXF                                 
-                              };
+  GRPVECTORFILE*    vectorFile = NULL;
+  GRPVECTORFILETYPE list[]     = { GRPVECTORFILETYPE_DXF                                 
+                                 };
 
-  for(int c=0; c < (sizeof(list)/sizeof(VECTORFILETYPE)); c++)
+  for(int c=0; c < (sizeof(list)/sizeof(GRPVECTORFILETYPE)); c++)
     {    
       vectorFile = GRPVECTORFILE::CreateInstance(list[c]);
       if(vectorFile) 
         {
-          vectorFile->GetPathFile()->Set(pathFile);
+          vectorFile->GetPathFile()->Set(pathfile);
 
           if(vectorFile->DetectType() == GRPVECTORFILERESULT_OK) 
             {              
               return vectorFile;
 
-            } else delete vectorFile;
+            } 
+           else 
+            {
+              delete vectorFile;
+            }
         }   
     }
 
@@ -193,7 +197,7 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathFile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(VECTORFILETYPE type)
+* @fn         GRPVECTORFILE* GRPVECTORFILE::CreateInstance(GRPVECTORFILETYPE type)
 * @brief      CreateInstance
 * @ingroup    GRAPHIC
 * 
@@ -202,18 +206,18 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(XPATH& pathFile)
 * @return     GRPVECTORFILE* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPVECTORFILE* GRPVECTORFILE::CreateInstance(VECTORFILETYPE type)
+GRPVECTORFILE* GRPVECTORFILE::CreateInstance(GRPVECTORFILETYPE type)
 {
   GRPVECTORFILE* vectorFile = NULL;
 
   switch(type)
     {
-      case VECTORFILETYPE_UNKNOWN : 
-                        default   : break;
+      case GRPVECTORFILETYPE_UNKNOWN  : 
+                            default   : break;
 
-      #ifdef VECTORFILEDXF_ACTIVE
-      case VECTORFILETYPE_DXF     : vectorFile = new GRPVECTORFILEDXF();
-                                    break; 
+      #ifdef GRP_VECTOR_FILE_DXF_ACTIVE
+      case GRPVECTORFILETYPE_DXF      : vectorFile = new GRPVECTORFILEDXF();
+                                        break; 
       #endif      
    }
 
@@ -228,7 +232,7 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(VECTORFILETYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XCHAR* GRPVECTORFILE::GetTypeText(VECTORFILETYPE type)
+* @fn         XCHAR* GRPVECTORFILE::GetTypeText(GRPVECTORFILETYPE type)
 * @brief      GetTypeText
 * @ingroup    GRAPHIC
 * 
@@ -237,19 +241,19 @@ GRPVECTORFILE* GRPVECTORFILE::CreateInstance(VECTORFILETYPE type)
 * @return     XCHAR* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* GRPVECTORFILE::GetTypeText(VECTORFILETYPE type)
+XCHAR* GRPVECTORFILE::GetTypeText(GRPVECTORFILETYPE type)
 {
   XCHAR* typeTXT = NULL;
 
   switch(type)
     {
-      case VECTORFILETYPE_UNKNOWN : 
-                        default   : typeTXT = __L("Unknown");
-                                    break;
+      case GRPVECTORFILETYPE_UNKNOWN : 
+                           default   :  typeTXT = __L("Unknown");
+                                        break;
 
-      #ifdef VECTORFILEDXF_ACTIVE
-      case VECTORFILETYPE_DXF     : typeTXT = __L("DXF");
-                                    break; 
+      #ifdef GRP_VECTOR_FILE_DXF_ACTIVE
+      case GRPVECTORFILETYPE_DXF     :  typeTXT = __L("DXF");
+                                        break; 
       #endif     
     }
 
@@ -268,22 +272,22 @@ XCHAR* GRPVECTORFILE::GetTypeText(VECTORFILETYPE type)
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILERESULT GRPVECTORFILE::DetectType()
 {  
-  if(pathFile.IsEmpty()) 
+  if(pathfile.IsEmpty()) 
     {
-      type = VECTORFILETYPE_UNKNOWN;
+      type = GRPVECTORFILETYPE_UNKNOWN;
       return GRPVECTORFILERESULT_ERRORNOTFILE;
     }
 
-   XSTRING extension;
-   pathFile.GetExt(extension);
+  XSTRING extension;
+  pathfile.GetExt(extension);
 
-   if(extension.IsEmpty())
-   {
-      type = VECTORFILETYPE_UNKNOWN;
+  if(extension.IsEmpty())
+    {
+      type = GRPVECTORFILETYPE_UNKNOWN;
       return  GRPVECTORFILERESULT_ERRORNOTFILE;  
-   }
+    }
 
-   return (type != VECTORFILETYPE_UNKNOWN)?GRPVECTORFILERESULT_OK:GRPVECTORFILERESULT_ERRORNOTFILE;
+  return (type != GRPVECTORFILETYPE_UNKNOWN)?GRPVECTORFILERESULT_OK:GRPVECTORFILERESULT_ERRORNOTFILE;
 }
 
 
@@ -319,24 +323,24 @@ GRPVECTORFILECONFIG* GRPVECTORFILE::GetConfig()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathFile)
+* @fn         bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathfile)
 * @brief      DetectFileFormatText
 * @ingroup    GRAPHIC
 * 
-* @param[in]  pathFile : 
+* @param[in]  pathfile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathFile)
+bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathfile)
 {  
-  XFILETXTFORMATCHAR formatchar =  XFILETXTFORMATCHAR_UNKNOWN;
-  bool isText = false;
+  XFILETXTFORMATCHAR  formatchar  =  XFILETXTFORMATCHAR_UNKNOWN;
+  bool                isText      = false;
   
   XFILETXT* fileTXT = new XFILETXT();
   if(fileTXT)  
     {
-      if(fileTXT->Open(pathFile))
+      if(fileTXT->Open(pathfile))
         {
           formatchar = fileTXT->GetFormatCharFromFile();
   
@@ -351,7 +355,7 @@ bool GRPVECTORFILE::DetectFileFormatText(XPATH& pathFile)
   XFILE* file = GEN_XFACTORY.Create_File();
   if(file)  
     {
-      if(file->Open(pathFile))
+      if(file->Open(pathfile))
         {
           #define MAX_BUFFER_TEST 1024*5 
   
@@ -419,16 +423,16 @@ void GRPVECTORFILE::SetIsConversionFile(bool isconversionfile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILE::DetectFile(XPATH& pathFile)
+* @fn         bool GRPVECTORFILE::DetectFile(XPATH& pathfile)
 * @brief      DetectFile
 * @ingroup    GRAPHIC
 * 
-* @param[in]  pathFile : 
+* @param[in]  pathfile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILE::DetectFile(XPATH& pathFile)
+bool GRPVECTORFILE::DetectFile(XPATH& pathfile)
 {   
   XFILE* file = GEN_XFACTORY.Create_File();
   if(!file) 
@@ -436,7 +440,7 @@ bool GRPVECTORFILE::DetectFile(XPATH& pathFile)
       return false;
     }
   
-  bool result = file->Exist(pathFile);  
+  bool result = file->Exist(pathfile);  
   
   delete file;
   
@@ -454,8 +458,9 @@ bool GRPVECTORFILE::DetectFile(XPATH& pathFile)
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILE::Clean()
 {
-  pathFile.Empty();
-  type = VECTORFILETYPE_UNKNOWN;
+  pathfile.Empty();
+
+  type             = GRPVECTORFILETYPE_UNKNOWN;
   isconversionfile = false;
 }
 

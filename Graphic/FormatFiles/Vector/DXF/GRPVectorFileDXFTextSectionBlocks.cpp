@@ -1,4 +1,43 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFTextSectionBlocks.cpp
+* 
+* @class      GRPVECTORFILEDXFTEXTSECTIONBLOCKS
+* @brief      Graphic Vector File DXF Text Section Blocks class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXFTextSectionBlocks.h"
 
 #include "XMap.h"
 #include "XVariant.h"
@@ -7,19 +46,21 @@
 #include "GRPVectorFileDXF.h"
 #include "GRPVectorFileDXFValue.h"
 #include "GRPVectorFileDXFXDataCtrl.h"
-#include "GRPVectorFileDXFTextBlock.h"
+#include "GRPVECTORFILEDXFTEXTBLOCK.h"
 #include "GRPVectorFileDXFTextSectionEntities.h"
 
-#include "GRPVectorFileDXFTextSectionBlocks.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-GRPVECTORFILEDXFTEXTSECTIONBlockDef GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[GRPVECTORFILEDXFBlocks_MaxNDefBlocks] = 
+
+GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[GRPVECTORFILEDXFBLOCKS_MAXNDEFBLOCKS] = 
 {    
-   { __L("BLOCK")    , 15 , false,  { {   5 , __L("HANDLE")                     , __L("Handle") },
+  { __L("BLOCK")    , 15 , false,   { {   5 , __L("HANDLE")                     , __L("Handle") },
                                       { 102 , __L("XDATAGROUP1")                , __L("Start of application-defined group '{application_name'. For example, '{ACAD_REACTORS' indicates the start of the AutoCAD persistent reactors group (optional) application-defined codes Codes and values within the 102 groups are application defined (optional)") },
                                       { 102 , __L("XDATAGROUP2")                , __L("End of group, '}' (optional)") },
                                       { 330 , __L("ID-HDL_OWNER_OBJECT")        , __L("Soft-pointer ID/handle to owner object") },
@@ -35,466 +76,618 @@ GRPVECTORFILEDXFTEXTSECTIONBlockDef GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[
                                       {   1 , __L("XREF_PATH_NAME")             , __L("Xref path name") },
                                       {   4 , __L("BLOCK_DESCRIPTION")          , __L("Block description (optional)") } } },
 
-   { __L("ENDBLK")   ,  1 ,  true,  { {   5 , __L("HANDLE")                     , __L("Handle") },
+  { __L("ENDBLK")   ,  1 ,  true,   { {   5 , __L("HANDLE")                     , __L("Handle") },
                                       { 102 , __L("XDATAGROUP")                 , __L("Start of application-defined group '{application_name'. For example, '{ACAD_REACTORS' indicates the start of the AutoCAD persistent reactors group (optional) application-defined codes Codes and values within the 102 groups are application defined (optional)") },
                                       { 102 , __L("END_GROUP")                  , __L("End of group, '}' (optional)") },
                                       { 330 , __L("ID-HDL_OWNER_OBJECT")        , __L("Soft-pointer ID/handle to owner object") },
                                       { 100 , __L("SUBCLASS_ACDBENTITY")        , __L("Subclass marker (AcDbBlock)") },
                                       {   8 , __L("LAYER_NAME")                 , __L("Layer name") },
                                       { 100 , __L("SUBCLASS_ACDBBLOCKEND")      , __L("Subclass marker (AcDbBlockEnd)") } } },   
-   };
+};
+
 
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GRPVECTORFILEDXFTEXTSECTIONBLOCKS()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GRPVECTORFILEDXFTEXTSECTIONBLOCKS()
 {
-   Clean();
+  Clean();
 
-   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS;
+  type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_BLOCKS;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONBLOCKS::~GRPVECTORFILEDXFTEXTSECTIONBLOCKS()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONBLOCKS::~GRPVECTORFILEDXFTEXTSECTIONBLOCKS()
 {
-   DeleteAllBlocks();
+  DeleteAllBlocks();
 
-   Clean();
+  Clean();
 }
 
 
-GRPVECTORFILEDXFTEXTSECTIONBlockDef* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownBlock(XSTRING& name)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownBlock(XSTRING& name)
+* @brief      IsKnownBlock
+* @ingroup    GRAPHIC
+* 
+* @param[in]  name : 
+* 
+* @return     GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownBlock(XSTRING& name)
 {  
-   for(XDWORD c=0; c<GRPVECTORFILEDXFBlocks_MaxNDefBlocks; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONBlockDef* blockDef = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
+  for(XDWORD c=0; c<GRPVECTORFILEDXFBLOCKS_MAXNDEFBLOCKS; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* blockDef = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
       if(blockDef)
-      {
-         if(!name.Compare(blockDef->name, true)) 
-         {
-            return blockDef;
-         }    
-      }
-   }
-  
-   return NULL;
-}
-
-
-GRPVECTORFILEDXFTEXTSECTIONBlockDefType* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownTypeValue(XSTRING& namevar, int type)
-{  
-   for(int c=0; c<GRPVECTORFILEDXFBlocks_MaxNDefBlocks; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONBlockDef* block  = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
-      if(block)
-      {
-         if(!namevar.Compare(block->name, true)) 
-         {
-            for(int d=0; d<block->ntypes; d++)
+        {
+          if(!name.Compare(blockDef->name, true)) 
             {
-               GRPVECTORFILEDXFTEXTSECTIONBlockDefType* typeDef = &block->type[d]; 
-               if(typeDef)
-               {
-                  if(typeDef->type == type) 
-                  {
-                     return typeDef;                  
-                  }
-               }            
-            }
-         }    
-      }
-   }
+              return blockDef;
+            }    
+        }
+    }
   
-   return NULL;
+  return NULL;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::AddBlock (GRPVECTORFILEDXFTextBlock* block)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownTypeValue(XSTRING& namevar, int type)
+* @brief      IsKnownTypeValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* @param[in]  type : 
+* 
+* @return     GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::IsKnownTypeValue(XSTRING& namevar, int type)
+{  
+  for(int c=0; c<GRPVECTORFILEDXFBLOCKS_MAXNDEFBLOCKS; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* block  = &GRPVECTORFILEDXFTEXTSECTIONBLOCKS::defBlock[c];
+      if(block)
+        {
+          if(!namevar.Compare(block->name, true)) 
+            {
+              for(int d=0; d<block->ntypes; d++)
+                {
+                  GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE* typeDef = &block->type[d]; 
+                  if(typeDef)
+                    {
+                      if(typeDef->type == type) 
+                        {
+                          return typeDef;                  
+                        }
+                    }            
+                }
+            }    
+        }
+    }
+  
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::AddBlock(GRPVECTORFILEDXFTEXTBLOCK* block)
+* @brief      AddBlock
+* @ingroup    GRAPHIC
+* 
+* @param[in]  block : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::AddBlock(GRPVECTORFILEDXFTEXTBLOCK* block)
 {
-   if(!block) return false;
+  if(!block) 
+    {
+      return false;
+    }
 
-   if(block->GetName()->IsEmpty()) return false;
+  if(block->GetName()->IsEmpty()) 
+    {
+      return false;
+    }
   
-   return blocks.Add(block);
-   
-   return true;
-
+  return blocks.Add(block); 
 }
 
 
-XVECTOR<GRPVECTORFILEDXFTextBlock*>* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlocks ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFTEXTBLOCK*>* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlocks()
+* @brief      GetBlocks
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFTEXTBLOCK*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<GRPVECTORFILEDXFTEXTBLOCK*>* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlocks()
 {
   return &blocks;
 }
     
     
-GRPVECTORFILEDXFTextBlock* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlock (XCHAR* nameBlock, XDWORD index)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTBLOCK* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlock(XCHAR* nameblock, XDWORD index)
+* @brief      GetBlock
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameblock : 
+* @param[in]  index : 
+* 
+* @return     GRPVECTORFILEDXFTEXTBLOCK* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFTEXTBLOCK* GRPVECTORFILEDXFTEXTSECTIONBLOCKS::GetBlock(XCHAR* nameblock, XDWORD index)
 {
-   if(blocks.IsEmpty()) return NULL;
+  if(blocks.IsEmpty()) 
+    {
+      return NULL;
+    }
 
-   int iindex = 0;
+  int iindex = 0;
 
-   for(XDWORD c=0; c<blocks.GetSize(); c++)
-   {
-      GRPVECTORFILEDXFTextBlock* block = blocks.Get(c);
+  for(XDWORD c=0; c<blocks.GetSize(); c++)
+    {
+      GRPVECTORFILEDXFTEXTBLOCK* block = blocks.Get(c);
       if(block)
-      {
-         if(block->GetName()->Find(nameBlock, false) != XSTRING_NOTFOUND)
-         {
-            if(iindex == index)
-              {              
-                return block;
-              }
+        {
+          if(block->GetName()->Find(nameblock, false) != XSTRING_NOTFOUND)
+            {
+              if(iindex == index)
+                {              
+                  return block;
+                }
 
-            iindex ++;
-         }
-      }    
-   }
+              iindex ++;
+            }
+        }    
+    }
   
-   return NULL;
+  return NULL;
 }
     
     
-bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteBlock(XCHAR* nameBlock, XDWORD index)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteBlock(XCHAR* nameblock, XDWORD index)
+* @brief      DeleteBlock
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameblock : 
+* @param[in]  index : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteBlock(XCHAR* nameblock, XDWORD index)
 {
-   if(blocks.IsEmpty()) return false;
+  if(blocks.IsEmpty()) 
+    {
+      return false;
+    }
 
-   GRPVECTORFILEDXFTextBlock* block = GetBlock (nameBlock, index);
-   if(block)
-   { 
+  GRPVECTORFILEDXFTEXTBLOCK* block = GetBlock (nameblock, index);
+  if(block)
+    { 
       blocks.Delete(block);
       delete block;
 
       return true;
-   }
+    }
 
-   return false;    
+  return false;    
 }
     
     
-bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks(XCHAR* nameBlock)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks(XCHAR* nameblock)
+* @brief      DeleteAllBlocks
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameblock : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks(XCHAR* nameblock)
 {
-   if(blocks.IsEmpty()) return false;
+  if(blocks.IsEmpty()) 
+    {
+      return false;
+    }
 
-   GRPVECTORFILEDXFTextBlock* block;
-   int index = 0;
+  GRPVECTORFILEDXFTEXTBLOCK*  block;
+  int                         index = 0;
 
-   do {  block = GetBlock (nameBlock, index);
-         if(block)
-         {
-            DeleteBlock(nameBlock, index);
-         }
-         else 
-         {
-            index++;
-         }
+  do{ block = GetBlock (nameblock, index);
+      if(block)
+        {
+          DeleteBlock(nameblock, index);
+        }
+       else 
+        {
+          index++;
+        }
    
-     } while(block);
+    } while(block);
 
-   return true;
+  return true;
 }
     
     
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks()
+* @brief      DeleteAllBlocks
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::DeleteAllBlocks()
 {
-   if(blocks.IsEmpty()) return false;
+  if(blocks.IsEmpty()) 
+    {
+      return false;
+    }
 
-   blocks.DeleteContents();
-   blocks.DeleteAll();
+  blocks.DeleteContents();
+  blocks.DeleteAll();
 
-   return true;
+  return true;
 }
 
 
-GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ParserTextSection (XFILETXT* fileTXT)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ParserTextSection(XFILETXT* fileTXT)
+* @brief      ParserTextSection
+* @ingroup    GRAPHIC
+* 
+* @param[in]  fileTXT : 
+* 
+* @return     GRPVECTORFILERESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ParserTextSection(XFILETXT* fileTXT)
 {    
-   XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
-   GRPVECTORFILEDXFTextPart* part = NULL;  
-   GRPVECTORFILEDXFXDATACTRL* xDataCtrl = NULL;
-   int indexline = iniline;
-   XSTRING* line;
+  XVECTOR<GRPVECTORFILEDXFTEXTPART*>  parts;
+  GRPVECTORFILEDXFTEXTPART*           part      = NULL;  
+  GRPVECTORFILEDXFXDATACTRL*          xdatactrl = NULL;
+  int                                 indexline = iniline;
+  XSTRING*                            line;
   
-   part = new GRPVECTORFILEDXFTextPart ();
+  part = new GRPVECTORFILEDXFTEXTPART();
 
-   do{   line = fileTXT->GetLine(indexline);
-         if(line) 
-         {                       
-            GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+  do{ line = fileTXT->GetLine(indexline);
+      if(line) 
+        {                       
+          GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-            if(line && !line->Compare(__L("0"),true))
+          if(line && !line->Compare(__L("0"),true))
             {               
-               line = fileTXT->GetLine(indexline + 1);
-               GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+              line = fileTXT->GetLine(indexline + 1);
+              GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-               if(IsKnownBlock(*line))
-               {
+              if(IsKnownBlock(*line))
+                {
                   indexline++; 
                
                   if(part)
-                  {
-                     if(part->iniline != -1)
-                     {               
-                        part->endline = indexline - 2; 
+                    {
+                      if(part->iniline != -1)
+                        {               
+                          part->endline = indexline - 2; 
                                 
-                        parts.Add(part); 
-                        part = NULL;
+                          parts.Add(part); 
+                          part = NULL;
                   
-                        part = new GRPVECTORFILEDXFTextPart ();
-                     }
-                     else
-                     {
-                        if(part->iniline == -1)
-                        {                     
-                           part->name    = line->Get();
-                           part->iniline = indexline + 1;              
-                        }                             
-                     }
-                  }
-               }          
+                          part = new GRPVECTORFILEDXFTEXTPART ();
+                        }
+                       else
+                        {
+                          if(part->iniline == -1)
+                            {                     
+                              part->name    = line->Get();
+                              part->iniline = indexline + 1;              
+                            }                             
+                        }
+                    }
+                }          
             } 
-         }
+        }
                            
-         indexline++;
+      indexline++;
 
-     } while(indexline < endline);
+    } while(indexline < endline);
 
-   if(part && (part->iniline != -1))
-   {               
+  if(part && (part->iniline != -1))
+    {               
       part->endline = indexline-1; 
       
       parts.Add(part); 
       part = NULL;           
-   }
+    }
 
-   if(part && part->iniline == -1)
-   {
+  if(part && part->iniline == -1)
+    {
       delete part;
       part = NULL;    
-   }
+    }
   
-   for(XDWORD c=0; c<parts.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<parts.GetSize(); c++)
+    {
       part = parts.Get(c);
       if(part)
-      {         
-         GRPVECTORFILEDXFTextBlock* block = new GRPVECTORFILEDXFTextBlock();
-         if(block)
-         {               
-            GRPVECTORFILEDXFTEXTSECTIONBlockDef* blockDef = IsKnownBlock(part->name);
-            if(blockDef)
-            {
-               block->SetIsEndBlock(blockDef->isendblock);
+        {         
+          GRPVECTORFILEDXFTEXTBLOCK* block = new GRPVECTORFILEDXFTEXTBLOCK();
+          if(block)
+            {               
+              GRPVECTORFILEDXFTEXTSECTIONBLOCKDEF* blockDef = IsKnownBlock(part->name);
+              if(blockDef)
+                {
+                  block->SetIsEndBlock(blockDef->isendblock);
 
-               if(blockDef->isendblock)
-               {
-                  GRPVECTORFILEDXFTextBlock* lastblock = blocks.Get(blocks.GetSize()-1);
-                  if(lastblock)
-                  {
-                     block->GetName()->Set(lastblock->GetName()->Get());
-                  }                             
-               }
-            }
+                  if(blockDef->isendblock)
+                    {
+                      GRPVECTORFILEDXFTEXTBLOCK* lastblock = blocks.Get(blocks.GetSize()-1);
+                      if(lastblock)
+                        {
+                          block->GetName()->Set(lastblock->GetName()->Get());
+                        }                             
+                    }
+                }
 
-            indexline = part->iniline;
+              indexline = part->iniline;
 
-            bool nomorevalues = false;
+              bool nomorevalues = false;
                   
-            while(part->endline > indexline)
-            {  
-               line = fileTXT->GetLine(indexline);      
-               if(line) 
-               {  
-                  indexline++;                    
-                  GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);                  
-                  int type = line->ConvertToInt();
+              while(part->endline > indexline)
+                {  
+                  line = fileTXT->GetLine(indexline);      
+                  if(line) 
+                    {  
+                      indexline++;                    
+
+                      GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);                  
+
+                      int type = line->ConvertToInt();
                         
-                  if(!type)
-                     {                    
-                        line = fileTXT->GetLine(indexline);
-                        if(line)
-                        {  
-                           GRPVECTORFILEDXF::ParserTextFilePrepareLine(line); 
+                      if(!type)
+                        {                        
+                          line = fileTXT->GetLine(indexline);
+                          if(line)
+                            {  
+                              GRPVECTORFILEDXF::ParserTextFilePrepareLine(line); 
                                                      
-                           GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionEntities = new GRPVECTORFILEDXFTEXTSECTIONENTITIES();
-                           if(sectionEntities)
-                           { 
-                              sectionEntities->iniline = indexline - 1;
-                              sectionEntities->endline = part->endline;
+                              GRPVECTORFILEDXFTEXTSECTIONENTITIES* sectionEntities = new GRPVECTORFILEDXFTEXTSECTIONENTITIES();
+                              if(sectionEntities)
+                                { 
+                                  sectionEntities->iniline = indexline - 1;
+                                  sectionEntities->endline = part->endline;
 
-                              if(sectionEntities->IsKnownEntity((*line)))
-                              {     
-                                 sectionEntities->SetGRPVECTORFILE(GetGRPVECTORFILE());
-                                 sectionEntities->ParserTextSection(fileTXT);  
-                                 indexline = part->endline - 1;
+                                  if(sectionEntities->IsKnownEntity((*line)))
+                                    {     
+                                      sectionEntities->SetGrpVectorFile(GetGrpVectorFile());
+                                      sectionEntities->ParserTextSection(fileTXT);  
+                                      indexline = part->endline - 1;
                                  
-                                 block->SetSectionEntities(sectionEntities);
+                                      block->SetSectionEntities(sectionEntities);
 
-                                 nomorevalues = true;
-                              }
-                           }                                                                                                   
-                        }                        
-                     }
-
-                  if(!nomorevalues)    
-                  {
-                     GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
-                     if(value)
-                     {      
-                        GRPVECTORFILEDXFTEXTSECTIONBlockDefType* defType = IsKnownTypeValue(part->name, type);
-                        if(!defType)
-                        {                              
-                           #ifdef TEST_ONLY_DEFINE_IN_BLOCKS
-
-                           XSTRING message;
-
-                           message.Format(__L("type data of block %d Not register [%d]"), type);
-                               
-                           GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
-
-                           vfEvent.SetType(VECTORFILETYPE_DXF);
-                           vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
-                           vfEvent.GetMessage()->Set(message);
-
-                           PostEvent(&vfEvent, GetGRPVECTORFILE());                           
-
-                           indexline++;                          
-                           delete value;
-                           
-                           continue;
-
-                           #else
-
-                           GRPVECTORFILEDXFTEXTSECTIONGenericDefType* genDefType = GetGenericDefType(type);
-                           if(genDefType)
-                           {
-                              value->SetType(genDefType->type);
-                              value->GetName()->Set(genDefType->name);
-                              value->GetRemark()->Set(genDefType->remark);                      
-                           }
-                           else 
-                           {                              
-                              XSTRING message;
-
-                              message.Format(__L("type data of block %d Not register [%d]"), type);
-                               
-                              GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
-
-                              vfEvent.SetType(VECTORFILETYPE_DXF);
-                              vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
-                              vfEvent.GetMsg()->Set(message);
-
-                              PostEvent(&vfEvent, GetGRPVECTORFILE());                          
-
-                              indexline++;
-                              continue;
-                           }
-
-                           #endif
-                        }
-                        else
-                        {
-                           value->SetType(defType->type);
-                           value->GetName()->Set(defType->name);
-                           value->GetRemark()->Set(defType->remark); 
+                                      nomorevalues = true;
+                                    }
+                                }                                                                                                   
+                            }                        
                         }
 
-                        line = fileTXT->GetLine(indexline);
-                        if(line)
+                      if(!nomorevalues)    
                         {
-                           GRPVECTORFILEDXF::ParserTextFilePrepareLine(line); 
+                          GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
+                          if(value)
+                            {      
+                              GRPVECTORFILEDXFTEXTSECTIONBLOCKDEFTYPE* defType = IsKnownTypeValue(part->name, type);
+                              if(!defType)
+                                {                              
+                                  #ifdef TEST_ONLY_DEFINE_IN_BLOCKS
+
+                                  XSTRING message;
+
+                                  message.Format(__L("type data of block %d Not register [%d]"), type);
+                               
+                                  GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
+
+                                  vfevent.SetType(GRPVECTORFILETYPE_DXF);
+                                  vfevent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathnamefile());
+                                  vfevent.GetMessage()->Set(message);
+
+                                  PostEvent(&vfevent, GetGrpVectorFile());                           
+
+                                  indexline++;                          
+                                  delete value;
                            
-                           GetVariableFromLine(value->GetName()->Get(), type, line, (*value->GetData()));                        
+                                  continue;
 
-                           switch(IsXDataControl(type, (*line)))
-                           {
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not    :  if(xDataCtrl) 
-                                                                                       {
-                                                                                          if(value) 
-                                                                                          {                                                                                                            
-                                                                                             xDataCtrl->GetValues()->Add(value);   
-                                                                                          }
-                                                                                       }
-                                                                                       break;
+                                  #else
 
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini    :  if(!xDataCtrl)                
-                                                                                       {
-                                                                                          xDataCtrl = new GRPVECTORFILEDXFXDATACTRL();
-                                                                                          if(xDataCtrl)                
-                                                                                          {
-                                                                                             XSTRING name;
-                                                                                             line->Copy(1, name);
+                                  GRPVECTORFILEDXFTEXTSECTIONGENERICDEFTYPE* genDefType = GetGenericDefType(type);
+                                  if(genDefType)
+                                    {
+                                      value->SetType(genDefType->type);
+                                      value->GetName()->Set(genDefType->name);
+                                      value->GetRemark()->Set(genDefType->remark);                      
+                                    }
+                                   else 
+                                    {                              
+                                      XSTRING message;
+
+                                      message.Format(__L("type data of block %d Not register [%d]"), type);
+                               
+                                      GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
+
+                                      vfevent.SetType(GRPVECTORFILETYPE_DXF);
+                                      vfevent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
+                                      vfevent.GetMsg()->Set(message);
+
+                                      PostEvent(&vfevent, GetGrpVectorFile());                          
+
+                                      indexline++;
+                                      continue;
+                                    }
+
+                                  #endif
+                                }
+                               else
+                                {
+                                  value->SetType(defType->type);
+                                  value->GetName()->Set(defType->name);
+                                  value->GetRemark()->Set(defType->remark); 
+                                }
+
+                              line = fileTXT->GetLine(indexline);
+                              if(line)
+                                {
+                                  GRPVECTORFILEDXF::ParserTextFilePrepareLine(line); 
+                           
+                                  GetVariableFromLine(value->GetName()->Get(), type, line, (*value->GetData()));                        
+
+                                  switch(IsXDataControl(type, (*line)))
+                                    {
+                                      case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_NOT    :  if(xdatactrl) 
+                                                                                                    {
+                                                                                                      if(value) 
+                                                                                                        {                                                                                                            
+                                                                                                          xdatactrl->GetValues()->Add(value);   
+                                                                                                        } 
+                                                                                                    }
+                                                                                                  break;
+
+                                      case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_INI    :  if(!xdatactrl)                
+                                                                                                    {
+                                                                                                      xdatactrl = new GRPVECTORFILEDXFXDATACTRL();
+                                                                                                      if(xdatactrl)                
+                                                                                                        {
+                                                                                                           XSTRING name;
+                                                                                                           line->Copy(1, name);
                                                                                        
-                                                                                             xDataCtrl->GetName()->Set(name);
-                                                                                          }
-                                                                                       }
-                                                                                       break;
+                                                                                                           xdatactrl->GetName()->Set(name);
+                                                                                                        }
+                                                                                                     }
+                                                                                                   break;
 
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End   :   if(xDataCtrl)                
-                                                                                       { 
-                                                                                          block->GetXDataCtrlList()->Add(xDataCtrl);
-                                                                                          xDataCtrl = NULL;
-                                                                                       }                              
-                                                                                       break;
-                           }
+                                      case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_END     :  if(xdatactrl)                
+                                                                                                     { 
+                                                                                                        block->GetXDataCtrlList()->Add(xdatactrl);
+                                                                                                        xdatactrl = NULL;
+                                                                                                     }                              
+                                                                                                     break;
+                                    }
  
                            
-                           if(value) 
-                           {  
-                              if((value->GetType() == 2) || (value->GetType() == 3))
-                              {
-                                 XSTRING* data = (XSTRING*)(value->GetData()->GetData());                                 
-                                 if(data) block->GetName()->Set(data->Get()); 
-                              }
+                                  if(value) 
+                                    {  
+                                      if((value->GetType() == 2) || (value->GetType() == 3))
+                                        {
+                                          XSTRING* data = (XSTRING*)(value->GetData()->GetData());                                 
+                                          if(data) block->GetName()->Set(data->Get()); 
+                                        }
 
-                              block->AddValue(value);
-                           }
-                        }                                            
-                     }
-                  }
-               }
+                                      block->AddValue(value);
+                                    }
+                                }                                            
+                            }
+                        }
+                    }
          
-               indexline++;
+                  indexline++;
 
-              }         
+                }         
 
-            AddBlock(block);
-         }
-      }
-   } 
+              AddBlock(block);
+            }
+        }
+    } 
 
-   parts.DeleteContents();
-   parts.DeleteAll();
+  parts.DeleteContents();
+  parts.DeleteAll();
 
-   #ifdef XTRACE_ACTIVE
-   //ShowTraceAllBlocks();
-   #endif
+  #ifdef XTRACE_ACTIVE
+  //ShowTraceAllBlocks();
+  #endif
    
-   return GRPVECTORFILERESULT_OK;
+  return GRPVECTORFILERESULT_OK;
 }
 
 
 #ifdef XTRACE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ShowTraceAllBlocks()
+* @brief      ShowTraceAllBlocks
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONBLOCKS::ShowTraceAllBlocks()
 { 
-   for(XDWORD c=0; c<blocks.GetSize(); c++)
-   {
-      GRPVECTORFILEDXFTextBlock* block = blocks.Get(c);
+  for(XDWORD c=0; c<blocks.GetSize(); c++)
+    {
+      GRPVECTORFILEDXFTEXTBLOCK* block = blocks.Get(c);
       if(block)
-      {
-         XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONBLOCKS] (%3d) Block %c [%s] (%d) values."), c, (block->IsEndBlock()?__C('<'):__C('>')), block->GetName()->Get(), block->GetValues()->GetSize());
-      }
-   }
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONBLOCKS] (%3d) Block %c [%s] (%d) values."), c, (block->IsEndBlock()?__C('<'):__C('>')), block->GetName()->Get(), block->GetValues()->GetSize());
+        }
+    }
 
-   return true;
+  return true;
 }
 #endif
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFTEXTSECTIONBLOCKS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFTEXTSECTIONBLOCKS::Clean()
 {
   
 }
 
+
 #pragma endregion
+

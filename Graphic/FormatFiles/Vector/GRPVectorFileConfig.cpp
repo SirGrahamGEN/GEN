@@ -83,16 +83,16 @@ GRPVECTORFILECONFIG::~GRPVECTORFILECONFIG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILECONFIG::Create_File(XCHAR* nameFile)
+* @fn         bool GRPVECTORFILECONFIG::Create_File(XCHAR* namefile)
 * @brief      Create_File
 * @ingroup    GRAPHIC
 * 
-* @param[in]  nameFile : 
+* @param[in]  namefile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILECONFIG::Create_File(XCHAR* nameFile)
+bool GRPVECTORFILECONFIG::Create_File(XCHAR* namefile)
 {
    return false;
 }
@@ -100,16 +100,16 @@ bool GRPVECTORFILECONFIG::Create_File(XCHAR* nameFile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPVECTORFILECONFIG::Load_File(XCHAR* nameFile)
+* @fn         bool GRPVECTORFILECONFIG::Load_File(XCHAR* namefile)
 * @brief      Load_File
 * @ingroup    GRAPHIC
 * 
-* @param[in]  nameFile : 
+* @param[in]  namefile : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool GRPVECTORFILECONFIG::Load_File(XCHAR* nameFile)
+bool GRPVECTORFILECONFIG::Load_File(XCHAR* namefile)
 {
    return false;
 }

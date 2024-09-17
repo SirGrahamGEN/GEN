@@ -62,15 +62,15 @@ class GRPVECTORFILEDXFCONFIG : public GRPVECTORFILECONFIG
    GRPVECTORFILEDXFTEXTSECTIONHEADER*     GetHeader                   ();
    bool                                   SetHeader                   (GRPVECTORFILEDXFTEXTSECTIONHEADER* header);
 
-   bool                                   Create_File                 (XCHAR* nameFile);
-   bool                                   Load_File                   (XCHAR* nameFile);
+   bool                                   Create_File                 (XCHAR* namefile);
+   bool                                   Load_File                   (XCHAR* namefile);
         
   private:
     
    void                                   Clean                       ();
 
    GRPVECTORFILEDXFTEXTSECTIONHEADER*     header;
-   XPATH                                  pathFile;  
+   XPATH                                  pathfile;  
    XFILECFG*                              fileCFG;  
 };
 

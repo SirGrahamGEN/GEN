@@ -3,7 +3,7 @@
 * @file       GRPVectorFileDXFEntityObjEllipse.h
 * 
 * @class      GRPVECTORFILEDXFENTITYOBJELLIPSE
-* @brief      Graphic Vector File DXF Entity ObjEllipse class
+* @brief      Graphic Vector File DXF Entity Obj Ellipse class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.

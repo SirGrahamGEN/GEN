@@ -1,4 +1,43 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       GRPVectorFileDXFTextSectionEntities.cpp
+* 
+* @class      GRPVECTORFILEDXFTEXTSECTIONENTITIES
+* @brief      Graphic Vector File DXF Entity Text Section Entities class
+* @ingroup    GRAPHIC
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_INCLUDES
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
+
+#include "GRPVectorFileDXFTextSectionEntities.h"
 
 #include "XMap.h"
 #include "XVariant.h"
@@ -7,14 +46,16 @@
 #include "GRPVectorFile_XEvent.h"
 #include "GRPVectorFileDXF.h"
 
-#include "GRPVectorFileDXFTextSectionEntities.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
 
 
-#pragma region GENERAL_VARIABLES
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
 
-GRPVECTORFILEDXFTEXTSECTIONEntityDef GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[GRPVECTORFILEDXFEntities_MaxNDefEntities] = 
+
+GRPVECTORFILEDXFTEXTSECTIONENTITYDEF GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[GRPVECTORFILEDXFENTITIES_MAXNDEFENTITIES] = 
 {    
    { __L("3DFACE")            ,  1 , { {   0 , __L(""), __L("") } } },
    { __L("3DSOLID")           ,  1 , { {   0 , __L(""), __L("") } } },
@@ -377,573 +418,804 @@ GRPVECTORFILEDXFTEXTSECTIONEntityDef GRPVECTORFILEDXFTEXTSECTIONENTITIES::defent
    { __L("WIPEOUT")           ,  1 , { { 0 , __L(""), __L("") } } },
    { __L("XLINE")             ,  1 , { { 0 , __L(""), __L("") } } },
 }; 
-
 #pragma endregion
 
 
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES()
+* @brief      Constructor
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONENTITIES::GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 {
-   Clean();
+  Clean();
 
-   type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES;
+  type = GRPVECTORFILEDXFTEXTSECTION_TYPESECTION_ENTITIES;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFTEXTSECTIONENTITIES::~GRPVECTORFILEDXFTEXTSECTIONENTITIES()
 {
-   DeleteAllEntities();
-   DeleteAllEntitiesObj();
+  DeleteAllEntities();
+  DeleteAllEntitiesObj();
 
-   Clean();
+  Clean();
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownEntity(XSTRING& namevar)
+* @brief      IsKnownEntity
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownEntity(XSTRING& namevar)
 {  
-   for(XDWORD c=0; c<GRPVECTORFILEDXFEntities_MaxNDefEntities; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONEntityDef* entityDef  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
+  for(XDWORD c=0; c<GRPVECTORFILEDXFENTITIES_MAXNDEFENTITIES; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONENTITYDEF* entityDef  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
       if(entityDef)
-      {
-         if(!namevar.Compare(entityDef->name, true)) 
-         {
-            return true;
-         }    
-      }
-   }
-  
-   return false;
-}
-
-
-GRPVECTORFILEDXFTEXTSECTIONEntityDefType* GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownTypeValue(XSTRING& namevar, int type)
-{  
-   for(int c=0; c<GRPVECTORFILEDXFEntities_MaxNDefEntities; c++)
-   {
-      GRPVECTORFILEDXFTEXTSECTIONEntityDef* entity  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
-      if(entity)
-      {
-         if(!namevar.Compare(entity->name, true)) 
-         {
-            for(int d=0; d<entity->ntypes; d++)
+        {
+          if(!namevar.Compare(entityDef->name, true)) 
             {
-               GRPVECTORFILEDXFTEXTSECTIONEntityDefType* typeDef = &entity->type[d]; 
-               if(typeDef)
-               {
-                  if(typeDef->type == type) 
-                  {
-                     return typeDef;                  
-                  }
-               }            
-            }
-         }    
-      }
-   }
+              return true;
+            }    
+        }
+    }
   
-   return NULL;
+  return false;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity (GRPVECTORFILEDXFENTITY* entity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownTypeValue(XSTRING& namevar, int type)
+* @brief      IsKnownTypeValue
+* @ingroup    GRAPHIC
+* 
+* @param[in]  namevar : 
+* @param[in]  type : 
+* 
+* @return     GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* GRPVECTORFILEDXFTEXTSECTIONENTITIES::IsKnownTypeValue(XSTRING& namevar, int type)
+{  
+  for(int c=0; c<GRPVECTORFILEDXFENTITIES_MAXNDEFENTITIES; c++)
+    {
+      GRPVECTORFILEDXFTEXTSECTIONENTITYDEF* entity  = &GRPVECTORFILEDXFTEXTSECTIONENTITIES::defentity[c];
+      if(entity)
+        {
+          if(!namevar.Compare(entity->name, true)) 
+            {
+              for(int d=0; d<entity->ntypes; d++)
+                {
+                  GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* typeDef = &entity->type[d]; 
+                  if(typeDef)
+                    {
+                      if(typeDef->type == type) 
+                        {
+                          return typeDef;                  
+                        }
+                    }            
+                }
+            }    
+        }
+    }
+  
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity(GRPVECTORFILEDXFENTITY* entity)
+* @brief      AddEntity
+* @ingroup    GRAPHIC
+* 
+* @param[in]  entity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntity(GRPVECTORFILEDXFENTITY* entity)
 { 
-   if(!entity) return false;
+  if(!entity) 
+    {
+      return false;
+    }
 
-   if(entity->GetName()->IsEmpty()) return false;
+  if(entity->GetName()->IsEmpty()) 
+    {
+      return false;
+    }
    
-   if(entities.Add(entity))
-   {
+  if(entities.Add(entity))
+    {
       AddEntityEnum(entity->GetName()->Get());
-   }
+    }
 
-   return true;
+  return true;
 }
 
 
-XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntities ()
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntities()
+* @brief      GetEntities
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFENTITY*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<GRPVECTORFILEDXFENTITY*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntities()
 {
-   return &entities;
+  return &entities;
 }
 
 
-GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* nameEntity, XDWORD index)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* nameentity, XDWORD index)
+* @brief      GetEntity
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* @param[in]  index : 
+* 
+* @return     GRPVECTORFILEDXFENTITY* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILEDXFENTITY* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntity (XCHAR* nameentity, XDWORD index)
 {
-   if(entities.IsEmpty()) return NULL;
+  if(entities.IsEmpty()) 
+    {
+      return NULL;
+    }
 
-   int iindex = 0;
+  int iindex = 0;
 
-   for(XDWORD c=0; c<entities.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<entities.GetSize(); c++)
+    {
       GRPVECTORFILEDXFENTITY* entity = entities.Get(c);
       if(entity)
-      {
-         if(entity->GetName()->Find(nameEntity, false) != XSTRING_NOTFOUND)
-         {
-            if(iindex == index)
-              {              
-                return entity;
-              }
+        {
+          if(entity->GetName()->Find(nameentity, false) != XSTRING_NOTFOUND)
+            {
+              if(iindex == index)
+                {              
+                  return entity;
+                }
 
-            iindex ++;
-         }
-      }    
-   }
+              iindex ++;
+            }
+        }    
+    }
   
-   return NULL;
+  return NULL;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameEntity, XDWORD index)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameentity, XDWORD index)
+* @brief      DeleteEntity
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* @param[in]  index : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteEntity(XCHAR* nameentity, XDWORD index)
 {
-   if(entities.IsEmpty()) return false;
+  if(entities.IsEmpty()) 
+    {
+      return false;
+    }
 
-   GRPVECTORFILEDXFENTITY* entity = GetEntity(nameEntity, index);
-   if(entity)
-   { 
+  GRPVECTORFILEDXFENTITY* entity = GetEntity(nameentity, index);
+  if(entity)
+    { 
       entities.Delete(entity);
       delete entity;
 
       SubtractEntityEnum(entity->GetName()->Get());
 
       return true;
-   }
+    }
 
-   return false;    
+  return false;    
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameentity)
+* @brief      DeleteAllEntities
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities(XCHAR* nameentity)
 {
-   if(entities.IsEmpty()) return false;
+  if(entities.IsEmpty()) 
+    {
+      return false;
+    }
 
-   GRPVECTORFILEDXFENTITY* entity;
-   int index = 0;
+  GRPVECTORFILEDXFENTITY* entity;
+  int index = 0;
 
-   do {  entity = GetEntity (nameEntity, index);
-         if(entity)
-         {
-            DeleteEntity(nameEntity, index);
-         }
-         else 
-         {
-            index++;
-         }
+  do{ entity = GetEntity (nameentity, index);
+      if(entity)
+        {
+          DeleteEntity(nameentity, index);
+        }
+       else 
+        {
+          index++;
+        }
    
-     } while(entity);
+    } while(entity);
 
-   return true;
+  return true;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities()
+* @brief      DeleteAllEntities
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntities()
 {
-   if(entities.IsEmpty()) return false;
+  if(entities.IsEmpty()) 
+    {
+      return false;
+    }
 
-   entities.DeleteContents();
-   entities.DeleteAll();
+  entities.DeleteContents();
+  entities.DeleteAll();
 
-   enumentities.DeleteKeyContents();
-   enumentities.DeleteAll();
+  enumentities.DeleteKeyContents();
+  enumentities.DeleteAll();
 
-   return true;
+  return true;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<XSTRING*, int>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnumEntitys()
+* @brief      GetEnumEntitys
+* @ingroup    GRAPHIC
+* 
+* @return     XMAP<XSTRING*, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XMAP<XSTRING*, int>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEnumEntitys()
 {
-   return &enumentities;
+  return &enumentities;
 }
     
     
-int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameentity)
+* @brief      GetNEntitys
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetNEntitys(XCHAR* nameentity)
 {
-   int index = GetEntityEnumIndex(nameEntity);
-   int nentities = 0;
+  int index     = GetEntityEnumIndex(nameentity);
+  int nentities = 0;
 
-   if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)    
-   {
+  if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)    
+    {
       nentities = enumentities.GetElement(index);
-   }
+    }
 
-   return nentities;
+  return nentities;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
+* @brief      GetEntitiesObj
+* @ingroup    GRAPHIC
+* 
+* @return     XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<GRPVECTORFILEDXFENTITYOBJ*>* GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntitiesObj()
 {
-   return &entitiesObj;
+  return &entitiesObj;
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntitiesObj()
+* @brief      DeleteAllEntitiesObj
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::DeleteAllEntitiesObj()
 {
-   if(entitiesObj.IsEmpty()) 
-   {
+  if(entitiesObj.IsEmpty()) 
+    {
       return false;
-   }
+    }
 
-   entitiesObj.DeleteContents();
-   entitiesObj.DeleteAll();
+  entitiesObj.DeleteContents();
+  entitiesObj.DeleteAll();
 
-   return true;
+  return true;
 }
 
 
-GRPVECTORFILERESULT  GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection (XFILETXT* fileTXT)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection(XFILETXT* fileTXT)
+* @brief      ParserTextSection
+* @ingroup    GRAPHIC
+* 
+* @param[in]  fileTXT : 
+* 
+* @return     GRPVECTORFILERESULT : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPVECTORFILERESULT GRPVECTORFILEDXFTEXTSECTIONENTITIES::ParserTextSection(XFILETXT* fileTXT)
 {
-   XVECTOR<GRPVECTORFILEDXFTextPart*> parts;
-   GRPVECTORFILEDXFTextPart* part = NULL;  
-   GRPVECTORFILEDXFXDATACTRL* xDataCtrl = NULL;
-   int indexline = iniline;
-   XSTRING* line;
+  XVECTOR<GRPVECTORFILEDXFTEXTPART*>  parts;
+  GRPVECTORFILEDXFTEXTPART*           part      = NULL;  
+  GRPVECTORFILEDXFXDATACTRL*          xdatactrl = NULL;
+  int                                 indexline = iniline;
+  XSTRING*                            line;
 
-   enumentities.DeleteKeyContents();
-   enumentities.DeleteAll();
+  enumentities.DeleteKeyContents();
+  enumentities.DeleteAll();
 
-   part = new GRPVECTORFILEDXFTextPart ();
+  part = new GRPVECTORFILEDXFTEXTPART();
 
-   do{   line = fileTXT->GetLine(indexline);
-         if(line) 
-         {                       
-            GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+  do{ line = fileTXT->GetLine(indexline);
+      if(line) 
+        {                       
+          GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-            if(line && !line->Compare(__L("0"),true))
+          if(line && !line->Compare(__L("0"),true))
             {
-               indexline++;
-               line = fileTXT->GetLine(indexline);
-               GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
+              indexline++;
+              line = fileTXT->GetLine(indexline);
+              GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);
 
-               if(!line->IsNumber())
-               {
+              if(!line->IsNumber())
+                {
                   if(IsKnownEntity(*line))
-                  {
-                     if(part && (part->iniline != -1))
-                     {               
-                        part->endline = indexline-2; 
+                    {
+                      if(part && (part->iniline != -1))
+                        {               
+                          part->endline = indexline-2; 
                                 
-                        parts.Add(part); 
-                        part = NULL;
+                          parts.Add(part); 
+                          part = NULL;
                   
-                        part = new GRPVECTORFILEDXFTextPart ();
-                     }
+                          part = new GRPVECTORFILEDXFTEXTPART ();
+                        }
 
-                     if(part && (part->iniline == -1))
-                     {                     
-                        part->name    = line->Get();
-                        part->iniline = indexline + 1;              
-                     }                             
-                  }    
-                  else
-                  {
-                     XSTRING message;
+                      if(part && (part->iniline == -1))
+                        {                     
+                          part->name    = line->Get();
+                          part->iniline = indexline + 1;              
+                        }                             
+                    }    
+                   else
+                    {
+                      XSTRING message;
 
-                     message.Format(__L("entity %s Unknown"), line->Get());
+                      message.Format(__L("entity %s Unknown"), line->Get());
                                
-                     GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
+                      GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
-                     vfEvent.SetType(VECTORFILETYPE_DXF);
-                     vfEvent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
-                     vfEvent.GetMsg()->Set(message);
+                      vfevent.SetType(GRPVECTORFILETYPE_DXF);
+                      vfevent.GetPath()->Set(fileTXT->GetPrimaryFile()->GetPathNameFile());
+                      vfevent.GetMsg()->Set(message);
 
-                     PostEvent(&vfEvent, GetGRPVECTORFILE());                   
-                  }
-               }
-
+                      PostEvent(&vfevent, GetGrpVectorFile());                   
+                    }
+                }
             } 
-         }
+        }
                            
-         indexline++;
+      indexline++;
 
-     } while(indexline < endline);
+    } while(indexline < endline);
 
-   if(part && (part->iniline != -1))
-   {               
+  if(part && (part->iniline != -1))
+    {               
       part->endline = indexline-1; 
       
       parts.Add(part); 
       part = NULL;           
-   }
+    }
 
-   if(part && part->iniline == -1)
-   {
+  if(part && part->iniline == -1)
+    {
       delete part;
       part = NULL;    
-   }
+    }
 
-   indexline = 0;
+  indexline = 0;
 
-   for (XDWORD c=0; c<parts.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<parts.GetSize(); c++)
+    {
       part = parts.Get(c);
       if(part)
-      {
-         GRPVECTORFILEDXFENTITY* entity = new GRPVECTORFILEDXFENTITY();
-         if(entity)
-         {          
-            entity->GetName()->Set(part->name);
+        {
+          GRPVECTORFILEDXFENTITY* entity = new GRPVECTORFILEDXFENTITY();
+          if(entity)
+            {          
+              entity->GetName()->Set(part->name);
 
-            indexline = part->iniline;
+              indexline = part->iniline;
                   
-            do{   line = fileTXT->GetLine(indexline);      
+              do{ line = fileTXT->GetLine(indexline);      
                   if(line) 
-                  {  
-                     indexline++;                    
-                     GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);                  
-                     int type = line->ConvertToInt();
+                    {  
+                      indexline++;                    
+                      GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);                  
+
+                      int type = line->ConvertToInt();
                   
                                
-                     GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
-                     if(value)
-                     {      
-                        GRPVECTORFILEDXFTEXTSECTIONEntityDefType* defType = IsKnownTypeValue(part->name, type);
-                        if(!defType)
+                      GRPVECTORFILEDXFVALUE* value = new GRPVECTORFILEDXFVALUE();
+                      if(value)
                         {      
-                           #ifdef TEST_ONLY_DEFINE_IN_ENTITITES
+                          GRPVECTORFILEDXFTEXTSECTIONENTITYDEFTYPE* defType = IsKnownTypeValue(part->name, type);
+                          if(!defType)
+                            {      
+                              #ifdef TEST_ONLY_DEFINE_IN_ENTITITES
                            
-                           XSTRING message;
-
-                           message.Format(__L("type data of entitity %s not register in definition [%d]"), part->name.Get(), type);
-                               
-                           GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
-
-                           vfEvent.SetType(VECTORFILETYPE_DXF);
-                           vfEvent.GetPath()->Set(__L(""));
-                           vfEvent.GetMessage()->Set(message);
-
-                           PostEvent(&vfEvent, GetGRPVECTORFILE());
-
-                           indexline++;
-                           continue;
-
-                           #else
-                           
-                           GRPVECTORFILEDXFTEXTSECTIONGenericDefType* genDefType = GetGenericDefType(type);
-                           if(genDefType)
-                           {
-                              value->SetType(genDefType->type);
-                              value->GetName()->Set(genDefType->name);
-                              value->GetRemark()->Set(genDefType->remark);                      
-                           }
-                           else 
-                           {
                               XSTRING message;
 
                               message.Format(__L("type data of entitity %s not register in definition [%d]"), part->name.Get(), type);
                                
-                              GRPVECTORFILE_XEVENT vfEvent(GetGRPVECTORFILE(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
+                              GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PartUnknown);
 
-                              vfEvent.SetType(VECTORFILETYPE_DXF);
-                              vfEvent.GetPath()->Set(__L(""));
-                              vfEvent.GetMsg()->Set(message);
+                              vfevent.SetType(GRPVECTORFILETYPE_DXF);
+                              vfevent.GetPath()->Set(__L(""));
+                              vfevent.GetMessage()->Set(message);
 
-                              PostEvent(&vfEvent, GetGRPVECTORFILE());
-                            
+                              PostEvent(&vfevent, GetGrpVectorFile());
+
                               indexline++;
                               continue;
-                           }
 
-                           #endif
-                        }
-                        else
-                        {
-                           value->SetType(defType->type);
-                           value->GetName()->Set(defType->name);
-                           value->GetRemark()->Set(defType->remark); 
-                        }
+                              #else
+                           
+                              GRPVECTORFILEDXFTEXTSECTIONGENERICDEFTYPE* genDefType = GetGenericDefType(type);
+                              if(genDefType)
+                                {
+                                  value->SetType(genDefType->type);
+                                  value->GetName()->Set(genDefType->name);
+                                  value->GetRemark()->Set(genDefType->remark);                      
+                                }
+                               else 
+                                {
+                                  XSTRING message;
 
-                        line = fileTXT->GetLine(indexline);
-                        if(line)
-                        {
-                           GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);      
+                                  message.Format(__L("type data of entitity %s not register in definition [%d]"), part->name.Get(), type);
+                               
+                                  GRPVECTORFILE_XEVENT vfevent(GetGrpVectorFile(), GRPVECTORFILE_XEVENTTYPE_PARTUNKNOWN);
 
-                           GetVariableFromLine(value->GetName()->Get(), type, line, (*value->GetData()));                          
+                                  vfevent.SetType(GRPVECTORFILETYPE_DXF);
+                                  vfevent.GetPath()->Set(__L(""));
+                                  vfevent.GetMsg()->Set(message);
 
-                           switch(IsXDataControl(type, (*line)))
-                           {
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Not :  if(xDataCtrl) 
-                                                                                    {
-                                                                                       if(value) 
-                                                                                       {                                                                                                            
-                                                                                          xDataCtrl->GetValues()->Add(value);   
-                                                                                       }
-                                                                                    }
-                                                                                    break;
+                                  PostEvent(&vfevent, GetGrpVectorFile());
+                            
+                                  indexline++;
+                                  continue;
+                                }
 
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_Ini :  if(!xDataCtrl)                
-                                                                                    {
-                                                                                       xDataCtrl = new GRPVECTORFILEDXFXDATACTRL();
-                                                                                       if(xDataCtrl)                
-                                                                                       {
-                                                                                          XSTRING name;
-                                                                                          line->Copy(1, name);
+                              #endif
+                            }
+                           else
+                            {
+                              value->SetType(defType->type);
+                              value->GetName()->Set(defType->name);
+                              value->GetRemark()->Set(defType->remark); 
+                            }
+
+                          line = fileTXT->GetLine(indexline);
+                          if(line)
+                            {
+                              GRPVECTORFILEDXF::ParserTextFilePrepareLine(line);      
+
+                              GetVariableFromLine(value->GetName()->Get(), type, line, (*value->GetData()));                          
+
+                              switch(IsXDataControl(type, (*line)))
+                                {
+                                  case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_NOT : if(xdatactrl) 
+                                                                                            {
+                                                                                              if(value) 
+                                                                                                {                                                                                                            
+                                                                                                  xdatactrl->GetValues()->Add(value);   
+                                                                                                }
+                                                                                            }
+                                                                                          break;
+
+                                  case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_INI : if(!xdatactrl)                
+                                                                                            {
+                                                                                              xdatactrl = new GRPVECTORFILEDXFXDATACTRL();
+                                                                                              if(xdatactrl)                
+                                                                                                {
+                                                                                                  XSTRING name;
+                                                                                                  line->Copy(1, name);
                                                                                        
-                                                                                          xDataCtrl->GetName()->Set(name);
-                                                                                       }
-                                                                                    }
-                                                                                    break;
+                                                                                                  xdatactrl->GetName()->Set(name);
+                                                                                                }
+                                                                                            }
+                                                                                           break;
 
-                              case GRPVECTORFILEDXFTEXTSECTION_XDataCtrl_Status_End :  if(xDataCtrl)                
-                                                                                    { 
-                                                                                       entity->GetXDataCtrlList()->Add(xDataCtrl);
-                                                                                       xDataCtrl = NULL;
-                                                                                    }                              
-                                                                                    break;
-                           }
+                                  case GRPVECTORFILEDXFTEXTSECTION_XDATACTRL_STATUS_END : if(xdatactrl)                
+                                                                                            { 
+                                                                                              entity->GetXDataCtrlList()->Add(xdatactrl);
+                                                                                              xdatactrl = NULL;
+                                                                                            }                              
+                                                                                          break;
+                               }
  
                            
-                           if(value) 
-                           {  
-                              entity->AddValue(value);
-                           }
-                        }   
-                     }               
-                  }
+                              if(value) 
+                                {  
+                                  entity->AddValue(value);
+                                }
+                            }   
+                        }               
+                    }
          
                   indexline++;
 
-              } while(indexline < part->endline); 
+                } while(indexline < part->endline); 
                
-            AddEntity(entity);
+              AddEntity(entity);
 
-            {  GRPVECTORFILEDXFENTITYOBJ* entitybbj = GRPVECTORFILEDXFENTITYOBJ::CreateInstance(entity);
-               if(entitybbj)
-               {
-                  entitiesObj.Add(entitybbj); 
-               }
+              { GRPVECTORFILEDXFENTITYOBJ* entitybbj = GRPVECTORFILEDXFENTITYOBJ::CreateInstance(entity);
+                if(entitybbj)
+                  {
+                    entitiesObj.Add(entitybbj); 
+                  }
+              }
             }
-         }
-      }
-   }
+        }
+    }
    
-   parts.DeleteContents();
-   parts.DeleteAll();
+  parts.DeleteContents();
+  parts.DeleteAll();
 
-   #ifdef XTRACE_ACTIVE
-   //ShowTraceAllEntities();
-   #endif
+  #ifdef XTRACE_ACTIVE
+  //ShowTraceAllEntities();
+  #endif
    
-   return GRPVECTORFILERESULT_OK;
+  return GRPVECTORFILERESULT_OK;
 }
 
 
-int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameentity)
+* @brief      GetEntityEnumIndex
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int GRPVECTORFILEDXFTEXTSECTIONENTITIES::GetEntityEnumIndex(XCHAR* nameentity)
 {
-   for(XDWORD c=0; c<enumentities.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<enumentities.GetSize(); c++)
+    {
       XSTRING* name = enumentities.GetKey(c);
       if(name)
-      {
-         if(!name->Compare(nameEntity)) return c;
-      }   
-   }
+        {
+          if(!name->Compare(nameentity)) return c;
+        }   
+    }
 
-   return -1;
+  return -1;
 }
    
    
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameentity)
+* @brief      AddEntityEnum
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::AddEntityEnum(XCHAR* nameentity)
 {
-   int index = GetEntityEnumIndex(nameEntity);
-   bool status = false;
+  int index = GetEntityEnumIndex(nameentity);
+  bool status = false;
 
-   if(index == GRPVECTORFILEDXFEntities_NotEnumEntity) 
-   {
+  if(index == GRPVECTORFILEDXFEntities_NotEnumEntity) 
+    {
       XSTRING* name = new XSTRING();
       if(name)
-      {
-        (*name) = nameEntity;
-        status = enumentities.Add(name, 1);          
-      }      
-   }
+        {
+          (*name) = nameentity;
+          status = enumentities.Add(name, 1);          
+        }      
+    }
    else 
-   {
+    {
       int nentities = enumentities.GetElement(index);
       nentities++;
       status = enumentities.Set(enumentities.GetKey(index), nentities);         
-   }
+    }
 
-   return status; 
+  return status; 
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameentity)
+* @brief      SubtractEntityEnum
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SubtractEntityEnum(XCHAR* nameentity)
 {
-   int index = GetEntityEnumIndex(nameEntity);
-   bool status = false;
+  int   index   = GetEntityEnumIndex(nameentity);
+  bool  status  = false;
 
-   if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)    
-   {
+  if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)    
+    {
       int nentities = enumentities.GetElement(index);
       nentities--;
       if(nentities)
-      {         
-         status = enumentities.Set(enumentities.GetKey(index), nentities);   
-      }
-      else
-      {
-         status = SetZeroEntityEnum(nameEntity);
-      }
-   }
+        {         
+          status = enumentities.Set(enumentities.GetKey(index), nentities);   
+        }
+       else
+        {
+          status = SetZeroEntityEnum(nameentity);
+        }
+    }
 
-   return status;
+  return status;
 }
 
 
-bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameEntity)
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameentity)
+* @brief      SetZeroEntityEnum
+* @ingroup    GRAPHIC
+* 
+* @param[in]  nameentity : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::SetZeroEntityEnum(XCHAR* nameentity)
 {
-   int index = GetEntityEnumIndex(nameEntity);
-   bool status = false;
+  int   index  = GetEntityEnumIndex(nameentity);
+  bool  status = false;
 
-   if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)
-   {
+  if(index != GRPVECTORFILEDXFEntities_NotEnumEntity)
+    {
       XSTRING* name = enumentities.GetKey(index);
       if(name)
         {
-           enumentities.Delete(name);
-           delete name;
+          enumentities.Delete(name);
+          delete name;
 
-           status = true;
+          status = true;
         }   
-   }
+    }
 
-   return status;
+  return status;
 }
 
 
 #ifdef XTRACE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
+* @brief      ShowTraceAllEntities
+* @ingroup    GRAPHIC
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 bool GRPVECTORFILEDXFTEXTSECTIONENTITIES::ShowTraceAllEntities()
 {
-   for(XDWORD c=0; c<enumentities.GetSize(); c++)
-   {
+  for(XDWORD c=0; c<enumentities.GetSize(); c++)
+    {
       XSTRING* name = enumentities.GetKey(c);
       if(name)
-      {
-         int nentities = enumentities.GetElement(c);
-         if(nentities)
-         {           
-            XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONENTITIES] (%3d) Entity [%s] (%d) element(s). "), c, name->Get(), nentities);
+        {
+          int nentities = enumentities.GetElement(c);
+          if(nentities)
+            {           
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[GRPVECTORFILEDXFTEXTSECTIONENTITIES] (%3d) Entity [%s] (%d) element(s). "), c, name->Get(), nentities);
 
-            for(int d=0; d<nentities; d++)
-            {
-               GRPVECTORFILEDXFENTITY* entity = GetEntity (name->Get(), d);
-               if(entity)
-               {
-                  if(!entity->GetValues()->GetSize())
-                  {
-                     XTRACE_PRINTCOLOR((entity->GetValues()->GetSize()?XTRACE_COLOR_BLUE:XTRACE_COLOR_PURPLE), __L("  (%3d) Entity [%s] (%d) value(s). "), d, name->Get(), entity->GetValues()->GetSize());                 
-                  }
-               }
+              for(int d=0; d<nentities; d++)
+                {
+                  GRPVECTORFILEDXFENTITY* entity = GetEntity (name->Get(), d);
+                  if(entity)
+                    {
+                      if(!entity->GetValues()->GetSize())
+                        {
+                          XTRACE_PRINTCOLOR((entity->GetValues()->GetSize()?XTRACE_COLOR_BLUE:XTRACE_COLOR_PURPLE), __L("  (%3d) Entity [%s] (%d) value(s). "), d, name->Get(), entity->GetValues()->GetSize());                 
+                        }
+                    }
+                }
             }
-         }
-      }    
-   }
+        }    
+    }
 
-   return true;
+  return true;
 }
 #endif
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    GRAPHIC
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFTEXTSECTIONENTITIES::Clean()
 {
   

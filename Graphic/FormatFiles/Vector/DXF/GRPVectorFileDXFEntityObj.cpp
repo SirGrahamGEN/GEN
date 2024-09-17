@@ -151,11 +151,11 @@ GRPVECTORFILEDXFENTITYOBJ* GRPVECTORFILEDXFENTITYOBJ::CreateInstance(GRPVECTORFI
               case GRPVECTORFILEDXFENTITYOBJTYPE_CIRCLE       : entityobj = new GRPVECTORFILEDXFENTITYOBJCIRCLE(entity2class[c].entityname);       break;          
               case GRPVECTORFILEDXFENTITYOBJTYPE_ELLIPSE      : entityobj = new GRPVECTORFILEDXFENTITYOBJELLIPSE(entity2class[c].entityname);      break;         
               case GRPVECTORFILEDXFENTITYOBJTYPE_LINE         : entityobj = new GRPVECTORFILEDXFENTITYOBJLINE(entity2class[c].entityname);         break;            
-              case GRPVECTORFILEDXFENTITYOBJTYPE_LWPOLYLINE   : entityobj = new GRPVECTORFILEDXFENTITYOBJLWPolyLine(entity2class[c].entityname);   break;      
-              case GRPVECTORFILEDXFENTITYOBJTYPE_MTEXT        : entityobj = new GRPVECTORFILEDXFENTITYOBJMText(entity2class[c].entityname);        break;           
-              case GRPVECTORFILEDXFENTITYOBJTYPE_POINT        : entityobj = new GRPVECTORFILEDXFENTITYOBJPoint(entity2class[c].entityname);        break;           
-              case GRPVECTORFILEDXFENTITYOBJTYPE_POLYLINE     : entityobj = new GRPVECTORFILEDXFENTITYOBJPolyLine(entity2class[c].entityname);     break;        
-              case GRPVECTORFILEDXFENTITYOBJTYPE_TEXT         : entityobj = new GRPVECTORFILEDXFENTITYOBJText(entity2class[c].entityname);         break;                              
+              case GRPVECTORFILEDXFENTITYOBJTYPE_LWPOLYLINE   : entityobj = new GRPVECTORFILEDXFENTITYOBJLWPOLYLINE(entity2class[c].entityname);   break;      
+              case GRPVECTORFILEDXFENTITYOBJTYPE_MTEXT        : entityobj = new GRPVECTORFILEDXFENTITYOBJMTEXT(entity2class[c].entityname);        break;           
+              case GRPVECTORFILEDXFENTITYOBJTYPE_POINT        : entityobj = new GRPVECTORFILEDXFENTITYOBJPOINT(entity2class[c].entityname);        break;           
+              case GRPVECTORFILEDXFENTITYOBJTYPE_POLYLINE     : entityobj = new GRPVECTORFILEDXFENTITYOBJPOLYLINE(entity2class[c].entityname);     break;        
+              case GRPVECTORFILEDXFENTITYOBJTYPE_TEXT         : entityobj = new GRPVECTORFILEDXFENTITYOBJTEXT(entity2class[c].entityname);         break;                              
             }
         }
     }
@@ -231,14 +231,14 @@ int GRPVECTORFILEDXFENTITYOBJ::GetLineColor()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int lineColor)
+* @fn         void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int linecolor)
 * @brief      SetLineColor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  lineColor : 
+* @param[in]  linecolor : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int lineColor)
+void GRPVECTORFILEDXFENTITYOBJ::SetLineColor(int linecolor)
 {
   this->linecolor = linecolor;
 }
