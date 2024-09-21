@@ -62,6 +62,8 @@ enum XEVENT_TYPE : XDWORD
   XEVENT_TYPE_INTERNET                          = 0x000C0000 ,
   XEVENT_TYPE_PROTOCOL                          = 0x000D0000 ,
   XEVENT_TYPE_PROTOCOLCONNECTIONS               = 0x000E0000 ,
+  XEVENT_TYPE_COREPROTOCOL                      = 0x000D0000 ,
+  XEVENT_TYPE_COREPROTOCOLCONNECTIONS           = 0x000E0000 ,
   XEVENT_TYPE_INPUT                             = 0x000F0000 ,
   XEVENT_TYPE_SCRIPT                            = 0x00100000 ,
   XEVENT_TYPE_SOUND                             = 0x00110000 ,

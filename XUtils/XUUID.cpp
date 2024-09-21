@@ -417,6 +417,56 @@ bool XUUID::GenerateRandom()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XUUID::Compare(XUUID& uuid)
+* @brief      Compare
+* @ingroup    XUTILS
+* 
+* @param[in]  uuid : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::Compare(XUUID& uuid)
+{  
+  if(data1 != uuid.GetData1()) 
+    {
+      return false;
+    }
+
+  if(data2 != uuid.GetData2()) 
+    {
+      return false;
+    }
+
+  if(data3 != uuid.GetData3()) 
+    {
+      return false;
+    }
+
+  if(data4 != uuid.GetData4()) 
+    {
+      return false;
+    }
+
+  if(data5 != uuid.GetData5()) 
+    {
+      return false;
+    }
+
+  for(int c=0; c<XUUIDMAXDATA4; c++)
+    {
+      if(data6[c] != uuid.GetData6()[c]) 
+        {
+          return false;
+        }      
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XUUID::GetToString(XSTRING& string)
 * @brief      GetToString
 * @ingroup    XUTILS

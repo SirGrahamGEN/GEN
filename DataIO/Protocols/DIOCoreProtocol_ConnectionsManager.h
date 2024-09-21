@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XUUID.h
+* @file       DIOCoreProtocol_ConnectionsManager.h
 * 
-* @class      XUUID
-* @brief      eXtended Utils UUID (Universally Unique IDentifier)
-* @ingroup    XUTILS
+* @class      DIOCOREPROTOCOL_CONNECTIONSMANAGER
+* @brief      Data Input/Output Core Protocol Connections Manager class
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,12 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XUUID_H_
-#define _XUUID_H_
+#ifndef _DIOCOREPROTOCOL_CONNECTIONSMANAGER_H_
+#define _DIOCOREPROTOCOL_CONNECTIONSMANAGER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XString.h"
 
 #pragma endregion
 
@@ -40,7 +39,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define XUUIDMAXDATA4   6
 
 #pragma endregion
 
@@ -49,52 +47,53 @@
 #pragma region CLASS
 
 
-class XUUID
+class XMUTEX;
+class XTHREADCOLLECTED;
+class DIOSTREAMCONFIG;
+class DIOSTREAMENUMSERVERS;
+class DIOCOREPROTOCOL;
+
+
+class DIOCOREPROTOCOL_CONNECTION
 {
   public:
-                        XUUID           ();
-    virtual            ~XUUID           ();
+                                        DIOCOREPROTOCOL_CONNECTION            ();
+    virtual                            ~DIOCOREPROTOCOL_CONNECTION            ();
 
-    XDWORD              GetData1        ();
-    XWORD               GetData2        ();
-    XWORD               GetData3        ();
-    XBYTE               GetData4        ();
-    XBYTE               GetData5        ();
-    XBYTE*              GetData6        ();
-
-    bool                SetData1        (XDWORD data);
-    bool                SetData2        (XWORD data);
-    bool                SetData3        (XWORD data);
-    bool                SetData4        (XBYTE data);
-    bool                SetData5        (XBYTE data);
-    bool                SetData6        (XBYTE* data);
-    
-    bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
-
-    bool                CopyFrom        (XUUID& uuid);
-    bool                CopyTo          (XUUID& uuid);
-    
-    bool                GenerateRandom  ();
-
-    bool                Compare         (XUUID& uuid);  
-
-    bool                GetToString     (XSTRING& string);
-    bool                SetFromString   (XSTRING& string);
-
-  protected:
-
-    XDWORD              data1;
-    XWORD               data2;
-    XWORD               data3;
-    XBYTE               data4;
-    XBYTE               data5;
-    XBYTE               data6[XUUIDMAXDATA4];
+    bool                                Connect                               ();
+    bool                                Disconected                           ();   
 
   private:
 
-    void                Clean       ();
+    void                                Clean                                 ();    
 };
 
+
+class DIOCOREPROTOCOL_CONNECTIONSMANAGER
+{
+  public:
+                                        DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
+    virtual                            ~DIOCOREPROTOCOL_CONNECTIONSMANAGER    (); 
+
+    virtual DIOCOREPROTOCOL*            CreateProtocol                        ();
+    virtual bool                        DeleteProtocol                        (DIOCOREPROTOCOL* protocol);
+
+    bool                                Ini                                   (DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers = NULL);
+    bool                                End                                   ();
+
+    static void                         ThreadConnections                     (void* param);
+  
+  private:
+
+    void                                Clean                                 ();
+
+    DIOSTREAMCONFIG*                    diostreamcfg;
+    DIOSTREAMENUMSERVERS*               diostreamenumservers;
+
+    XTIMER*                             connections_xtimer;
+    XMUTEX*                             connections_xmutex;
+    XTHREADCOLLECTED*                   connections_xthread;
+};
 
 #pragma endregion
 
@@ -107,4 +106,6 @@ class XUUID
 
 
 #endif
+
+
 

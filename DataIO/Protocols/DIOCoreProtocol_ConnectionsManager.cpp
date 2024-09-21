@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XSerializable.cpp
+* @file       DIOCoreProtocol_ConnectionsManager.cpp
 * 
-* @class      XSERIALIZABLE
-* @brief      eXtended Utils Serializable class
-* @ingroup    XUTILS
+* @class      DIOCOREPROTOCOL_CONNECTIONSMANAGER
+* @brief      Data Input/Output Core Protocol Connections Manager class
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -37,17 +37,16 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XSerializable.h"
+#include "XFactory.h"
+#include "XThreadCollected.h"
 
-#ifdef XSERIALIZABLE_BINARY_ACTIVE
-#include "XSerializationMethodBinary.h"
-#endif
+#include "DIOCoreProtocol_ConnectionsManager.h"
 
-#ifdef XSERIALIZABLE_JSON_ACTIVE
-#include "XSerializationMethodJSON.h"
-#endif
+#include "DIOStream.h"
+#include "DIOStreamEnumServers.h"
 
 #include "XMemory_Control.h"
+
 
 #pragma endregion
 
@@ -59,261 +58,260 @@
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_DIOCOREPROTOCOL_CONNECTION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSERIALIZABLE::XSERIALIZABLE()
+* @fn         DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 * @brief      Constructor
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZABLE::XSERIALIZABLE()
+DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 {
   Clean();
 }
- 
-    
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSERIALIZABLE::~XSERIALIZABLE()
+* @fn         DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZABLE::~XSERIALIZABLE()
+DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 {
   Clean();
 }
 
-
-#ifdef XSERIALIZABLE_BINARY_ACTIVE
+  
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSERIALIZATIONMETHOD* XSERIALIZATIONMETHOD::CreateInstance(XBUFFER& databinary)
-* @brief      CreateInstance
-* @ingroup    XUTILS
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Connect()
+* @brief      Connect
+* @ingroup    DATAIO
 * 
-* @param[in]  databinary : 
-* 
-* @return     XSERIALIZATIONMETHOD* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XBUFFER& databinary)
+bool DIOCOREPROTOCOL_CONNECTION::Connect()
 {
-  XSERIALIZATIONMETHODBINARY* serializable  = new XSERIALIZATIONMETHODBINARY();
-  if(serializable)
-    {
-      serializable->SetBufferData(&databinary);
-    }
-
-  return (XSERIALIZATIONMETHOD*)serializable;
+  return false;
 }
-#endif
 
-
-#ifdef XSERIALIZABLE_JSON_ACTIVE
+ 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
-* @brief      CreateInstance
-* @ingroup    XUTILS
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Disconected()
+* @brief      Disconected
+* @ingroup    DATAIO
 * 
-* @param[in]  fileJSON : 
-* 
-* @return     XSERIALIZATIONMETHOD* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* XSERIALIZABLE::CreateInstance(XFILEJSON& fileJSON)
+bool DIOCOREPROTOCOL_CONNECTION::Disconected()
 {
-  XSERIALIZATIONMETHODJSON* serializable  = new XSERIALIZATIONMETHODJSON();
-  if(serializable)
-    {
-      serializable->SetFileJSON(&fileJSON);
-    }
-
-  XFILEJSONOBJECT* root =  fileJSON.GetRoot();
-  if(!root)
-    {
-      root = new XFILEJSONOBJECT();
-      if(root) 
-        {
-          fileJSON.SetRoot(root);
-        }
-    }
-
-  if(!root) 
-    {
-      delete serializable;
-      serializable = NULL;
-    }
-   else
-    {      
-      serializable->SetActualObject(root);
-    }
-
-  return (XSERIALIZATIONMETHOD*)serializable;
-}
-#endif
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
-* @brief      GetSerializationMethod
-* @ingroup    XUTILS
-* 
-* @return     XSERIALIZATIONMETHOD* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* XSERIALIZABLE::GetSerializationMethod()
-{
-  return serializationmethod; 
+  return false;
 }
     
-    
+ 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      SetSerializationMethod
-* @ingroup    XUTILS
-* 
-* @param[in]  serializationmethod : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void XSERIALIZABLE::SetSerializationMethod(XSERIALIZATIONMETHOD* serializationmethod)
-{
-  this->serializationmethod = serializationmethod;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::DoDeserialize()
-* @brief      DoDeserialize
-* @ingroup    XUTILS
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::DoDeserialize()
-{
-  if(!serializationmethod)
-    {
-      return false;
-    }
-
-  return Deserialize();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::DoSerialize()
-* @brief      DoSerialize
-* @ingroup    XUTILS
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::DoSerialize()
-{
-  if(!serializationmethod)
-    {
-      return false;
-    }
-
-  return Serialize();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      DoSerialize
-* @ingroup    XUTILS
-* 
-* @param[in]  serializationmethod : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
-{
-  SetSerializationMethod(serializationmethod);
-
-  return Serialize();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
-* @brief      DoDeserialize
-* @ingroup    XUTILS
-* 
-* @param[in]  serializationmethod : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
-{
-  SetSerializationMethod(serializationmethod);
-
-  return Deserialize();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::Serialize()
-* @brief      Serialize
-* @ingroup    XUTILS
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::Serialize()
-{
-  if(!serializationmethod) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::Deserialize()
-* @brief      Deserialize
-* @ingroup    XUTILS
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::Deserialize()
-{
-  if(!serializationmethod) return false;
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void XSERIALIZABLE::Clean()
+* @fn         void DIOCOREPROTOCOL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    XUTILS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void XSERIALIZABLE::Clean()
+void DIOCOREPROTOCOL_CONNECTION::Clean()
 {
-  serializationmethod = NULL;
+
 }
 
 
 #pragma endregion
+
+
+#pragma region CLASS_DIOCOREPROTOCOL_CONNECTIONSMANAGER
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol()
+* @brief      CreateProtocol
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol()
+{
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DeleteProtocol(DIOCOREPROTOCOL* protocol)
+* @brief      DeleteProtocol
+* @ingroup    DATAIO
+* 
+* @param[in]  protocol : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DeleteProtocol(DIOCOREPROTOCOL* protocol)
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
+* @brief      Ini
+* @ingroup    DATAIO
+* 
+* @param[in]  isserver : 
+* @param[in]  diostreamcfg : 
+* @param[in]  diostreamenumservers : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
+{
+  this->diostreamcfg          = diostreamcfg; 
+  this->diostreamenumservers  = diostreamenumservers;
+ 
+  GEN_XFACTORY_CREATE(connections_xmutex, Create_Mutex())
+  if(connections_xmutex) 
+    {
+      GEN_XFACTORY_CREATE(connections_xtimer, CreateTimer())
+      if(connections_xtimer)
+        {      
+          connections_xthread = CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, __L("DIOPROTOCOL_CONNECTIONSMANAGER::Ini"), ThreadConnections, (void*)this);
+          if(connections_xthread)
+            {
+              if(connections_xthread->Ini()) 
+                {
+                  return false;
+                }
+            }
+        }      
+    }
+
+  End();
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
+* @brief      End
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
+{
+  if(connections_xthread)
+    {
+      connections_xthread->End();
+      DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, connections_xthread);
+      connections_xthread = NULL;
+    }  
+
+  if(connections_xtimer)
+    {
+      GEN_XFACTORY.DeleteTimer(connections_xtimer);
+      connections_xtimer = NULL;
+    }
+
+  if(connections_xmutex)
+    {
+      GEN_XFACTORY.Delete_Mutex(connections_xmutex);
+      connections_xmutex = NULL;
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
+* @brief      ThreadConnections
+* @ingroup    DATAIO
+* 
+* @param[in]  param : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
+{
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER* connectionsmanager = (DIOCOREPROTOCOL_CONNECTIONSMANAGER*)param;
+  if(!connectionsmanager) 
+    {
+      return;
+    }
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
+{
+  diostreamcfg                = NULL; 
+  diostreamenumservers        = NULL;
+
+  connections_xtimer          = NULL;      
+  connections_xmutex          = NULL;
+  connections_xthread         = NULL;
+}
+
+
+#pragma endregion
+
 

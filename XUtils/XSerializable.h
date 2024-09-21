@@ -222,6 +222,9 @@ class XSERIALIZABLE
     XSERIALIZATIONMETHOD*          GetSerializationMethod     ();
     void                           SetSerializationMethod     (XSERIALIZATIONMETHOD* serializationmethod);
 
+    bool                           DoSerialize                ();    
+    bool                           DoDeserialize              ();   
+
     bool                           DoSerialize                (XSERIALIZATIONMETHOD* serializationmethod);    
     bool                           DoDeserialize              (XSERIALIZATIONMETHOD* serializationmethod);   
 

@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XUUID.h
+* @file       DIOCoreProtocol_XEvent.h
 * 
-* @class      XUUID
-* @brief      eXtended Utils UUID (Universally Unique IDentifier)
-* @ingroup    XUTILS
+* @class      DIOCOREPROTOCOL_XEVENT
+* @brief      Data Input/Output Core Protocol eXtended Event class
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,13 +26,14 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XUUID_H_
-#define _XUUID_H_
+#ifndef _DIOCOREPROTOCOL_XEVENT_H_
+#define _DIOCOREPROTOCOL_XEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XString.h"
+#include "XEvent.h"
+#include "DIOCoreProtocol.h"
 
 #pragma endregion
 
@@ -40,7 +41,13 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define XUUIDMAXDATA4   6
+#include "XEvent.h"
+
+enum DIOCOREPROTOCOL_XEVENT_TYPE
+{
+  DIOCOREPROTOCOL_XEVENT_TYPE_UNKNOWN         = XEVENT_TYPE_PROTOCOL ,
+};
+
 
 #pragma endregion
 
@@ -49,50 +56,22 @@
 #pragma region CLASS
 
 
-class XUUID
+class DIOCOREPROTOCOL_XEVENT : public XEVENT
 {
   public:
-                        XUUID           ();
-    virtual            ~XUUID           ();
+                                     DIOCOREPROTOCOL_XEVENT          (XSUBJECT* subject, XDWORD type = DIOCOREPROTOCOL_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_COREPROTOCOL);
+    virtual                         ~DIOCOREPROTOCOL_XEVENT          ();
 
-    XDWORD              GetData1        ();
-    XWORD               GetData2        ();
-    XWORD               GetData3        ();
-    XBYTE               GetData4        ();
-    XBYTE               GetData5        ();
-    XBYTE*              GetData6        ();
+    DIOCOREPROTOCOL*                 GetProtocol                     ();
+    bool                             SetProtocol                     (DIOCOREPROTOCOL* protocol);
 
-    bool                SetData1        (XDWORD data);
-    bool                SetData2        (XWORD data);
-    bool                SetData3        (XWORD data);
-    bool                SetData4        (XBYTE data);
-    bool                SetData5        (XBYTE data);
-    bool                SetData6        (XBYTE* data);
     
-    bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
-
-    bool                CopyFrom        (XUUID& uuid);
-    bool                CopyTo          (XUUID& uuid);
-    
-    bool                GenerateRandom  ();
-
-    bool                Compare         (XUUID& uuid);  
-
-    bool                GetToString     (XSTRING& string);
-    bool                SetFromString   (XSTRING& string);
-
-  protected:
-
-    XDWORD              data1;
-    XWORD               data2;
-    XWORD               data3;
-    XBYTE               data4;
-    XBYTE               data5;
-    XBYTE               data6[XUUIDMAXDATA4];
 
   private:
 
-    void                Clean       ();
+    void                             Clean                           ();
+
+    DIOCOREPROTOCOL*                 protocol;    
 };
 
 
@@ -107,4 +86,6 @@ class XUUID
 
 
 #endif
+
+
 
