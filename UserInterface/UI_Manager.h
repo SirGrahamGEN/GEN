@@ -104,7 +104,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     UI_LAYOUT*                      Layouts_GetSelectedLayout                 ();
     UI_LAYOUT*                      Layouts_GetInAllLayout                    ();
 
-    bool                            Skin_CreateAll                            (GRPSCREEN* screen = NULL, GRPCONTEXT* context = NULL);
+    bool                            Skin_CreateAll                            (GRPSCREEN* screen = NULL, int viewportindex = 0, GRPCONTEXT* context = NULL);
     bool                            Skin_Add                                  (UI_SKIN* skin);   
     UI_SKIN*                        Skin_Get                                  (XCHAR* name, UI_SKIN_DRAWMODE drawmode);
     UI_SKIN*                        Skin_Get                                  (XSTRING& name, UI_SKIN_DRAWMODE drawmode);
@@ -224,7 +224,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     XVECTOR<UI_LAYOUT*>             layouts;
 
     XVECTOR<UI_SKIN*>               skins;
-    UI_SKIN*                        skin_selected;
+    //UI_SKIN*                        skin_selected;
 
     XMUTEX*                         xmutex_modal;
     UI_ELEMENT*                     element_modal;

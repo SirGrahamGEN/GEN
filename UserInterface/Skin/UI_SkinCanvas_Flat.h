@@ -51,7 +51,7 @@
 class UI_SKINCANVAS_FLAT : public UI_SKINCANVAS
 {
   public:
-																		  UI_SKINCANVAS_FLAT							  (GRPSCREEN* screen);
+																		  UI_SKINCANVAS_FLAT							  (GRPSCREEN* screen, int viewportindex = 0);
     virtual													 ~UI_SKINCANVAS_FLAT							  ();   
 
 	  bool															Draw_Form													(UI_ELEMENT* element);  	  

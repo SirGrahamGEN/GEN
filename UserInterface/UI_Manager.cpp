@@ -613,17 +613,18 @@ UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
+* @fn         bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, int viewportindex, GRPCONTEXT* context)
 * @brief      Skin_CreateAll
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  screen : 
+* @param[in]  viewportindex : 
 * @param[in]  context : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, int viewportindex, GRPCONTEXT* context)
 {  
   //--------------------------------------------------------------------------
   // Canvas Skins 
@@ -636,8 +637,8 @@ bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, GRPCONTEXT* context)
     {
       switch(c)
         {
-          case  0 : skincanvas =  new UI_SKINCANVAS(screen);        break;  
-          case  1 : skincanvas =  new UI_SKINCANVAS_FLAT(screen);   break;  
+          case  0 : skincanvas =  new UI_SKINCANVAS(screen, viewportindex);         break;  
+          case  1 : skincanvas =  new UI_SKINCANVAS_FLAT(screen, viewportindex);    break;  
         }    
 
       if(skincanvas)
@@ -3690,20 +3691,29 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
         }
     }
 
-  skin_selected = Skin_Get(nameskin, drawmode);
-  if(!skin_selected) return false;
+  UI_SKIN* skinlayoud = Skin_Get(nameskin, drawmode);
+  if(!skinlayoud) 
+    {
+      return false;
+    }
       
-  skin_selected->GetRasterFont()->Set(raster_fontname);
-  skin_selected->GetVectorFont()->Set(vector_fontname);
+  skinlayoud->GetRasterFont()->Set(raster_fontname);
+  skinlayoud->GetVectorFont()->Set(vector_fontname);
 
-  if(!skin_selected->LoadFonts()) return false;
+  if(!skinlayoud->LoadFonts()) 
+    {
+      return false;
+    }
 
-  skin_selected->Background_GetColor()->Set(background_color);
-  skin_selected->Background_GetNameFile()->Set(background_namefile);
+  skinlayoud->Background_GetColor()->Set(background_color);
+  skinlayoud->Background_GetNameFile()->Set(background_namefile);
  
   if(!background_namefile.IsEmpty())
     {
-      if(!skin_selected->Background_LoadBitmap()) return false;
+      if(!skinlayoud->Background_LoadBitmap()) 
+        {
+          return false;
+        }
     }
 
   for(int c=0; c<root->GetNElements(); c++)
@@ -3737,7 +3747,7 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
                   value = nodelayout->GetValueAttribute(__L("backgroundimg"));                          
                   if(value) background_namefile = value;                  
 
-                  UI_LAYOUT* layout = new UI_LAYOUT(skin_selected);
+                  UI_LAYOUT* layout = new UI_LAYOUT(skinlayoud);
                   if(layout)
                     {
                       layout->GetNameID()->Set(namelayout); 

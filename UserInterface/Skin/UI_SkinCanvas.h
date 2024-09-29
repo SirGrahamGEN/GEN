@@ -79,7 +79,7 @@ class UI_ELEMENT_TEXTBOX;
 class UI_SKINCANVAS_REBUILDAREAS : public GRP2DREBUILDAREAS
 {
 	public:
-																		  UI_SKINCANVAS_REBUILDAREAS					(GRPSCREEN* screen);
+																		  UI_SKINCANVAS_REBUILDAREAS					(GRPSCREEN* screen, int viewportindex = 0);
     virtual													 ~UI_SKINCANVAS_REBUILDAREAS					();
 
 		bool															RebuildAllAreas											();    
@@ -98,6 +98,7 @@ class UI_SKINCANVAS_REBUILDAREAS : public GRP2DREBUILDAREAS
 		void															Clean																();		
 
 		GRPSCREEN*												screen;
+		int																viewportindex;
 		GRPCANVAS*												canvas; 		
 };
 
@@ -105,7 +106,7 @@ class UI_SKINCANVAS_REBUILDAREAS : public GRP2DREBUILDAREAS
 class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 {
   public:
-																		  UI_SKINCANVAS												(GRPSCREEN* screen);
+																		  UI_SKINCANVAS												(GRPSCREEN* screen, int viewportindex = 0);
     virtual													 ~UI_SKINCANVAS												();
 
 		GRPSCREEN*                        GetScreen														(); 
@@ -175,6 +176,7 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 
 		XDWORD														fontsize;
     GRPSCREEN*												screen;
+	  int																viewportindex;
 		XPATH															fontpathfile;
 
 	private:

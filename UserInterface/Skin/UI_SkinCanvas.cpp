@@ -90,26 +90,32 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
+* @fn         UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen, int viewportindex)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-*
-* @param[in]  screen : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen)
+* @param[in]  GRPSCREEN* : 
+* @param[in]   int viewportindex : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen, int viewportindex)
 {
   Clean();
 
   SetExcessEdge(0);
 
-  GRPVIEWPORT* viewport = NULL;
+  GRPVIEWPORT* viewport = NULL;  
+
+  this->viewportindex = viewportindex;
  
   this->screen = screen;
   if(screen) 
     { 
-      viewport = screen->GetViewport(0);
-      if(viewport) canvas = viewport->GetCanvas();
+      viewport = screen->GetViewport(viewportindex);
+      if(viewport) 
+        {
+          canvas = viewport->GetCanvas();
+        }
     }      
 }
 
@@ -396,8 +402,9 @@ GRP2DREBUILDAREA* UI_SKINCANVAS_REBUILDAREAS::GetRebuildAreaByElement(UI_ELEMENT
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS_REBUILDAREAS::Clean()
 {
-  screen   = NULL;
-  canvas   = NULL;
+  screen          = NULL;
+  viewportindex   = 0;
+  canvas          = NULL;
 }
 
 
@@ -416,13 +423,14 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 * @param[in]  screen : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN(),  UI_SKINCANVAS_REBUILDAREAS(screen)
+UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen,  int viewportindex) : UI_SKIN(),  UI_SKINCANVAS_REBUILDAREAS(screen)
 { 
   Clean();     
 
-  this->screen    = screen;
-  this->name      = UI_SKINCANVAS_NAME_UNKNOWN;
-  this->drawmode  = UI_SKIN_DRAWMODE_CANVAS;
+  this->screen        = screen;
+  this->viewportindex = viewportindex;
+  this->name          = UI_SKINCANVAS_NAME_UNKNOWN;
+  this->drawmode      = UI_SKIN_DRAWMODE_CANVAS;
 }
 
 
@@ -473,10 +481,17 @@ GRPSCREEN* UI_SKINCANVAS::GetScreen()
 * ---------------------------------------------------------------------------------------------------------------------*/
 GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 {
-  if(!screen)                   return NULL;
-  if(!screen->GetViewport(0))   return NULL;
+  if(!screen)                   
+    {
+      return NULL;
+    }
 
-  return screen->GetViewport(0)->GetCanvas();
+  if(!screen->GetViewport(viewportindex))   
+    {
+      return NULL;
+    }
+
+  return screen->GetViewport(viewportindex)->GetCanvas();
 }
 		
 
@@ -495,7 +510,10 @@ bool UI_SKINCANVAS::LoadFonts()
   bool   status = false; 
 
   GRPCANVAS* canvas = GetCanvas();
-  if(!canvas) return false;
+  if(!canvas) 
+    {
+      return false;
+    }
   
   if(!rasterfontname.IsEmpty())
     {
@@ -3312,8 +3330,9 @@ bool UI_SKINCANVAS::Debug_Draw(UI_ELEMENT* element, double x_position, double y_
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKINCANVAS::Clean()
 {
-  fontsize = 0;
-  screen   = NULL;
+  fontsize        = 0;
+  screen          = NULL;
+  viewportindex   = 0;
 }
 
 

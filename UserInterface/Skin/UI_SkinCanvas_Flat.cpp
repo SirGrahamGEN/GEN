@@ -80,7 +80,7 @@
 * @param[in]  screen : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) : UI_SKINCANVAS(screen)
+UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen, int viewportindex) : UI_SKINCANVAS(screen, viewportindex)
 { 
   Clean();  
 
