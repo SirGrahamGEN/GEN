@@ -56,7 +56,8 @@ enum UI_SKIN_DRAWMODE
 
 
 #define UI_SKIN_NAME_UNKNOWN      __L("")
-#define UI_SKIN_NAME_FLAT         __L("FLAT")
+#define UI_SKIN_NAME_DEFAULT      __L("default")
+#define UI_SKIN_NAME_FLAT         __L("flat")
 
 #pragma endregion
 

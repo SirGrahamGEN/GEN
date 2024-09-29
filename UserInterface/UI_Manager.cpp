@@ -164,16 +164,18 @@ bool UI_MANAGER::DelInstance()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Load(XPATH& pathfile)
+* @fn         bool UI_MANAGER::Load(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
 * @brief      Load
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  pathfile : 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Load(XPATH& pathfile)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Load(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
 {
   bool status = false;  
 
@@ -184,7 +186,7 @@ bool UI_MANAGER::Load(XPATH& pathfile)
 
   if(!iszippedfile)
     {
-      status = LoadLayout(pathfile);
+      status = LoadLayout(pathfile, screen, viewportindex);
     }
    else
     {
@@ -219,7 +221,7 @@ bool UI_MANAGER::Load(XPATH& pathfile)
               unzippathfile_tmp  = unzippathfile;
               unzippathfile_tmp += namefile;
 
-              status = LoadLayout(unzippathfile_tmp);                
+              status = LoadLayout(unzippathfile_tmp, screen, viewportindex);                
 
               DeleteTemporalUnZipFile(unzippathfile_tmp);                          
             }
@@ -236,23 +238,25 @@ bool UI_MANAGER::Load(XPATH& pathfile)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::LoadLayout(XPATH& pathfile)
+* @fn         bool UI_MANAGER::LoadLayout(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
 * @brief      LoadLayout
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  pathfile : 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::LoadLayout(XPATH& pathfile)
+bool UI_MANAGER::LoadLayout(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
 {
   XFILEXML xml;
   bool     status = false;  
       
   if(xml.Open(pathfile, true))
     {      
-      CreateLayouts(xml);
+      CreateLayouts(xml, screen, viewportindex);
 
       xml.Close();
 
@@ -378,7 +382,10 @@ bool UI_MANAGER::CloseUnZipFile()
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 {
-  if(!layout) return false;
+  if(!layout) 
+    {
+      return false;
+    }
 
   layouts.Add(layout);
 
@@ -414,8 +421,15 @@ XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
 {
-  if(layouts.IsEmpty())                     return NULL;
-  if((XDWORD)index >= layouts.GetSize())    return NULL;
+  if(layouts.IsEmpty())                     
+    {
+      return NULL;
+    }
+
+  if((XDWORD)index >= layouts.GetSize())    
+    {
+      return NULL;
+    }
   
   return layouts.Get(index);    
 }
@@ -434,14 +448,20 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(int index)
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT* UI_MANAGER::Layouts_Get(XCHAR* name)
 {
-  if(layouts.IsEmpty()) return NULL;
+  if(layouts.IsEmpty()) 
+    {
+      return NULL;
+    }
 
   for(XDWORD c=0; c<layouts.GetSize(); c++)
     {
       UI_LAYOUT* layout = layouts.Get(c);
       if(layout) 
         {
-          if(!layout->GetNameID()->Compare(name, true)) return layout;          
+          if(!layout->GetNameID()->Compare(name, true)) 
+            {
+              return layout;          
+            }
         }
     }
 
@@ -468,95 +488,6 @@ UI_LAYOUT* UI_MANAGER::Layouts_Get(XSTRING& name)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int UI_MANAGER::Layouts_GetSelected()
-* @brief      Layouts_GetSelected
-* @ingroup    USERINTERFACE
-*
-* @return     int : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-int UI_MANAGER::Layouts_GetSelected()
-{
-  return selected_layout;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Layouts_SetSelected(int index)
-* @brief      Layouts_Selected
-* @ingroup    USERINTERFACE
-*
-* @param[in]  index : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Layouts_SetSelected(int index)
-{
-  if(layouts.IsEmpty())                     return false;
-  if((XDWORD)index >= layouts.GetSize())    return false;
-
-  selected_layout = index;
-
-  ResetPreselect();
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Layouts_SetSelected(XCHAR* name)
-* @brief      Layouts_SetSelected
-* @ingroup    USERINTERFACE
-*
-* @param[in]  name : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Layouts_SetSelected(XCHAR* name)
-{
-  if(layouts.IsEmpty()) return NULL;
-
-  for(XDWORD c=0; c<layouts.GetSize(); c++)
-    {
-      UI_LAYOUT* layout = layouts.Get(c);
-      if(layout) 
-        {
-          if(!layout->GetNameID()->Compare(name, true))
-            {
-              selected_layout = c;
-              ResetPreselect();
-              break;
-            }
-        }
-    }
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Layouts_SetSelected(XSTRING& name)
-* @brief      Layouts_SetSelected
-* @ingroup    USERINTERFACE
-*
-* @param[in]  name : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Layouts_SetSelected(XSTRING& name)
-{
-  return Layouts_SetSelected(name.Get());
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool UI_MANAGER::Layouts_DeleteAll()
 * @brief      Layouts_DeleteAll
 * @ingroup    USERINTERFACE
@@ -577,208 +508,120 @@ bool UI_MANAGER::Layouts_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
-* @brief      Layouts_GetSelectedLayout
-* @ingroup    USERINTERFACE
-*
-* @return     UI_LAYOUT* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT* UI_MANAGER::Layouts_GetSelectedLayout()
-{
-  if(selected_layout == UI_MANAGER_LAYOUT_NOTSELECTED) return NULL;  
-  if((XDWORD)selected_layout >= layouts.GetSize())     return NULL;
-
-  return layouts.Get(selected_layout);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
-* @brief      Layouts_GetInAllLayout
-* @ingroup    USERINTERFACE
-*
-* @return     UI_LAYOUT* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT* UI_MANAGER::Layouts_GetInAllLayout()
-{
-  if(inall_layout == UI_MANAGER_LAYOUT_NOTSELECTED) return NULL;  
-  if((XDWORD)inall_layout >= layouts.GetSize())     return NULL;
-
-  return layouts.Get(inall_layout);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, int viewportindex, GRPCONTEXT* context)
-* @brief      Skin_CreateAll
+* @fn         bool UI_MANAGER::Background_Put(XCHAR* layoutname)
+* @brief      Background_Put
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  screen : 
-* @param[in]  viewportindex : 
-* @param[in]  context : 
+* @param[in]  layoutname : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Skin_CreateAll(GRPSCREEN* screen, int viewportindex, GRPCONTEXT* context)
-{  
-  //--------------------------------------------------------------------------
-  // Canvas Skins 
-  
-  if(!screen) return false;
-    
-  UI_SKINCANVAS* skincanvas = NULL;
+bool UI_MANAGER::Background_Put(XCHAR* layoutname)
+{
+  bool status = false;
 
-  for(int c=0; c<2; c++)
+  status = Background_PutBitmap(layoutname);
+  if(!status) status = Background_PutColor(layoutname);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
+* @brief      Background_PutColor
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  layoutname : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
+{
+  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
+  bool     status = false;
+
+  if(GEN_USERINTERFACE.Skin_Selected())
     {
-      switch(c)
-        {
-          case  0 : skincanvas =  new UI_SKINCANVAS(screen, viewportindex);         break;  
-          case  1 : skincanvas =  new UI_SKINCANVAS_FLAT(screen, viewportindex);    break;  
-        }    
+      switch(skin->GetDrawMode())
+          {
+            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
 
-      if(skincanvas)
-        {
-          Skin_Add(skincanvas);
-          skincanvas = NULL;
-        }
-    }  
+            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
+                                                if(!skin->Background_GetColor()->IsEmpty()) 
+                                                  { 
+                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
+                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
+                                                    if(canvas && screen) 
+                                                      {
+                                                        UI_COLOR color;
 
-  //--------------------------------------------------------------------------
-  // Context Skins 
-  
-  return true;
+                                                        color.SetFromString(skin->Background_GetColor()->Get());   
+
+                                                        GRP2DCOLOR_RGBA8 color_canvas(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());  
+                                                                                                                    
+                                                        canvas->Clear(&color_canvas);
+
+                                                        status = true;                                                        
+                                                      }
+                                                  }
+                                              }
+                                              break;
+
+            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
+          }
+     }
+                      
+  return status;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
-* @brief      Skin_Add
+* @fn         bool UI_MANAGER::Background_PutBitmap(XCHAR* layoutname)
+* @brief      Background_PutBitmap
 * @ingroup    USERINTERFACE
-*
-* @param[in]  skin : 
+* 
+* @param[in]  layoutname : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Skin_Add(UI_SKIN* skin)
-{
-  if(!skin) return false;
-
-  return skins.Add(skin);  
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
-* @brief      Skin_Get
-* @ingroup    USERINTERFACE
-* 
-* @param[in]  name : 
-* @param[in]  drawmode : 
-* 
-* @return     UI_SKIN* : 
-* 
 * --------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN* UI_MANAGER::Skin_Get(XCHAR* name, UI_SKIN_DRAWMODE drawmode)
+bool UI_MANAGER::Background_PutBitmap(XCHAR* layoutname)
 {
-  for(XDWORD c=0; c<skins.GetSize(); c++)
+  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
+  bool     status = false;
+
+  if(GEN_USERINTERFACE.Skin_Selected())
     {
-      UI_SKIN* skin  = skins.Get(c);  
-      if(skin)
-        {
-          if((!skin->GetName()->Compare(name, true))  &&  skin->GetDrawMode() == drawmode)
-            {
-              return skin;
-            }
-        }
-    }
+      switch(skin->GetDrawMode())
+          {
+            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
 
-  return NULL;
-}
+            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
+                                                if(skin_canvas->Background_GetBitmap()) 
+                                                  { 
+                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
+                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
+                                                    if(canvas && screen) 
+                                                      {
+                                                        skin->Background_GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
+                                                        canvas->PutBitmapNoAlpha(0, 0, skin->Background_GetBitmap());                                              
 
+                                                        status = true;
+                                                      }
+                                                  }
+                                              }
+                                              break;
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
-* @brief      Skin_Get
-* @ingroup    USERINTERFACE
-* 
-* @param[in]  name : 
-* @param[in]  drawmode : 
-* 
-* @return     UI_SKIN* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN* UI_MANAGER::Skin_Get(XSTRING& name, UI_SKIN_DRAWMODE drawmode)
-{
-  return Skin_Get(name.Get(), drawmode);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_SKIN* UI_MANAGER::Skin_Selected()
-* @brief      Skin_Selected
-* @ingroup    USERINTERFACE
-*
-* @return     UI_SKIN* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN* UI_MANAGER::Skin_Selected()
-{
-  return skin_selected;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Skin_DeleteAll()
-* @brief      Skin_DeleteAll
-* @ingroup    USERINTERFACE
-*
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Skin_DeleteAll()
-{
-  if(skins.IsEmpty()) return false;
-
-  skins.DeleteContents();
-  skins.DeleteAll();
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::SetModalElement(UI_ELEMENT* element_modal)
-* @brief      SetModalElement
-* @ingroup    USERINTERFACE
-*
-* @param[in]  element_modal : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::SetModalElement(UI_ELEMENT* element_modal)
-{
-  if(xmutex_modal) xmutex_modal->Lock();
-
-  if(element_modal) PutElementLastPositionLayout(element_modal);
-
-  this->element_modal = element_modal;
-
-  if(xmutex_modal) xmutex_modal->UnLock();
-
-  return true;
+            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
+          }
+     }
+                      
+  return status;
 }
 
 
@@ -836,119 +679,6 @@ bool UI_MANAGER::Update()
 
   ChangeTextElementValue(layout);
 
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Background_Put()
-* @brief      Background_Put
-* @ingroup    USERINTERFACE
-*
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_Put()
-{
-  bool status = false;
-
-  status = Background_PutBitmap();
-  if(!status) status = Background_PutColor();
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Background_PutColor()
-* @brief      Background_PutColor
-* @ingroup    USERINTERFACE
-*
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_PutColor()
-{
-  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
-  bool     status = false;
-
-  if(GEN_USERINTERFACE.Skin_Selected())
-    {
-      switch(skin->GetDrawMode())
-          {
-            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
-
-            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                                if(!skin->Background_GetColor()->IsEmpty()) 
-                                                  { 
-                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
-                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
-                                                    if(canvas && screen) 
-                                                      {
-                                                        UI_COLOR color;
-
-                                                        color.SetFromString(skin->Background_GetColor()->Get());   
-
-                                                        GRP2DCOLOR_RGBA8 color_canvas(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());  
-                                                                                                                    
-                                                        canvas->Clear(&color_canvas);
-
-                                                        status = true;                                                        
-                                                      }
-                                                  }
-                                              }
-                                              break;
-
-            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
-          }
-     }
-                      
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::Background_PutBitmap()
-* @brief      PutBackgroundBitmap
-* @ingroup    USERINTERFACE
-*
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_PutBitmap()
-{
-  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
-  bool     status = false;
-
-  if(GEN_USERINTERFACE.Skin_Selected())
-    {
-      switch(skin->GetDrawMode())
-          {
-            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
-
-            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                                if(skin_canvas->Background_GetBitmap()) 
-                                                  { 
-                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
-                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
-                                                    if(canvas && screen) 
-                                                      {
-                                                        skin->Background_GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
-                                                        canvas->PutBitmapNoAlpha(0, 0, skin->Background_GetBitmap());                                              
-
-                                                        status = true;
-                                                      }
-                                                  }
-                                              }
-                                              break;
-
-            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
-          }
-     }
-                      
   return status;
 }
 
@@ -1308,6 +1038,31 @@ bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
 bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
 {
   return AddElementToLayout(layoutname.Get(), element); 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
+* @brief      Element_SetModal
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  element_modal : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
+{
+  if(xmutex_modal) xmutex_modal->Lock();
+
+  if(element_modal) PutElementLastPositionLayout(element_modal);
+
+  this->element_modal = element_modal;
+
+  if(xmutex_modal) xmutex_modal->UnLock();
+
+  return true;
 }
 
 
@@ -2171,6 +1926,55 @@ UI_MANAGER::~UI_MANAGER()
     }
 
   Clean();                            
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         UI_SKIN* UI_MANAGER::Skin_Create(XCHAR* name, UI_SKIN_DRAWMODE drawmode, GRPSCREEN* screen, int viewportindex)
+* @brief      Skin_Create
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  name : 
+* @param[in]  drawmode : 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
+* 
+* @return     UI_SKIN* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_SKIN* UI_MANAGER::Skin_Create(XSTRING& skintypename, UI_SKIN_DRAWMODE drawmode, GRPSCREEN* screen, int viewportindex)
+{  
+  if(!screen) 
+    {
+      return NULL;
+    }
+
+  UI_SKIN*  ui_skin;
+
+  switch(drawmode)
+    {
+      case UI_SKIN_DRAWMODE_UNKNOWN     : return NULL;
+                                         
+      case UI_SKIN_DRAWMODE_CANVAS      : { UI_SKINCANVAS* skincanvas = NULL;
+
+                                            if(skintypename.Compare(UI_SKIN_NAME_DEFAULT, true))
+                                              {
+                                                ui_skin = (UI_SKIN*)new UI_SKINCANVAS(screen, viewportindex); 
+                                              }
+
+                                            if(skintypename.Compare(UI_SKIN_NAME_FLAT, true))
+                                              {
+                                                ui_skin = (UI_SKIN*)new UI_SKINCANVAS_FLAT(screen, viewportindex); 
+                                              }
+                                          }
+                                          break;
+
+      case UI_SKIN_DRAWMODE_CONTEXT     : break;
+
+    }
+  
+  return ui_skin;
 }
 
 
@@ -3636,28 +3440,36 @@ UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
+* @fn         bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportindex)
 * @brief      CreateLayouts
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  xml : 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportindex)
 { 
-  if(!xml.ReadAndDecodeAllLines()) return false;
+  if(!xml.ReadAndDecodeAllLines()) 
+    {
+      return false;
+    }
 
   XFILEXMLELEMENT*  root          = xml.GetRoot();  
-  XSTRING           nameskin;  
+  XSTRING           nametypeskin;  
   UI_SKIN_DRAWMODE  drawmode      = UI_SKIN_DRAWMODE_UNKNOWN;  
   XSTRING           raster_fontname;
   XSTRING           vector_fontname; 
   XSTRING           background_color; 
   XSTRING           background_namefile; 
   
-  if(!root) return false;
+  if(!root) 
+    {
+      return false;
+    }
     
   for(int c=0; c<root->GetNElements(); c++)
     {
@@ -3670,7 +3482,7 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
               XSTRING   drawmodestr;
                  
               value = nodeskin->GetValueAttribute(__L("name"));
-              if(value) nameskin = value;
+              if(value) nametypeskin = value;
 
               drawmodestr = nodeskin->GetValueAttribute(__L("drawmode"));  
               if(!drawmodestr.Compare(__L("canvas"), true))   drawmode = UI_SKIN_DRAWMODE_CANVAS;
@@ -3691,26 +3503,26 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
         }
     }
 
-  UI_SKIN* skinlayoud = Skin_Get(nameskin, drawmode);
-  if(!skinlayoud) 
+  UI_SKIN* ui_skin = Skin_Create(nametypeskin, drawmode, screen, viewportindex);
+  if(!ui_skin) 
     {
       return false;
     }
-      
-  skinlayoud->GetRasterFont()->Set(raster_fontname);
-  skinlayoud->GetVectorFont()->Set(vector_fontname);
+       
+  ui_skin->GetRasterFont()->Set(raster_fontname);
+  ui_skin->GetVectorFont()->Set(vector_fontname);
 
-  if(!skinlayoud->LoadFonts()) 
+  if(!ui_skin->LoadFonts()) 
     {
       return false;
     }
 
-  skinlayoud->Background_GetColor()->Set(background_color);
-  skinlayoud->Background_GetNameFile()->Set(background_namefile);
+  ui_skin->Background_GetColor()->Set(background_color);
+  ui_skin->Background_GetNameFile()->Set(background_namefile);
  
   if(!background_namefile.IsEmpty())
     {
-      if(!skinlayoud->Background_LoadBitmap()) 
+      if(!ui_skin->Background_LoadBitmap()) 
         {
           return false;
         }
@@ -3747,7 +3559,7 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml)
                   value = nodelayout->GetValueAttribute(__L("backgroundimg"));                          
                   if(value) background_namefile = value;                  
 
-                  UI_LAYOUT* layout = new UI_LAYOUT(skinlayoud);
+                  UI_LAYOUT* layout = new UI_LAYOUT(ui_skin);
                   if(layout)
                     {
                       layout->GetNameID()->Set(namelayout); 
@@ -4448,8 +4260,6 @@ void UI_MANAGER::Clean()
 
   selected_layout     = UI_MANAGER_LAYOUT_NOTSELECTED;
   inall_layout        = UI_MANAGER_LAYOUT_NOTSELECTED;
-
-  skin_selected       = NULL;
 
   xmutex_modal        = NULL;
   element_modal       = NULL;

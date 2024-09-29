@@ -82,8 +82,8 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     static UI_MANAGER&              GetInstance                               ();
     static bool                     DelInstance                               ();
 
-    bool                            Load                                      (XPATH& pathfile);
-    bool                            LoadLayout                                (XPATH& pathfile);
+    bool                            Load                                      (XPATH& pathfile, GRPSCREEN* screen, int viewportindex = 0);
+    bool                            LoadLayout                                (XPATH& pathfile, GRPSCREEN* screen, int viewportindex = 0);
 
     bool                            IsZippedFile                              (); 
     XPATH*                          GetUnzipPathFile                          (); 
@@ -96,29 +96,14 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     UI_LAYOUT*                      Layouts_Get                               (int index);
     UI_LAYOUT*                      Layouts_Get                               (XCHAR* name);
     UI_LAYOUT*                      Layouts_Get                               (XSTRING& tname);
-    int                             Layouts_GetSelected                       ();
-    bool                            Layouts_SetSelected                       (int index);
-    bool                            Layouts_SetSelected                       (XCHAR* name);
-    bool                            Layouts_SetSelected                       (XSTRING& name);
     bool                            Layouts_DeleteAll                         ();     
-    UI_LAYOUT*                      Layouts_GetSelectedLayout                 ();
-    UI_LAYOUT*                      Layouts_GetInAllLayout                    ();
-
-    bool                            Skin_CreateAll                            (GRPSCREEN* screen = NULL, int viewportindex = 0, GRPCONTEXT* context = NULL);
-    bool                            Skin_Add                                  (UI_SKIN* skin);   
-    UI_SKIN*                        Skin_Get                                  (XCHAR* name, UI_SKIN_DRAWMODE drawmode);
-    UI_SKIN*                        Skin_Get                                  (XSTRING& name, UI_SKIN_DRAWMODE drawmode);
-    UI_SKIN*                        Skin_Selected                             ();
-    bool                            Skin_DeleteAll                            ();   
-    
-    bool                            SetModalElement                           (UI_ELEMENT* element_modal);  
+           
+    bool                            Background_Put                            (XCHAR* layoutname);    
+    bool                            Background_PutColor                       (XCHAR* layoutname);    
+    bool                            Background_PutBitmap                      (XCHAR* layoutname);    
 
     bool                            Update                                    ();
-
-    bool                            Background_Put                            ();    
-    bool                            Background_PutColor                       ();    
-    bool                            Background_PutBitmap                      ();    
-  
+     
     UI_ELEMENT*                     GetElement                                (XCHAR* name, UI_ELEMENT_TYPE type = UI_ELEMENT_TYPE_UNKNOWN);  
     UI_ELEMENT*                     GetElement                                (XSTRING& name, UI_ELEMENT_TYPE type = UI_ELEMENT_TYPE_UNKNOWN);   
     
@@ -135,6 +120,8 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
     bool                            AddElementToLayout                        (XCHAR* layoutname, UI_ELEMENT* element);                      
     bool                            AddElementToLayout                        (XSTRING& layoutname, UI_ELEMENT* element);  
+
+    bool                            Element_SetModal                          (UI_ELEMENT* element_modal);  
 
     bool                            Elements_SetToRedraw                      (); 
     bool                            Elements_SetToRedraw                      (UI_ELEMENT* element, bool recursive = true);
@@ -169,6 +156,8 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
     void                            operator =                                (UI_MANAGER const&);        // Don't implement
 
+    UI_SKIN*                        Skin_Create                               (XSTRING& skintypename, UI_SKIN_DRAWMODE drawmode, GRPSCREEN* screen, int viewportindex = 0);
+
     bool                            GetLayoutElementValue                     (XFILEXMLELEMENT* node, XCHAR* leyend, double& value);
     bool                            GetLayoutElementValue                     (XFILEXMLELEMENT* node, XCHAR* leyend, XSTRING& value);
     bool                            GetLayoutElement_Base                     (XFILEXMLELEMENT* node, UI_ELEMENT* element, bool adjusttoparent = false);
@@ -191,7 +180,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     UI_ELEMENT*                     GetLayoutElement_ProgressBar              (XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy = NULL);
 
     UI_ELEMENT*                     CreatePartialLayout                       (XFILEXMLELEMENT* nodeelement, UI_ELEMENT* father);
-    bool                            CreateLayouts                             (XFILEXML& xml);
+    bool                            CreateLayouts                             (XFILEXML& xml, GRPSCREEN* screen, int viewportindex = 0);
     
     bool                            CreateCacheElements                       (XFILEXMLELEMENT* nodeelement, bool recursive = true); 
     
@@ -222,10 +211,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     int                             selected_layout;
     int                             inall_layout;
     XVECTOR<UI_LAYOUT*>             layouts;
-
-    XVECTOR<UI_SKIN*>               skins;
-    //UI_SKIN*                        skin_selected;
-
+   
     XMUTEX*                         xmutex_modal;
     UI_ELEMENT*                     element_modal;
 

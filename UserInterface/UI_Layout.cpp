@@ -92,21 +92,6 @@ UI_LAYOUT::~UI_LAYOUT()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_SKIN* UI_LAYOUT::GetSkin()
-* @brief      GetSkin
-* @ingroup    USERINTERFACE
-*
-* @return     UI_SKIN* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_SKIN* UI_LAYOUT::GetSkin()
-{
-  return skin;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         XSTRING* UI_LAYOUT::GetNameID()
 * @brief      GetNameID
 * @ingroup    USERINTERFACE
@@ -117,6 +102,36 @@ UI_SKIN* UI_LAYOUT::GetSkin()
 XSTRING* UI_LAYOUT::GetNameID()
 {
   return &nameID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         UI_SKIN* UI_LAYOUT::GetSkin()
+* @brief      GetSkin
+* @ingroup    USERINTERFACE
+*
+* @return     UI_SKIN* : 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+UI_SKIN* UI_LAYOUT::GetSkin()
+{
+  return ui_skin;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void UI_LAYOUT::SetSkin(UI_SKIN* ui_skin)
+* @brief      SetSkin
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  ui_skin : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void UI_LAYOUT::SetSkin(UI_SKIN* ui_skin)
+{
+  this->ui_skin = ui_skin;
 }
 
 

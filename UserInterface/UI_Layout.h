@@ -57,8 +57,10 @@ class UI_LAYOUT
                                     UI_LAYOUT                     (UI_SKIN* skin);
     virtual                        ~UI_LAYOUT                     ();
 
-    UI_SKIN*                        GetSkin                       ();
     XSTRING*                        GetNameID                     ();
+
+    UI_SKIN*                        GetSkin                       ();
+    void                            SetSkin                       (UI_SKIN* ui_skin);
 
     UI_COLOR*											  GetBackgroundColor					  ();	
     XSTRING*                        GetBackgroundFilename         ();
@@ -81,7 +83,7 @@ class UI_LAYOUT
 
     void                            Clean                         ();    
 
-    UI_SKIN*                        skin;
+    UI_SKIN*                        ui_skin;
     XSTRING                         nameID;
     UI_COLOR                        backgroundcolor;
     XSTRING                         backgroundfilename;
