@@ -865,7 +865,9 @@ bool DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPICreate(RP1_T* rp1, uint8_t spinum, RP1
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPIWriteArrayBlocking(RP1_SPI_INSTANCE_T* spi, uint8_t data[], int data_length)
-{
+{  
+  //local_irq_disable();
+
   while(*(volatile uint32_t *)(spi->regbase + DW_SPI_SR) & DW_SPI_SR_BUSY)
     {
       // wait until the spi is not busy 
@@ -892,6 +894,40 @@ void DIOLINUXLEDNEOPIXELWS2812BRPI::RP1SPIWriteArrayBlocking(RP1_SPI_INSTANCE_T*
           *(volatile uint8_t *)(spi->regbase + DW_SPI_DR);
         }
     }
+
+  //local_irq_enable();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOLINUXLEDNEOPIXELWS2812BRPI::Sleep(long msec)
+* @brief      Sleep
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  msec : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOLINUXLEDNEOPIXELWS2812BRPI::Sleep(long msec)
+{
+  struct timespec ts;
+  int             res;
+
+  if(msec < 0)
+    {
+      errno = EINVAL;
+      return -1;
+    }
+
+  ts.tv_sec = msec / 1000;
+  ts.tv_nsec = (msec % 1000) * 1000000;
+
+  do{ res = nanosleep(&ts, &ts);
+    } while (res && errno == EINTR);
+
+  return res;
 }
 
 

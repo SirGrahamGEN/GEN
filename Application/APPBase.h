@@ -37,6 +37,7 @@
 #include "XString.h"
 #include "XTrace.h"
 #include "XSystem.h"
+#include "XObserver.h"
 #include "XSubject.h"
 #include "XVector.h"
 
@@ -95,7 +96,7 @@ enum APPBASE_APPLICATIONMODE_TYPE
 
 class XTIMER;
 
-class APPBASE : public XSUBJECT
+class APPBASE :  public XSUBJECT
 {
   public:
 
@@ -141,6 +142,9 @@ class APPBASE : public XSUBJECT
     virtual bool                    AppProc_EndBlockedResources   ();
     virtual bool                    AppProc_End                   ();
     virtual bool                    AppProc_PlatformEnd           ();
+
+
+    
 
   protected:
 

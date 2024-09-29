@@ -41,6 +41,11 @@
 
 #include "XFactory.h"
 #include "XTrace.h"
+#include "XTranslation.h"
+#include "XTranslation_GEN.h"
+#include "XTranslation.h"
+#include "XLanguage_ISO_639_3.h"
+
 
 #include "XMemory_Control.h"
 
@@ -1307,7 +1312,8 @@ bool XVARIANT::ToString(XSTRING& to)
   switch(type)
     {
       case XVARIANT_TYPE_NULL             : to = __L("NULL");                                     break;      
-      case XVARIANT_TYPE_BOOLEAN          : to.ConvertFromBoolean((*(bool*)this->data));          break;
+      case XVARIANT_TYPE_BOOLEAN          : to.ConvertFromBoolean((*(bool*)this->data), (XSTRINGBOOLEANMODE_COMPUTER | XSTRINGBOOLEANMODE_LOWERCASE));          
+                                            break;
 
       case XVARIANT_TYPE_SHORT            : to.ConvertFromShort(*(short*)this->data);             break;
       case XVARIANT_TYPE_WORD             : to.ConvertFromWord(*(XWORD*)this->data);              break;
@@ -1421,9 +1427,10 @@ bool XVARIANT::FromString(XSTRING& from, XVARIANT_TYPE from_type)
         }
        else
         {
-          if((!from.Compare(__L("true"), true)) || (!from.Compare(__L("false"), true)) || 
-             (!from.Compare(__L("yes"), true))  || (!from.Compare(__L("no"), true))    || 
-             (!from.Compare(__L("si"), true)))
+          if((!from.Compare(XT_L(XTRANSLATION_GEN_ID_TRUE)  , true)) || 
+             (!from.Compare(XT_L(XTRANSLATION_GEN_ID_FALSE) , true)) || 
+             (!from.Compare(XT_L(XTRANSLATION_GEN_ID_YES)   , true)) || 
+             (!from.Compare(XT_L(XTRANSLATION_GEN_ID_NO)    , true))) 
             {
               _type = XVARIANT_TYPE_BOOLEAN;
             } 

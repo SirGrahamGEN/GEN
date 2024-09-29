@@ -44,6 +44,10 @@
 
 #include "XTrace.h"
 #include "XVariant.h"
+#include "XTranslation.h"
+#include "XTranslation_GEN.h"
+#include "XTranslation.h"
+#include "XLanguage_ISO_639_3.h"
 
 #include "XMemory_Control.h"
 
@@ -1895,10 +1899,9 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
                                                       
                                                       value->Set();
 
-                                                      if(!valuestring.Compare(__L("TRUE")))  value->Set(true);
-                                                      if(!valuestring.Compare(__L("FALSE"))) value->Set(false);
-                                                      
-                                                      if(!valuestring.Compare(__L("null")))  value->Set();
+                                                      if(!valuestring.Compare(__L("true") , true))  value->Set(true);
+                                                      if(!valuestring.Compare(__L("false"), true))  value->Set(false);                                                      
+                                                      if(!valuestring.Compare(__L("null") , false)) value->Set();
 
                                                       object->GetValues()->Add(value);
                                                     }

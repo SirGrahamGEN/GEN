@@ -1220,8 +1220,8 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                   while(c < nlines)
                                                                                     {
-                                                                                      memcpy( rbuffer.row_ptr(positionrect.y1 + c) + targetxpos                              ,
-                                                                                              origincanvasbuffer.row_ptr(origincanvas->GetScreenZone()->y1 + c) + originxpos ,
+                                                                                      memcpy( rbuffer.row_ptr(positionrect.y1 + c) + targetxpos                  ,
+                                                                                              origincanvasbuffer.row_ptr(origincanvas->GetScreenZone()->y1 + c)  ,
                                                                                               sizeline);
                                                                                       c++;
                                                                                     }

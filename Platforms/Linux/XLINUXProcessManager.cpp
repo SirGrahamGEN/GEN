@@ -141,10 +141,10 @@ bool XLINUXPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
+bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
 {
-  XSTRING _command;
-  char    buffer[256];
+  XSTRING   _command;
+  XBYTE   buffer[_MAXBUFFER];
   FILE*   pipe;
   bool    status = true;
 
@@ -160,9 +160,12 @@ bool XLINUXPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* return
 
   if(out)
     {
-      while(fgets(buffer, 256, pipe))
+      memset(buffer, 0, _MAXBUFFER);
+
+      while(fgets((char*)buffer, _MAXBUFFER, pipe))
         {
-          (*out) += buffer;
+          out->Add((XBYTE*)buffer, SizeBufferASCII(buffer, _MAXBUFFER));
+          memset(buffer, 0, _MAXBUFFER);
         }
     }
 
@@ -210,21 +213,21 @@ bool XLINUXPROCESSMANAGER::OpenURL(XCHAR* url)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* 
+* @fn         bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 * @brief      Application_Execute
 * @ingroup    PLATFORM_LINUX
-*
+* 
 * @param[in]  applicationpath : 
 * @param[in]  params : 
 * @param[in]  in : 
 * @param[in]  out : 
 * @param[in]  returncode : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 { 
   #define PIPE_READ   0
   #define PIPE_WRITE  1  
@@ -374,11 +377,9 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
       if(pID > 0) 
         {
           // parent
-          
-          #define MAXOUTPIPECHARS  _MAXSTR    
-          char nchar[MAXOUTPIPECHARS];  
-          //char nchar;  
-          int  returnstatus = 0; 
+                    
+          XBYTE nchar[_MAXBUFFER];  
+          int   returnstatus = 0; 
 
           // close unused file descriptors, these are for child only
           close(stdinpipe[PIPE_READ]);
@@ -387,11 +388,8 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
           if(in)
             {
               if(in->GetSize())
-                {
-                  XBUFFER charstr;
-                    
-                  (*in).ConvertToASCII(charstr);                           
-                  write(stdinpipe[PIPE_WRITE], charstr.Get(), in->GetSize()); 
+                {                  
+                  write(stdinpipe[PIPE_WRITE], (char*)in->Get(), (int)in->GetSize());
                 }
             }
 
@@ -423,24 +421,17 @@ bool XLINUXPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* pa
             }  
 
           if(out)
-            {    
-              /*                             
-              // Just a char by char read here, you can change it accordingly
-              while(read(stdoutpipe[PIPE_READ], &nchar, 1) == 1)
-                {
-                  out->Add(nchar);              
-                }
-              */
+            { 
                 
               int nread;
-              do{ nread = read(stdoutpipe[PIPE_READ], nchar, MAXOUTPIPECHARS); 
+              do{ nread = read(stdoutpipe[PIPE_READ], nchar, _MAXBUFFER); 
 
                   if(nread)
                     {
                       out->Add((XBYTE*)nchar, nread);
                     }
 
-                } while(nread == MAXOUTPIPECHARS);
+                } while(nread == _MAXBUFFER);
                                 
             } 
 

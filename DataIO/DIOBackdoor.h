@@ -138,7 +138,7 @@ class DIOBACKDOOR
                                                         status = fileini->ReadValue(__L("isactive"), value);
                                                         if(status)
                                                           {
-                                                            if(!value.Compare(__L("yes"), true))
+                                                            if(value.ConvertToBoolean())
                                                               {
                                                                 DIOURL* urlorigin = GEN_DIOFACTORY.CreateURL();
                                                                 if(urlorigin)

@@ -239,6 +239,7 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
   XSTRING   command;
   XSTRING   modestr;
   XSTRING   output;
+  XBUFFER   outputbuffer;
   int       indexnet;  
   bool      status;
      
@@ -290,15 +291,13 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
  
   if(mode == 0)
     {
-      XSTRING   input;
       XSTRING   param;
       int       returncode = 0;
-
 
       for(int c=0; c<10; c++)
         {        
           param.Format(__L("-x"));   
-          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &input, &output, &returncode);
+          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), NULL, NULL, &returncode);
         }
 
       for(int c=0; c<10; c++)
@@ -310,17 +309,20 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 
       XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("dhcpcd: %s"), param.Get());
  
-      GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &input, &output, &returncode);
+      GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), NULL, &outputbuffer, &returncode);
       XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("dhclient %s %d"), output.Get(), returncode);
 
       status = false;
+      outputbuffer.Add((XBYTE)0x00);
+      output = (char*)outputbuffer.Get();
+
       if(output.Find(__L("rebinding lease"), true) != XSTRING_NOTFOUND) status = true;
       
 
       for(int c=0; c<10; c++)
         {        
           param.Format(__L("-x"));   
-          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &input, &output, &returncode);
+          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), NULL, NULL, &returncode);
         }
 
       for(int c=0; c<10; c++)
@@ -635,11 +637,15 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_CLI_Command(XSTRING& command, XSTRING& output)
 
   output.Empty();
 
-  XSTRING   input;
+  XBUFFER   outputbuffer;
   int       returncode = 0;
   bool      status     = false;
 
-  GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/wpa_cli"), command.Get(), &input, &output, &returncode);
+  GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/wpa_cli"), command.Get(), NULL, &outputbuffer, &returncode);
+
+  outputbuffer.Add((XBYTE)0x00);
+  output = (char*)outputbuffer.Get();
+
   if(output.Find(__L("OK"), true) != XSTRING_NOTFOUND) status = true;
  
   output.DeleteCharacter(__C('\n'));
@@ -809,12 +815,18 @@ bool DIOLINUXWIFIMANAGERMODE::NM_CLI_Command(XSTRING& command, XSTRING& output)
 
   output.Empty();
 
-  XSTRING   input;
+  XBUFFER   outputbuffer;
   int       returncode = 0;
   bool      status     = false;
 
-  GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/nmcli"), command.Get(), &input, &output, &returncode);
-  if(output.GetSize()) status = true;
+  GEN_XPROCESSMANAGER.Application_Execute(__L("/usr/bin/nmcli"), command.Get(), NULL, &outputbuffer, &returncode);
+  if(outputbuffer.GetSize()) status = true;
+
+  if(status)
+    {
+      outputbuffer.Add((XBYTE)0x00);
+      output = (char*)outputbuffer.Get();
+    }
    
   XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[WIFI manager] NM CLI command [%s]: %s"), command.Get(), output.Get()); 
     

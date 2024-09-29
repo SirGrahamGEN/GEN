@@ -35,6 +35,7 @@
 
 #include "XPath.h"
 #include "XString.h"
+#include "XBuffer.h"
 
 #include "GRPRect.h"
 
@@ -106,11 +107,11 @@ class XPROCESSMANAGER
     static bool                     DelInstance                     ();
 
     virtual bool                    MakeSystemCommand               (XCHAR* command);    
-    virtual bool                    MakeCommand                     (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
+    virtual bool                    MakeCommand                     (XCHAR* command, XBUFFER* out = NULL, int* returncode = NULL);
 
     virtual bool                    OpenURL                         (XCHAR* url);
 
-    virtual bool                    Application_Execute             (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    virtual bool                    Application_Execute             (XCHAR* applicationpath, XCHAR* params = NULL, XBUFFER* in = NULL, XBUFFER* out = NULL, int* returncode = NULL);
 
     virtual bool                    Application_IsRunning           (XCHAR* command, XDWORD* ID = NULL);
 

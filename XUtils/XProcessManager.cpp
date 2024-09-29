@@ -483,19 +483,19 @@ bool XPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING& out, int* returncode)
+* 
+* @fn         bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
 * @brief      MakeCommand
 * @ingroup    XUTILS
-*
-* @param[in]  command :
-* @param[in]  out :
-* @param[in]  returncode :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  command : 
+* @param[in]  out : 
+* @param[in]  returncode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
+bool XPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
 {
   return false;
 }
@@ -519,21 +519,21 @@ bool XPROCESSMANAGER::OpenURL(XCHAR* url)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* 
+* @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 * @brief      Application_Execute
 * @ingroup    XUTILS
-*
+* 
 * @param[in]  applicationpath : 
 * @param[in]  params : 
 * @param[in]  in : 
 * @param[in]  out : 
 * @param[in]  returncode : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 {
   return false;
 }

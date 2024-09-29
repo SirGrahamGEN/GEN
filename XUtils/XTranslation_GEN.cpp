@@ -323,9 +323,17 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   Sentence_Add(XTRANSLATION_GEN_ID_OK                                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Ok")                                                              , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_ERROR                                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Error")                                                           , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_YES                                                          , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Yes")                                                             , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_NO                                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("No")                                                              , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_TRUE                                                         , XLANGUAGE_ISO_639_3_CODE_ENG , __L("True")                                                            , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_FALSE                                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("False")                                                           , 0); 
 
   Sentence_Add(XTRANSLATION_GEN_ID_OK                                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Correcto")                                                        , 0);
   Sentence_Add(XTRANSLATION_GEN_ID_ERROR                                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Error")                                                           , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_YES                                                          , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Si")                                                              , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_NO                                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("No")                                                              , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_TRUE                                                         , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Cierto")                                                          , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_FALSE                                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Falso")                                                           , 0); 
 
 
   //--- DATETIME -----------------------------------------------------------------------------------------------------

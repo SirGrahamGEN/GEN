@@ -769,7 +769,7 @@ bool XFILECFG::Save(XPATH& xpath)
                   case XFILECFG_VALUETYPE_BOOLEAN : { bool* value = (bool*)cfgvalue->GetValue();
                                                       if(!value) return false;
 
-                                                      strvalue = (*value)?__L("yes"):__L("no");
+                                                      strvalue.ConvertFromBoolean((*value), (XSTRINGBOOLEANMODE_HUMAN | XSTRINGBOOLEANMODE_LOWERCASE)); 
                                                     }
                                                     break;
                 }

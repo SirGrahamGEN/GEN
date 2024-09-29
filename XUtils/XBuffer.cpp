@@ -2216,6 +2216,52 @@ bool XBUFFER::Delete(bool setblocked)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XBUFFER::DeleteByte(XBYTE data)
+* @brief      DeleteByte
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XBUFFER::DeleteByte(XBYTE data, bool setblocked)
+{  
+  XDWORD  c=0;
+  bool    status = false;
+
+  if(setblocked) 
+    {
+      SetBlocked(true);
+    }
+
+  while(c<GetSize())
+    {
+      XBYTE  none;
+
+      if(buffer[c] == data)
+        {
+          Extract(none, c);
+
+          status = true;
+        } 
+       else
+        {
+          c++;
+        }
+    }
+
+  if(setblocked) 
+    {
+      SetBlocked(false);
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XBUFFER::FillBuffer(XBYTE fillchar)
 * @brief      Fill the buffer with a byte

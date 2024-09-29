@@ -104,6 +104,8 @@ XLINUXCONSOLE::~XLINUXCONSOLE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   struct winsize console_size;
 
   //ioctl(0, TIOCGWINSZ, &console_size);
@@ -111,6 +113,8 @@ bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 
   columns = console_size.ws_col;
   rows    = console_size.ws_row;
+
+  #endif
 
   return true;
 }
@@ -127,7 +131,9 @@ bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Maximize()
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
   setvbuf(stdout, NULL,_IONBF,0);
+  #endif
 
   return true;
 }
@@ -191,6 +197,8 @@ bool XLINUXCONSOLE::IsHide()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Print(XCHAR* string)
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   if(!string)     return false;
   if(!string[0])  return false;
 
@@ -204,6 +212,8 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
   printf(charstr.GetPtrChar());
   
   fflush(stdout);
+
+  #endif
 
   return true;
 }
@@ -222,6 +232,8 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Clear(bool fill)
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   printf("\033[2J");
   printf("\033[H");
 
@@ -232,6 +244,8 @@ bool XLINUXCONSOLE::Clear(bool fill)
   //printf("\033c");    // KDE
  
   //system("clear");
+
+  #endif
 
   return true;
 }
@@ -248,6 +262,8 @@ bool XLINUXCONSOLE::Clear(bool fill)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::KBHit(void)
 {
+
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
   /*
   struct termios oldt;
   struct termios newt;
@@ -283,6 +299,14 @@ bool XLINUXCONSOLE::KBHit(void)
   ioctl(0, FIONREAD, &byteswaiting);
 
   return byteswaiting > 0;
+
+  #else
+
+  return false;
+
+  #endif
+
+
 }
 
 
@@ -297,6 +321,8 @@ bool XLINUXCONSOLE::KBHit(void)
 * --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXCONSOLE::GetChar()
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   struct termios oldt, newt;
   int ch;
 
@@ -312,6 +338,12 @@ int XLINUXCONSOLE::GetChar()
   tcsetattr( STDIN_FILENO, TCSANOW, &oldt );      /* Ponemos los atributos como estaban al principio */
 
   return ch;
+
+  #else
+
+  return 0;
+
+  #endif
 }
 
 
@@ -324,11 +356,15 @@ int XLINUXCONSOLE::GetChar()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeEnable()
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   termios term;
 
   tcgetattr(0, &term);
   term.c_lflag &= ~(ICANON | ECHO); // Disable echo as well
   tcsetattr(0, TCSANOW, &term);
+
+  #endif
 }
 
 
@@ -341,11 +377,15 @@ void XLINUXCONSOLE::RawModeEnable()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeDisable()
 {
+  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+
   termios term;
   
   tcgetattr(0, &term);
   term.c_lflag |= ICANON | ECHO;
   tcsetattr(0, TCSANOW, &term);
+
+  #endif
 }
 
 

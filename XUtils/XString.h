@@ -52,19 +52,26 @@ typedef wchar_t XCHAR;
 
 enum XSTRINGCODING
 {
-  XSTRINGCODING_UNKWOWN        = 0 ,
-  XSTRINGCODING_UTF8               ,
-  XSTRINGCODING_UTF16              ,
-  XSTRINGCODING_UTF32              ,
+  XSTRINGCODING_UNKWOWN         = 0 ,
+  XSTRINGCODING_ASCII               ,
+  XSTRINGCODING_UTF8                ,
+  XSTRINGCODING_UTF16               ,
+  XSTRINGCODING_UTF32               ,
 };
-
 
 enum XSTRINGCONTEXT
 {
-  XSTRINGCONTEXT_FROM_FIRST    = 0 ,
-  XSTRINGCONTEXT_TO_END            ,
-  XSTRINGCONTEXT_ALLSTRING         ,
+  XSTRINGCONTEXT_FROM_FIRST     = 0 ,
+  XSTRINGCONTEXT_TO_END             ,
+  XSTRINGCONTEXT_ALLSTRING          ,
 };
+
+
+#define XSTRINGBOOLEANMODE_COMPUTER    0x01
+#define XSTRINGBOOLEANMODE_HUMAN       0x02
+#define XSTRINGBOOLEANMODE_UPPERCASE   0x80
+#define XSTRINGBOOLEANMODE_LOWERCASE   0x40
+
 
 #pragma pack(push, r1, 1)
 typedef struct
@@ -259,7 +266,7 @@ class GEN_API_LIB XSTRING
     bool                  Insert                          (XSTRING str, XDWORD position);
 
     bool                  ConvertFromNULL                 (bool uppercase);
-    bool                  ConvertFromBoolean              (bool boolean, bool uppercase = false);
+    bool                  ConvertFromBoolean              (bool boolean, XBYTE mode = XSTRINGBOOLEANMODE_COMPUTER);
     bool                  ConvertFromShort                (short value, const XCHAR* mask = NULL);
     bool                  ConvertFromWord                 (XWORD value, const XCHAR* mask = NULL);
     bool                  ConvertFromInt                  (int value, const XCHAR* mask = NULL);

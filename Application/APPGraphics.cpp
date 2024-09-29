@@ -125,9 +125,15 @@ bool APPGRAPHICS::Ini(XVECTOR<XSTRING*>* execparams)
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETING);
   RegisterEvent(GRPXEVENT_TYPE_SCREEN_DELETED);
 
-  if(!APPBASE::Ini(execparams)) return false;
+  if(!APPCONSOLE::Ini(execparams)) 
+    {
+      return false;
+    }
 
-  if(GetExitType() != APPBASE_EXITTYPE_UNKNOWN) return false;
+  if(GetExitType() != APPBASE_EXITTYPE_UNKNOWN) 
+    {
+      return false;
+    }
 
   if(initoptions & APPGRAPHICS_INIOPTION_CREATEMAINSCREEN)
     {
@@ -165,7 +171,7 @@ bool APPGRAPHICS::End()
       GEN_XLOG.AddEntry(XLOGLEVEL_INFO, APP_CFG_LOG_SECTIONID_GENERIC, false, exittypestring.Get());
     }
 
-  bool status = APPBASE::End();
+  bool status = APPCONSOLE::End();
 
   return status;
 }
@@ -385,6 +391,39 @@ void APPGRAPHICS::SetMainScreen(GRPSCREEN* mainscreen)
 {
   this->mainscreen = mainscreen;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPCANVAS* APPGRAPHICS::GetScreenCanvas(GRPSCREEN* screen, int viewportindex)
+* @brief      GetScreenCanvas
+* @ingroup    APPLICATION
+* 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
+* 
+* @return     GRPCANVAS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPCANVAS* APPGRAPHICS::GetScreenCanvas(GRPSCREEN* screen, int viewportindex)
+{
+  if(!screen)
+    {
+      return NULL;
+    }
+
+  GRPVIEWPORT* viewport = screen->GetViewport(viewportindex);
+  if(!viewport)
+    {
+      return NULL;
+    }
+
+  GRPCANVAS* canvas = viewport->GetCanvas();
+
+  return canvas;
+}
+
+
 
 
 #ifdef INP_ACTIVE

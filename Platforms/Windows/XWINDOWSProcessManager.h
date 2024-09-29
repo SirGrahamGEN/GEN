@@ -60,11 +60,11 @@ class XWINDOWSPROCESSMANAGER : public XPROCESSMANAGER
     virtual                ~XWINDOWSPROCESSMANAGER                      ();
 
     bool                    MakeSystemCommand                           (XCHAR* command);    
-    bool                    MakeCommand                                 (XCHAR* command, XSTRING* out = NULL, int* returncode = NULL);
+    bool                    MakeCommand                                 (XCHAR* command, XBUFFER* out = NULL, int* returncode = NULL);
 
     bool                    OpenURL                                     (XCHAR* url);
 
-    bool                    Application_Execute                         (XCHAR* applicationpath, XCHAR* params = NULL, XSTRING* in = NULL, XSTRING* out = NULL, int* returncode = NULL);
+    bool                    Application_Execute                         (XCHAR* applicationpath, XCHAR* params = NULL, XBUFFER* in = NULL, XBUFFER* out = NULL, int* returncode = NULL);
     bool                    Application_IsRunning                       (XCHAR* command, XDWORD* ID = NULL);
     bool                    Application_GetRunningList                  (XVECTOR<XPROCESS*>& applist, bool onlywithvalidwindow = false);
     bool                    Application_Terminate                       (XDWORD processID, XDWORD  exitcode = 0);

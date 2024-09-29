@@ -217,7 +217,7 @@ bool APPEXTENDED_INTERNETSTATUS::Show(XCONSOLE* console)
   APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   string  = __L("Internet Connection");
-  string2.Format(__L("%s"), haveinternetconnection?__L("yes"):__L("no"));
+  string2.ConvertFromBoolean(haveinternetconnection, XSTRINGBOOLEANMODE_HUMAN);   
   APP_EXTENDED.GetAppConsole()->Show_Line(string, string2);
 
   if(haveinternetconnection)

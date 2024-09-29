@@ -51,6 +51,10 @@
 #include "XBuffer.h"
 #include "XTrace.h"
 #include "XThread.h"
+#include "XTranslation.h"
+#include "XTranslation_GEN.h"
+#include "XTranslation.h"
+#include "XLanguage_ISO_639_3.h"
 
 #include "XMemory_Control.h"
 
@@ -2777,11 +2781,29 @@ bool XSTRING::ConvertFromNULL(bool uppercase)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
+bool XSTRING::ConvertFromBoolean(bool boolean, XBYTE mode)
 {
-  if(boolean)
-        Set(uppercase? __L("TRUE") : __L("true"));
-   else Set(uppercase? __L("FALSE")  : __L("false"));
+  Empty();
+
+  if((mode & XSTRINGBOOLEANMODE_COMPUTER) == XSTRINGBOOLEANMODE_COMPUTER)
+    {
+      Set(boolean?XT_L(XTRANSLATION_GEN_ID_TRUE):XT_L(XTRANSLATION_GEN_ID_FALSE));
+    }
+    
+  if((mode & XSTRINGBOOLEANMODE_HUMAN) == XSTRINGBOOLEANMODE_HUMAN)
+    {
+      Set(boolean?XT_L(XTRANSLATION_GEN_ID_YES):XT_L(XTRANSLATION_GEN_ID_NO));
+    }
+
+  if((mode & XSTRINGBOOLEANMODE_UPPERCASE) == XSTRINGBOOLEANMODE_UPPERCASE)
+    {
+      ToUpperCase();
+    }
+
+  if((mode & XSTRINGBOOLEANMODE_LOWERCASE) == XSTRINGBOOLEANMODE_LOWERCASE)
+    {
+      ToLowerCase();
+    }
 
   return true;
 }
@@ -3252,25 +3274,22 @@ bool XSTRING::ConvertToBoolean()
 {
   bool result = false;
 
-  if(!Compare(__L("yes")  , true)  || 
-     !Compare(__L("true") , true)  || 
-     !Compare(__L("YES")  , true)  || 
-     !Compare(__L("TRUE") , true))
+  if(!Compare(XT_L(XTRANSLATION_GEN_ID_YES)    , true)  || 
+     !Compare(XT_L(XTRANSLATION_GEN_ID_TRUE)   , true))
     {
       result = true;
     }
    else
     {
-      if(!Compare(__L("no")    , true)    || 
-         !Compare(__L("false") , true)    || 
-         !Compare(__L("NO")    , true)    || 
-         !Compare(__L("FALSE") , true))
+      if(!Compare(XT_L(XTRANSLATION_GEN_ID_NO)    , true) || 
+         !Compare(XT_L(XTRANSLATION_GEN_ID_FALSE) , true) || 
+         !Compare(__L("0")     , true))                   
         {
           result = false;
         }
        else
         {
-          if(Compare(__L("0")  , true)) 
+          if(!IsEmpty()) 
             {
               result = true;
             }
@@ -3679,7 +3698,9 @@ bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
     {
       case XSTRINGCODING_UTF16  : switch(buffercoding)
                                     {
-                                      case XSTRINGCODING_UNKWOWN  : { xbuffer.ResetPosition();
+                                      case XSTRINGCODING_UNKWOWN  : 
+                                      case XSTRINGCODING_ASCII    : 
+                                                                    { xbuffer.ResetPosition();
 
                                                                       for(XDWORD c=0; c<xbuffer.GetSize(); c++)
                                                                         {
@@ -3743,7 +3764,8 @@ bool XSTRING::ConvertFromXBuffer(XBUFFER& xbuffer, XSTRINGCODING buffercoding)
   
       case XSTRINGCODING_UTF32  : switch(buffercoding)
                                     {
-                                      case XSTRINGCODING_UNKWOWN  : { xbuffer.ResetPosition();
+                                      case XSTRINGCODING_UNKWOWN  :
+                                      case XSTRINGCODING_ASCII    : { xbuffer.ResetPosition();
 
                                                                       for(XDWORD c=0; c<xbuffer.GetSize(); c++)
                                                                         {

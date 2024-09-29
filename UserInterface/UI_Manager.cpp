@@ -2334,15 +2334,16 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
   if(!bckgrdcolor.IsEmpty()) element->GetBackgroundColor()->SetFromString(bckgrdcolor);  
     
   XSTRING visible;
-  GetLayoutElementValue(node, __L("visible"), visible);    
-  if(!visible.Compare(__L("no"), true))   element->SetVisible(false);
-  if(!visible.Compare(__L("yes"), true))  element->SetVisible(true);
-
-  XSTRING hasscroll;
-  GetLayoutElementValue(node, __L("scroll"), hasscroll);
-  if(!hasscroll.Compare(__L("no"), true))   element->SetHasScroll(false);
-  if(!hasscroll.Compare(__L("yes"), true))  element->SetHasScroll(true);
-
+  if(GetLayoutElementValue(node, __L("visible"), visible))
+    {
+      element->SetVisible(visible.ConvertToBoolean());
+    }
+    
+  XSTRING hasscroll;  
+  if(GetLayoutElementValue(node, __L("scroll"), hasscroll))
+    {
+      element->SetHasScroll(hasscroll.ConvertToBoolean());
+    }
 
   double roundrect = 0.0f;
   GetLayoutElementValue(node, __L("roundrect"), roundrect); 
@@ -2661,8 +2662,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
   element_textbox->SetIsWordClipping(false);
   if(GetLayoutElementValue(node, __L("wordclipping"), wordclippingstr))
     {
-      if(!wordclippingstr.Compare(__L("no"), true))   element_textbox->SetIsWordClipping(false);
-      if(!wordclippingstr.Compare(__L("yes"), true))  element_textbox->SetIsWordClipping(true);
+      element_textbox->SetIsWordClipping(wordclippingstr.ConvertToBoolean());         
     }
 
   text.Empty();

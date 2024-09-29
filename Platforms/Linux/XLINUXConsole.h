@@ -68,8 +68,8 @@ class XLINUXCONSOLE : public XCONSOLE
 
   private:
 
-    void               RawModeEnable          ();
-    void               RawModeDisable         ();
+    void                RawModeEnable         ();
+    void                RawModeDisable        ();
 };
 
 

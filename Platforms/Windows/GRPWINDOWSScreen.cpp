@@ -1074,6 +1074,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
       point.y  += alldesktoprect->y1;   
     
       SetPosition(point.x,  point.y);
+      Set_Position(point.x,  point.y);
 
       SetSize(width ,height);
       SetMaxSize(width ,height);

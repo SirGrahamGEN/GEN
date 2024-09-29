@@ -278,6 +278,8 @@ class DIOLINUXLEDNEOPIXELWS2812BRPI : public DIOLEDNEOPIXELWS2812B
     bool                      RP1SPICreate                      (RP1_T *rp1, uint8_t spinum, RP1_SPI_INSTANCE_T** spi);
     void                      RP1SPIWriteArrayBlocking          (RP1_SPI_INSTANCE_T* spi, uint8_t data[], int data_length);
 
+    int                       Sleep                             (long msec);
+
     void                      Clean                             ();
 
     RPI_MODEL                 model;

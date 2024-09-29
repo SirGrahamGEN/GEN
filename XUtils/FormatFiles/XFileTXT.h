@@ -94,7 +94,7 @@ class XFILETXT : public XFILECONTAINER
 
     virtual bool          Open                    (XCHAR* xpath,bool readonly = true);
     virtual bool          Open                    (XPATH& xpath,bool readonly = true);
-    virtual bool          Create                  (XPATH& xpath,XFILETXTFORMATCHAR formatchar = XFILETXTFORMATCHAR_ASCII ,XFILETXTTYPELF typeLF = XFILETXTTYPELF_DEFAULT);
+    virtual bool          Create                  (XPATH& xpath, XFILETXTFORMATCHAR formatchar = XFILETXTFORMATCHAR_ASCII ,XFILETXTTYPELF typeLF = XFILETXTTYPELF_DEFAULT);
     virtual bool          IsOpen                  ();
     virtual bool          Close                   (void);
 
@@ -128,6 +128,7 @@ class XFILETXT : public XFILECONTAINER
 
     bool                  AddLine                 (XCHAR* line);
     bool                  AddLine                 (XSTRING& line);
+    bool                  AddLine                 (XBUFFER& line, XFILETXTFORMATCHAR formatchar = XFILETXTFORMATCHAR_ASCII);
 
     bool                  GenerateLineFromBuffer  (XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline, XSTRING& string);
     bool                  AddLine                 (XFILETXTFORMATCHAR type, XBYTE* line, XDWORD sizeline);

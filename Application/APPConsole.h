@@ -54,7 +54,7 @@
 class XTIMER;
 class XCONSOLE;
 
-class APPCONSOLE : public APPBASE, public XOBSERVER
+class APPCONSOLE : public APPBASE
 {
   public:
 

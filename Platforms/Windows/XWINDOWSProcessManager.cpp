@@ -129,19 +129,22 @@ bool XWINDOWSPROCESSMANAGER::MakeSystemCommand(XCHAR* command)
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XSTRING* out, int* returncode)
+bool XWINDOWSPROCESSMANAGER::MakeCommand(XCHAR* command, XBUFFER* out, int* returncode)
 {
-  char    buffer[256];
-  FILE*   pipe;
+  XBYTE  buffer[_MAXBUFFER];
+  FILE*  pipe;
 
   if((pipe = _wpopen(command, __L("rt") )) == NULL) return false;
 
   if(out)
     {
-      while(fgets(buffer, 256, pipe))
-       {
-         (*out) += buffer;
-       }
+      memset(buffer, 0, 256);
+          
+      while(fgets((char*)buffer, _MAXBUFFER, pipe))
+        {          
+          out->Add((XBYTE*)buffer, SizeBufferASCII(buffer, _MAXBUFFER));
+          memset(buffer, 0, _MAXBUFFER);
+        }
     }
 
   if(feof(pipe))
@@ -181,10 +184,10 @@ bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* @fn         bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 * @brief      Application_Execute
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  applicationpath : 
 * @param[in]  params : 
 * @param[in]  in : 
@@ -193,8 +196,8 @@ bool XWINDOWSPROCESSMANAGER::OpenURL(XCHAR* url)
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XBUFFER* in, XBUFFER* out, int* returncode)
 {
   #define CMDLINE_SIZE  (10*1024)
   #define OUTBUF_SIZE   (10*1024*1024)
@@ -203,10 +206,10 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
   PROCESS_INFORMATION processinfo;
   STARTUPINFOA        startupinfo;
   SECURITY_ATTRIBUTES saattr;
-  char*               cmdline             = NULL;
-  char*               outbuf              = NULL;
+  XBYTE*              cmdline             = NULL;
+  XBYTE*              outbuftmp           = NULL;
   DWORD               bytes_read;
-  char*               tempbuf             = NULL;
+  XBYTE*              tempbuf             = NULL;
   DWORD               exitcode;
   HANDLE              stdhandle_out_read  = NULL;
   HANDLE              stdhandle_out_write = NULL;
@@ -215,11 +218,10 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
   XSTRING             _command;
   bool                status = false;
 
-  cmdline = new char[CMDLINE_SIZE];
-  outbuf  = new char[OUTBUF_SIZE];
-  tempbuf = new char[TEMPBUF_SIZE];
-
-  if(cmdline && outbuf && tempbuf)
+  cmdline    = new XBYTE[CMDLINE_SIZE];
+  outbuftmp  = new XBYTE[OUTBUF_SIZE];
+  
+  if(cmdline && outbuftmp)
     {      
       _command.Format(__L("\"%s\""), applicationpath);
       
@@ -254,7 +256,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
       startupinfo.hStdInput   = stdhandle_in_read;    // GetStdHandle(STD_INPUT_HANDLE);
       startupinfo.dwFlags    |= STARTF_USESTDHANDLES;
 
-      if(CreateProcessA(NULL, cmdline, NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &startupinfo, &processinfo))
+      if(CreateProcessA(NULL, (char*)cmdline, NULL, NULL, TRUE, CREATE_NO_WINDOW, NULL, NULL, &startupinfo, &processinfo))
         {
           CloseHandle(stdhandle_out_write);
           
@@ -264,10 +266,7 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
                 {
                   DWORD bytes_write;
 
-                  XBUFFER charstr;
-                  
-                  (*in).ConvertToASCII(charstr); 
-                  WriteFile(stdhandle_in_write, charstr.Get(), in->GetSize(), &bytes_write, NULL);
+                  WriteFile(stdhandle_in_write, in->Get(), in->GetSize(), &bytes_write, NULL);
                   
                   FlushFileBuffers(stdhandle_in_write);
                 }
@@ -277,23 +276,20 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
 
           if(out)
             {
-              strcpy(outbuf, "");
+              memset(outbuftmp, 0, OUTBUF_SIZE);
 
               for(;;)
                 {
-                  if(!ReadFile(stdhandle_out_read, tempbuf, TEMPBUF_SIZE-1, &bytes_read, NULL))
+                  if(!ReadFile(stdhandle_out_read, outbuftmp, OUTBUF_SIZE, &bytes_read, NULL))
                     {
                       break;
                     }
 
                   if(bytes_read > 0)
-                    {
-                      tempbuf[bytes_read] = '\0';
-                      strcat(outbuf, tempbuf);
+                    {                    
+                      out->Add(outbuftmp, bytes_read);
                     }
-                }
-
-              (*out) = outbuf;
+                }             
             }
 
           if(WaitForSingleObject(processinfo.hProcess, (out?INFINITE:500)) == WAIT_OBJECT_0)
@@ -314,10 +310,16 @@ bool XWINDOWSPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* 
         }
     }
 
-  if(cmdline) delete [] cmdline;
-  if(outbuf)  delete [] outbuf;
-  if(tempbuf) delete [] tempbuf;
+  if(cmdline) 
+    {
+      delete [] cmdline;
+    }
 
+  if(outbuftmp)
+    {
+      delete [] outbuftmp;
+    }
+  
   return status;
 }
 

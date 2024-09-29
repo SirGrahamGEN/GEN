@@ -180,10 +180,11 @@ class GEN_API_LIB XBUFFER
 
     bool                     Resize                               (XDWORD newsize,bool setblocked = true);
     bool                     Delete                               (bool setblocked = true);
+    bool                     DeleteByte                           (XBYTE data, bool setblocked = true); 
     bool                     FillBuffer                           (XBYTE fillchar = 0);
     bool                     Empty                                ();
     bool                     Swap                                 ();
-
+    
     bool                     Compare                              (XBYTE* pbuffer, XDWORD psize);
     bool                     Compare                              (XBUFFER* buffer);
     bool                     Compare                              (XBUFFER& buffer);

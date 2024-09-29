@@ -34,10 +34,10 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XObserver.h"
 #include "XVector.h"
 
 #include "APPBase.h"
+#include "APPConsole.h"
 
 #pragma endregion
 
@@ -59,11 +59,13 @@ enum APPGRAPHICS_INIOPTIONS
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+
 class GRPSCREEN;
 class GRPCANVAS;
 class INPDEVICE;
 
-class APPGRAPHICS : public APPBASE, public XOBSERVER
+
+class APPGRAPHICS : public APPCONSOLE, public XOBSERVER
 {
   public:
                               APPGRAPHICS                         ();
@@ -80,6 +82,8 @@ class APPGRAPHICS : public APPBASE, public XOBSERVER
 
     GRPSCREEN*                GetMainScreen                       ();
     void                      SetMainScreen                       (GRPSCREEN* mainscreen);
+
+    GRPCANVAS*                GetScreenCanvas                     (GRPSCREEN* screen, int viewportindex);
 
     #ifdef INP_ACTIVE
     INPDEVICE*                GetInputKeyboard                    ();

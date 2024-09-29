@@ -79,10 +79,10 @@ DIOCOREPROTOCOLHEADER::DIOCOREPROTOCOLHEADER()
       SetSerializationMethod(serializationmethod);
     }
 
-  datetimesend = GEN_XFACTORY.CreateDateTime();
-  if(datetimesend)
+  datetime_send = GEN_XFACTORY.CreateDateTime();
+  if(datetime_send)
     {
-      datetimesend->Read();
+      datetime_send->Read();
     }
 }
 
@@ -102,9 +102,9 @@ DIOCOREPROTOCOLHEADER::~DIOCOREPROTOCOLHEADER()
       delete serializationmethod;
     }
 
-  if(datetimesend)
+  if(datetime_send)
     {
-      GEN_XFACTORY.DeleteDateTime(datetimesend);
+      GEN_XFACTORY.DeleteDateTime(datetime_send);
     }
 
   Clean();
@@ -122,7 +122,7 @@ DIOCOREPROTOCOLHEADER::~DIOCOREPROTOCOLHEADER()
 * --------------------------------------------------------------------------------------------------------------------*/
 XUUID* DIOCOREPROTOCOLHEADER::GetIDMachine()
 {
-  return &IDmachine;
+  return &ID_machine;
 }
 
 
@@ -137,7 +137,7 @@ XUUID* DIOCOREPROTOCOLHEADER::GetIDMachine()
 * --------------------------------------------------------------------------------------------------------------------*/
 XUUID* DIOCOREPROTOCOLHEADER::GetIDConnection()
 {
-  return &IDconnection;
+  return &ID_connection;
 }
 
 
@@ -152,7 +152,103 @@ XUUID* DIOCOREPROTOCOLHEADER::GetIDConnection()
 * --------------------------------------------------------------------------------------------------------------------*/
 XUUID* DIOCOREPROTOCOLHEADER::GetIDMessage()
 {
-  return &IDmessage;
+  return &ID_message;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOLHEADER_MESSAGETYPE DIOCOREPROTOCOLHEADER::GetMessageType()
+* @brief      GetMessageType
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOLHEADER_MESSAGETYPE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOLHEADER_MESSAGETYPE DIOCOREPROTOCOLHEADER::GetMessageType()
+{
+  return message_type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOLHEADER::SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type)
+* @brief      SetMessageType
+* @ingroup    DATAIO
+* 
+* @param[in]  message_type : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOLHEADER::SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type)
+{
+  this->message_type = message_type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOLHEADER::GetMessageTypeToString(XSTRING& message_typestr)
+* @brief      GetMessageTypeToString
+* @ingroup    DATAIO
+* 
+* @param[in]  message_typestr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOLHEADER::GetMessageTypeToString(XSTRING& message_typestr)
+{
+  message_typestr.Empty();
+
+  switch(message_type)
+    {
+      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN  : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN;  break;
+      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK      : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK;      break;
+      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE; break;      
+    }
+
+  return message_typestr.IsEmpty()?false:true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOLHEADER::GetMessageTypeFromString(XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type)
+* @brief      GetMessageTypeFromString
+* @ingroup    DATAIO
+* 
+* @param[in]  message_typestr : 
+* @param[in]  message_type : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOLHEADER::GetMessageTypeFromString(XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type)
+{
+  if(!message_typestr)
+    {
+      return false;
+    }
+
+  message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;
+
+  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN))
+    {
+      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;
+    }
+
+  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK))
+    {
+      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK;
+    }
+
+  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE))
+    {
+      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE;
+    }
+
+  return message_type;
 }
 
 
@@ -167,7 +263,7 @@ XUUID* DIOCOREPROTOCOLHEADER::GetIDMessage()
 * --------------------------------------------------------------------------------------------------------------------*/
 XDATETIME* DIOCOREPROTOCOLHEADER::GetDateTimeSend()
 {
-  return datetimesend;
+  return datetime_send;
 }
 
 
@@ -182,7 +278,7 @@ XDATETIME* DIOCOREPROTOCOLHEADER::GetDateTimeSend()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOLHEADER_CONTENTTYPE DIOCOREPROTOCOLHEADER::GetContentType()
 {
-  return contenttype;
+  return content_type;
 }
 
 
@@ -195,15 +291,15 @@ DIOCOREPROTOCOLHEADER_CONTENTTYPE DIOCOREPROTOCOLHEADER::GetContentType()
 * @param[in]  contenttype : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE contenttype)
+void DIOCOREPROTOCOLHEADER::SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE content_type)
 {
-  this->contenttype = contenttype;
+  this->content_type = content_type;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& contenttypestr)
+* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& content_typestr)
 * @brief      GetContentTypeToString
 * @ingroup    DATAIO
 * 
@@ -212,64 +308,160 @@ void DIOCOREPROTOCOLHEADER::SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE con
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& contenttypestr)
+bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& content_typestr)
 {
-  contenttypestr.Empty();
+  content_typestr.Empty();
 
-  switch(contenttype)
+  switch(content_type)
     {
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN  : contenttypestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN;  break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY   : contenttypestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY;   break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT     : contenttypestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT;     break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON     : contenttypestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON;     break;
+      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN  : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN;  break;
+      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY   : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY;   break;
+      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT     : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT;     break;
+      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON     : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON;     break;
     }
 
-  return contenttypestr.IsEmpty()?false:true;
+  return content_typestr.IsEmpty()?false:true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* contenttypestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& contenttype)
+* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type)
 * @brief      GetContentTypeFromString
 * @ingroup    DATAIO
 * 
-* @param[in]  contenttypestr : 
-* @param[in]  contenttype : 
+* @param[in]  content_typestr : 
+* @param[in]  content_type : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* contenttypestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& contenttype)
+bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type)
 {
-  if(!contenttypestr)
+  if(!content_typestr)
     {
       return false;
     }
 
-  contenttype = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
+  content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
 
-  if(!contenttypestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN))
+  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN))
     {
-      contenttype = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
+      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
     }
 
-  if(!contenttypestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY))
+  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY))
     {
-      contenttype = DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY;
+      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY;
     }
 
-  if(!contenttypestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT))
+  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT))
     {
-      contenttype = DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT;
+      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT;
     }
 
-  if(!contenttypestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON))
+  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON))
     {
-      contenttype = DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON;
+      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON;
     }
 
-  return contenttype;
+  return content_type;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOLHEADER_CONTENTOPERATION DIOCOREPROTOCOLHEADER::GetContentOperation()
+* @brief      GetContentOperation
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOLHEADER_CONTENTOPERATION : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOLHEADER_CONTENTOPERATION DIOCOREPROTOCOLHEADER::GetContentOperation()
+{
+  return content_operation;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOLHEADER::SetContentOperation(DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation)
+* @brief      SetContentOperation
+* @ingroup    DATAIO
+* 
+* @param[in]  content_operation : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOLHEADER::SetContentOperation(DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation)
+{
+  this->content_operation = content_operation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOLHEADER::GetContentOperationToString(XSTRING& content_operationstr)
+* @brief      GetContentOperationToString
+* @ingroup    DATAIO
+* 
+* @param[in]  content_operationstr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOLHEADER::GetContentOperationToString(XSTRING& content_operationstr)
+{
+  content_operationstr.Empty();
+
+  switch(content_operation)
+    {
+      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN  : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN;  break;
+      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND  : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND;  break;
+      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE   : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE;   break;      
+    }
+
+  return content_operationstr.IsEmpty()?false:true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOLHEADER::GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation)
+* @brief      GetContentOperationFromString
+* @ingroup    DATAIO
+* 
+* @param[in]  content_operationstr : 
+* @param[in]  content_operation : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOLHEADER::GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation)
+{
+  if(!content_operationstr)
+    {
+      return false;
+    }
+
+  content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN;
+
+  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN))
+    {
+      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN;
+    }
+
+  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND))
+    {
+      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND;
+    }
+
+  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE))
+    {
+      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE;
+    }
+
+  return content_operation;
 }
 
 
@@ -284,22 +476,52 @@ bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* contenttypestr, DI
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCOREPROTOCOLHEADER::GetContentSize()
 {
-  return contentsize;
+  return content_size;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD contentsize)
+* @fn         void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD content_size)
 * @brief      SetContentSize
 * @ingroup    DATAIO
 * 
-* @param[in]  contentsize : 
+* @param[in]  content_size : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD contentsize)
+void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD content_size)
 {
-  this->contentsize = contentsize;
+  this->content_size = content_size;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOLHEADER::GetContentIsCompress()
+* @brief      GetContentIsCompress
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOLHEADER::GetContentIsCompress()
+{
+  return content_iscompress;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOLHEADER::SetContentIsCompress(bool content_iscompress)
+* @brief      SetContentIsCompress
+* @ingroup    DATAIO
+* 
+* @param[in]  contentiscompress : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOLHEADER::SetContentIsCompress(bool content_iscompress)
+{
+  this->content_iscompress = content_iscompress;
 }
 
 
@@ -314,22 +536,22 @@ void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD contentsize)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOCOREPROTOCOLHEADER::GetContentCRC32()
 {
-  return contentCRC32;
+  return content_CRC32;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD contentCRC32)
+* @fn         void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD content_CRC32)
 * @brief      SetContentCRC32
 * @ingroup    DATAIO
 * 
 * @param[in]  contentCRC32 : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD contentCRC32)
+void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD content_CRC32)
 {
-  this->contentCRC32 = contentCRC32;
+  this->content_CRC32 = content_CRC32;
 }
 
 
@@ -374,34 +596,38 @@ XSERIALIZATIONMETHOD* DIOCOREPROTOCOLHEADER::GetSerializationMethod()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOLHEADER::Serialize()
 {
-  XSTRING string;
+  XSTRING   string; 
+  XVARIANT  data;
 
-  string.Empty();
-  IDmachine.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("IDmachine"));
+  ID_machine.GetToString(string);
+  Primitive_Add<XSTRING*>(&string, __L("ID_machine"));
 
-  string.Empty();
-  IDconnection.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("IDconnection"));
+  ID_connection.GetToString(string);
+  Primitive_Add<XSTRING*>(&string, __L("ID_connection"));
 
-  string.Empty();
-  IDmessage.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("IDmessage"));
+  ID_message.GetToString(string);
+  Primitive_Add<XSTRING*>(&string, __L("ID_message"));
 
-  string.Empty();
-  datetimesend->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS, string);
-  Primitive_Add<XSTRING*>(&string, __L("datetimesend"));
+  GetMessageTypeToString(string);  
+  Primitive_Add<XSTRING*>(&string, __L("message_type"));
+
+  datetime_send->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS, string);
+  Primitive_Add<XSTRING*>(&string, __L("datetime_send"));
 
   GetContentTypeToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("contenttype"));
-  
-  string.Empty();
-  string.Format(__L("%d"), contentsize);
-  Primitive_Add<XSTRING*>(&string, __L("contentsize"));
+  Primitive_Add<XSTRING*>(&string, __L("content_type"));
 
-  string.Empty();
-  string.Format(__L("%08X"), contentCRC32);
-  Primitive_Add<XSTRING*>(&string, __L("contentCRC32"));
+  GetContentOperationToString(string);  
+  Primitive_Add<XSTRING*>(&string, __L("content_operation"));
+    
+  string.Format(__L("%d"), content_size);
+  Primitive_Add<XSTRING*>(&string, __L("content_size"));
+
+  string.ConvertFromBoolean(content_iscompress, (XSTRINGBOOLEANMODE_HUMAN | XSTRINGBOOLEANMODE_LOWERCASE));
+  Primitive_Add<XSTRING*>(&string, __L("content_iscompress"));
+   
+  string.Format(__L("%08X"), content_CRC32);
+  Primitive_Add<XSTRING*>(&string, __L("content_CRC32"));
 
   return true;
 }
@@ -421,35 +647,45 @@ bool DIOCOREPROTOCOLHEADER::Deserialize()
   XSTRING string;
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("IDmachine"));
-  IDmachine.SetFromString(string);
+  Primitive_Extract<XSTRING&>(string, __L("ID_machine"));
+  ID_machine.SetFromString(string);
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("IDconnection"));
-  IDconnection.SetFromString(string);
+  Primitive_Extract<XSTRING&>(string, __L("ID_connection"));
+  ID_connection.SetFromString(string);
   
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("IDmessage"));
-  IDmessage.SetFromString(string);
+  Primitive_Extract<XSTRING&>(string, __L("ID_message"));
+  ID_message.SetFromString(string);
+
+  Primitive_Extract<XSTRING&>(string, __L("message_type"));
+  GetMessageTypeFromString(&string, message_type);  
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("datetimesend"));
-  datetimesend->GetDateTimeFromStringISO8601(string, XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS);
+  Primitive_Extract<XSTRING&>(string, __L("datetime_send"));
+  datetime_send->GetDateTimeFromStringISO8601(string, XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS);
   
-  Primitive_Extract<XSTRING&>(string, __L("contenttype"));
-  GetContentTypeFromString(&string, contenttype);  
+  Primitive_Extract<XSTRING&>(string, __L("content_type"));
+  GetContentTypeFromString(&string, content_type);  
+
+  Primitive_Extract<XSTRING&>(string, __L("content_operation"));
+  GetContentOperationFromString(&string, content_operation);  
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("contentsize"));
-  string.UnFormat(__L("%d"), &contentsize);
-  
+  Primitive_Extract<XSTRING&>(string, __L("content_size"));
+  string.UnFormat(__L("%d"), &content_size);
+         
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("contentCRC32"));
-  string.UnFormat(__L("%08X"), &contentCRC32);
+  Primitive_Extract<XSTRING&>(string, __L("content_iscompress"));
+  content_iscompress = string.ConvertToBoolean();
+
+  string.Empty();
+  Primitive_Extract<XSTRING&>(string, __L("content_CRC32"));
+  string.UnFormat(__L("%08X"), &content_CRC32);
 
   return true;
 }
- 
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -460,9 +696,14 @@ bool DIOCOREPROTOCOLHEADER::Deserialize()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOLHEADER::Clean()
-{
-  contenttype   = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
-  contentCRC32  = 0;
+{ 
+  message_type        = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;  
+  datetime_send       = NULL;
+  content_type        = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN; 
+  content_operation   = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN; 
+  content_size        = 0;
+  content_iscompress  = false;          
+  content_CRC32       = 0;       
 }
 
     
@@ -825,6 +1066,8 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOLHEADER* header, XBUFFE
     {
       return false;
     }
+
+  header->SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK);
 
   headerxfileJSON = header->GetSerializationXFileJSON();
   if(!headerxfileJSON)

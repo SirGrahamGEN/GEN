@@ -1082,6 +1082,45 @@ bool XFILETXT::AddLine(XSTRING& line)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XFILETXT::AddLine(XBUFFER& data, XFILETXTFORMATCHAR formatchar)
+* @brief      AddLine
+* @ingroup    XUTILS
+* 
+* @param[in]  data : 
+* @param[in]  formatchar : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XFILETXT::AddLine(XBUFFER& data, XFILETXTFORMATCHAR formatchar)
+{ 
+  XSTRING* string = new XSTRING();
+  if(!string) return false;
+
+  XSTRINGCODING format = XSTRINGCODING_UNKWOWN;
+
+  switch(formatchar)
+    {
+      case XFILETXTFORMATCHAR_UNKNOWN : format = XSTRINGCODING_UNKWOWN; 
+                                        break;
+
+      case XFILETXTFORMATCHAR_ASCII   : format = XSTRINGCODING_ASCII;
+                                        break;
+
+      case XFILETXTFORMATCHAR_UTF8    : format = XSTRINGCODING_UTF8;
+                                        break;  
+    }
+
+  string->ConvertFromXBuffer(data, format);
+
+  lines.Add(string);
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XFILETXT::GenerateLineFromBuffer(XFILETXTFORMATCHAR formatchar, XBYTE* line, XDWORD sizeline, XSTRING& string)
 * @brief      GenerateLineFromBuffer

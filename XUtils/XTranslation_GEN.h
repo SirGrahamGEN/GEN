@@ -47,6 +47,10 @@ enum XTRANSLATION_GEN_ID
 
   XTRANSLATION_GEN_ID_OK                                                          ,
   XTRANSLATION_GEN_ID_ERROR                                                       ,
+  XTRANSLATION_GEN_ID_YES                                                         ,
+  XTRANSLATION_GEN_ID_NO                                                          ,
+  XTRANSLATION_GEN_ID_TRUE                                                        ,
+  XTRANSLATION_GEN_ID_FALSE                                                       ,
 
   XTRANSLATION_GEN_ID_XDATETIME_MONTH_JANUARY                                     ,
   XTRANSLATION_GEN_ID_XDATETIME_MONTH_FEBRUARY                                    ,

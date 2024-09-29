@@ -551,5 +551,44 @@ XBYTE RotateBitReverse(XBYTE byte)
 }
 
 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int SizeBufferASCII(XBYTE* buffer, int sizemax)
+* @brief      izeBufferASCII
+* @ingroup    XUTILS
+* 
+* @param[in]  buffer : 
+* @param[in]  sizemax : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int SizeBufferASCII(XBYTE* buffer, int sizemax)
+{
+  int _max = sizemax;
+
+  if(_max > 65535) 
+    {
+      _max = 65535;
+    }
+
+  int size = 0;   
+  for(int c=0; c<_max; c++)
+    {
+      if(buffer[c]) 
+        {
+          size++;
+        }
+       else 
+        {
+          break;
+        } 
+    }
+
+  return size;
+}
+
+
+
 #pragma endregion
 

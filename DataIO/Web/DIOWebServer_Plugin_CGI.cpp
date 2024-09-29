@@ -148,7 +148,8 @@ bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUES
 
   XSTRING methodstring;
   int     returnerror = 0;
-  XSTRING in;
+  XBUFFER in;
+  XBUFFER out;
   int     sizein = 0;
   XSTRING sizeinstr;
   bool    status;
@@ -158,8 +159,8 @@ bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUES
       sizein = request->GetData()->GetSize();
       if(sizein)
         {
-
           in.Add((*request->GetData()));
+
           sizeinstr.Format(__L("%d"), sizein);
         }
     }
@@ -183,7 +184,12 @@ bool DIOWEBSERVER_PLUGIN_CGI::PageExtension(XPATH& pathfile, DIOWEBSERVER_REQUES
 
   if(request->GetMethod() == DIOWEBHEADER_METHOD_GET) GEN_XSYSTEM.SetEnviromentVariable(__L("QUERY_STRING"), allparam.GetSize()?allparam.Get():__L("\"\""));
 
-  status = GEN_XPROCESSMANAGER.Application_Execute(pathexec.Get(), NULL, &in, &result, &returnerror);
+  status = GEN_XPROCESSMANAGER.Application_Execute(pathexec.Get(), NULL, &in, &out, &returnerror);
+
+  if(!out.IsEmpty())
+    {
+      result.Add(out);
+    }
 
   GEN_XSYSTEM.DelEnviromentVariable(__L("GATEWAY_INTERFACE"));
   GEN_XSYSTEM.DelEnviromentVariable(__L("REQUEST_METHOD"));

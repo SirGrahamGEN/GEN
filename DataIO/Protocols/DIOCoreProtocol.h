@@ -48,6 +48,19 @@
 #pragma region DEFINES_ENUMS
 
 
+enum DIOCOREPROTOCOLHEADER_MESSAGETYPE
+{
+  DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN           = 0 ,
+  DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK                   ,
+  DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE              
+};
+
+
+#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN            __L("unknown")
+#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK                __L("ask")
+#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE           __L("response")
+
+
 enum DIOCOREPROTOCOLHEADER_CONTENTTYPE
 {
   DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN           = 0 ,
@@ -57,10 +70,24 @@ enum DIOCOREPROTOCOLHEADER_CONTENTTYPE
 };
 
 
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN    __L("unknown")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY     __L("binary")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT       __L("text")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON       __L("json")
+#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN            __L("unknown")
+#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY             __L("binary")
+#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT               __L("text")
+#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON               __L("json")
+
+
+enum DIOCOREPROTOCOLHEADER_CONTENTOPERATION
+{
+  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN      = 0 ,
+  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND          ,
+  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE                
+  
+};
+
+
+#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN      __L("unknown")
+#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND      __L("command")
+#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE       __L("update")
 
 
 #pragma endregion
@@ -75,45 +102,63 @@ class DIOSTREAM;
 class DIOCOREPROTOCOLHEADER : public XSERIALIZABLE
 {
   public:
-                                          DIOCOREPROTOCOLHEADER       ();
-    virtual                              ~DIOCOREPROTOCOLHEADER       ();
+                                              DIOCOREPROTOCOLHEADER         ();
+    virtual                                  ~DIOCOREPROTOCOLHEADER         ();
  
-    XUUID*                                GetIDMachine                ();
-    XUUID*                                GetIDConnection             ();
-    XUUID*                                GetIDMessage                ();
-    XDATETIME*                            GetDateTimeSend             ();
+    XUUID*                                    GetIDMachine                  ();
+    XUUID*                                    GetIDConnection               ();
+    XUUID*                                    GetIDMessage                  ();
 
-    DIOCOREPROTOCOLHEADER_CONTENTTYPE     GetContentType              (); 
-    void                                  SetContentType              (DIOCOREPROTOCOLHEADER_CONTENTTYPE contenttype); 
-    bool                                  GetContentTypeToString      (XSTRING& contenttypestr); 
-    bool                                  GetContentTypeFromString    (XSTRING* contenttypestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& contenttype);
+    DIOCOREPROTOCOLHEADER_MESSAGETYPE         GetMessageType                (); 
+    void                                      SetMessageType                (DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type); 
+    bool                                      GetMessageTypeToString        (XSTRING& message_typestr); 
+    bool                                      GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type);
 
-    XDWORD                                GetContentSize              ();        
-    void                                  SetContentSize              (XDWORD contentsize);        
+    XDATETIME*                                GetDateTimeSend               ();
 
-    XDWORD                                GetContentCRC32             ();        
-    void                                  SetContentCRC32             (XDWORD contentCRC32);        
+    DIOCOREPROTOCOLHEADER_CONTENTTYPE         GetContentType                (); 
+    void                                      SetContentType                (DIOCOREPROTOCOLHEADER_CONTENTTYPE content_type); 
+    bool                                      GetContentTypeToString        (XSTRING& content_typestr); 
+    bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type);
 
-    XFILEJSON*                            GetSerializationXFileJSON   ();      
-    XSERIALIZATIONMETHOD*                 GetSerializationMethod      ();
+    DIOCOREPROTOCOLHEADER_CONTENTOPERATION    GetContentOperation           ();
+    void                                      SetContentOperation           (DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation);
+    bool                                      GetContentOperationToString   (XSTRING& content_operationstr); 
+    bool                                      GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation);
 
-    bool                                  Serialize                   ();    
-    bool                                  Deserialize                 ();  
+
+    XDWORD                                    GetContentSize                ();        
+    void                                      SetContentSize                (XDWORD contentsize);        
+
+    bool                                      GetContentIsCompress          ();        
+    void                                      SetContentIsCompress          (bool contentiscompress);        
+
+    XDWORD                                    GetContentCRC32               ();        
+    void                                      SetContentCRC32               (XDWORD contentCRC32);        
+
+    XFILEJSON*                                GetSerializationXFileJSON     ();      
+    XSERIALIZATIONMETHOD*                     GetSerializationMethod        ();
+
+    bool                                      Serialize                     ();    
+    bool                                      Deserialize                   ();  
 
   private:
 
-    void                                  Clean                       ();
+    void                                      Clean                         ();
 
-    XUUID                                 IDmachine;
-    XUUID                                 IDconnection;
-    XUUID                                 IDmessage;
-    XDATETIME*                            datetimesend;
-    DIOCOREPROTOCOLHEADER_CONTENTTYPE     contenttype; 
-    XDWORD                                contentsize;          
-    XDWORD                                contentCRC32;          
+    XUUID                                     ID_machine;
+    XUUID                                     ID_connection;
+    XUUID                                     ID_message;
+    DIOCOREPROTOCOLHEADER_MESSAGETYPE         message_type;
+    XDATETIME*                                datetime_send;
+    DIOCOREPROTOCOLHEADER_CONTENTTYPE         content_type; 
+    DIOCOREPROTOCOLHEADER_CONTENTOPERATION    content_operation;
+    XDWORD                                    content_size;
+    bool                                      content_iscompress;          
+    XDWORD                                    content_CRC32;          
 
-    XFILEJSON                             xfileJSON;      
-    XSERIALIZATIONMETHOD*                 serializationmethod;
+    XFILEJSON                                 xfileJSON;      
+    XSERIALIZATIONMETHOD*                     serializationmethod;
 };
 
 
@@ -121,31 +166,31 @@ class DIOCOREPROTOCOL
 {
   public:
 
-                                          DIOCOREPROTOCOL             ();
-                                          DIOCOREPROTOCOL             (DIOSTREAM* diostream);
-    virtual                              ~DIOCOREPROTOCOL             ();
+                                              DIOCOREPROTOCOL               ();
+                                              DIOCOREPROTOCOL               (DIOSTREAM* diostream);
+    virtual                                  ~DIOCOREPROTOCOL               ();
 
-    bool                                  Ini                         ();
-    bool                                  End                         ();
+    bool                                      Ini                           ();
+    bool                                      End                           ();
 
     
-    bool                                  SendMsg                     (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
-    bool                                  SendMsg                     (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
-    bool                                  SendMsg                     (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
+    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
+    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
+    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
 
-    DIOCOREPROTOCOLHEADER*                CreateHeader                (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
-    DIOCOREPROTOCOLHEADER*                CreateHeader                (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
-    DIOCOREPROTOCOLHEADER*                CreateHeader                (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
+    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
+    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
+    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
  
   private:
 
-    bool                                  GenerateHeaderToSend        (DIOCOREPROTOCOLHEADER* header, XBUFFER& datasend);
-    DIOCOREPROTOCOLHEADER*                CreateHeader                (XUUID* IDmachine, XUUID* IDconnection);
+    bool                                      GenerateHeaderToSend          (DIOCOREPROTOCOLHEADER* header, XBUFFER& datasend);
+    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection);
 
-    void                                  Clean                       ();
+    void                                      Clean                         ();
 
-    DIOSTREAM*                            diostream;   
-    bool                                  initialization; 
+    DIOSTREAM*                                diostream;   
+    bool                                      initialization; 
 };
 
 

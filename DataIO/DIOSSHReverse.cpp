@@ -261,7 +261,7 @@ bool DIOSSHREVERSE::DownloadCFG(XCHAR* URL, XSTRING& publicIP, XSTRING& localIP)
                       status = fileini->ReadValue(__L("isactive"), value);
                       if(status)
                         {
-                          if(!value.Compare(__L("yes"), true))
+                          if(value.ConvertToBoolean()
                             {
                               DIOURL* urlorigin = new DIOURL();
                               if(urlorigin)
@@ -529,7 +529,10 @@ bool DIOSSHREVERSE::IsRunning()
         }
     }
 
-  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOSSHREVERSE_LOGSECTIONID, false, __L("Check is active: %s"), status?__L("yes"):__L("no"));
+  XSTRING string;
+  string.ConvertFromBoolean(status, XSTRINGBOOLEANMODE_HUMAN);
+  
+  GEN_XLOG.AddEntry(XLOGLEVEL_INFO, DIOSSHREVERSE_LOGSECTIONID, false, __L("Check is active: %s"), string.Get());
 
   return status;
 }

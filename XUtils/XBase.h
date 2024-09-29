@@ -272,6 +272,8 @@ XBYTE     RotateBitLeft       (XBYTE byte);
 XBYTE     RotateBitRight      (XBYTE byte);
 XBYTE     RotateBitReverse    (XBYTE byte);
 
+int       SizeBufferASCII     (XBYTE* buffer, int sizemax = 65535);
+
 
 #pragma endregion
 
