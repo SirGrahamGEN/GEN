@@ -54,7 +54,7 @@
 class UI_LAYOUT
 {
   public:
-                                    UI_LAYOUT                     (UI_SKIN* skin);
+                                    UI_LAYOUT                     (UI_SKIN* ui_skin);
     virtual                        ~UI_LAYOUT                     ();
 
     XSTRING*                        GetNameID                     ();

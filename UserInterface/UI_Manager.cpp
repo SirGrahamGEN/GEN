@@ -54,6 +54,7 @@
 
 #include "INPCursorMotion.h"
 
+#include "GRPProperties.h"
 #include "GRPScreen.h"
 #include "GRPCanvas.h"
 #include "GRPBitmapFile.h"
@@ -129,7 +130,10 @@ bool UI_MANAGER::GetIsInstanced()
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_MANAGER& UI_MANAGER::GetInstance()
 {
-  if(!instance) instance = new UI_MANAGER();
+  if(!instance) 
+    {
+      instance = new UI_MANAGER();
+    }
 
   return (*instance);
 }
@@ -191,7 +195,10 @@ bool UI_MANAGER::Load(XPATH& pathfile, GRPSCREEN* screen, int viewportindex)
    else
     {
       unzipfile = new XFILEUNZIP();
-      if(!unzipfile) return false;
+      if(!unzipfile) 
+        {
+          return false;
+        }
 
       if(unzipfile->Open(pathfile))
         {
@@ -395,14 +402,14 @@ bool UI_MANAGER::Layouts_Add(UI_LAYOUT* layout)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
-* @brief      Layouts_Get
+* @fn         XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_GetAll()
+* @brief      Layouts_GetAll
 * @ingroup    USERINTERFACE
-*
+* 
 * @return     XVECTOR<UI_LAYOUT*>* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_Get()
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<UI_LAYOUT*>* UI_MANAGER::Layouts_GetAll()
 {
   return &layouts;
 }
@@ -508,8 +515,33 @@ bool UI_MANAGER::Layouts_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Background_Put(XCHAR* layoutname)
-* @brief      Background_Put
+* @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetInAll()
+* @brief      Layouts_GetInAll
+* @ingroup    USERINTERFACE
+* 
+* @return     UI_LAYOUT* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_LAYOUT* UI_MANAGER::Layouts_GetCommonLayout()
+{
+  if(layout_commonindex == UI_MANAGER_LAYOUT_NOTFOUND) 
+    {
+      return NULL;  
+    }
+
+  if((XDWORD)layout_commonindex >= layouts.GetSize())     
+    {
+      return NULL;
+    }
+
+  return layouts.Get(layout_commonindex);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Layout_PutBackground(XCHAR* layoutname)
+* @brief      Layout_PutBackground
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -517,12 +549,15 @@ bool UI_MANAGER::Layouts_DeleteAll()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_Put(XCHAR* layoutname)
+bool UI_MANAGER::Layout_PutBackground(XCHAR* layoutname)
 {
   bool status = false;
 
-  status = Background_PutBitmap(layoutname);
-  if(!status) status = Background_PutColor(layoutname);
+  status = Layout_PutBackgroundBitmap(layoutname);
+  if(!status) 
+    {
+      status = Layout_PutBackgroundColor(layoutname);
+    }
 
   return true;
 }
@@ -530,8 +565,8 @@ bool UI_MANAGER::Background_Put(XCHAR* layoutname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
-* @brief      Background_PutColor
+* @fn         bool UI_MANAGER::Layout_PutBackgroundColor(XCHAR* layoutname)
+* @brief      Layout_PutBackgroundColor
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -539,41 +574,51 @@ bool UI_MANAGER::Background_Put(XCHAR* layoutname)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
+bool UI_MANAGER::Layout_PutBackgroundColor(XCHAR* layoutname)
 {
-  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
-  bool     status = false;
+  UI_LAYOUT*  layout = NULL;
+  UI_SKIN*    skin   = NULL;
+  bool        status = false;
 
-  if(GEN_USERINTERFACE.Skin_Selected())
+  layout = Layouts_Get(layoutname);
+  if(!layout)
     {
-      switch(skin->GetDrawMode())
-          {
-            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
+      return false;
+    }
 
-            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                                if(!skin->Background_GetColor()->IsEmpty()) 
-                                                  { 
-                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
-                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
-                                                    if(canvas && screen) 
-                                                      {
-                                                        UI_COLOR color;
+  skin = layout->GetSkin();
+  if(!skin)
+    {
+      return false;
+    }
+ 
+  switch(skin->GetDrawMode())
+    {
+      case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
 
-                                                        color.SetFromString(skin->Background_GetColor()->Get());   
+      case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)skin;
+                                          if(!skin->Background_GetColor()->IsEmpty()) 
+                                            { 
+                                              GRPSCREEN* screen = skin_canvas->GetScreen();      
+                                              GRPCANVAS* canvas = skin_canvas->GetCanvas();    
+                                              if(canvas && screen) 
+                                                {
+                                                  UI_COLOR color;
 
-                                                        GRP2DCOLOR_RGBA8 color_canvas(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());  
+                                                  color.SetFromString(skin->Background_GetColor()->Get());   
+
+                                                  GRP2DCOLOR_RGBA8 color_canvas(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());  
                                                                                                                     
-                                                        canvas->Clear(&color_canvas);
+                                                  canvas->Clear(&color_canvas);
 
-                                                        status = true;                                                        
-                                                      }
-                                                  }
-                                              }
-                                              break;
+                                                  status = true;                                                        
+                                                }
+                                            }
+                                        }
+                                        break;
 
-            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
-          }
-     }
+      case UI_SKIN_DRAWMODE_CONTEXT  :  break;
+    }
                       
   return status;
 }
@@ -581,8 +626,8 @@ bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Background_PutBitmap(XCHAR* layoutname)
-* @brief      Background_PutBitmap
+* @fn         bool UI_MANAGER::Layout_PutBackgroundBitmap(XCHAR* layoutname)
+* @brief      Layout_PutBackgroundBitmap
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  layoutname : 
@@ -590,36 +635,47 @@ bool UI_MANAGER::Background_PutColor(XCHAR* layoutname)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Background_PutBitmap(XCHAR* layoutname)
+bool UI_MANAGER::Layout_PutBackgroundBitmap(XCHAR* layoutname)
 {
-  UI_SKIN* skin   = GEN_USERINTERFACE.Skin_Selected();
-  bool     status = false;
+  UI_LAYOUT*  layout = NULL;
+  UI_SKIN*    skin   = NULL;
+  bool        status = false;
 
-  if(GEN_USERINTERFACE.Skin_Selected())
+  layout = Layouts_Get(layoutname);
+  if(!layout)
     {
-      switch(skin->GetDrawMode())
-          {
-            case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
+      return false;
+    }
 
-            case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                                if(skin_canvas->Background_GetBitmap()) 
-                                                  { 
-                                                    GRPSCREEN* screen = skin_canvas->GetScreen();      
-                                                    GRPCANVAS* canvas = skin_canvas->GetCanvas();    
-                                                    if(canvas && screen) 
-                                                      {
-                                                        skin->Background_GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
-                                                        canvas->PutBitmapNoAlpha(0, 0, skin->Background_GetBitmap());                                              
+  skin = layout->GetSkin();
+  if(!skin)
+    {
+      return false;
+    }
+ 
+  switch(skin->GetDrawMode())
+    {
+      case UI_SKIN_DRAWMODE_UNKNOWN  :  break;
 
-                                                        status = true;
-                                                      }
-                                                  }
-                                              }
-                                              break;
+      case UI_SKIN_DRAWMODE_CANVAS   :  { UI_SKINCANVAS* skin_canvas  = (UI_SKINCANVAS*)skin;
+                                          if(skin_canvas->Background_GetBitmap()) 
+                                            { 
+                                              GRPSCREEN* screen = skin_canvas->GetScreen();      
+                                              GRPCANVAS* canvas = skin_canvas->GetCanvas();    
+                                              if(canvas && screen) 
+                                                {
+                                                  skin->Background_GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
+                                                  canvas->PutBitmapNoAlpha(0, 0, skin->Background_GetBitmap());                                              
 
-            case UI_SKIN_DRAWMODE_CONTEXT  :  break;
-          }
-     }
+                                                  status = true;
+                                                }
+                                            }
+                                        }
+                                        break;
+
+      case UI_SKIN_DRAWMODE_CONTEXT  :  break;
+    }
+   
                       
   return status;
 }
@@ -627,36 +683,36 @@ bool UI_MANAGER::Background_PutBitmap(XCHAR* layoutname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Update()
+* @fn         bool UI_MANAGER::Update(UI_LAYOUT* layout)
 * @brief      Update
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Update()
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Update(UI_LAYOUT* layout)
 {
-  UI_LAYOUT* layout = Layouts_Get(selected_layout);
-  if(!layout) return false;
-
-  bool status;
+  bool status = false;
+  
+  if(!layout)
+    {
+      return false;
+    }
 
   ChangeTextElementValue(layout);
 
   status = layout->Update();  
   if(status)
     {         
-      if(inall_layout != UI_MANAGER_LAYOUT_NOTSELECTED)
+      if(layout_commonindex != UI_MANAGER_LAYOUT_NOTFOUND)
         {         
-          layout = Layouts_Get(inall_layout);
-          if(!layout) return false;          
-          
-          /*          
-          ChangeTextElementValue(layout);   
-  
-          status = layout->Update(); 
-          if(status) ChangeTextElementValue(layout);                  
-          */
+          layout = Layouts_Get(layout_commonindex);
+          if(!layout) 
+            {
+              return false;          
+            }                   
         }
 
       if(element_modal)
@@ -685,30 +741,126 @@ bool UI_MANAGER::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      GetElement
+* @fn         bool UI_MANAGER::Update()
+* @brief      Update
 * @ingroup    USERINTERFACE
 *
+* @return     bool : true if is succesful. 
+* 
+* ---------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Update(XCHAR* layoutname)
+{
+  UI_LAYOUT*  layout = NULL;
+  bool        status = false;
+
+  layout = Layouts_Get(layoutname);
+  if(!layout)
+    {
+      return false;
+    }
+
+  ChangeTextElementValue(layout);
+
+  status = layout->Update();  
+  if(status)
+    {         
+      if(layout_commonindex != UI_MANAGER_LAYOUT_NOTFOUND)
+        {         
+          layout = Layouts_Get(layout_commonindex);
+          if(!layout) 
+            {
+              return false;          
+            }                   
+        }
+
+      if(element_modal)
+        {
+          if(xmutex_modal) xmutex_modal->Lock(); 
+          
+          Elements_SetToRedraw(element_modal);
+        
+          if(xmutex_modal) xmutex_modal->UnLock(); 
+        }
+    }
+
+  if(virtualkeyboard) 
+    {
+      if(virtualkeyboard->IsShow())
+        {
+          Elements_SetToRedraw(virtualkeyboard->GetElementEditable());
+        }
+    }
+
+  ChangeTextElementValue(layout);
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Update()
+* @brief      Update
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Update()
+{
+  bool status = false;
+
+  for(XDWORD c=0; c<layouts.GetSize(); c++)
+    { 
+      UI_LAYOUT* layout = layouts.Get(c);
+      if(layout)
+        {
+          status = Update(layout);
+          if(!status)
+            {
+              break;
+            }
+        }
+    } 
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XCHAR* name, UI_ELEMENT_TYPE type)
+* @brief      Element_Get
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  layoutname : 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XCHAR* name, UI_ELEMENT_TYPE type)
 {  
-  UI_LAYOUT* layout = Layouts_Get(selected_layout);
-  if(!layout) return NULL;
+  UI_LAYOUT*  layout = NULL; 
+  UI_ELEMENT* element = NULL;
 
-  UI_ELEMENT* element;
+  layout = Layouts_Get(layoutname);
+  if(!layout)
+    {
+      return NULL;
+    }
 
   element = layout->Elements_Get(name, type);
   if(!element)
     {
-      if(inall_layout != UI_MANAGER_LAYOUT_NOTSELECTED)
+      if(layout_commonindex != UI_MANAGER_LAYOUT_NOTFOUND)
         {
-          layout = Layouts_Get(inall_layout);
-          if(!layout) return NULL;
+          layout = Layouts_Get(layout_commonindex);
+          if(!layout) 
+            {
+              return NULL;
+            }
 
           element = layout->Elements_Get(name, type);
         }
@@ -730,27 +882,30 @@ UI_ELEMENT* UI_MANAGER::GetElement(XCHAR* name, UI_ELEMENT_TYPE type)
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
+UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XSTRING& name, UI_ELEMENT_TYPE type)
 {
-  return GetElement(name.Get(), type);
+  return Element_Get(layoutname, name.Get(), type);
 }
- 
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      GetElementAllLayouts
+* @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* name, UI_ELEMENT_TYPE type)
+* @brief      Element_Get
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* name, UI_ELEMENT_TYPE type)
 { 
-  if(layouts.IsEmpty()) return NULL;
+  if(layouts.IsEmpty()) 
+    {
+      return NULL;
+    }
 
   UI_ELEMENT* element = NULL; 
 
@@ -760,7 +915,10 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
       if(layout) 
         {          
           element = layout->Elements_Get(name, type);
-          if(element) return element;              
+          if(element) 
+            {
+              return element;              
+            }
         }
     }
 
@@ -770,19 +928,19 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XCHAR* name, UI_ELEMENT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      GetElementAllLayouts
+* @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XSTRING& name, UI_ELEMENT_TYPE type)
+* @brief      Element_Get
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::Element_Get(XSTRING& name, UI_ELEMENT_TYPE type)
 { 
-  return GetElementAllLayouts(name.Get(), type);
+  return Element_Get(name.Get(), type);
 }
 
 
@@ -797,11 +955,17 @@ UI_ELEMENT* UI_MANAGER::GetElementAllLayouts(XSTRING& name, UI_ELEMENT_TYPE type
 * @return     UI_LAYOUT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
+UI_LAYOUT* UI_MANAGER::Element_GetLayout(UI_ELEMENT* element)
 {
-  if(!element) return NULL;
+  if(!element) 
+    {
+      return NULL;
+    }
 
-  if(layouts.IsEmpty()) return NULL;
+  if(layouts.IsEmpty()) 
+    {
+      return NULL;
+    }
 
   for(XDWORD c=0; c<layouts.GetSize(); c++)
     { 
@@ -828,7 +992,10 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
 
                 } while(index < layout_elements->GetSize());    
                                
-              if(found) return layout;              
+              if(found) 
+                {
+                  return layout;              
+                }
             }
         }
     }
@@ -839,19 +1006,22 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      GetElementLayout
+* @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(XCHAR* name, UI_ELEMENT_TYPE type)
+* @brief      Element_GetLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_LAYOUT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_LAYOUT* UI_MANAGER::Element_GetLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 {
-  if(layouts.IsEmpty()) return NULL;
+  if(layouts.IsEmpty()) 
+    {
+      return NULL;
+    }
 
   UI_ELEMENT* element = NULL; 
 
@@ -861,7 +1031,10 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
       if(layout) 
         {          
           element = layout->Elements_Get(name, type);
-          if(element) return layout;              
+          if(element) 
+            {
+              return layout;              
+            }
         }
     }
 
@@ -871,42 +1044,51 @@ UI_LAYOUT* UI_MANAGER::GetElementLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      GetElementLayout
+* @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(XSTRING& name, UI_ELEMENT_TYPE type)
+* @brief      Element_GetLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_LAYOUT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT* UI_MANAGER::GetElementLayout(XSTRING& name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_LAYOUT* UI_MANAGER::Element_GetLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 {
-  return GetElementLayout(name.Get(), type);
+  return Element_GetLayout(name.Get(), type);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
-* @brief      PutElementLastPositionLayout
+* @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(UI_ELEMENT* element)
+* @brief      Element_PutToLastPositionLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Element_PutToLastPositionLayout(UI_ELEMENT* element)
 {
-  if(!element) return false;
+  if(!element) 
+    {
+      return false;
+    }
 
-  UI_LAYOUT* layout = GetElementLayout(element);
-  if(!layout) return false;
+  UI_LAYOUT* layout = Element_GetLayout(element);
+  if(!layout) 
+    {
+      return false;
+    }
 
   XVECTOR<UI_ELEMENT*>* layout_elements = layout->Elements_Get();
-  if(!layout_elements) return false;
+  if(!layout_elements) 
+    {
+      return false;
+    }
   
   bool   found = false;
   XDWORD index = 0;
@@ -925,7 +1107,10 @@ bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
 
     } while(index < layout_elements->GetSize());
 
-  if(!found) return false;  
+  if(!found) 
+    {
+      return false;  
+    }
 
   UI_ELEMENT* sustitute_element =  layout_elements->Get(layout_elements->GetSize()-1);
   if(!sustitute_element) return false;
@@ -939,26 +1124,35 @@ bool UI_MANAGER::PutElementLastPositionLayout(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
-* @brief      PutElementLastPositionLayout
+* @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
+* @brief      Element_PutToLastPositionLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Element_PutToLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 {
-  UI_LAYOUT* layout = GetElementLayout(name, type);
-  if(!layout) return false;
+  UI_LAYOUT* layout = Element_GetLayout(name, type);
+  if(!layout) 
+    {
+      return false;
+    }
 
   UI_ELEMENT* element = layout->Elements_Get(name, type);
-  if(!element) return false;
+  if(!element) 
+    {
+      return false;
+    }
 
   XVECTOR<UI_ELEMENT*>* layout_elements = layout->Elements_Get();
-  if(!layout_elements) return false;
+  if(!layout_elements) 
+    {
+      return false;
+    }
   
   bool    found = false;
   XDWORD  index = 0;
@@ -977,10 +1171,16 @@ bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 
     } while(index < layout_elements->GetSize());
 
-  if(!found) return false;  
+  if(!found) 
+    {
+      return false;  
+    }
 
   UI_ELEMENT* sustitute_element =  layout_elements->Get(layout_elements->GetSize()-1);
-  if(!sustitute_element) return false;
+  if(!sustitute_element) 
+    {
+      return false;
+    }
 
   layout_elements->Set(layout_elements->GetSize()-1, layout_elements->Get(index));
   layout_elements->Set(index, sustitute_element);         
@@ -991,53 +1191,19 @@ bool UI_MANAGER::PutElementLastPositionLayout(XCHAR* name, UI_ELEMENT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      PutElementLastPositionLayout
+* @fn         bool UI_MANAGER::Element_PutToLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
+* @brief      Element_PutToLastPositionLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::PutElementLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Element_PutToLastPositionLayout(XSTRING& name, UI_ELEMENT_TYPE type)
 {
-  return PutElementLastPositionLayout(name.Get(), type);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn          bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
-* @brief      AddElementToLayout
-* @ingroup    USERINTERFACE
-*
-* @param[in]  layoutname : 
-* @param[in]  element : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::AddElementToLayout(XCHAR* layoutname, UI_ELEMENT* element)
-{
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
-* @brief      AddElementToLayout
-* @ingroup    USERINTERFACE
-*
-* @param[in]  layoutname : 
-* @param[in]  element : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
-{
-  return AddElementToLayout(layoutname.Get(), element); 
+  return Element_PutToLastPositionLayout(name.Get(), type);
 }
 
 
@@ -1054,13 +1220,22 @@ bool UI_MANAGER::AddElementToLayout(XSTRING& layoutname, UI_ELEMENT* element)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
 {
-  if(xmutex_modal) xmutex_modal->Lock();
+  if(xmutex_modal) 
+    {
+      xmutex_modal->Lock();
+    }
 
-  if(element_modal) PutElementLastPositionLayout(element_modal);
+  if(element_modal) 
+    {
+      Element_PutToLastPositionLayout(element_modal);
+    }
 
   this->element_modal = element_modal;
 
-  if(xmutex_modal) xmutex_modal->UnLock();
+  if(xmutex_modal) 
+    {
+      xmutex_modal->UnLock();
+    }
 
   return true;
 }
@@ -1071,26 +1246,24 @@ bool UI_MANAGER::Element_SetModal(UI_ELEMENT* element_modal)
 * @fn         bool UI_MANAGER::Elements_SetToRedraw()
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-*
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Elements_SetToRedraw()
 {
-  UI_LAYOUT* layout = Layouts_Get(selected_layout);
-  if(!layout) return false;
-
-  bool status;
-
-  status = layout->Elements_SetToRedraw();
-  if(status)
+  bool status = false; 
+  
+  for(XDWORD c=0; c<layouts.GetSize(); c++)
     {
-      if(inall_layout != UI_MANAGER_LAYOUT_NOTSELECTED)
-        {
-          layout = Layouts_Get(inall_layout);
-          if(!layout) return false;
-
+      UI_LAYOUT* layout = layouts.Get(c);
+      if(layout)
+        {     
           status = layout->Elements_SetToRedraw();
+          if(!status)
+            {
+              break;
+            }
         }
     }
   
@@ -1100,32 +1273,31 @@ bool UI_MANAGER::Elements_SetToRedraw()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
+* @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_LAYOUT* layout, UI_ELEMENT* element, bool recursive)
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
 * @param[in]  element : 
 * @param[in]  recursive : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 {
-  UI_LAYOUT* layout = Layouts_Get(selected_layout);
-  if(!layout) return false;
-
-  bool status;
-
-  status = layout->Elements_SetToRedraw(element, recursive);
-  if(status)
+  bool status = false; 
+  
+  for(XDWORD c=0; c<layouts.GetSize(); c++)
     {
-      if(inall_layout != UI_MANAGER_LAYOUT_NOTSELECTED)
-        {
-          layout = Layouts_Get(inall_layout);
-          if(!layout) return false;
-
+      UI_LAYOUT* layout = layouts.Get(c);
+      if(layout)
+        {     
           status = layout->Elements_SetToRedraw(element, recursive);
+          if(!status)
+            {
+              break;
+            }
         }
     }
   
@@ -1135,27 +1307,40 @@ bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas()
+* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout)
 * @brief      Elements_RebuildDrawAreas
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Elements_RebuildDrawAreas()
-{
-  bool status = false;
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout)
+{  
+  bool status = false; 
 
-  if(!skin_selected) return false;
+  if(!layout)
+    {
+      return false;
+    }
+
+  if(!layout->GetSkin())
+    {
+      return false;
+    }
 
   UnSelectedElement();  
 
-  switch(skin_selected->GetDrawMode())
+  switch(layout->GetSkin()->GetDrawMode())
     {
       case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
-      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                          if(skincanvas) skincanvas->RebuildAllAreas();                                                                                
+      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin();
+                                          if(skincanvas) 
+                                            {
+                                              status = skincanvas->RebuildAllAreas();                                                                                
+                                            }
                                         }
                                         break;
 
@@ -1163,6 +1348,78 @@ bool UI_MANAGER::Elements_RebuildDrawAreas()
     }
 
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout, UI_ELEMENT* element)
+* @brief      Elements_RebuildDrawAreas
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  layout : 
+* @param[in]  element : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Elements_RebuildDrawAreas(UI_LAYOUT* layout, UI_ELEMENT* element)
+{
+  bool status = false; 
+  
+  if(!layout)
+    {
+      return false;
+    }
+
+  if(!layout->GetSkin())
+    {
+      return false;
+    }
+
+  UnSelectedElement();  
+
+  switch(layout->GetSkin()->GetDrawMode())
+    {
+      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+
+      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin();
+                                          if(skincanvas) 
+                                            {
+                                              status = skincanvas->RebuildAllAreas(element);                                                                                
+                                            }
+                                        }
+                                        break;
+
+      case UI_SKIN_DRAWMODE_CONTEXT   : break;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname)
+* @brief      Elements_RebuildDrawAreas
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  layoutname : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname)
+{ 
+  UI_LAYOUT*  layout = NULL;
+  
+  layout = Layouts_Get(layoutname);
+  if(!layout)
+    {
+      return false;
+    }
+  
+  return Elements_RebuildDrawAreas(layout);
 }
 
 
@@ -1177,27 +1434,17 @@ bool UI_MANAGER::Elements_RebuildDrawAreas()
 * @return     bool : true if is succesful. 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
+bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname, UI_ELEMENT* element)
 {
-  bool status = false;
-
-  if(!skin_selected) return false;
-
-  UnSelectedElement();  
-
-  switch(skin_selected->GetDrawMode())
+  UI_LAYOUT*  layout = NULL;
+  
+  layout = Layouts_Get(layoutname);
+  if(!layout)
     {
-      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
-
-      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected();
-                                          if(skincanvas) skincanvas->RebuildAllAreas(element);
-                                        }
-                                        break;
-
-      case UI_SKIN_DRAWMODE_CONTEXT   : break;
+      return false;
     }
-
-  return status;
+  
+  return Elements_RebuildDrawAreas(layout, element);
 }
 
 
@@ -1216,7 +1463,10 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
 * ---------------------------------------------------------------------------------------------------------------------*/
 int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 {
-  if(!text) return false;
+  if(!text) 
+    {
+      return false;
+    }
   
   int ini_mask;
   int end_mask;
@@ -1228,6 +1478,7 @@ int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
       if(end_mask != XSTRING_NOTFOUND)
         {
           text->Copy(ini_mask+2, end_mask, value);
+
           return ini_mask;
         }       
     }                             
@@ -1238,44 +1489,50 @@ int UI_MANAGER::GetOutputTextChangeID(XSTRING* text, int start, XSTRING& value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
+* @fn         UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, XCHAR* name, XCHAR* resource)
 * @brief      GetOrAddAnimationCache
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  drawmode : 
+* @param[in]  grppropertymode : 
 * @param[in]  name : 
 * @param[in]  resource : 
 * 
 * @return     UI_ANIMATION* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(XCHAR* name, XCHAR* resource)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ANIMATION* UI_MANAGER::GetOrAddAnimationCache(UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, XCHAR* name, XCHAR* resource)
 {
   UI_ANIMATION* animation = NULL;
+  bool          status    = false; 
 
   animation = GEN_UI_ANIMATIONS.Get(name);
-  if(animation) return animation;
+  if(animation) 
+    {
+      return animation;
+    }
 
   animation = GEN_UI_ANIMATIONS.Get(resource);
-  if(animation) return animation;
+  if(animation) 
+    {
+      return animation;
+    }
 
   animation = new UI_ANIMATION();
-  if(!animation) return NULL;
+  if(!animation) 
+    {
+      return NULL;
+    }
   
   XSTRING resourcename;
-  bool    status = false;
-
+  
   resourcename = resource;
 
-  switch(skin_selected->GetDrawMode())
+  switch(drawmode)
     {
       case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
-      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin_selected; 
-                                          if(skincanvas) 
-                                            {
-                                              status = animation->LoadFromFile(resourcename, skincanvas->GetCanvas()->GetMode());                                                                           
-                                            }
-                                        }
+      case UI_SKIN_DRAWMODE_CANVAS    : status = animation->LoadFromFile(resourcename, grppropertymode);                                                                           
                                         break;
 
       case UI_SKIN_DRAWMODE_CONTEXT   : break;
@@ -1315,7 +1572,10 @@ bool UI_MANAGER::SetLevelAuto(UI_ELEMENT* element, UI_ELEMENT* father, XDWORD ad
   if(father)
     {
       XDWORD zlevel_father = father->GetZLevel();    
-      if(element) element->SetZLevel(element->GetZLevel() + zlevel_father + addlevel);
+      if(element) 
+        {
+          element->SetZLevel(element->GetZLevel() + zlevel_father + addlevel);
+        }
     }
 
   return true;
@@ -1343,13 +1603,15 @@ bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::ResetPreselect()
+* @fn         bool UI_MANAGER::ResetPreselect(XCHAR* layoutname)
 * @brief      ResetPreselect
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layoutname : 
+* 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::ResetPreselect()
 {
   if(!preselect_element) return false;
@@ -1381,7 +1643,10 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
   bool      postevent = false;
   bool      status    = false;
 
-  if(xmutex_UIevent) xmutex_UIevent->Lock();
+  if(xmutex_UIevent) 
+    {
+      xmutex_UIevent->Lock();
+    }
 
   va_start(arg, event);
   
@@ -1421,7 +1686,10 @@ bool UI_MANAGER::SendEvent(UI_XEVENT_TYPE event, ...)
                                                         
                                                                 if(element_father) 
                                                                   {
-                                                                    if(!element_father->IsVisible()) break;
+                                                                    if(!element_father->IsVisible())
+                                                                      {
+                                                                        break;
+                                                                      }
                                                                   }
 
                                                                 if(element->IsVisible()) 
@@ -1618,19 +1886,32 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, XSTRING* text, XSTR
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
+* @fn         bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout, UI_ELEMENT* element)
 * @brief      ChangeTextElementValue
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
 * @param[in]  element : 
-* @param[in]  skin : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout, UI_ELEMENT* element)
 {
-  if(!element) return false;
+  if(!element) 
+    {
+      return false;
+    }
+
+  if(!layout)
+    {
+      return false;
+    }
+
+  if(!layout->GetSkin())
+    {
+      return false;
+    }
 
   bool change = false;
 
@@ -1644,49 +1925,48 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
                                           change = ChangeTextElementValue(element_text, element_text->GetMaskText(), resolve);   
                                                                                                             
                                           if(change)
-                                            {                                                                                                                                                                                          
-                                              UI_SKINCANVAS* skin_selected = (UI_SKINCANVAS*)GEN_USERINTERFACE.Skin_Selected(); 
-                                              if(skin_selected)
+                                            {                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                              switch(layout->GetSkin()->GetDrawMode())
                                                 {
-                                                  double width  = 0.0f;
-                                                  double height = 0.0f;
+                                                  case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
-                                                  UI_ELEMENT* father =(UI_ELEMENT_TEXT*)element->GetFather(); 
-                                                  if(father)
-                                                    {
-                                                      width  = father->GetBoundaryLine()->width;
-                                                      height = father->GetBoundaryLine()->height;
+                                                  case UI_SKIN_DRAWMODE_CANVAS    : { double width  = 0.0f;
+                                                                                      double height = 0.0f;
+                                                                                      
+                                                                                      UI_SKINCANVAS* ui_skincanvas = (UI_SKINCANVAS*)layout->GetSkin(); 
 
-                                                      Elements_SetToRedraw(father);    
-                                                    }
-                                                   else
-                                                    {
-                                                      width  = skin_selected->GetCanvas()->GetWidth();
-                                                      height = skin_selected->GetCanvas()->GetHeight();
-                                                    }                                                              
-                                                   
-                                                  switch(skin_selected->GetDrawMode())
-                                                    {
-                                                      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+                                                                                      UI_ELEMENT* father =(UI_ELEMENT_TEXT*)element->GetFather(); 
+                                                                                      if(father)
+                                                                                        {
+                                                                                          width  = father->GetBoundaryLine()->width;
+                                                                                          height = father->GetBoundaryLine()->height;
 
-                                                      case UI_SKIN_DRAWMODE_CANVAS    : { element->GetBoundaryLine()->height  = 0;
-                                                                                          element->GetBoundaryLine()->width   = 0;
-                                                                                         
-                                                                                          if(element_text->GetText()->Compare(resolve.Get(), true))  
-                                                                                            { 
-                                                                                              element_text->GetText()->Set(resolve);   
-                                                                                              
-                                                                                              skin_selected->CalculeBoundaryLine_AllElements(element, false);
-                                                                                              skin_selected->CalculePosition(element, width, height);                                                                                              
-
-                                                                                              Elements_SetToRedraw(element);    
-                                                                                            }
+                                                                                          Elements_SetToRedraw(father);    
                                                                                         }
-                                                                                        break;
+                                                                                        else
+                                                                                        {
+                                                                                          width  =  ui_skincanvas->GetCanvas()->GetWidth();
+                                                                                          height =  ui_skincanvas->GetCanvas()->GetHeight();
+                                                                                        }                                 
 
-                                                      case UI_SKIN_DRAWMODE_CONTEXT   : break;
-                                                    }                                                                                                             
-                                                }                                                
+                                                                                      element->GetBoundaryLine()->height  = 0;
+                                                                                      element->GetBoundaryLine()->width   = 0;
+                                                                                         
+                                                                                      if(element_text->GetText()->Compare(resolve.Get(), true))  
+                                                                                        { 
+                                                                                          element_text->GetText()->Set(resolve);   
+                                                                                              
+                                                                                          ui_skincanvas->CalculeBoundaryLine_AllElements(element, false);
+                                                                                          ui_skincanvas->CalculePosition(element, width, height);                                                                                              
+
+                                                                                          Elements_SetToRedraw(element);    
+                                                                                        }
+                                                                                    }
+                                                                                    break;
+
+                                                  case UI_SKIN_DRAWMODE_CONTEXT   : break;
+                                                }                                                                                                             
+                                                                                             
                                             }
                                         }
                                         break;
@@ -1727,7 +2007,7 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
       UI_ELEMENT* subelement = element->GetComposeElements()->Get(c);
       if(subelement) 
         {
-          ChangeTextElementValue(subelement, skin);
+          ChangeTextElementValue(layout, subelement);
         }
     }
   
@@ -1748,12 +2028,18 @@ bool UI_MANAGER::ChangeTextElementValue(UI_ELEMENT* element, UI_SKIN* skin)
 * ---------------------------------------------------------------------------------------------------------------------*/
  bool UI_MANAGER::ChangeTextElementValue(UI_LAYOUT* layout)
 {
-  if(!layout) return false;
+  if(!layout) 
+    {
+      return false;
+    }
  
   for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
     {
       UI_ELEMENT* element = layout->Elements_Get()->Get(c);
-      if(element) ChangeTextElementValue(element, layout->GetSkin());       
+      if(element) 
+        {
+          ChangeTextElementValue(layout, element);       
+        }
     }
 
   return true;
@@ -1822,27 +2108,40 @@ bool UI_MANAGER::SubscribeOutputEvents(bool active, XOBSERVER* observer, XSUBJEC
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::CreaterVirtualKeyboard(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
+* @fn         bool UI_MANAGER::CreaterVirtualKeyboard(UI_LAYOUT* layout, GRPSCREEN* screen)
 * @brief      CreaterVirtualKeyboard
 * @ingroup    USERINTERFACE
-*
-* @param[in]  screen : 
+* 
 * @param[in]  layout : 
-* @param[in]  skin : 
+* @param[in]  screen : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::CreaterVirtualKeyboard(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::CreaterVirtualKeyboard(UI_LAYOUT* layout, GRPSCREEN* screen)
 {
-  if(virtualkeyboard) return false;  
-  if(!screen)         return false;
-  if(!layout)         return false;
-  
-  virtualkeyboard = new UI_VIRTUALKEYBOARD();
-  if(!virtualkeyboard) return false;
+  if(virtualkeyboard) 
+    {
+      return false;   
+    }
 
-  virtualkeyboard->Ini(screen, layout, skin);
+  if(!layout)         
+    {
+      return false;
+    }
+  
+  if(!screen)         
+    {
+      return false;
+    }
+
+  virtualkeyboard = new UI_VIRTUALKEYBOARD();
+  if(!virtualkeyboard) 
+    {
+      return false;
+    }
+
+  virtualkeyboard->Ini(layout, screen);
 
   return true;
 }
@@ -1859,7 +2158,10 @@ bool UI_MANAGER::CreaterVirtualKeyboard(GRPSCREEN* screen, UI_LAYOUT* layout, UI
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::DeleteVirtualKeyboard()
 {
-  if(!virtualkeyboard) return false;
+  if(!virtualkeyboard)
+    {
+      return false;
+    }
 
   bool status = false;
 
@@ -1905,8 +2207,7 @@ UI_MANAGER::~UI_MANAGER()
   DeleteVirtualKeyboard();
 
   Layouts_DeleteAll(); 
-  Skin_DeleteAll();
-
+  
   if(unzipfile)
     {
       delete unzipfile;
@@ -1958,14 +2259,16 @@ UI_SKIN* UI_MANAGER::Skin_Create(XSTRING& skintypename, UI_SKIN_DRAWMODE drawmod
                                          
       case UI_SKIN_DRAWMODE_CANVAS      : { UI_SKINCANVAS* skincanvas = NULL;
 
-                                            if(skintypename.Compare(UI_SKIN_NAME_DEFAULT, true))
+                                            if(!skintypename.Compare(UI_SKIN_NAME_DEFAULT, true) || !skintypename.Compare(UI_SKIN_NAME_UNKNOWN, true))
                                               {
                                                 ui_skin = (UI_SKIN*)new UI_SKINCANVAS(screen, viewportindex); 
                                               }
-
-                                            if(skintypename.Compare(UI_SKIN_NAME_FLAT, true))
+                                             else
                                               {
-                                                ui_skin = (UI_SKIN*)new UI_SKINCANVAS_FLAT(screen, viewportindex); 
+                                                if(!skintypename.Compare(UI_SKIN_NAME_FLAT, true))
+                                                  {
+                                                    ui_skin = (UI_SKIN*)new UI_SKINCANVAS_FLAT(screen, viewportindex); 
+                                                  }
                                               }
                                           }
                                           break;
@@ -2039,18 +2342,96 @@ bool UI_MANAGER::GetLayoutElementValue(XFILEXMLELEMENT* node, XCHAR* leyend, XST
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element, bool adjusttoparent)
+* @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
+* @brief      GetLayoutElement_CalculateBoundaryLine
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  element : 
+* @param[in]  adjustsizemargin : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_LAYOUT* layout, UI_ELEMENT* element, bool adjustsizemargin)
+{
+  bool status = false;
+
+ if(!element) 
+    {
+      return false;
+    }
+
+  if(!layout)
+    {
+      return false;
+    }
+
+  if(!layout->GetSkin())
+    {
+      return false;
+    }
+
+  switch(layout->GetSkin()->GetDrawMode())
+    {
+      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+
+      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin(); 
+                                          if(skincanvas) 
+                                            {
+                                              status = skincanvas->CalculateBoundaryLine(element, adjustsizemargin);                                                                                    
+                                            }
+                                        }
+                                        break;
+
+      case UI_SKIN_DRAWMODE_CONTEXT   : break;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
+* @brief      GetParentSizeFont
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  node : 
+* @param[in]  sizefont : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
+{
+  if(!node) return false;
+
+  sizefont = 0;
+    
+  if(!GetLayoutElementValue(node, __L("sizefont"), sizefont))
+    {
+      return GetParentSizeFont(node->GetFather(), sizefont);
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* element, bool adjusttoparent)
 * @brief      GetLayoutElement_Base
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  element : 
 * @param[in]  adjusttoparent : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* element, bool adjusttoparent)
+bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* element, bool adjusttoparent)
 {
   double xpos   = 0.0f;
   double ypos   = 0.0f;    
@@ -2183,87 +2564,25 @@ bool UI_MANAGER::GetLayoutElement_Base(XFILEXMLELEMENT* node, UI_ELEMENT* elemen
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
-* @brief      GetLayoutElement_CalculateBoundaryLine
-* @ingroup    USERINTERFACE
-* 
-* @param[in]  element : 
-* @param[in]  adjustsizemargin : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::GetLayoutElement_CalculateBoundaryLine(UI_ELEMENT* element, bool adjustsizemargin)
-{
-  bool status = false;
-
-  if(!skin_selected) return false;
-
-  switch(skin_selected->GetDrawMode())
-    {
-      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
-
-      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin_selected; 
-                                          if(skincanvas) status = skincanvas->CalculateBoundaryLine(element, adjustsizemargin);                                                                                    
-                                        }
-                                        break;
-
-      case UI_SKIN_DRAWMODE_CONTEXT   : break;
-    }
-
-  return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
-* @brief      GetParentSizeFont
-* @ingroup    USERINTERFACE
-* 
-* @param[in]  node : 
-* @param[in]  sizefont : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::GetParentSizeFont(XFILEXMLELEMENT* node, double& sizefont)
-{
-  if(!node) return false;
-
-  sizefont = 0;
-    
-  if(!GetLayoutElementValue(node, __L("sizefont"), sizefont))
-    {
-      return GetParentSizeFont(node->GetFather(), sizefont);
-    }
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Text
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   XSTRING           text;
   double            sizefont      = 0;
   bool              havemask      = false;
   UI_ELEMENT_TEXT*  element_text  = NULL;
-
-  if(!skin_selected) return NULL;
-
+  
   if(element_legacy)
     {
       element_text = (UI_ELEMENT_TEXT*)element_legacy;
@@ -2277,7 +2596,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT*
   element_text->SetFather(father);
 
 
-  if(!GetLayoutElement_Base(node, element_text))
+  if(!GetLayoutElement_Base(node, layout, element_text))
     {
       delete element_text;
       return NULL;
@@ -2387,7 +2706,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT*
   
     }
   
-  GetLayoutElement_CalculateBoundaryLine(element_text);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_text);
    
   return element_text;
 }
@@ -2395,23 +2714,22 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Text(XFILEXMLELEMENT* node, UI_ELEMENT*
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_TextBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {  
   UI_ELEMENT_TEXTBOX* element_textbox   = NULL;
   XSTRING             text;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -2425,7 +2743,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 
   element_textbox->SetFather(father);
 
-  if(!GetLayoutElement_Base(node, element_textbox, true))
+  if(!GetLayoutElement_Base(node, layout, element_textbox, true))
     {
       delete element_textbox;
       return NULL;
@@ -2524,7 +2842,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 
   element_textbox->GetMaskText()->Set(text);
 
-  GetLayoutElement_CalculateBoundaryLine(element_textbox, true);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_textbox, true);
 
   return element_textbox;
 }
@@ -2543,13 +2861,11 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_TextBox(XFILEXMLELEMENT* node, UI_ELEME
 * @return     UI_ELEMENT* : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   XPATH             xpathimg;
   XSTRING           namefileimg;
   UI_ELEMENT_IMAGE* element_image = NULL;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -2563,7 +2879,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
 
   element_image->SetFather(father);
   
-  if(!GetLayoutElement_Base(node, element_image))
+  if(!GetLayoutElement_Base(node, layout, element_image))
     {
       delete element_image;
       return NULL;
@@ -2582,7 +2898,30 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
  
   if(!namefileimg.IsEmpty()) 
     {
-      UI_ANIMATION* animation = GetOrAddAnimationCache(__L(""), namefileimg.Get());
+      GRPPROPERTYMODE   grppropertymode = GRPPROPERTYMODE_XX_UNKNOWN;
+      UI_SKIN_DRAWMODE  drawmode        = UI_SKIN_DRAWMODE_UNKNOWN;
+
+      if(layout->GetSkin())
+        {
+          drawmode = layout->GetSkin()->GetDrawMode();
+
+          switch(drawmode)
+            {
+              case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+
+              case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin(); 
+                                                  if(skincanvas)
+                                                    {
+                                                      grppropertymode = skincanvas->GetCanvas()->GetMode();
+                                                    }
+                                                }
+                                                break;
+   
+              case UI_SKIN_DRAWMODE_CONTEXT   : break;
+            }  
+        }
+
+      UI_ANIMATION* animation = GetOrAddAnimationCache(drawmode, grppropertymode, __L(""), namefileimg.Get());
       if(animation) 
         { 
           GRPBITMAP* bitmap = NULL; 
@@ -2591,7 +2930,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
         }
     }
      
-  GetLayoutElement_CalculateBoundaryLine(element_image);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_image);
   
   return element_image;
 }
@@ -2599,26 +2938,25 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Image(XFILEXMLELEMENT* node, UI_ELEMENT
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Animation
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   XSTRING               text;
   XSTRING               namefileimg;
   XPATH                 xpathimg;
   int                   sizefont          = 0;
   UI_ELEMENT_ANIMATION* element_animation = NULL;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -2632,7 +2970,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
 
   element_animation->SetFather(father);
   
-  if(!GetLayoutElement_Base(node, element_animation))
+  if(!GetLayoutElement_Base(node, layout, element_animation))
     {
       delete element_animation;
       return NULL;
@@ -2682,9 +3020,32 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
         {  
           if(!nodeelement->GetName().Compare(__L("image")))
             {              
-              namefileimg = nodeelement->GetValue();       
+              namefileimg = nodeelement->GetValue(); 
 
-              UI_ANIMATION* animation = GetOrAddAnimationCache(__L(""), namefileimg.Get());
+              GRPPROPERTYMODE   grppropertymode = GRPPROPERTYMODE_XX_UNKNOWN;
+              UI_SKIN_DRAWMODE  drawmode        = UI_SKIN_DRAWMODE_UNKNOWN;
+
+              if(layout->GetSkin())
+                {
+                  drawmode = layout->GetSkin()->GetDrawMode();
+
+                  switch(drawmode)
+                    {
+                      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+
+                      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin(); 
+                                                          if(skincanvas)
+                                                            {
+                                                              grppropertymode = skincanvas->GetCanvas()->GetMode();
+                                                            }
+                                                        }
+                                                        break;
+   
+                      case UI_SKIN_DRAWMODE_CONTEXT   : break;
+                    }  
+                }      
+
+              UI_ANIMATION* animation = GetOrAddAnimationCache(drawmode, grppropertymode, __L(""), namefileimg.Get());
               if(animation)
                 {
                   for(XDWORD d=0; d<animation->GetBitmaps()->GetSize(); d++)
@@ -2696,7 +3057,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
 
                           element_img->SetFather(element_animation);       
 
-                          GetLayoutElement_Base(nodeelement, element_img); 
+                          GetLayoutElement_Base(nodeelement, layout, element_img); 
 
                           SetLevelAuto(element_img, element_animation);
 
@@ -2704,19 +3065,22 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
                           if(bitmap) 
                             { 
                               element_img->SetImage(bitmap);
-
-                              switch(skin_selected->GetDrawMode())
+                              
+                              if(layout->GetSkin())
                                 {
-                                  case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+                                  switch(layout->GetSkin()->GetDrawMode())
+                                    {
+                                      case UI_SKIN_DRAWMODE_UNKNOWN   : break;
 
-                                  case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)skin_selected; 
-                                                                      if(skincanvas) skincanvas->CalculateBoundaryLine(element_img); 
-                                                                    }
-                                                                    break;
+                                      case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)layout->GetSkin(); 
+                                                                          if(skincanvas) skincanvas->CalculateBoundaryLine(element_img); 
+                                                                        }
+                                                                        break;
    
-                                  case UI_SKIN_DRAWMODE_CONTEXT   : break;
+                                      case UI_SKIN_DRAWMODE_CONTEXT   : break;
 
-                                }
+                                    }
+                                 }
 
                               element_img->SetAlpha(element_animation->GetAlpha());
                                                                   
@@ -2729,7 +3093,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
         }
     }
 
-  GetLayoutElement_CalculateBoundaryLine(element_animation);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_animation);
 
   return element_animation;
 }
@@ -2737,26 +3101,25 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Animation(XFILEXMLELEMENT* node, UI_ELE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Option
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   XSTRING             text;
   XSTRING             namefileimg;
   XPATH               xpathimg;
   double              sizefont  = 0;
   UI_ELEMENT_OPTION*  element_option = NULL;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -2770,7 +3133,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
 
   element_option->SetFather(father);
 
-  if(!GetLayoutElement_Base(node, element_option))
+  if(!GetLayoutElement_Base(node, layout, element_option))
     {
       delete element_option;
       return NULL;
@@ -2833,7 +3196,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
           XSTRING type;
           if(GetLayoutElementValue(nodeelement, __L("type"), type))
             {        
-              UI_ELEMENT* element = CreatePartialLayout(nodeelement, element_option);
+              UI_ELEMENT* element = CreatePartialLayout(nodeelement, layout, element_option);
               if(element) 
                 {                   
                   switch(element->GetType())
@@ -2851,7 +3214,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
         }  
     }
   
-  GetLayoutElement_CalculateBoundaryLine(element_option);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_option);
 
   return element_option;
 }
@@ -2859,23 +3222,22 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Option(XFILEXMLELEMENT* node, UI_ELEMEN
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_MultiOption
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   UI_ELEMENT_MULTIOPTION* element_multioption = NULL;
   double                  sizefont            = 0;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -2889,7 +3251,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
 
   element_multioption->SetFather(father);
  
-  if(!GetLayoutElement_Base(node, element_multioption))
+  if(!GetLayoutElement_Base(node, layout, element_multioption))
     {
       delete element_multioption;
       return NULL;
@@ -2902,7 +3264,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
       XFILEXMLELEMENT* nodeelement =  node->GetElement(c);
       if(nodeelement)
         {
-          UI_ELEMENT* element = CreatePartialLayout(nodeelement, element_multioption);
+          UI_ELEMENT* element = CreatePartialLayout(nodeelement, layout, element_multioption);
           if(element) 
             {  
               element->SetFather(element_multioption);                
@@ -2911,12 +3273,12 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
         }  
     }
   
-  GetLayoutElement_CalculateBoundaryLine(element_multioption);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_multioption);
 
   for(XDWORD c=0; c<element_multioption->GetComposeElements()->GetSize(); c++)
     {
       UI_ELEMENT* element = element_multioption->GetComposeElements()->Get(c);
-      if(element) GetLayoutElement_CalculateBoundaryLine(element);
+      if(element) GetLayoutElement_CalculateBoundaryLine(layout, element);
     }
  
   return element_multioption;  
@@ -2925,95 +3287,77 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_MultiOption(XFILEXMLELEMENT* node, UI_E
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Button
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Button(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {  
-  if(!skin_selected) return NULL;
-
   UI_ELEMENT_BUTTON* element_button = new UI_ELEMENT_BUTTON();
   if(!element_button) return NULL;
 
-  return GetLayoutElement_Option(node, father, element_button);
+  return GetLayoutElement_Option(node, layout, father, element_button);
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-* @brief      GetLayoutElement_CheckBox
-* @ingroup    USERINTERFACE
-*
-* @param[in]  node : 
-* @param[in]  father : 
-* @param[in]  element_legacy : 
-* 
-* @return     UI_ELEMENT* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_CheckBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout,  UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {  
-  if(!skin_selected) return NULL;
-
   UI_ELEMENT_CHECKBOX* element_checkbox = new UI_ELEMENT_CHECKBOX();
   if(!element_checkbox) return NULL;
 
-  return GetLayoutElement_Option(node, father, element_checkbox);
+  return GetLayoutElement_Option(node, layout,  father, element_checkbox);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_EditText
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_EditText(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {  
-  if(!skin_selected) return NULL;
-
   UI_ELEMENT_EDITTEXT* element_edittext = new UI_ELEMENT_EDITTEXT();
   if(!element_edittext) return NULL;
 
-  return GetLayoutElement_Text(node, father, element_edittext);
+  return GetLayoutElement_Text(node, layout, father, element_edittext);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Form
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
   UI_ELEMENT_FORM* element_form  = NULL;
   double           sizefont      = 0;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -3027,7 +3371,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
 
   element_form->SetFather(father);
  
-  if(!GetLayoutElement_Base(node, element_form))
+  if(!GetLayoutElement_Base(node, layout, element_form))
     {
       delete element_form;
       return NULL;
@@ -3039,14 +3383,14 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
   GetLayoutElementValue(node, __L("linecolor"), linecolor);    
   if(!linecolor.IsEmpty()) element_form->GetLineColor()->SetFromString(linecolor);  
     
-  GetLayoutElement_CalculateBoundaryLine(element_form);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_form);
 
   for(int c=0; c<node->GetNElements(); c++)
     {
       XFILEXMLELEMENT* nodeelement =  node->GetElement(c);
       if(nodeelement)
         {
-          UI_ELEMENT* element = CreatePartialLayout(nodeelement, element_form);
+          UI_ELEMENT* element = CreatePartialLayout(nodeelement, layout, element_form);
           if(element) 
             {  
               element->SetFather(element_form);                
@@ -3055,12 +3399,12 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
         }  
     }
 
-  GetLayoutElement_CalculateBoundaryLine(element_form);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_form);
 
   for(XDWORD c=0; c<element_form->GetComposeElements()->GetSize(); c++)
     {
       UI_ELEMENT* subelement = element_form->GetComposeElements()->Get(c);
-      if(subelement) GetLayoutElement_CalculateBoundaryLine(subelement);
+      if(subelement) GetLayoutElement_CalculateBoundaryLine(layout, subelement);
     }
 
   XSTRING visibleformstr;
@@ -3110,45 +3454,43 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_Form(XFILEXMLELEMENT* node, UI_ELEMENT*
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_Menu
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node,  UI_ELEMENT* father, UI_ELEMENT* element_legacy)
-{  
- if(!skin_selected) return NULL;
-
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_Menu(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+{   
   UI_ELEMENT_MENU* element_menu = new UI_ELEMENT_MENU();
   if(!element_menu) return NULL;
 
-  return GetLayoutElement_Form(node, father, element_menu);
+  return GetLayoutElement_Form(node, layout, father, element_menu);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_ListBox
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
-  if(!skin_selected) return NULL;
-
   UI_ELEMENT_LISTBOX* element_listbox = new UI_ELEMENT_LISTBOX();
   if(!element_listbox) return NULL;
 
@@ -3157,7 +3499,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEME
   GetLayoutElementValue(node, __L("menu"), menustr);    
   if(!menustr.IsEmpty()) 
     {
-      element_menu = GetElementAllLayouts(menustr, UI_ELEMENT_TYPE_MENU);  
+      element_menu = Element_Get(menustr, UI_ELEMENT_TYPE_MENU);  
       element_listbox->Set_UIMenu((UI_ELEMENT_MENU*)element_menu);              
     }
 
@@ -3176,35 +3518,31 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ListBox(XFILEXMLELEMENT* node, UI_ELEME
         }
     }
 
-  return GetLayoutElement_Text(node, father, element_listbox);
+  return GetLayoutElement_Text(node, layout, father, element_listbox);
 }
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+* @fn         UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 * @brief      GetLayoutElement_ProgressBar
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  node : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * @param[in]  element_legacy : 
 * 
 * @return     UI_ELEMENT* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
+UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_LAYOUT* layout, UI_ELEMENT* father, UI_ELEMENT* element_legacy)
 {
-  if(!skin_selected) return NULL;
-
   XSTRING                   text;
   XSTRING                   namefileimg;
   XPATH                     xpathimg;
   double                    sizefont  = 0;
   UI_ELEMENT_PROGRESSBAR*   element_progressbar = NULL;
-
-  if(!skin_selected) return NULL;
 
   if(element_legacy)
     {
@@ -3218,7 +3556,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
 
   element_progressbar->SetFather(father);
 
-  if(!GetLayoutElement_Base(node, element_progressbar))
+  if(!GetLayoutElement_Base(node, layout, element_progressbar))
     {
       delete element_progressbar;
       return NULL;
@@ -3255,7 +3593,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
           XSTRING type;
           if(GetLayoutElementValue(nodeelement, __L("type"), type))
             {        
-              UI_ELEMENT* element = CreatePartialLayout(nodeelement, element_progressbar);
+              UI_ELEMENT* element = CreatePartialLayout(nodeelement, layout, element_progressbar);
               if(element) 
                 {            
                   element->SetFather(element_progressbar);  
@@ -3341,7 +3679,7 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
     }
 
 
-  GetLayoutElement_CalculateBoundaryLine(element_progressbar);
+  GetLayoutElement_CalculateBoundaryLine(layout, element_progressbar);
 
   return element_progressbar;
 }
@@ -3349,88 +3687,87 @@ UI_ELEMENT* UI_MANAGER::GetLayoutElement_ProgressBar(XFILEXMLELEMENT* node, UI_E
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELEMENT* father)
+* @fn         UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_LAYOUT* layout, UI_ELEMENT* father)
 * @brief      CreatePartialLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  nodeelement : 
+* @param[in]  layout : 
 * @param[in]  father : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_ELEMENT* father)
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_ELEMENT* UI_MANAGER::CreatePartialLayout(XFILEXMLELEMENT* nodeelement, UI_LAYOUT* layout, UI_ELEMENT* father)
 {
   XSTRING       value;
   UI_ELEMENT*   element  = NULL;
 
-  if(!skin_selected) return NULL;
- 
   if(GetLayoutElementValue(nodeelement, __L("type"), value))
     {                              
       if(!value.Compare(__L("text")           , true))  
         {
-          element = GetLayoutElement_Text(nodeelement, father);          
+          element = GetLayoutElement_Text(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("textbox")        , true))  
         {
-          element = GetLayoutElement_TextBox(nodeelement, father);          
+          element = GetLayoutElement_TextBox(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("image")          , true))  
         {
-          element = GetLayoutElement_Image(nodeelement, father);
+          element = GetLayoutElement_Image(nodeelement, layout, father);
         }
 
       if(!value.Compare(__L("animation")      , true))  
         {
-          element = GetLayoutElement_Animation(nodeelement, father);          
+          element = GetLayoutElement_Animation(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("option")         , true))  
         {
-          element = GetLayoutElement_Option(nodeelement, father);          
+          element = GetLayoutElement_Option(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("multioption")    , true))  
         {
-          element = GetLayoutElement_MultiOption(nodeelement, father);          
+          element = GetLayoutElement_MultiOption(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("button")         , true))  
         { 
-          element = GetLayoutElement_Button(nodeelement, father); 
+          element = GetLayoutElement_Button(nodeelement, layout, father); 
         }
 
       if(!value.Compare(__L("checkbox")       , true))  
         {
-          element = GetLayoutElement_CheckBox(nodeelement, father);          
+          element = GetLayoutElement_CheckBox(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("edittext")       , true))  
         {
-          element = GetLayoutElement_EditText(nodeelement, father);          
+          element = GetLayoutElement_EditText(nodeelement, layout, father);          
         }
 
       if(!value.Compare(__L("form")           , true))  
         {
-          element = GetLayoutElement_Form(nodeelement, father);
+          element = GetLayoutElement_Form(nodeelement, layout, father);
         }
 
       if(!value.Compare(__L("menu")           , true))  
         {
-          element = GetLayoutElement_Menu(nodeelement, father);      
+          element = GetLayoutElement_Menu(nodeelement, layout, father);      
         }
 
       if(!value.Compare(__L("listbox")        , true))  
         {
-          element = GetLayoutElement_ListBox(nodeelement, father);      
+          element = GetLayoutElement_ListBox(nodeelement, layout, father);      
         }
 
       if(!value.Compare(__L("progressbar")    , true))  
         {
-          element = GetLayoutElement_ProgressBar(nodeelement, father);      
+          element = GetLayoutElement_ProgressBar(nodeelement, layout, father);      
         }
     }
 
@@ -3533,7 +3870,27 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportind
       XFILEXMLELEMENT*  nodecacheelement = root->GetElement(c);
       if(nodecacheelement)
         {
-          CreateCacheElements(nodecacheelement);
+          GRPPROPERTYMODE   grppropertymode = GRPPROPERTYMODE_XX_UNKNOWN;
+          
+          if(ui_skin)
+            {
+              switch(drawmode)
+                {
+                  case UI_SKIN_DRAWMODE_UNKNOWN   : break;
+
+                  case UI_SKIN_DRAWMODE_CANVAS    : { UI_SKINCANVAS* skincanvas = (UI_SKINCANVAS*)ui_skin;
+                                                      if(skincanvas)
+                                                        {
+                                                          grppropertymode = skincanvas->GetCanvas()->GetMode();
+                                                        }
+                                                    }
+                                                    break;
+   
+                  case UI_SKIN_DRAWMODE_CONTEXT   : break;
+                }  
+            }
+
+          CreateCacheElements(nodecacheelement, drawmode, grppropertymode);
         }
     }
 
@@ -3566,19 +3923,19 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportind
                       layout->GetBackgroundColor()->SetFromString(background_color);
                       layout->GetBackgroundFilename()->Set(background_namefile);
 
-                      if(!layout->GetNameID()->Compare(UI_MANAGER_LAYOUT_INALL_NAME, true))
+                      if(!layout->GetNameID()->Compare(UI_MANAGER_LAYOUT_COMMON, true))
                         {
-                          inall_layout = layouts.GetSize();
+                          layout_commonindex = layouts.GetSize();
                         }
 
                       Layouts_Add(layout); 
-
+                    
                       for(int d=0 ; d<nodelayout->GetNElements(); d++)
                         {
                           XFILEXMLELEMENT* nodeelement =  nodelayout->GetElement(d);
                           if(nodeelement)
                             {
-                              UI_ELEMENT* element = CreatePartialLayout(nodeelement, NULL);
+                              UI_ELEMENT* element = CreatePartialLayout(nodeelement, layout, NULL);
                               if(element) layout->Elements_Add(element);                                                                                                                              
                             }                              
                         } 
@@ -3594,17 +3951,19 @@ bool UI_MANAGER::CreateLayouts(XFILEXML& xml, GRPSCREEN* screen, int viewportind
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursive)
+* @fn         bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, bool recursive)
 * @brief      CreateCacheElements
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  nodeelement : 
+* @param[in]  drawmode : 
+* @param[in]  grppropertymode : 
 * @param[in]  recursive : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursive)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, bool recursive)
 {
   XSTRING name;          
   XCHAR*  value;  
@@ -3651,7 +4010,7 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursiv
       value = nodeelement->GetValue().Get();
       if(value) 
         {
-          if(GetOrAddAnimationCache(name.Get(), value)) 
+          if(GetOrAddAnimationCache(drawmode, grppropertymode, name.Get(), value)) 
             {
               status = true;
             }
@@ -3665,7 +4024,7 @@ bool UI_MANAGER::CreateCacheElements(XFILEXMLELEMENT* nodeelement, bool recursiv
           XFILEXMLELEMENT* subnodeelement = nodeelement->GetElement(c);
           if(subnodeelement) 
             {
-              CreateCacheElements(subnodeelement, recursive);
+              CreateCacheElements(subnodeelement, drawmode, grppropertymode, recursive);
             }
         }
     }
@@ -3708,17 +4067,18 @@ bool UI_MANAGER::RegisterEvents(bool active)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
+* @fn         UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_LAYOUT* layout, UI_ELEMENT* element, int x, int y)
 * @brief      PreSelectElement
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
 * @param[in]  element : 
 * @param[in]  x : 
 * @param[in]  y : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
 {
   UI_BOUNDARYLINE bline;
@@ -3747,7 +4107,7 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
           element->SetPreSelect(preselect);                                                                           
           if(preselect) 
             {
-              Elements_SetToRedraw(element);  
+              element->SetMustReDraw(true);
             
               last_xposition = x;
               last_yposition = y;
@@ -3792,17 +4152,20 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
 * @fn         bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 * @brief      SelectElement
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 {
   if(dynamic_cast<UI_PROPERTY_SELECTABLE*>(element))                                                                                                                                                                                                                                          
     {    
-      if(SelectedElement(element)) return true;      
+      if(SelectedElement(element)) 
+        {
+          return true;      
+        }
     } 
                                                                                                                                      
   if(element->GetComposeElements()->GetSize())
@@ -3814,7 +4177,10 @@ bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
             { 
               if(dynamic_cast<UI_PROPERTY_SELECTABLE*>(subelement))                                                                                                                                                                                                                                          
                 {                  
-                  if(SelectedElement(subelement)) return true;                  
+                  if(SelectedElement(subelement)) 
+                    {
+                      return true;                  
+                    }
                 }
             }
         }
@@ -3826,15 +4192,16 @@ bool UI_MANAGER::SelectElement(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::SelectedElement(UI_ELEMENT* element);
-* @brief      SelectElement
+* @fn         bool UI_MANAGER::SelectedElement(UI_LAYOUT* layout, UI_ELEMENT* element)
+* @brief      SelectedElement
 * @ingroup    USERINTERFACE
-*
-* @param[in]  element) : 
+* 
+* @param[in]  layout : 
+* @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 {
   if(!element) return false;
@@ -3887,7 +4254,7 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
               UI_ELEMENT_MENU* element_menu = element_listbox->Get_UIMenu();     
               if(element_menu)
                 {           
-                  SetModalElement(element_menu);  
+                  Element_SetModal(element_menu);  
        
                   element_menu->SetVisible(!element_menu->IsVisible());     
                 }
@@ -3911,21 +4278,25 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::UnSelectedElement(UI_LAYOUT* layout, UI_ELEMENT* element)
 * @brief      UnSelectedElement
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layout : 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 {
   if(element->IsSelected()) 
     {
       UI_PROPERTY_SELECTABLE* element_selectable = dynamic_cast<UI_PROPERTY_SELECTABLE*>(element);
-      if(!element_selectable) return false;
+      if(!element_selectable) 
+        {
+          return false;
+        }
                         
       if(element_selectable->GetXTimerSelected())
         {
@@ -3948,7 +4319,10 @@ bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
             { 
               if(dynamic_cast<UI_PROPERTY_SELECTABLE*>(subelement))                                                                                                                                                                                                                                          
                 {                  
-                  if(UnSelectedElement(subelement)) return true;                  
+                  if(UnSelectedElement(subelement)) 
+                    {
+                      return true;                  
+                    }
                 }
             }
         }
@@ -3969,23 +4343,20 @@ bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::UnSelectedElement()
 {
-  for(int e=0; e<2; e++)
+  for(XDWORD d=0; d<layouts.GetSize(); d++)
     {    
-      UI_LAYOUT* layout = NULL;
-
-      switch(e)
+      UI_LAYOUT* layout = layouts.Get(d);                                                          
+      if(layout)
         {
-          case  0 :  layout = Layouts_GetSelectedLayout();    break;
-          case  1 :  layout = Layouts_GetInAllLayout();       break;
+          for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
+            {
+              UI_ELEMENT* element = layout->Elements_Get()->Get(c);
+              if(element) 
+                {
+                  UnSelectedElement(element);                        
+                }
+            }        
         }
-                                                          
-      if(!layout) break;
-
-      for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
-        {
-          UI_ELEMENT* element = layout->Elements_Get()->Get(c);
-          if(element) UnSelectedElement(element);                        
-        }        
     }
 
   return true;
@@ -3997,22 +4368,32 @@ bool UI_MANAGER::UnSelectedElement()
 * @fn         bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursormotion)
 * @brief      UseMotionInElement
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * @param[in]  cursormotion : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursormotion)
 {
-  if(!element)      return false;
-  if(!cursormotion) return false;
+  if(!element)      
+    {
+      return false;
+    }
+
+  if(!cursormotion) 
+    {
+      return false;
+    }
 
   if(!element->IsVisible()) return false;
 
   UI_PROPERTY_SCROLLEABLE* property_scrolleable = dynamic_cast<UI_PROPERTY_SCROLLEABLE*>(element);
-  if(!property_scrolleable) return false;
+  if(!property_scrolleable) 
+    {
+      return false;
+    }
 
   bool isinrect = cursormotion->IsInRect((int)element->GetXPosition()           , (int)(element->GetYPosition() - element->GetBoundaryLine()->height), 
                                          (int)element->GetBoundaryLine()->width , (int)element->GetBoundaryLine()->height);
@@ -4054,7 +4435,10 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
             { 
               if(dynamic_cast<UI_PROPERTY_SELECTABLE*>(subelement))                                                                                                                                                                                                                                          
                 {                  
-                  if(UseMotionInElement(subelement, cursormotion)) return true;                  
+                  if(UseMotionInElement(subelement, cursormotion)) 
+                    {
+                      return true;                  
+                    }
                 }
             }
         }
@@ -4077,28 +4461,25 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::UseMotion(INPCURSORMOTION* cursormotion)
 {
-  if(!cursormotion) return false;
+  if(!cursormotion) 
+    {
+      return false;
+    }
 
-  for(int e=0; e<2; e++)
+  for(int d=0; d<layouts.GetSize(); d++)
     {    
-      UI_LAYOUT* layout = NULL;
-
-      switch(e)
+      UI_LAYOUT* layout = layouts.Get(d);                                                          
+      if(layout) 
         {
-          case  0 :  layout = Layouts_GetSelectedLayout();    break;
-          case  1 :  layout = Layouts_GetInAllLayout();       break;
-        }
-                                                          
-      if(!layout) break;
-
-      for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
-        {
-          UI_ELEMENT* element = layout->Elements_Get()->Get(c);
-          if(element) 
+          for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
             {
-              if(UseMotionInElement(element, cursormotion)) return true;
-            }
-        }        
+              UI_ELEMENT* element = layout->Elements_Get()->Get(c);
+              if(element) 
+                {
+                  if(UseMotionInElement(element, cursormotion)) return true;
+                }
+            }        
+        }
     }
 
   return false;
@@ -4119,102 +4500,98 @@ void UI_MANAGER::HandleEvent_UI(UI_XEVENT* event)
 {
   switch(event->GetEventType())
     {
-      case UI_XEVENT_TYPE_INPUT_CURSOR_MOVE       : { UI_ELEMENT*  _preselect_element = NULL;
-                                                      int          x                  = event->GetXPos();
-                                                      int          y                  = event->GetYPos();
+      case UI_XEVENT_TYPE_INPUT_CURSOR_MOVE         : { UI_ELEMENT*  _preselect_element = NULL;
+                                                        int          x                  = event->GetXPos();
+                                                        int          y                  = event->GetYPos();
 
-                                                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("x: %d, y: %d"), x, y);
+                                                        //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("x: %d, y: %d"), x, y);
                                                   
-                                                      if(element_modal)
-                                                        {                                                              
-                                                           _preselect_element = PreSelectElement(element_modal, x, y);                                                              
-                                                        }
-                                                       else
-                                                        {
-                                                          for(int e=0; e<2; e++)
-                                                            {    
-                                                              UI_LAYOUT* layout = NULL;
+                                                        if(element_modal)
+                                                          {                                                              
+                                                            _preselect_element = PreSelectElement(element_modal, x, y);                                                              
+                                                          }
+                                                         else
+                                                          {
+                                                            for(int d=0; d<layouts.GetSize(); d++)
+                                                              {    
+                                                                UI_LAYOUT* layout = layouts.Get(d);                                                          
+                                                                if(layout) 
+                                                                  {
+                                                                    for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
+                                                                      {
+                                                                        UI_ELEMENT* element = layout->Elements_Get()->Get(c);
+                                                                        if(element) 
+                                                                          {
+                                                                            _preselect_element = PreSelectElement(element, x, y);
+                                                                            if(_preselect_element) break;                                                                       
+                                                                          }
+                                                                      }
+                                                                  }
 
-                                                              switch(e)
-                                                                {
-                                                                  case  0 :  layout = Layouts_GetSelectedLayout();    break;
-                                                                  case  1 :  layout = Layouts_GetInAllLayout();       break;
-                                                                }
-                                                          
-                                                              if(!layout) break;
- 
-                                                                  for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
-                                                                    {
-                                                                      UI_ELEMENT* element = layout->Elements_Get()->Get(c);
-                                                                      if(element) 
-                                                                        {
-                                                                          _preselect_element = PreSelectElement(element, x, y);
-                                                                          if(_preselect_element) break;                                                                       
-                                                                        }
-                                                                    }
+                                                                if(_preselect_element) break;       
+                                                              }
+                                                          }
 
-                                                              if(_preselect_element) break;                                                                                                                        
-                                                            }
-                                                        }
- 
-                                                      if(!_preselect_element)  
-                                                        {
-                                                          if(preselect_element) ResetPreselect();                                                                                                 
-                                                        } 
-                                                       else
-                                                        {
-                                                          if(_preselect_element != preselect_element)
-                                                            {
-                                                              if(preselect_element) ResetPreselect();                                     
-                                                              preselect_element = _preselect_element;                                                                      
-                                                            }                                                           
-                                                        }                                                                                                                                                  
-                                                    }
-                                                    break;
+                                                        if(!_preselect_element)  
+                                                          {
+                                                            if(preselect_element) ResetPreselect();                                                                                                 
+                                                          } 
+                                                         else
+                                                          {
+                                                            if(_preselect_element != preselect_element)
+                                                              {
+                                                                if(preselect_element) ResetPreselect();                                     
+                                                                preselect_element = _preselect_element;                                                                      
+                                                              }                                                           
+                                                          }                                                                                                                                                  
+                                                      }
+                                                      break;
 
-      case UI_XEVENT_TYPE_INPUT_CURSOR_MOTION     : { 
-                                                      if(UseMotion(event->GetCursorMotion()))
-                                                        {
-                                                          UnSelectedElement();
-                                                        }
-                                                    }
-                                                    break;
+      case UI_XEVENT_TYPE_INPUT_CURSOR_MOTION       : { 
+                                                        if(UseMotion(event->GetCursorMotion()))
+                                                          {
+                                                            UnSelectedElement();
+                                                          }
+                                                      }
+                                                      break;
 
-      case UI_XEVENT_TYPE_INPUT_SELECCTION        : { if(element_modal)
-                                                        { 
-                                                          if(xmutex_modal) xmutex_modal->Lock(); 
+      case UI_XEVENT_TYPE_INPUT_SELECCTION          : { if(element_modal)
+                                                          { 
+                                                            if(xmutex_modal) 
+                                                              {
+                                                                xmutex_modal->Lock(); 
+                                                              }
 
-                                                          SelectElement(element_modal);                                                                                   
+                                                            SelectElement(element_modal);                                                                                   
 
-                                                          if(xmutex_modal) xmutex_modal->UnLock(); 
-                                                        }
-                                                       else
-                                                        {
-                                                          for(int e=0; e<2; e++)
-                                                            {    
-                                                              UI_LAYOUT* layout = NULL;
-
-                                                              switch(e)
-                                                                {
-                                                                  case  0 :  layout = Layouts_GetSelectedLayout();    break;
-                                                                  case  1 :  layout = Layouts_GetInAllLayout();       break;
-                                                                }
-
-                                                              if(layout)  
-                                                                {
-                                                                  for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
-                                                                    {
-                                                                      UI_ELEMENT* element = layout->Elements_Get()->Get(c);
-                                                                      if(element) 
-                                                                        {
-                                                                          if(SelectElement(element)) break;                                                                                                                                                                                                                                                                                                                                      
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    break;      
+                                                            if(xmutex_modal) 
+                                                              {
+                                                                xmutex_modal->UnLock(); 
+                                                              }
+                                                          }
+                                                         else
+                                                          {
+                                                            for(int d=0; d<layouts.GetSize(); d++)
+                                                              {    
+                                                                UI_LAYOUT* layout = layouts.Get(d);                                                          
+                                                                if(layout) 
+                                                                  {
+                                                                    for(XDWORD c=0; c<layout->Elements_Get()->GetSize(); c++)
+                                                                      {
+                                                                        UI_ELEMENT* element = layout->Elements_Get()->Get(c);
+                                                                        if(element) 
+                                                                          {
+                                                                            if(SelectElement(element)) 
+                                                                              {
+                                                                                break;
+                                                                              }                                                                                                                                                                                                                                                                                                                                      
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              }
+                                                          }
+                                                      }
+                                                      break;      
     }
 } 
 
@@ -4257,9 +4634,8 @@ void UI_MANAGER::Clean()
 {  
   iszippedfile        = false;
   unzipfile           = NULL;  
-
-  selected_layout     = UI_MANAGER_LAYOUT_NOTSELECTED;
-  inall_layout        = UI_MANAGER_LAYOUT_NOTSELECTED;
+  
+  layout_commonindex  = UI_MANAGER_LAYOUT_NOTFOUND;
 
   xmutex_modal        = NULL;
   element_modal       = NULL;

@@ -92,7 +92,7 @@ class UI_VIRTUALKEYBOARD
                                   UI_VIRTUALKEYBOARD                ();    
     virtual                      ~UI_VIRTUALKEYBOARD                ();    
 
-    bool                          Ini                               (GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin);      
+    bool                          Ini                               (UI_LAYOUT* layout, GRPSCREEN* screen);      
 
     bool                          IsShow                            ();
     bool                          Show                              (bool on, UI_ELEMENT* element_editable = NULL);

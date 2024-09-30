@@ -155,24 +155,26 @@ UI_VIRTUALKEYBOARD::~UI_VIRTUALKEYBOARD()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_VIRTUALKEYBOARD::Ini(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
+* @fn         bool UI_VIRTUALKEYBOARD::Ini(UI_LAYOUT* layout, GRPSCREEN* screen)
 * @brief      Ini
 * @ingroup    USERINTERFACE
-*
-* @param[in]  screen : 
+* 
 * @param[in]  layout : 
-* @param[in]  skin : 
+* @param[in]  screen : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_VIRTUALKEYBOARD::Ini(GRPSCREEN* screen, UI_LAYOUT* layout, UI_SKIN* skin)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_VIRTUALKEYBOARD::Ini(UI_LAYOUT* layout, GRPSCREEN* screen)
 {
-  if(main_form) return false;
-
+  if(main_form) 
+    {
+      return false;
+    }
+ 
+  this->layout = layout;  
   this->screen = screen; 
-  this->layout = layout; 
-  this->skin   = skin; 
+  this->skin   = layout->GetSkin(); 
 
   main_form = new UI_ELEMENT_FORM();
   if(!main_form) return false;
@@ -268,12 +270,12 @@ bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
       x = (screen->GetWidth() - main_form->GetBoundaryLine()->width)/2; 
       y = element_editable->GetYPosition() + height + 12;
 
-      GEN_USERINTERFACE.Elements_RebuildDrawAreas();
+      GEN_USERINTERFACE.Elements_RebuildDrawAreas(layout);
       GEN_USERINTERFACE.SetPreselectElement();
       DeleteAllKeys();
       CreateAllKeys(x, y);            
 
-      GEN_USERINTERFACE.SetModalElement(main_form);     
+      GEN_USERINTERFACE.Element_SetModal(main_form);     
 
       if(element_editable->GetType() == UI_ELEMENT_TYPE_EDITTEXT)
         {
@@ -310,7 +312,7 @@ bool UI_VIRTUALKEYBOARD::Show(bool on, UI_ELEMENT* element_editable)
       actualset         = UI_VIRTUALKEYBOARD_SET_UPPERCASE;
       element_editable  = NULL;
 
-      GEN_USERINTERFACE.SetModalElement(NULL);   
+      GEN_USERINTERFACE.Element_SetModal(NULL);   
 
       GEN_USERINTERFACE.Elements_SetToRedraw();
 

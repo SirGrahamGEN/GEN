@@ -58,19 +58,18 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT::UI_LAYOUT(UI_SKINCANVAS* skin)
+* @fn         UI_LAYOUT::UI_LAYOUT(UI_SKINCANVAS* ui_skin)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
 * @param[in]  skin : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
-UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)    
-
+UI_LAYOUT::UI_LAYOUT(UI_SKIN* ui_skin)    
 { 
   Clean();                        
   
-  this->skin = skin;    
+  this->ui_skin = ui_skin;    
 }
 
 
@@ -84,6 +83,11 @@ UI_LAYOUT::UI_LAYOUT(UI_SKIN* skin)
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT::~UI_LAYOUT()    
 { 
+  if(ui_skin)
+    {
+      delete ui_skin;
+    }
+
   Elements_DeleteAll();
 
   Clean();                            
@@ -340,7 +344,10 @@ bool UI_LAYOUT::Update()
 {
   for(XDWORD c=0; c<elements.GetSize(); c++)
     {
-      if(skin) skin->Draw(elements.Get(c));
+      if(ui_skin) 
+        {
+          ui_skin->Draw(elements.Get(c));
+        }
     }
 
   return true;
@@ -400,7 +407,7 @@ UI_ELEMENT* UI_LAYOUT::Elements_Get(UI_ELEMENT* element, XCHAR* nameelement, UI_
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_LAYOUT::Clean()
 {
-  skin   =  NULL;
+  ui_skin   =  NULL;
 }
 
 

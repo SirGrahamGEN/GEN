@@ -189,6 +189,8 @@ class UI_ELEMENT : public XSUBJECT
 		XVECTOR<UI_ELEMENT*>*									GetComposeElements					();
 		bool																	DeleteAllComposeElements		();
 
+		bool																	SetToRedraw									(bool recursive);
+
   private:
 
 		void																	Clean												();
