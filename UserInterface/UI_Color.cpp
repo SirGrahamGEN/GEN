@@ -128,17 +128,27 @@ UI_COLOR::~UI_COLOR()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool UI_COLOR::IsValid()
 {
-  if((red   == UI_COLOR_INVALID) ||
-     (green == UI_COLOR_INVALID) ||
-     (blue  == UI_COLOR_INVALID) ||
-     (alpha == UI_COLOR_INVALID))
-    {
-      return false;
-    }  
-
-  return true;
+  return valid;
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_COLOR::SetValid(bool valid)
+* @brief      SetValid
+* @ingroup    USERINTERFACE
+* 
+* @param[in]  valid : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_COLOR::SetValid(bool valid)
+{
+  this->valid = valid;
+  
+  return true;
+}
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -149,6 +159,8 @@ bool UI_COLOR::IsValid()
 * --------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::SetInvalid()
 {
+  valid = false;
+
   red   = UI_COLOR_INVALID;
   green = UI_COLOR_INVALID;
   blue  = UI_COLOR_INVALID;
@@ -363,6 +375,8 @@ bool UI_COLOR::SetFromString(XCHAR* string)
       SetInvalid();
     }
 
+  valid = true;
+
   return status;
 }
 
@@ -402,6 +416,7 @@ bool UI_COLOR::CopyFrom(UI_COLOR* color)
       return false;
     }
 
+  valid = color->IsValid();
   red   = color->GetRed();
   green = color->GetGreen();
   blue  = color->GetBlue();
@@ -429,6 +444,7 @@ bool UI_COLOR::CopyTo(UI_COLOR* color)
       return false;
     }
 
+  color->SetValid(valid);
   color->SetRed(red);
   color->SetGreen(green);
   color->SetBlue(blue);
@@ -470,6 +486,7 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::Clean()
 {
+  valid = false;
   red   = UI_COLOR_INVALID;
   green = UI_COLOR_INVALID;
   blue  = UI_COLOR_INVALID;

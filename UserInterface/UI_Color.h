@@ -40,7 +40,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define UI_COLOR_INVALID   -1
+#define UI_COLOR_INVALID   0
 
 #pragma endregion
 
@@ -57,7 +57,8 @@ class UI_COLOR
                        UI_COLOR             (XSTRING& string);
     virtual           ~UI_COLOR             ();
 
-    bool               IsValid              ();                    
+    bool               IsValid              (); 
+    bool               SetValid             (bool valid);                     
     void               SetInvalid           ();                    
     
     int                GetRed               (); 
@@ -83,7 +84,8 @@ class UI_COLOR
     int                GetAlphaForPercent   (int percent);
 
     void               Clean                ();
-    
+
+    bool               valid;     
     int                red;
     int                green;
     int                blue;

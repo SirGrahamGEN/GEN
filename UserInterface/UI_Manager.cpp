@@ -4372,7 +4372,7 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
           element->SetPreSelect(preselect);                                                                           
           if(preselect) 
             {
-              element->SetMustReDraw(true);
+              Elements_SetToRedraw(element); 
             
               last_xposition = x;
               last_yposition = y;
@@ -4677,7 +4677,7 @@ bool UI_MANAGER::UseMotionInElement(UI_ELEMENT* element, INPCURSORMOTION* cursor
                                                       property_scrolleable->Scroll_SetStep(UI_PROPERTY_SCROLLEABLE_TYPE_VERTICAL, shift);   
                                                       GEN_USERINTERFACE.Elements_SetToRedraw(element);                                                                                                                 
                                                                                                                                                                                                                                                                                           
-                                                      XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Input Motion]  motion %s points: %d"), (motiondir == INPCURSORMOTION_DIR_UP)?__L("up"):__L("down"), cursormotion->GetNPoints());
+                                                      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Input Motion]  motion %s points: %d"), (motiondir == INPCURSORMOTION_DIR_UP)?__L("up"):__L("down"), cursormotion->GetNPoints());
 
                                                       return true;  
                                                     }
