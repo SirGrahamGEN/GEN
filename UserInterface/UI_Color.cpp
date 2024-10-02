@@ -161,10 +161,10 @@ void UI_COLOR::SetInvalid()
 {
   valid = false;
 
-  red   = UI_COLOR_INVALID;
-  green = UI_COLOR_INVALID;
-  blue  = UI_COLOR_INVALID;
-  alpha = UI_COLOR_INVALID;
+  red   = 0;
+  green = 0;
+  blue  = 0;
+  alpha = 0;
 }
 
 
@@ -487,10 +487,10 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 void UI_COLOR::Clean()
 {
   valid = false;
-  red   = UI_COLOR_INVALID;
-  green = UI_COLOR_INVALID;
-  blue  = UI_COLOR_INVALID;
-  alpha = UI_COLOR_INVALID;
+  red   = 0;
+  green = 0;
+  blue  = 0;
+  alpha = 0;
 }
 
 

@@ -40,8 +40,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define UI_COLOR_INVALID   0
-
 #pragma endregion
 
 
