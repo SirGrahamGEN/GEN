@@ -4372,7 +4372,7 @@ UI_ELEMENT* UI_MANAGER::PreSelectElement(UI_ELEMENT* element, int x, int y)
           element->SetPreSelect(preselect);                                                                           
           if(preselect) 
             {
-              Elements_SetToRedraw(element); 
+              element->SetMustReDraw(true);
             
               last_xposition = x;
               last_yposition = y;
