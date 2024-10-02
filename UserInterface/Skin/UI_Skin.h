@@ -33,6 +33,7 @@
 #pragma region INCLUDES
 
 #include "UI_Element.h"
+#include "UI_Background.h"
 
 #pragma endregion
 
@@ -129,12 +130,7 @@ class UI_SKIN
     virtual double                    GetWithString                       (XSTRING& string, XDWORD sizefont = 12);  
     virtual double                    GetHeightString                     (XCHAR* string, XDWORD sizefont = 12);  
     virtual double                    GetHeightString                     (XSTRING& string, XDWORD sizefont = 12);   
-
-    XSTRING*                          Background_GetColor                 ();
-    XSTRING*                          Background_GetNameFile              ();
-    virtual bool                      Background_LoadBitmap               ();    
-    GRPBITMAP*                        Background_GetBitmap                ();    
-    	
+	
     bool                              CalculateBoundaryLine               (UI_ELEMENT* element, bool adjustsizemargin = false);
 
     virtual bool                      CalculateBoundaryLine_Scroll        (UI_ELEMENT* element, bool adjustsizemargin = false);    
@@ -183,10 +179,6 @@ class UI_SKIN
 
     XSTRING                           rasterfontname;
     XSTRING                           vectorfontname;
-
-    XSTRING                           background_color;
-    XSTRING                           background_namefile;  
-    GRPBITMAP*                        background_bitmap;
 
   private:
 

@@ -141,31 +141,16 @@ void UI_LAYOUT::SetSkin(UI_SKIN* ui_skin)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_COLOR* UI_LAYOUT::GetBackgroundColor()
-* @brief      GetBackgroundColor
+* @fn         UI_BACKGROUND* UI_LAYOUT::GetBackground()
+* @brief      GetBackground
 * @ingroup    USERINTERFACE
-*
-* @return     UI_COLOR* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-UI_COLOR* UI_LAYOUT::GetBackgroundColor()
+* @return     UI_BACKGROUND* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+UI_BACKGROUND* UI_LAYOUT::GetBackground()
 {
-  return &backgroundcolor;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* UI_LAYOUT::GetBackgroundFilename()
-* @brief      GetBackgroundFilename
-* @ingroup    USERINTERFACE
-*
-* @return     XSTRING* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XSTRING* UI_LAYOUT::GetBackgroundFilename()
-{
-  return &backgroundfilename;
+  return &background;
 }
 
 

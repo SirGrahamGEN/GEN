@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       UI_Color.h
+* @file       UI_Background.h
 * 
-* @class      UI_COLOR
-* @brief      User Interface Color class
+* @class      UI_BACKGROUND
+* @brief      User Interface Background class
 * @ingroup    USERINTERFACE
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,13 +26,17 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _UI_COLOR_H_
-#define _UI_COLOR_H_
+#ifndef _UI_BACKGROUND_H_
+#define _UI_BACKGROUND_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
 #include "XString.h"
+
+#include "GRPBitmap.h"
+
+#include "UI_Color.h"
 
 #pragma endregion
 
@@ -40,7 +44,6 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define UI_COLOR_INVALID   -1
 
 #pragma endregion
 
@@ -48,48 +51,26 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
-
-class UI_COLOR
+class UI_BACKGROUND
 {
   public:
-                       UI_COLOR             ();
-                       UI_COLOR             (XCHAR* string);
-                       UI_COLOR             (XSTRING& string);
-    virtual           ~UI_COLOR             ();
+                             UI_BACKGROUND            ();
+    virtual                 ~UI_BACKGROUND            ();
 
-    bool               IsValid              ();                    
-    void               SetInvalid           ();                    
+    UI_COLOR*                GetColor                 ();
+
+    XSTRING*                 GetBitmapFileName        ();
+    GRPBITMAP*               GetBitmap                (); 
+    bool                     SetBitmap                (GRPBITMAP* bitmap);       
     
-    int                GetRed               (); 
-    void               SetRed               (int red = 0);  
-
-    int                GetGreen             (); 
-    void               SetGreen             (int green = 0);  
-
-    int                GetBlue              (); 
-    void               SetBlue              (int blue = 0);  
-
-    int                GetAlpha             (); 
-    void               SetAlpha             (int alpha = 0);  
-
-    bool               SetFromString        (XCHAR* string);
-    bool               SetFromString        (XSTRING& string);
-
-    bool               CopyFrom             (UI_COLOR* color);
-    bool               CopyTo               (UI_COLOR* color);
-
   private:
 
-    int                GetAlphaForPercent   (int percent);
+    void                     Clean                    ();
 
-    void               Clean                ();
-    
-    int                red;
-    int                green;
-    int                blue;
-    int                alpha;  
+    UI_COLOR                 color;
+    XSTRING                  bitmapfilename;  
+    GRPBITMAP*               bitmap;
 };
-
 
 #pragma endregion
 
@@ -102,4 +83,6 @@ class UI_COLOR
 
 
 #endif
+
+
 

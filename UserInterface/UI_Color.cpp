@@ -80,6 +80,8 @@ UI_COLOR::UI_COLOR()
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::UI_COLOR(XCHAR* string)
 {
+  Clean();
+  
   SetFromString(string);
 }
 
@@ -95,6 +97,8 @@ UI_COLOR::UI_COLOR(XCHAR* string)
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::UI_COLOR(XSTRING& string)
 {
+  Clean();
+
   SetFromString(string);
 }
 
@@ -110,6 +114,45 @@ UI_COLOR::UI_COLOR(XSTRING& string)
 UI_COLOR::~UI_COLOR()    
 { 
   Clean();                            
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool UI_COLOR::IsValid()
+* @brief      IsValid
+* @ingroup    USERINTERFACE
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool UI_COLOR::IsValid()
+{
+  if((red   == UI_COLOR_INVALID) ||
+     (green == UI_COLOR_INVALID) ||
+     (blue  == UI_COLOR_INVALID) ||
+     (alpha == UI_COLOR_INVALID))
+    {
+      return false;
+    }  
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void UI_COLOR::SetInvalid()
+* @brief      SetInvalid
+* @ingroup    USERINTERFACE
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void UI_COLOR::SetInvalid()
+{
+  red   = UI_COLOR_INVALID;
+  green = UI_COLOR_INVALID;
+  blue  = UI_COLOR_INVALID;
+  alpha = UI_COLOR_INVALID;
 }
 
 
@@ -246,7 +289,12 @@ void UI_COLOR::SetAlpha(int alpha)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_COLOR::SetFromString(XCHAR* string)
 {
-  if(!string) return false;  
+  SetInvalid();
+
+  if(!string) 
+    {
+      return false;  
+    }
 
   XSTRING colorstr;
   int     ncommas = 0;
@@ -254,19 +302,28 @@ bool UI_COLOR::SetFromString(XCHAR* string)
   bool    status  = false;
 
   colorstr = string;
-  if(colorstr.IsEmpty()) return false;
+  if(colorstr.IsEmpty()) 
+    {
+      return false;
+    }
   
   for(XDWORD c=0; c<colorstr.GetSize(); c++)
     {
       XCHAR character = colorstr.Get()[c];
-      if(character == __C(',')) ncommas++;
+      if(character == __C(',')) 
+        {
+          ncommas++;
+        }
     }
     
   switch(ncommas)
     {
       case  0 : // only name
                 { XSTRING* resolved_colorstr = GEN_UI_COLORS.Get(colorstr);
-                  if(resolved_colorstr) status = SetFromString(resolved_colorstr->Get()); 
+                  if(resolved_colorstr) 
+                    {
+                      status = SetFromString(resolved_colorstr->Get()); 
+                    }
                 }
                 break;
 
@@ -279,7 +336,10 @@ bool UI_COLOR::SetFromString(XCHAR* string)
                   _colorstr.AdjustSize();
 
                   resolved_colorstr = GEN_UI_COLORS.Get(_colorstr);
-                  if(resolved_colorstr) status = SetFromString(resolved_colorstr->Get());                    
+                  if(resolved_colorstr) 
+                    {
+                      status = SetFromString(resolved_colorstr->Get());                    
+                    }
 
                   alpha = GetAlphaForPercent(_alpha);
                 }
@@ -296,6 +356,11 @@ bool UI_COLOR::SetFromString(XCHAR* string)
                 break;
 
       default : break;
+    }
+
+  if(!status)
+    {
+      SetInvalid();
     }
 
   return status;
@@ -332,7 +397,10 @@ bool UI_COLOR::SetFromString(XSTRING& string)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_COLOR::CopyFrom(UI_COLOR* color)
 {
-  if(!color) return false;
+  if(!color) 
+    {
+      return false;
+    }
 
   red   = color->GetRed();
   green = color->GetGreen();
@@ -356,7 +424,10 @@ bool UI_COLOR::CopyFrom(UI_COLOR* color)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool UI_COLOR::CopyTo(UI_COLOR* color)
 {
-  if(!color) return false;
+  if(!color) 
+    {
+      return false;
+    }
 
   color->SetRed(red);
   color->SetGreen(green);
@@ -399,10 +470,10 @@ int UI_COLOR::GetAlphaForPercent(int percent)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_COLOR::Clean()
 {
-  red   = 0;
-  green = 0;
-  blue  = 0;
-  alpha = 0;
+  red   = UI_COLOR_INVALID;
+  green = UI_COLOR_INVALID;
+  blue  = UI_COLOR_INVALID;
+  alpha = UI_COLOR_INVALID;
 }
 
 

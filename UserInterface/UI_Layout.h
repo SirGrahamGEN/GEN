@@ -35,6 +35,7 @@
 #include "XVector.h"
 
 #include "UI_Element.h"
+#include "UI_Background.h"
 #include "UI_Skin.h"
 
 #pragma endregion
@@ -62,8 +63,7 @@ class UI_LAYOUT
     UI_SKIN*                        GetSkin                       ();
     void                            SetSkin                       (UI_SKIN* ui_skin);
 
-    UI_COLOR*											  GetBackgroundColor					  ();	
-    XSTRING*                        GetBackgroundFilename         ();
+    UI_BACKGROUND*                  GetBackground                 ();
 
     bool                            Elements_Add                  (UI_ELEMENT* element);
     XVECTOR<UI_ELEMENT*>*           Elements_Get                  ();
@@ -85,8 +85,9 @@ class UI_LAYOUT
 
     UI_SKIN*                        ui_skin;
     XSTRING                         nameID;
-    UI_COLOR                        backgroundcolor;
-    XSTRING                         backgroundfilename;
+
+    UI_BACKGROUND                   background;
+
     XVECTOR<UI_ELEMENT*>            elements;
 };
 

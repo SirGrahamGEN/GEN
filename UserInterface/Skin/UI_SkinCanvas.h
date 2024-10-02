@@ -114,8 +114,6 @@ class UI_SKINCANVAS : public UI_SKIN, public UI_SKINCANVAS_REBUILDAREAS
 		
 		bool															LoadFonts														();
 
-		bool                              Background_LoadBitmap               ();    
-
 		bool															GetFatherSize												(UI_ELEMENT* element, double& width, double& height);
 		double														GetPositionWithoutDefine						(double position);
 		bool															SetAroundFromSubElements						(UI_ELEMENT* element);

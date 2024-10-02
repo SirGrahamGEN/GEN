@@ -324,12 +324,6 @@ UI_SKIN::UI_SKIN()
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_SKIN::~UI_SKIN()    
 { 
-  if(background_bitmap)
-    {
-      delete background_bitmap;
-      background_bitmap = NULL;
-    }
-
   Clean();                            
 }
 
@@ -524,66 +518,6 @@ double UI_SKIN::GetHeightString(XCHAR* string, XDWORD sizefont)
 double UI_SKIN::GetHeightString(XSTRING& string, XDWORD sizefont)
 {
   return GetHeightString(string.Get(), sizefont);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* UI_SKIN::Background_GetColor()
-* @brief      Background_GetColor
-* @ingroup    USERINTERFACE
-*
-* @return     XSTRING* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XSTRING* UI_SKIN::Background_GetColor()
-{
-  return &background_color;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSTRING* UI_SKIN::Background_GetNameFile()
-* @brief      Background_GetNameFile
-* @ingroup    USERINTERFACE
-*
-* @return     XSTRING* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-XSTRING* UI_SKIN::Background_GetNameFile()
-{
-  return &background_namefile;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_SKIN::Background_LoadBitmap()
-* @brief      Background_LoadBitmap
-* @ingroup    USERINTERFACE
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKIN::Background_LoadBitmap()
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         GRPBITMAP* UI_SKIN::Background_GetBitmap()
-* @brief      Background_GetBitmap
-* @ingroup    USERINTERFACE
-*
-* @return     GRPBITMAP* : 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-GRPBITMAP* UI_SKIN::Background_GetBitmap()
-{
-  return background_bitmap;
 }
 
 
@@ -1292,8 +1226,7 @@ bool UI_SKIN::Draw_ProgressBar(UI_ELEMENT* element)
 * ---------------------------------------------------------------------------------------------------------------------*/
 void UI_SKIN::Clean()
 {
-  drawmode           = UI_SKIN_DRAWMODE_UNKNOWN;
-  background_bitmap  = NULL;
+  drawmode           = UI_SKIN_DRAWMODE_UNKNOWN;  
 }
 
 

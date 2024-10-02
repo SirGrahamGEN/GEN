@@ -493,7 +493,7 @@ GRPCANVAS* UI_SKINCANVAS::GetCanvas()
 
   return screen->GetViewport(viewportindex)->GetCanvas();
 }
-		
+	
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -510,10 +510,7 @@ bool UI_SKINCANVAS::LoadFonts()
   bool   status = false; 
 
   GRPCANVAS* canvas = GetCanvas();
-  if(!canvas) 
-    {
-      return false;
-    }
+  if(!canvas) return false;
   
   if(!rasterfontname.IsEmpty())
     {
@@ -566,78 +563,6 @@ bool UI_SKINCANVAS::LoadFonts()
     }
 
   return status;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool UI_SKINCANVAS::Background_LoadBitmap()
-* @brief      Background_LoadBitmap
-* @ingroup    USERINTERFACE
-*
-* @return     bool : true if is succesful. 
-* 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool UI_SKINCANVAS::Background_LoadBitmap()
-{
-  if(!screen) return false;
-
-  XPATH           xpath;
-  GRPBITMAPFILE*  bitmapfile;
-  bool            status = false;
-
-  bitmapfile = new GRPBITMAPFILE();
-  if(!bitmapfile) 
-    {
-      return status;
-    }
-
-  GEN_XPATHSMANAGER.GetPathOfSection(XPATHSMANAGERSECTIONTYPE_GRAPHICS, xpath);
-  xpath.Slash_Add();
-  xpath.Add(background_namefile.Get());
-
-  if(GEN_USERINTERFACE.IsZippedFile())
-    {
-      XFILEUNZIP* unzipfile = GEN_USERINTERFACE.GetUnzipFile();
-      if(unzipfile)
-        {                
-          XPATH pathnamefilecmp;
-
-          pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
-          pathnamefilecmp.Slash_Add();
-          pathnamefilecmp += background_namefile;
- 
-          status = unzipfile->DecompressFile(pathnamefilecmp, (*GEN_USERINTERFACE.GetUnzipPathFile()), background_namefile.Get());   
-          if(status)
-            {  
-              XPATH unzippathfile_tmp;
-
-              unzippathfile_tmp  = GEN_USERINTERFACE.GetUnzipPathFile()->Get();
-              unzippathfile_tmp += background_namefile;
-
-              background_bitmap = bitmapfile->Load(unzippathfile_tmp, screen->GetMode());
-              if(background_bitmap) 
-                {            
-                  status = true;
-                }
-
-              GEN_USERINTERFACE.DeleteTemporalUnZipFile(unzippathfile_tmp);  
-            }
-        }
-    }
-   else
-    {                                          
-      background_bitmap = bitmapfile->Load(xpath, screen->GetMode());
-      if(background_bitmap) 
-        {            
-          status = true;
-        }
-    }
-
-  delete bitmapfile;
-
-  return status;
-
 }
 
 

@@ -86,13 +86,13 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
 
     bool                            Load                                      (XPATH& pathfile, GRPSCREEN* screen, int viewportindex = 0);
     bool                            LoadLayout                                (XPATH& pathfile, GRPSCREEN* screen, int viewportindex = 0);
-
+  
     bool                            IsZippedFile                              (); 
     XPATH*                          GetUnzipPathFile                          (); 
     XFILEUNZIP*                     GetUnzipFile                              ();
     bool                            DeleteTemporalUnZipFile                   (XPATH& pathfile);
     bool                            CloseUnZipFile                            ();
-
+    
     bool                            Layouts_Add                               (UI_LAYOUT* layout);
     XVECTOR<UI_LAYOUT*>*            Layouts_GetAll                            ();
     UI_LAYOUT*                      Layouts_Get                               (int index);
@@ -104,6 +104,10 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     bool                            Layout_PutBackground                      (XCHAR* layoutname);    
     bool                            Layout_PutBackgroundColor                 (XCHAR* layoutname);    
     bool                            Layout_PutBackgroundBitmap                (XCHAR* layoutname);    
+
+    bool                            Layout_PutBackground                      ();    
+    bool                            Layout_PutBackgroundColor                 ();    
+    bool                            Layout_PutBackgroundBitmap                ();    
 
     bool                            Update                                    (UI_LAYOUT* layout);
     bool                            Update                                    (XCHAR* layoutname);
@@ -127,6 +131,7 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     bool                            Elements_SetToRedraw                      (); 
     bool                            Elements_SetToRedraw                      (UI_ELEMENT* element, bool recursive = true);
 
+    bool                            Elements_RebuildDrawAreas                 ();
     bool                            Elements_RebuildDrawAreas                 (UI_LAYOUT* layout); 
     bool                            Elements_RebuildDrawAreas                 (UI_LAYOUT* layout, UI_ELEMENT* element);
     bool                            Elements_RebuildDrawAreas                 (XCHAR* layoutname); 
@@ -187,6 +192,8 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     UI_ELEMENT*                     CreatePartialLayout                       (XFILEXMLELEMENT* nodeelement, UI_LAYOUT* layout, UI_ELEMENT* father);
     bool                            CreateLayouts                             (XFILEXML& xml, GRPSCREEN* screen, int viewportindex = 0);
     
+    GRPBITMAP*                      LoadBackgroundBitmap                      (XSTRING& namefilebitmap, GRPPROPERTYMODE mode);
+
     bool                            CreateCacheElements                       (XFILEXMLELEMENT* nodeelement, UI_SKIN_DRAWMODE drawmode, GRPPROPERTYMODE grppropertymode, bool recursive = true); 
     
     bool                            RegisterEvents                            (bool active); 
