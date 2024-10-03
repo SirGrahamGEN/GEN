@@ -4917,7 +4917,6 @@ void UI_MANAGER::Clean()
   last_xposition      = 0;
   last_yposition      = 0;
 
-
   preselect_element   = NULL;
 
   virtualkeyboard     = NULL;

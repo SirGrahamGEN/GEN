@@ -197,7 +197,7 @@ UI_ELEMENT_OPTION* UI_ELEMENT_MENU::Option_AddText(UI_ELEMENT_MENU_OPTION_CFG& o
 
           GetComposeElements()->Add(element_option);
 
-          element_option->SetTimeSelected(500);
+          element_option->SetTimeSelected(100);
 
           element_option->SetMustReDraw(true);
 

@@ -220,7 +220,7 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
               XDestroyImage(image);
             }
         }
-        else
+       else
         {
           canvas->CopyBufferRenderToScreen(this);
 
