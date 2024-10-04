@@ -121,6 +121,12 @@ GRPSCREEN::~GRPSCREEN()
 
   DeleteAllViewports();
 
+  if(maincanvas)
+    {
+      delete maincanvas;
+      maincanvas = NULL;
+    }
+
   Buffer_Delete();
 
   Clean();
@@ -398,13 +404,6 @@ bool GRPSCREEN::Buffer_Delete()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Create(bool show)
 {
-  /*
-  if(!viewports.Get(0)) 
-    {
-      return false;
-    }
-  */
-
   isactive = true;
 
   if(framerate) framerate->Reset();
@@ -849,17 +848,31 @@ bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, f
 
   if(viewport->CreateCanvas(canvasproperties))
     {
-       viewport->GetCanvas()->GetScreenZone()->Set((int)posx, (int)posy, (int)(posx + width), (int)(posy + height));
-       viewports.Add(viewport);
+      viewport->GetCanvas()->GetScreenZone()->Set((int)posx, (int)posy, (int)(posx + width), (int)(posy + height));
+      viewports.Add(viewport);
 
-        // --------------------------------------------------------------------------------------------------
-        // Main Canvas is selected if the name is the name of the main viewport or there is only one viewport.
-  
-       if((!viewport->GetID()->Compare(GRPVIEWPORT_ID_MAIN,true))  || viewports.GetSize() == 1)
-          {
-            index_maincanvas  = viewports.GetSize()-1;
-            maincanvas        = viewport->GetCanvas();
-          }
+
+      if(!maincanvas)
+        {
+          maincanvas = GRPFACTORY::GetInstance().CreateCanvas(this);
+          if(maincanvas)
+            {
+              maincanvas->SetWidth(this->GetWidth());
+              maincanvas->SetHeight(this->GetHeight());
+
+              maincanvas->Buffer_Create();
+            }
+         }
+             
+      /*  
+      // --------------------------------------------------------------------------------------------------
+      // Main Canvas is selected if the name is the name of the main viewport or there is only one viewport.  
+      if((!viewport->GetID()->Compare(GRPVIEWPORT_ID_MAIN,true))  || viewports.GetSize() == 1)
+        {
+          index_maincanvas  = viewports.GetSize()-1;
+          maincanvas        = viewport->GetCanvas();
+        }
+      */
 
     } else return false;
 
@@ -883,6 +896,7 @@ bool GRPSCREEN::UpdateViewports()
 
   #else
     
+    /*
     if(maincanvas)
       {        
         for(XDWORD c=0; c<viewports.GetSize(); c++)
@@ -902,6 +916,22 @@ bool GRPSCREEN::UpdateViewports()
             Update(maincanvas);      
           }    
       }
+    */
+
+  for(XDWORD c=0; c<viewports.GetSize(); c++)
+    {
+      maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
+    } 
+       
+  if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
+    {
+      UpdateTransparent(maincanvas);      
+    }
+    else
+    {
+      Update(maincanvas);      
+    }    
+
 
   #endif  
 
