@@ -105,9 +105,9 @@ class UI_MANAGER : public XOBSERVER, public XSUBJECT
     bool                            Layout_PutBackgroundColor                 (XCHAR* layoutname);    
     bool                            Layout_PutBackgroundBitmap                (XCHAR* layoutname);    
 
-    bool                            Layout_PutBackground                      ();    
+    bool                            Layout_PutBackground                      (bool scale = false);    
     bool                            Layout_PutBackgroundColor                 ();    
-    bool                            Layout_PutBackgroundBitmap                ();    
+    bool                            Layout_PutBackgroundBitmap                (bool scale = false);    
 
     bool                            Update                                    (UI_LAYOUT* layout);
     bool                            Update                                    (XCHAR* layoutname);

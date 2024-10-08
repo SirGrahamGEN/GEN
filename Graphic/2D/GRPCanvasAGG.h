@@ -263,8 +263,6 @@ class GRPCANVASAGG_DASHED_LINE
 template<class PIXELFORMATBUFFER, class COLORTYPE>
 class GRPCANVASAGG: public GRPCANVAS
 {
-
-
   public:
                                                                                 GRPCANVASAGG                      ()  : GRPCANVAS()
                                                                                 {
@@ -276,7 +274,13 @@ class GRPCANVASAGG: public GRPCANVAS
 
     virtual                                                                    ~GRPCANVASAGG                      ()
                                                                                 {
-                                                                                  delete dashline;
+                                                                                  /*  
+                                                                                  if(dashline)
+                                                                                    {
+                                                                                      delete dashline;
+                                                                                      dashline = NULL;
+                                                                                    }
+                                                                                  */
 
                                                                                   if(vectorfont_manager) 
                                                                                     {
@@ -1117,7 +1121,6 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                 }
 
 
-
     bool                                                                        VectorFont_Printf                 (double _x, double _y, XCHAR* mask, ...)
                                                                                 {
                                                                                   XSTRING outstring;
@@ -1134,96 +1137,39 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                 }
 
 
-
-    bool                                                                        CopyBufferRenderToScreen          (GRPSCREEN* screen)
-                                                                                {
-                                                                                  if(!screen) return false;
-
-                                                                                  GRPRECTINT* rectscreen  = GetScreenZone();
-                                                                                  if(!rectscreen) return false;
-
-                                                                                  agg::rendering_buffer screenbuffer;
-
-                                                                                  screenbuffer.attach(screen->Buffer_Get()  , screen->GetWidth()
-                                                                                                                            , screen->GetHeight()
-                                                                                                                            , (screen->IsBufferInverse()?1:-1) * ((int)screen->GetWidth() * screen->GetBytesperPixel()));
-
-                                                                                  int nlines    = (rectscreen->y2-rectscreen->y1);
-                                                                                  int sizeline  = (rectscreen->x2-rectscreen->x1) * GetBytesperPixel();
-                                                                                  int xpos      = (rectscreen->x1 * GetBytesperPixel());
-
-                                                                                  int c         = 0;
-
-                                                                                  while(c < nlines)
-                                                                                    {
-                                                                                      memcpy(screenbuffer.row_ptr(c), (rbuffer.row_ptr(rectscreen->y1+c) + xpos), sizeline);
-                                                                                      c++;
-                                                                                    }
-
-                                                                                  return true;
-                                                                                }
-
-
-    bool                                                                        CopyBufferRenderToBufferScreen    (XBYTE* buffer, XDWORD width, XDWORD height, bool isinverse )
-                                                                                {
-                                                                                  GRPRECTINT* rectscreen  = GetScreenZone();
-                                                                                  if(!rectscreen) return false;
-
-                                                                                  agg::rendering_buffer screenbuffer;
-
-                                                                                  screenbuffer.attach(buffer , width
-                                                                                                             , height
-                                                                                                             , (isinverse?1:-1) * ((int)width * GetBytesperPixel()));
-
-                                                                                  int nlines    = (rectscreen->y2-rectscreen->y1);
-                                                                                  int sizeline  = (rectscreen->x2-rectscreen->x1) * GetBytesperPixel();
-                                                                                  int xpos      = (rectscreen->x1 * GetBytesperPixel());
-
-                                                                                  int c         = 0;
-
-                                                                                  while(c < nlines)
-                                                                                    {
-                                                                                      memcpy(screenbuffer.row_ptr(c), (rbuffer.row_ptr(rectscreen->y1+c) + xpos), sizeline);
-                                                                                      c++;
-                                                                                    }
-
-                                                                                  return true;
-                                                                                }
-
-
     bool                                                                        CopyBufferRenderFromViewport      (GRPVIEWPORT* viewport)
                                                                                 {
-                                                                                  if(!viewport) return false;
+                                                                                  GRPCANVAS*              viewportcanvas        = NULL;
+                                                                                  agg::rendering_buffer   viewportcanvasbuffer;
 
-                                                                                  GRPCANVAS*  origincanvas = viewport->GetCanvas();
-                                                                                  if(!origincanvas) return false;
-
-                                                                                  GRPRECTINT  positionrect;
-
-                                                                                  positionrect.x1 = GetScreenZone()->x1 + (int)viewport->GetPositionX();
-                                                                                  positionrect.y1 = GetScreenZone()->y1 + (int)viewport->GetPositionY();
-
-                                                                                  positionrect.x2 = positionrect.x1 + (int)viewport->GetWidth();
-                                                                                  positionrect.y2 = positionrect.y2 + (int)viewport->GetHeight();
-
-                                                                                  agg::rendering_buffer origincanvasbuffer;
-
-                                                                                  origincanvasbuffer.attach(origincanvas->Buffer_Get()  , origincanvas->GetWidth()
-                                                                                                                                        , origincanvas->GetHeight()
-                                                                                                                                        , (origincanvas->IsBufferInverse()?1:-1) * ((int)origincanvas->GetWidth() * origincanvas->GetBytesperPixel()));
-
-                                                                                  int nlines        = (int)viewport->GetHeight();
-                                                                                  int sizeline      = (int)(viewport->GetWidth() * GetBytesperPixel());
-                                                                                  int originxpos    = (origincanvas->GetScreenZone()->x1 * GetBytesperPixel());
-                                                                                  int targetxpos    = (positionrect.x1 * GetBytesperPixel());
-                                                                                  int c             = 0;
-
-                                                                                  while(c < nlines)
+                                                                                  if(!viewport) 
                                                                                     {
-                                                                                      memcpy( rbuffer.row_ptr(positionrect.y1 + c) + targetxpos                  ,
-                                                                                              origincanvasbuffer.row_ptr(origincanvas->GetScreenZone()->y1 + c)  ,
-                                                                                              sizeline);
-                                                                                      c++;
+                                                                                      return false;
+                                                                                    }
+
+                                                                                  viewportcanvas = viewport->GetCanvas();
+                                                                                  if(!viewportcanvas) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
+                                                                         
+                                                                                  viewportcanvasbuffer.attach(viewportcanvas->Buffer_Get()  , viewportcanvas->GetWidth()
+                                                                                                                                            , viewportcanvas->GetHeight()
+                                                                                                                                            , (viewportcanvas->IsBufferInverse()?1:-1) * ((int)viewportcanvas->GetWidth() *  viewportcanvas->GetBytesperPixel()));
+
+                                                                                  int sizeline    = (int)(viewport->GetWidth() * GetBytesperPixel());
+                                                                                  int nlines      = (int)(viewport->GetHeight()); 
+
+                                                                                  int originposx  = (int)(viewport->GetPositionX() * GetBytesperPixel());
+                                                                                  int originposy  = (int)(viewport->GetPositionY());
+ 
+                                                                                  int targetposx  = (int)(viewport->GetCanvasPositionX() * GetBytesperPixel());
+                                                                                  int targetposy  = (int)(viewport->GetCanvasPositionY());
+
+                                                                                  
+                                                                                  for(int c=0; c<nlines; c++)
+                                                                                    {
+                                                                                      memcpy( rbuffer.row_ptr(c + originposy) + originposx, viewportcanvasbuffer.row_ptr(c + targetposy) +  targetposx, sizeline);
                                                                                     }
 
                                                                                   return true;
@@ -1278,7 +1224,6 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                 }
 
   private:   
-
 
 
     #ifdef GEN_DEBUG 

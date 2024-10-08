@@ -90,7 +90,6 @@ class GRPLINUXSCREENX11 : public GRPSCREEN
 
     bool                                  Create                            (bool show);
 
-    bool                                  Update                            ();
     bool                                  Update                            (GRPCANVAS* canvas);
     bool                                  UpdateTransparent                 (GRPCANVAS* canvas);
     bool                                  Delete                            ();

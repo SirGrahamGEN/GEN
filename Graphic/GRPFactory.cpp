@@ -247,12 +247,21 @@ GRPCANVAS* GRPFACTORY::CreateCanvas(GRPPROPERTIES* properties)
   GRPCANVAS*      canvas = NULL;
   GRPPROPERTYMODE mode   = GRPPROPERTYMODE_XX_UNKNOWN;
 
-  if(!properties) return NULL;
+  if(!properties) 
+    {
+      return NULL;
+    }
 
   mode = properties->GetMode();
-  if(mode == GRPPROPERTYMODE_XX_UNKNOWN) return NULL;
+  if(mode == GRPPROPERTYMODE_XX_UNKNOWN) 
+    {
+      return NULL;
+    }
 
-  if(!properties->GetWidth() || !properties->GetHeight()) return NULL;
+  if(!properties->GetWidth() || !properties->GetHeight()) 
+    {
+      return NULL;
+    }
 
   switch(mode)
     {
@@ -268,7 +277,10 @@ GRPCANVAS* GRPFACTORY::CreateCanvas(GRPPROPERTIES* properties)
                                default  : break;
     }
 
-  if(canvas)  canvas->CopyPropertysFrom(properties);
+  if(canvas)  
+    {
+      canvas->CopyPropertysFrom(properties);
+    }
 
   return canvas;
 }
@@ -287,7 +299,10 @@ GRPCANVAS* GRPFACTORY::CreateCanvas(GRPPROPERTIES* properties)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPFACTORY::DeleteCanvas(GRPCANVAS* canvas)
 {
-  if(!canvas) return false;
+  if(!canvas) 
+    {
+      return false;
+    }
 
   canvas->Buffer_Delete();
 

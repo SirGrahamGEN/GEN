@@ -180,14 +180,16 @@ void GRPVIEWPORT::SetProjectionType(GRPVIEWPORT_PROJECTIONTYPE projectiontype)
 bool GRPVIEWPORT::CreateCanvas(GRPPROPERTIES& canvasproperties)
 {
   canvas = GRPFACTORY::GetInstance().CreateCanvas(&canvasproperties);
-  if(canvas)
+  if(!canvas)
     {
-      canvas->SetWidth(canvasproperties.GetWidth());
-      canvas->SetHeight(canvasproperties.GetHeight());
-
-      canvas->Buffer_Create();
+      return false;
     }
+  
+  canvas->SetWidth(canvasproperties.GetWidth());
+  canvas->SetHeight(canvasproperties.GetHeight());
 
+  canvas->Buffer_Create();
+  
   return true;
 }
 
@@ -287,6 +289,90 @@ void GRPVIEWPORT::SetSize(float width, float height)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float GRPVIEWPORT::GetCanvasPositionX()
+* @brief      GetCanvasPositionX
+* @ingroup    GRAPHIC
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float GRPVIEWPORT::GetCanvasPositionX()
+{
+  return canvas_x;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         float GRPVIEWPORT::GetCanvasPositionY()
+* @brief      GetCanvasPositionY
+* @ingroup    GRAPHIC
+* 
+* @return     float : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+float GRPVIEWPORT::GetCanvasPositionY()
+{
+  return canvas_y;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPVIEWPORT::SetCanvasPosition(float x, float y)
+* @brief      SetCanvasPosition
+* @ingroup    GRAPHIC
+* 
+* @param[in]  x : 
+* @param[in]  y : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPVIEWPORT::SetCanvasPosition(float x, float y)
+{
+  bool status = true;
+
+  canvas_x = x;
+  canvas_y = y;
+
+  if(canvas_x < 0)  
+    {
+      canvas_x  = 0;
+      status    = false;
+    }
+
+  if(canvas_y < 0)
+    {
+      canvas_y  = 0;
+      status    = false;
+    }
+
+  if(canvas)
+    {
+      if((canvas_x + width) > canvas->GetWidth())
+        {
+          canvas_x  = canvas->GetWidth() - width;
+          status    = false;
+        }
+
+      if((canvas_y + height) > canvas->GetHeight())
+        {
+          canvas_y  = canvas->GetHeight() - height;
+          status    = false;
+        }
+    }
+   else
+    {
+      status = false;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         GRPCANVAS* GRPVIEWPORT::GetCanvas()
 * @brief      GetCanvas
@@ -321,6 +407,8 @@ void GRPVIEWPORT::Clean()
   width           = 0.0f;
   height          = 0.0f;
 
+  canvas_x        = 0.0f;
+  canvas_y        = 0.0f;
   canvas          = NULL;
 }
 

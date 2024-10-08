@@ -285,17 +285,23 @@ bool MAINPROCWINDOWS::Update()
       MSG   msg;
 
       APPBASE* app = NULL;
-      if(mainprocwindows.GetAppMain()) app = mainprocwindows.GetAppMain()->GetApplication();
+      if(mainprocwindows.GetAppMain()) 
+        {
+          app = mainprocwindows.GetAppMain()->GetApplication();
+        }
 
       while(::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {          
           switch(msg.message)
             {
-              case WM_QUIT       : if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
-                                   break;
+              case WM_QUIT        : if(app) 
+                                      {
+                                        app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                                      }
+                                    break;
 
-              case WM_CLOSE      : PostQuitMessage(APPBASE_EXITTYPE_BY_USER);
-                                   break;
+              case WM_CLOSE       : PostQuitMessage(APPBASE_EXITTYPE_BY_USER);
+                                    break;
             }
           
           TranslateMessage(&msg);
@@ -312,12 +318,18 @@ bool MAINPROCWINDOWS::Update()
   #ifdef APP_ACTIVE
   if(appmain)
     {
-      if(!appmain->Update()) return false;
+      if(!appmain->Update()) 
+        {
+          return false;
+        }
     }
   #else
    if(Main_Proc_Update)
     {
-      if(!Main_Proc_Update(this)) return false;
+      if(!Main_Proc_Update(this)) 
+        {
+          return false;
+        }
     }
   #endif
 
@@ -342,26 +354,38 @@ bool MAINPROCWINDOWS::End()
 {
   #ifdef APP_ACTIVE
 
-  if(appmain) appmain->End();
+  if(appmain) 
+    {
+      appmain->End();
+    }
 
   #else
 
   if(Main_Proc_End)
     {
-      if(!Main_Proc_End(this)) return false;
+      if(!Main_Proc_End(this)) 
+        {
+          return false;
+        }
     }
 
   #endif
   
   #ifdef APP_ACTIVE
 
-  if(appmain) appmain->Delete();
+  if(appmain) 
+    {
+      appmain->Delete();
+    }
 
   #else
 
   if(Main_Proc_PlatformEnd)
     {
-      if(!Main_Proc_PlatformEnd(this)) return false;
+      if(!Main_Proc_PlatformEnd(this)) 
+        {
+          return false;
+        }
     }
 
   #endif

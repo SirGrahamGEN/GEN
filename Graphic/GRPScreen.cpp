@@ -121,14 +121,6 @@ GRPSCREEN::~GRPSCREEN()
 
   DeleteAllViewports();
 
-  if(maincanvas)
-    {
-      delete maincanvas;
-      maincanvas = NULL;
-    }
-
-  Buffer_Delete();
-
   Clean();
 }
 
@@ -312,86 +304,6 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
   return true;
 }
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool GRPSCREEN::Buffer_Create()
-* @brief      Buffer_Create
-* @ingroup    GRAPHIC
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::Buffer_Create()
-{
-  buffersize = (width * height * GetBytesperPixel());
-
-  buffer = new XBYTE[buffersize];
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XBYTE* GRPSCREEN::Buffer_Get()
-* @brief      Buffer_Get
-* @ingroup    GRAPHIC
-* 
-* @return     XBYTE* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XBYTE* GRPSCREEN::Buffer_Get()
-{
-  return buffer;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool GRPSCREEN::Buffer_SetToZero()
-* @brief      Buffer_SetToZero
-* @ingroup    GRAPHIC
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::Buffer_SetToZero()
-{
-  if(!buffer) 
-    {
-      return false;
-    }
-
-  memset(buffer, 0, buffersize);
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool GRPSCREEN::Buffer_Delete()
-* @brief      Buffer_Delete
-* @ingroup    GRAPHIC
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::Buffer_Delete()
-{
-  if(!buffer) 
-    {
-      return false;
-    }
-
-  delete [] buffer;
-  buffer = NULL;
-
-  buffersize = 0;
-
-  return true;
-}
-
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
@@ -404,26 +316,22 @@ bool GRPSCREEN::Buffer_Delete()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Create(bool show)
 {
+  screencanvas = GRPFACTORY::GetInstance().CreateCanvas(this);
+  if(!screencanvas)
+    {
+      return false;
+    }
+
+  screencanvas->SetWidth(this->GetWidth());
+  screencanvas->SetHeight(this->GetHeight());
+
+  screencanvas->Buffer_Create();
+      
   isactive = true;
 
   if(framerate) framerate->Reset();
 
   return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool GRPSCREEN::Update()
-* @brief      Update
-* @ingroup    GRAPHIC
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPSCREEN::Update()
-{
-  return false;
 }
 
 
@@ -472,7 +380,15 @@ bool GRPSCREEN::UpdateTransparent(GRPCANVAS* canvas)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPSCREEN::Delete()
 {
-  return false;
+  if(screencanvas)
+    {
+      delete screencanvas;
+      screencanvas = NULL;
+    }
+
+  isactive = false;
+
+  return true;
 }
 
 
@@ -832,48 +748,22 @@ bool GRPSCREEN::CreateViewport(XCHAR* ID, float posx, float posy, float width, f
   viewport->SetPosition(posx, posy);
   viewport->SetSize(width, height);
 
-  GRPPROPERTIES canvasproperties;
-
-  canvasproperties.CopyPropertysFrom(this);
-
-  canvasproperties.SetPosition(canvasposx, canvasposy);
-
-  float cwidth  = (float)canvaswidth;
-  float cheight = (float)canvasheight;
+  GRPPROPERTIES canvasproperties; 
+  float         cwidth  = (float)canvaswidth;
+  float         cheight = (float)canvasheight;
 
   if(width  > cwidth)  cwidth  = width;
   if(height > cheight) cheight = height;
 
+  canvasproperties.CopyPropertysFrom(this);
+  canvasproperties.SetPosition(canvasposx, canvasposy); 
   canvasproperties.SetSize((XDWORD)cwidth, (XDWORD)cheight);
 
   if(viewport->CreateCanvas(canvasproperties))
     {
-      viewport->GetCanvas()->GetScreenZone()->Set((int)posx, (int)posy, (int)(posx + width), (int)(posy + height));
+      viewport->SetCanvasPosition(posx, posy);
       viewports.Add(viewport);
-
-
-      if(!maincanvas)
-        {
-          maincanvas = GRPFACTORY::GetInstance().CreateCanvas(this);
-          if(maincanvas)
-            {
-              maincanvas->SetWidth(this->GetWidth());
-              maincanvas->SetHeight(this->GetHeight());
-
-              maincanvas->Buffer_Create();
-            }
-         }
              
-      /*  
-      // --------------------------------------------------------------------------------------------------
-      // Main Canvas is selected if the name is the name of the main viewport or there is only one viewport.  
-      if((!viewport->GetID()->Compare(GRPVIEWPORT_ID_MAIN,true))  || viewports.GetSize() == 1)
-        {
-          index_maincanvas  = viewports.GetSize()-1;
-          maincanvas        = viewport->GetCanvas();
-        }
-      */
-
     } else return false;
 
   return true;
@@ -895,43 +785,20 @@ bool GRPSCREEN::UpdateViewports()
 
 
   #else
-    
-    /*
-    if(maincanvas)
-      {        
-        for(XDWORD c=0; c<viewports.GetSize(); c++)
-          {
-            if(index_maincanvas != c) 
-              { 
-                maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
-              }
-          } 
-           
-        if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
-          {
-            UpdateTransparent(maincanvas);      
-          }
-         else
-          {
-            Update(maincanvas);      
-          }    
-      }
-    */
-
+   
   for(XDWORD c=0; c<viewports.GetSize(); c++)
     {
-      maincanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
+      screencanvas->CopyBufferRenderFromViewport(viewports.Get(c));                               
     } 
        
   if(Style_Is(GRPSCREENSTYLE_TRANSPARENT))
     {
-      UpdateTransparent(maincanvas);      
+      UpdateTransparent(screencanvas);      
     }
     else
     {
-      Update(maincanvas);      
+      Update(screencanvas);      
     }    
-
 
   #endif  
 
@@ -1014,14 +881,14 @@ GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+* @fn         GRPDISPLAYTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 * @brief      GetDesktopScreenSelected
 * @ingroup    GRAPHIC
 * 
-* @return     GRPSCREENTYPE_DESKTOP : 
+* @return     GRPDISPLAYTYPE_DESKTOP : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+GRPDISPLAYTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 {
   return desktopscreenselected;
 }
@@ -1029,14 +896,14 @@ GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
+* @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPDISPLAYTYPE_DESKTOP desktopscreenselected)
 * @brief      SetDesktopScreenSelected
 * @ingroup    GRAPHIC
 * 
 * @param[in]  desktopscreenselected : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
+void GRPSCREEN::SetDesktopScreenSelected(GRPDISPLAYTYPE_DESKTOP desktopscreenselected)
 {
   this->desktopscreenselected = desktopscreenselected;
 }
@@ -1058,6 +925,40 @@ XMAP<void*, GRPSCREEN*>* GRPSCREEN::GetListScreens()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPCANVAS* GRPSCREEN::GetScreenCanvas()
+* @brief      GetScreenCanvas
+* @ingroup    GRAPHIC
+* 
+* @return     GRPCANVAS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPCANVAS* GRPSCREEN::GetScreenCanvas()
+{
+  return screencanvas;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::SetScreenCanvas(GRPCANVAS* screencanvas)
+* @brief      SetScreenCanvas
+* @ingroup    GRAPHIC
+* 
+* @param[in]  screencanvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::SetScreenCanvas(GRPCANVAS* screencanvas)
+{
+  this->screencanvas = screencanvas;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPSCREEN::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -1073,19 +974,15 @@ void GRPSCREEN::Clean()
   isactive                = false;
 
   styles                  = GRPSCREENSTYLE_DEFAULT;
-    
-  buffer                  = NULL;
-  buffersize              = 0;
-
+   
   isblockclose            = false;
+  
+  framerate               = NULL; 
 
-  index_maincanvas        = 0;
-  maincanvas              = NULL;
-
-  framerate               = NULL;
+  screencanvas            = NULL;
 
   desktopmanager          = NULL;
-  desktopscreenselected   = GRPSCREENTYPE_DESKTOP_ALL;
+  desktopscreenselected   = GRPDISPLAYTYPE_DESKTOP_ALL;
 
   isshow                  = false;
 }

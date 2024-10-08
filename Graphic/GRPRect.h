@@ -85,6 +85,7 @@ class GRPRECTBASE
                                 this->y2  = y2;
                               }
 
+
     T                         GetWidth                          ()
                               {
                                 T width  = abs(this->x2 - this->x1);

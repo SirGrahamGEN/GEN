@@ -55,28 +55,28 @@ enum GRPSCREENTYPE
 {
   GRPSCREENTYPE_UNKNOW                        =  0  ,
 
-  GRPSCREENTYPE_WINDOWS                             ,
+  GRPSCREENTYPE_WINDOWS                            ,
 
-  GRPSCREENTYPE_LINUX_FRAMEBUFFER                   ,
-  GRPSCREENTYPE_LINUX_X11                           ,
-  GRPSCREENTYPE_LINUX_DISPMAN                       ,
+  GRPSCREENTYPE_LINUX_FRAMEBUFFER                  ,
+  GRPSCREENTYPE_LINUX_X11                          ,
+  GRPSCREENTYPE_LINUX_DISPMAN                      ,
 
   GRPSCREENTYPE_ANDROID
 };
 
 
-enum GRPSCREENTYPE_DESKTOP
+enum GRPDISPLAYTYPE_DESKTOP
 {
-  GRPSCREENTYPE_DESKTOP_ALL                   = -1  ,
-  GRPSCREENTYPE_DESKTOP_MAIN                  =  0  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN1               =  0  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN2               =  1  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN3               =  2  ,  
-  GRPSCREENTYPE_DESKTOP_SCREEN4               =  3  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN5               =  4  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN6               =  5  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN7               =  6  ,
-  GRPSCREENTYPE_DESKTOP_SCREEN8               =  7  ,  
+  GRPDISPLAYTYPE_DESKTOP_ALL                  = -1  ,
+  GRPDISPLAYTYPE_DESKTOP_MAIN                 =  0  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN1              =  0  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN2              =  1  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN3              =  2  ,  
+  GRPDISPLAYTYPE_DESKTOP_SCREEN4              =  3  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN5              =  4  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN6              =  5  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN7              =  6  ,
+  GRPDISPLAYTYPE_DESKTOP_SCREEN8              =  7  ,  
 };
 
 
@@ -128,14 +128,8 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 
     bool                                  SetPropertys                  (int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode);
     
-    bool                                  Buffer_Create                 ();   
-    XBYTE*                                Buffer_Get                    ();
-    bool                                  Buffer_SetToZero              (); 
-    bool                                  Buffer_Delete                 ();
-    
     virtual bool                          Create                        (bool show);
 
-    virtual bool                          Update                        ();
     virtual bool                          Update                        (GRPCANVAS* canvas);
     virtual bool                          UpdateTransparent             (GRPCANVAS* canvas);
 
@@ -179,10 +173,13 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     GRPFRAMERATE*                         GetFrameRate                  ();
 
     GRPDESKTOPMANAGER*                    GetDesktopManager             ();
-    GRPSCREENTYPE_DESKTOP                 GetDesktopScreenSelected      ();
-    void                                  SetDesktopScreenSelected      (GRPSCREENTYPE_DESKTOP desktopscreenselected);
+    GRPDISPLAYTYPE_DESKTOP                GetDesktopScreenSelected      ();
+    void                                  SetDesktopScreenSelected      (GRPDISPLAYTYPE_DESKTOP desktopscreenselected);
 
-    static XMAP<void*, GRPSCREEN*>*       GetListScreens                (); 
+    static XMAP<void*, GRPSCREEN*>*       GetListScreens                ();
+
+    GRPCANVAS*                            GetScreenCanvas               ();   
+    bool                                  SetScreenCanvas               (GRPCANVAS* screencanvas);   
 
   protected:    
 
@@ -190,16 +187,11 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     bool                                  isvalid;
     bool                                  isactive;
     XDWORD                                styles;
-    
-    XBYTE*                                buffer;
-    XDWORD                                buffersize;
+       
+    bool                                  isblockclose; 
 
-    bool                                  isblockclose;
-
+    GRPCANVAS*                            screencanvas;  
     XVECTOR<GRPVIEWPORT*>                 viewports;  
-
-    XDWORD                                index_maincanvas;
-    GRPCANVAS*                            maincanvas;    
     
     GRPFRAMERATE*                         framerate;
 
@@ -211,8 +203,9 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 
     void                                  Clean                         ();
 
+     
     GRPDESKTOPMANAGER*                    desktopmanager;
-    GRPSCREENTYPE_DESKTOP                 desktopscreenselected;
+    GRPDISPLAYTYPE_DESKTOP                desktopscreenselected;
 
     static XMAP<void*, GRPSCREEN*>        listscreens;
 };

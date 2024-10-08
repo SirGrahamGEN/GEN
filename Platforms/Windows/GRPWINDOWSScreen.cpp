@@ -146,8 +146,6 @@ bool GRPWINDOWSSCREEN::Create(bool show)
       return false;
     }
 
-  Buffer_Create();
-
   GRPSCREEN::GetListScreens()->Add((void*)hwnd, this);
 
   return GRPSCREEN::Create(show);
@@ -203,35 +201,15 @@ bool GRPWINDOWSSCREEN::Update(GRPCANVAS* canvas)
       return false;
     }
 
-  if(IsEqualSizeTo(canvas) == ISEQUAL)
-    {      
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Normal (Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
-
-      SetDIBitsToDevice(hdc, 0, 0, width  ,
-                                   height ,
-                                   0,0,0  ,
-                                   height ,
-                                   canvas->Buffer_Get() ,
-                                   &hinfo ,
-                                   DIB_RGB_COLORS);     
-    }
-   else
-    {
-      if(!buffer) return false;
-
-      //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Normal (Not Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
-
-      canvas->CopyBufferRenderToScreen(this);
-
-      SetDIBitsToDevice(hdc, 0, 0, width  ,
-                                   height ,
-                                   0,0,0  ,
-                                   height ,
-                                   buffer ,
-                                  &hinfo ,
-                                   DIB_RGB_COLORS);
-    }
-
+  
+  SetDIBitsToDevice(hdc, 0, 0, width  ,
+                               height ,
+                               0,0,0  ,
+                               height ,
+                               canvas->Buffer_Get() ,
+                               &hinfo ,
+                               DIB_RGB_COLORS);     
+  
   return true;
 
   #else
@@ -280,35 +258,16 @@ bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
 
   SetBkMode(hdcmem, TRANSPARENT);
  
-  if(IsEqualSizeTo(canvas) == ISEQUAL)
-    { 
-      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Transparent (Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
+  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Transparent (Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
      
-      SetDIBitsToDevice(hdcmem, 0, 0, width  ,
-                                      height ,
-                                      0,0,0  ,
-                                      height ,
-                                      canvas->Buffer_Get() ,
-                                      &hinfo ,
-                                      DIB_RGB_COLORS);     
-    }
-   else
-    {
-      if(!buffer) return false;
-
-      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Screen Windows] Update Transparent (Not Equal)  (%04d,%04d)  Bitxpixel (%d)"), width, height, GetBitsperPixel());
-
-      canvas->CopyBufferRenderToScreen(this);
-
-      SetDIBitsToDevice(hdcmem, 0, 0, width  ,
-                                      height ,
-                                      0,0,0  ,
-                                      height ,
-                                      buffer ,
-                                     &hinfo  ,
-                                      DIB_RGB_COLORS);
-    }
-
+  SetDIBitsToDevice(hdcmem, 0, 0, width  ,
+                                  height ,
+                                  0,0,0  ,
+                                  height ,
+                                  canvas->Buffer_Get() ,
+                                  &hinfo ,
+                                  DIB_RGB_COLORS);     
+ 
   POINT         ptsrc   = { 0, 0 };
   SIZE          sizewnd = { (LONG)width, (LONG)height };
   BLENDFUNCTION blend   = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
@@ -342,8 +301,6 @@ bool GRPWINDOWSSCREEN::UpdateTransparent(GRPCANVAS* canvas)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPWINDOWSSCREEN::Delete()
 {
-  Buffer_Delete();
-
   if(Style_Is(GRPSCREENSTYLE_FULLSCREEN)) 
     {
       ChangeDisplaySettings(NULL,0);
@@ -365,9 +322,7 @@ bool GRPWINDOWSSCREEN::Delete()
       UnregisterClassA((LPCSTR)GRPWINDOWSSCREEN_NAMECLASS, hinstance);
     }
 
-  isactive = false;
-
-  return true;
+  return GRPSCREEN::Delete();
 }
 
 
@@ -892,7 +847,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   int         posx            = 0;
   int         posy            = 0;  
 
-  if(nscreen == GRPSCREENTYPE_DESKTOP_ALL)
+  if(nscreen == GRPDISPLAYTYPE_DESKTOP_ALL)
     {
       alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
     }

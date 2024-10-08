@@ -362,10 +362,12 @@ GRPCANVAS::~GRPCANVAS()
 * @return     GRPRECTINT* : rect of screen zone
 *
 * --------------------------------------------------------------------------------------------------------------------*/
+/*
 GRPRECTINT* GRPCANVAS::GetScreenZone()
 {
   return &screenzone;
 }
+*/
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -399,6 +401,21 @@ bool GRPCANVAS::Buffer_Create()
 XBYTE* GRPCANVAS::Buffer_Get()
 {
   return buffer;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD GRPCANVAS::Buffer_GetSize()
+* @brief      Buffer_GetSize
+* @ingroup    GRAPHIC
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD GRPCANVAS::Buffer_GetSize()
+{
+  return buffersize;
 }
 
 

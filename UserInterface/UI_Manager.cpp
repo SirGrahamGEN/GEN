@@ -684,18 +684,20 @@ bool UI_MANAGER::Layout_PutBackgroundBitmap(XCHAR* layoutname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Layout_PutBackground()
+* @fn         bool UI_MANAGER::Layout_PutBackground(bool scale)
 * @brief      Layout_PutBackground
 * @ingroup    USERINTERFACE
+* 
+* @param[in]  scale : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Layout_PutBackground()
+bool UI_MANAGER::Layout_PutBackground(bool scale)
 {
   bool status = false;
 
-  status = Layout_PutBackgroundBitmap();
+  status = Layout_PutBackgroundBitmap(scale);
   if(!status) 
     {
       status = Layout_PutBackgroundColor();
@@ -767,14 +769,16 @@ bool UI_MANAGER::Layout_PutBackgroundColor()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Layout_PutBackgroundBitmap()
+* @fn         bool UI_MANAGER::Layout_PutBackgroundBitmap(bool scale)
 * @brief      Layout_PutBackgroundBitmap
 * @ingroup    USERINTERFACE
+* 
+* @param[in]  scale : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool UI_MANAGER::Layout_PutBackgroundBitmap()
+bool UI_MANAGER::Layout_PutBackgroundBitmap(bool scale)
 {  
   bool status = false;
 
@@ -803,7 +807,11 @@ bool UI_MANAGER::Layout_PutBackgroundBitmap()
                                                       GRPCANVAS* canvas = skin_canvas->GetCanvas();    
                                                       if(canvas && screen) 
                                                         {
-                                                          layout->GetBackground()->GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
+                                                          if(scale)
+                                                            {  
+                                                              layout->GetBackground()->GetBitmap()->Scale(screen->GetWidth(), screen->GetHeight());          
+                                                            }
+
                                                           canvas->PutBitmapNoAlpha(0, 0, layout->GetBackground()->GetBitmap());                                              
 
                                                           status = true;

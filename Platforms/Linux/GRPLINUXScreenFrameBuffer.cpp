@@ -159,9 +159,7 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
             {
               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("ERROR! Change screen mode: error[%d]"), errno);
             }
-
-          Buffer_Create();
-
+         
           //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("X: %d, Y: %d  mode: %d"), width, height, GetMode());
 
           int zero = 0;
@@ -185,21 +183,6 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool GRPLINUXSCREENFRAMEBUFFER::Update()
-* @brief      Update
-* @ingroup    PLATFORM_LINUX
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPLINUXSCREENFRAMEBUFFER::Update()
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
 * @fn         bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 * @brief      Update
 * @ingroup    PLATFORM_LINUX
@@ -212,30 +195,18 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update()
 bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 {
   if(handlefb == -1) return false;
-  if(!buffersize)    return false;
-
-
+  
   if(ioctl(handlefb, FBIO_WAITFORVSYNC, 0)) 
     {
       //printf("VSync failed.\n");
     }
 
-  XBYTE* fbp = (XBYTE*)mmap(0, buffersize, PROT_READ | PROT_WRITE, MAP_SHARED, handlefb, 0);
+  XBYTE* fbp = (XBYTE*)mmap(0, canvas->Buffer_GetSize(), PROT_READ | PROT_WRITE, MAP_SHARED, handlefb, 0);
   if(fbp == (XBYTE*)-1)  return false;
 
-  if(IsEqualSizeTo(canvas) == ISEQUAL)
-    {
-      memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), buffersize);
-    }
-   else
-    {
-      //canvas->CopyBufferRenderToScreen(this);
-      //memcpy(fbp,(XBYTE*)buffer, buffersize);
-
-      canvas->CopyBufferRenderToBufferScreen((XBYTE*)(fbp), width, height, isbufferinverse);
-    }
-
-  munmap((XBYTE*)fbp, buffersize);
+  memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), canvas->Buffer_GetSize());
+ 
+  munmap((XBYTE*)fbp, canvas->Buffer_GetSize());
 
   return true;
 }
@@ -254,16 +225,12 @@ bool GRPLINUXSCREENFRAMEBUFFER::Delete()
 {
   ClearScreen();
 
-  Buffer_Delete();
-
   int consoletty = open("/dev/tty1", O_RDWR);
   ioctl(consoletty, KDSETMODE, KD_TEXT);
 
   if(handlefb!=-1)  close(handlefb);
 
-  isactive = false;
-
-  return true;
+  return GRPSCREEN::Delete();;
 }
 
 
@@ -433,12 +400,17 @@ bool GRPLINUXSCREENFRAMEBUFFER::ScreenResolution(int width, int height)
 bool GRPLINUXSCREENFRAMEBUFFER::ClearScreen()
 {
   if(handlefb == -1) return false;
-  if(!buffersize)    return false;
+  
+  if(screencanvas)
+    {
+      XBYTE* fbp = (XBYTE *)mmap(0, screencanvas->Buffer_GetSize(), PROT_READ | PROT_WRITE, MAP_SHARED, handlefb, 0);
+      if(fbp == (XBYTE*)-1)  
+        {
+          return false;
+        }
 
-  XBYTE* fbp = (XBYTE *)mmap(0, buffersize, PROT_READ | PROT_WRITE, MAP_SHARED, handlefb, 0);
-  if(fbp == (XBYTE*)-1)  return false;
-
-  memset(fbp, 0, buffersize);
+      memset(fbp, 0, screencanvas->Buffer_GetSize());
+    }
 
   return true;
 }

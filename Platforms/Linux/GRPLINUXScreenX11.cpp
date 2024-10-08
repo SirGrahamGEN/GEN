@@ -153,27 +153,9 @@ bool GRPLINUXSCREENX11::Create(bool show)
       return false;
     }
 
-  Buffer_Create();
-
   XFlush(display);
 
   return GRPSCREEN::Create(show);
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool GRPLINUXSCREENX11::Update()
-* @brief      Update
-* @ingroup    PLATFORM_LINUX
-*
-* @return     bool : true if is succesful.
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-bool GRPLINUXSCREENX11::Update()
-{
-  
-  return true;
 }
 
 
@@ -211,27 +193,13 @@ bool GRPLINUXSCREENX11::Update(GRPCANVAS* canvas)
     {
       XSync(display, false);
 
-      if(IsEqualSizeTo(canvas) == ISEQUAL)
+      XImage* image = CreateXImageFromBuffer(display, DefaultScreen(display), (XBYTE*)canvas->Buffer_Get(), width, height);
+      if(image)
         {
-          XImage* image = CreateXImageFromBuffer(display, DefaultScreen(display), (XBYTE*)canvas->Buffer_Get(), width, height);
-          if(image)
-            {
-              XPutImage(display, window, gc, image, 0, 0, 0, 0, width, height);
-              XDestroyImage(image);
-            }
+          XPutImage(display, window, gc, image, 0, 0, 0, 0, width, height);
+          XDestroyImage(image);
         }
-       else
-        {
-          canvas->CopyBufferRenderToScreen(this);
-
-          XImage* image = CreateXImageFromBuffer(display, DefaultScreen(display), (XBYTE*)buffer, width, height);
-          if(image)
-            {
-              XPutImage(display, window, gc, image, 0, 0, 0, 0, width, height);
-              XDestroyImage(image);
-            }
-        }
-
+       
       XFreeGC(display, gc);
     }
 
@@ -274,13 +242,9 @@ bool GRPLINUXSCREENX11::Delete()
   if(!display) return false;
   if(!window)  return false;
 
-  Buffer_Delete();
-
   XDestroyWindow(display, window);
 
-  isactive = false;
-
-  return true;
+  return GRPSCREEN::Delete();
 }
 
 
@@ -531,7 +495,7 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
 
   //ShowDebugNetSupportedPropertys();
 
-  if(screenselected == GRPSCREENTYPE_DESKTOP_ALL)
+  if(screenselected == GRPDISPLAYTYPE_DESKTOP_ALL)
     {
       alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
     }
@@ -1023,8 +987,6 @@ bool GRPLINUXSCREENX11::ShowDebugNetSupportedPropertys()
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

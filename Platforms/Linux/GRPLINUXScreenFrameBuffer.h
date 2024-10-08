@@ -59,7 +59,6 @@ class GRPLINUXSCREENFRAMEBUFFER : public GRPSCREEN
 
     bool                          Create                      (bool show);
 
-    bool                          Update                      ();
     bool                          Update                      (GRPCANVAS* canvas);
     bool                          Delete                      ();
 
