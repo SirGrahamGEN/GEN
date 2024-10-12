@@ -304,22 +304,43 @@ class GRPCANVASAGG: public GRPCANVAS
 
     bool                                                                        Buffer_Create                     ()
                                                                                 {
-                                                                                  buffer = new XBYTE[width * height * GetBytesperPixel()];
-                                                                                  if(!buffer) return false;
+                                                                                  buffersize = (width * height * GetBytesperPixel());
+                                                                                  if(!buffersize) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
+
+                                                                                  buffer = new XBYTE[buffersize];
+                                                                                  if(!buffer) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   rbuffer.attach(buffer, width , height, (IsBufferInverse()?1:-1)*((int)width * GetBytesperPixel()));
 
                                                                                   pixelformatbuffer = new PIXELFORMATBUFFER(rbuffer);
-                                                                                  if(!pixelformatbuffer) return false;
+                                                                                  if(!pixelformatbuffer) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   renderer_base =  new agg::renderer_base<PIXELFORMATBUFFER>(*pixelformatbuffer);
-                                                                                  if(!renderer_base)  return false;
+                                                                                  if(!renderer_base)  
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   renderer_scanline =  new agg::renderer_scanline_aa_solid<agg::renderer_base<PIXELFORMATBUFFER> >(*renderer_base);
-                                                                                  if(!renderer_scanline) return false;
+                                                                                  if(!renderer_scanline) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   renderer_primitives = new agg::renderer_primitives<agg::renderer_base<PIXELFORMATBUFFER> >(*renderer_base);
-                                                                                  if(!renderer_primitives) return false;
+                                                                                  if(!renderer_primitives) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   dashline = new GRPCANVASAGG_DASHED_LINE<agg::rasterizer_scanline_aa<>,
                                                                                                                           agg::renderer_scanline_aa_solid<agg::renderer_base<PIXELFORMATBUFFER> >,
@@ -327,10 +348,16 @@ class GRPCANVASAGG: public GRPCANVAS
 
 
                                                                                   rasterglyph =  new AGG_GLYPH_GEN(0);
-                                                                                  if(!rasterglyph) return false;
+                                                                                  if(!rasterglyph) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   renderer_rastertext = new agg::renderer_raster_htext_solid<agg::renderer_base<PIXELFORMATBUFFER>, AGG_GLYPH_GEN> (*renderer_base, *rasterglyph);
-                                                                                  if(!renderer_rastertext) return false;
+                                                                                  if(!renderer_rastertext) 
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
                                                                                   
                                                                                   SetClipBox((double)0.0f, (double)0.0f,(double)(width-1), (double)(height-1));
 
@@ -1075,7 +1102,7 @@ class GRPCANVASAGG: public GRPCANVAS
 
                                                                                           switch(glyph->data_type)
                                                                                             {
-                                                                                                                  default      : break;
+                                                                                                                  default     : break;
 
                                                                                               case agg::glyph_data_mono       : ren_bin.color((*vectorfont_config.GetColor()));
                                                                                                                                 agg::render_scanlines(vectorfont_manager->mono_adaptor(), vectorfont_manager->mono_scanline(), ren_bin);
@@ -1177,48 +1204,80 @@ class GRPCANVASAGG: public GRPCANVAS
 
 
     bool                                                                        ReleaseDrawFramerate              ()  
-                                                                                {                                                                                                                                                                                                                                                      
+                                                                                {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                                                                                   if(framerate_bitmap)
-                                                                                    {
-                                                                                      int height = (int)RasterFont_GetHeight();
-                                                                                      PutBitmap(framerate_x-2 , (framerate_y-height+2), framerate_bitmap);
-
+                                                                                    {              
+                                                                                      int height = (int)RasterFont_GetHeight();                                                                        
+                                                                                      PutBitmap(framerate_x - 4 , framerate_y - height - 4, framerate_bitmap);
+                                                                                      
                                                                                       delete framerate_bitmap;
                                                                                       framerate_bitmap = NULL;
                                                                                     }
-                                                                                                                                                                   
+                                                                                  
                                                                                   return true;
                                                                                 }
 
 
 
-    bool                                                                        DrawFramerate                     (double x, double y, GRPSCREEN* screen)
+    bool                                                                        DrawFramerate                     (GRPSCREEN* screen, double x, double y)
                                                                                 {
-                                                                                  if(!screen)  return false;
+                                                                                  if(!screen)  
+                                                                                    {
+                                                                                      return false;
+                                                                                    }
 
                                                                                   XSTRING           text;
                                                                                   GRP2DCOLOR_RGBA8  colorback(255, 255, 255);
-                                                                                  GRP2DCOLOR_RGBA8  color(0, 0, 0);
+                                                                                  GRP2DCOLOR_RGBA8  color(0, 0, 0, 150);
 
-                                                                                  text.Format(__L("%2.2f fps"), screen->GetFrameRate()->Get());
+                                                                                  text.Format(__L("%3.2f fps"), screen->GetFrameRate()->Get()); 
 
-                                                                                  framerate_x = x;
-                                                                                  framerate_y = y;
+                                                                                  int width  = (int)RasterFont_GetWidth(text.Get()) + 8;
+                                                                                  int height = (int)RasterFont_GetHeight();
 
-                                                                                  int     width       = (int)RasterFont_GetWidth(text.Get());
-                                                                                  int     height      = (int)RasterFont_GetHeight();
-                                                                                  //double  excessedge  = 10;
-                                                                                
+                                                                                  if(x == GRPCANVASTYPE_DRAWFRAMERATE_ADJUSTSCREEN)
+                                                                                    {
+                                                                                      framerate_x = screen->GetWidth() - width - 10;          
+                                                                                    }
+                                                                                   else 
+                                                                                    {
+                                                                                      if(x < 10)
+                                                                                        {         
+                                                                                          framerate_x = 10;
+                                                                                        }
+                                                                                       else 
+                                                                                        {
+                                                                                          framerate_x = x;   
+                                                                                        }
+                                                                                    }
+
+                                                                                  if(y == GRPCANVASTYPE_DRAWFRAMERATE_ADJUSTSCREEN)
+                                                                                    {
+                                                                                      framerate_y = screen->GetHeight() - 4;          
+                                                                                    }
+                                                                                   else
+                                                                                    { 
+                                                                                      if(y < height)
+                                                                                        {
+                                                                                          framerate_y = height;
+                                                                                        }
+                                                                                       else
+                                                                                        {           
+                                                                                          framerate_y = y;
+                                                                                        }
+                                                                                    }
+                                                                                           
+                                                                                  //Debug_Draw(framerate_x - 4 , framerate_y - height - 4, (width + 8), (height + 8));                                                                                                                                                                                                         
                                                                                   
-                                                                                  framerate_bitmap = GetBitmap(x-2, (y-height+2), width + 6 , height + 6);
-                                                                                  
-
+                                                                                  framerate_bitmap = GetBitmap(framerate_x - 4 , framerate_y - height - 4, (width + 8), (height + 8));
+                                                                                                                                                                       
                                                                                   SetFillColor(&colorback);
-                                                                                  SetLineColor(&color);                                                                                   
-                                                                                  Rectangle(x-2, y+6, x + width +2 , y - height,  true);
-                                                                                                                                                                    
+                                                                                  SetLineColor(&color);   
+                                                                                  SetLineWidth(1.0f);
+                                                                                  Rectangle(framerate_x, framerate_y + 2, framerate_x + width , framerate_y - height - 2,  true);
+                                                                                                                                                                                                                                                   
                                                                                   RasterFont_SetColor(&color);
-                                                                                  RasterFont_Printf(x, y, text.Get());
+                                                                                  RasterFont_Printf(framerate_x + 4, framerate_y - 4, text.Get());
 
                                                                                   return true;
                                                                                 }
@@ -1231,12 +1290,14 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                 {
                                                                                   GRP2DCOLOR_RGBA8  colorred(255, 0, 0);
                                                                                   GRP2DCOLOR_RGBA8  colorblue(0, 0, 255);
+                                                                                  GRP2DCOLOR_RGBA8  colortrasparent(0, 0, 0, 255);
                                                                                   
                                                                                   SetLineWidth(1.0f);
                                                                                   SetLineColor(&colorblue);
                                                                                   Circle(originx, originy, 5);               
 
                                                                                   SetLineColor(&colorred);
+                                                                                  SetFillColor(&colortrasparent);
                                                                                   Rectangle(originx, originy, originx + width, originy + height, false);
 
                                                                                   return true;

@@ -382,8 +382,7 @@ GRPRECTINT* GRPCANVAS::GetScreenZone()
 bool GRPCANVAS::Buffer_Create()
 {
   buffersize = (width * height * GetBytesperPixel());
-
-  buffer = new XBYTE[buffersize];
+  buffer     = new XBYTE[buffersize];
 
   return true;
 }
@@ -1274,18 +1273,18 @@ bool GRPCANVAS::ReleaseDrawFramerate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
+* @fn         bool GRPCANVAS::DrawFramerate(GRPSCREEN* screen, double x, double y)
 * @brief      DrawFramerate
 * @ingroup    GRAPHIC
-*
+* 
+* @param[in]  screen : 
 * @param[in]  x : 
 * @param[in]  y : 
-* @param[in]  screen : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
-bool GRPCANVAS::DrawFramerate(double x, double y, GRPSCREEN* screen)
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPCANVAS::DrawFramerate(GRPSCREEN* screen, double x, double y)
 {
   return false;
 }

@@ -56,6 +56,9 @@ enum GRPCANVASTYPE
   GRPCANVASTYPE_AGGLIB        ,
 };
 
+
+#define GRPCANVASTYPE_DRAWFRAMERATE_ADJUSTSCREEN  -1.0f
+
 #pragma endregion
 
 
@@ -183,7 +186,7 @@ class GRPCANVAS : public GRPPROPERTIES, public GRP2DREBUILDAREAS
     virtual bool                  CopyBufferRenderFromViewport        (GRPVIEWPORT* viewport);
 
     virtual bool                  ReleaseDrawFramerate                ();
-    virtual bool                  DrawFramerate                       (double  x, double  y, GRPSCREEN* screen);
+    virtual bool                  DrawFramerate                       (GRPSCREEN* screen, double  x, double  y);
 
   protected:
 

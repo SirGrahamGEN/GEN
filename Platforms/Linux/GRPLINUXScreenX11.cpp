@@ -78,7 +78,8 @@ GRPLINUXSCREENX11::GRPLINUXSCREENX11(): GRPSCREEN()
 
   type = GRPSCREENTYPE_LINUX_X11;
 
-  display = XOpenDisplay(":0.0");
+  //display = XOpenDisplay(":0.0");  
+  display = XOpenDisplay(NULL);  
   if(!display)
     {
       return;
@@ -501,8 +502,7 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
     }
    else 
     {
-      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetMonitorsRects()->Get(screenselected); 
-      
+      alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetMonitorsRects()->Get(screenselected);       
     }
   
   if(!alldesktoprect)

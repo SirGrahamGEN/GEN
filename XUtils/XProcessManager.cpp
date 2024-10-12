@@ -339,6 +339,63 @@ bool XPROCESS::CopyFrom(XPROCESS& xprocess)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XPROCESS::Compare(XPROCESS& xprocess, bool onlyfixed)
+* @brief      Compare
+* @ingroup    XUTILS
+* 
+* @param[in]  xprocess : 
+* @param[in]  onlyfixed : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESS::Compare(XPROCESS& xprocess, bool onlyfixed)
+{
+  if(ID != xprocess.GetID())
+    {
+      return false;
+    }
+
+  if(path.Compare(xprocess.GetPath()->Get(), true))
+    {
+      return false;   
+    }
+
+  if(name.Compare(xprocess.GetName()->Get(), true))
+    {
+      return false;   
+    }
+
+  if(windowtitle.Compare(xprocess.GetWindowTitle()->Get(), false))
+    {
+      return false;   
+    }
+
+
+  if(!onlyfixed)
+    {
+      if(!GetWindowRect()->IsEqual(xprocess.GetWindowRect()))
+        {
+          return false;    
+        }
+
+      if(windowtitleheight != xprocess.GetWindowTitleHeight())
+        {
+          return false;
+        }
+
+      if(windowborderwidth != xprocess.GetWindowBorderWidth())
+        {
+          return false;
+        }
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void XPROCESS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL

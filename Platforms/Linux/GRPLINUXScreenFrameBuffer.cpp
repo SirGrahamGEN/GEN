@@ -99,7 +99,7 @@ GRPLINUXSCREENFRAMEBUFFER::GRPLINUXSCREENFRAMEBUFFER(): GRPSCREEN()
           SetSize(varinfo.xres, varinfo.yres);
           SetMaxSize(varinfo.xres, varinfo.yres);
 
-          XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Frame Buffer] Screen [%d x %d]  %d bits"), varinfo.xres, varinfo.yres, varinfo.bits_per_pixel);
+          // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Linux FrameBuffer] Screen [%d x %d]  %d bits"), varinfo.xres, varinfo.yres, varinfo.bits_per_pixel);
 
           switch(varinfo.bits_per_pixel)
             {
@@ -157,25 +157,24 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
         {
           if(!ScreenResolution(width, height))
             {
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("ERROR! Change screen mode: error[%d]"), errno);
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[LINUX FrameBuffer] Change screen mode: error [%d]"), errno);
             }
          
-          //XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("X: %d, Y: %d  mode: %d"), width, height, GetMode());
-
           int zero = 0;
           if(ioctl(handlefb, FBIO_WAITFORVSYNC, &zero) == -1) 
             {
               XSTRING errorstr;
               
               errorstr = strerror(errno);
-              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("Frame Buffer VSYNC: %s"), errorstr.Get());
+
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[LINUX FrameBuffer] Frame Buffer VSYNC: %s"), errorstr.Get());
             }
 
           return GRPSCREEN::Create(show);
         }
     }
 
-  XTRACE_PRINTCOLOR(4, __L("ERROR! open device screen: %d"), errno);
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[LINUX FrameBuffer] Open device screen: error [%d]"), errno);
 
   return false;
 }
@@ -194,7 +193,10 @@ bool GRPLINUXSCREENFRAMEBUFFER::Create(bool show)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
 {
-  if(handlefb == -1) return false;
+  if(handlefb == -1) 
+    {
+      return false;
+    }
   
   if(ioctl(handlefb, FBIO_WAITFORVSYNC, 0)) 
     {
@@ -202,7 +204,10 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
     }
 
   XBYTE* fbp = (XBYTE*)mmap(0, canvas->Buffer_GetSize(), PROT_READ | PROT_WRITE, MAP_SHARED, handlefb, 0);
-  if(fbp == (XBYTE*)-1)  return false;
+  if(fbp == (XBYTE*)-1)  
+    {
+      return false;
+    }
 
   memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), canvas->Buffer_GetSize());
  

@@ -78,6 +78,8 @@ class XPROCESS
     
     bool                            CopyTo                          (XPROCESS& xprocess);    
     bool                            CopyFrom                        (XPROCESS& xprocess);    
+
+    bool                            Compare                         (XPROCESS& xprocess, bool onlyfixed = true);    
     
   private:
 

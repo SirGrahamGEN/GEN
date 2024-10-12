@@ -41,8 +41,10 @@
 
 #include <stdio.h>
 
+#ifdef LINUX_X11_ACTIVE
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
+#endif
 
 #include "XTrace.h"
 
@@ -106,6 +108,10 @@ GRPLINUXDESKTOPMONITORS::~GRPLINUXDESKTOPMONITORS()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool GRPLINUXDESKTOPMONITORS::MonitorEnum()
 {
+  bool status = false;
+
+  #ifdef LINUX_X11_ACTIVE
+
   Display*              display;
   Window                root;
   XRRScreenResources*   screen_resources;
@@ -113,57 +119,92 @@ bool GRPLINUXDESKTOPMONITORS::MonitorEnum()
   XRRCrtcInfo*          crtc_info;
   int                   screen;
   
+  //display = XOpenDisplay(":0.0");
   display = XOpenDisplay(NULL);
-  if(display == NULL) 
-    {
-      return false;
-    }
+  if(display) 
+    {   
+      screen  = DefaultScreen(display);  
+      root    = RootWindow(display, screen);
 
-  screen  = DefaultScreen(display);  
-  root    = RootWindow(display, screen);
-
-  screen_resources = XRRGetScreenResources(display, root);
-  if (screen_resources == NULL) 
-    {
-      XCloseDisplay(display);
-      return false;
-    }
-
-  GRPRECTINT* allmonitor = GetCombinedRect();
-  if(!allmonitor)
-    {
-      return false;
-    }
-
-  for(int c=0; c<screen_resources->noutput; c++) 
-    {
-      output_info = XRRGetOutputInfo(display, screen_resources, screen_resources->outputs[c]);
-      if(output_info == NULL || output_info->connection == RR_Disconnected) 
+      screen_resources = XRRGetScreenResources(display, root);
+      if (screen_resources == NULL) 
         {
-          if(output_info)
+          XCloseDisplay(display);
+          return false;
+        }
+      status = true;
+
+      GRPRECTINT* allmonitor = GetCombinedRect();
+      if(!allmonitor)
+        {
+          return false;
+        }
+
+      for(int c=0; c<screen_resources->noutput; c++) 
+        {
+          output_info = XRRGetOutputInfo(display, screen_resources, screen_resources->outputs[c]);
+          if(output_info == NULL || output_info->connection == RR_Disconnected) 
+            {
+              if(output_info)
+                {
+                  XRRFreeOutputInfo(output_info);
+                }
+
+              continue;
+            }
+      
+          crtc_info = XRRGetCrtcInfo(display, screen_resources, output_info->crtc);
+          if(crtc_info == NULL) 
             {
               XRRFreeOutputInfo(output_info);
+              continue;
             }
 
-          continue;
-        }
-      
-      crtc_info = XRRGetCrtcInfo(display, screen_resources, output_info->crtc);
-      if(crtc_info == NULL) 
-        {
-          XRRFreeOutputInfo(output_info);
-          continue;
+          // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%d) screen: X:%d,Y:%d  %dx%d"), c, crtc_info->x, crtc_info->y, crtc_info->width, crtc_info->height);
+
+          GRPRECTINT* newmonitor = new GRPRECTINT();
+          if(newmonitor)
+            {
+              newmonitor->x1  = crtc_info->x;
+              newmonitor->x2  = crtc_info->x + crtc_info->width;
+              newmonitor->y1  = crtc_info->y;
+              newmonitor->y2  = crtc_info->y + crtc_info->height;
+
+              GetMonitorsRects()->Add(newmonitor);
+
+              GRPRECTINT* allmonitor = GetCombinedRect();
+              if(!allmonitor)
+                {
+                  return false;
+                }
+
+              GRPRECTINT allmonitortempo =  UniteRectangles((*allmonitor), (*newmonitor));
+
+              allmonitor->CopyFrom(&allmonitortempo);
+            }
+
+          XRRFreeCrtcInfo(crtc_info);
+          XRRFreeOutputInfo(output_info);     
         }
 
-      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("%d) screen: X:%d,Y:%d  %dx%d"), c, crtc_info->x, crtc_info->y, crtc_info->width, crtc_info->height);
+      // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Full Screen: X1:%d,Y1:%d  X2:%d,Y2:%d"), allmonitor->x1, allmonitor->y1, allmonitor->x2, allmonitor->y2);
 
+      XRRFreeScreenResources(screen_resources);  
+      XCloseDisplay(display);
+
+    }
+  #endif
+  
+  /*
+  if(!GetMonitorsRects()->GetSize())
+    {    
       GRPRECTINT* newmonitor = new GRPRECTINT();
       if(newmonitor)
         {
-          newmonitor->x1  = crtc_info->x;
-          newmonitor->x2  = crtc_info->x + crtc_info->width;
-          newmonitor->y1  = crtc_info->y;
-          newmonitor->y2  = crtc_info->y + crtc_info->height;
+          newmonitor->x1  = 0;
+          newmonitor->x2  = 640;
+          newmonitor->y1  = 0;
+          newmonitor->y2  = 480;
 
           GetMonitorsRects()->Add(newmonitor);
 
@@ -176,18 +217,13 @@ bool GRPLINUXDESKTOPMONITORS::MonitorEnum()
           GRPRECTINT allmonitortempo =  UniteRectangles((*allmonitor), (*newmonitor));
 
           allmonitor->CopyFrom(&allmonitortempo);
+
+          status = true;
         }
+     }
+  */
 
-      XRRFreeCrtcInfo(crtc_info);
-      XRRFreeOutputInfo(output_info);     
-    }
-
-  // XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Full Screen: X1:%d,Y1:%d  X2:%d,Y2:%d"), allmonitor->x1, allmonitor->y1, allmonitor->x2, allmonitor->y2);
-
-  XRRFreeScreenResources(screen_resources);  
-  XCloseDisplay(display);
-
-  return true;
+  return status;
 }
 
 
