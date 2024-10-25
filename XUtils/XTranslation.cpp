@@ -249,8 +249,15 @@ bool XTRANSLATION::Translate_Add(XDWORD ID, XCHAR* sentence, XDWORD fixed)
 * --------------------------------------------------------------------------------------------------------------------*/
 XCHAR* XTRANSLATION::Translate_GetSentence(XDWORD ID)
 {
-  if(ID >= XTRANSLATION_MAXSENTENCES) return emptysentence.Get();
-  if(!sentences[ID])  return emptysentence.Get();
+  if(ID >= XTRANSLATION_MAXSENTENCES) 
+    {
+      return emptysentence.Get();
+    }
+
+  if(!sentences[ID])  
+    {
+      return emptysentence.Get();
+    }
 
   return sentences[ID];
 }

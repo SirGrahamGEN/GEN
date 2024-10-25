@@ -111,7 +111,7 @@ class DIOWINDOWSSTREAMTCPIP : public DIOSTREAMTCPIP , public XFSMACHINE
     static void               ThreadConnection                         (void* data);
 
     XTHREADCOLLECTED*         threadconnection;
-    SOCKET                    handlesocket;
+    SOCKET                    handlesocket;    
 };
 
 

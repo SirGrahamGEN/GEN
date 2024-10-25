@@ -32,11 +32,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-
-#include "XUUID.h"
 #include "XFileJSON.h"
-#include "XSerializable.h"
-#include "XSerializationMethod.h"
 
 #include "DIOStream.h"
 
@@ -47,48 +43,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
-enum DIOCOREPROTOCOLHEADER_MESSAGETYPE
-{
-  DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN           = 0 ,
-  DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK                   ,
-  DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE              
-};
-
-
-#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN            __L("unknown")
-#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK                __L("ask")
-#define DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE           __L("response")
-
-
-enum DIOCOREPROTOCOLHEADER_CONTENTTYPE
-{
-  DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN           = 0 ,
-  DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY                ,
-  DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT                  ,
-  DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON                  ,  
-};
-
-
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN            __L("unknown")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY             __L("binary")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT               __L("text")
-#define DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON               __L("json")
-
-
-enum DIOCOREPROTOCOLHEADER_CONTENTOPERATION
-{
-  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN      = 0 ,
-  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND          ,
-  DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE                
-  
-};
-
-
-#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN      __L("unknown")
-#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND      __L("command")
-#define DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE       __L("update")
-
+#define DIOCOREPROTOCOLCFG_DEFAULTMINSIZECOMPRESS   150 
 
 #pragma endregion
 
@@ -96,101 +51,52 @@ enum DIOCOREPROTOCOLHEADER_CONTENTOPERATION
 /*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
 #pragma region CLASS
 
-
-class DIOSTREAM;
-
-class DIOCOREPROTOCOLHEADER : public XSERIALIZABLE
-{
-  public:
-                                              DIOCOREPROTOCOLHEADER         ();
-    virtual                                  ~DIOCOREPROTOCOLHEADER         ();
- 
-    XUUID*                                    GetIDMachine                  ();
-    XUUID*                                    GetIDConnection               ();
-    XUUID*                                    GetIDMessage                  ();
-
-    DIOCOREPROTOCOLHEADER_MESSAGETYPE         GetMessageType                (); 
-    void                                      SetMessageType                (DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type); 
-    bool                                      GetMessageTypeToString        (XSTRING& message_typestr); 
-    bool                                      GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type);
-
-    XDATETIME*                                GetDateTimeSend               ();
-
-    DIOCOREPROTOCOLHEADER_CONTENTTYPE         GetContentType                (); 
-    void                                      SetContentType                (DIOCOREPROTOCOLHEADER_CONTENTTYPE content_type); 
-    bool                                      GetContentTypeToString        (XSTRING& content_typestr); 
-    bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type);
-
-    DIOCOREPROTOCOLHEADER_CONTENTOPERATION    GetContentOperation           ();
-    void                                      SetContentOperation           (DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation);
-    bool                                      GetContentOperationToString   (XSTRING& content_operationstr); 
-    bool                                      GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation);
-
-
-    XDWORD                                    GetContentSize                ();        
-    void                                      SetContentSize                (XDWORD contentsize);        
-
-    bool                                      GetContentIsCompress          ();        
-    void                                      SetContentIsCompress          (bool contentiscompress);        
-
-    XDWORD                                    GetContentCRC32               ();        
-    void                                      SetContentCRC32               (XDWORD contentCRC32);        
-
-    XFILEJSON*                                GetSerializationXFileJSON     ();      
-    XSERIALIZATIONMETHOD*                     GetSerializationMethod        ();
-
-    bool                                      Serialize                     ();    
-    bool                                      Deserialize                   ();  
-
-  private:
-
-    void                                      Clean                         ();
-
-    XUUID                                     ID_machine;
-    XUUID                                     ID_connection;
-    XUUID                                     ID_message;
-    DIOCOREPROTOCOLHEADER_MESSAGETYPE         message_type;
-    XDATETIME*                                datetime_send;
-    DIOCOREPROTOCOLHEADER_CONTENTTYPE         content_type; 
-    DIOCOREPROTOCOLHEADER_CONTENTOPERATION    content_operation;
-    XDWORD                                    content_size;
-    bool                                      content_iscompress;          
-    XDWORD                                    content_CRC32;          
-
-    XFILEJSON                                 xfileJSON;      
-    XSERIALIZATIONMETHOD*                     serializationmethod;
-};
-
+class COMPRESSMANAGER;
+class COMPRESSBASE;    	
+class DIOCOREPROTOCOL_HEADER;
+class DIOCOREPROTOCOL_CFG;
 
 class DIOCOREPROTOCOL
 {
   public:
-
-                                              DIOCOREPROTOCOL               ();
-                                              DIOCOREPROTOCOL               (DIOSTREAM* diostream);
+                                              
+                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* procotolCFG);
     virtual                                  ~DIOCOREPROTOCOL               ();
 
     bool                                      Ini                           ();
     bool                                      End                           ();
-
     
     bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
     bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
     bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
-
-    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
-    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
-    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
- 
+    
+    bool                                      ReceivedMsg                   (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+    
   private:
 
-    bool                                      GenerateHeaderToSend          (DIOCOREPROTOCOLHEADER* header, XBUFFER& datasend);
-    DIOCOREPROTOCOLHEADER*                    CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult);
+
+    bool                                      GenerateHeaderToSend          (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection);
+ 
+    bool                                      SendMsg                       (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
+
+    bool                                      SendData                      (XBUFFER& senddata);
+    bool                                      CompressContent               (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
 
     void                                      Clean                         ();
 
-    DIOSTREAM*                                diostream;   
+    DIOCOREPROTOCOL_CFG*                      protocolCFG;
+   
+    COMPRESSMANAGER*	                        compressmanager;
+    COMPRESSBASE*			                        compressor;    	
+
     bool                                      initialization; 
+
+    XBUFFER                                   debug_senddata;  
+
 };
 
 

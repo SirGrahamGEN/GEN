@@ -504,7 +504,7 @@ bool XUUID::SetFromString(XSTRING& string)
 
   memset(_data, 0, sizeof(int)*11);
 
-  string.UnFormat(__L("%08X-%04X-%04X-%02X%02-X%02X%02X%02X%02X%02X%02X") , &_data[0]
+  string.UnFormat(__L("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X") , &_data[0]
                                                                           , &_data[1]
                                                                           , &_data[2] 
                                                                           , &_data[3]

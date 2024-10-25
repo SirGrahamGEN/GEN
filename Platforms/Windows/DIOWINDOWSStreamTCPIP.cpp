@@ -369,7 +369,6 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
   memset(&loc_addr,0,sizeof(SOCKADDR_IN));
   memset(&rem_addr,0,sizeof(SOCKADDR_IN));
 
-
   if(handleserver == INVALID_SOCKET)
     {
       config->GetXMutexMultiServer()->Lock();
@@ -442,7 +441,6 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleServer()
 
       //XTRACE_PRINTCOLOR(1, __L("TCPIP: Create Handle BASE %d Port %d"), handleserver, config->GetRemotePort());
     }
-
 
   if(enumservers)
     {
@@ -668,7 +666,7 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
           case DIOWINDOWSTCPIPFSMSTATE_WAITINGTOREAD      : { struct timeval  waitd;
                                                               fd_set          read_flags;
                                                               fd_set          write_flags;
-
+                                                              
                                                               if(diostream->handlesocket==INVALID_SOCKET)
                                                                 {
                                                                   diostream->SetEvent(DIOWINDOWSTCPIPFSMEVENT_DISCONNECTING);

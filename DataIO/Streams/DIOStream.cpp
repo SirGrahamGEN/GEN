@@ -211,7 +211,15 @@ bool DIOSTREAM::WaitToConnected(int timeout)
 
   bool status = false;
 
-  xtimerconnection->Reset();
+  if(GetConfig())
+    {
+      if(GetConfig()->IsServer())
+        {
+          return true;
+        }
+    }
+
+  xtimerconnection->Reset();  
 
   while(1)
     {
@@ -220,7 +228,6 @@ bool DIOSTREAM::WaitToConnected(int timeout)
           status = true;
           break;
         }
-
       
       if(GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED)
         {

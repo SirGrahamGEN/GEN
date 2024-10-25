@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       CompressManager.cpp
+* @file       DIOCoreProtocol_Connection.cpp
 * 
-* @class      COMPRESSMANAGER
-* @brief      Compress Manager class
-* @ingroup    COMPRESS
+* @class      DIOCOREPROTOCOL_CONNECTION
+* @brief      Data Input/Output Core Protocol Connection class
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -37,22 +37,16 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "CompressManager.h"
+#include "DIOCoreProtocol_Connection.h"
 
-#ifdef COMPRESS_LZW_ACTIVE
-#include "CompressLZW.h"
-#endif
-#ifdef COMPRESS_LZRW1KH_ACTIVE
-#include "CompressLZRW1KH.h"
-#endif
-#ifdef COMPRESS_ZIP_ACTIVE
-#include "CompressZIP.h"
-#endif
-#ifdef COMPRESS_GZ_ACTIVE
-#include "CompressGZ.h"
-#endif
+#include "XFactory.h"
+#include "XThreadCollected.h"
+
+#include "DIOStream.h"
+#include "DIOStreamEnumServers.h"
 
 #include "XMemory_Control.h"
+
 
 #pragma endregion
 
@@ -60,128 +54,122 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-COMPRESSMANAGER* COMPRESSMANAGER::instance=NULL;
-
 #pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_MEMBERS
+
+
+#pragma region CLASS_DIOCOREPROTOCOL_CONNECTION
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER::COMPRESSMANAGER()
+* @fn         DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 * @brief      Constructor
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER::COMPRESSMANAGER()
+DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 {
   Clean();
+
+  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER::~COMPRESSMANAGER()
+* @fn         DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER::~COMPRESSMANAGER()
+DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 {
   Clean();
 }
 
-
+  
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
-* @brief      Create
-* @ingroup    COMPRESS
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Connect()
+* @brief      Connect
+* @ingroup    DATAIO
 * 
-* @param[in]  type : 
-* 
-* @return     COMPRESSBASE* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
+bool DIOCOREPROTOCOL_CONNECTION::Connect(DIOCOREPROTOCOL_CFG* procotolCFG)
 {
-  COMPRESSBASE* compress;
-
-  switch(type)
+  if(!procotolCFG)
     {
-      #ifdef COMPRESS_LZW_ACTIVE
-      case COMPRESSBASE_TYPE_LZW      : compress = new COMPRESS_LZW();        
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_LZRW1KH_ACTIVE
-      case COMPRESSBASE_TYPE_LZRW1KH  : compress = new COMPRESS_LZRW1KH();    
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_ZIP_ACTIVE
-      case COMPRESSBASE_TYPE_ZIP      : compress = new COMPRESS_ZIP();        
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_GZ_ACTIVE
-      case COMPRESSBASE_TYPE_GZ       : compress = new COMPRESS_GZ();         
-                                        break;
-      #endif
-                            default   : compress = new COMPRESSBASE();        break;
+      return false;
     }
 
-  if(compress) lastcompresstype = type;
+  this->procotolCFG = procotolCFG;
 
-  return compress;
+  return true;
 }
 
-
+ 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
-* @brief      GetInstance
-* @ingroup    COMPRESS
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Disconected()
+* @brief      Disconected
+* @ingroup    DATAIO
 * 
-* @return     COMPRESSMANAGER* : 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
+bool DIOCOREPROTOCOL_CONNECTION::Disconected()
 {
-  if(!instance) instance = new COMPRESSMANAGER();
-
-  return instance;
+  return false;
 }
-
+    
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void COMPRESSMANAGER::DeleteInstance()
-* @brief      DeleteInstance
-* @ingroup    COMPRESS
+* @fn         XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
+* @brief      GetIDConnection
+* @ingroup    DATAIO
+* 
+* @return     XUUID* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void COMPRESSMANAGER::DeleteInstance()
+XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
 {
-  if(instance) delete instance;
+  return &ID_connection;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void COMPRESSMANAGER::Clean()
+* @fn         XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
+* @brief      GetMessages
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
+{
+  return &messages;
+}
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void COMPRESSMANAGER::Clean()
+void DIOCOREPROTOCOL_CONNECTION::Clean()
 {
-  lastcompresstype = COMPRESSBASE_TYPE_NONE;
+  procotolCFG = NULL;
 }
 
 

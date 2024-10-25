@@ -869,8 +869,8 @@ XFILEJSONVALUE* XFILEJSONVALUE::Clone()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XFILEJSONVALUE::Clean()
 {
-  type                  = XFILEJSONVALUETYPE_NULL;
-  name                  = NULL;
+  type  = XFILEJSONVALUETYPE_NULL;
+  name  = NULL;
 }
 
 
@@ -1899,9 +1899,24 @@ bool XFILEJSON::DecodeObject(int& position, bool isobject, XFILEJSONOBJECT* obje
                                                       
                                                       value->Set();
 
-                                                      if(!valuestring.Compare(__L("true") , true))  value->Set(true);
-                                                      if(!valuestring.Compare(__L("false"), true))  value->Set(false);                                                      
-                                                      if(!valuestring.Compare(__L("null") , false)) value->Set();
+                                                      if(!valuestring.Compare(__L("true") , true))  
+                                                        {
+                                                          value->Set(true);
+                                                        }
+                                                       else
+                                                        {   
+                                                          if(!valuestring.Compare(__L("false"), true)) 
+                                                            {
+                                                              value->Set(false);                                                      
+                                                            }
+                                                           else
+                                                            {     
+                                                              if(!valuestring.Compare(__L("null") , false)) 
+                                                                {
+                                                                  value->Set();
+                                                                }                                                                  
+                                                            }
+                                                        }
 
                                                       object->GetValues()->Add(value);
                                                     }

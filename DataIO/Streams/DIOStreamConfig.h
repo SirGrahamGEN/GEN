@@ -107,9 +107,7 @@ class DIOSTREAMCONFIG : public XSUBJECT
     XDWORD                    GetThreadWaitYield              ();
     void                      SetThreadWaitYield              (XDWORD threadwaityield);
 
-    void*                     GetPacketHandle                 ();
-    void                      SetPacketHandle                 (void* packethandle);
-
+    
   protected:
 
     DIOSTREAMTYPE             type;
@@ -118,8 +116,6 @@ class DIOSTREAMCONFIG : public XSUBJECT
     XDWORD                    sizebufferSO;
     XTHREADPRIORITY           threadpriority;
     XDWORD                    threadwaityield;
-
-    void*                     packethandle;                 // Pre-packet config - Used to Microcontrollers;
 
   private:
 

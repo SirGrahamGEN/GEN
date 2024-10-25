@@ -332,8 +332,8 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
   Sentence_Add(XTRANSLATION_GEN_ID_ERROR                                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Error")                                                           , 0); 
   Sentence_Add(XTRANSLATION_GEN_ID_YES                                                          , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Si")                                                              , 0); 
   Sentence_Add(XTRANSLATION_GEN_ID_NO                                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("No")                                                              , 0); 
-  Sentence_Add(XTRANSLATION_GEN_ID_TRUE                                                         , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Cierto")                                                          , 0); 
-  Sentence_Add(XTRANSLATION_GEN_ID_FALSE                                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Falso")                                                           , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_TRUE                                                         , XLANGUAGE_ISO_639_3_CODE_SPA , __L("true")                                                            , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_FALSE                                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("false")                                                           , 0); 
 
 
   //--- DATETIME -----------------------------------------------------------------------------------------------------

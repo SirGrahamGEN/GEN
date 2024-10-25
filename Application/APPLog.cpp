@@ -137,7 +137,10 @@ bool APPLOG::DelInstance()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool APPLOG::Ini(APPCFG* cfg, XCHAR* applicationname)
 {
-  if(!cfg) return false;
+  if(!cfg) 
+    {
+      return false;
+    }
 
   XPATH xpathsection;
   XPATH xpath;

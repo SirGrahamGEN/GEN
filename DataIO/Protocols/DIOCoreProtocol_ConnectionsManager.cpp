@@ -37,13 +37,14 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XFactory.h"
-#include "XThreadCollected.h"
-
 #include "DIOCoreProtocol_ConnectionsManager.h"
+
+#include "XFactory.h"
 
 #include "DIOStream.h"
 #include "DIOStreamEnumServers.h"
+
+#include "DIOCoreProtocol_CFG.h"
 
 #include "XMemory_Control.h"
 
@@ -60,96 +61,23 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 
 
-#pragma region CLASS_DIOCOREPROTOCOL_CONNECTION
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
-* @brief      Constructor
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
-{
-  Clean();
-}
-
-  
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::Connect()
-* @brief      Connect
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::Connect()
-{
-  return false;
-}
-
- 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::Disconected()
-* @brief      Disconected
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::Disconected()
-{
-  return false;
-}
-    
- 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CONNECTION::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CONNECTION::Clean()
-{
-
-}
-
-
-#pragma endregion
-
-
 #pragma region CLASS_DIOCOREPROTOCOL_CONNECTIONSMANAGER
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
+* @fn         DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER(DIOCOREPROTOCOL_CFG* protocolCFG)
 * @brief      Constructor
 * @ingroup    DATAIO
+* 
+* @param[in]  DIOCOREPROTOCOL_CFG* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
   Clean();
+
+ 
 }
 
 
@@ -169,54 +97,41 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol()
-* @brief      CreateProtocol
-* @ingroup    DATAIO
-* 
-* @return     DIOCOREPROTOCOL* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol()
-{
-  return NULL;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DeleteProtocol(DIOCOREPROTOCOL* protocol)
-* @brief      DeleteProtocol
-* @ingroup    DATAIO
-* 
-* @param[in]  protocol : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DeleteProtocol(DIOCOREPROTOCOL* protocol)
-{
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
 * @brief      Ini
 * @ingroup    DATAIO
 * 
-* @param[in]  isserver : 
-* @param[in]  diostreamcfg : 
-* @param[in]  diostreamenumservers : 
-* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOSTREAMCONFIG* diostreamcfg, DIOSTREAMENUMSERVERS* diostreamenumservers)
-{
-  this->diostreamcfg          = diostreamcfg; 
-  this->diostreamenumservers  = diostreamenumservers;
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOCOREPROTOCOL_CFG* protocolCFG)
+{ 
+  bool status = false;
  
+  if(!protocolCFG)
+    {
+      return false;
+    }
+
+  this->protocolCFG = protocolCFG;   
+
+  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
+  if(!diostream)
+    {
+      return false;
+    }
+
+  if(!diostream->IsConnected())
+    {
+      if(diostream->Open())
+        {
+          if(!diostream->WaitToConnected(1500))
+            {
+              return false;
+            }            
+        }
+    }
+
   GEN_XFACTORY_CREATE(connections_xmutex, Create_Mutex())
   if(connections_xmutex) 
     {
@@ -228,7 +143,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOSTREAMCONFIG* diostreamcfg, DIOS
             {
               if(connections_xthread->Ini()) 
                 {
-                  return false;
+                  return true;
                 }
             }
         }      
@@ -270,6 +185,86 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
       connections_xmutex = NULL;
     }
 
+  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
+  if(diostream)
+    {
+      diostream->Close();      
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
+* @brief      GetProtocolCFG
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_CFG* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
+{
+  return protocolCFG;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetConnections()
+* @brief      GetConnections
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetConnections()
+{
+  return &connections;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::ReConnected()
+* @brief      ReConnected
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::ReConnected()
+{  
+  if(!protocolCFG)
+    {
+      return false;
+    }  
+   
+  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
+  if(!diostream)
+    {
+      return false;
+    }
+
+  bool status = false;
+  
+  if(!diostream->IsConnected())
+    {
+      if(diostream->Open())
+        {
+          if(!diostream->WaitToConnected(1500))
+            {
+              return false;
+            }
+        }
+    }
+
+  if(!diostream->IsConnected())
+    {
+      return false;
+    }
+
   return true;
 }
 
@@ -290,6 +285,26 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
     {
       return;
     }
+
+  DIOCOREPROTOCOL_CFG* protocolCFG = connectionsmanager->GetProtocolCFG();
+  if(!protocolCFG)
+    {
+      return;
+    }  
+   
+  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
+  if(!diostream)
+    {
+      return;
+    }
+
+  /*
+  bool status = connectionsmanager->ReConnected();
+  if(!status)
+    {
+      return;
+    }
+  */
 }
 
 
@@ -303,8 +318,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
 {
-  diostreamcfg                = NULL; 
-  diostreamenumservers        = NULL;
+  protocolCFG                 = NULL;
 
   connections_xtimer          = NULL;      
   connections_xmutex          = NULL;

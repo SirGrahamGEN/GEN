@@ -2728,8 +2728,7 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
       if(diostream)
         {
           if(diostream->Open())
-            {
-                    
+            {                    
               while(1)
                 {
                   if(diostream->GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED)

@@ -41,11 +41,17 @@
 
 #include "XFactory.h"
 #include "XString.h"
+#include "XFileJSON.h"
 #include "XDateTime.h"
 
 #include "HashCRC32.h"
 
+#include "CompressManager.h"
+
 #include "DIOStream.h"
+
+#include "DIOCoreProtocol_Header.h"
+#include "DIOCoreProtocol_CFG.h"
 
 #include "XMemory_Control.h"
 
@@ -59,655 +65,6 @@
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_DIOCOREPROTOCOLHEADER
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOLHEADER::DIOCOREPROTOCOLHEADER()
-* @brief      Constructor
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER::DIOCOREPROTOCOLHEADER()
-{
-  Clean();
-
-  serializationmethod = XSERIALIZABLE::CreateInstance(xfileJSON);
-  if(serializationmethod)
-    {
-      SetSerializationMethod(serializationmethod);
-    }
-
-  datetime_send = GEN_XFACTORY.CreateDateTime();
-  if(datetime_send)
-    {
-      datetime_send->Read();
-    }
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOLHEADER::~DIOCOREPROTOCOLHEADER()
-* @brief      Destructor
-* @note       VIRTUAL
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER::~DIOCOREPROTOCOLHEADER()
-{
-  if(serializationmethod)
-    {
-      delete serializationmethod;
-    }
-
-  if(datetime_send)
-    {
-      GEN_XFACTORY.DeleteDateTime(datetime_send);
-    }
-
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XUUID* DIOCOREPROTOCOLHEADER::GetIDMachine()
-* @brief      GetIDMachine
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOLHEADER::GetIDMachine()
-{
-  return &ID_machine;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XUUID* DIOCOREPROTOCOLHEADER::GetIDConnection()
-* @brief      GetIDConnection
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOLHEADER::GetIDConnection()
-{
-  return &ID_connection;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XUUID* DIOCOREPROTOCOLHEADER::GetIDMessage()
-* @brief      GetIDMessage
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOLHEADER::GetIDMessage()
-{
-  return &ID_message;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOLHEADER_MESSAGETYPE DIOCOREPROTOCOLHEADER::GetMessageType()
-* @brief      GetMessageType
-* @ingroup    DATAIO
-* 
-* @return     DIOCOREPROTOCOLHEADER_MESSAGETYPE : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER_MESSAGETYPE DIOCOREPROTOCOLHEADER::GetMessageType()
-{
-  return message_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type)
-* @brief      SetMessageType
-* @ingroup    DATAIO
-* 
-* @param[in]  message_type : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE message_type)
-{
-  this->message_type = message_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetMessageTypeToString(XSTRING& message_typestr)
-* @brief      GetMessageTypeToString
-* @ingroup    DATAIO
-* 
-* @param[in]  message_typestr : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetMessageTypeToString(XSTRING& message_typestr)
-{
-  message_typestr.Empty();
-
-  switch(message_type)
-    {
-      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN  : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN;  break;
-      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK      : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK;      break;
-      case DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE : message_typestr = DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE; break;      
-    }
-
-  return message_typestr.IsEmpty()?false:true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetMessageTypeFromString(XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type)
-* @brief      GetMessageTypeFromString
-* @ingroup    DATAIO
-* 
-* @param[in]  message_typestr : 
-* @param[in]  message_type : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetMessageTypeFromString(XSTRING* message_typestr, DIOCOREPROTOCOLHEADER_MESSAGETYPE& message_type)
-{
-  if(!message_typestr)
-    {
-      return false;
-    }
-
-  message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;
-
-  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_UNKNOWN))
-    {
-      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;
-    }
-
-  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_ASK))
-    {
-      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK;
-    }
-
-  if(!message_typestr->Compare(DIOCOREPROTOCOLHEADER_MESSAGETYPE_STRING_RESPONSE))
-    {
-      message_type = DIOCOREPROTOCOLHEADER_MESSAGETYPE_RESPONSE;
-    }
-
-  return message_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDATETIME* DIOCOREPROTOCOLHEADER::GetDateTimeSend()
-* @brief      GetDateTimeSend
-* @ingroup    DATAIO
-* 
-* @return     XDATETIME* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDATETIME* DIOCOREPROTOCOLHEADER::GetDateTimeSend()
-{
-  return datetime_send;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOLHEADER_CONTENTTYPE DIOCOREPROTOCOLHEADER::GetContentType()
-* @brief      GetContentType
-* @ingroup    DATAIO
-* 
-* @return     DIOCOREPROTOCOLHEADER_CONTENTTYPE : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER_CONTENTTYPE DIOCOREPROTOCOLHEADER::GetContentType()
-{
-  return content_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE contenttype)
-* @brief      SetContentType
-* @ingroup    DATAIO
-* 
-* @param[in]  contenttype : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE content_type)
-{
-  this->content_type = content_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& content_typestr)
-* @brief      GetContentTypeToString
-* @ingroup    DATAIO
-* 
-* @param[in]  contenttypestr : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentTypeToString(XSTRING& content_typestr)
-{
-  content_typestr.Empty();
-
-  switch(content_type)
-    {
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN  : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN;  break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY   : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY;   break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT     : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT;     break;
-      case DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON     : content_typestr = DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON;     break;
-    }
-
-  return content_typestr.IsEmpty()?false:true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type)
-* @brief      GetContentTypeFromString
-* @ingroup    DATAIO
-* 
-* @param[in]  content_typestr : 
-* @param[in]  content_type : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentTypeFromString(XSTRING* content_typestr, DIOCOREPROTOCOLHEADER_CONTENTTYPE& content_type)
-{
-  if(!content_typestr)
-    {
-      return false;
-    }
-
-  content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
-
-  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_UNKNOWN))
-    {
-      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN;
-    }
-
-  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_BINARY))
-    {
-      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY;
-    }
-
-  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_TEXT))
-    {
-      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT;
-    }
-
-  if(!content_typestr->Compare(DIOCOREPROTOCOLHEADER_CONTENTTYPE_STRING_JSON))
-    {
-      content_type = DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON;
-    }
-
-  return content_type;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOLHEADER_CONTENTOPERATION DIOCOREPROTOCOLHEADER::GetContentOperation()
-* @brief      GetContentOperation
-* @ingroup    DATAIO
-* 
-* @return     DIOCOREPROTOCOLHEADER_CONTENTOPERATION : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER_CONTENTOPERATION DIOCOREPROTOCOLHEADER::GetContentOperation()
-{
-  return content_operation;
-}
-
-    
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentOperation(DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation)
-* @brief      SetContentOperation
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operation : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentOperation(DIOCOREPROTOCOLHEADER_CONTENTOPERATION content_operation)
-{
-  this->content_operation = content_operation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentOperationToString(XSTRING& content_operationstr)
-* @brief      GetContentOperationToString
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operationstr : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentOperationToString(XSTRING& content_operationstr)
-{
-  content_operationstr.Empty();
-
-  switch(content_operation)
-    {
-      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN  : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN;  break;
-      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND  : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND;  break;
-      case DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE   : content_operationstr = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE;   break;      
-    }
-
-  return content_operationstr.IsEmpty()?false:true;
-}
-    
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation)
-* @brief      GetContentOperationFromString
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operationstr : 
-* @param[in]  content_operation : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOLHEADER_CONTENTOPERATION& content_operation)
-{
-  if(!content_operationstr)
-    {
-      return false;
-    }
-
-  content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN;
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UNKNOWN))
-    {
-      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN;
-    }
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_COMMAND))
-    {
-      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_COMMAND;
-    }
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOLHEADER_CONTENTOPERATION_STRING_UPDATE))
-    {
-      content_operation = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UPDATE;
-    }
-
-  return content_operation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOLHEADER::GetContentSize()
-* @brief      GetContentSize
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOLHEADER::GetContentSize()
-{
-  return content_size;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD content_size)
-* @brief      SetContentSize
-* @ingroup    DATAIO
-* 
-* @param[in]  content_size : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentSize(XDWORD content_size)
-{
-  this->content_size = content_size;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::GetContentIsCompress()
-* @brief      GetContentIsCompress
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::GetContentIsCompress()
-{
-  return content_iscompress;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentIsCompress(bool content_iscompress)
-* @brief      SetContentIsCompress
-* @ingroup    DATAIO
-* 
-* @param[in]  contentiscompress : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentIsCompress(bool content_iscompress)
-{
-  this->content_iscompress = content_iscompress;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOLHEADER::GetContentCRC32()
-* @brief      GetContentCRC32
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOLHEADER::GetContentCRC32()
-{
-  return content_CRC32;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD content_CRC32)
-* @brief      SetContentCRC32
-* @ingroup    DATAIO
-* 
-* @param[in]  contentCRC32 : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::SetContentCRC32(XDWORD content_CRC32)
-{
-  this->content_CRC32 = content_CRC32;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XFILEJSON* DIOCOREPROTOCOLHEADER::GetSerializationXFileJSON()
-* @brief      GetSerializationXFileJSON
-* @ingroup    DATAIO
-* 
-* @return     XFILEJSON* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XFILEJSON* DIOCOREPROTOCOLHEADER::GetSerializationXFileJSON()
-{
-  return &xfileJSON;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XSERIALIZATIONMETHOD* DIOCOREPROTOCOLHEADER::GetSerializationMethod()
-* @brief      GetSerializationMethod
-* @ingroup    DATAIO
-* 
-* @return     XSERIALIZATIONMETHOD* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XSERIALIZATIONMETHOD* DIOCOREPROTOCOLHEADER::GetSerializationMethod()
-{
-  return serializationmethod;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::Serialize()
-* @brief      Serialize
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::Serialize()
-{
-  XSTRING   string; 
-  XVARIANT  data;
-
-  ID_machine.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_machine"));
-
-  ID_connection.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_connection"));
-
-  ID_message.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_message"));
-
-  GetMessageTypeToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("message_type"));
-
-  datetime_send->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS, string);
-  Primitive_Add<XSTRING*>(&string, __L("datetime_send"));
-
-  GetContentTypeToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("content_type"));
-
-  GetContentOperationToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("content_operation"));
-    
-  string.Format(__L("%d"), content_size);
-  Primitive_Add<XSTRING*>(&string, __L("content_size"));
-
-  string.ConvertFromBoolean(content_iscompress, (XSTRINGBOOLEANMODE_HUMAN | XSTRINGBOOLEANMODE_LOWERCASE));
-  Primitive_Add<XSTRING*>(&string, __L("content_iscompress"));
-   
-  string.Format(__L("%08X"), content_CRC32);
-  Primitive_Add<XSTRING*>(&string, __L("content_CRC32"));
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOLHEADER::Deserialize()
-* @brief      Deserialize
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOLHEADER::Deserialize()
-{
-  XSTRING string;
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_machine"));
-  ID_machine.SetFromString(string);
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_connection"));
-  ID_connection.SetFromString(string);
-  
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_message"));
-  ID_message.SetFromString(string);
-
-  Primitive_Extract<XSTRING&>(string, __L("message_type"));
-  GetMessageTypeFromString(&string, message_type);  
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("datetime_send"));
-  datetime_send->GetDateTimeFromStringISO8601(string, XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS);
-  
-  Primitive_Extract<XSTRING&>(string, __L("content_type"));
-  GetContentTypeFromString(&string, content_type);  
-
-  Primitive_Extract<XSTRING&>(string, __L("content_operation"));
-  GetContentOperationFromString(&string, content_operation);  
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("content_size"));
-  string.UnFormat(__L("%d"), &content_size);
-         
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("content_iscompress"));
-  content_iscompress = string.ConvertToBoolean();
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("content_CRC32"));
-  string.UnFormat(__L("%08X"), &content_CRC32);
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOLHEADER::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    DATAIO
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOLHEADER::Clean()
-{ 
-  message_type        = DIOCOREPROTOCOLHEADER_MESSAGETYPE_UNKNOWN;  
-  datetime_send       = NULL;
-  content_type        = DIOCOREPROTOCOLHEADER_CONTENTTYPE_UNKNOWN; 
-  content_operation   = DIOCOREPROTOCOLHEADER_CONTENTOPERATION_UNKNOWN; 
-  content_size        = 0;
-  content_iscompress  = false;          
-  content_CRC32       = 0;       
-}
-
-    
-#pragma endregion
 
 
 #pragma region CLASS_DIOCOREPROTOCOL
@@ -715,29 +72,28 @@ void DIOCOREPROTOCOLHEADER::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL()
+* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL::DIOCOREPROTOCOL()
-{
-  Clean();
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL()
-* @brief      Constructor
-* @ingroup    DATAIO
+* @param[in]  DIOCOREPROTOCOL_CFG* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOSTREAM* diostream)
+DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG)
 {
   Clean();
 
-  this->diostream = diostream;
+  compressmanager = new COMPRESSMANAGER();
+  if(compressmanager)
+    {
+	    compressor = compressmanager->Create(COMPRESSBASE_TYPE_GZ);
+      if(!compressor)
+        {
+          delete compressmanager;          
+        }
+    } 
+
+  this->protocolCFG = protocolCFG;
 }
 
 
@@ -751,6 +107,16 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOSTREAM* diostream)
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL::~DIOCOREPROTOCOL()
 {
+  if(compressmanager)
+    {
+      delete compressmanager;
+    }
+
+  if(compressor)
+    {
+      delete compressor;
+    }
+
   Clean();
 }
 
@@ -791,10 +157,12 @@ bool DIOCOREPROTOCOL::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
+* @param[in]  IDmachine : 
+* @param[in]  IDconnection : 
 * @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
@@ -802,45 +170,32 @@ bool DIOCOREPROTOCOL::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
 {
-  DIOCOREPROTOCOLHEADER*  header          = NULL;
-  XFILEJSON*              headerxfileJSON = NULL;
-  XSTRING                 headerstring;
-  XBUFFER                 datasend;    
+  DIOCOREPROTOCOL_HEADER*  header          = NULL;
+  XBUFFER                 contentresult;
   bool                    status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content);
+  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
   if(!header)
     {      
       return false;
     }
 
-  if(!GenerateHeaderToSend(header, datasend))
-    {
-      return false;
-    }
-
+  status = SendMsg(header, contentresult);
+      
   delete header;
-           
-  datasend.Add(content);
-
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Core Protocol] Send data Buffer:"));
-  XTRACE_PRINTDATABLOCKCOLOR(XTRACE_COLOR_BLUE, datasend);
-
-  if(diostream)
-    {
-      status = diostream->Write(datasend);
-    }
-   
+     
   return status;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XSTRING& content)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
+* @param[in]  IDmachine : 
+* @param[in]  IDconnection : 
 * @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
@@ -848,36 +203,19 @@ bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& co
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
 {
-  DIOCOREPROTOCOLHEADER*  header          = NULL;
-  XFILEJSON*              headerxfileJSON = NULL;
-  XSTRING                 headerstring;
-  XBUFFER                 contentbinary;
-  XBUFFER                 datasend;    
+  DIOCOREPROTOCOL_HEADER*  header          = NULL;
+  XBUFFER                 contentresult;
   bool                    status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content);
+  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
   if(!header)
     {      
       return false;
     }
   
-  if(!GenerateHeaderToSend(header, datasend))
-    {
-      return false;
-    }
-
+  status = SendMsg(header, contentresult);
+      
   delete header;
- 
-  content.ConvertToUTF8(contentbinary);         
-  datasend.Add(contentbinary);
-
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Core Protocol] Send data string:"));
-  XTRACE_PRINTDATABLOCKCOLOR(XTRACE_COLOR_BLUE, datasend);
-
-  if(diostream)
-    {
-      status = diostream->Write(datasend);
-    }
 
   return status;
 }
@@ -885,82 +223,199 @@ bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& co
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XFILEJSON& content)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, bool iscontentcompress)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
+* @param[in]  IDmachine : 
+* @param[in]  IDconnection : 
 * @param[in]  content : 
+* @param[in]  iscontentcompress : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content)
 {
-  DIOCOREPROTOCOLHEADER*  header          = NULL;
-  XFILEJSON*              headerxfileJSON = NULL;
-  XSTRING                 headerstring;  
-  XSTRING                 contentstring;
-  XBUFFER                 contentbinary;
-  XBUFFER                 datasend;    
+  DIOCOREPROTOCOL_HEADER*  header          = NULL;  
+  XBUFFER                 contentresult;  
   bool                    status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content);
+  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
   if(!header)
     {      
       return false;
     }
-    
-  if(!GenerateHeaderToSend(header, datasend))
-    {
-      return false;
-    }
 
+  status = SendMsg(header, contentresult);
+      
   delete header;
-
-  content.GetAllInOneLine(contentstring); 
-  contentstring.ConvertToUTF8(contentbinary);
-         
-  datasend.Add(contentbinary);
-
-  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("[Core Protocol] Send data JSON:"));
-  XTRACE_PRINTDATABLOCKCOLOR(XTRACE_COLOR_BLUE, datasend);
-
-  if(diostream)
-    {
-      status = diostream->Write(datasend);
-    }
-
+           
   return status;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+* @brief      ReceivedMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  header : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+{
+  if(!protocolCFG)
+    {
+      return false;
+    }
+
+  /*
+  if(!protocolCFG->GetDIOStream())
+    {
+      return false;
+    }
+
+  XBUFFER* readbuffer = protocolCFG->GetDIOStream()->GetInXBuffer();
+  if(!readbuffer)
+    {
+      return false;
+    }
+  */
+
+  XBUFFER* readbuffer = &debug_senddata;
+
+  if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
+    {
+      return false;
+    }
+
+  readbuffer->ResetPosition();
+
+  XDWORD start  = 0;
+  bool   status = false;
+  
+  if(readbuffer->Get((XDWORD)start, 0))
+    {
+      // Compress Data
+      if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
+        {
+          XBUFFER headerbuffer;
+          XWORD   sizeheader    = 0;
+          XWORD   sizeheadercmp = 0;
+          XDWORD  crc32header   = 0;
+
+          if(readbuffer->Get((XWORD)sizeheader))
+            {
+              if(readbuffer->Get((XWORD)sizeheadercmp))
+                {
+                  if(readbuffer->Get((XDWORD)crc32header))
+                    {
+                      if(sizeheader)
+                        {       
+                          XBYTE*    ptrheader  = &readbuffer->Get()[DIOCOREPROTOCOL_HEADER_SIZE_ID];
+                          XBYTE*    ptrcontent = ptrheader;                           
+                          HASHCRC32 hashCRC32;
+  
+                          if(sizeheadercmp)
+                            {     
+                              hashCRC32.Do(ptrheader, sizeheadercmp); 
+                            }
+                           else
+                            {
+                              hashCRC32.Do(ptrheader, sizeheader); 
+                            } 
+   
+                          if(hashCRC32.GetResultCRC32() == crc32header)
+                            {
+                              if(sizeheadercmp)
+                                {
+                                  headerbuffer.Resize(sizeheader);  
+                                  status      = compressor->Decompress(ptrheader, sizeheadercmp, &headerbuffer);
+                                  ptrcontent += sizeheadercmp;
+                                }
+                               else
+                                {
+                                  status      = headerbuffer.Add(ptrheader, sizeheader);
+                                  ptrcontent += sizeheader;
+                                }
+
+                              XFILEJSON* headerxfileJSON = header.GetSerializationXFileJSON();
+                              if(headerxfileJSON)
+                                {                                                                                                  
+                                  header.GetSerializationXFileJSON()->AddBufferLines(XFILETXTFORMATCHAR_UTF8, headerbuffer);
+                                  header.GetSerializationXFileJSON()->DecodeAllLines();
+                                  header.DoDeserialize();
+                                } 
+
+                              HASHCRC32 hashCRC32;
+
+                              hashCRC32.Do(ptrcontent, header.GetContentCompressSize()?header.GetContentCompressSize():header.GetContentSize());  
+                              status = (header.GetContentCRC32() == hashCRC32.GetResultCRC32())?true:false;
+                        
+                              if(status)
+                                {        
+                                  if(header.GetContentCompressSize())
+                                    {
+                                      content.Resize(header.GetContentSize());
+                                      status = compressor->Decompress(ptrcontent, header.GetContentCompressSize(), &content);
+                                    }
+                                   else
+                                    {
+                                      status = content.Add(ptrcontent, header.GetContentSize());
+                                    }
+                                }
+                            }
+
+                          return status;  
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmachine : 
 * @param[in]  IDconnection : 
 * @param[in]  content : 
+* @param[in]  contentresult : 
 * 
-* @return     DIOCOREPROTOCOLHEADER* : 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOLHEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
   if(!header)
     {
       return NULL;
     }
 
-  header->SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE_BINARY);
-  header->SetContentSize(content.GetSize());   
+  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY);
+  header->SetContentSize(content.GetSize()); 
 
+  if(!CompressContent(header, content, contentresult))
+    {                  
+      contentresult.CopyFrom(content);
+    }   
+  
   HASHCRC32 hashCRC32;
 
-  hashCRC32.Do(content);  
+  hashCRC32.Do(contentresult);  
   header->SetContentCRC32(hashCRC32.GetResultCRC32());
 
   return header;
@@ -969,20 +424,21 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmachine : 
 * @param[in]  IDconnection : 
 * @param[in]  content : 
+* @param[in]  contentresult : 
 * 
-* @return     DIOCOREPROTOCOLHEADER* : 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOLHEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
   if(!header)
     {
       return NULL;
@@ -991,12 +447,17 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
   XBUFFER contentbinary;
   content.ConvertToUTF8(contentbinary);
 
-  header->SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE_TEXT);
+  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT);
   header->SetContentSize(contentbinary.GetSize());   
+
+  if(!CompressContent(header, contentbinary, contentresult))
+    {                  
+      contentresult.CopyFrom(contentbinary);
+    }   
 
   HASHCRC32 hashCRC32;
 
-  hashCRC32.Do(contentbinary);  
+  hashCRC32.Do(contentresult);  
   header->SetContentCRC32(hashCRC32.GetResultCRC32());
 
   return header;
@@ -1005,20 +466,21 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmachine : 
 * @param[in]  IDconnection : 
 * @param[in]  content : 
+* @param[in]  contentresult : 
 * 
-* @return     DIOCOREPROTOCOLHEADER* : 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOLHEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
   if(!header)
     {
       return NULL;
@@ -1032,12 +494,17 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 
   contentstring.ConvertToUTF8(contentbinary);
 
-  header->SetContentType(DIOCOREPROTOCOLHEADER_CONTENTTYPE_JSON);
+  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON);
   header->SetContentSize(contentbinary.GetSize());   
+
+  if(!CompressContent(header, contentbinary, contentresult))
+    {                  
+      contentresult.CopyFrom(contentbinary);
+    }   
 
   HASHCRC32 hashCRC32;
 
-  hashCRC32.Do(contentbinary);  
+  hashCRC32.Do(contentresult);  
   header->SetContentCRC32(hashCRC32.GetResultCRC32());
 
   return header;
@@ -1046,28 +513,34 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOLHEADER* header, XBUFFER& datasend)
+* @fn         bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFFER& headersenddata, XWORD* headersize)
 * @brief      GenerateHeaderToSend
 * @ingroup    DATAIO
 * 
 * @param[in]  header : 
-* @param[in]  datasend : 
+* @param[in]  headersenddata : 
+* @param[in]  headersize : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOLHEADER* header, XBUFFER& datasend)
+bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFFER& headersenddata, XWORD* headersize)
 {
   XFILEJSON*  headerxfileJSON = NULL;
   XSTRING     headerstring;
+  XBUFFER     headerbuffer;  
+  XBUFFER     headercmp;
+  bool        isheadercmp     = false;  
   bool        status          = false;
   
   if(!header)
     {
-      return false;
+      return status;
     }
 
-  header->SetMessageType(DIOCOREPROTOCOLHEADER_MESSAGETYPE_ASK);
+  headersenddata.Empty();
+
+  header->SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST);
 
   headerxfileJSON = header->GetSerializationXFileJSON();
   if(!headerxfileJSON)
@@ -1076,13 +549,71 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOLHEADER* header, XBUFFE
     }
 
   status = header->DoSerialize();
-  if(status)
-    {
-      headerxfileJSON->EncodeAllLines(false);  
-      headerxfileJSON->GetAllInOneLine(headerstring);
-
-      headerstring.ConvertToUTF8(datasend);
+  if(!status)
+    {    
+      return status;
     }
+ 
+  headerxfileJSON->EncodeAllLines(false);  
+  headerxfileJSON->GetAllInOneLine(headerstring);
+
+  headerstring.ConvertToUTF8(headerbuffer);
+
+  if(protocolCFG)
+    {
+      if(protocolCFG->GetCompressHeader())
+        {
+          if(!compressor->Compress(headerbuffer.Get(), headerbuffer.GetSize(), &headercmp))
+            {
+              return status;        
+            }
+
+          if(headercmp.GetSize() < headerbuffer.GetSize())
+            {
+              isheadercmp = true;
+            }
+           else 
+            {
+              headercmp.Empty();    
+            } 
+        }
+    }
+      
+  headersenddata.Add((XDWORD)DIOCOREPROTOCOL_HEADER_MAGIC_ID);          
+  headersenddata.Add((XWORD)headerbuffer.GetSize()); 
+  headersenddata.Add((XWORD)headercmp.GetSize()); 
+
+  HASHCRC32 hashCRC32;
+  
+  if(isheadercmp)
+    {     
+      hashCRC32.Do(headercmp); 
+    }
+   else
+    {
+      hashCRC32.Do(headerbuffer); 
+    } 
+   
+  headersenddata.Add((XDWORD)hashCRC32.GetResultCRC32());
+              
+  if(isheadercmp)
+    {
+      if(headersize)
+        {
+          (*headersize) = headercmp.GetSize();  
+        }
+
+      headersenddata.Add(headercmp); 
+    }
+   else
+    {
+      if(headersize)
+        {
+          (*headersize) = headerbuffer.GetSize();  
+        }
+
+      headersenddata.Add(headerbuffer); 
+    } 
 
   return status;  
 }
@@ -1090,17 +621,17 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOLHEADER* header, XBUFFE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  IDmachine : 
 * @param[in]  IDconnection : 
 * 
-* @return     DIOCOREPROTOCOLHEADER* : 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
 {
   if(!IDmachine)
     {
@@ -1112,7 +643,7 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
       return NULL;
     }
 
-  DIOCOREPROTOCOLHEADER* header = new DIOCOREPROTOCOLHEADER();
+  DIOCOREPROTOCOL_HEADER* header = new DIOCOREPROTOCOL_HEADER();
   if(!header)
     {
       return NULL;
@@ -1129,6 +660,130 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
+* @brief      SendMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  header : 
+* @param[in]  contentresult : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
+{
+  XBUFFER senddata; 
+  XWORD   headersize;
+  bool    status   = false;
+
+  if(!header)
+    {
+      return false;
+    }
+    
+  if(!GenerateHeaderToSend(header, senddata, &headersize))
+    {
+      return false;
+    }
+           
+  senddata.Add(contentresult);
+
+
+  status = SendData(senddata);
+
+  // ---  DEBUG -------------------------------------------------------------------------------------------------------------------------------------------
+
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("------------------------------------------------------------------------------------------------------"));
+  if(header->GetContentCompressSize())
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Core Protocol] Send data: Header size %d / Content size %d [cmp size %d] = Total %d"), headersize, header->GetContentSize(), header->GetContentCompressSize(), headersize + header->GetContentCompressSize());
+    }
+   else
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("[Core Protocol] Send data: Header size %d / Content size %d = Total %d"), headersize, header->GetContentSize(), headersize + header->GetContentSize());
+    }
+      
+  XTRACE_PRINTDATABLOCKCOLOR(status?XTRACE_COLOR_BLUE:XTRACE_COLOR_RED, senddata);
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_PURPLE, __L("------------------------------------------------------------------------------------------------------"));
+
+  // ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
+* @brief      SendData
+* @ingroup    DATAIO
+* 
+* @param[in]  senddata : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
+{
+  bool status = false;
+
+  if(protocolCFG)
+    {
+      if(protocolCFG->GetDIOStream())
+        {
+          status = protocolCFG->GetDIOStream()->Write(senddata);
+        }
+    }
+
+
+  debug_senddata.Empty();
+  debug_senddata.Add(senddata);
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult)
+* @brief      CompressContent
+* @ingroup    DATAIO
+* 
+* @param[in]  header : 
+* @param[in]  content : 
+* @param[in]  contentresult : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content,  XBUFFER& contentresult)
+{
+  bool status = false;
+
+  if(protocolCFG)
+    {    
+      if(protocolCFG->GetCompressContent())
+        {
+          if(content.GetSize() >= protocolCFG->GetMinSizeCompressContent())
+            {
+              if(compressor->Compress(content.Get(), content.GetSize(), &contentresult))
+                {
+                  if(content.GetSize() > contentresult.GetSize()) 
+                    {
+                      header->SetContentCompressSize(contentresult.GetSize());   
+                      status = true; 
+                    }
+                }    
+            }
+        }
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -1137,7 +792,11 @@ DIOCOREPROTOCOLHEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* ID
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL::Clean()
 {
-  diostream       = NULL;
+  protocolCFG     = NULL;
+
+  compressmanager = NULL;
+  compressor      = NULL;    	
+  
   initialization  = false;
 }
 

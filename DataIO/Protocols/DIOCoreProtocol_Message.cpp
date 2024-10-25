@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       CompressManager.cpp
+* @file       DIOCoreProtocol_Message.cpp
 * 
-* @class      COMPRESSMANAGER
-* @brief      Compress Manager class
-* @ingroup    COMPRESS
+* @class      DIOCOREPROTOCOL_MESSAGE
+* @brief      Data Input/Output Core Protocol CFG class
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -37,20 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "CompressManager.h"
-
-#ifdef COMPRESS_LZW_ACTIVE
-#include "CompressLZW.h"
-#endif
-#ifdef COMPRESS_LZRW1KH_ACTIVE
-#include "CompressLZRW1KH.h"
-#endif
-#ifdef COMPRESS_ZIP_ACTIVE
-#include "CompressZIP.h"
-#endif
-#ifdef COMPRESS_GZ_ACTIVE
-#include "CompressGZ.h"
-#endif
+#include "DIOCoreProtocol_Message.h"
 
 #include "XMemory_Control.h"
 
@@ -60,23 +47,21 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
-COMPRESSMANAGER* COMPRESSMANAGER::instance=NULL;
-
 #pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_MEMBERS
+#pragma region CLASS_DIOCOREPROTOCOL_MESSAGE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER::COMPRESSMANAGER()
+* @fn         DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
 * @brief      Constructor
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER::COMPRESSMANAGER()
+DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
 {
   Clean();
 }
@@ -84,13 +69,13 @@ COMPRESSMANAGER::COMPRESSMANAGER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER::~COMPRESSMANAGER()
+* @fn         DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER::~COMPRESSMANAGER()
+DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 {
   Clean();
 }
@@ -98,90 +83,49 @@ COMPRESSMANAGER::~COMPRESSMANAGER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
-* @brief      Create
-* @ingroup    COMPRESS
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader(DIOCOREPROTOCOL_MESSAGE_WAY way)
+* @brief      GetHeader
+* @ingroup    DATAIO
 * 
-* @param[in]  type : 
+* @param[in]  way : 
 * 
-* @return     COMPRESSBASE* : 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSBASE* COMPRESSMANAGER::Create(COMPRESSBASE_TYPE type)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader(DIOCOREPROTOCOL_MESSAGE_WAY way)
 {
-  COMPRESSBASE* compress;
-
-  switch(type)
-    {
-      #ifdef COMPRESS_LZW_ACTIVE
-      case COMPRESSBASE_TYPE_LZW      : compress = new COMPRESS_LZW();        
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_LZRW1KH_ACTIVE
-      case COMPRESSBASE_TYPE_LZRW1KH  : compress = new COMPRESS_LZRW1KH();    
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_ZIP_ACTIVE
-      case COMPRESSBASE_TYPE_ZIP      : compress = new COMPRESS_ZIP();        
-                                        break;
-      #endif
-
-      #ifdef COMPRESS_GZ_ACTIVE
-      case COMPRESSBASE_TYPE_GZ       : compress = new COMPRESS_GZ();         
-                                        break;
-      #endif
-                            default   : compress = new COMPRESSBASE();        break;
-    }
-
-  if(compress) lastcompresstype = type;
-
-  return compress;
+  return &header[way];
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
-* @brief      GetInstance
-* @ingroup    COMPRESS
+* @fn         XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetData(DIOCOREPROTOCOL_MESSAGE_WAY way)
+* @brief      GetData
+* @ingroup    DATAIO
 * 
-* @return     COMPRESSMANAGER* : 
+* @param[in]  way : 
+* 
+* @return     XBUFFER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-COMPRESSMANAGER* COMPRESSMANAGER::GetInstance()
+XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetData(DIOCOREPROTOCOL_MESSAGE_WAY way)
 {
-  if(!instance) instance = new COMPRESSMANAGER();
-
-  return instance;
+  return &data[way];
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void COMPRESSMANAGER::DeleteInstance()
-* @brief      DeleteInstance
-* @ingroup    COMPRESS
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void COMPRESSMANAGER::DeleteInstance()
-{
-  if(instance) delete instance;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void COMPRESSMANAGER::Clean()
+* @fn         void DIOCOREPROTOCOL_MESSAGE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    COMPRESS
+* @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void COMPRESSMANAGER::Clean()
+void DIOCOREPROTOCOL_MESSAGE::Clean()
 {
-  lastcompresstype = COMPRESSBASE_TYPE_NONE;
+
 }
 
 

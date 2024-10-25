@@ -260,7 +260,7 @@
 #endif
 
 #ifndef GEN_SET_VERSION
-#define GEN_SET_VERSION(name, version, subversion, versionerror, owner, creationyear)   GEN_VERSION.SetAppVersion(name, version, subversion, versionerror, owner, creationyear);
+#define GEN_SET_VERSION(name, nameexec, version, subversion, versionerror, owner, creationyear)   GEN_VERSION.SetAppVersion(name, nameexec, version, subversion, versionerror, owner, creationyear);
 #endif
 
 #ifndef GEN_VERSION_CLEAN

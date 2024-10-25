@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocol_ConnectionsManager.h
+* @file       DIOCoreProtocol_Message.h
 * 
-* @class      DIOCOREPROTOCOL_CONNECTIONSMANAGER
-* @brief      Data Input/Output Core Protocol Connections Manager class
+* @class      DIOCOREPROTOCOL_MESSAGE
+* @brief      Data Input/Output Core Protocol CFG class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,13 +26,18 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOCOREPROTOCOL_CONNECTIONSMANAGER_H_
-#define _DIOCOREPROTOCOL_CONNECTIONSMANAGER_H_
+#ifndef _DIOCOREPROTOCOL_MESSAGE_H_
+#define _DIOCOREPROTOCOL_MESSAGE_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XThreadCollected.h"
+#include "XBuffer.h"
+#include "XFileJSON.h"
+
+#include "DIOStream.h"
+
+#include "DIOCoreProtocol_Header.h"
 
 #pragma endregion
 
@@ -41,48 +46,41 @@
 #pragma region DEFINES_ENUMS
 
 
+enum DIOCOREPROTOCOL_MESSAGE_WAY
+{
+  DIOCOREPROTOCOL_MESSAGE_WAY_REQUEST     =   0 ,
+  DIOCOREPROTOCOL_MESSAGE_WAY_RESPONSE          ,
+
+  DIOCOREPROTOCOL_MESSAGE_WAY_
+};
+
+
 #pragma endregion
 
 
-/*---- CLASS ---------------------------------------------------------------------------------------------------------*/
+/*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
 #pragma region CLASS
 
 
-class XTIMER;
-class XMUTEX;
-class DIOCOREPROTOCOL_CFG;
-class DIOCOREPROTOCOL_CONNECTION;
-
-
-class DIOCOREPROTOCOL_CONNECTIONSMANAGER
+class DIOCOREPROTOCOL_MESSAGE
 {
   public:
-                                            DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
-    virtual                                ~DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();   
 
-    bool                                    Ini                                   (DIOCOREPROTOCOL_CFG* protocolCFG);
-    bool                                    End                                   ();
+                                DIOCOREPROTOCOL_MESSAGE       ();                                              
+    virtual                    ~DIOCOREPROTOCOL_MESSAGE       ();
 
-    DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                        ();
-    
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   GetConnections                        ();
-  
+    DIOCOREPROTOCOL_HEADER*     GetHeader                     (DIOCOREPROTOCOL_MESSAGE_WAY way); 
+    XBUFFER*                    GetData                       (DIOCOREPROTOCOL_MESSAGE_WAY way);
+        
   private:
 
-    bool                                    ReConnected                           ();
+    void                        Clean                         ();
 
-    static void                             ThreadConnections                     (void* param);
-
-    void                                    Clean                                 ();
-
-    DIOCOREPROTOCOL_CFG*                    protocolCFG;
-    
-    XTIMER*                                 connections_xtimer;
-    XMUTEX*                                 connections_xmutex;
-    XTHREADCOLLECTED*                       connections_xthread;
-
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>    connections;
+    DIOCOREPROTOCOL_HEADER      header[2]; 
+    XBUFFER                     data[2];
+     
 };
+
 
 #pragma endregion
 
@@ -95,6 +93,5 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER
 
 
 #endif
-
 
 

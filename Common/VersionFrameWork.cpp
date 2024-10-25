@@ -85,7 +85,10 @@ bool VERSIONFRAMEWORK::GetIsInstanced()
 * --------------------------------------------------------------------------------------------------------------------*/
 VERSIONFRAMEWORK& VERSIONFRAMEWORK::GetInstance()
 {
-  if(!instance) instance = new VERSIONFRAMEWORK();
+  if(!instance) 
+    {
+      instance = new VERSIONFRAMEWORK();
+    }
 
   return (*instance);
 }
@@ -192,6 +195,21 @@ XSTRING* VERSIONFRAMEWORK::GetCodeName()
 XSTRING* VERSIONFRAMEWORK::GetAppName()
 {
   return &app_name;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* VERSIONFRAMEWORK::GetAppExecName()
+* @brief      GetAppExecName
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* VERSIONFRAMEWORK::GetAppExecName()
+{
+  return &app_execname;
 }
 
 
@@ -350,12 +368,13 @@ bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, 
 * @param[in]  app_creationyear : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
+bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XCHAR* app_execname, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
 {
   app_titlestr.Empty();
   app_versionstr.Empty();
 
   this->app_name          = app_name;
+  this->app_execname      = app_execname;
   this->app_version       = app_version;
   this->app_subversion    = app_subversion;
   this->app_versionerror  = app_versionerror;

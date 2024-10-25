@@ -66,7 +66,8 @@ class VERSIONFRAMEWORK
     void                      GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& versionerror);
     XSTRING*                  GetCodeName                   ();
     
-    XSTRING*                  GetAppName                    ();            
+    XSTRING*                  GetAppName                    ();    
+    XSTRING*                  GetAppExecName                 ();           
     void                      GetAppVersions                (XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror);    
     XSTRING*                  GetAppOwner                   ();
     XDWORD                    GetAppCreationYear            ();    
@@ -75,7 +76,7 @@ class VERSIONFRAMEWORK
     XSTRING*                  GetAppVersion                 ();
     bool                      GetAppVersionStatus           (XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr);
     bool                      GetAppVersion                 (XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& versionstr);
-    bool                      SetAppVersion                 (XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear);
+    bool                      SetAppVersion                 (XCHAR* app_name, XCHAR* app_execname, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear);
     
   private:  
                               VERSIONFRAMEWORK              ();
@@ -91,6 +92,7 @@ class VERSIONFRAMEWORK
     XSTRING                   codename; 
 
     XSTRING                   app_name;    
+    XSTRING                   app_execname;    
     XDWORD                    app_version;
     XDWORD                    app_subversion;
     XDWORD                    app_versionerror;
