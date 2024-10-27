@@ -168,12 +168,12 @@ bool DIOANDROIDSTREAMBLUETOOTH::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMBLUETOOTH::Disconnect()
 {
-  if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
-     (GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED))
+  if((GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
+     (GetStatus()==DIOSTREAMSTATUS_CONNECTED))
      {
        SetEvent(DIOANDROIDBTFSMEVENT_DISCONNECTING);
 
-       while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
+       while(GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
         {
           usleep(10000);
         }

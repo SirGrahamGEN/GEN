@@ -135,14 +135,14 @@ DIOLINUXSTREAMUSB::~DIOLINUXSTREAMUSB()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetConnectStatus()
+DIOSTREAMSTATUS DIOLINUXSTREAMUSB::GetStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -215,7 +215,7 @@ bool DIOLINUXSTREAMUSB::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(fd>=0)
     {
@@ -239,7 +239,7 @@ bool DIOLINUXSTREAMUSB::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMUSB::CleanBuffers()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   return true;
 }
@@ -362,7 +362,7 @@ void DIOLINUXSTREAMUSB::ThreadConnection(void* data)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;
@@ -403,7 +403,7 @@ XDWORD DIOLINUXSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOLINUXSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;

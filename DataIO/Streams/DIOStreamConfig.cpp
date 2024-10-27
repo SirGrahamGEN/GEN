@@ -153,8 +153,7 @@ void DIOSTREAMCONFIG::SetMode(DIOSTREAMMODE mode)
 bool DIOSTREAMCONFIG::IsServer()
 {
   if(mode == DIOSTREAMMODE_SERVER) return true;
-  if(mode == DIOSTREAMMODE_HOST)   return true;
-
+  
   return false;
 }
 

@@ -86,7 +86,7 @@ class DIOANDROIDSTREAMUART : public DIOSTREAMUART , public XFSMACHINE
                           DIOANDROIDSTREAMUART          ();
     virtual              ~DIOANDROIDSTREAMUART          ();
 
-    DIOSTREAMSTATUS       GetConnectStatus              ();
+    DIOSTREAMSTATUS       GetStatus              ();
 
     bool                  Open                          ();
 

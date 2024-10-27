@@ -91,24 +91,22 @@ class DIOWINDOWSSTREAMTCPIP : public DIOSTREAMTCPIP , public XFSMACHINE
     bool                      Disconnect                              ();
     bool                      Close                                   ();
 
+    SOCKET                    GetHandleSocket                         (); 
+    void                      SetHandleSocket                         (SOCKET handlesocket); 
+
   protected:
 
-    SOCKET                    Accept                                  (SOCKET socket, void* addr, void* addrlen, XDWORD usec);
-    int                       IsReadyConnect                          (SOCKET socket);
+    SOCKET                    Accept                                  (SOCKET handlesocket, void* addr, void* addrlen, XDWORD usec);
+    int                       IsReadyConnect                          (SOCKET handlesocket);
 
   private:
-
-    void                      Clean                                   ()
-                              {
-                                threadconnection   = NULL;
-                                handlesocket      = INVALID_SOCKET;
-                              }
-
+    
     bool                      GetHandleServer                         ();
     bool                      GetHandleClient                         ();
 
+    static void               ThreadConnection                        (void* data);
 
-    static void               ThreadConnection                         (void* data);
+    void                      Clean                                   ();
 
     XTHREADCOLLECTED*         threadconnection;
     SOCKET                    handlesocket;    

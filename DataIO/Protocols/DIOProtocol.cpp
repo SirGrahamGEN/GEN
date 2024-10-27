@@ -1089,7 +1089,7 @@ bool DIOPROTOCOL::Reset()
 bool DIOPROTOCOL::IsConnected()
 {
   if(!diostream)                                                    return false;
-  if(diostream->GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED)      return true;
+  if(diostream->GetStatus()==DIOSTREAMSTATUS_CONNECTED)      return true;
 
   return false;
 }
@@ -1107,7 +1107,7 @@ bool DIOPROTOCOL::IsConnected()
 bool DIOPROTOCOL::IsConnecting()
 {
   if(!diostream)                                                       return false;
-  if(diostream->GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)  return true;
+  if(diostream->GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)  return true;
 
   return false;
 }
@@ -1125,7 +1125,7 @@ bool DIOPROTOCOL::IsConnecting()
 bool DIOPROTOCOL::IsDisconnected()
 {
   if(!diostream)                                                      return false;
-  if(diostream->GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED)     return true;
+  if(diostream->GetStatus()==DIOSTREAMSTATUS_DISCONNECTED)     return true;
 
   return false;
 }

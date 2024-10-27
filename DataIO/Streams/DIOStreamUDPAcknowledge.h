@@ -64,7 +64,7 @@ class DIOSTREAMUDPACKNOWLEDGE : public DIOSTREAMUDP
     DIOSTREAMCONFIG*                GetConfig                             ();
     bool                            SetConfig                             (DIOSTREAMCONFIG* config);
     
-    DIOSTREAMSTATUS                 GetConnectStatus                      ();
+    DIOSTREAMSTATUS                 GetStatus                      ();
     
     int                             GetTimeout                            ();
     void                            SetTimeout                            (int timeout  = DIOSTREAMUDPACKNOWLEDGE_DEFAULTTIMEOUT);

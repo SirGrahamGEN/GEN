@@ -90,7 +90,7 @@ class DIOWINDOWSSTREAMUSB : public DIOSTREAMUSB , public XFSMACHINE
                           DIOWINDOWSSTREAMUSB                           ();
     virtual              ~DIOWINDOWSSTREAMUSB                           ();
 
-    DIOSTREAMSTATUS       GetConnectStatus                              ();
+    DIOSTREAMSTATUS       GetStatus                              ();
 
     bool                  Open                                          ();
     bool                  Close                                         ();

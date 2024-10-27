@@ -96,7 +96,8 @@ class DIOSTREAM : public XSUBJECT
     virtual DIOSTREAMCONFIG*    GetConfig                       ()                            = 0;
     virtual bool                SetConfig                       (DIOSTREAMCONFIG* config)     = 0;
 
-    virtual DIOSTREAMSTATUS     GetConnectStatus                ();
+    DIOSTREAMSTATUS             GetStatus                       ();
+    void                        SetStatus                       (DIOSTREAMSTATUS status);
 
     virtual bool                Open                            ()                            = 0;
 

@@ -113,14 +113,14 @@ DIOESP32STREAMUSB::~DIOESP32STREAMUSB()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOESP32STREAMUSB::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOESP32STREAMUSB::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_ESP32
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOESP32STREAMUSB::GetConnectStatus()
+DIOSTREAMSTATUS DIOESP32STREAMUSB::GetStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
 
@@ -172,7 +172,7 @@ bool DIOESP32STREAMUSB::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOESP32STREAMUSB::WriteDirect(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   if(CDC_Transmit_FS((uint8_t*)buffer, (XWORD)size) == USBD_OK) return size;
 
@@ -245,7 +245,7 @@ bool DIOESP32STREAMUSB::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   diostreamusbptrhandle = NULL;
 
@@ -284,7 +284,7 @@ bool DIOESP32STREAMUSB::CleanBuffers()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOESP32STREAMUSB::HAL_USB_RxCpltCallback(uint8_t* buffer, uint32_t *len)
 {
-  if(GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
+  if(GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
   if(IsBlockRead())                                      return;
 
   if(!inbuffer->IsBlocked())

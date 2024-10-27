@@ -85,7 +85,7 @@ class DIOSTM32STREAMUART : public DIOSTREAMUART, public XFSMACHINE
                                 DIOSTM32STREAMUART        		();
     virtual                    ~DIOSTM32STREAMUART        		();
 
-    virtual DIOSTREAMSTATUS     GetConnectStatus              ();
+    virtual DIOSTREAMSTATUS     GetStatus              ();
 
     virtual bool          	    Open                          ();
 

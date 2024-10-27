@@ -68,7 +68,7 @@ class DIOSTREAMCIPHER : public DIOSTREAM
     DIOSTREAMCONFIG*            GetConfig                       ();
     bool                        SetConfig                       (DIOSTREAMCONFIG* config);
 
-    DIOSTREAMSTATUS             GetConnectStatus                ();
+    DIOSTREAMSTATUS             GetStatus                       ();
 
     bool                        Open                            ();
     bool                        Disconnect                      ();

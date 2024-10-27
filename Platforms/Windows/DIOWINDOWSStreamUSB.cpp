@@ -122,14 +122,14 @@ DIOWINDOWSSTREAMUSB::~DIOWINDOWSSTREAMUSB()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetConnectStatus()
+DIOSTREAMSTATUS DIOWINDOWSSTREAMUSB::GetStatus()
 {
   if(handle==INVALID_HANDLE_VALUE)  return DIOSTREAMSTATUS_DISCONNECTED;
   if(!config)                       return DIOSTREAMSTATUS_DISCONNECTED;
@@ -199,7 +199,7 @@ bool DIOWINDOWSSTREAMUSB::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   CloseHandle(handle);
 
@@ -221,7 +221,7 @@ bool DIOWINDOWSSTREAMUSB::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUSB::CleanBuffers()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   return true;
 }
@@ -337,7 +337,7 @@ void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
   if(size == 0)                                        return 0;
 
   DWORD br    = 0;
@@ -365,7 +365,7 @@ XDWORD DIOWINDOWSSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   if(size == 0)    return 0;
 

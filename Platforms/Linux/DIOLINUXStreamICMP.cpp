@@ -215,12 +215,12 @@ bool DIOLINUXSTREAMICMP::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOLINUXSTREAMICMP::Disconnect()
 {
-  if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
-     (GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED))
+  if((GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
+     (GetStatus()==DIOSTREAMSTATUS_CONNECTED))
      {
        SetEvent(DIOLINUXICMPFSMEVENT_DISCONNECTING);
 
-       while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
+       while(GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
         {
           usleep(10000);
         }

@@ -85,7 +85,7 @@ class DIOESP32STREAMUART : public DIOSTREAMUART, public XFSMACHINE
                                 DIOESP32STREAMUART        		();
     virtual                    ~DIOESP32STREAMUART        		();
 
-    virtual DIOSTREAMSTATUS     GetConnectStatus              ();
+    virtual DIOSTREAMSTATUS     GetStatus              ();
 
     virtual bool          	    Open                          ();
 

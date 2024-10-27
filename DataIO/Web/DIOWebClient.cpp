@@ -1342,7 +1342,7 @@ bool DIOWEBCLIENT::MakeOperation(DIOWEBHEADER_METHOD method, DIOURL& url, XBUFFE
                   break;
                 }
 
-              if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED)
+              if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED)
                 {
                   if(!diostream->GetInXBuffer()->GetSize())
                     {

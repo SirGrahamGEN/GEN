@@ -224,15 +224,15 @@ bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      Create Stream IO
+* @brief      CreateStreamIO
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  config : config to create stream  IO
-*
-* @return     DIOSTREAM* : stream IO created
-*
+* 
+* @param[in]  config : 
+* 
+* @return     DIOSTREAM* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {

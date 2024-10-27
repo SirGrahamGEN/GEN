@@ -178,10 +178,10 @@ bool DIOWINDOWSSTREAMTCPIP::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMTCPIP::Disconnect()
 {
-  if((GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED)          ||
-     (GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
+  if((GetStatus() == DIOSTREAMSTATUS_CONNECTED)          ||
+     (GetStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
      {
-       while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
+       while(GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
         {
           SetEvent(DIOWINDOWSTCPIPFSMEVENT_DISCONNECTING);
           Sleep(10);
@@ -253,11 +253,41 @@ bool DIOWINDOWSSTREAMTCPIP::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, XDWORD usec)
+* @fn         SOCKET DIOWINDOWSSTREAMTCPIP::GetHandleSocket()
+* @brief      GetHandleSocket
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @return     SOCKET : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+SOCKET DIOWINDOWSSTREAMTCPIP::GetHandleSocket()
+{
+  return handlesocket;
+}
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMTCPIP::SetHandleSocket(SOCKET handlesocket)
+* @brief      SetHandleSocket
+* @ingroup    PLATFORM_WINDOWS
+* 
+* @param[in]  handlesocket : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOWINDOWSSTREAMTCPIP::SetHandleSocket(SOCKET handlesocket)
+{
+  this->handlesocket = handlesocket;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET handlesocket, void* addr, void* addrlen, XDWORD usec)
 * @brief      Accept
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  socket : 
+* @param[in]  handlesocket : 
 * @param[in]  addr : 
 * @param[in]  addrlen : 
 * @param[in]  usec : 
@@ -265,24 +295,29 @@ bool DIOWINDOWSSTREAMTCPIP::Close()
 * @return     SOCKET : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, XDWORD usec)
+SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET handlesocket, void* addr, void* addrlen, XDWORD usec)
 {
   fd_set         fds;
   struct timeval time_out;
   SOCKET         status;
 
-  if(socket==INVALID_SOCKET) return INVALID_SOCKET;
+  if(handlesocket==INVALID_SOCKET) return INVALID_SOCKET;
 
   FD_ZERO(&fds);
-  FD_SET((unsigned int)socket,&fds);
+  FD_SET((unsigned int)handlesocket,&fds);
 
   time_out.tv_sec  = 0;
   time_out.tv_usec = usec;
 
-  status = (SOCKET)select((int)(socket)+1, &fds, NULL, NULL, &time_out);
+  status = (SOCKET)select((int)(handlesocket)+1, &fds, NULL, NULL, &time_out);
   if(status>0)
-         status = accept(socket,(SOCKADDR*)addr, (int*)addrlen);
-    else status = INVALID_SOCKET;
+    {
+      status = accept(handlesocket,(SOCKADDR*)addr, (int*)addrlen);
+    }
+   else 
+    {
+      status = INVALID_SOCKET;
+    }
 
   return status;
 }
@@ -290,18 +325,21 @@ SOCKET DIOWINDOWSSTREAMTCPIP::Accept(SOCKET socket, void* addr, void* addrlen, X
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
+* @fn         int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET handlesocket)
 * @brief      IsReadyConnect
 * @ingroup    PLATFORM_WINDOWS
 * 
-* @param[in]  socket : 
+* @param[in]  handlesocket : 
 * 
 * @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
+int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET handlesocket)
 {
-  if(socket==INVALID_SOCKET) return -1;
+  if(handlesocket==INVALID_SOCKET) 
+    {
+      return -1;
+    }
 
   struct timeval  tv;
   int             rc;
@@ -313,23 +351,29 @@ int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
   FD_ZERO(&fdw);
   FD_ZERO(&fds);
 
-  FD_SET((unsigned int)socket, &fdr);
-  FD_SET((unsigned int)socket, &fdw);
-  FD_SET((unsigned int)socket, &fds);
+  FD_SET((unsigned int)handlesocket, &fdr);
+  FD_SET((unsigned int)handlesocket, &fdw);
+  FD_SET((unsigned int)handlesocket, &fds);
 
   tv.tv_sec  = 0;
   tv.tv_usec = 100;
 
-  rc = select((int)(socket)+1, &fdr, &fdw, &fds, &tv);
-  if(rc == SOCKET_ERROR) return -1;
+  rc = select((int)(handlesocket)+1, &fdr, &fdw, &fds, &tv);
+  if(rc == SOCKET_ERROR) 
+    {
+      return -1;
+    }
 
-  int status1 = FD_ISSET(socket,&fdr) ? 1 : 0;
-  int status2 = FD_ISSET(socket,&fdw) ? 1 : 0;
-  int status3 = FD_ISSET(socket,&fds) ? 1 : 0;
+  int status1 = FD_ISSET(handlesocket,&fdr) ? 1 : 0;
+  int status2 = FD_ISSET(handlesocket,&fdw) ? 1 : 0;
+  int status3 = FD_ISSET(handlesocket,&fds) ? 1 : 0;
 
   if(config->IsServer())
     {
-      if(status1 || status2 )   return  1;
+      if(status1 || status2 )   
+        {
+          return  1;
+        }
     }
    else
     {
@@ -338,7 +382,10 @@ int DIOWINDOWSSTREAMTCPIP::IsReadyConnect(SOCKET socket)
           int optval;
           int optlen = sizeof(int);
 
-          if(getsockopt(socket,SOL_SOCKET, SO_ERROR, (char*)&optval, &optlen) < 0) return -1;
+          if(getsockopt(handlesocket,SOL_SOCKET, SO_ERROR, (char*)&optval, &optlen) < 0) 
+            {
+              return -1;
+            }
 
           return  1;
         }
@@ -798,5 +845,19 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
     }
 }
 
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOWINDOWSSTREAMTCPIP::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    PLATFORM_WINDOWS
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void  DIOWINDOWSSTREAMTCPIP::Clean()
+{
+  threadconnection  = NULL;
+  handlesocket      = INVALID_SOCKET;
+}
 
 #pragma endregion

@@ -61,7 +61,7 @@ class DIOSTREAMUART : public DIOSTREAM
     virtual DIOSTREAMCONFIG*      GetConfig                         ();
     virtual bool                  SetConfig                         (DIOSTREAMCONFIG* config);
 
-    virtual DIOSTREAMSTATUS       GetConnectStatus                  ();
+    virtual DIOSTREAMSTATUS       GetStatus                  ();
 
     virtual bool                  Open                              ();
 

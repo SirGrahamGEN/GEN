@@ -758,7 +758,7 @@ DIOIEC60870_5::~DIOIEC60870_5()
 bool DIOIEC60870_5::Connect(XWORD addressfield,XBYTE addressPM, XDWORD keyPM, bool inlittleendian, bool havelongaddress, int timeout)
 {
   if(!diostream)                                                  return false;
-  //if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
+  //if(diostream->GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   #ifdef XTRACE_ACTIVE
 
@@ -1578,7 +1578,7 @@ bool DIOIEC60870_5::IsValidFrameCount(XBYTE functioncode)
 bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 {
   if(!diostream) return false;
-  if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
   if(!xtimer)    return false;
 
   if(!dataASDU)  return false;
@@ -1647,7 +1647,7 @@ bool DIOIEC60870_5::SendMsgVar(XBYTE functioncode, XBUFFER* dataASDU)
 bool DIOIEC60870_5::SendMsgFix(XBYTE functioncode)
 {
   if(!diostream) return false;
-  if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
   if(!xtimer)    return false;
 
   XBUFFER  xbuffer;
@@ -1716,7 +1716,7 @@ bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
       if(canceloperations)                                         return false;
 
       if(!diostream)                                               return false;
-      if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
+      if(diostream->GetStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
 
       actualsize = diostream->GetInXBuffer()->GetSize();
       if((int)xtimer->GetMeasureSeconds() >= timeout) return false;
@@ -1750,7 +1750,7 @@ bool DIOIEC60870_5::WaitToReadMsg(XDWORD size,int timeout)
 bool DIOIEC60870_5::ReadMsg(XBYTE& retfunctioncode,bool& retisfixmsg,XBUFFER* retASDU,int timeout)
 {
   if(!diostream) return false;
-  if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus()!=DIOSTREAMSTATUS_CONNECTED) return false;
   if(!xtimer)    return false;
 
   bool status  = false;

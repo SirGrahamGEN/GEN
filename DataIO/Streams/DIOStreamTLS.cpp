@@ -223,18 +223,18 @@ bool DIOSTREAMTLS::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTREAMTLS::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS : 
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMTLS::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTREAMTLS::GetStatus()
 {
   if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
 
-  return diostream->GetConnectStatus();
+  return diostream->GetStatus();
 }
 
 

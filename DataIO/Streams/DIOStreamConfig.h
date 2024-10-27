@@ -43,29 +43,32 @@
 
 enum DIOSTREAMTYPE
 {
-  DIOSTREAMTYPE_UNKNOWN         = 0 ,
-  DIOSTREAMTYPE_UART                ,
-  DIOSTREAMTYPE_USB                 ,
-  DIOSTREAMTYPE_ICMP                ,
-  DIOSTREAMTYPE_UDP                 ,
-  DIOSTREAMTYPE_TCPIP               ,
-  DIOSTREAMTYPE_BLUETOOTH           ,
-  DIOSTREAMTYPE_SPI                 ,
-  DIOSTREAMTYPE_I2C                 ,
+  DIOSTREAMTYPE_UNKNOWN               = 0 ,
+  DIOSTREAMTYPE_UART                      ,
+  DIOSTREAMTYPE_USB                       ,
+  DIOSTREAMTYPE_ICMP                      ,
+  DIOSTREAMTYPE_UDP                       ,
+  DIOSTREAMTYPE_TCPIP                     ,
+  DIOSTREAMTYPE_BLUETOOTH                 ,
+  DIOSTREAMTYPE_SPI                       ,
+  DIOSTREAMTYPE_I2C                       ,
 };
 
 
 enum DIOSTREAMMODE
 {
-  DIOSTREAMMODE_NONE           = 0  ,
-  DIOSTREAMMODE_SERVER         = 1  ,
-  DIOSTREAMMODE_HOST           = 1  ,
-  DIOSTREAMMODE_MASTER         = 1  ,
-  DIOSTREAMMODE_SEMISERVER     = 2  ,
-  DIOSTREAMMODE_SEMIHOST       = 2  ,
-  DIOSTREAMMODE_SEMIMASTER     = 2  ,
-  DIOSTREAMMODE_CLIENT         = 3  ,
-  DIOSTREAMMODE_SLAVE          = 3
+  DIOSTREAMMODE_NONE                  = 0 ,
+  
+  DIOSTREAMMODE_SERVER                = 1 ,
+  DIOSTREAMMODE_MASTER                = 1 ,
+
+  DIOSTREAMMODE_SERVERMULTISOCKET     = 2 ,
+ 
+  DIOSTREAMMODE_SEMISERVER            = 3 ,
+  DIOSTREAMMODE_SEMIMASTER            = 3 ,
+  
+  DIOSTREAMMODE_CLIENT                = 4 ,
+  DIOSTREAMMODE_SLAVE                 = 4
 };
 
 

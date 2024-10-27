@@ -201,16 +201,16 @@ bool DIOFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      Create Stream IO
-* @note       VIRTUAL
+* 
+* @fn         DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config, bool multisocketserver)
+* @brief      CreateStreamIO
 * @ingroup    DATAIO
-*
-* @param[in]  config : config to create stream IO
-*
-* @return     DIOSTREAM* : stream IO created
-*
+* 
+* @param[in]  config : 
+* @param[in]  multisocketserver : 
+* 
+* @return     DIOSTREAM* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {

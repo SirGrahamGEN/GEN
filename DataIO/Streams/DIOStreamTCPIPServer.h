@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOANDROIDStreamUSB.h
+* @file       DIOStreamTCPIPServer.h
 * 
-* @class      DIOANDROIDSTREAMUSB
-* @brief      ANDROID Data Input/Output Stream USB class
-* @ingroup    PLATFORM_ANDROID
+* @class      DIOSTREAMTCPIPSERVER
+* @brief      Data Input/Output Stream TCP/IP Server class (Multi-Socket)
+* @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,20 +26,17 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOANDROIDSTREAMUSB_H_
-#define _DIOANDROIDSTREAMUSB_H_
-
-
-#if defined(DIO_ACTIVE) && defined(DIO_STREAMUSB_ACTIVE)
-
+#ifndef _DIOSTREAMTCPIPSERVER_H_
+#define _DIOSTREAMTCPIPSERVER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XBuffer.h"
-#include "XFSMachine.h"
+#include "XThreadCollected.h"
 
-#include "DIOStreamUSB.h"
+#include "DIOIP.h"
+#include "DIOStream.h"
+#include "DIOStreamTCPIP.h"
 
 #pragma endregion
 
@@ -47,31 +44,8 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
-enum DIOANDROIDUSBFSMEVENTS
-{
-  DIOANDROIDUSBFSMEVENT_NONE               = 0  ,
-  DIOANDROIDUSBFSMEVENT_CONNECTED             ,
-  DIOANDROIDUSBFSMEVENT_WAITINGTOREAD         ,
-  DIOANDROIDUSBFSMEVENT_SENDINGDATA           ,
-  DIOANDROIDUSBFSMEVENT_DISCONNECTING         ,
-
-  DIOANDROIDUSB_LASTEVENT
-};
-
-
-enum DIOANDROIDUSBFSMSTATES
-{
-  DIOANDROIDUSBFSMSTATE_NONE               = 0  ,
-
-  DIOANDROIDUSBFSMSTATE_CONNECTED             ,
-  DIOANDROIDUSBFSMSTATE_WAITINGTOREAD         ,
-  DIOANDROIDUSBFSMSTATE_SENDINGDATA           ,
-  DIOANDROIDUSBFSMSTATE_DISCONNECTING         ,
-
-  DIOANDROIDUSB_LASTSTATE
-};
-
+#define DIOSTREAMTCPIPSERVER_MAXLISTEN                        1024
+#define DIOSTREAMTCPIPSERVER_TIMEOUTENUMSERVERSIGNAL          3
 
 #pragma endregion
 
@@ -80,39 +54,42 @@ enum DIOANDROIDUSBFSMSTATES
 #pragma region CLASS
 
 
-class XTHREAD;
+class DIOSTREAMTCPIPCONFIG;
+class DIOSTREAMENUMSERVERS;
 
 
-class DIOANDROIDSTREAMUSB : public DIOSTREAMUSB , public XFSMACHINE
+class DIOSTREAMTCPIPSERVER : public DIOSTREAM
 {
   public:
-                          DIOANDROIDSTREAMUSB           ();
-    virtual              ~DIOANDROIDSTREAMUSB           ();
+                                            DIOSTREAMTCPIPSERVER      ();
+    virtual                                ~DIOSTREAMTCPIPSERVER      ();
 
-    DIOSTREAMSTATUS       GetStatus              ();
+    virtual DIOSTREAMCONFIG*                GetConfig                 ();
+    virtual bool                            SetConfig                 (DIOSTREAMCONFIG* config);
 
-    bool                  Open                          ();
+    virtual bool                            Open                      ()                                = 0;
+    virtual bool                            Disconnect                ()                                = 0;
+    virtual bool                            Close                     ()                                = 0;
 
-    bool                  Disconnect                    ();
-    bool                  Close                         ();
+    DIOIP*                                  GetClientIP               ();
 
-    bool                  CleanBuffers                  ();
+    DIOSTREAMENUMSERVERS*                   GetEnumServers            ();
+    bool                                    SetEnumServers            (DIOSTREAMENUMSERVERS* localenumservers);
+
+    XVECTOR<DIOSTREAMTCPIP*>*               GetMultiSocketStreams     ();    
 
   protected:
-   
-    static void           ThreadConnection              (void* data);
 
-    XDWORD                ReadBuffer                    (XBYTE* buffer,XDWORD size);
-    XDWORD                WriteBuffer                   (XBYTE* buffer,XDWORD size);
+    DIOSTREAMTCPIPCONFIG*                   config;
+    DIOIP                                   clientIP;
 
-    void                  Clean                         ();
+    DIOSTREAMENUMSERVERS*                   enumservers;
 
-    XTHREAD*              threadconnection;
+    XVECTOR<DIOSTREAMTCPIP*>                multisocketstreams;    
 
-    int                   fd;
+  private:
 
-    int                   readtimeout;
-    int                   writetimeout;
+    void                                    Clean                     ();       
 };
 
 
@@ -124,9 +101,6 @@ class DIOANDROIDSTREAMUSB : public DIOSTREAMUSB , public XFSMACHINE
 
 
 #pragma endregion
-
-
-#endif
 
 
 #endif

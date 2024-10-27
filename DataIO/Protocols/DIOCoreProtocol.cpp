@@ -299,7 +299,7 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
   XDWORD start  = 0;
   bool   status = false;
   
-  if(readbuffer->Get((XDWORD)start, 0))
+  if(readbuffer->Get((XDWORD&)start, 0))
     {
       // Compress Data
       if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
@@ -309,11 +309,11 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
           XWORD   sizeheadercmp = 0;
           XDWORD  crc32header   = 0;
 
-          if(readbuffer->Get((XWORD)sizeheader))
+          if(readbuffer->Get((XWORD&)sizeheader))
             {
-              if(readbuffer->Get((XWORD)sizeheadercmp))
+              if(readbuffer->Get((XWORD&)sizeheadercmp))
                 {
-                  if(readbuffer->Get((XDWORD)crc32header))
+                  if(readbuffer->Get((XDWORD&)crc32header))
                     {
                       if(sizeheader)
                         {       

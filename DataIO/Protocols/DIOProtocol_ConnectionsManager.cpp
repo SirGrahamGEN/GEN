@@ -967,7 +967,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
             {
               if(protocolconnection->GetDIOProtocol()->GetDIOStream())
                 {
-                  if(protocolconnection->GetDIOProtocol()->GetDIOStream()->GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION)
+                  if(protocolconnection->GetDIOProtocol()->GetDIOStream()->GetStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION)
                     {
                       DeleteProtocol(protocolconnection->GetDIOProtocol());
                       protocolconnection->SetDIOProtocol(NULL);

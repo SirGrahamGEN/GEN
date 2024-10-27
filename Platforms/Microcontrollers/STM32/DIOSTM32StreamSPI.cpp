@@ -231,14 +231,14 @@ DIOSTM32STREAMSPI::~DIOSTM32STREAMSPI()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTM32STREAMSPI::GetStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
 
@@ -385,7 +385,7 @@ bool DIOSTM32STREAMSPI::WaitToFilledReadingBuffer(int filledto, int timeout)
 XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   XDWORD br = 0;
 
@@ -418,7 +418,7 @@ XDWORD DIOSTM32STREAMSPI::ReadDirect(XBYTE* buffer, XDWORD size)
 XDWORD DIOSTM32STREAMSPI::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   XDWORD bw = 0;
 
@@ -502,7 +502,7 @@ bool DIOSTM32STREAMSPI::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!DIOSTM32STREAMSPI::handles[indexhandle]) return false;
 
@@ -565,7 +565,7 @@ void HAL_SPI_MasterRxCpltCallback(SPI_HandleTypeDef* hspi)
         {
           if(DIOSTM32STREAMSPI::handles[c]->indexport  == port)
             {
-              if(DIOSTM32STREAMSPI::handles[c]->GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
+              if(DIOSTM32STREAMSPI::handles[c]->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
 
               if(!DIOSTM32STREAMSPI::handles[c]->IsBlockRead())
                 {

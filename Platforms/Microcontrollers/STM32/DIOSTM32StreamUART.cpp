@@ -109,14 +109,14 @@ DIOSTM32STREAMUART::~DIOSTM32STREAMUART()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTM32STREAMUART::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTM32STREAMUART::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTM32STREAMUART::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTM32STREAMUART::GetStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
 
@@ -305,7 +305,7 @@ bool DIOSTM32STREAMUART::Config(XWORD mask)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   int br = 0;
 
@@ -333,7 +333,7 @@ XDWORD DIOSTM32STREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOSTM32STREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   if(HAL_UART_Transmit(&huart, (uint8_t*)buffer , (uint16_t)size, 1000) == HAL_OK) return size;
 
@@ -406,7 +406,7 @@ bool DIOSTM32STREAMUART::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   diostreamuartptrhandle[indexport] = NULL;
 
@@ -591,7 +591,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
   if(indexport == -1)                                                                       return;
   if(!diostreamuartptrhandle[indexport])                                                    return;
-  if(diostreamuartptrhandle[indexport]->GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
+  if(diostreamuartptrhandle[indexport]->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) return;
 
   if(!diostreamuartptrhandle[indexport]->IsBlockRead())
     {

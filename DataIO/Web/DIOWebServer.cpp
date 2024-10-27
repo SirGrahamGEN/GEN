@@ -2731,7 +2731,7 @@ bool DIOWEBSERVER::Ini(int port, bool doinitialconnectitivitytest, int timeoutse
             {                    
               while(1)
                 {
-                  if(diostream->GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED)
+                  if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED)
                     {
                       status = false;
                       break;
@@ -3610,7 +3610,7 @@ XDWORD DIOWEBSERVER::Connections_GetNWaiting()
           DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
           if(connection)
             {
-              if((!connection->IsRequestInProgress())  && (connection->GetDIOStream()->GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
+              if((!connection->IsRequestInProgress())  && (connection->GetDIOStream()->GetStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
                 {
                   nconnectionswait++;
                 }
@@ -3725,7 +3725,7 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
       do{ DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
           if(connection)
             {
-              if((connection->GetDIOStream()->GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED) &&  (!connection->IsRequestInProgress()))
+              if((connection->GetDIOStream()->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) &&  (!connection->IsRequestInProgress()))
                 {
                   UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
                   UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
@@ -3767,7 +3767,7 @@ bool DIOWEBSERVER::Connections_DeleteWaiting()
       do{ DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
           if(connection)
             {
-              if((!connection->IsRequestInProgress())  && (connection->GetDIOStream()->GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
+              if((!connection->IsRequestInProgress())  && (connection->GetDIOStream()->GetStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
                 {
                   connections.Delete(connection);
                   delete connection;

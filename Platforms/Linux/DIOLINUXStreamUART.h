@@ -88,7 +88,7 @@ class DIOLINUXSTREAMUART : public DIOSTREAMUART , public XFSMACHINE
                           DIOLINUXSTREAMUART            ();
     virtual              ~DIOLINUXSTREAMUART            ();
 
-    DIOSTREAMSTATUS       GetConnectStatus              ();
+    DIOSTREAMSTATUS       GetStatus              ();
 
     bool                  Open                          ();
 

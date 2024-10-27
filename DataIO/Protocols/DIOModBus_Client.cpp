@@ -162,7 +162,7 @@ bool DIOMODBUS_CLIENT::SetMode(DIOMODBUS_CLIENTMODE mode)
 bool DIOMODBUS_CLIENT::Connect(XBYTE unit, int timeout)
 {
   if(!diostream)                                                  return false;
-  if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(diostream->GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   this->unit = unit;
 
@@ -219,7 +219,7 @@ void DIOMODBUS_CLIENT::SetUnit(XBYTE unit)
 bool DIOMODBUS_CLIENT::ReadHoldingRegisters(XWORD address, XWORD nregisters, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   answer.Delete();
 
@@ -410,7 +410,7 @@ bool DIOMODBUS_CLIENT::Disconnect()
 bool DIOMODBUS_CLIENT::MakeCommand(DIOMODBUS_CLIENT_FUNCTION function, XBUFFER& ask, XBUFFER& answer, int timeout)
 {
   if(!diostream)                                                 return false;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   XBUFFER datawrite;
 

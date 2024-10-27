@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOStreamUSB.cpp
+* @file       DIOStreamTCPIPServer.cpp
 * 
-* @class      DIOSTREAMUSB
-* @brief      Data Input/Output Stream USB class
+* @class      DIOSTREAMTCPIPSERVER
+* @brief      Data Input/Output Stream TCP/IP Server class (Multi-Socket)
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -37,9 +37,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIOStreamUSB.h"
+#include "DIOStreamTCPIPServer.h"
 
-#include "DIOStreamUSBConfig.h"
+#include "DIOFactory.h"
 
 #include "XMemory_Control.h"
 
@@ -58,12 +58,12 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMUSB::DIOSTREAMUSB()
+* @fn         DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 * @brief      Constructor
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMUSB::DIOSTREAMUSB() : DIOSTREAM()
+DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 {
   Clean();
 }
@@ -71,13 +71,13 @@ DIOSTREAMUSB::DIOSTREAMUSB() : DIOSTREAM()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMUSB::~DIOSTREAMUSB()
+* @fn         DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMUSB::~DIOSTREAMUSB()
+DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
 {
   Clean();
 }
@@ -85,14 +85,14 @@ DIOSTREAMUSB::~DIOSTREAMUSB()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
+* @fn         DIOSTREAMCONFIG* DIOSTREAMTCPIPSERVER::GetConfig()
 * @brief      GetConfig
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMCONFIG* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
+DIOSTREAMCONFIG* DIOSTREAMTCPIPSERVER::GetConfig()
 {
   return (DIOSTREAMCONFIG*)config;
 }
@@ -100,7 +100,7 @@ DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOSTREAMUSB::SetConfig(DIOSTREAMCONFIG* config)
+* @fn         bool DIOSTREAMTCPIPSERVER::SetConfig(DIOSTREAMCONFIG* config)
 * @brief      SetConfig
 * @ingroup    DATAIO
 *
@@ -109,11 +109,10 @@ DIOSTREAMCONFIG* DIOSTREAMUSB::GetConfig()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTREAMUSB::SetConfig(DIOSTREAMCONFIG* config)
+bool DIOSTREAMTCPIPSERVER::SetConfig(DIOSTREAMCONFIG* config)
 {
   if(!config) return false;
-
-  this->config = (DIOSTREAMUSBCONFIG*)config;
+  this->config = (DIOSTREAMTCPIPCONFIG*)config;
 
   return true;
 }
@@ -121,76 +120,80 @@ bool DIOSTREAMUSB::SetConfig(DIOSTREAMCONFIG* config)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTREAMUSB::GetStatus()
-* @brief      GetStatus
+* @fn         DIOIP* DIOSTREAMTCPIPSERVER::GetClientIP()
+* @brief      GetClientIP
 * @ingroup    DATAIO
 *
-* @return     DIOSTREAMSTATUS :
+* @return     DIOIP* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMUSB::GetStatus()
+DIOIP* DIOSTREAMTCPIPSERVER::GetClientIP()
 {
-  return DIOSTREAMSTATUS_DISCONNECTED;
+  return &clientIP;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOSTREAMUSB::Open()
-* @brief      Open
+* @fn         DIOSTREAMENUMSERVERS* DIOSTREAMTCPIPSERVER::GetEnumServers()
+* @brief      GetEnumServers
 * @ingroup    DATAIO
+*
+* @return     DIOSTREAMENUMSERVERS* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAMENUMSERVERS* DIOSTREAMTCPIPSERVER::GetEnumServers()
+{
+  return enumservers;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool DIOSTREAMTCPIPSERVER::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
+* @brief      SetEnumServers
+* @ingroup    DATAIO
+*
+* @param[in]  enumservers :
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTREAMUSB::Open()
+bool DIOSTREAMTCPIPSERVER::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 {
-  return false;
+  this->enumservers = enumservers;
+
+  return true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOSTREAMUSB::Close()
-* @brief      Close
+* 
+* @fn         XVECTOR<DIOSTREAMTCPIP*>* DIOSTREAMTCPIPSERVER::GetMultiSocketStreams()
+* @brief      GetMultiSocketStreams
 * @ingroup    DATAIO
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @return     XVECTOR<DIOSTREAMTCPIP*>* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTREAMUSB::Close()
+XVECTOR<DIOSTREAMTCPIP*>* DIOSTREAMTCPIPSERVER::GetMultiSocketStreams()
 {
-  return false;
+  return &multisocketstreams;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOSTREAMUSB::CleanBuffers()
+* @fn         void DIOSTREAMTCPIPSERVER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
 *
-* @return     bool : true if is succesful.
-*
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOSTREAMUSB::CleanBuffers()
+void DIOSTREAMTCPIPSERVER::Clean()
 {
-  return false;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         void DIOSTREAMUSB::Clean()
-* @brief      Clean the attributes of the class: Default initialice
-* @note       INTERNAL
-* @ingroup    DATAIO
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOSTREAMUSB::Clean()
-{
-  config = NULL;
+  config      = NULL;
+  enumservers = NULL;
 }
 
 

@@ -90,7 +90,7 @@ class DIOESP32STREAMUSB : public DIOSTREAMUSB, public XFSMACHINE
                                 DIOESP32STREAMUSB         ();
     virtual                    ~DIOESP32STREAMUSB         ();
 
-    DIOSTREAMSTATUS             GetConnectStatus              ();
+    DIOSTREAMSTATUS             GetStatus              ();
 
     bool                        Open                          ();
 

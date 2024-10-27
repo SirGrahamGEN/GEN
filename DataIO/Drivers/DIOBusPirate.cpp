@@ -143,7 +143,7 @@ bool DIOBUSPIRATE::Ini(int timeout)
 DIOBUSPIRATETYPEPROCOTOL DIOBUSPIRATE::GetActualProtocol(int timeout)
 {
   if(!diostream)                                                 return DIOBUSPIRATETYPEPROCOTOL_UNKNOWN;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return DIOBUSPIRATETYPEPROCOTOL_UNKNOWN;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return DIOBUSPIRATETYPEPROCOTOL_UNKNOWN;
 
   XSTRING promptstatus;
 
@@ -181,7 +181,7 @@ bool DIOBUSPIRATE::SetMode(DIOBUSPIRATETYPEPROCOTOL protocol, bool issoftware, i
 {
   if(!xtimerout)                                                 return false;
   if(!diostream)                                                 return false;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   XSTRING option;
   bool    status = false;
@@ -306,7 +306,7 @@ bool DIOBUSPIRATE::End()
 bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
 {
   if(!diostream)                                                 return false;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   promptstatus.Empty();
 
@@ -353,7 +353,7 @@ bool DIOBUSPIRATE::ReadPromptStatus(XSTRING& promptstatus, int timeout)
 bool DIOBUSPIRATE::WriteCommand(XCHAR* command, int timeout)
 {
   if(!diostream)                                                 return false;
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   XSTRING _command;
   bool    status;

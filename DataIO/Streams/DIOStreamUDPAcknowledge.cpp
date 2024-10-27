@@ -140,17 +140,17 @@ bool DIOSTREAMUDPACKNOWLEDGE::SetConfig(DIOSTREAMCONFIG* config)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTREAMUDPACKNOWLEDGE::GetStatus()
 {
   if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
-  return diostream->GetConnectStatus();
+  return diostream->GetStatus();
 }
 
 

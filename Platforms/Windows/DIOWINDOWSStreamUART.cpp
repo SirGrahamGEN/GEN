@@ -120,14 +120,14 @@ DIOWINDOWSSTREAMUART::~DIOWINDOWSSTREAMUART()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_WINDOWS
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetConnectStatus()
+DIOSTREAMSTATUS DIOWINDOWSSTREAMUART::GetStatus()
 {
   if(hcom==INVALID_HANDLE_VALUE)  return DIOSTREAMSTATUS_DISCONNECTED;
   if(!config)                     return DIOSTREAMSTATUS_DISCONNECTED;
@@ -240,7 +240,7 @@ bool DIOWINDOWSSTREAMUART::Open()
 bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 {
   if(!config) return false;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DCB dcb;
 
@@ -328,7 +328,7 @@ bool DIOWINDOWSSTREAMUART::Config(XWORD mask)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
   if(size == 0)                                        return 0;
 
   DWORD br    = 0;
@@ -397,7 +397,7 @@ XDWORD DIOWINDOWSSTREAMUART::ReadDirect(XBYTE* buffer,XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   if(size == 0)    return 0;
 
@@ -455,7 +455,7 @@ XDWORD DIOWINDOWSSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 bool DIOWINDOWSSTREAMUART::Close()
 {
   if(threadconnection) threadconnection->End();
-  //if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  //if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(hcom != INVALID_HANDLE_VALUE)
     {
@@ -478,7 +478,7 @@ bool DIOWINDOWSSTREAMUART::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetCTS()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -502,7 +502,7 @@ bool DIOWINDOWSSTREAMUART::GetCTS()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetDSR()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -526,7 +526,7 @@ bool DIOWINDOWSSTREAMUART::GetDSR()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRing()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -550,7 +550,7 @@ bool DIOWINDOWSSTREAMUART::GetRing()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::GetRLSD()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   DWORD status = 0;
   if(!GetCommModemStatus(hcom,&status))
@@ -576,7 +576,7 @@ bool DIOWINDOWSSTREAMUART::GetRLSD()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!EscapeCommFunction(hcom,on?SETRTS:CLRRTS)) return false;
 
@@ -597,7 +597,7 @@ bool DIOWINDOWSSTREAMUART::SetRTS(bool on)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!EscapeCommFunction(hcom,on?SETDTR:CLRDTR)) return false;
 
@@ -617,7 +617,7 @@ bool DIOWINDOWSSTREAMUART::SetDTR(bool on)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::CleanBuffers()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!PurgeComm(hcom,PURGE_TXCLEAR|PURGE_RXCLEAR)) return false;
 
@@ -642,7 +642,7 @@ bool DIOWINDOWSSTREAMUART::CleanBuffers()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!SetCommMask(hcom,mask))
     {
@@ -667,7 +667,7 @@ bool DIOWINDOWSSTREAMUART::SetMask(XDWORD mask)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUART::SetTimeouts()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   COMMTIMEOUTS to;
 

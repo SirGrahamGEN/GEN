@@ -83,7 +83,7 @@ class DIOESP32STREAMSPI : public DIOSTREAMSPI
                                             DIOESP32STREAMSPI                   ();
     virtual                                ~DIOESP32STREAMSPI                   ();
 
-    DIOSTREAMSTATUS                         GetConnectStatus                    ();
+    DIOSTREAMSTATUS                         GetStatus                    ();
 
     bool                                    Open                                ();
 

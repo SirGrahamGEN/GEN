@@ -191,15 +191,15 @@ bool DIOWINDOWSSTREAMUDP::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMUDP::Disconnect()
 {
-  if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
-     (GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED))
+  if((GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
+     (GetStatus()==DIOSTREAMSTATUS_CONNECTED))
     {
       SetEvent(DIOWINDOWSUDPFSMEVENT_DISCONNECTING);
 
       XTIMER* GEN_XFACTORY_CREATE(timerout, CreateTimer())
       if(timerout)
         {            
-          while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
+          while(GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
             {
               if(timerout->GetMeasureSeconds() > 3) break;
 

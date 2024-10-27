@@ -855,7 +855,7 @@ bool DIOOBEXPUSH::CheckSending()
       return false;
     }
 
-  if(sio->GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)
+  if(sio->GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)
     {
       if(xtimer->GetMeasureSeconds()>=(XDWORD)asktimeout)
         {
@@ -872,7 +872,7 @@ bool DIOOBEXPUSH::CheckSending()
       return true;
     }
 
-  if(sio->GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED)
+  if(sio->GetStatus()==DIOSTREAMSTATUS_DISCONNECTED)
     {
       haveerror=true;
       SetEvent(DIOOBEXPUSH_XFSMEVENT_ENDPUSH);

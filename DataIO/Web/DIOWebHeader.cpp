@@ -136,7 +136,7 @@ bool DIOWEBHEADER::Read(DIOSTREAMTCPIP* diostream, int timeout)
           GEN_XSLEEP.MilliSeconds(1);
         }
 
-    } while((diostream->GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED) || diostream->GetInXBuffer()->GetSize());
+    } while((diostream->GetStatus() == DIOSTREAMSTATUS_CONNECTED) || diostream->GetInXBuffer()->GetSize());
 
   GEN_XFACTORY.DeleteTimer(xtimerout);
 
@@ -178,7 +178,7 @@ bool DIOWEBHEADER::Write(DIOSTREAMTCPIP* diostream, int timeout)
   diostream->WriteStr(__L("\r\n"));
   diostream->WaitToFlushOutXBuffer(timeout);
 
-  if(diostream->GetConnectStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
+  if(diostream->GetStatus() != DIOSTREAMSTATUS_CONNECTED) return false;
 
   return true;
 }

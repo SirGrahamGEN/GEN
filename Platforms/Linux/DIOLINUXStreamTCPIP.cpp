@@ -203,10 +203,10 @@ bool DIOLINUXSTREAMTCPIP::Disconnect()
   XTIMER* GEN_XFACTORY_CREATE(timerout, CreateTimer())
   if(!timerout) return false;
 
-  if((GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED)           ||
-     (GetConnectStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
+  if((GetStatus() == DIOSTREAMSTATUS_CONNECTED)           ||
+     (GetStatus() == DIOSTREAMSTATUS_GETTINGCONNECTION))
      {
-       while(GetConnectStatus() != DIOSTREAMSTATUS_DISCONNECTED)
+       while(GetStatus() != DIOSTREAMSTATUS_DISCONNECTED)
         {
           SetEvent(DIOLINUXTCPIPFSMEVENT_DISCONNECTING);
           usleep(10000);

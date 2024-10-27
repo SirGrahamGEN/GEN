@@ -229,14 +229,14 @@ DIOSTM32STREAMI2C::~DIOSTM32STREAMI2C()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_STM32
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTM32STREAMI2C::GetStatus()
 {
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
 
@@ -432,7 +432,7 @@ bool DIOSTM32STREAMI2C::WaitToFilledReadingBuffer(int filledto, int timeout)
 XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   XDWORD br = 0;
 
@@ -468,7 +468,7 @@ XDWORD DIOSTM32STREAMI2C::ReadDirect(XBYTE* buffer, XDWORD size)
 XDWORD DIOSTM32STREAMI2C::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(!config)                                          return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   XDWORD bw = 0;
 
@@ -559,7 +559,7 @@ bool DIOSTM32STREAMI2C::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!DIOSTM32STREAMI2C::handles[indexhandle]) return false;
 
@@ -623,7 +623,7 @@ void HAL_I2C_MasterRxCpltCallback(I2C_HandleTypeDef* hi2c)
         {
           if(DIOSTM32STREAMI2C::handles[c]->indexport  == indexport)
             {
-              if(DIOSTM32STREAMI2C::handles[c]->GetConnectStatus() == DIOSTREAMSTATUS_CONNECTED)
+              if(DIOSTM32STREAMI2C::handles[c]->GetStatus() == DIOSTREAMSTATUS_CONNECTED)
                 {
                   if(!DIOSTM32STREAMI2C::handles[c]->IsBlockRead())
                     {

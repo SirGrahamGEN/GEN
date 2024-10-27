@@ -162,17 +162,21 @@ bool DIOSTREAMCIPHER::SetConfig(DIOSTREAMCONFIG* config)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTREAMCIPHER::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTREAMCIPHER::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMCIPHER::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTREAMCIPHER::GetStatus()
 {
-  if(!diostream) return DIOSTREAMSTATUS_DISCONNECTED;
-  return diostream->GetConnectStatus();
+  if(!diostream) 
+    {
+      return DIOSTREAMSTATUS_DISCONNECTED;
+    }
+
+  return diostream->GetStatus();
 }
 
 

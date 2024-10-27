@@ -201,7 +201,7 @@ bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeou
   if(!modbusprotocol)                   return false;
   if(!modbusprotocol->GetDIOStream())   return false;
 
-  if(modbusprotocol->GetDIOStream()->GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(modbusprotocol->GetDIOStream()->GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(!modbusprotocol->Connect(unit,timeout)) return false;
 

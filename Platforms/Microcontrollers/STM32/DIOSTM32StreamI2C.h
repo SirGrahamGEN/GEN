@@ -85,7 +85,7 @@ class DIOSTM32STREAMI2C : public DIOSTREAMI2C
                                             DIOSTM32STREAMI2C                   ();
     virtual                                ~DIOSTM32STREAMI2C                   ();
 
-    DIOSTREAMSTATUS                         GetConnectStatus                    ();
+    DIOSTREAMSTATUS                         GetStatus                    ();
 
     virtual bool                            Open                                ();
 

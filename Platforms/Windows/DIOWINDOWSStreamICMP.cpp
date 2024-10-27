@@ -186,12 +186,12 @@ bool DIOWINDOWSSTREAMICMP::Open()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOWINDOWSSTREAMICMP::Disconnect()
 {
-  if((GetConnectStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
-     (GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED))
+  if((GetStatus()==DIOSTREAMSTATUS_GETTINGCONNECTION)||
+     (GetStatus()==DIOSTREAMSTATUS_CONNECTED))
      {
        SetEvent(DIOWINDOWSICMPFSMEVENT_DISCONNECTING);
 
-       while(GetConnectStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
+       while(GetStatus()!=DIOSTREAMSTATUS_DISCONNECTED)
         {
           Sleep(10);
         }

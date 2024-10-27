@@ -92,6 +92,7 @@
 #ifdef DIO_STREAMTCPIP_ACTIVE
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOWINDOWSStreamTCPIP.h"
+#include "DIOWINDOWSStreamTCPIPServer.h"
 #endif
 
 #if (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
@@ -233,19 +234,22 @@ bool DIOWINDOWSFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevice
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
-* @brief      Create Stream IO
+* @brief      CreateStreamIO
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  config : config to create the stream IO
-*
-* @return     DIOSTREAM* : stream IO create
-*
+* 
+* @param[in]  config : 
+* 
+* @return     DIOSTREAM* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
-  if(!config) return NULL;
+  if(!config)
+    {
+       return NULL;
+    }
 
   DIOSTREAM* _class = NULL;
 
@@ -254,35 +258,50 @@ DIOSTREAM* DIOWINDOWSFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
       case DIOSTREAMTYPE_UNKNOWN    : return NULL;
 
       #ifdef DIO_STREAMUART_ACTIVE
-      case DIOSTREAMTYPE_UART       : _class = new DIOWINDOWSSTREAMUART();        break;
+      case DIOSTREAMTYPE_UART       : _class = new DIOWINDOWSSTREAMUART();        
+                                      break;
       #endif
 
       #ifdef DIO_STREAMUSB_ACTIVE
-      case DIOSTREAMTYPE_USB        : _class = new DIOWINDOWSSTREAMUSB();         break;
+      case DIOSTREAMTYPE_USB        : _class = new DIOWINDOWSSTREAMUSB();         
+                                      break;
       #endif
 
       #ifdef DIO_STREAMICMP_ACTIVE
-      case DIOSTREAMTYPE_ICMP       : _class = new DIOWINDOWSSTREAMICMP();        break;
+      case DIOSTREAMTYPE_ICMP       : _class = new DIOWINDOWSSTREAMICMP();        
+                                      break;
       #endif
 
       #ifdef DIO_STREAMUDP_ACTIVE
-      case DIOSTREAMTYPE_UDP        : _class = new DIOWINDOWSSTREAMUDP();         break;
+      case DIOSTREAMTYPE_UDP        : _class = new DIOWINDOWSSTREAMUDP();         
+                                      break;
       #endif
 
       #ifdef DIO_STREAMTCPIP_ACTIVE
-      case DIOSTREAMTYPE_TCPIP      : _class = new DIOWINDOWSSTREAMTCPIP();       break;
+      case DIOSTREAMTYPE_TCPIP      : if(config->GetMode() == DIOSTREAMMODE_SERVERMULTISOCKET)
+                                        {
+                                          _class = new DIOWINDOWSSTREAMTCPIPSERVER();
+                                        }                                      
+                                       else
+                                        {
+                                          _class = new DIOWINDOWSSTREAMTCPIP();
+                                        } 
+                                      break;
       #endif
 
       #if defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
-      case DIOSTREAMTYPE_BLUETOOTH  : _class = new DIOWINDOWSSTREAMBLUETOOTH();   break;
+      case DIOSTREAMTYPE_BLUETOOTH  : _class = new DIOWINDOWSSTREAMBLUETOOTH();   
+                                      break;
       #endif
 
       #ifdef DIO_STREAMSPI_ACTIVE
-      case DIOSTREAMTYPE_SPI        : _class = new DIOWINDOWSSTREAMSPI();         break;
+      case DIOSTREAMTYPE_SPI        : _class = new DIOWINDOWSSTREAMSPI();         
+                                      break;
       #endif
 
       #ifdef DIO_STREAMI2C_ACTIVE
-      case DIOSTREAMTYPE_I2C        : _class = new DIOWINDOWSSTREAMI2C();         break;
+      case DIOSTREAMTYPE_I2C        : _class = new DIOWINDOWSSTREAMI2C();         
+                                      break;
       #endif
 
                         default     : return NULL;

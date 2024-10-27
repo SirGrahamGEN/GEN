@@ -91,7 +91,7 @@ class DIOLINUXSTREAMUSB : public DIOSTREAMUSB , public XFSMACHINE
                           DIOLINUXSTREAMUSB             ();
     virtual              ~DIOLINUXSTREAMUSB             ();
 
-    DIOSTREAMSTATUS       GetConnectStatus              ();
+    DIOSTREAMSTATUS       GetStatus              ();
 
     bool                  Open                          ();
 

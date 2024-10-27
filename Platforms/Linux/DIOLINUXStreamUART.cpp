@@ -138,14 +138,14 @@ DIOLINUXSTREAMUART::~DIOLINUXSTREAMUART()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_LINUX
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetConnectStatus()
+DIOSTREAMSTATUS DIOLINUXSTREAMUART::GetStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -361,7 +361,7 @@ bool DIOLINUXSTREAMUART::Config(XWORD mask)
 XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;
@@ -414,7 +414,7 @@ XDWORD DIOLINUXSTREAMUART::ReadDirect(XBYTE* buffer, XDWORD size)
 XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 {
   if(fd<0)                                             return 0;
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;
@@ -449,7 +449,7 @@ XDWORD DIOLINUXSTREAMUART::WriteDirect(XBYTE* buffer, XDWORD size)
 bool DIOLINUXSTREAMUART::Close()
 {
   if(threadconnection) threadconnection->End();
-  //if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  //if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(fd != -1)
     {

@@ -125,14 +125,14 @@ bool DIOSTREAMUART::SetConfig(DIOSTREAMCONFIG* config)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTREAMUART::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTREAMUART::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAMUART::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTREAMUART::GetStatus()
 {
   return  DIOSTREAMSTATUS_DISCONNECTED;
 }

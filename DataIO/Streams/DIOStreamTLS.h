@@ -151,7 +151,7 @@ class DIOSTREAMTLS : public DIOSTREAM
 
     bool                                    Close                         ();
 
-    DIOSTREAMSTATUS                         GetConnectStatus              ();  
+    DIOSTREAMSTATUS                         GetStatus              ();  
 
     bool                                    HandShake_Client_Hello        ();
 

@@ -147,16 +147,31 @@ DIOSTREAM::~DIOSTREAM()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOSTREAM::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
 *
 * @return     DIOSTREAMSTATUS :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
+DIOSTREAMSTATUS DIOSTREAM::GetStatus()
 {
   return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAM::SetStatus(DIOSTREAMSTATUS status)
+* @brief      SetStatus
+* @ingroup    DATAIO
+* 
+* @param[in]  status : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAM::SetStatus(DIOSTREAMSTATUS status)
+{
+  this->status = status;
 }
 
 
@@ -171,7 +186,7 @@ DIOSTREAMSTATUS DIOSTREAM::GetConnectStatus()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAM::IsConnected()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_CONNECTED) return true;
+  if(GetStatus()==DIOSTREAMSTATUS_CONNECTED) return true;
 
   return false;
 }
@@ -188,7 +203,7 @@ bool DIOSTREAM::IsConnected()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAM::IsDisconnected()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return true;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return true;
 
   return false;
 }
@@ -229,7 +244,7 @@ bool DIOSTREAM::WaitToConnected(int timeout)
           break;
         }
       
-      if(GetConnectStatus() == DIOSTREAMSTATUS_DISCONNECTED)
+      if(GetStatus() == DIOSTREAMSTATUS_DISCONNECTED)
         {
           break;
         }

@@ -136,14 +136,14 @@ DIOANDROIDSTREAMUSB::~DIOANDROIDSTREAMUSB()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetConnectStatus()
-* @brief      GetConnectStatus
+* @fn         DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetStatus()
+* @brief      GetStatus
 * @ingroup    PLATFORM_ANDROID
 * 
 * @return     DIOSTREAMSTATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetConnectStatus()
+DIOSTREAMSTATUS DIOANDROIDSTREAMUSB::GetStatus()
 {
   if(fd<0)    return DIOSTREAMSTATUS_DISCONNECTED;
   if(!config) return DIOSTREAMSTATUS_DISCONNECTED;
@@ -216,7 +216,7 @@ bool DIOANDROIDSTREAMUSB::Close()
 
   threadconnection->End();
 
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   if(fd>=0)
     {
@@ -240,7 +240,7 @@ bool DIOANDROIDSTREAMUSB::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOANDROIDSTREAMUSB::CleanBuffers()
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return false;
 
   return true;
 }
@@ -364,7 +364,7 @@ void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOANDROIDSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;
@@ -405,7 +405,7 @@ XDWORD DIOANDROIDSTREAMUSB::ReadBuffer(XBYTE* buffer,XDWORD size)
 * --------------------------------------------------------------------------------------------------------------------*/
 XDWORD DIOANDROIDSTREAMUSB::WriteBuffer(XBYTE* buffer, XDWORD size)
 {
-  if(GetConnectStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
+  if(GetStatus()==DIOSTREAMSTATUS_DISCONNECTED) return 0;
 
   fd_set         fds;
   struct timeval tv;

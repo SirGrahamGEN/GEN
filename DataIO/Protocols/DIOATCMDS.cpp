@@ -1617,7 +1617,7 @@ void DIOATCMDS::ThreadConnection(void* param)
   DIOSTREAM* diostream = dioatcmds->GetDIOStream();
   if(!diostream) return;
 
-  if(diostream->GetConnectStatus()!=DIOSTREAMSTATUS_CONNECTED) return;
+  if(diostream->GetStatus()!=DIOSTREAMSTATUS_CONNECTED) return;
 
   XBUFFER* bufferread = diostream->GetInXBuffer();
   if(bufferread)
