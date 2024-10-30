@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOLINUXStreamTCPIP.h
+* @file       DIOLINUXStreamTCPIPServer.h
 * 
-* @class      DIOLINUXSTREAMTCPIP
-* @brief      LINUX Data Input/Output Stream TCP/IP class
+* @class      DIOLINUXSTREAMTCPIPSERVER
+* @brief      LINUX Data Input/Output Stream TCP/IP Server class
 * @ingroup    PLATFORM_LINUX
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOLINUXSTREAMTCPIP_H_
-#define _DIOLINUXSTREAMTCPIP_H_
+#ifndef _DIOLINUXSTREAMTCPIPSERVER_H_
+#define _DIOLINUXSTREAMTCPIPSERVER_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -35,7 +35,7 @@
 #include "XFSMachine.h"
 #include "XThreadCollected.h"
 
-#include "DIOStreamTCPIP.h"
+#include "DIOStreamTCPIPServer.h"
 
 #pragma endregion
 
@@ -44,31 +44,31 @@
 #pragma region DEFINES_ENUMS
 
 
-enum DIOLINUXTCPIPFSMEVENTS
+enum DIOLINUXTCPIPSERVERFSMEVENTS
 {
-  DIOLINUXTCPIPFSMEVENT_NONE                = 0 ,
+  DIOLINUXTCPIPSERVERFSMEVENT_NONE                = 0 ,
 
-  DIOLINUXTCPIPFSMEVENT_GETTINGCONNECTION       ,
-  DIOLINUXTCPIPFSMEVENT_CONNECTED               ,
-  DIOLINUXTCPIPFSMEVENT_WAITINGTOREAD           ,
-  DIOLINUXTCPIPFSMEVENT_SENDINGDATA             ,
-  DIOLINUXTCPIPFSMEVENT_DISCONNECTING           ,
+  DIOLINUXTCPIPSERVERFSMEVENT_GETTINGCONNECTION       ,
+  DIOLINUXTCPIPSERVERFSMEVENT_CONNECTED               ,
+  DIOLINUXTCPIPSERVERFSMEVENT_WAITINGTOREAD           ,
+  DIOLINUXTCPIPSERVERFSMEVENT_SENDINGDATA             ,
+  DIOLINUXTCPIPSERVERFSMEVENT_DISCONNECTING           ,
 
-  DIOLINUXTCPIP_LASTEVENT
+  DIOLINUXTCPIPSERVER_LASTEVENT
 };
 
 
-enum DIOLINUXTCPIPFSMSTATES
+enum DIOLINUXTCPIPSERVERFSMSTATES
 {
-  DIOLINUXTCPIPFSMSTATE_NONE                = 0 ,
+  DIOLINUXTCPIPSERVERFSMSTATE_NONE                = 0 ,
 
-  DIOLINUXTCPIPFSMSTATE_GETTINGCONNECTION       ,
-  DIOLINUXTCPIPFSMSTATE_CONNECTED               ,
-  DIOLINUXTCPIPFSMSTATE_WAITINGTOREAD           ,
-  DIOLINUXTCPIPFSMSTATE_SENDINGDATA             ,
-  DIOLINUXTCPIPFSMSTATE_DISCONNECTING           ,
+  DIOLINUXTCPIPSERVERFSMSTATE_GETTINGCONNECTION       ,
+  DIOLINUXTCPIPSERVERFSMSTATE_CONNECTED               ,
+  DIOLINUXTCPIPSERVERFSMSTATE_WAITINGTOREAD           ,
+  DIOLINUXTCPIPSERVERFSMSTATE_SENDINGDATA             ,
+  DIOLINUXTCPIPSERVERFSMSTATE_DISCONNECTING           ,
 
-  DIOLINUXTCPIP_LASTSTATE
+  DIOLINUXTCPIPSERVER_LASTSTATE
 };
 
 
@@ -79,18 +79,15 @@ enum DIOLINUXTCPIPFSMSTATES
 #pragma region CLASS
 
 
-class DIOLINUXSTREAMTCPIP : public DIOSTREAMTCPIP , public XFSMACHINE
+class DIOLINUXSTREAMTCPIPSERVER : public DIOSTREAMTCPIPSERVER , public XFSMACHINE
 {
   public:
-                              DIOLINUXSTREAMTCPIP                     ();
-    virtual                  ~DIOLINUXSTREAMTCPIP                     ();
+                              DIOLINUXSTREAMTCPIPSERVER               ();
+    virtual                  ~DIOLINUXSTREAMTCPIPSERVER               ();
 
     bool                      Open                                    ();
     bool                      Disconnect                              ();
     bool                      Close                                   ();
-
-    int                       GetHandleSocket                         (); 
-    void                      SetHandleSocket                         (int handlesocket); 
 
   protected:
 
@@ -99,16 +96,17 @@ class DIOLINUXSTREAMTCPIP : public DIOSTREAMTCPIP , public XFSMACHINE
 
   private:
 
-    bool                      GetHandleServer                         ();
-    bool                      GetHandleClient                         ();
+    DIOSTREAM*                CreateStream                            ();       
+    bool                      DeleteAllStreamDisconnected             ();
+    bool                      DeleteAllStream                         ();
+
+    bool                      GetHandleServer                         (DIOSTREAMTCPIP* diostream);
 
     static void               ThreadConnection                        (void* data); 
 
     void                      Clean                                   ();
 
-    XTHREADCOLLECTED*         threadconnection;
-
-    int                       handlesocket;
+    XTHREADCOLLECTED*         threadconnection;    
 };
 
 

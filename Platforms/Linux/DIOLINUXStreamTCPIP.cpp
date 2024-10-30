@@ -285,6 +285,36 @@ bool DIOLINUXSTREAMTCPIP::Close()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         int DIOLINUXSTREAMTCPIP::GetHandleSocket()
+* @brief      GetHandleSocket
+* @ingroup    PLATFORM_LINUX
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOLINUXSTREAMTCPIP::GetHandleSocket()
+{
+  return handlesocket;
+}
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOLINUXSTREAMTCPIP::SetHandleSocket(int handlesocket)
+* @brief      SetHandleSocket
+* @ingroup    PLATFORM_LINUX
+* 
+* @param[in]  handlesocket : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOLINUXSTREAMTCPIP::SetHandleSocket(int handlesocket)
+{
+  this->handlesocket = handlesocket;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         int DIOLINUXSTREAMTCPIP::Accept(int socket, void* addr, void* addrlen, XDWORD usec)
 * @brief      Accept
 * @ingroup    PLATFORM_LINUX

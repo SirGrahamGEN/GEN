@@ -40,6 +40,7 @@
 #include "DIOStreamTCPIPServer.h"
 
 #include "DIOFactory.h"
+#include "DIOStreamXEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -66,6 +67,10 @@
 DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 {
   Clean();
+
+  RegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
+  RegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+	
 }
 
 
@@ -79,6 +84,9 @@ DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
 {
+  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
+  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+
   Clean();
 }
 
@@ -179,6 +187,50 @@ bool DIOSTREAMTCPIPSERVER::SetEnumServers(DIOSTREAMENUMSERVERS* enumservers)
 XVECTOR<DIOSTREAMTCPIP*>* DIOSTREAMTCPIPSERVER::GetMultiSocketStreams()
 {
   return &multisocketstreams;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOSTREAMTCPIPSERVER::GetNumMultiSocketStreams()
+* @brief      GetNumMultiSocketStreams
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOSTREAMTCPIPSERVER::GetNumMultiSocketStreams()
+{
+  return multisocketstreams.GetSize();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOSTREAMTCPIPSERVER::GetNumConnectedMultiSocketStreams()
+* @brief      GetNumConnectedMultiSocketStreams
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOSTREAMTCPIPSERVER::GetNumConnectedMultiSocketStreams()
+{
+  XDWORD ndiostreams = 0;
+
+  for(XDWORD c=0; c<multisocketstreams.GetSize(); c++)
+    {
+      DIOSTREAMTCPIP* diostream = (DIOSTREAMTCPIP*)multisocketstreams.Get(c);
+      if(diostream) 
+        {
+          if(diostream->GetStatus() == DIOSTREAMSTATUS_CONNECTED)
+            {
+              ndiostreams++;
+            }
+        }
+    }
+
+  return ndiostreams;
 }
 
 

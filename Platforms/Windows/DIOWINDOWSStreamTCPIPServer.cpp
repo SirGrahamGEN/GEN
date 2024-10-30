@@ -83,7 +83,7 @@
 * @ingroup    PLATFORM_WINDOWS
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOWINDOWSSTREAMTCPIPSERVER::DIOWINDOWSSTREAMTCPIPSERVER() : XFSMACHINE(0)
+DIOWINDOWSSTREAMTCPIPSERVER::DIOWINDOWSSTREAMTCPIPSERVER() : DIOSTREAMTCPIPSERVER(), XFSMACHINE(0)
 {
   Clean();
 
@@ -551,8 +551,6 @@ bool DIOWINDOWSSTREAMTCPIPSERVER::GetHandleServer(DIOSTREAMTCPIP* diostream)
       config->SetHandleMultiServer((int)handleserver);
 
       config->GetXMutexMultiServer()->UnLock();
-
-      //XTRACE_PRINTCOLOR(1, __L("TCPIP: Create Handle BASE %d Port %d"), handleserver, config->GetRemotePort());
     }
 
   // ------------------------------------------------------------------------------------------  
@@ -719,6 +717,9 @@ void DIOWINDOWSSTREAMTCPIPSERVER::ThreadConnection(void* data)
                                                                                 if(size)
                                                                                   {
                                                                                     diostream->inbuffer->Add(buffer,size);
+
+                                                                                    diostream->AddNBytesRead(size);
+                                                                                    diostreamserver->nbytesread += size;
                                                                                   }
                                                                                  else
                                                                                   {
@@ -748,6 +749,9 @@ void DIOWINDOWSSTREAMTCPIPSERVER::ThreadConnection(void* data)
                                                                                     if(size)
                                                                                       {
                                                                                         diostream->outbuffer->Extract(NULL, 0 ,size);
+
+                                                                                        diostream->AddNBytesWrite(size);
+                                                                                        diostreamserver->nbyteswrite += size;
                                                                                       }
                                                                                   }
                                                                               }
@@ -781,12 +785,11 @@ void DIOWINDOWSSTREAMTCPIPSERVER::ThreadConnection(void* data)
 
                       case DIOWINDOWSTCPIPSERVERFSMSTATE_CONNECTED            : { DIOSTREAMXEVENT xevent(diostream, DIOSTREAMXEVENT_TYPE_CONNECTED);
                                                                                   xevent.SetDIOStream(diostream);
-                                                                                  diostream->PostEvent(&xevent);
+                                                                                  diostreamserver->PostEvent(&xevent);
 
                                                                                   diostream->SetEvent(DIOWINDOWSTCPIPSERVERFSMEVENT_WAITINGTOREAD);
 
-                                                                                  diostreamserver->CreateStream();  
-                                                                            
+                                                                                  diostreamserver->CreateStream();                                                                              
                                                                                 }
                                                                                 break;
 

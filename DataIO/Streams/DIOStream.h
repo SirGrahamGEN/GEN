@@ -152,8 +152,11 @@ class DIOSTREAM : public XSUBJECT
     virtual XTIMER*             GetXTimerConnection             ();
     virtual XTIMER*             GetXTimerNotActivity            ();
 
-    virtual XDWORD              GetNBytesRead                   ();
-    virtual XDWORD              GetNBytesWrite                  ();
+    XDWORD                      GetNBytesRead                   ();
+    void                        AddNBytesRead                   (XDWORD size);
+
+    XDWORD                      GetNBytesWrite                  ();
+    void                        AddNBytesWrite                  (XDWORD size);
 
     bool                        ResetConnectionStatistics       ();
 

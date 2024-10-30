@@ -1005,6 +1005,21 @@ XDWORD DIOSTREAM::GetNBytesRead()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAM::AddNBytesRead(XDWORD size)
+* @brief      AddNBytesRead
+* @ingroup    DATAIO
+* 
+* @param[in]  size : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAM::AddNBytesRead(XDWORD size)
+{
+  nbytesread += size;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         XDWORD DIOSTREAM::GetNBytesWrite()
 * @brief      GetNBytesWrite
@@ -1016,6 +1031,21 @@ XDWORD DIOSTREAM::GetNBytesRead()
 XDWORD DIOSTREAM::GetNBytesWrite()
 {
   return nbyteswrite;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOSTREAM::AddNBytesWrite(XDWORD size)
+* @brief      AddNBytesWrite
+* @ingroup    DATAIO
+* 
+* @param[in]  size : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOSTREAM::AddNBytesWrite(XDWORD size)
+{
+  nbyteswrite += size;
 }
 
 

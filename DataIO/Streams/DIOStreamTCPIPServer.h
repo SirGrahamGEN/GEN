@@ -61,22 +61,25 @@ class DIOSTREAMENUMSERVERS;
 class DIOSTREAMTCPIPSERVER : public DIOSTREAM
 {
   public:
-                                            DIOSTREAMTCPIPSERVER      ();
-    virtual                                ~DIOSTREAMTCPIPSERVER      ();
+                                            DIOSTREAMTCPIPSERVER                  ();
+    virtual                                ~DIOSTREAMTCPIPSERVER                  ();
 
-    virtual DIOSTREAMCONFIG*                GetConfig                 ();
-    virtual bool                            SetConfig                 (DIOSTREAMCONFIG* config);
+    virtual DIOSTREAMCONFIG*                GetConfig                             ();
+    virtual bool                            SetConfig                             (DIOSTREAMCONFIG* config);
 
-    virtual bool                            Open                      ()                                = 0;
-    virtual bool                            Disconnect                ()                                = 0;
-    virtual bool                            Close                     ()                                = 0;
+    virtual bool                            Open                                  ()                                = 0;
+    virtual bool                            Disconnect                            ()                                = 0;
+    virtual bool                            Close                                 ()                                = 0;
 
-    DIOIP*                                  GetClientIP               ();
+    DIOIP*                                  GetClientIP                           ();
 
-    DIOSTREAMENUMSERVERS*                   GetEnumServers            ();
-    bool                                    SetEnumServers            (DIOSTREAMENUMSERVERS* localenumservers);
+    DIOSTREAMENUMSERVERS*                   GetEnumServers                        ();
+    bool                                    SetEnumServers                        (DIOSTREAMENUMSERVERS* localenumservers);
 
-    XVECTOR<DIOSTREAMTCPIP*>*               GetMultiSocketStreams     ();    
+    XVECTOR<DIOSTREAMTCPIP*>*               GetMultiSocketStreams                 (); 
+
+    XDWORD                                  GetNumMultiSocketStreams              (); 
+    XDWORD                                  GetNumConnectedMultiSocketStreams     (); 
 
   protected:
 

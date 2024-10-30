@@ -71,6 +71,7 @@
 #ifdef DIO_STREAMTCPIP_ACTIVE
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOLINUXStreamTCPIP.h"
+#include "DIOLINUXStreamTCPIPServer.h"
 #endif
 
 #if defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE)
@@ -236,7 +237,10 @@ bool DIOLINUXFACTORY::DeleteStreamEnumDevices(DIOSTREAMENUMDEVICES* enumdevices)
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
 {
-  if(!config) return NULL;
+  if(!config) 
+    {
+      return NULL;
+    }
 
   DIOSTREAM* _class=NULL;
 
@@ -245,23 +249,35 @@ DIOSTREAM* DIOLINUXFACTORY::CreateStreamIO(DIOSTREAMCONFIG* config)
       case DIOSTREAMTYPE_UNKNOWN    : return NULL;
 
       #ifdef DIO_STREAMUART_ACTIVE
-      case DIOSTREAMTYPE_UART       : _class = new DIOLINUXSTREAMUART();        break;
+      case DIOSTREAMTYPE_UART       : _class = new DIOLINUXSTREAMUART();        
+                                      break;
       #endif
 
       #ifdef DIO_STREAMUSB_ACTIVE
-      case DIOSTREAMTYPE_USB        : _class = new DIOLINUXSTREAMUSB();         break;
+      case DIOSTREAMTYPE_USB        : _class = new DIOLINUXSTREAMUSB();         
+                                      break;
       #endif
 
       #ifdef DIO_STREAMICMP_ACTIVE
-      case DIOSTREAMTYPE_ICMP       : _class = new DIOLINUXSTREAMICMP();        break;
+      case DIOSTREAMTYPE_ICMP       : _class = new DIOLINUXSTREAMICMP();        
+                                      break;
       #endif
 
       #ifdef DIO_STREAMUDP_ACTIVE
-      case DIOSTREAMTYPE_UDP        : _class = new DIOLINUXSTREAMUDP();         break;
+      case DIOSTREAMTYPE_UDP        : _class = new DIOLINUXSTREAMUDP();         
+                                      break;
       #endif
 
       #ifdef DIO_STREAMTCPIP_ACTIVE
-      case DIOSTREAMTYPE_TCPIP      : _class = new DIOLINUXSTREAMTCPIP();       break;
+      case DIOSTREAMTYPE_TCPIP      : if(config->GetMode() == DIOSTREAMMODE_SERVERMULTISOCKET)
+                                        {
+                                          _class = new DIOLINUXSTREAMTCPIPSERVER();
+                                        }                                      
+                                       else
+                                        {
+                                          _class = new DIOLINUXSTREAMTCPIP();
+                                        } 
+                                      break;
       #endif
 
       #if (defined(DIO_STREAMBLUETOOTH_ACTIVE) || defined(DIO_STREAMBLUETOOTHLE_ACTIVE))
