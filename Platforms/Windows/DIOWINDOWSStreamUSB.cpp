@@ -46,7 +46,7 @@
 #include "XString.h"
 #include "XBuffer.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -296,7 +296,7 @@ void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
             {
               case DIOWINDOWSUSBFSMSTATE_NONE             : break;
 
-              case DIOWINDOWSUSBFSMSTATE_CONNECTED          : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOWINDOWSUSBFSMSTATE_CONNECTED          : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
 
                                                                 diostream->PostEvent(&xevent);
@@ -309,7 +309,7 @@ void DIOWINDOWSSTREAMUSB::ThreadConnection(void* data)
 
               case DIOWINDOWSUSBFSMSTATE_SENDINGDATA        : break;
 
-              case DIOWINDOWSUSBFSMSTATE_DISCONNECTING      : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOWINDOWSUSBFSMSTATE_DISCONNECTING      : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 

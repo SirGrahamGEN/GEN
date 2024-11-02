@@ -37,7 +37,7 @@
 #include "XFactory.h"
 #include "XThreadCollected.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamI2CConfig.h"
 
 #include "DIOESP32StreamI2C.h"
@@ -752,7 +752,7 @@ void DIOESP32STREAMI2C::ThreadConnection(void* param)
             {
               case DIOSTREAMI2C_FSMSTATE_NONE               : break;
 
-              case DIOSTREAMI2C_FSMSTATE_CONNECTED          : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOSTREAMI2C_FSMSTATE_CONNECTED          : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 
@@ -762,7 +762,7 @@ void DIOESP32STREAMI2C::ThreadConnection(void* param)
 
               case DIOSTREAMI2C_FSMSTATE_WAITINGTOREAD      : break;
 
-              case DIOSTREAMI2C_FSMSTATE_DISCONNECTING      : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOSTREAMI2C_FSMSTATE_DISCONNECTING      : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 

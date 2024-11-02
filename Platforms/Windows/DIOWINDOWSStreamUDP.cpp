@@ -45,7 +45,7 @@
 
 #include "DIOIP.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamUDPConfig.h"
 #include "XMemory_Control.h"
 
@@ -674,7 +674,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
                                                               }
                                                               break;
 
-              case DIOWINDOWSUDPFSMSTATE_CONNECTED          : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOWINDOWSUDPFSMSTATE_CONNECTED          : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
 
                                                                 diostream->PostEvent(&xevent);
@@ -687,7 +687,7 @@ void DIOWINDOWSSTREAMUDP::ThreadConnection(void* data)
 
               case DIOWINDOWSUDPFSMSTATE_SENDINGDATA        : break;
 
-              case DIOWINDOWSUDPFSMSTATE_DISCONNECTING      : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOWINDOWSUDPFSMSTATE_DISCONNECTING      : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
 
                                                                 diostream->PostEvent(&xevent);

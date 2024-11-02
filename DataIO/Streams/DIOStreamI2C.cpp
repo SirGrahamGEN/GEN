@@ -45,7 +45,7 @@
 
 #include "DIOFactory.h"
 #include "DIOGPIO.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 
 #include "DIOStreamI2CConfig.h"
 

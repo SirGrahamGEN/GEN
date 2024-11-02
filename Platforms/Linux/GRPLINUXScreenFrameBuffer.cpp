@@ -93,8 +93,8 @@ GRPLINUXSCREENFRAMEBUFFER::GRPLINUXSCREENFRAMEBUFFER(): GRPSCREEN()
     {
       if(ioctl(handlefb, FBIOGET_VSCREENINFO, &varinfo) != -1)
         {
-          SetWidth(varinfo.xres);
-          SetHeight(varinfo.yres);
+          SetWidth(varinfo.yres);
+          SetHeight(varinfo.xres);
 
           SetSize(varinfo.xres, varinfo.yres);
           SetMaxSize(varinfo.xres, varinfo.yres);
@@ -208,8 +208,15 @@ bool GRPLINUXSCREENFRAMEBUFFER::Update(GRPCANVAS* canvas)
     {
       return false;
     }
-
-  memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), canvas->Buffer_GetSize());
+  
+  if(rotation != GRPSCREENROTATION_NONE)
+    {
+      Rotate(fbp, canvas);
+    }
+   else
+    {
+      memcpy(fbp, (XBYTE*)canvas->Buffer_Get(), canvas->Buffer_GetSize());
+    }
  
   munmap((XBYTE*)fbp, canvas->Buffer_GetSize());
 

@@ -73,7 +73,7 @@
 
 #include "DIOIP.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamICMPConfig.h"
 #include "DIOStreamICMP.h"
 
@@ -521,7 +521,7 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
                                                               break;
 
 
-              case DIOANDROIDICMPFSMSTATE_CONNECTED         : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOANDROIDICMPFSMSTATE_CONNECTED         : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 
@@ -533,7 +533,7 @@ void DIOANDROIDSTREAMICMP::ThreadRunFunction(void* thread)
 
               case DIOANDROIDICMPFSMSTATE_SENDINGDATA       : break;
 
-              case DIOANDROIDICMPFSMSTATE_DISCONNECTING     : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOANDROIDICMPFSMSTATE_DISCONNECTING     : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                               xevent.SetDIOStream(diostream);
                                                               diostream->PostEvent(&xevent);
 

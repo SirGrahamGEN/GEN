@@ -72,7 +72,7 @@
 
 #include "DIOIP.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamICMPConfig.h"
 #include "DIOStreamICMP.h"
 
@@ -538,7 +538,7 @@ void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
                                                             break;
 
 
-              case DIOLINUXICMPFSMSTATE_CONNECTED         : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOLINUXICMPFSMSTATE_CONNECTED         : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                               xevent.SetDIOStream(diostream);
                                                               diostream->PostEvent(&xevent);
 
@@ -550,7 +550,7 @@ void DIOLINUXSTREAMICMP::ThreadRunFunction(void* thread)
 
               case DIOLINUXICMPFSMSTATE_SENDINGDATA       : break;
 
-              case DIOLINUXICMPFSMSTATE_DISCONNECTING     : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOLINUXICMPFSMSTATE_DISCONNECTING     : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                               xevent.SetDIOStream(diostream);
                                                               diostream->PostEvent(&xevent);
 

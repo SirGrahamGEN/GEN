@@ -48,7 +48,7 @@
 #include "XBuffer.h"
 #include "XTrace.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -759,7 +759,7 @@ void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
             {
               case DIOWINDOWSUARTFSMSTATE_NONE              : break;
 
-              case DIOWINDOWSUARTFSMSTATE_CONNECTED         : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOWINDOWSUARTFSMSTATE_CONNECTED         : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 
@@ -769,7 +769,7 @@ void DIOWINDOWSSTREAMUART::ThreadConnection(void* data)
 
               case DIOWINDOWSUARTFSMSTATE_WAITINGTOREAD     : break;
 
-              case DIOWINDOWSUARTFSMSTATE_DISCONNECTING     : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOWINDOWSUARTFSMSTATE_DISCONNECTING     : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
 
                                                                 diostream->PostEvent(&xevent);

@@ -37,7 +37,7 @@
 #include "XFactory.h"
 #include "XThreadCollected.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamUARTConfig.h"
 
 #include "DIOESP32StreamUART.h"
@@ -684,7 +684,7 @@ void DIOESP32STREAMUART::ThreadConnection(void* param)
             {
               case DIOESP32UARTFSMSTATE_NONE                : break;
 
-              case DIOESP32UARTFSMSTATE_CONNECTED           : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOESP32UARTFSMSTATE_CONNECTED           : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                     xevent.SetDIOStream(diostream);
                                                                     diostream->PostEvent(&xevent);
 
@@ -694,7 +694,7 @@ void DIOESP32STREAMUART::ThreadConnection(void* param)
 
               case DIOESP32UARTFSMSTATE_WAITINGTOREAD       : break;
 
-              case DIOESP32UARTFSMSTATE_DISCONNECTING       : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOESP32UARTFSMSTATE_DISCONNECTING       : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                     xevent.SetDIOStream(diostream);
                                                                     diostream->PostEvent(&xevent);
 

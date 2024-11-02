@@ -40,7 +40,8 @@
 #include "DIOStreamTCPIPServer.h"
 
 #include "DIOFactory.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
+#include "DIOStreamTCPIPConfig.h"
 
 #include "XMemory_Control.h"
 
@@ -68,8 +69,8 @@ DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 {
   Clean();
 
-  RegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
-  RegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+  RegisterEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED);
+  RegisterEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
 	
 }
 
@@ -84,8 +85,8 @@ DIOSTREAMTCPIPSERVER::DIOSTREAMTCPIPSERVER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOSTREAMTCPIPSERVER::~DIOSTREAMTCPIPSERVER()
 {
-  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
-  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+  DeRegisterEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED);
+  DeRegisterEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
 
   Clean();
 }
@@ -123,6 +124,59 @@ bool DIOSTREAMTCPIPSERVER::SetConfig(DIOSTREAMCONFIG* config)
   this->config = (DIOSTREAMTCPIPCONFIG*)config;
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOSTREAMTCPIPSERVER::WaitToConnected(int timeout)
+* @brief      WaitToConnected
+* @ingroup    DATAIO
+* 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOSTREAMTCPIPSERVER::WaitToConnected(int timeout)
+{
+  if(!xtimerconnection) 
+    {
+      return false;
+    }
+
+  DIOSTREAMTCPIPCONFIG* config = (DIOSTREAMTCPIPCONFIG*)GetConfig();  
+  bool                  status = false;
+
+  if(!config)
+    {
+      return false;
+    }
+
+  xtimerconnection->Reset();  
+
+  while(1)
+    {
+      if(config->GetHandleMultiServer() > 0)
+        {
+          status = true;
+          break;
+        }
+      
+      if(GetStatus() == DIOSTREAMSTATUS_DISCONNECTED)
+        {
+          break;
+        }
+      
+      if((int)xtimerconnection->GetMeasureSeconds() >= timeout)
+        {
+          break;
+        }
+
+      Wait(DIOSTREAM_TIMEINWAITFUNCTIONS);
+    }
+
+  return status;
 }
 
 

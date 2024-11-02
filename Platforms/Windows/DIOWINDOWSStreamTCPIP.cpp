@@ -53,7 +53,7 @@
 
 #include "DIOIP.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamEnumServers.h"
 #include "DIOStreamTCPIPConfig.h"
 
@@ -652,7 +652,7 @@ bool DIOWINDOWSSTREAMTCPIP::GetHandleClient()
         }
     }
 
-  DIOSTREAMXEVENT xevent(this, DIOSTREAMXEVENT_TYPE_GETTINGCONNECTION);
+  DIOSTREAM_XEVENT xevent(this, DIOSTREAM_XEVENT_TYPE_GETTINGCONNECTION);
   xevent.SetDIOStream(this);
   PostEvent(&xevent);
 
@@ -819,7 +819,7 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
                                                                   }
                                                                 break;
 
-              case DIOWINDOWSTCPIPFSMSTATE_CONNECTED          : { DIOSTREAMXEVENT xevent(diostream, DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOWINDOWSTCPIPFSMSTATE_CONNECTED          : { DIOSTREAM_XEVENT xevent(diostream, DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                   xevent.SetDIOStream(diostream);
                                                                   diostream->PostEvent(&xevent);
 
@@ -831,7 +831,7 @@ void DIOWINDOWSSTREAMTCPIP::ThreadConnection(void* data)
 
               case DIOWINDOWSTCPIPFSMSTATE_SENDINGDATA        : break;
 
-              case DIOWINDOWSTCPIPFSMSTATE_DISCONNECTING      : { DIOSTREAMXEVENT xevent(diostream, DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOWINDOWSTCPIPFSMSTATE_DISCONNECTING      : { DIOSTREAM_XEVENT xevent(diostream, DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                   xevent.SetDIOStream(diostream);
                                                                   diostream->PostEvent(&xevent);
 

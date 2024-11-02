@@ -55,28 +55,38 @@ enum GRPSCREENTYPE
 {
   GRPSCREENTYPE_UNKNOW                        =  0  ,
 
-  GRPSCREENTYPE_WINDOWS                            ,
+  GRPSCREENTYPE_WINDOWS                             ,
 
-  GRPSCREENTYPE_LINUX_FRAMEBUFFER                  ,
-  GRPSCREENTYPE_LINUX_X11                          ,
-  GRPSCREENTYPE_LINUX_DISPMAN                      ,
+  GRPSCREENTYPE_LINUX_FRAMEBUFFER                   ,
+  GRPSCREENTYPE_LINUX_X11                           ,
+  GRPSCREENTYPE_LINUX_DISPMAN                       ,
 
   GRPSCREENTYPE_ANDROID
 };
 
 
-enum GRPDISPLAYTYPE_DESKTOP
+enum GRPSCREENTYPE_DESKTOP
 {
-  GRPDISPLAYTYPE_DESKTOP_ALL                  = -1  ,
-  GRPDISPLAYTYPE_DESKTOP_MAIN                 =  0  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN1              =  0  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN2              =  1  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN3              =  2  ,  
-  GRPDISPLAYTYPE_DESKTOP_SCREEN4              =  3  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN5              =  4  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN6              =  5  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN7              =  6  ,
-  GRPDISPLAYTYPE_DESKTOP_SCREEN8              =  7  ,  
+  GRPSCREENTYPE_DESKTOP_ALL                   = -1  ,
+  GRPSCREENTYPE_DESKTOP_MAIN                  =  0  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN1               =  0  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN2               =  1  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN3               =  2  ,  
+  GRPSCREENTYPE_DESKTOP_SCREEN4               =  3  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN5               =  4  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN6               =  5  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN7               =  6  ,
+  GRPSCREENTYPE_DESKTOP_SCREEN8               =  7  ,  
+};
+
+
+enum GRPSCREENROTATION
+{
+  GRPSCREENROTATION_NONE                      =  0  ,
+  GRPSCREENROTATION_90_CLOCKWISE                    ,                  
+  GRPSCREENROTATION_90_ANTICLOCKWISE                ,                  
+  GRPSCREENROTATION_180                             ,                  
+  
 };
 
 
@@ -127,6 +137,9 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     bool                                  Styles_IsFullScreen           ();      
 
     bool                                  SetPropertys                  (int width, int height, float DPIs, int stride, GRPPROPERTYMODE mode);
+
+    GRPSCREENROTATION                     GetRotation                   ();
+    void                                  SetRotation                   (GRPSCREENROTATION screenrotation);
     
     virtual bool                          Create                        (bool show);
 
@@ -173,8 +186,8 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     GRPFRAMERATE*                         GetFrameRate                  ();
 
     GRPDESKTOPMANAGER*                    GetDesktopManager             ();
-    GRPDISPLAYTYPE_DESKTOP                GetDesktopScreenSelected      ();
-    void                                  SetDesktopScreenSelected      (GRPDISPLAYTYPE_DESKTOP desktopscreenselected);
+    GRPSCREENTYPE_DESKTOP                 GetDesktopScreenSelected      ();
+    void                                  SetDesktopScreenSelected      (GRPSCREENTYPE_DESKTOP desktopscreenselected);
 
     static XMAP<void*, GRPSCREEN*>*       GetListScreens                ();
 
@@ -187,6 +200,7 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
     bool                                  isvalid;
     bool                                  isactive;
     XDWORD                                styles;
+    GRPSCREENROTATION                     rotation;
        
     bool                                  isblockclose; 
 
@@ -197,15 +211,16 @@ class GRPSCREEN : public GRPPROPERTIES, public XSUBJECT
 
     bool                                  isshow;
 
-    XSTRING                               title;
+    XSTRING                               title; 
+
+    bool                                  Rotate                        (XBYTE* target, GRPCANVAS* screencanvas);
 
   private:
 
     void                                  Clean                         ();
-
      
     GRPDESKTOPMANAGER*                    desktopmanager;
-    GRPDISPLAYTYPE_DESKTOP                desktopscreenselected;
+    GRPSCREENTYPE_DESKTOP                 desktopscreenselected;
 
     static XMAP<void*, GRPSCREEN*>        listscreens;
 };

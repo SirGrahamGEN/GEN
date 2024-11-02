@@ -65,7 +65,7 @@
 #include "XTrace.h"
 #include "XThreadCollected.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamUARTConfig.h"
 #include "DIOANDROIDStreamUART.h"
 
@@ -694,7 +694,7 @@ void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
             {
               case DIOANDROIDUARTFSMSTATE_NONE                : break;
 
-              case DIOANDROIDUARTFSMSTATE_CONNECTED           : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOANDROIDUARTFSMSTATE_CONNECTED           : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 
@@ -704,7 +704,7 @@ void DIOANDROIDSTREAMUART::ThreadConnection(void* param)
 
               case DIOANDROIDUARTFSMSTATE_WAITINGTOREAD       : break;
 
-              case DIOANDROIDUARTFSMSTATE_DISCONNECTING       : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOANDROIDUARTFSMSTATE_DISCONNECTING       : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 diostream->PostEvent(&xevent);
 

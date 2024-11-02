@@ -75,9 +75,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
-  Clean();
-
- 
+  Clean(); 
 }
 
 
@@ -113,25 +111,32 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOCOREPROTOCOL_CFG* protocolCFG)
       return false;
     }
 
-  this->protocolCFG = protocolCFG;   
+  this->protocolCFG = protocolCFG;  
 
-  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
-  if(!diostream)
+  if(!protocolCFG->DIOStream_GetAll()->GetSize())
     {
       return false;
-    }
+    } 
 
-  if(!diostream->IsConnected())
-    {
-      if(diostream->Open())
-        {
-          if(!diostream->WaitToConnected(1500))
+  for(XDWORD c=0; c<protocolCFG->DIOStream_GetAll()->GetSize(); c++)
+    {      
+      DIOSTREAM* diostream = protocolCFG->DIOStream_GetAll()->GetElement(c);
+      if(diostream)
+        {      
+
+          SubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , diostream);
+          SubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , diostream);
+  
+          if(diostream->Open())
             {
-              return false;
-            }            
+              if(!diostream->WaitToConnected(5))
+                {
+                  return false;
+                }            
+            }
         }
     }
-
+  
   GEN_XFACTORY_CREATE(connections_xmutex, Create_Mutex())
   if(connections_xmutex) 
     {
@@ -185,12 +190,18 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
       connections_xmutex = NULL;
     }
 
-  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
-  if(diostream)
-    {
-      diostream->Close();      
+  for(XDWORD c=0; c<protocolCFG->DIOStream_GetAll()->GetSize(); c++)
+    {      
+      DIOSTREAM* diostream = protocolCFG->DIOStream_GetAll()->GetElement(c);
+      if(diostream)
+        {        
+          UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , diostream);
+          UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , diostream);
+  
+          diostream->Close();          
+        }
     }
-
+  
   return true;
 }
 
@@ -227,45 +238,65 @@ XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetCon
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::ReConnected()
-* @brief      ReConnected
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT* event)
+* @brief      Handle Event for the observer manager of this class
+* @note       INTERNAL
 * @ingroup    DATAIO
 * 
-* @return     bool : true if is succesful. 
+* @param[in]  event : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::ReConnected()
-{  
-  if(!protocolCFG)
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT* event)
+{
+  if(!event) 
     {
-      return false;
-    }  
-   
-  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
-  if(!diostream)
-    {
-      return false;
+      return;
     }
 
-  bool status = false;
-  
-  if(!diostream->IsConnected())
+  switch(event->GetEventType())
     {
-      if(diostream->Open())
-        {
-          if(!diostream->WaitToConnected(1500))
-            {
-              return false;
-            }
-        }
+      case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { 
+                                                    int a=0;
+                                                    a++;               
+                                                  }
+                                                  break;
+
+      case DIOSTREAM_XEVENT_TYPE_DISCONNECTED   : { 
+                                                    int a=0;
+                                                    a++;               
+                                                  }
+                                                  break;
     }
 
-  if(!diostream->IsConnected())
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent(XEVENT* xevent)
+* @brief      Handle Event for the observer manager of this class
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* @param[in]  xevent : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent(XEVENT* xevent)
+{
+  if(!xevent) 
     {
-      return false;
+      return;
     }
 
-  return true;
+  switch(xevent->GetEventFamily())
+    {
+      case XEVENT_TYPE_DIOSTREAM        : { DIOSTREAM_XEVENT* event = (DIOSTREAM_XEVENT*)xevent;
+                                            if(!event) return;
+
+                                            HandleEvent_DIOStream(event);
+                                          }
+                                          break;
+    }
 }
 
 
@@ -285,26 +316,6 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
     {
       return;
     }
-
-  DIOCOREPROTOCOL_CFG* protocolCFG = connectionsmanager->GetProtocolCFG();
-  if(!protocolCFG)
-    {
-      return;
-    }  
-   
-  DIOSTREAM* diostream = protocolCFG->GetDIOStream();
-  if(!diostream)
-    {
-      return;
-    }
-
-  /*
-  bool status = connectionsmanager->ReConnected();
-  if(!status)
-    {
-      return;
-    }
-  */
 }
 
 

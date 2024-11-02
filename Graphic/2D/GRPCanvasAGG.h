@@ -273,15 +273,7 @@ class GRPCANVASAGG: public GRPCANVAS
 
 
     virtual                                                                    ~GRPCANVASAGG                      ()
-                                                                                {
-                                                                                  /*  
-                                                                                  if(dashline)
-                                                                                    {
-                                                                                      delete dashline;
-                                                                                      dashline = NULL;
-                                                                                    }
-                                                                                  */
-
+                                                                                {                                                                                  
                                                                                   if(vectorfont_manager) 
                                                                                     {
                                                                                       delete vectorfont_manager;
@@ -900,8 +892,15 @@ class GRPCANVASAGG: public GRPCANVAS
                                                                                   return true;
                                                                                 }
 
-    GRP2DCOLOR*                                                                 RasterFont_GetColor               ()                                        { return (GRP2DCOLOR*)(&renderer_rastertext->color());        }
-    void                                                                        RasterFont_SetColor               (const GRP2DCOLOR* c)                     { renderer_rastertext->color((*(COLORTYPE*)c));               }
+    GRP2DCOLOR*                                                                 RasterFont_GetColor               ()                                        
+                                                                                { 
+                                                                                  return (GRP2DCOLOR*)(&renderer_rastertext->color());        
+                                                                                }
+
+    void                                                                        RasterFont_SetColor               (const GRP2DCOLOR* c)                     
+                                                                                { 
+                                                                                  renderer_rastertext->color((*(COLORTYPE*)c));               
+                                                                                }
 
     double                                                                      RasterFont_GetWidth               (XCHAR* string)
                                                                                 {

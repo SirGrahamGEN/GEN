@@ -32,7 +32,10 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XObserver.h"
 #include "XThreadCollected.h"
+
+#include "DIOStream_XEvent.h"
 
 #pragma endregion
 
@@ -54,7 +57,7 @@ class DIOCOREPROTOCOL_CFG;
 class DIOCOREPROTOCOL_CONNECTION;
 
 
-class DIOCOREPROTOCOL_CONNECTIONSMANAGER
+class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
 {
   public:
                                             DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
@@ -69,7 +72,8 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER
   
   private:
 
-    bool                                    ReConnected                           ();
+    void                                    HandleEvent_DIOStream                 (DIOSTREAM_XEVENT* event);
+    void                                    HandleEvent                           (XEVENT* xevent);
 
     static void                             ThreadConnections                     (void* param);
 

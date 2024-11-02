@@ -146,7 +146,7 @@ class XPATHS;
 class XBUFFER;
 class XTIMER;
 class XLOG;
-class DIOSTREAMXEVENT;
+class DIOSTREAM_XEVENT;
 class DIOSTREAMTCPIPCONFIG ;
 class DIOSTREAMTCPIP;
 class DIOWEBSERVER_REQUEST;
@@ -488,7 +488,7 @@ class DIOWEBSERVER :  public XOBSERVER, public XSUBJECT
 
     static void                                 ThreadRunFunction                        (void* param);
 
-    void                                        HandleEvent_DIOStream                    (DIOSTREAMXEVENT* event);
+    void                                        HandleEvent_DIOStream                    (DIOSTREAM_XEVENT* event);
     void                                        HandleEvent                              (XEVENT* xevent);
 
     void                                        Clean                                    ();

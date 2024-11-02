@@ -78,6 +78,8 @@ DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
 DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
 {
   Clean();
+
+  diostreams.SetIsMulti(false);
 }
 
 
@@ -199,6 +201,104 @@ void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompressconten
 {
   this->minsizecompresscontent = minsizecompresscontent;
 }
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>* DIOCOREPROTOCOL_CFG::DIOStream_GetAll()
+* @brief      DIOStream_GetAll
+* @ingroup    DATAIO
+* 
+* @return     XMAP<DIOSTREAMCONFIG*, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>* DIOCOREPROTOCOL_CFG::DIOStream_GetAll()
+{
+  return &diostreams;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::DIOStream_Add(DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream)
+* @brief      DIOStream_Add
+* @ingroup    DATAIO
+* 
+* @param[in]  diostreamCFG : 
+* @param[in]  diostream : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::DIOStream_Add(DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream)
+{
+  if(!diostreamCFG || !diostream)
+    {
+      return false;
+    }
+
+  return diostreams.Add(diostreamCFG, diostream);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::DIOStream_Delete(DIOSTREAMCONFIG* diostreamCFG)
+* @brief      DIOStream_Delete
+* @ingroup    DATAIO
+* 
+* @param[in]  diostreamCFG : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::DIOStream_Delete(DIOSTREAMCONFIG* diostreamCFG)
+{
+  if(!diostreamCFG)
+    {
+      return false;
+    }
+
+  DIOSTREAM* diostream = diostreams.Get(diostreamCFG);
+  if(!diostream)
+    {
+      return false;
+    }
+
+  diostreams.Delete(diostreamCFG);
+
+  delete diostreamCFG;
+  delete diostream;
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CFG::DIOStream_DeleteAll()
+* @brief      DIOStream_DeleteAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::DIOStream_DeleteAll()
+{
+  if(!diostreams.GetSize())
+    {
+      return false;
+    }
+
+  diostreams.DeleteKeyContents();
+  diostreams.DeleteElementContents();
+  
+  diostreams.DeleteAll();
+
+  return true;
+}
+
+
 
 
 /**-------------------------------------------------------------------------------------------------------------------

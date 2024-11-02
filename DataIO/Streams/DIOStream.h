@@ -104,8 +104,8 @@ class DIOSTREAM : public XSUBJECT
     bool                        IsConnected                     ();
     bool                        IsDisconnected                  ();
 
-    bool                        WaitToConnected                 (int timeout);
-    bool                        WaitToDisconnected              (int timeout);
+    virtual bool                WaitToConnected                 (int timeout);
+    virtual bool                WaitToDisconnected              (int timeout);
 
     virtual XDWORD              Read                            (XBYTE* buffer, XDWORD size);
     virtual XDWORD              Write                           (XBYTE* buffer, XDWORD size);

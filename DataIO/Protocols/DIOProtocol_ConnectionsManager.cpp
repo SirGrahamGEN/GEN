@@ -48,7 +48,7 @@
 #include "DIOFactory.h"
 #include "DIOIP.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamDeviceIP.h"
 #include "DIOStreamUDPLocalEnumServers.h"
 #include "DIOStreamTCPIPConfig.h"

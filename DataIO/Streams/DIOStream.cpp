@@ -45,7 +45,7 @@
 #include "XBuffer.h"
 #include "XTimer.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -81,9 +81,9 @@ DIOSTREAM::DIOSTREAM()
   GEN_XFACTORY_CREATE(xtimernotactivity , CreateTimer())
   GEN_XFACTORY_CREATE(xtimerout         , CreateTimer())
   
-  RegisterEvent(DIOSTREAMXEVENT_TYPE_GETTINGCONNECTION);
-  RegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
-  RegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+  RegisterEvent(DIOSTREAM_XEVENT_TYPE_GETTINGCONNECTION);
+  RegisterEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED);
+  RegisterEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
 }
 
 
@@ -137,9 +137,9 @@ DIOSTREAM::~DIOSTREAM()
       xmutextimerout = NULL;
     }
 
-  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_GETTINGCONNECTION);
-  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_CONNECTED);
-  DeRegisterEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+  DeRegisterEvent(DIOSTREAM_XEVENT_TYPE_GETTINGCONNECTION);
+  DeRegisterEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED);
+  DeRegisterEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
 
   Clean();
 }
@@ -222,17 +222,12 @@ bool DIOSTREAM::IsDisconnected()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOSTREAM::WaitToConnected(int timeout)
 {
-  if(!xtimerconnection) return false;
+  if(!xtimerconnection) 
+    {
+      return false;
+    }
 
   bool status = false;
-
-  if(GetConfig())
-    {
-      if(GetConfig()->IsServer())
-        {
-          return true;
-        }
-    }
 
   xtimerconnection->Reset();  
 

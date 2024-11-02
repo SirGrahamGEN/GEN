@@ -71,6 +71,8 @@ class DIOSTREAMTCPIPSERVER : public DIOSTREAM
     virtual bool                            Disconnect                            ()                                = 0;
     virtual bool                            Close                                 ()                                = 0;
 
+    bool                                    WaitToConnected                       (int timeout);
+
     DIOIP*                                  GetClientIP                           ();
 
     DIOSTREAMENUMSERVERS*                   GetEnumServers                        ();

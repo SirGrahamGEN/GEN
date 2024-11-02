@@ -55,7 +55,7 @@
 
 #include "DIOFactory.h"
 #include "DIOURL.h"
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamTCPIPConfig.h"
 #include "DIOStreamTCPIP.h"
 #include "DIOWebServer_Plugin.h"
@@ -2862,8 +2862,8 @@ bool DIOWEBSERVER::UnSubscribeAllPages()
           DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
           if(connection)
             {
-              UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
-              UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
+              UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
+              UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
             }
         }
     }
@@ -3679,8 +3679,8 @@ bool DIOWEBSERVER::Connections_CreateNew()
         {
           if(connection->GetDIOStream()->Open())
             {
-              SubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
-              SubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
+              SubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
+              SubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
 
               // XTRACE_PRINTCOLOR(1, __L("Create Connexion: [%08X]"), connection);
 
@@ -3727,8 +3727,8 @@ bool DIOWEBSERVER::Connections_DeleteUsed()
             {
               if((connection->GetDIOStream()->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) &&  (!connection->IsRequestInProgress()))
                 {
-                  UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
-                  UnSubscribeEvent(DIOSTREAMXEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
+                  UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , connection->GetDIOStream());
+                  UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , connection->GetDIOStream());
 
                   // XTRACE_PRINTCOLOR(1, __L("Delete Connexion: [%08X]"), connection);
 
@@ -3811,7 +3811,7 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
+* @fn         void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAM_XEVENT* event)
 * @brief      Handle Event for the observer manager of this class
 * @note       INTERNAL
 * @ingroup    DATAIO
@@ -3819,13 +3819,13 @@ bool DIOWEBSERVER::Connections_DeleteAll()
 * @param[in]  event :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
+void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAM_XEVENT* event)
 {
   if(!event) return;
 
   switch(event->GetEventType())
     {
-      case DIOSTREAMXEVENT_TYPE_CONNECTED    : { for(XDWORD c=0; c<connections.GetSize(); c++)
+      case DIOSTREAM_XEVENT_TYPE_CONNECTED    : { for(XDWORD c=0; c<connections.GetSize(); c++)
                                                   {
                                                     DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
                                                     if(connection)
@@ -3845,7 +3845,7 @@ void DIOWEBSERVER::HandleEvent_DIOStream(DIOSTREAMXEVENT* event)
                                               }
                                               break;
 
-      case DIOSTREAMXEVENT_TYPE_DISCONNECTED : { for(XDWORD c=0; c<connections.GetSize(); c++)
+      case DIOSTREAM_XEVENT_TYPE_DISCONNECTED : { for(XDWORD c=0; c<connections.GetSize(); c++)
                                                   {
                                                     DIOWEBSERVER_CONNECTION* connection = (DIOWEBSERVER_CONNECTION*)connections.Get(c);
                                                     if(connection)
@@ -3883,7 +3883,7 @@ void DIOWEBSERVER::HandleEvent(XEVENT* xevent)
 
   switch(xevent->GetEventFamily())
     {
-      case XEVENT_TYPE_DIOSTREAM   : { DIOSTREAMXEVENT* event = (DIOSTREAMXEVENT*)xevent;
+      case XEVENT_TYPE_DIOSTREAM   : { DIOSTREAM_XEVENT* event = (DIOSTREAM_XEVENT*)xevent;
                                       if(!event) return;
 
                                       HandleEvent_DIOStream(event);

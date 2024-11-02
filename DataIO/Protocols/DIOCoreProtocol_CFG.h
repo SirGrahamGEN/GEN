@@ -73,6 +73,12 @@ class DIOCOREPROTOCOL_CFG
     XDWORD                                    GetMinSizeCompressContent     ();
     void                                      SetMinSizeCompressContent     (XDWORD minsizecompresscontent);
 
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*       DIOStream_GetAll              ();
+    bool                                      DIOStream_Add                 (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
+    bool                                      DIOStream_Delete              (DIOSTREAMCONFIG* diostreamCFG);
+    bool                                      DIOStream_DeleteAll           ();
+
+
     DIOSTREAMCONFIG*                          GetDIOStreamCFG               ();   
     void                                      SetDIOStreamCFG               (DIOSTREAMCONFIG* diostreamCFG);   
 
@@ -88,6 +94,8 @@ class DIOCOREPROTOCOL_CFG
     bool                                      compressheader;
     bool                                      compresscontent;
     XDWORD                                    minsizecompresscontent;
+
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>        diostreams;
     
     DIOSTREAMCONFIG*                          diostreamCFG;   
     DIOSTREAM*                                diostream;   

@@ -306,6 +306,36 @@ bool GRPSCREEN::SetPropertys(int width, int height, float DPIs, int stride, GRPP
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         GRPSCREENROTATION GRPSCREEN::GetRotation()
+* @brief      GetRotation
+* @ingroup    GRAPHIC
+* 
+* @return     GRPSCREENROTATION : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+GRPSCREENROTATION GRPSCREEN::GetRotation()
+{
+  return rotation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void GRPSCREEN::SetRotation(GRPSCREENROTATION rotation)
+* @brief      SetRotation
+* @ingroup    GRAPHIC
+* 
+* @param[in]  rotation : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void GRPSCREEN::SetRotation(GRPSCREENROTATION rotation)
+{
+  this->rotation = rotation;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool GRPSCREEN::Create(void* handle)
 * @brief      Create
@@ -881,14 +911,14 @@ GRPDESKTOPMANAGER* GRPSCREEN::GetDesktopManager()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         GRPDISPLAYTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+* @fn         GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 * @brief      GetDesktopScreenSelected
 * @ingroup    GRAPHIC
 * 
-* @return     GRPDISPLAYTYPE_DESKTOP : 
+* @return     GRPSCREENTYPE_DESKTOP : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-GRPDISPLAYTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
+GRPSCREENTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 {
   return desktopscreenselected;
 }
@@ -896,14 +926,14 @@ GRPDISPLAYTYPE_DESKTOP GRPSCREEN::GetDesktopScreenSelected()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPDISPLAYTYPE_DESKTOP desktopscreenselected)
+* @fn         void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
 * @brief      SetDesktopScreenSelected
 * @ingroup    GRAPHIC
 * 
 * @param[in]  desktopscreenselected : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void GRPSCREEN::SetDesktopScreenSelected(GRPDISPLAYTYPE_DESKTOP desktopscreenselected)
+void GRPSCREEN::SetDesktopScreenSelected(GRPSCREENTYPE_DESKTOP desktopscreenselected)
 {
   this->desktopscreenselected = desktopscreenselected;
 }
@@ -959,6 +989,62 @@ bool GRPSCREEN::SetScreenCanvas(GRPCANVAS* screencanvas)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool GRPSCREEN::Rotate90Clockwise(XBYTE* target, GRPCANVAS* screencanvas)
+* @brief      Rotate90Clockwise
+* @ingroup    GRAPHIC
+* 
+* @param[in]  target : 
+* @param[in]  screencanvas : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool GRPSCREEN::Rotate(XBYTE* target, GRPCANVAS* screencanvas) 
+{
+  XDWORD pixelsize  = screencanvas->GetBytesperPixel();  
+  XBYTE* source     = screencanvas->Buffer_Get();
+
+  if(!source || !target)
+    {
+      return false;
+    }
+
+  switch(rotation)
+    {
+      case GRPSCREENROTATION_NONE               : break;
+
+      case GRPSCREENROTATION_90_CLOCKWISE       : { int target_offset = 0;  //((x * height) + (height - y - 1)) * pixelsize;
+                                                    int source_offset = 0;  //(y * width + x) * pixelsize;                     
+
+                                                    for(XDWORD y=0; y<10 /*height*/; y++) 
+                                                      {
+                                                        for(XDWORD x=0; x<width; x++) 
+                                                          {                                                                                                                                                                                 
+                                                            //target_offset = (y * width  + x) * pixelsize;
+                                                            //source_offset = (y * height + (width - x - 1)) * pixelsize;            
+
+                                                            target_offset += pixelsize;
+                                                            source_offset += pixelsize;            
+
+                                                            memcpy(target + target_offset, source + source_offset, pixelsize);
+                                                          }
+                                                      }
+                                                   }
+                                                   break;
+
+      case GRPSCREENROTATION_90_ANTICLOCKWISE   :  
+                                                   break;
+
+      case GRPSCREENROTATION_180                :  
+                                                   break;
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void GRPSCREEN::Clean()
 * @brief      Clean the attributes of the class: Default initialice
@@ -974,6 +1060,8 @@ void GRPSCREEN::Clean()
   isactive                = false;
 
   styles                  = GRPSCREENSTYLE_DEFAULT;
+
+  rotation                = GRPSCREENROTATION_NONE;
    
   isblockclose            = false;
   
@@ -982,7 +1070,7 @@ void GRPSCREEN::Clean()
   screencanvas            = NULL;
 
   desktopmanager          = NULL;
-  desktopscreenselected   = GRPDISPLAYTYPE_DESKTOP_ALL;
+  desktopscreenselected   = GRPSCREENTYPE_DESKTOP_ALL;
 
   isshow                  = false;
 }

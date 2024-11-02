@@ -60,7 +60,7 @@
 #include "XString.h"
 #include "XTrace.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamUSBConfig.h"
 
 #include "XMemory_Control.h"
@@ -324,7 +324,7 @@ void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
             {
               case DIOANDROIDUSBFSMSTATE_NONE               : break;
 
-              case DIOANDROIDUSBFSMSTATE_CONNECTED            : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOANDROIDUSBFSMSTATE_CONNECTED            : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 if(diostream->PostEvent(&xevent, true)) xevent.WaitForCompleted(5);
 
@@ -336,7 +336,7 @@ void DIOANDROIDSTREAMUSB::ThreadConnection(void* data)
 
               case DIOANDROIDUSBFSMSTATE_SENDINGDATA          : break;
 
-              case DIOANDROIDUSBFSMSTATE_DISCONNECTING        : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOANDROIDUSBFSMSTATE_DISCONNECTING        : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                 xevent.SetDIOStream(diostream);
                                                                 if(diostream->PostEvent(&xevent, true)) xevent.WaitForCompleted(5);
 

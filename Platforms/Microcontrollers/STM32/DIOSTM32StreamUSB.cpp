@@ -41,7 +41,7 @@
 #include "XFactory.h"
 #include "XThreadCollected.h"
 
-#include "DIOStreamXEvent.h"
+#include "DIOStream_XEvent.h"
 #include "DIOStreamUSBConfig.h"
 
 #include "DIOSTM32StreamUSB.h"
@@ -373,7 +373,7 @@ void DIOSTM32STREAMUSB::ThreadConnection(void* param)
             {
               case DIOSTM32USBFSMSTATE_NONE               : break;
 
-              case DIOSTM32USBFSMSTATE_CONNECTED            : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_CONNECTED);
+              case DIOSTM32USBFSMSTATE_CONNECTED            : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_CONNECTED);
                                                                     xevent.SetDIOStream(diostream);
                                                                     diostream->PostEvent(&xevent);
 
@@ -383,7 +383,7 @@ void DIOSTM32STREAMUSB::ThreadConnection(void* param)
 
               case DIOSTM32USBFSMSTATE_WAITINGTOREAD        : break;
 
-              case DIOSTM32USBFSMSTATE_DISCONNECTING        : { DIOSTREAMXEVENT xevent(diostream,DIOSTREAMXEVENT_TYPE_DISCONNECTED);
+              case DIOSTM32USBFSMSTATE_DISCONNECTING        : { DIOSTREAM_XEVENT xevent(diostream,DIOSTREAM_XEVENT_TYPE_DISCONNECTED);
                                                                     xevent.SetDIOStream(diostream);
                                                                     diostream->PostEvent(&xevent);
 

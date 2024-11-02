@@ -847,7 +847,7 @@ bool GRPWINDOWSSCREEN::Create_Window(bool show)
   int         posx            = 0;
   int         posy            = 0;  
 
-  if(nscreen == GRPDISPLAYTYPE_DESKTOP_ALL)
+  if(nscreen == GRPSCREENTYPE_DESKTOP_ALL)
     {
       alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
     }

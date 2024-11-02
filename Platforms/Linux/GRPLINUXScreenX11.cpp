@@ -496,7 +496,7 @@ bool GRPLINUXSCREENX11::Create_Window(bool show)
 
   //ShowDebugNetSupportedPropertys();
 
-  if(screenselected == GRPDISPLAYTYPE_DESKTOP_ALL)
+  if(screenselected == GRPSCREENTYPE_DESKTOP_ALL)
     {
       alldesktoprect = GetDesktopManager()->GetDesktopMonitors()->GetCombinedRect(); 
     }
