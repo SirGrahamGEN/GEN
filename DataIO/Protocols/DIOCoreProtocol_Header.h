@@ -110,9 +110,9 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
   public:
                                               DIOCOREPROTOCOL_HEADER        ();
     virtual                                  ~DIOCOREPROTOCOL_HEADER        ();
- 
-    XUUID*                                    GetIDConnection               ();
+     
     XUUID*                                    GetIDMessage                  ();
+    XUUID*                                    GetIDMachine                  ();
 
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        GetMessageType                (); 
     void                                      SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
@@ -161,9 +161,9 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
   private:
 
     void                                      Clean                         ();
-
-    XUUID                                     ID_connection;
+    
     XUUID                                     ID_message;
+    XUUID                                     ID_machine;
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;
     XSTRING                                   message_param;
     XDATETIME*                                datetime_send;

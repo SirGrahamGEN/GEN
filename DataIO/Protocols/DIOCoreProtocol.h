@@ -42,7 +42,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-// #define DIOCOREPROTOCOL_DEBUG_BUFFER
+#define DIOCOREPROTOCOL_DEBUG_BUFFER
 
 #pragma endregion
 
@@ -61,15 +61,15 @@ class DIOCOREPROTOCOL
 {
   public:
                                               
-                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream);
+                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
     virtual                                  ~DIOCOREPROTOCOL               ();
 
     bool                                      Ini                           ();
     bool                                      End                           ();
     
-    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content);
-    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content);
-    bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
+    bool                                      SendMsg                       (XBUFFER& content);
+    bool                                      SendMsg                       (XSTRING& content);
+    bool                                      SendMsg                       (XFILEJSON& content);
     
     bool                                      ReceivedMsg                   (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
 
@@ -81,12 +81,12 @@ class DIOCOREPROTOCOL
     
   private:
 
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XBUFFER& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XSTRING& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XFILEJSON& content, XBUFFER& contentresult);
 
     bool                                      GenerateHeaderToSend          (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XUUID* IDmachine, XUUID* IDconnection);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  ();
  
     bool                                      SendMsg                       (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
 
@@ -95,6 +95,8 @@ class DIOCOREPROTOCOL
 
     void                                      Clean                         ();   
    
+    XUUID*                                    ID_machine;
+    
     COMPRESSMANAGER*	                        compressmanager;
     COMPRESSBASE*			                        compressor;    	   
 

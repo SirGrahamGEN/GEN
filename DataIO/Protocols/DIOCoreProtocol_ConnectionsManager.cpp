@@ -109,25 +109,18 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOCOREPROTOCOL_CFG* protocolCFG)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
 { 
   bool status = false;
- 
-  if(!protocolCFG)
-    {
-      return false;
-    }
 
-  this->protocolCFG = protocolCFG;  
-
-  if(!protocolCFG->DIOStream_GetAll()->GetSize())
+  if(!protocolCFG.DIOStream_GetAll()->GetSize())
     {
       return false;
     } 
 
-  for(XDWORD c=0; c<protocolCFG->DIOStream_GetAll()->GetSize(); c++)
+  for(XDWORD c=0; c<protocolCFG.DIOStream_GetAll()->GetSize(); c++)
     {      
-      DIOSTREAM* diostream = protocolCFG->DIOStream_GetAll()->GetElement(c);
+      DIOSTREAM* diostream = protocolCFG.DIOStream_GetAll()->GetElement(c);
       if(diostream)
         {      
 
@@ -189,9 +182,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
       connections_xmutex = NULL;
     }
 
-  for(XDWORD c=0; c<protocolCFG->DIOStream_GetAll()->GetSize(); c++)
+  for(XDWORD c=0; c<protocolCFG.DIOStream_GetAll()->GetSize(); c++)
     {      
-      DIOSTREAM* diostream = protocolCFG->DIOStream_GetAll()->GetElement(c);
+      DIOSTREAM* diostream = protocolCFG.DIOStream_GetAll()->GetElement(c);
       if(diostream)
         {        
           UnSubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , diostream);
@@ -216,7 +209,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
 {
-  return protocolCFG;
+  return &protocolCFG;
 }
 
 
@@ -231,14 +224,9 @@ DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
 * @return     DIOCOREPROTOCOL* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
-{
-  if(!protocolCFG)
-    {
-      return NULL;
-    }
-
-  DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(protocolCFG, diostream);
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream, XUUID* ID_machine)
+{  
+  DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(&protocolCFG, diostream, ID_machine);
 
   return protocol;
 }
@@ -285,7 +273,7 @@ XMUTEX* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_GetXMutex()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Add(XUUID* ID_machine, DIOSTREAM* diostream)
+DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Add(DIOSTREAM* diostream)
 {
   if(!diostream)
     {
@@ -295,14 +283,14 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Add(X
   DIOCOREPROTOCOL_CONNECTION* connection = Connection_Get(diostream);
   if(!connection)
     {
-      connection = new DIOCOREPROTOCOL_CONNECTION(ID_machine, protocolCFG);
+      connection = new DIOCOREPROTOCOL_CONNECTION();
       if(!connection)
         {
           return NULL;
         }      
     }
 
-  connection->SetDIOStream(diostream);  
+  connection->SetDIOStream(diostream);
   connection->SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED);
 
   if(connections_xmutex)
@@ -526,12 +514,12 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
 
   switch(event->GetEventType())
     {
-      case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { DIOCOREPROTOCOL_CONNECTION* connection = Connection_Add(&ID_machine, event->GetDIOStream());                                                                                                      
+      case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { DIOCOREPROTOCOL_CONNECTION* connection = Connection_Add(event->GetDIOStream());                                                                                                      
                                                     if(connection)          
                                                       {
                                                         if(!connection->GetCoreProtocol())
                                                           { 
-                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream());
+                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream(), &ID_machine);
                                                             if(protocol)
                                                               {
                                                                 connection->SetCoreProtocol(protocol);
@@ -610,9 +598,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
-{
-  protocolCFG                 = NULL;
-
+{  
   connections_xmutex          = NULL;
   connections_xthread         = NULL;
 }

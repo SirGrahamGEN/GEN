@@ -72,15 +72,16 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
+* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* ID_machine)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @param[in]  DIOCOREPROTOCOL_CFG* : 
 * @param[in]   DIOSTREAM* diostream : 
+* @param[in]   XUUID* ID_machine : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
+DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* ID_machine)
 {
   Clean();
 
@@ -96,6 +97,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
 
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;
+  this->ID_machine  = ID_machine;
 }
 
 
@@ -159,24 +161,22 @@ bool DIOCOREPROTOCOL::End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XBUFFER& content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content)
+bool DIOCOREPROTOCOL::SendMsg(XBUFFER& content)
 {
   DIOCOREPROTOCOL_HEADER*  header          = NULL;
   XBUFFER                 contentresult;
   bool                    status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
+  header = CreateHeader(content, contentresult);
   if(!header)
     {      
       return false;
@@ -192,24 +192,22 @@ bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& co
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XSTRING& content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content)
+bool DIOCOREPROTOCOL::SendMsg(XSTRING& content)
 {
   DIOCOREPROTOCOL_HEADER*  header          = NULL;
   XBUFFER                 contentresult;
   bool                    status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
+  header = CreateHeader(content, contentresult);
   if(!header)
     {      
       return false;
@@ -225,25 +223,22 @@ bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XSTRING& co
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, bool iscontentcompress)
+* @fn         bool DIOCOREPROTOCOL::SendMsg(XFILEJSON& content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
-* @param[in]  iscontentcompress : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content)
+bool DIOCOREPROTOCOL::SendMsg(XFILEJSON& content)
 {
   DIOCOREPROTOCOL_HEADER*  header          = NULL;  
-  XBUFFER                 contentresult;  
-  bool                    status          = false;
+  XBUFFER                  contentresult;  
+  bool                     status          = false;
 
-  header = CreateHeader(IDmachine, IDconnection, content, contentresult);
+  header = CreateHeader(content, contentresult);
   if(!header)
     {      
       return false;
@@ -277,6 +272,7 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
       return false;
     }
 
+  #ifndef DIOCOREPROTOCOL_DEBUG_BUFFER
   if(!diostream)
     {
       return false;
@@ -288,8 +284,8 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
       return false;
     }
   
-  #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
-  readbuffer = &debug_senddata;
+  #else
+  XBUFFER* readbuffer = &debug_senddata;
   #endif
 
   if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
@@ -388,21 +384,19 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XBUFFER& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
 * @param[in]  contentresult : 
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XBUFFER& content, XBUFFER& contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XBUFFER& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader();
   if(!header)
     {
       return NULL;
@@ -427,21 +421,19 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* I
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XSTRING& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
 * @param[in]  contentresult : 
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XSTRING& content, XBUFFER& contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XSTRING& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader();
   if(!header)
     {
       return NULL;
@@ -469,21 +461,19 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* I
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XFILEJSON& content, XBUFFER& contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * @param[in]  content : 
 * @param[in]  contentresult : 
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content, XBUFFER& contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XFILEJSON& content, XBUFFER& contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(IDmachine, IDconnection);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader();
   if(!header)
     {
       return NULL;
@@ -624,36 +614,27 @@ bool DIOCOREPROTOCOL::GenerateHeaderToSend(DIOCOREPROTOCOL_HEADER* header, XBUFF
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader()
 * @brief      CreateHeader
 * @ingroup    DATAIO
-* 
-* @param[in]  IDmachine : 
-* @param[in]  IDconnection : 
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* IDconnection)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader()
 {
-  if(!IDmachine)
-    {
-      return NULL;
-    }
-
-  if(!IDconnection)
-    {
-      return NULL;
-    }
-
   DIOCOREPROTOCOL_HEADER* header = new DIOCOREPROTOCOL_HEADER();
   if(!header)
     {
       return NULL;
     }
   
-  header->GetIDConnection()->CopyFrom((*IDconnection));
   header->GetIDMessage()->GenerateRandom();
+  if(ID_machine)
+    {
+      header->GetIDMessage()->CopyFrom((*ID_machine));
+    }
+
   header->GetDateTimeSend()->Read();
 
   return header;
@@ -733,17 +714,20 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
       return false;
     }
 
+  #ifndef DIOCOREPROTOCOL_DEBUG_BUFFER
+
   if(!diostream)
     {
       return false;
-    }
-      
-
+    }      
   status = diostream->Write(senddata);
-  
-  #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
+
+  #else    
+
   debug_senddata.Empty();
   debug_senddata.Add(senddata);
+  status = true;
+
   #endif
 
   return status;
@@ -801,6 +785,7 @@ void DIOCOREPROTOCOL::Clean()
 {
   protocolCFG     = NULL;
   diostream       = NULL;
+  ID_machine      = NULL;
 
   compressmanager = NULL;
   compressor      = NULL;    	

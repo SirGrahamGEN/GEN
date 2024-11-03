@@ -37,6 +37,7 @@
 #include "XThreadCollected.h"
 
 #include "DIOStream_XEvent.h"
+#include "DIOCoreProtocol_CFG.h"
 
 #pragma endregion
 
@@ -55,7 +56,6 @@
 class XTIMER;
 class XMUTEX;
 class DIOCOREPROTOCOL;
-class DIOCOREPROTOCOL_CFG;
 class DIOCOREPROTOCOL_CONNECTION;
 
 
@@ -65,20 +65,25 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
                                             DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
     virtual                                ~DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();   
 
-    bool                                    Ini                                   (DIOCOREPROTOCOL_CFG* protocolCFG);
+    bool                                    Ini                                   ();
     bool                                    End                                   ();
 
     DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                        ();
 
-    virtual DIOCOREPROTOCOL*                CreateProtocol                        (DIOSTREAM* diostream);                                    
+    virtual DIOCOREPROTOCOL*                CreateProtocol                        (DIOSTREAM* diostream, XUUID* ID_machine);                                    
     
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connection_GetAll                     ();
     XMUTEX*                                 Connection_GetXMutex                  ();  
-    DIOCOREPROTOCOL_CONNECTION*             Connection_Add                        (XUUID* ID_machine, DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*             Connection_Add                        (DIOSTREAM* stream);
     DIOCOREPROTOCOL_CONNECTION*             Connection_Get                        (DIOSTREAM* stream);
     bool                                    Connection_Delete                     (DIOCOREPROTOCOL_CONNECTION* connection);
     bool                                    Connection_DeleAll                    ();
-  
+
+  protected:
+    
+    DIOCOREPROTOCOL_CFG                     protocolCFG;
+    XUUID                                   ID_machine;
+
   private:
 
     bool                                    CreateIDMachine                       (XUUID& ID);
@@ -89,11 +94,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
     static void                             ThreadConnections                     (void* param);
 
     void                                    Clean                                 ();
-
-    DIOCOREPROTOCOL_CFG*                    protocolCFG;
-
-    XUUID                                   ID_machine;
-        
+          
     XMUTEX*                                 connections_xmutex;
     XTHREADCOLLECTED*                       connections_xthread;
 

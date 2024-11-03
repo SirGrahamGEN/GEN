@@ -113,21 +113,6 @@ DIOCOREPROTOCOL_HEADER::~DIOCOREPROTOCOL_HEADER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDConnection()
-* @brief      GetIDConnection
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOL_HEADER::GetIDConnection()
-{
-  return &ID_connection;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDMessage()
 * @brief      GetIDMessage
 * @ingroup    DATAIO
@@ -138,6 +123,21 @@ XUUID* DIOCOREPROTOCOL_HEADER::GetIDConnection()
 XUUID* DIOCOREPROTOCOL_HEADER::GetIDMessage()
 {
   return &ID_message;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
+* @brief      GetIDMachine
+* @ingroup    DATAIO
+* 
+* @return     XUUID* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
+{
+  return &ID_machine;
 }
 
 
@@ -662,9 +662,9 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
     {
       return false;
     }
-
-  ID_connection.CopyFrom((*header->GetIDConnection()));
+  
   ID_message.CopyFrom((*header->GetIDMessage()));
+  ID_machine.CopyFrom((*header->GetIDMachine()));
 
   message_type          = header->GetMessageType();
   message_param         = header->GetMessageParam()->Get();  
@@ -701,9 +701,9 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
     {
       return false;
     }
-
-  ID_connection.CopyTo((*header->GetIDConnection()));
-  ID_message.CopyTo((*header->GetIDMessage()));
+  
+  ID_message.CopyTo((*header->GetIDMessage()));  
+  ID_machine.CopyTo((*header->GetIDMessage()));
 
   header->SetMessageType(message_type);
   header->GetMessageParam()->Set(message_param);  
@@ -741,12 +741,12 @@ bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
       return false;
     }
 
-  if(!ID_connection.CopyTo((*header->GetIDConnection())))
+  if(!ID_message.CopyTo((*header->GetIDMessage())))
     {
       return false;
     }
 
-  if(!ID_message.CopyTo((*header->GetIDMessage())))
+  if(!ID_machine.CopyTo((*header->GetIDMachine())))
     {
       return false;
     }
@@ -819,11 +819,11 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   XSTRING   string; 
   XVARIANT  data;
 
-  ID_connection.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_connection"));
-
   ID_message.GetToString(string);
   Primitive_Add<XSTRING*>(&string, __L("ID_message"));
+
+  ID_machine.GetToString(string);
+  Primitive_Add<XSTRING*>(&string, __L("ID_machine"));
 
   #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
   GetMessageTypeToString(string);  
@@ -880,12 +880,12 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
   XSTRING string;
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_connection"));
-  ID_connection.SetFromString(string);
-  
-  string.Empty();
   Primitive_Extract<XSTRING&>(string, __L("ID_message"));
   ID_message.SetFromString(string);
+
+  string.Empty();
+  Primitive_Extract<XSTRING&>(string, __L("ID_machine"));
+  ID_machine.SetFromString(string);
 
   #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
   Primitive_Extract<XSTRING&>(string, __L("message_type"));

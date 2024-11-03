@@ -73,12 +73,9 @@
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION(XUUID* ID_machine, DIOCOREPROTOCOL_CFG* protocolCFG)
+DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 {
   Clean();
-
-  this->ID_machine  = ID_machine;
-  this->protocolCFG = protocolCFG;
 
   xtimerstatus = GEN_XFACTORY.CreateTimer();
 }
@@ -276,21 +273,6 @@ bool DIOCOREPROTOCOL_CONNECTION::SetCoreProtocol(DIOCOREPROTOCOL* protocol)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
-* @brief      GetIDConnection
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
-{
-  return &ID_connection;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
 * @brief      GetMessages
 * @ingroup    DATAIO
@@ -298,7 +280,7 @@ XUUID* DIOCOREPROTOCOL_CONNECTION::GetIDConnection()
 * @return     XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
+XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMsgs()
 {
   return &messages;
 }
@@ -314,8 +296,6 @@ XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTION::Clean()
 {
-  protocolCFG   = NULL;
-  ID_machine    = NULL;
   diostream     = NULL;
   protocol      = NULL;
 

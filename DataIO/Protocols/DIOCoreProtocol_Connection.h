@@ -64,7 +64,7 @@ class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CONNECTION
 {
   public:
-                                          DIOCOREPROTOCOL_CONNECTION            (XUUID* ID_machine, DIOCOREPROTOCOL_CFG* protocolCFG);
+                                          DIOCOREPROTOCOL_CONNECTION            ();
     virtual                              ~DIOCOREPROTOCOL_CONNECTION            ();
 
     DIOSTREAM*                            GetDIOStream                          ();
@@ -79,23 +79,18 @@ class DIOCOREPROTOCOL_CONNECTION
 
     XTIMER*                               GetXTimerStatus                       ();
 
-    XUUID*                                GetIDConnection                       ();
-    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>*    GetMessages                           ();
-
-    bool                                  SendMessage                           ();   
+    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>*    GetMsgs                               ();
 
   private:
 
     void                                  Clean                                 ();    
-
-    DIOCOREPROTOCOL_CFG*                  protocolCFG;
+    
     DIOSTREAM*                            diostream;    
     DIOCOREPROTOCOL*                      protocol;    
       
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
     XTIMER*                               xtimerstatus;
-    XUUID*                                ID_machine;
-    XUUID                                 ID_connection;
+    
     XVECTOR<DIOCOREPROTOCOL_MESSAGE*>     messages;
 };
 
