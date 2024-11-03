@@ -45,7 +45,10 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOL_CFG_DEFAULTMINSIZECOMPRESS   150 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS                       150 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT   60 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION            5 
+
 
 #pragma endregion
 
@@ -58,47 +61,47 @@ class DIOCOREPROTOCOL_CFG
 {
   public:
 
-                                              DIOCOREPROTOCOL_CFG           ();                                              
-    virtual                                  ~DIOCOREPROTOCOL_CFG           ();
+                                              DIOCOREPROTOCOL_CFG                     ();                                              
+    virtual                                  ~DIOCOREPROTOCOL_CFG                     ();
 
-    bool                                      GetIsServer                   ();
-    void                                      SetIsServer                   (bool isserver);
+    bool                                      GetIsServer                             ();
+    void                                      SetIsServer                             (bool isserver);
 
-    bool                                      GetCompressHeader             ();
-    void                                      SetCompressHeader             (bool compressheader);
+    bool                                      GetCompressHeader                       ();
+    void                                      SetCompressHeader                       (bool compressheader);
 
-    bool                                      GetCompressContent            ();
-    void                                      SetCompressContent            (bool compresscontent);
+    bool                                      GetCompressContent                      ();
+    void                                      SetCompressContent                      (bool compresscontent);
 
-    XDWORD                                    GetMinSizeCompressContent     ();
-    void                                      SetMinSizeCompressContent     (XDWORD minsizecompresscontent);
+    XDWORD                                    GetMinSizeCompressContent               ();
+    void                                      SetMinSizeCompressContent               (XDWORD minsizecompresscontent);
 
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*       DIOStream_GetAll              ();
-    bool                                      DIOStream_Add                 (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
-    bool                                      DIOStream_Delete              (DIOSTREAMCONFIG* diostreamCFG);
-    bool                                      DIOStream_DeleteAll           ();
+    XDWORD                                    GetTimeToEliminateConnectionDisconnect  ();
+    void                                      SetTimeToEliminateConnectionDisconnect  (XDWORD timetoeliminateconnectiondisconnect);
+      
+    XDWORD                                    GetTimeToHeardbetInConnection            ();
+    void                                      SetTimeToHeardbetInConnection            (XDWORD timetoheardbetinconnection);
 
-
-    DIOSTREAMCONFIG*                          GetDIOStreamCFG               ();   
-    void                                      SetDIOStreamCFG               (DIOSTREAMCONFIG* diostreamCFG);   
-
-    DIOSTREAM*                                GetDIOStream                  ();  
-    void                                      SetDIOStream                  (DIOSTREAM* diostream);  
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*       DIOStream_GetAll                        ();
+    bool                                      DIOStream_Add                           (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
+    bool                                      DIOStream_Delete                        (DIOSTREAMCONFIG* diostreamCFG);
+    bool                                      DIOStream_DeleteAll                     ();
     
   private:
 
-    void                                      Clean                         ();
+    void                                      Clean                                   ();
 
     bool                                      isserver;
 
     bool                                      compressheader;
+
     bool                                      compresscontent;
     XDWORD                                    minsizecompresscontent;
 
+    XDWORD                                    timetoeliminateconnectiondisconnect;
+    XDWORD                                    timetoheardbetinconnection;
+
     XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>        diostreams;
-    
-    DIOSTREAMCONFIG*                          diostreamCFG;   
-    DIOSTREAM*                                diostream;   
 };
 
 

@@ -186,7 +186,7 @@ class DIOPROTOCOL_CONNECTIONSMANAGER : public XSUBJECT
     XTIMER*                             xtimerclienttry;
     XTIMER*                             xtimerout;
 
-    XMUTEX*                             xmutexprocotolconnections;
+    XMUTEX*                             xmutexprotocolconnections;
 
     XVECTOR<DIOURL*>                    targetURLs;
 };

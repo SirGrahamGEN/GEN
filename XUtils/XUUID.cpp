@@ -295,6 +295,32 @@ bool XUUID::SetData6(XBYTE* data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XUUID::Empty()
+* @brief      Empty
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::Empty()
+{
+  data1 = 0;
+  data2 = 0;
+  data3 = 0;
+  data4 = 0;
+  data5 = 0;
+
+  for(int c=0; c<XUUIDMAXDATA4; c++)
+    {
+      this->data6[c] = 0;
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XUUID::Set(XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6)
 * @brief      Set
 * @ingroup    XUTILS
@@ -545,17 +571,7 @@ bool XUUID::SetFromString(XSTRING& string)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XUUID::Clean()
 {
-  data1 = 0;
-  data2 = 0;
-  data3 = 0;
-  data4 = 0;
-  data5 = 0;
-
-  for(int c=0; c<XUUIDMAXDATA4; c++)
-    {
-      this->data6[c] = 0;
-    }
-
+  Empty();
 }
 
 

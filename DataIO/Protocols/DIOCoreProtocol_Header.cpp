@@ -113,21 +113,6 @@ DIOCOREPROTOCOL_HEADER::~DIOCOREPROTOCOL_HEADER()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
-* @brief      GetIDMachine
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
-{
-  return &ID_machine;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDConnection()
 * @brief      GetIDConnection
 * @ingroup    DATAIO
@@ -678,7 +663,6 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
       return false;
     }
 
-  ID_machine.CopyFrom((*header->GetIDMachine()));
   ID_connection.CopyFrom((*header->GetIDConnection()));
   ID_message.CopyFrom((*header->GetIDMessage()));
 
@@ -718,7 +702,6 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
       return false;
     }
 
-  ID_machine.CopyTo((*header->GetIDMachine()));
   ID_connection.CopyTo((*header->GetIDConnection()));
   ID_message.CopyTo((*header->GetIDMessage()));
 
@@ -754,11 +737,6 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
 bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
 {
   if(!header)
-    {
-      return false;
-    }
-
-  if(!ID_machine.Compare((*header->GetIDMachine())))
     {
       return false;
     }
@@ -841,9 +819,6 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   XSTRING   string; 
   XVARIANT  data;
 
-  ID_machine.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_machine"));
-
   ID_connection.GetToString(string);
   Primitive_Add<XSTRING*>(&string, __L("ID_connection"));
 
@@ -903,10 +878,6 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
 bool DIOCOREPROTOCOL_HEADER::Deserialize()
 {
   XSTRING string;
-
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_machine"));
-  ID_machine.SetFromString(string);
 
   string.Empty();
   Primitive_Extract<XSTRING&>(string, __L("ID_connection"));

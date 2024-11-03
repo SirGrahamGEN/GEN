@@ -32,6 +32,15 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+enum DIOCOREPROTOCOL_CONNECTION_STATUS
+{
+  DIOCOREPROTOCOL_CONNECTION_STATUS_NONE              = 0 ,  
+  DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED             ,  
+  DIOCOREPROTOCOL_CONNECTION_STATUS_IDENTIFIED            ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED         ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_INITIALIZED           ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED          ,
+};
 
 #pragma endregion
 
@@ -55,21 +64,37 @@ class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CONNECTION
 {
   public:
-                                          DIOCOREPROTOCOL_CONNECTION            ();
+                                          DIOCOREPROTOCOL_CONNECTION            (XUUID* ID_machine, DIOCOREPROTOCOL_CFG* protocolCFG);
     virtual                              ~DIOCOREPROTOCOL_CONNECTION            ();
 
-    bool                                  Connect                               (DIOCOREPROTOCOL_CFG* procotolCFG);
-    bool                                  Disconected                           ();  
+    DIOSTREAM*                            GetDIOStream                          ();
+    bool                                  SetDIOStream                          (DIOSTREAM* diostream);
+
+    DIOCOREPROTOCOL*                      GetCoreProtocol                       ();
+    bool                                  SetCoreProtocol                       (DIOCOREPROTOCOL* protocol);
+
+    DIOCOREPROTOCOL_CONNECTION_STATUS     GetStatus                             ();  
+    void                                  SetStatus                             (DIOCOREPROTOCOL_CONNECTION_STATUS status);
+    bool                                  GetStatusString                       (XSTRING& statusstring);  
+
+    XTIMER*                               GetXTimerStatus                       ();
 
     XUUID*                                GetIDConnection                       ();
-    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>*    GetMessages                           (); 
+    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>*    GetMessages                           ();
+
+    bool                                  SendMessage                           ();   
 
   private:
 
     void                                  Clean                                 ();    
 
-    DIOCOREPROTOCOL_CFG*                  procotolCFG;
-
+    DIOCOREPROTOCOL_CFG*                  protocolCFG;
+    DIOSTREAM*                            diostream;    
+    DIOCOREPROTOCOL*                      protocol;    
+      
+    DIOCOREPROTOCOL_CONNECTION_STATUS     status;
+    XTIMER*                               xtimerstatus;
+    XUUID*                                ID_machine;
     XUUID                                 ID_connection;
     XVECTOR<DIOCOREPROTOCOL_MESSAGE*>     messages;
 };

@@ -362,8 +362,8 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::Ini(bool isserver, DIOSTREAMCONFIG* diostre
   GEN_XFACTORY_CREATE(xtimerout, CreateTimer())
   if(!xtimerout)  return false;
   
-  GEN_XFACTORY_CREATE(xmutexprocotolconnections, Create_Mutex())
-  if(!xmutexprocotolconnections) return false;
+  GEN_XFACTORY_CREATE(xmutexprotocolconnections, Create_Mutex())
+  if(!xmutexprotocolconnections) return false;
 
   GEN_XFACTORY_CREATE(xtimerconnections, CreateTimer())
   if(xtimerconnections)
@@ -428,10 +428,10 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::End()
       xtimerout = NULL;
     }
 
-  if(xmutexprocotolconnections)
+  if(xmutexprotocolconnections)
     {
-      GEN_XFACTORY.Delete_Mutex(xmutexprocotolconnections);
-      xmutexprocotolconnections = NULL;
+      GEN_XFACTORY.Delete_Mutex(xmutexprotocolconnections);
+      xmutexprotocolconnections = NULL;
     }
 
   TargetURL_DeleteAll();
@@ -634,9 +634,9 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNAvailable()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(int index)
 {
-  if(!xmutexprocotolconnections)  return NULL;
+  if(!xmutexprotocolconnections)  return NULL;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   DIOPROTOCOL_CONNECTION* protocolconnection = NULL;
 
@@ -648,7 +648,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return protocolconnection;
 }
@@ -665,9 +665,9 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Get(
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstConnected()
 {
-  if(!xmutexprocotolconnections)  return NULL;
+  if(!xmutexprotocolconnections)  return NULL;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   DIOPROTOCOL_CONNECTION* protocolconnection = NULL;
   if(!protocolconnections.IsEmpty())
@@ -692,7 +692,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return protocolconnection;
 }
@@ -709,9 +709,9 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetFirstOperative()
 {
-  if(!xmutexprocotolconnections)  return NULL;
+  if(!xmutexprotocolconnections)  return NULL;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   DIOPROTOCOL_CONNECTION* protocolconnection = NULL;
   if(!protocolconnections.IsEmpty())
@@ -736,7 +736,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetF
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return protocolconnection;
 }
@@ -757,9 +757,9 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
 {
   DIOPROTOCOL_CONNECTION* protocolconnection = NULL;
 
-  if(!xmutexprocotolconnections)  return NULL;
+  if(!xmutexprotocolconnections)  return NULL;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   if(!protocolconnections.IsEmpty())
     {
@@ -780,7 +780,7 @@ DIOPROTOCOL_CONNECTION* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetB
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return protocolconnection;
 }
@@ -801,9 +801,9 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 {
   DIOPROTOCOL* protocol = NULL;
 
-  if(!xmutexprocotolconnections)  return NULL;
+  if(!xmutexprotocolconnections)  return NULL;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   if(index<(int)ProtocolConnections_GetNAvailable())
     {
@@ -820,7 +820,7 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return protocol;
 }
@@ -837,9 +837,9 @@ DIOPROTOCOL* DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetProtocol(int
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 {
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   int nconnections      = 0;
   int ntotalconnections = ProtocolConnections_GetNAvailable();
@@ -856,7 +856,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return nconnections;
 }
@@ -873,9 +873,9 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNConnected()
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 {
-  if(!xmutexprocotolconnections)  return 0;
+  if(!xmutexprotocolconnections)  return 0;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   int nconnections      = 0;
   int ntotalconnections = ProtocolConnections_GetNAvailable();
@@ -892,7 +892,7 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return nconnections;
 }
@@ -909,9 +909,9 @@ int DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_GetNFreeToConnect()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
 {
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   int ntotalconnections = ProtocolConnections_GetNAvailable();
 
@@ -935,7 +935,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_SendEventConnected()
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return true;
 }
@@ -954,9 +954,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
 {
   int index = 0;
 
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   while(index < ProtocolConnections_GetNAvailable())
     {
@@ -983,7 +983,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAllWaitConnection
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return true;
 }
@@ -1002,9 +1002,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
 {
   int index = 0;
 
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   while(index < ProtocolConnections_GetNAvailable())
     {
@@ -1030,7 +1030,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteDisconnected()
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return true;
 }
@@ -1051,9 +1051,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 {
   bool status = false;
 
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   if(index<(int)ProtocolConnections_GetNAvailable())
     {
@@ -1073,7 +1073,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return status;
 }
@@ -1090,9 +1090,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Disconnect(int index)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
 {
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   if(!protocolconnections.IsEmpty())
     {
@@ -1115,7 +1115,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DisconnectAll()
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return true;
 }
@@ -1136,9 +1136,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 {
   bool status = false;
 
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   if(index<(int)ProtocolConnections_GetNAvailable())
     {
@@ -1162,7 +1162,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return status;
 }
@@ -1179,9 +1179,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_Delete(int index)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
 {
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   int index = 0;
 
@@ -1204,7 +1204,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::ProtocolConnections_DeleteAll()
         } else index++;
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return true;
 }
@@ -1262,9 +1262,9 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAnyConnectionIsConnected(int timeout)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeout)
 {
-  if(!xmutexprocotolconnections)  return false;
+  if(!xmutexprotocolconnections)  return false;
 
-  xmutexprocotolconnections->Lock();
+  xmutexprotocolconnections->Lock();
 
   int  index  = 0;
   bool status = true;
@@ -1301,7 +1301,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::WaitToAllConnectionsCanBeDeleted(int timeou
         }
     }
 
-  xmutexprocotolconnections->UnLock();
+  xmutexprotocolconnections->UnLock();
 
   return status;
 }
@@ -1428,13 +1428,13 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 
               if(protocolconnection->Connect())
                 {
-                  if(xmutexprocotolconnections) xmutexprocotolconnections->Lock();
+                  if(xmutexprotocolconnections) xmutexprotocolconnections->Lock();
 
                   protocol->SetConnection(protocolconnection);
 
                   protocolconnections.Add(protocolconnection);
 
-                  if(xmutexprocotolconnections) xmutexprocotolconnections->UnLock();
+                  if(xmutexprotocolconnections) xmutexprotocolconnections->UnLock();
                 }
             }
            else
@@ -1464,7 +1464,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsServer()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
 {
-  if(!xmutexprocotolconnections)       return;
+  if(!xmutexprotocolconnections)       return;
   if(!xthreadconnections)              return;
   if(!xthreadconnections->IsRunning()) return;
   if(!xtimerconnections)               return;
@@ -1566,12 +1566,12 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::ManageProtocolConnectionsClient()
                             {
                               if(protocolconnection->GetDIOProtocol()->IsConnected())
                                 {
-                                  if(xmutexprocotolconnections) xmutexprocotolconnections->Lock();
+                                  if(xmutexprotocolconnections) xmutexprotocolconnections->Lock();
 
                                   protocol->SetConnection(protocolconnection);
                                   protocolconnections.Add(protocolconnection);
 
-                                  if(xmutexprocotolconnections) xmutexprocotolconnections->UnLock();
+                                  if(xmutexprotocolconnections) xmutexprotocolconnections->UnLock();
 
                                   SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CONNECTEDCONNECTION, protocolconnection);
 
@@ -1750,7 +1750,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::Clean()
   xtimerclienttry                 = NULL;
   xtimerout                       = NULL;
 
-  xmutexprocotolconnections       = NULL;
+  xmutexprotocolconnections       = NULL;
 }
 
 

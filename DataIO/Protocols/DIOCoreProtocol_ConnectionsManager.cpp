@@ -40,11 +40,16 @@
 #include "DIOCoreProtocol_ConnectionsManager.h"
 
 #include "XFactory.h"
+#include "XSystem.h"
 
 #include "DIOStream.h"
 #include "DIOStreamEnumServers.h"
 
+#include "DIOCoreProtocol.h"
 #include "DIOCoreProtocol_CFG.h"
+#include "DIOCoreProtocol_Connection.h"
+
+#include "HashSHA2.h"
 
 #include "XMemory_Control.h"
 
@@ -76,6 +81,8 @@
 DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
   Clean(); 
+
+  CreateIDMachine(ID_machine);
 }
 
 
@@ -140,16 +147,12 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOCOREPROTOCOL_CFG* protocolCFG)
   GEN_XFACTORY_CREATE(connections_xmutex, Create_Mutex())
   if(connections_xmutex) 
     {
-      GEN_XFACTORY_CREATE(connections_xtimer, CreateTimer())
-      if(connections_xtimer)
-        {      
-          connections_xthread = CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, __L("DIOPROTOCOL_CONNECTIONSMANAGER::Ini"), ThreadConnections, (void*)this);
-          if(connections_xthread)
+      connections_xthread = CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, __L("DIOPROTOCOL_CONNECTIONSMANAGER::Ini"), ThreadConnections, (void*)this);
+      if(connections_xthread)
+        {
+          if(connections_xthread->Ini()) 
             {
-              if(connections_xthread->Ini()) 
-                {
-                  return true;
-                }
+              return true;
             }
         }      
     }
@@ -170,19 +173,15 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini(DIOCOREPROTOCOL_CFG* protocolCFG)
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
-{
+{ 
+  Connection_DeleAll();
+
   if(connections_xthread)
     {
       connections_xthread->End();
       DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, connections_xthread);
       connections_xthread = NULL;
     }  
-
-  if(connections_xtimer)
-    {
-      GEN_XFACTORY.DeleteTimer(connections_xtimer);
-      connections_xtimer = NULL;
-    }
 
   if(connections_xmutex)
     {
@@ -223,16 +222,288 @@ DIOCOREPROTOCOL_CFG* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetProtocolCFG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetConnections()
-* @brief      GetConnections
+* @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
+* @brief      CreateProtocol
+* @ingroup    DATAIO
+* 
+* @param[in]  diostream : 
+* 
+* @return     DIOCOREPROTOCOL* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
+{
+  if(!protocolCFG)
+    {
+      return NULL;
+    }
+
+  DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(protocolCFG, diostream);
+
+  return protocol;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_GetAll()
+* @brief      Connection_GetAll
 * @ingroup    DATAIO
 * 
 * @return     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetConnections()
+XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_GetAll()
 {
   return &connections;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMUTEX* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_GetXMutex()
+* @brief      Connection_GetXMutex
+* @ingroup    DATAIO
+* 
+* @return     XMUTEX* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMUTEX* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_GetXMutex()
+{
+  return connections_xmutex;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Add(DIOSTREAM* diostream)
+* @brief      Connection_Add
+* @ingroup    DATAIO
+* 
+* @param[in]  diostream : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Add(XUUID* ID_machine, DIOSTREAM* diostream)
+{
+  if(!diostream)
+    {
+      return NULL;
+    }
+
+  DIOCOREPROTOCOL_CONNECTION* connection = Connection_Get(diostream);
+  if(!connection)
+    {
+      connection = new DIOCOREPROTOCOL_CONNECTION(ID_machine, protocolCFG);
+      if(!connection)
+        {
+          return NULL;
+        }      
+    }
+
+  connection->SetDIOStream(diostream);  
+  connection->SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED);
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->Lock();
+    }
+
+  bool status = connections.Add(connection);
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->UnLock();
+    }
+
+  return connection;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Get(DIOSTREAM* diostream)
+* @brief      Connection_Get
+* @ingroup    DATAIO
+* 
+* @param[in]  diostream : 
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Get(DIOSTREAM* diostream)
+{ 
+  if(!connections.GetSize())
+    {
+      return NULL;
+    }
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->Lock();
+    }
+
+  for(XDWORD c=0; c<connections.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(c);
+      if(connection)  
+        {
+          if(connection->GetDIOStream() == diostream)
+            {
+              if(connections_xmutex)
+                  {
+                    connections_xmutex->UnLock();
+                  }
+
+              return connection;
+            }
+        }
+    }
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->UnLock();
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Delete(DIOCOREPROTOCOL_CONNECTION* connection)
+* @brief      Connection_Delete
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_Delete(DIOCOREPROTOCOL_CONNECTION* connection)
+{
+  if(!connection)
+    {
+      return false;
+    }
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->Lock();
+    }
+
+  connections.Delete(connection);
+  delete connection;
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->UnLock();
+    }
+  
+  return true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_DeleAll()
+* @brief      Connection_DeleAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connection_DeleAll()
+{
+  if(!connections.GetSize())
+    {
+      return false;
+    }
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->Lock();
+    }
+
+  connections.DeleteContents();
+  connections.DeleteAll();
+
+  if(connections_xmutex)
+    {
+      connections_xmutex->UnLock();
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
+* @brief      CreateIDMachine
+* @ingroup    DATAIO
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
+{ 
+  XSTRING   origin; 
+  XBUFFER   originbuffer; 
+  HASHSHA2* sha2        = NULL;
+  XBUFFER*  result      = NULL;
+
+  ID.Empty();
+
+  GEN_XSYSTEM.GetOperativeSystemID(origin);
+  
+  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetBIOSSerialNumber()->Get());
+  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetCPUSerialNumber()->Get());
+
+  origin.ConvertToUTF8(originbuffer);
+    
+  sha2 = new HASHSHA2(HASHSHA2TYPE_256);
+  if(!sha2)
+    {
+      return false;
+    }
+
+  sha2->Do(originbuffer);
+  result = sha2->GetResult();
+
+  if(!result)
+    {
+      return false;
+    }
+
+  if(!result->GetSize())
+    {
+      return false;
+    }
+
+  XDWORD data1 = 0; 
+  XWORD  data2 = 0;
+  XWORD  data3 = 0;
+  XBYTE  data4 = 0;
+  XBYTE  data5 = 0; 
+  XBYTE* data6 = &result->Get()[12];
+
+  result->Get((XDWORD&)data1);  
+  result->Get((XWORD&)data2);  
+  result->Get((XWORD&)data3);  
+  result->Get((XBYTE&)data4);  
+  result->Get((XBYTE&)data5);  
+
+  ID.Set(data1, data2, data3, data4, data5, data6);
+
+  ID.GetToString(origin);
+
+  delete sha2;
+
+  return true;
 }
 
 
@@ -255,15 +526,26 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
 
   switch(event->GetEventType())
     {
-      case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { 
-                                                    int a=0;
-                                                    a++;               
+      case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { DIOCOREPROTOCOL_CONNECTION* connection = Connection_Add(&ID_machine, event->GetDIOStream());                                                                                                      
+                                                    if(connection)          
+                                                      {
+                                                        if(!connection->GetCoreProtocol())
+                                                          { 
+                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream());
+                                                            if(protocol)
+                                                              {
+                                                                connection->SetCoreProtocol(protocol);
+                                                              }  
+                                                          }
+                                                      }
                                                   }
                                                   break;
 
-      case DIOSTREAM_XEVENT_TYPE_DISCONNECTED   : { 
-                                                    int a=0;
-                                                    a++;               
+      case DIOSTREAM_XEVENT_TYPE_DISCONNECTED   : { DIOCOREPROTOCOL_CONNECTION* connection = Connection_Get(event->GetDIOStream());
+                                                    if(connection)
+                                                      {
+                                                        connection->SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);
+                                                      }
                                                   }
                                                   break;
     }
@@ -331,7 +613,6 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
 {
   protocolCFG                 = NULL;
 
-  connections_xtimer          = NULL;      
   connections_xmutex          = NULL;
   connections_xthread         = NULL;
 }

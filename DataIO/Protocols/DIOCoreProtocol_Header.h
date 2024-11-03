@@ -111,7 +111,6 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
                                               DIOCOREPROTOCOL_HEADER        ();
     virtual                                  ~DIOCOREPROTOCOL_HEADER        ();
  
-    XUUID*                                    GetIDMachine                  ();
     XUUID*                                    GetIDConnection               ();
     XUUID*                                    GetIDMessage                  ();
 
@@ -163,7 +162,6 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 
     void                                      Clean                         ();
 
-    XUUID                                     ID_machine;
     XUUID                                     ID_connection;
     XUUID                                     ID_message;
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;

@@ -68,6 +68,8 @@ class XUUID
     bool                SetData4        (XBYTE data);
     bool                SetData5        (XBYTE data);
     bool                SetData6        (XBYTE* data);
+
+    bool                Empty           ();
     
     bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
 

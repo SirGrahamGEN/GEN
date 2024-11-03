@@ -205,6 +205,66 @@ void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompressconten
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
+* @brief      GetTimeToEliminateConnectionDisconnect
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
+{
+  return timetoeliminateconnectiondisconnect;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoeliminateconnectiondisconnect)
+* @brief      SetTimeToEliminateConnectionDisconnect
+* @ingroup    DATAIO
+* 
+* @param[in]  timetoeliminateconnectiondisconnect : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoeliminateconnectiondisconnect)
+{
+  this->timetoeliminateconnectiondisconnect = timetoeliminateconnectiondisconnect;
+}  
+ 
+  
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
+* @brief      GetTimeToHeardbetInConnection
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
+{
+  return timetoheardbetinconnection;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
+* @brief      SetTimeToHeardbetInConnection
+* @ingroup    DATAIO
+* 
+* @param[in]  timetoheardbetinconnection : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
+{
+  this->timetoheardbetinconnection = timetoheardbetinconnection;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>* DIOCOREPROTOCOL_CFG::DIOStream_GetAll()
 * @brief      DIOStream_GetAll
 * @ingroup    DATAIO
@@ -299,68 +359,6 @@ bool DIOCOREPROTOCOL_CFG::DIOStream_DeleteAll()
 }
 
 
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOSTREAMCONFIG* DIOCOREPROTOCOL_CFG::GetDIOStreamCFG()
-* @brief      GetDIOStreamCFG
-* @ingroup    DATAIO
-* 
-* @return     DIOSTREAMCONFIG* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAMCONFIG* DIOCOREPROTOCOL_CFG::GetDIOStreamCFG()
-{
-  return diostreamCFG;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOSTREAM* DIOCOREPROTOCOL_CFG::GetDIOStream()
-* @brief      GetDIOStream
-* @ingroup    DATAIO
-* 
-* @return     DIOSTREAM* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOSTREAM* DIOCOREPROTOCOL_CFG::GetDIOStream()
-{
-  return diostream;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetDIOStreamCFG(DIOSTREAMCONFIG* diostreamCFG)
-* @brief      SetDIOStreamCFG
-* @ingroup    DATAIO
-* 
-* @param[in]  diostreamCFG : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetDIOStreamCFG(DIOSTREAMCONFIG* diostreamCFG)
-{
-  this->diostreamCFG = diostreamCFG;  
-}
-    
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetDIOStream(DIOSTREAM* diostream)
-* @brief      SetDIOStream
-* @ingroup    DATAIO
-* 
-* @param[in]  diostream : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetDIOStream(DIOSTREAM* diostream)
-{
-  this->diostream = diostream;
-}
-
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOCOREPROTOCOL_CFG::Clean()
@@ -371,12 +369,13 @@ void DIOCOREPROTOCOL_CFG::SetDIOStream(DIOSTREAM* diostream)
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CFG::Clean()
 {
-  compressheader           = false;      
-  compresscontent          = false;
-  minsizecompresscontent   = DIOCOREPROTOCOL_CFG_DEFAULTMINSIZECOMPRESS;
-  
-  diostreamCFG             = NULL;
-  diostream                = NULL; 
+  compressheader                        = false;
+      
+  compresscontent                       = false;
+  minsizecompresscontent                = DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS;
+
+  timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
+  timetoheardbetinconnection            = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION;
 }
 
 

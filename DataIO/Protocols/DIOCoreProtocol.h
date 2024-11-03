@@ -36,14 +36,13 @@
 
 #include "DIOStream.h"
 
-
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOLCFG_DEFAULTMINSIZECOMPRESS   150 
+// #define DIOCOREPROTOCOL_DEBUG_BUFFER
 
 #pragma endregion
 
@@ -51,16 +50,18 @@
 /*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
 #pragma region CLASS
 
+
 class COMPRESSMANAGER;
 class COMPRESSBASE;    	
 class DIOCOREPROTOCOL_HEADER;
 class DIOCOREPROTOCOL_CFG;
 
+
 class DIOCOREPROTOCOL
 {
   public:
                                               
-                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* procotolCFG);
+                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream);
     virtual                                  ~DIOCOREPROTOCOL               ();
 
     bool                                      Ini                           ();
@@ -71,6 +72,12 @@ class DIOCOREPROTOCOL
     bool                                      SendMsg                       (XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& content);
     
     bool                                      ReceivedMsg                   (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+
+  protected:
+
+    DIOCOREPROTOCOL_CFG*                      protocolCFG;
+    DIOSTREAM*                                diostream; 
+    bool                                      initialization; 
     
   private:
 
@@ -86,17 +93,14 @@ class DIOCOREPROTOCOL
     bool                                      SendData                      (XBUFFER& senddata);
     bool                                      CompressContent               (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
 
-    void                                      Clean                         ();
-
-    DIOCOREPROTOCOL_CFG*                      protocolCFG;
+    void                                      Clean                         ();   
    
     COMPRESSMANAGER*	                        compressmanager;
-    COMPRESSBASE*			                        compressor;    	
+    COMPRESSBASE*			                        compressor;    	   
 
-    bool                                      initialization; 
-
+    #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
     XBUFFER                                   debug_senddata;  
-
+    #endif
 };
 
 

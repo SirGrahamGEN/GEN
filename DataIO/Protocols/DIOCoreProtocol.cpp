@@ -72,14 +72,15 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG)
+* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @param[in]  DIOCOREPROTOCOL_CFG* : 
+* @param[in]   DIOSTREAM* diostream : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG)
+DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
 {
   Clean();
 
@@ -94,6 +95,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG)
     } 
 
   this->protocolCFG = protocolCFG;
+  this->diostream   = diostream;
 }
 
 
@@ -257,10 +259,11 @@ bool DIOCOREPROTOCOL::SendMsg(XUUID* IDmachine, XUUID* IDconnection, XFILEJSON& 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL::ReceivedMsg(DIOSTREAM* diostream, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
 * @brief      ReceivedMsg
 * @ingroup    DATAIO
 * 
+* @param[in]  diostream : 
 * @param[in]  header : 
 * @param[in]  content : 
 * 
@@ -274,20 +277,20 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
       return false;
     }
 
-  /*
-  if(!protocolCFG->GetDIOStream())
+  if(!diostream)
     {
       return false;
     }
 
-  XBUFFER* readbuffer = protocolCFG->GetDIOStream()->GetInXBuffer();
+  XBUFFER* readbuffer = diostream->GetInXBuffer();
   if(!readbuffer)
     {
       return false;
     }
-  */
-
-  XBUFFER* readbuffer = &debug_senddata;
+  
+  #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
+  readbuffer = &debug_senddata;
+  #endif
 
   if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
     {
@@ -649,7 +652,6 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* IDmachine, XUUID* I
       return NULL;
     }
   
-  header->GetIDMachine()->CopyFrom((*IDmachine));
   header->GetIDConnection()->CopyFrom((*IDconnection));
   header->GetIDMessage()->GenerateRandom();
   header->GetDateTimeSend()->Read();
@@ -687,7 +689,6 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
     }
            
   senddata.Add(contentresult);
-
 
   status = SendData(senddata);
 
@@ -727,17 +728,23 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
 {
   bool status = false;
 
-  if(protocolCFG)
+  if(!protocolCFG)
     {
-      if(protocolCFG->GetDIOStream())
-        {
-          status = protocolCFG->GetDIOStream()->Write(senddata);
-        }
+      return false;
     }
 
+  if(!diostream)
+    {
+      return false;
+    }
+      
 
+  status = diostream->Write(senddata);
+  
+  #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
   debug_senddata.Empty();
   debug_senddata.Add(senddata);
+  #endif
 
   return status;
 }
@@ -793,6 +800,7 @@ bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& c
 void DIOCOREPROTOCOL::Clean()
 {
   protocolCFG     = NULL;
+  diostream       = NULL;
 
   compressmanager = NULL;
   compressor      = NULL;    	

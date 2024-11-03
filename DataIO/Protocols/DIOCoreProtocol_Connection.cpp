@@ -40,10 +40,13 @@
 #include "DIOCoreProtocol_Connection.h"
 
 #include "XFactory.h"
+#include "XTimer.h"
 #include "XThreadCollected.h"
 
 #include "DIOStream.h"
 #include "DIOStreamEnumServers.h"
+
+#include "DIOCoreProtocol.h"
 
 #include "XMemory_Control.h"
 
@@ -70,11 +73,14 @@
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
+DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION(XUUID* ID_machine, DIOCOREPROTOCOL_CFG* protocolCFG)
 {
   Clean();
 
-  
+  this->ID_machine  = ID_machine;
+  this->protocolCFG = protocolCFG;
+
+  xtimerstatus = GEN_XFACTORY.CreateTimer();
 }
 
 
@@ -88,46 +94,185 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 {
+  if(protocol)
+    {
+      delete protocol;
+    }
+
+  if(xtimerstatus)
+    {
+      GEN_XFACTORY.DeleteTimer(xtimerstatus);
+    }
+
   Clean();
 }
 
-  
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::Connect()
-* @brief      Connect
+* @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::GetStatus()
+* @brief      GetStatus
 * @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::GetStatus()
+{
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS status)
+* @brief      SetStatus
+* @ingroup    DATAIO
+* 
+* @param[in]  status : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS status)
+{
+  if(this->status != status)
+    {
+      if(xtimerstatus)
+        {
+          xtimerstatus->Reset();
+        }
+    }
+
+  this->status = status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING status)
+* @brief      GetStatusString
+* @ingroup    DATAIO
+* 
+* @param[in]  status : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::Connect(DIOCOREPROTOCOL_CFG* procotolCFG)
+bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING& statusstring)
 {
-  if(!procotolCFG)
+  statusstring.Empty();
+
+  switch(status)
+    {
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_NONE           : statusstring = __L("None");
+                                                              break;
+
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED      : statusstring = __L("Connected");
+                                                              break;
+
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_IDENTIFIED     : statusstring = __L("Identified");
+                                                              break;
+
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED  : statusstring = __L("Authenticated");
+                                                              break;
+
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_INITIALIZED    : statusstring = __L("Initialized");
+                                                              break;
+
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED   : statusstring = __L("Disconnected");
+                                                              break;
+    }
+
+  if(statusstring.IsEmpty())
     {
       return false;
     }
 
-  this->procotolCFG = procotolCFG;
-
   return true;
 }
 
- 
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::Disconected()
-* @brief      Disconected
+* @fn         XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
+* @brief      GetXTimerStatus
 * @ingroup    DATAIO
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
+{
+  return xtimerstatus;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOSTREAM* DIOCOREPROTOCOL_CONNECTION::GetDIOStream()
+* @brief      GetDIOStream
+* @ingroup    DATAIO
+* 
+* @return     DIOSTREAM* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOSTREAM* DIOCOREPROTOCOL_CONNECTION::GetDIOStream()
+{
+  return diostream;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SetDIOStream(DIOSTREAM* diostream)
+* @brief      SetDIOStream
+* @ingroup    DATAIO
+* 
+* @param[in]  diostream : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::Disconected()
+bool DIOCOREPROTOCOL_CONNECTION::SetDIOStream(DIOSTREAM* diostream)
 {
-  return false;
+  this->diostream = diostream;
+
+  return true;
 }
-    
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTION::GetCoreProtocol()
+* @brief      GetCoreProtocol
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTION::GetCoreProtocol()
+{
+  return protocol;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SetCoreProtocol(DIOCOREPROTOCOL* protocol)
+* @brief      SetCoreProtocol
+* @ingroup    DATAIO
+* 
+* @param[in]  protocol : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::SetCoreProtocol(DIOCOREPROTOCOL* protocol)
+{
+  this->protocol = protocol;
+
+  return true;
+}
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -169,7 +314,13 @@ XVECTOR<DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_CONNECTION::GetMessages()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTION::Clean()
 {
-  procotolCFG = NULL;
+  protocolCFG   = NULL;
+  ID_machine    = NULL;
+  diostream     = NULL;
+  protocol      = NULL;
+
+  status        = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE; 
+  xtimerstatus  = NULL;
 }
 
 

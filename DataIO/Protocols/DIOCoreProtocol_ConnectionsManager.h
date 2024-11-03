@@ -32,6 +32,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "XUUID.h"
 #include "XObserver.h"
 #include "XThreadCollected.h"
 
@@ -53,6 +54,7 @@
 
 class XTIMER;
 class XMUTEX;
+class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CFG;
 class DIOCOREPROTOCOL_CONNECTION;
 
@@ -67,10 +69,19 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
     bool                                    End                                   ();
 
     DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                        ();
+
+    virtual DIOCOREPROTOCOL*                CreateProtocol                        (DIOSTREAM* diostream);                                    
     
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   GetConnections                        ();
+    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connection_GetAll                     ();
+    XMUTEX*                                 Connection_GetXMutex                  ();  
+    DIOCOREPROTOCOL_CONNECTION*             Connection_Add                        (XUUID* ID_machine, DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*             Connection_Get                        (DIOSTREAM* stream);
+    bool                                    Connection_Delete                     (DIOCOREPROTOCOL_CONNECTION* connection);
+    bool                                    Connection_DeleAll                    ();
   
   private:
+
+    bool                                    CreateIDMachine                       (XUUID& ID);
 
     void                                    HandleEvent_DIOStream                 (DIOSTREAM_XEVENT* event);
     void                                    HandleEvent                           (XEVENT* xevent);
@@ -80,8 +91,9 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
     void                                    Clean                                 ();
 
     DIOCOREPROTOCOL_CFG*                    protocolCFG;
-    
-    XTIMER*                                 connections_xtimer;
+
+    XUUID                                   ID_machine;
+        
     XMUTEX*                                 connections_xmutex;
     XTHREADCOLLECTED*                       connections_xthread;
 
