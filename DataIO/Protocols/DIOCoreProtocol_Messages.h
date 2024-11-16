@@ -33,6 +33,7 @@
 #pragma region INCLUDES
 
 #include "XBuffer.h"
+#include "XMap.h"
 #include "XFileJSON.h"
 
 #include "DIOStream.h"
@@ -46,39 +47,56 @@
 #pragma region DEFINES_ENUMS
 
 
-enum DIOCOREPROTOCOL_MESSAGE_WAY
-{
-  DIOCOREPROTOCOL_MESSAGE_WAY_REQUEST     =   0 ,
-  DIOCOREPROTOCOL_MESSAGE_WAY_RESPONSE          ,
-
-  DIOCOREPROTOCOL_MESSAGE_WAY_
-};
-
-
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
 #pragma region CLASS
 
+class XMUTEX;
+
 
 class DIOCOREPROTOCOL_MESSAGE
 {
   public:
+                                                                DIOCOREPROTOCOL_MESSAGE       ();                                              
+    virtual                                                    ~DIOCOREPROTOCOL_MESSAGE       ();
 
-                                DIOCOREPROTOCOL_MESSAGE       ();                                              
-    virtual                    ~DIOCOREPROTOCOL_MESSAGE       ();
-
-    DIOCOREPROTOCOL_HEADER*     GetHeader                     (DIOCOREPROTOCOL_MESSAGE_WAY way); 
-    XBUFFER*                    GetData                       (DIOCOREPROTOCOL_MESSAGE_WAY way);
+    DIOCOREPROTOCOL_HEADER*                                     GetHeader                     (); 
+    XBUFFER*                                                    GetContent                    ();
         
   private:
 
-    void                        Clean                         ();
+    void                                                        Clean                         ();
 
-    DIOCOREPROTOCOL_HEADER      header[2]; 
-    XBUFFER                     data[2];
-     
+    DIOCOREPROTOCOL_HEADER                                      header; 
+    XBUFFER                                                     content;     
+};
+
+
+class DIOCOREPROTOCOL_MESSAGES
+{
+  public:
+                                                                DIOCOREPROTOCOL_MESSAGES      ();                                              
+    virtual                                                    ~DIOCOREPROTOCOL_MESSAGES      ();
+
+    XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*   GetAll                        (); 
+
+    int                                                         FindRequest                   (XUUID* IDmessage);
+    int                                                         FindResponse                  (XUUID* IDmessage);
+
+    int                                                         FindRequest                   (DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+    int                                                         FindResponse                  (DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+
+    bool                                                        AddRequest                    (DIOCOREPROTOCOL_MESSAGE* message); 
+    bool                                                        AddResponse                   (DIOCOREPROTOCOL_MESSAGE* message); 
+
+  private:
+
+    void                                                        Clean                         ();
+
+    XMUTEX*                                                     xmutexmessages;    
+    XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>    allmessages; 
 };
 
 

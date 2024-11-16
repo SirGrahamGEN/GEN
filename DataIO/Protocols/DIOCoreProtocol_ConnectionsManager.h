@@ -34,6 +34,7 @@
 
 #include "XUUID.h"
 #include "XObserver.h"
+#include "XSubject.h"
 #include "XThreadCollected.h"
 
 #include "DIOStream_XEvent.h"
@@ -59,7 +60,7 @@ class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CONNECTION;
 
 
-class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
+class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 {
   public:
                                             DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
@@ -70,6 +71,11 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
 
     DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                        ();
 
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*     DIOStream_GetAll                      ();
+    bool                                    DIOStream_Add                         (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
+    bool                                    DIOStream_Delete                      (DIOSTREAMCONFIG* diostreamCFG);
+    bool                                    DIOStream_DeleteAll                   ();
+
     virtual DIOCOREPROTOCOL*                CreateProtocol                        (DIOSTREAM* diostream, XUUID* ID_machine);                                    
     
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connection_GetAll                     ();
@@ -79,14 +85,17 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER
     bool                                    Connection_Delete                     (DIOCOREPROTOCOL_CONNECTION* connection);
     bool                                    Connection_DeleAll                    ();
 
+    static bool                             CreateIDMachine                       (XUUID& ID);
+  
   protected:
     
     DIOCOREPROTOCOL_CFG                     protocolCFG;
     XUUID                                   ID_machine;
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>      diostreams;
 
   private:
 
-    bool                                    CreateIDMachine                       (XUUID& ID);
+    
 
     void                                    HandleEvent_DIOStream                 (DIOSTREAM_XEVENT* event);
     void                                    HandleEvent                           (XEVENT* xevent);

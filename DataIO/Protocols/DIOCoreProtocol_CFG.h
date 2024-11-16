@@ -81,11 +81,6 @@ class DIOCOREPROTOCOL_CFG
       
     XDWORD                                    GetTimeToHeardbetInConnection            ();
     void                                      SetTimeToHeardbetInConnection            (XDWORD timetoheardbetinconnection);
-
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*       DIOStream_GetAll                        ();
-    bool                                      DIOStream_Add                           (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
-    bool                                      DIOStream_Delete                        (DIOSTREAMCONFIG* diostreamCFG);
-    bool                                      DIOStream_DeleteAll                     ();
     
   private:
 
@@ -99,9 +94,7 @@ class DIOCOREPROTOCOL_CFG
     XDWORD                                    minsizecompresscontent;
 
     XDWORD                                    timetoeliminateconnectiondisconnect;
-    XDWORD                                    timetoheardbetinconnection;
-
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>        diostreams;
+    XDWORD                                    timetoheardbetinconnection;    
 };
 
 

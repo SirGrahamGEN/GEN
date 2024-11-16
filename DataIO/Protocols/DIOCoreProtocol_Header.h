@@ -51,48 +51,87 @@
 
 enum DIOCOREPROTOCOL_HEADER_MESSAGETYPE
 {
-  DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN           = 0 ,
-  DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST               ,
+  DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN            = 0 ,
+  DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST                ,
   DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE              
 };
-
-
-#define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_UNKNOWN            __L("unknown")
-#define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_REQUEST            __L("request")
-#define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_RESPONSE           __L("response")
-
+enum DIOCOREPROTOCOL_HEADER_OPERATION
+{
+  DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN              = 0 ,
+  DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE             ,
+  DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND                  ,
+  DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE                  
+};
 
 enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
 {
-  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN           = 0 ,
-  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY                ,
-  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT                  ,
-  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON                  ,  
+  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN            = 0 ,
+  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY                 ,
+  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT                   ,
+  DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON                   ,  
 };
 
 
-#define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_UNKNOWN            __L("unknown")
-#define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_BINARY             __L("binary")
-#define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_TEXT               __L("text")
-#define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_JSON               __L("json")
+#define DIOCOREPROTOCOL_HEADER_MAGIC_ID                                   0x47454E31  // GEN1
+#define DIOCOREPROTOCOL_HEADER_SIZE_ID                                    (sizeof(XDWORD)+sizeof(XWORD)*2+sizeof(XDWORD))
 
 
-enum DIOCOREPROTOCOL_HEADER_CONTENTOPERATION
-{
-  DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UNKNOWN      = 0 ,
-  DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_COMMAND          ,
-  DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UPDATE                
+#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+
+  #define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_UNKNOWN               __L("unknown")
+  #define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_REQUEST               __L("request")
+  #define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_RESPONSE              __L("response")
+
+  #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UNKNOWN                 __L("unknown")
+  #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_AUTHENTICATE            __L("authenticate")
+  #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_COMMAND                 __L("command")
+  #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UPDATE                  __L("update")
   
-};
+  #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_UNKNOWN               __L("unknown")
+  #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_BINARY                __L("binary")
+  #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_TEXT                  __L("text")
+  #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_JSON                  __L("json")
+  
+  #define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UNKNOWN          __L("unknown")
+  #define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_COMMAND          __L("command")
+  #define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE           __L("update")
+  
+  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("ID_message")
+  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE                           __L("ID_machine")    
+  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("message_type")
+  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("message_priority")
+  #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("operation")
+  #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM                      __L("operation_param")
+  #define DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND                        __L("datetime_send")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE                         __L("content_type")  
+  #define DIOCOREPROTOCOL_HEADER_VAR_BLOCK_INDEX                          __L("block_index")
+  #define DIOCOREPROTOCOL_HEADER_VAR_BLOCK_AMOUNT                         __L("block_amount")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_SIZE                         __L("content_size")         
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_COMPRESSSIZE                 __L("content_compresssize")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_CRC32                        __L("content_CRC32")
+ 
+#else     
 
+  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("idm")
+  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE                           __L("idc")    
+  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("mt")
+  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("mp")
+  #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("o")
+  #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM                      __L("op")
+  #define DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND                        __L("dts")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE                         __L("ct")  
+  #define DIOCOREPROTOCOL_HEADER_VAR_BLOCK_INDEX                          __L("bi")
+  #define DIOCOREPROTOCOL_HEADER_VAR_BLOCK_AMOUNT                         __L("ba")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_SIZE                         __L("cs")         
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_COMPRESSSIZE                 __L("ccs")
+  #define DIOCOREPROTOCOL_HEADER_VAR_CONTENT_CRC32                        __L("c32")
 
-#define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UNKNOWN      __L("unknown")
-#define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_COMMAND      __L("command")
-#define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE       __L("update")
+#endif
 
+#define DIOCOREPROTOCOL_HEADER_AUTHENTICATION_CHALLENGE_OPERATION_PARAM   __L("challenge")
+#define DIOCOREPROTOCOL_HEADER_AUTHENTICATION_RESPONSE_OPERATION_PARAM    __L("response")
+#define DIOCOREPROTOCOL_HEADER_AUTHENTICATION_ACCEPTED_OPERATION_PARAM    __L("accepted")
 
-#define DIOCOREPROTOCOL_HEADER_MAGIC_ID          0x47454E31  // GEN1
-#define DIOCOREPROTOCOL_HEADER_SIZE_ID           (sizeof(XDWORD)+sizeof(XWORD)*2+sizeof(XDWORD))
 
 #pragma endregion
 
@@ -110,28 +149,37 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
   public:
                                               DIOCOREPROTOCOL_HEADER        ();
     virtual                                  ~DIOCOREPROTOCOL_HEADER        ();
-     
+
     XUUID*                                    GetIDMessage                  ();
     XUUID*                                    GetIDMachine                  ();
 
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        GetMessageType                (); 
     void                                      SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
+    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
     bool                                      GetMessageTypeToString        (XSTRING& message_typestr); 
     bool                                      GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type);
+    #endif
 
-    XSTRING*                                  GetMessageParam               (); 
+    XBYTE                                     GetMessagePriority            ();
+    void                                      SetMessagePriority            (XBYTE message_priority);
+
+    DIOCOREPROTOCOL_HEADER_OPERATION          GetOperation                  ();
+    void                                      SetOperation                  (DIOCOREPROTOCOL_HEADER_OPERATION operation);
+    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+    bool                                      GetOperationToString          (XSTRING& operationstr); 
+    bool                                      GetOperationFromString        (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation);
+    #endif
+    
+    XSTRING*                                  GetOperationParam             (); 
     
     XDATETIME*                                GetDateTimeSend               ();
 
     DIOCOREPROTOCOL_HEADER_CONTENTTYPE        GetContentType                (); 
     void                                      SetContentType                (DIOCOREPROTOCOL_HEADER_CONTENTTYPE content_type); 
+    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
     bool                                      GetContentTypeToString        (XSTRING& content_typestr); 
-    bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type);
-
-    DIOCOREPROTOCOL_HEADER_CONTENTOPERATION   GetContentOperation           ();
-    void                                      SetContentOperation           (DIOCOREPROTOCOL_HEADER_CONTENTOPERATION content_operation);
-    bool                                      GetContentOperationToString   (XSTRING& content_operationstr); 
-    bool                                      GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOL_HEADER_CONTENTOPERATION& content_operation);
+    bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type);   
+    #endif
 
     XDWORD                                    GetBlockIndex                 ();
     void                                      SetBlockIndex                 (XDWORD block_index);
@@ -162,13 +210,16 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 
     void                                      Clean                         ();
     
+    bool                                      activehumanmode;  
+
     XUUID                                     ID_message;
     XUUID                                     ID_machine;
-    DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;
-    XSTRING                                   message_param;
+    DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;  
+    XBYTE                                     message_priority;
+    DIOCOREPROTOCOL_HEADER_OPERATION          operation;
+    XSTRING                                   operation_param;
     XDATETIME*                                datetime_send;
-    DIOCOREPROTOCOL_HEADER_CONTENTTYPE        content_type; 
-    DIOCOREPROTOCOL_HEADER_CONTENTOPERATION   content_operation;
+    DIOCOREPROTOCOL_HEADER_CONTENTTYPE        content_type;   
     XDWORD                                    block_index;
     XDWORD                                    block_amount;
     XDWORD                                    content_size;

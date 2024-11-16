@@ -32,14 +32,44 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+
+enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
+{
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_NONE                 = 0 ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED                ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_AUTHENTICATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_INITIALIZATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_IN_PROGRESS              ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED             ,
+
+  DIOCOREPROTOCOL_CONNECTION_LASTEVENT
+};
+
+
+enum DIOCOREPROTOCOL_CONNECTION_XFSMSTATES
+{
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_NONE                 = 0 ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED                ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_INITIALIZATION       ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_IN_PROGRESS              ,  
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED             ,
+
+  DIOCOREPROTOCOL_CONNECTION_LASTSTATE
+};
+
+
 enum DIOCOREPROTOCOL_CONNECTION_STATUS
 {
-  DIOCOREPROTOCOL_CONNECTION_STATUS_NONE              = 0 ,  
-  DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED             ,  
-  DIOCOREPROTOCOL_CONNECTION_STATUS_IDENTIFIED            ,
-  DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED         ,
-  DIOCOREPROTOCOL_CONNECTION_STATUS_INITIALIZED           ,
-  DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED          ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_NONE                    = 0 , 
+  DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED                   , 
+  DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED               , 
+  DIOCOREPROTOCOL_CONNECTION_STATUS_INITIALIZED                 ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED                ,
 };
 
 #pragma endregion
@@ -48,7 +78,9 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#include "DIOCoreProtocol_Message.h"
+#include "XFSMachine.h"
+
+#include "DIOCoreProtocol_Messages.h"
 
 #pragma endregion
 
@@ -61,37 +93,48 @@ class DIOCOREPROTOCOL_CFG;
 class DIOCOREPROTOCOL;
 
 
-class DIOCOREPROTOCOL_CONNECTION
+class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
 {
   public:
                                           DIOCOREPROTOCOL_CONNECTION            ();
     virtual                              ~DIOCOREPROTOCOL_CONNECTION            ();
 
-    DIOSTREAM*                            GetDIOStream                          ();
-    bool                                  SetDIOStream                          (DIOSTREAM* diostream);
-
+    bool                                  InitFSMachine                         (); 
+    
+    bool                                  IsServer                              ();
+    
     DIOCOREPROTOCOL*                      GetCoreProtocol                       ();
     bool                                  SetCoreProtocol                       (DIOCOREPROTOCOL* protocol);
 
+    XBUFFER*                              GetAuthenticationChallenge            ();
+    XBUFFER*                              GetAuthenticationResponse             ();
+
     DIOCOREPROTOCOL_CONNECTION_STATUS     GetStatus                             ();  
     void                                  SetStatus                             (DIOCOREPROTOCOL_CONNECTION_STATUS status);
-    bool                                  GetStatusString                       (XSTRING& statusstring);  
-
+    bool                                  GetStatusString                       (XSTRING& statusstring); 
     XTIMER*                               GetXTimerStatus                       ();
 
-    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>*    GetMsgs                               ();
+    DIOCOREPROTOCOL_MESSAGES*             GetMessages                           ();
+
+    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content);
+    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content);
+    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content);    
+
+    bool                                  Update                                ();  
 
   private:
 
     void                                  Clean                                 ();    
     
-    DIOSTREAM*                            diostream;    
-    DIOCOREPROTOCOL*                      protocol;    
-      
+    DIOCOREPROTOCOL*                      protocol;   
+
+    XBUFFER                               authentication_challenge;  
+    XBUFFER                               authentication_response;     
+
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
-    XTIMER*                               xtimerstatus;
-    
-    XVECTOR<DIOCOREPROTOCOL_MESSAGE*>     messages;
+    XTIMER*                               xtimerstatus;  
+
+    DIOCOREPROTOCOL_MESSAGES              messages;    
 };
 
 

@@ -526,37 +526,39 @@ bool XUUID::GetToString(XSTRING& string)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::SetFromString(XSTRING& string)
 {
-  int _data[11];
+  XSTRING string2;  
+  XDWORD  _data[6] = { 0, 0, 0, 0, 0, 0 };
 
-  memset(_data, 0, sizeof(int)*11);
+  string2 = string;
 
-  string.UnFormat(__L("%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X") , &_data[0]
-                                                                          , &_data[1]
-                                                                          , &_data[2] 
-                                                                          , &_data[3]
-                                                                          , &_data[4]
-                                                                          , &_data[5]
-                                                                          , &_data[6]
-                                                                          , &_data[7]
-                                                                          , &_data[8]
-                                                                          , &_data[9]
-                                                                          , &_data[10]);
-  data1     = _data[0];
+  if(string2.IsEmpty())
+    {
+      return false;
+    }
 
+  string2.Insert(__L("-"), 28);
+
+  string2.UnFormat(__L("%08X-%04X-%04X-%04X-%04X-%08X")  , &_data[0]
+                                                         , &_data[1]
+                                                         , &_data[2] 
+                                                         , &_data[3]
+                                                         , &_data[4]
+                                                         , &_data[5]);
+  data1     = (XDWORD)_data[0];
   data2     = (XWORD)_data[1];
-
   data3     = (XWORD)_data[2];  
 
-  data4     = (XBYTE)_data[3];
-  data5     = (XBYTE)_data[4];
+  data4     = (XBYTE)(_data[3] >> 8);
+  data5     = (XBYTE)(_data[3] & 0x00FF);
 
-  data6[0]  = (XBYTE)_data[5];
-  data6[1]  = (XBYTE)_data[6];
-  data6[2]  = (XBYTE)_data[7];
-  data6[3]  = (XBYTE)_data[8];
-  data6[4]  = (XBYTE)_data[9];
-  data6[5]  = (XBYTE)_data[10];
-
+  data6[0]  = (XBYTE)(_data[4] >> 8);
+  data6[1]  = (XBYTE)(_data[4] & 0x00FF);
+  
+  data6[2]  = (XBYTE)((_data[5] >> 24) & 0x000000FF);
+  data6[3]  = (XBYTE)((_data[5] >> 16) & 0x000000FF);
+  data6[4]  = (XBYTE)((_data[5] >>  8) & 0x000000FF);
+  data6[5]  = (XBYTE)(_data[5] & 0x000000FF);
+  
   return true;
 }
 

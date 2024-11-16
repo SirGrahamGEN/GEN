@@ -128,12 +128,14 @@ class XMAP
                                       return (ELEMENT)0;
                                     }
 
-    bool                            Set                                   (KEY key,ELEMENT element)
+    bool                            Set                                   (KEY key, ELEMENT element)
                                     {
                                       int index=keys.Find(key);
 
-                                      if (index!=NOTFOUND)
-                                        return elements.Set(index,element);
+                                      if(index!=NOTFOUND)
+                                        {
+                                          return elements.Set(index,element);
+                                        }
 
                                       return false;
                                     }

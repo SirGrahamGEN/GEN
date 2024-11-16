@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocol_CFG.cpp
+* @file       DIOCoreProtocol_Message.cpp
 * 
-* @class      DIOCOREPROTOCOL_CFG
+* @class      DIOCOREPROTOCOL_MESSAGE
 * @brief      Data Input/Output Core Protocol CFG class
 * @ingroup    DATAIO
 * 
@@ -37,7 +37,10 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIOCoreProtocol_CFG.h"
+#include "XBase.h"
+#include "XFactory.h"
+
+#include "DIOCoreProtocol_Messages.h"
 
 #include "XMemory_Control.h"
 
@@ -47,21 +50,22 @@
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
 #pragma region GENERAL_VARIABLE
 
+
 #pragma endregion
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
-#pragma region CLASS_DIOCOREPROTOCOL_CFG
+#pragma region CLASS_DIOCOREPROTOCOL_MESSAGE
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
+* @fn         DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
+DIOCOREPROTOCOL_MESSAGE::DIOCOREPROTOCOL_MESSAGE()
 {
   Clean();
 }
@@ -69,13 +73,13 @@ DIOCOREPROTOCOL_CFG::DIOCOREPROTOCOL_CFG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
+* @fn         DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
+DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 {
   Clean();
 }
@@ -83,201 +87,320 @@ DIOCOREPROTOCOL_CFG::~DIOCOREPROTOCOL_CFG()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CFG::GetIsServer()
-* @brief      GetIsServer
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader()
+* @brief      GetHeader
 * @ingroup    DATAIO
 * 
-* @return     bool : true if is succesful. 
+* @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CFG::GetIsServer()
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader()
 {
-  return isserver;
+  return &header;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CFG::SetIsServer(bool isserver)
-* @brief      SetIsServer
+* @fn         XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
+* @brief      GetContent
 * @ingroup    DATAIO
 * 
-* @param[in]  isserver : 
+* @return     XBUFFER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetIsServer(bool isserver)
+XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
 {
-  this->isserver = isserver;
+  return &content;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
-* @brief      GetCompressHeader
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CFG::GetCompressHeader()
-{
-  return compressheader;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
-* @brief      SetCompressHeader
-* @ingroup    DATAIO
-* 
-* @param[in]  compressheader : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetCompressHeader(bool compressheader)
-{
-  this->compressheader = compressheader;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CFG::GetCompressContent()
-* @brief      GetCompressContent
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CFG::GetCompressContent()
-{
-  return compresscontent;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
-* @brief      SetCompressContent
-* @ingroup    DATAIO
-* 
-* @param[in]  compresscontent : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetCompressContent(bool compresscontent)
-{
-  this->compresscontent = compresscontent;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetMinSizeCompressContent()
-* @brief      GetMinSizeCompressContent
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL_CFG::GetMinSizeCompressContent()
-{
-  return minsizecompresscontent;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompresscontent)
-* @brief      SetMinSizeCompressContent
-* @ingroup    DATAIO
-* 
-* @param[in]  minsizecompresscontent : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompresscontent)
-{
-  this->minsizecompresscontent = minsizecompresscontent;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
-* @brief      GetTimeToEliminateConnectionDisconnect
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
-{
-  return timetoeliminateconnectiondisconnect;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoeliminateconnectiondisconnect)
-* @brief      SetTimeToEliminateConnectionDisconnect
-* @ingroup    DATAIO
-* 
-* @param[in]  timetoeliminateconnectiondisconnect : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoeliminateconnectiondisconnect)
-{
-  this->timetoeliminateconnectiondisconnect = timetoeliminateconnectiondisconnect;
-}  
- 
-  
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
-* @brief      GetTimeToHeardbetInConnection
-* @ingroup    DATAIO
-* 
-* @return     XDWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
-{
-  return timetoheardbetinconnection;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
-* @brief      SetTimeToHeardbetInConnection
-* @ingroup    DATAIO
-* 
-* @param[in]  timetoheardbetinconnection : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
-{
-  this->timetoheardbetinconnection = timetoheardbetinconnection;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_CFG::Clean()
+* @fn         void DIOCOREPROTOCOL_MESSAGE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::Clean()
+void DIOCOREPROTOCOL_MESSAGE::Clean()
 {
-  compressheader                        = false;
-      
-  compresscontent                       = false;
-  minsizecompresscontent                = DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS;
 
-  timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
-  timetoheardbetinconnection            = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION;
+}
+
+
+#pragma endregion
+
+
+#pragma region CLASS_DIOCOREPROTOCOL_MESSAGES
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_MESSAGES::DIOCOREPROTOCOL_MESSAGES()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_MESSAGES::DIOCOREPROTOCOL_MESSAGES()
+{
+  Clean();
+
+  xmutexmessages = GEN_XFACTORY.Create_Mutex();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
+{
+  if(xmutexmessages)
+    {
+      GEN_XFACTORY.Delete_Mutex(xmutexmessages);
+    }
+
+  allmessages.DeleteKeyContents();
+  allmessages.DeleteElementContents();
+  allmessages.DeleteAll();
+
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_MESSAGES::GetMessages()
+* @brief      GetMessages
+* @ingroup    DATAIO
+* 
+* @return     XMAP<DIOCOREPROTOCOL_MESSAGE*, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*  DIOCOREPROTOCOL_MESSAGES::GetAll()
+{
+  return &allmessages;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
+* @brief      FindRequest
+* @ingroup    DATAIO
+* 
+* @param[in]  IDmessage : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
+{
+  for(XDWORD c=0; c<allmessages.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
+      if(message_request)
+        {
+          if(message_request->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
+            {
+              return (int)c;
+            }
+        }    
+    }
+
+  return NOTFOUND;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
+* @brief      FindResponse
+* @ingroup    DATAIO
+* 
+* @param[in]  IDmessage : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
+{
+  for(XDWORD c=0; c<allmessages.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message_response = allmessages.GetElement(c);
+      if(message_response)
+        {
+          if(message_response->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
+            {
+              return (int)c;
+            }
+        }    
+    }
+
+  return NOTFOUND;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+* @brief      FindRequest
+* @ingroup    DATAIO
+* 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+{
+  for(XDWORD c=0; c<allmessages.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
+      if(message_request)
+        {
+          if((message_request->GetHeader()->GetOperation() == operation) && !message_request->GetHeader()->GetOperationParam()->Compare(operation_param))
+            {
+              return (int)c;
+            }
+        }    
+    }
+
+  return NOTFOUND;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+* @brief      FindResponse
+* @ingroup    DATAIO
+* 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+{
+  for(XDWORD c=0; c<allmessages.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message_response = allmessages.GetElement(c);
+      if(message_response)
+        {
+          if((message_response->GetHeader()->GetOperation() == operation) && !message_response->GetHeader()->GetOperationParam()->Compare(operation_param))
+            {
+              return (int)c;
+            }
+        }    
+    }
+
+  return NOTFOUND;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_request)
+* @brief      AddRequest
+* @ingroup    DATAIO
+* 
+* @param[in]  message_request : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_request)
+{
+  if(!message_request)
+    {
+      return false;
+    }
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  allmessages.Add(message_request, NULL); 
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_response)
+* @brief      AddResponse
+* @ingroup    DATAIO
+* 
+* @param[in]  message_response : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_response)
+{
+  bool status = false;
+
+  if(!message_response)
+    {
+      return false;
+    }
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  int index = FindRequest(message_response->GetHeader()->GetIDMessage());
+
+  for(XDWORD c=0; c<allmessages.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
+      if(message_request)
+        {
+          if(message_request->GetHeader()->GetIDMessage()->Compare((*message_response->GetHeader()->GetIDMessage())))
+            {
+              allmessages.Set(message_request, message_response);
+
+              status = true;  
+            }
+        }    
+    }
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_MESSAGES::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_MESSAGES::Clean()
+{
+  xmutexmessages = NULL;
 }
 
 

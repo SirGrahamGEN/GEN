@@ -36,13 +36,15 @@
 
 #include "DIOStream.h"
 
+#include "DIOCoreProtocol_Header.h"
+
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOL_DEBUG_BUFFER
+//#define DIOCOREPROTOCOL_DEBUG_BUFFER
 
 #pragma endregion
 
@@ -50,7 +52,7 @@
 /*---- CLASS ---------------------------------------------------------c------------------------------------------------*/
 #pragma region CLASS
 
-
+class XUUI;
 class COMPRESSMANAGER;
 class COMPRESSBASE;    	
 class DIOCOREPROTOCOL_HEADER;
@@ -61,48 +63,51 @@ class DIOCOREPROTOCOL
 {
   public:
                                               
-                                              DIOCOREPROTOCOL               (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
-    virtual                                  ~DIOCOREPROTOCOL               ();
+                                              DIOCOREPROTOCOL                     (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
+    virtual                                  ~DIOCOREPROTOCOL                     ();
 
-    bool                                      Ini                           ();
-    bool                                      End                           ();
-    
-    bool                                      SendMsg                       (XBUFFER& content);
-    bool                                      SendMsg                       (XSTRING& content);
-    bool                                      SendMsg                       (XFILEJSON& content);
-    
-    bool                                      ReceivedMsg                   (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+    bool                                      Ini                                 ();
+    bool                                      End                                 ();
+
+    DIOCOREPROTOCOL_CFG*                      GetProtocolCFG                      ();
+
+    DIOSTREAM*                                GetDIOStream                        (); 
+    void                                      SetDIOStream                        (DIOSTREAM* diostream);     
+
+    bool                                      SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
+    bool                                      ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+ 
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content, XBUFFER& contentresult);
+
+    virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
+    virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
+
+    bool                                      ShowDebug                           (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content);  
 
   protected:
 
     DIOCOREPROTOCOL_CFG*                      protocolCFG;
-    DIOSTREAM*                                diostream; 
+    DIOSTREAM*                                diostream;    
     bool                                      initialization; 
     
   private:
 
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XBUFFER& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XSTRING& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  (XFILEJSON& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+   
+    bool                                      GenerateHeaderToSend                (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
+      
+    bool                                      SendData                            (XBUFFER& senddata);
+    bool                                      CompressContent                     (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
 
-    bool                                      GenerateHeaderToSend          (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                  ();
- 
-    bool                                      SendMsg                       (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
-
-    bool                                      SendData                      (XBUFFER& senddata);
-    bool                                      CompressContent               (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
-
-    void                                      Clean                         ();   
+    void                                      Clean                               ();   
    
     XUUID*                                    ID_machine;
-    
+
+       
     COMPRESSMANAGER*	                        compressmanager;
     COMPRESSBASE*			                        compressor;    	   
-
-    #ifdef DIOCOREPROTOCOL_DEBUG_BUFFER
-    XBUFFER                                   debug_senddata;  
-    #endif
 };
 
 

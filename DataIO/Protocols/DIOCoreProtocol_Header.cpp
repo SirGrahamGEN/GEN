@@ -171,6 +171,7 @@ void DIOCOREPROTOCOL_HEADER::SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE m
 }
 
 
+#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetMessageTypeToString(XSTRING& message_typestr)
@@ -235,6 +236,134 @@ bool DIOCOREPROTOCOL_HEADER::GetMessageTypeFromString(XSTRING* message_typestr, 
 
   return message_type;
 }
+#endif
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBYTE DIOCOREPROTOCOL_HEADER::GetMessagePriority()
+* @brief      GetMessagePriority
+* @ingroup    DATAIO
+* 
+* @return     XBYTE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE DIOCOREPROTOCOL_HEADER::GetMessagePriority()
+{
+  return message_priority;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_HEADER::SetMessagePriority(XBYTE message_priority)
+* @brief      SetMessagePriority
+* @ingroup    DATAIO
+* 
+* @param[in]  message_priority : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_HEADER::SetMessagePriority(XBYTE message_priority)
+{
+  this->message_priority = message_priority;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_HEADER_OPERATION DIOCOREPROTOCOL_HEADER::GetOperation()
+* @brief      GetOperation
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_HEADER_OPERATION : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_HEADER_OPERATION DIOCOREPROTOCOL_HEADER::GetOperation()
+{
+  return operation;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_HEADER::SetOperation(DIOCOREPROTOCOL_HEADER_OPERATION operation)
+* @brief      SetOperation
+* @ingroup    DATAIO
+* 
+* @param[in]  operation : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_HEADER::SetOperation(DIOCOREPROTOCOL_HEADER_OPERATION operation)
+{
+  this->operation = operation;
+}
+
+
+#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_HEADER::GetOperationToString(XSTRING& operationstr)
+* @brief      GetOperationToString
+* @ingroup    DATAIO
+* 
+* @param[in]  operationstr : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_HEADER::GetOperationToString(XSTRING& operationstr)
+{
+  operationstr.Empty();
+
+  switch(operation)
+    {
+      case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN  : operationstr = DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UNKNOWN;  break;
+      case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND  : operationstr = DIOCOREPROTOCOL_HEADER_OPERATION_STRING_COMMAND;  break;
+      case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE   : operationstr = DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UPDATE;   break;      
+    }
+
+  return operationstr.IsEmpty()?false:true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_HEADER::GetOperationFromString (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation)
+* @brief      GetOperationFromString
+* @ingroup    DATAIO
+* 
+* @param[in]  operationstr : 
+* @param[in]  operation : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_HEADER::GetOperationFromString(XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation)
+{
+  if(!operationstr)
+    {
+      return false;
+    }
+
+  operation = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;
+
+  if(!operationstr->Compare(DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UNKNOWN))
+    {
+      operation = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;
+    }
+
+  if(!operationstr->Compare(DIOCOREPROTOCOL_HEADER_OPERATION_STRING_COMMAND))
+    {
+      operation = DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND;
+    }
+
+  if(!operationstr->Compare(DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UPDATE))
+    {
+      operation = DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE;
+    }
+
+  return operation;
+}
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -246,9 +375,9 @@ bool DIOCOREPROTOCOL_HEADER::GetMessageTypeFromString(XSTRING* message_typestr, 
 * @return     XSTRING* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOCOREPROTOCOL_HEADER::GetMessageParam()
+XSTRING* DIOCOREPROTOCOL_HEADER::GetOperationParam()
 {
-  return &message_param;
+  return &operation_param;
 }
 
 
@@ -297,6 +426,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE c
 }
 
 
+#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetContentTypeToString(XSTRING& content_typestr)
@@ -367,102 +497,7 @@ bool DIOCOREPROTOCOL_HEADER::GetContentTypeFromString(XSTRING* content_typestr, 
 
   return content_type;
 }
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         DIOCOREPROTOCOL_HEADER_CONTENTOPERATION DIOCOREPROTOCOL_HEADER::GetContentOperation()
-* @brief      GetContentOperation
-* @ingroup    DATAIO
-* 
-* @return     DIOCOREPROTOCOL_HEADER_CONTENTOPERATION : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER_CONTENTOPERATION DIOCOREPROTOCOL_HEADER::GetContentOperation()
-{
-  return content_operation;
-}
-
-    
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_HEADER::SetContentOperation(DIOCOREPROTOCOL_HEADER_CONTENTOPERATION content_operation)
-* @brief      SetContentOperation
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operation : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_HEADER::SetContentOperation(DIOCOREPROTOCOL_HEADER_CONTENTOPERATION content_operation)
-{
-  this->content_operation = content_operation;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_HEADER::GetContentOperationToString(XSTRING& content_operationstr)
-* @brief      GetContentOperationToString
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operationstr : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_HEADER::GetContentOperationToString(XSTRING& content_operationstr)
-{
-  content_operationstr.Empty();
-
-  switch(content_operation)
-    {
-      case DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UNKNOWN  : content_operationstr = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UNKNOWN;  break;
-      case DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_COMMAND  : content_operationstr = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_COMMAND;  break;
-      case DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UPDATE   : content_operationstr = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE;   break;      
-    }
-
-  return content_operationstr.IsEmpty()?false:true;
-}
-    
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_HEADER::GetContentOperationFromString (XSTRING* content_operationstr, DIOCOREPROTOCOL_HEADER_CONTENTOPERATION& content_operation)
-* @brief      GetContentOperationFromString
-* @ingroup    DATAIO
-* 
-* @param[in]  content_operationstr : 
-* @param[in]  content_operation : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_HEADER::GetContentOperationFromString(XSTRING* content_operationstr, DIOCOREPROTOCOL_HEADER_CONTENTOPERATION& content_operation)
-{
-  if(!content_operationstr)
-    {
-      return false;
-    }
-
-  content_operation = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UNKNOWN;
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UNKNOWN))
-    {
-      content_operation = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UNKNOWN;
-    }
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_COMMAND))
-    {
-      content_operation = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_COMMAND;
-    }
-
-  if(!content_operationstr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE))
-    {
-      content_operation = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UPDATE;
-    }
-
-  return content_operation;
-}
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -667,13 +702,16 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
   ID_machine.CopyFrom((*header->GetIDMachine()));
 
   message_type          = header->GetMessageType();
-  message_param         = header->GetMessageParam()->Get();  
+
+  message_priority      = header->GetMessagePriority();
+
+  operation             = header->GetOperation();
+  operation_param       = header->GetOperationParam()->Get();  
 
   datetime_send->CopyFrom(header->GetDateTimeSend());
     
   content_type          = header->GetContentType(); 
-  content_operation     = header->GetContentOperation();
-
+ 
   block_index           = header->GetBlockIndex();
   block_amount          = header->GetBlockAmount();
   content_size          = header->GetContentSize();
@@ -706,12 +744,15 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
   ID_machine.CopyTo((*header->GetIDMessage()));
 
   header->SetMessageType(message_type);
-  header->GetMessageParam()->Set(message_param);  
+
+  header->SetMessagePriority(message_priority);
+
+  header->SetOperation(operation);
+  header->GetOperationParam()->Set(operation_param);  
 
   datetime_send->CopyTo(header->GetDateTimeSend());
     
   header->SetContentType(content_type); 
-  header->SetContentOperation(content_operation);
 
   header->SetBlockIndex(block_index);
   header->SetBlockAmount(block_amount);
@@ -754,9 +795,19 @@ bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
   if(message_type != header->GetMessageType())
     {
       return false;
+    } 
+
+  if(message_priority != header->GetMessagePriority())
+    {
+      return false;
+    } 
+
+  if(operation != header->GetOperation())
+    {
+      return false;
     }
 
-  if(message_param.Compare(header->GetMessageParam()->Get()))
+  if(operation_param.Compare(header->GetOperationParam()->Get()))
     {
       return false;
     }
@@ -770,12 +821,7 @@ bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
     {
       return false;
     }
-
-  if(content_operation != header->GetContentOperation())
-    {
-      return false;
-    }
-
+ 
   if(block_index != header->GetBlockIndex())
     {
       return false;
@@ -820,47 +866,49 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   XVARIANT  data;
 
   ID_message.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_message"));
+  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE);
 
   ID_machine.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, __L("ID_machine"));
+  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  GetMessageTypeToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("message_type"));
-  #else
-  Primitive_Add<int>(message_type, __L("message_type"));
+  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE           
+    GetMessageTypeToString(string);  
+    Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);    
+  #else    
+    Primitive_Add<int>(message_type, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
   #endif
   
-  Primitive_Add<XSTRING*>(&message_param, __L("message_param"));
+  Primitive_Add<XBYTE>(message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
+
+  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE           
+    GetOperationToString(string);  
+    Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);    
+  #else    
+    Primitive_Add<int>(operation, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);
+  #endif
+  
+  Primitive_Add<XSTRING*>(&operation_param, DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM);
 
   datetime_send->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS, string);
-  Primitive_Add<XSTRING*>(&string, __L("datetime_send"));
+  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  GetContentTypeToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("content_type"));
+  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE                 
+    GetContentTypeToString(string);  
+    Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);   
   #else
-  Primitive_Add<int>(content_type, __L("content_type"));
-  #endif
+    Primitive_Add<int>(content_type, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);
+  #endif  
+  
+  Primitive_Add<XDWORD>(block_index, DIOCOREPROTOCOL_HEADER_VAR_BLOCK_INDEX);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  GetContentOperationToString(string);  
-  Primitive_Add<XSTRING*>(&string, __L("content_operation"));
-  #else
-  Primitive_Add<int>(content_operation, __L("content_operation"));
-  #endif
-
-  Primitive_Add<XDWORD>(block_index, __L("block_index"));
-
-  Primitive_Add<XDWORD>(block_amount, __L("block_amount"));
+  Primitive_Add<XDWORD>(block_amount, DIOCOREPROTOCOL_HEADER_VAR_BLOCK_AMOUNT);
       
-  Primitive_Add<XDWORD>(content_size, __L("content_size"));
+  Primitive_Add<XDWORD>(content_size, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_SIZE);
 
-  Primitive_Add<XDWORD>(content_compresssize, __L("content_compresssize"));
+  Primitive_Add<XDWORD>(content_compresssize, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_COMPRESSSIZE);
    
   string.Format(__L("%08X"), content_CRC32);
-  Primitive_Add<XSTRING*>(&string, __L("content_CRC32"));
+  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_CRC32);
 
   return true;
 }
@@ -878,54 +926,56 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
 bool DIOCOREPROTOCOL_HEADER::Deserialize()
 {
   XSTRING string;
-
+  
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_message"));
+  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE);
   ID_message.SetFromString(string);
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("ID_machine"));
+  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
   ID_machine.SetFromString(string);
-
+    
   #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  Primitive_Extract<XSTRING&>(string, __L("message_type"));
-  GetMessageTypeFromString(&string, message_type);  
+    Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
+    GetMessageTypeFromString(&string, message_type);       
   #else
-  Primitive_Extract<int&>((int&)message_type, __L("message_type"));
+    Primitive_Extract<int&>((int&)message_type, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
+  #endif
+  
+  Primitive_Extract<XBYTE&>((XBYTE&)message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
+      
+  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+    Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);
+    GetOperationFromString(&string, operation);    
+  #else
+    Primitive_Extract<int&>((int&)operation, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);
   #endif
 
-  Primitive_Extract<XSTRING&>(message_param, __L("message_param"));
+  Primitive_Extract<XSTRING&>(operation_param, DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM);
 
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("datetime_send"));
+  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND);
   datetime_send->GetDateTimeFromStringISO8601(string, XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS);
   
   #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  Primitive_Extract<XSTRING&>(string, __L("content_type"));
-  GetContentTypeFromString(&string, content_type); 
+    Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);
+    GetContentTypeFromString(&string, content_type); 
   #else
-  Primitive_Extract<int&>((int&)content_type, __L("content_type"));
-  #endif 
+    Primitive_Extract<int&>((int&)content_type, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);
+  #endif
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-  Primitive_Extract<XSTRING&>(string, __L("content_operation"));
-  GetContentOperationFromString(&string, content_operation); 
-  #else
-  Primitive_Extract<int&>((int&)content_operation, __L("content_operation"));
-  #endif 
+  Primitive_Extract<XDWORD&>(block_index, DIOCOREPROTOCOL_HEADER_VAR_BLOCK_INDEX);
 
-  Primitive_Extract<XDWORD&>(block_index, __L("block_index"));
+  Primitive_Extract<XDWORD&>(block_amount, DIOCOREPROTOCOL_HEADER_VAR_BLOCK_AMOUNT);
 
-  Primitive_Extract<XDWORD&>(block_amount, __L("block_amount"));
-
-  Primitive_Extract<XDWORD&>(content_size, __L("content_size"));
+  Primitive_Extract<XDWORD&>(content_size, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_SIZE);
          
-  Primitive_Extract<XDWORD&>(content_compresssize, __L("content_compresssize"));
+  Primitive_Extract<XDWORD&>(content_compresssize, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_COMPRESSSIZE);
   
   string.Empty();
-  Primitive_Extract<XSTRING&>(string, __L("content_CRC32"));
+  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_CRC32);
   string.UnFormat(__L("%08X"), &content_CRC32);
-
+   
   return true;
 }
 
@@ -940,10 +990,12 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_HEADER::Clean()
 { 
-  message_type          = DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN;  
+  activehumanmode       = false;
+  message_type          = DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN; 
+  message_priority      = 0;
+  operation             = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;  
   datetime_send         = NULL;
-  content_type          = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN; 
-  content_operation     = DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_UNKNOWN; 
+  content_type          = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN;   
   block_index           = 1;
   block_amount          = 1;
   content_size          = 0;
