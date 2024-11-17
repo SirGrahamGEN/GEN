@@ -3952,7 +3952,7 @@ int XSTRING::GetSizeConvertToUTF8()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSTRING::ConvertFromUTF8(XBYTE* data,XDWORD size)
+bool XSTRING::ConvertFromUTF8(XBYTE* data, XDWORD size)
 {
   XDWORD  sizeutf8  = 0;
   XDWORD  index     = 0;

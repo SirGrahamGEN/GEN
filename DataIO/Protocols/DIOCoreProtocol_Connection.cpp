@@ -519,6 +519,88 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
+* @brief      GetRequest
+* @ingroup    DATAIO
+* 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::GetRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
+{
+  int index = GetMessages()->FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM);                                                                        
+  if(index != NOTFOUND)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetKey(index); 
+      if(message)
+        {
+          content->Add(message->GetContent());
+
+          return true;
+        }
+    }
+   else
+    {
+      if(xtimerstatus)
+        {
+          if(xtimerstatus->GetMeasureSeconds() > 10)
+            {
+              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+            }
+        }                                                                                            
+    }  
+
+  return false;
+}
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
+* @brief      GetResponse
+* @ingroup    DATAIO
+* 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::GetResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
+{
+  int index = GetMessages()->FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM);                                                                        
+  if(index != NOTFOUND)
+    {                                                                                    
+      DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetElement(index); 
+      if(message)
+        {
+          content->Add(message->GetContent());
+
+          return true;                                                                                          
+        }                                     
+    }
+    else
+    {
+      if(xtimerstatus)
+        {
+          if(xtimerstatus->GetMeasureSeconds() > 10)
+            {
+              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+            }
+        }                                                                                            
+    }  
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTION::UpdateMsgReceived()
 * @brief      UpdateMsgReceived
 * @ingroup    DATAIO
@@ -538,7 +620,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION    : if(IsServer())
                                                                               {      
-                                                                                int index = GetMessages()->FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_RESPONSE_OPERATION_PARAM);                                                                        
+                                                                                int index = GetMessages()->FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM);                                                                        
                                                                                 if(index != NOTFOUND)
                                                                                   {                                                                                    
                                                                                     DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetElement(index); 
@@ -546,8 +628,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                       {
                                                                                         if(GetAuthenticationResponse()->Compare(message->GetContent()))
                                                                                           {
-                                                                                            SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION);  
-                                                                                            SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);                    
+                                                                                            SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION);                                                                                                           
                                                                                           }
                                                                                          else
                                                                                           {
@@ -575,7 +656,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                               }
                                                                              else 
                                                                               {
-                                                                                int index = GetMessages()->FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_CHALLENGE_OPERATION_PARAM);                                                                        
+                                                                                int index = GetMessages()->FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM);                                                                        
                                                                                 if(index != NOTFOUND)
                                                                                   {
                                                                                     DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetKey(index); 
@@ -589,7 +670,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                             if(protocol)
                                                                                               {
                                                                                                 protocol->GenerateAuthenticationResponse((*GetAuthenticationChallenge()), (*GetAuthenticationResponse()));                                                                                                                                                                                                                     
-                                                                                                sended = SendMsg(message->GetHeader()->GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_RESPONSE_OPERATION_PARAM, (*GetAuthenticationResponse()));                                                                                                            
+                                                                                                sended = SendMsg(message->GetHeader()->GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, (*GetAuthenticationResponse()));                                                                                                            
                                                                                                 if(sended)
                                                                                                   {
                                                                                                     SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION);  
@@ -612,16 +693,70 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                               }
                                                                             break; 
 
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION    : if(!IsServer())
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION    : if(IsServer())
+                                                                              {
+                                                                                int index = GetMessages()->FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM);                                                                        
+                                                                                if(index != NOTFOUND)
+                                                                                  {
+                                                                                    DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetElement(index); 
+                                                                                    if(message)
+                                                                                      { 
+                                                                                        XSTRING accepted_confirm_str; 
+
+                                                                                        if(message->GetHeader()->GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT)
+                                                                                          {
+                                                                                            accepted_confirm_str.ConvertFromUTF8((*message->GetContent()));
+                                                                                            
+                                                                                            if(!accepted_confirm_str.Compare(DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONFIRM_CONTENT))
+                                                                                              {
+                                                                                                SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);  
+                                                                                                SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);       
+                                                                                              }
+                                                                                          }
+                                                                                      }
+                                                                                  }
+                                                                                 else
+                                                                                  {
+                                                                                    if(xtimerstatus)
+                                                                                      {
+                                                                                        if(xtimerstatus->GetMeasureSeconds() > 10)
+                                                                                          {
+                                                                                            SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+                                                                                          }
+                                                                                      }                                                                                            
+                                                                                  }                                                                                                                                                                        
+                                                                              } 
+                                                                             else   
                                                                               {   
-                                                                                int index = GetMessages()->FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_ACCEPTED_OPERATION_PARAM);                                                                        
+                                                                                int index = GetMessages()->FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM);                                                                        
                                                                                 if(index != NOTFOUND)
                                                                                   {
                                                                                     DIOCOREPROTOCOL_MESSAGE* message = GetMessages()->GetAll()->GetKey(index); 
                                                                                     if(message)
-                                                                                      {                           
-                                                                                        SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);
-                                                                                        SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);    
+                                                                                      { 
+                                                                                        XSTRING accepted_str; 
+
+                                                                                        if(message->GetHeader()->GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT)
+                                                                                          {
+                                                                                            accepted_str.ConvertFromUTF8((*message->GetContent()));                                                                                                                                                                          
+                                                                                            if(!accepted_str.Compare(DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONTENT))
+                                                                                              { 
+                                                                                                static bool sended =  false;
+                                                                                                if(!sended)     
+                                                                                                  {        
+                                                                                                    XSTRING accepted_confirm_str; 
+
+                                                                                                    accepted_confirm_str = DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONFIRM_CONTENT;
+
+                                                                                                    sended = SendMsg(message->GetHeader()->GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, accepted_confirm_str);                                                                                                            
+                                                                                                    if(sended)
+                                                                                                      {
+                                                                                                        SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);
+                                                                                                        SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);    
+                                                                                                      } 
+                                                                                                  }
+                                                                                              }                                                                                                           
+                                                                                          }
                                                                                       }
                                                                                   }
                                                                                  else
@@ -634,11 +769,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                           }
                                                                                       }                                                                                            
                                                                                   }  
-                                                                              }
-                                                                             else
-                                                                              {
-                                                                                SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);  
-                                                                              }
+                                                                              }                                                                                                                                                         
                                                                             break;
     
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION    : break; 
@@ -666,14 +797,16 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION    : if(IsServer())
                                                                                   {                                                                                    
-                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
+                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
                                                                                   }
                                                                                 break; 
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION    : if(IsServer())
                                                                                   {                                                                                    
-                                                                                    XSTRING accepted_str = __L("hello");
-                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_HEADER_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, accepted_str);
+                                                                                    XSTRING accepted_str;
+
+                                                                                    accepted_str = DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONTENT;
+                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, accepted_str);
                                                                                   }
                                                                                 break;
   

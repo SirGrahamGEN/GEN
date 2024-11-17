@@ -755,7 +755,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
 
                   if(status)
                     {
-                      connection->GetCoreProtocol()->ShowDebug(&header, content);                      
+                      connection->GetCoreProtocol()->ShowDebug(false, &header, content);                      
                     }
 
                   //----------------------------------------------------------------------------------

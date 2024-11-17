@@ -240,7 +240,7 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
 
   if(status)
     {
-      ShowDebug(header, contentresult);
+      ShowDebug(true, header, contentresult);
     }
 
   //----------------------------------------------------------------------------------
@@ -460,7 +460,7 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
     }  
 
   XBUFFER contentbinary;
-  content.ConvertToUTF8(contentbinary);
+  content.ConvertToUTF8(contentbinary, false);
 
   header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT);
   header->SetContentSize(contentbinary.GetSize());   
@@ -565,41 +565,38 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::ShowDebug(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
 * @brief      ShowDebug
 * @ingroup    DATAIO
 * 
+* @param[in]  send : 
 * @param[in]  header : 
 * @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::ShowDebug(DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
+bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
 {
   XBUFFER   contentresult;
   int       colormsg = XTRACE_COLOR_BLUE;
-  //bool      status;      
-
+ 
   if(!header)
     {
       return false;
     }
 
   /*
-  header->GetSerializationXFileJSON()->DecodeAllLines();
-            
-  status = header->DoSerialize();
-  if(!status)
-    {    
-      return status;
-    }
-  */
-
   if(header->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE)
     {
       colormsg = XTRACE_COLOR_PURPLE;
     }
+  */
+
+  if(!send)
+    {
+      colormsg = XTRACE_COLOR_GREEN;
+    }  
 
   header->GetSerializationXFileJSON()->ShowTraceJSON(colormsg);
 
