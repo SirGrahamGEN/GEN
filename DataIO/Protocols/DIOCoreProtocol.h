@@ -44,6 +44,10 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
+#define DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+
+
 #define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM         __L("challenge")
 #define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM          __L("response")
 #define DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM          __L("accepted")
@@ -61,6 +65,7 @@ class COMPRESSMANAGER;
 class COMPRESSBASE;    	
 class DIOCOREPROTOCOL_HEADER;
 class DIOCOREPROTOCOL_CFG;
+class CIPHERKEYSYMMETRICAL;
 
 
 class DIOCOREPROTOCOL
@@ -88,7 +93,11 @@ class DIOCOREPROTOCOL
     virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
     virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
 
+    virtual bool                              GenerateCipherKey                   (XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key);
+
+    #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
     bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content);  
+    #endif
 
   protected:
 

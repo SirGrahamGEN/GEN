@@ -236,15 +236,14 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
 
   status = SendData(senddata);
 
-  //----------------------------------------------------------------------------------
-
+  
+  #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
   if(status)
     {
       ShowDebug(true, header, contentresult);
     }
-
-  //----------------------------------------------------------------------------------
-
+  #endif
+  
   return status;
 }
 
@@ -565,6 +564,25 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL::GenerateCipherKey(XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key)
+* @brief      GenerateCipherKey
+* @ingroup    DATAIO
+* 
+* @param[in]  challange : 
+* @param[in]  cipher_key : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::GenerateCipherKey(XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key)
+{
+  return true;
+}
+
+
+#ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
 * @brief      ShowDebug
 * @ingroup    DATAIO
@@ -635,6 +653,7 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
 
   return true;
 }
+#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------

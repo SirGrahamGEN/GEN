@@ -750,16 +750,14 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                                                                           } 
                                                                           break;                                            
                     }
-                  
-                  //----------------------------------------------------------------------------------
-
+                                    
+                  #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
                   if(status)
                     {
                       connection->GetCoreProtocol()->ShowDebug(false, &header, content);                      
                     }
-
-                  //----------------------------------------------------------------------------------
-
+                  #endif  
+                  
                 }
 
               connection->Update();

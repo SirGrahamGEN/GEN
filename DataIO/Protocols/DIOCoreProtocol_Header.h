@@ -32,7 +32,6 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-
 #include "XUUID.h"
 #include "XFileJSON.h"
 #include "XSerializable.h"
@@ -40,14 +39,12 @@
 
 #include "DIOStream.h"
 
-
 #pragma endregion
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
 
 enum DIOCOREPROTOCOL_HEADER_MESSAGETYPE
 {
@@ -76,7 +73,7 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
 #define DIOCOREPROTOCOL_HEADER_SIZE_ID                                    (sizeof(XDWORD)+sizeof(XWORD)*2+sizeof(XDWORD))
 
 
-#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+#ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
 
   #define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_UNKNOWN               __L("unknown")
   #define DIOCOREPROTOCOL_HEADER_MESSAGETYPE_STRING_REQUEST               __L("request")
@@ -151,7 +148,7 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        GetMessageType                (); 
     void                                      SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
-    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+    #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     bool                                      GetMessageTypeToString        (XSTRING& message_typestr); 
     bool                                      GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type);
     #endif
@@ -161,7 +158,7 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 
     DIOCOREPROTOCOL_HEADER_OPERATION          GetOperation                  ();
     void                                      SetOperation                  (DIOCOREPROTOCOL_HEADER_OPERATION operation);
-    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+    #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     bool                                      GetOperationToString          (XSTRING& operationstr); 
     bool                                      GetOperationFromString        (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation);
     #endif
@@ -172,7 +169,7 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 
     DIOCOREPROTOCOL_HEADER_CONTENTTYPE        GetContentType                (); 
     void                                      SetContentType                (DIOCOREPROTOCOL_HEADER_CONTENTTYPE content_type); 
-    #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+    #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     bool                                      GetContentTypeToString        (XSTRING& content_typestr); 
     bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type);   
     #endif

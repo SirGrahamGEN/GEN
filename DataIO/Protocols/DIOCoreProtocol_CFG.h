@@ -45,9 +45,12 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS                       150 
-#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT   60 
-#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION            5 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS                         150 
+
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE                       5 
+
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT     60 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION              5 
 
 
 #pragma endregion
@@ -61,30 +64,33 @@ class DIOCOREPROTOCOL_CFG
 {
   public:
 
-                                              DIOCOREPROTOCOL_CFG                     ();                                              
-    virtual                                  ~DIOCOREPROTOCOL_CFG                     ();
+                                              DIOCOREPROTOCOL_CFG                       ();                                              
+    virtual                                  ~DIOCOREPROTOCOL_CFG                       ();
 
-    bool                                      GetIsServer                             ();
-    void                                      SetIsServer                             (bool isserver);
+    bool                                      GetIsServer                               ();
+    void                                      SetIsServer                               (bool isserver);
 
-    bool                                      GetCompressHeader                       ();
-    void                                      SetCompressHeader                       (bool compressheader);
+    bool                                      GetCompressHeader                         ();
+    void                                      SetCompressHeader                         (bool compressheader);
 
-    bool                                      GetCompressContent                      ();
-    void                                      SetCompressContent                      (bool compresscontent);
+    bool                                      GetCompressContent                        ();
+    void                                      SetCompressContent                        (bool compresscontent);
 
-    XDWORD                                    GetMinSizeCompressContent               ();
-    void                                      SetMinSizeCompressContent               (XDWORD minsizecompresscontent);
+    XDWORD                                    GetMinSizeCompressContent                 ();
+    void                                      SetMinSizeCompressContent                 (XDWORD minsizecompresscontent);
 
-    XDWORD                                    GetTimeToEliminateConnectionDisconnect  ();
-    void                                      SetTimeToEliminateConnectionDisconnect  (XDWORD timetoeliminateconnectiondisconnect);
+    XDWORD                                    GetTimeOutNoResponse                      ();
+    void                                      SetTimeOutNoResponse                      (XDWORD timeoutnoresponse);
       
-    XDWORD                                    GetTimeToHeardbetInConnection            ();
-    void                                      SetTimeToHeardbetInConnection            (XDWORD timetoheardbetinconnection);
+    XDWORD                                    GetTimeToEliminateConnectionDisconnect    ();
+    void                                      SetTimeToEliminateConnectionDisconnect    (XDWORD timetoeliminateconnectiondisconnect);
+      
+    XDWORD                                    GetTimeToHeardbetInConnection             ();
+    void                                      SetTimeToHeardbetInConnection             (XDWORD timetoheardbetinconnection);
     
   private:
 
-    void                                      Clean                                   ();
+    void                                      Clean                                     ();
 
     bool                                      isserver;
 
@@ -92,6 +98,8 @@ class DIOCOREPROTOCOL_CFG
 
     bool                                      compresscontent;
     XDWORD                                    minsizecompresscontent;
+
+    XDWORD                                    timeoutnoresponse;
 
     XDWORD                                    timetoeliminateconnectiondisconnect;
     XDWORD                                    timetoheardbetinconnection;    

@@ -171,7 +171,7 @@ void DIOCOREPROTOCOL_HEADER::SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE m
 }
 
 
-#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+#ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetMessageTypeToString(XSTRING& message_typestr)
@@ -298,7 +298,7 @@ void DIOCOREPROTOCOL_HEADER::SetOperation(DIOCOREPROTOCOL_HEADER_OPERATION opera
 }
 
 
-#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+#ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetOperationToString(XSTRING& operationstr)
@@ -432,7 +432,7 @@ void DIOCOREPROTOCOL_HEADER::SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE c
 }
 
 
-#ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+#ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL_HEADER::GetContentTypeToString(XSTRING& content_typestr)
@@ -877,7 +877,7 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   ID_machine.GetToString(string);
   Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE           
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE           
     GetMessageTypeToString(string);  
     Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);    
   #else    
@@ -886,7 +886,7 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   
   Primitive_Add<XBYTE>(message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE           
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE           
     GetOperationToString(string);  
     Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);    
   #else    
@@ -898,7 +898,7 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   datetime_send->GetDateTimeToStringISO8601(XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS, string);
   Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND);
 
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE                 
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE                 
     GetContentTypeToString(string);  
     Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);   
   #else
@@ -941,7 +941,7 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
   Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
   ID_machine.SetFromString(string);
     
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
     GetMessageTypeFromString(&string, message_type);       
   #else
@@ -950,7 +950,7 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
   
   Primitive_Extract<XBYTE&>((XBYTE&)message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
       
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);
     GetOperationFromString(&string, operation);    
   #else
@@ -963,7 +963,7 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
   Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND);
   datetime_send->GetDateTimeFromStringISO8601(string, XDATETIME_FORMAT_ISO8601_STANDARD | XDATETIME_FORMAT_TIMEWITHMILLISECONDS);
   
-  #ifdef DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
+  #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_CONTENT_TYPE);
     GetContentTypeFromString(&string, content_type); 
   #else

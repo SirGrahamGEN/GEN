@@ -80,6 +80,8 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
 
 #include "XFSMachine.h"
 
+#include "CipherKey.h"
+
 #include "DIOCoreProtocol_Messages.h"
 
 #pragma endregion
@@ -109,6 +111,8 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
     XBUFFER*                              GetAuthenticationChallenge            ();
     XBUFFER*                              GetAuthenticationResponse             ();
 
+    CIPHERKEYSYMMETRICAL*                 GetCipherKey                          ();
+
     DIOCOREPROTOCOL_CONNECTION_STATUS     GetStatus                             ();  
     void                                  SetStatus                             (DIOCOREPROTOCOL_CONNECTION_STATUS status);
     bool                                  GetStatusString                       (XSTRING& statusstring); 
@@ -120,8 +124,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content);   
 
-    bool                                  GetRequest                            (DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content);
-    bool                                  GetResponse                           (DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
 
     bool                                  Update                                ();  
 
@@ -132,7 +135,9 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
     DIOCOREPROTOCOL*                      protocol;   
 
     XBUFFER                               authentication_challenge;  
-    XBUFFER                               authentication_response;     
+    XBUFFER                               authentication_response;
+
+    CIPHERKEYSYMMETRICAL                  cipher_key;     
 
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
     XTIMER*                               xtimerstatus;  

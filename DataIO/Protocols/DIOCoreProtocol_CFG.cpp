@@ -203,6 +203,36 @@ void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompressconten
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeOutNoResponse()
+* @brief      GetTimeOutNoResponse
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::GetTimeOutNoResponse()
+{
+  return timeoutnoresponse;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetTimeOutNoResponse(XDWORD timeoutnoresponse)
+* @brief      SetTimeOutNoResponse
+* @ingroup    DATAIO
+* 
+* @param[in]  timeoutnoresponse : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetTimeOutNoResponse(XDWORD timeoutnoresponse)
+{
+  this->timeoutnoresponse = timeoutnoresponse;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToEliminateConnectionDisconnect()
 * @brief      GetTimeToEliminateConnectionDisconnect
 * @ingroup    DATAIO
@@ -275,6 +305,8 @@ void DIOCOREPROTOCOL_CFG::Clean()
       
   compresscontent                       = false;
   minsizecompresscontent                = DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS;
+
+  timeoutnoresponse                     = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
 
   timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
   timetoheardbetinconnection            = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION;
