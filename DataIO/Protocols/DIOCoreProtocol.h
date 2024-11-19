@@ -50,9 +50,8 @@
 
 #define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM         __L("challenge")
 #define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM          __L("response")
-#define DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM          __L("accepted")
-#define DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONTENT                  __L("hello")
-#define DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONFIRM_CONTENT          __L("What’s up?")
+#define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
+#define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
 
 #pragma endregion
 
@@ -92,8 +91,6 @@ class DIOCOREPROTOCOL
 
     virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
     virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
-
-    virtual bool                              GenerateCipherKey                   (XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key);
 
     #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
     bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content);  

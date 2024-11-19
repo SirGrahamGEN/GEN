@@ -72,19 +72,18 @@ class DIOCOREPROTOCOL_CFG
 
     bool                                      GetCompressHeader                         ();
     void                                      SetCompressHeader                         (bool compressheader);
-
     bool                                      GetCompressContent                        ();
     void                                      SetCompressContent                        (bool compresscontent);
-
     XDWORD                                    GetMinSizeCompressContent                 ();
     void                                      SetMinSizeCompressContent                 (XDWORD minsizecompresscontent);
 
+    bool                                      GetIsCipher                               ();
+    void                                      SetIsCipher                               (bool iscipher);
+
     XDWORD                                    GetTimeOutNoResponse                      ();
-    void                                      SetTimeOutNoResponse                      (XDWORD timeoutnoresponse);
-      
+    void                                      SetTimeOutNoResponse                      (XDWORD timeoutnoresponse);      
     XDWORD                                    GetTimeToEliminateConnectionDisconnect    ();
-    void                                      SetTimeToEliminateConnectionDisconnect    (XDWORD timetoeliminateconnectiondisconnect);
-      
+    void                                      SetTimeToEliminateConnectionDisconnect    (XDWORD timetoeliminateconnectiondisconnect);      
     XDWORD                                    GetTimeToHeardbetInConnection             ();
     void                                      SetTimeToHeardbetInConnection             (XDWORD timetoheardbetinconnection);
     
@@ -95,12 +94,12 @@ class DIOCOREPROTOCOL_CFG
     bool                                      isserver;
 
     bool                                      compressheader;
-
     bool                                      compresscontent;
-    XDWORD                                    minsizecompresscontent;
+    XDWORD                                    minsizecompresscontent;    
+    
+    bool                                      iscipher;
 
     XDWORD                                    timeoutnoresponse;
-
     XDWORD                                    timetoeliminateconnectiondisconnect;
     XDWORD                                    timetoheardbetinconnection;    
 };

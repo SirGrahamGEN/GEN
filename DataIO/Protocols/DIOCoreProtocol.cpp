@@ -562,24 +562,6 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 }
 
 
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL::GenerateCipherKey(XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key)
-* @brief      GenerateCipherKey
-* @ingroup    DATAIO
-* 
-* @param[in]  challange : 
-* @param[in]  cipher_key : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::GenerateCipherKey(XBUFFER& challange, CIPHERKEYSYMMETRICAL& cipher_key)
-{
-  return true;
-}
-
-
 #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
 /**-------------------------------------------------------------------------------------------------------------------
 * 

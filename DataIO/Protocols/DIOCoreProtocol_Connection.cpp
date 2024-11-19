@@ -83,6 +83,9 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 
   InitFSMachine();
 
+  ciphercurve.GenerateRandomPrivateKey();
+  ciphercurve.CreatePublicKey();
+
   SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED); 
 }
 
@@ -128,31 +131,21 @@ bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
   if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED          ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_AUTHENTICATION ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION  ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION     ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION      ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
-  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION  ,
+  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION     ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE        ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE         ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
-  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION  ,
+  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE        ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY              ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY               ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
-  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_INITIALIZATION ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_INITIALIZATION  ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
-                XFSMACHINESTATE_EVENTDEFEND)) return false;
-
-  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_INITIALIZATION ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_IN_PROGRESS        ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_IN_PROGRESS         ,
-                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
-                XFSMACHINESTATE_EVENTDEFEND)) return false;
-
-  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_IN_PROGRESS       ,
+  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY              ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
   
@@ -265,7 +258,7 @@ XBUFFER* DIOCOREPROTOCOL_CONNECTION::GetAuthenticationResponse()
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSYMMETRICAL* DIOCOREPROTOCOL_CONNECTION::GetCipherKey()
 {
-  return &cipher_key;
+  return &cipherkey;
 }
 
 
@@ -324,20 +317,12 @@ bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING& statusstring)
 
   switch(status)
     {
-      case DIOCOREPROTOCOL_CONNECTION_STATUS_NONE           : statusstring = __L("None");
-                                                              break;
-
-      case DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED      : statusstring = __L("Connected");
-                                                              break;
-      
-      case DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED  : statusstring = __L("Authenticated");
-                                                              break;
-
-      case DIOCOREPROTOCOL_CONNECTION_STATUS_INITIALIZED    : statusstring = __L("Initialized");
-                                                              break;
-
-      case DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED   : statusstring = __L("Disconnected");
-                                                              break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_NONE           : statusstring = __L("None");                 break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED      : statusstring = __L("Connected");            break;     
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED  : statusstring = __L("Authenticated");        break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE    : statusstring = __L("Key exchange");         break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_READY          : statusstring = __L("Ready");                break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED   : statusstring = __L("Disconnected");         break;
     }
 
   if(statusstring.IsEmpty())
@@ -626,7 +611,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED             : break; 
 
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION    : { DIOCOREPROTOCOL_HEADER  header;
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION        : { DIOCOREPROTOCOL_HEADER  header;
                                                                               XBUFFER                 content;    
 
                                                                               if(IsServer())
@@ -635,7 +620,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                     {
                                                                                       if(GetAuthenticationResponse()->Compare(content))
                                                                                         {
-                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION);                                                                                                           
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);                                                                                                           
                                                                                         }
                                                                                        else
                                                                                         {
@@ -665,7 +650,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                               sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, (*GetAuthenticationResponse()));                                                                                                            
                                                                                               if(sended)
                                                                                                 {
-                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_END_AUTHENTICATION);  
+                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);  
                                                                                                 }
                                                                                             }
                                                                                         }
@@ -674,65 +659,59 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                             }
                                                                             break; 
 
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION    : { DIOCOREPROTOCOL_HEADER  header;
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE           : { DIOCOREPROTOCOL_HEADER  header;
                                                                               XBUFFER                 content;    
 
                                                                               if(IsServer())
                                                                                 {                                                                                                                                  
-                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, header, content))
-                                                                                    {
-                                                                                      XSTRING accepted_confirm_str; 
-
-                                                                                      if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT)
+                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, header, content))
+                                                                                    {                                                                                   
+                                                                                      if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY)
                                                                                         {
-                                                                                          accepted_confirm_str.ConvertFromUTF8(content);
-                                                                                            
-                                                                                          if(!accepted_confirm_str.Compare(DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONFIRM_CONTENT))
+                                                                                          if(content.GetSize() == CIPHERCURVE25519_MAXKEY) 
                                                                                             {
-                                                                                              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);  
-                                                                                              SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);       
+                                                                                              ciphercurve.CreateSharedKey(content.Get());
+                                                                                              cipherkey.Set(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_SHARED), CIPHERCURVE25519_MAXKEY); 
+
+                                                                                              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);  
+                                                                                              SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);       
                                                                                             }
                                                                                         }
-                                                                                      }
-                                                                                  }
-                                                                                                                                                                                                                                                                                             
+                                                                                    }
+                                                                                }                                                                                                                                                                                                                                                                                             
                                                                                else   
                                                                                 {                                                                                     
-                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, header, content))
-                                                                                    {
-                                                                                      XSTRING accepted_str; 
-
-                                                                                      if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT)
+                                                                                  if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, header, content))
+                                                                                    {                                                                                      
+                                                                                      if(header.GetContentType() == DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY)
                                                                                         {
-                                                                                          accepted_str.ConvertFromUTF8(content);                                                                                                                                                                          
-                                                                                          if(!accepted_str.Compare(DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONTENT))
-                                                                                            { 
+                                                                                          if(content.GetSize() == CIPHERCURVE25519_MAXKEY) 
+                                                                                            {  
+                                                                                              ciphercurve.CreateSharedKey(content.Get());
+                                                                                              cipherkey.Set(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_SHARED), CIPHERCURVE25519_MAXKEY); 
+
                                                                                               static bool sended =  false;
                                                                                               if(!sended)     
                                                                                                 {        
-                                                                                                  XSTRING accepted_confirm_str; 
+                                                                                                  XBUFFER publickey;
 
-                                                                                                  accepted_confirm_str = DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONFIRM_CONTENT;
+                                                                                                  publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
 
-                                                                                                  sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, accepted_confirm_str);                                                                                                            
+                                                                                                  sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, publickey);                                                                                                            
                                                                                                   if(sended)
                                                                                                     {
-                                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_INITIALIZATION);
-                                                                                                      SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED);    
+                                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
+                                                                                                      SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);    
                                                                                                     } 
-                                                                                                }
-                                                                                            }                                                                                                           
+                                                                                                }                                                                                                                                                                                                       
+                                                                                            }
                                                                                         }                                                                                        
                                                                                     }                                                                                  
                                                                                 }  
                                                                             }                                                                                                                                                       
                                                                             break;
-    
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION    : break; 
-
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_INITIALIZATION    : break; 
-
-          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_IN_PROGRESS           : break; 
+             
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : break; 
           
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : break;         
         }
@@ -748,33 +727,27 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_NONE                  : break; 
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED             : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED);    
-                                                                                SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INI_AUTHENTICATION);                                                                          
+                                                                                SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION);                                                                          
                                                                                 break; 
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_AUTHENTICATION    : if(IsServer())
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION        : if(IsServer())
                                                                                   {                                                                                    
                                                                                     SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
                                                                                   }
                                                                                 break; 
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_AUTHENTICATION    : if(IsServer())
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE           : if(IsServer())
                                                                                   {                                                                                    
-                                                                                    XSTRING accepted_str;
+                                                                                    XBUFFER publickey;
 
-                                                                                    accepted_str = DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_CONTENT;
-                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_ACCEPTED_OPERATION_PARAM, accepted_str);
+                                                                                    publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
+
+                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, publickey);
                                                                                   }
                                                                                 break;
-  
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INI_INITIALIZATION    : if(protocol)
-                                                                                  {
-                                                                                    protocol->GenerateCipherKey((*GetAuthenticationChallenge()), cipher_key);  
-                                                                                  }
+                
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
                                                                                 break; 
-
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_END_INITIALIZATION    : break; 
-
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_IN_PROGRESS           : break; 
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);   
                                                                                 if(protocol)

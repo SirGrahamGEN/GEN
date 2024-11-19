@@ -102,7 +102,12 @@ CIPHERCURVE25519::~CIPHERCURVE25519()
 bool CIPHERCURVE25519::GenerateRandomPrivateKey()
 {
   XRAND* xrand = GEN_XFACTORY.CreateRand();
-  if(!xrand) return false;
+  if(!xrand) 
+    {
+      return false;
+    }
+ 
+  xrand->Ini();
 
   for(int c=0; c<CIPHERCURVE25519_MAXKEY; c++)
     {

@@ -203,6 +203,36 @@ void DIOCOREPROTOCOL_CFG::SetMinSizeCompressContent(XDWORD minsizecompressconten
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CFG::GetIsCipher()
+* @brief      GetIsCipher
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CFG::GetIsCipher()
+{
+  return iscipher;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetIsCipher(bool iscipher)
+* @brief      SetIsCipher
+* @ingroup    DATAIO
+* 
+* @param[in]  iscipher : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetIsCipher(bool iscipher)
+{
+  this->iscipher = iscipher;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeOutNoResponse()
 * @brief      GetTimeOutNoResponse
 * @ingroup    DATAIO
@@ -301,10 +331,11 @@ void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinc
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CFG::Clean()
 {
-  compressheader                        = false;
-      
+  compressheader                        = false;      
   compresscontent                       = false;
   minsizecompresscontent                = DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS;
+
+  iscipher                              = false;
 
   timeoutnoresponse                     = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
 

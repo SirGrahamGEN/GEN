@@ -126,7 +126,6 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
       DIOSTREAM* diostream = diostreams.GetElement(c);
       if(diostream)
         {      
-
           SubscribeEvent(DIOSTREAM_XEVENT_TYPE_CONNECTED    , diostream);
           SubscribeEvent(DIOSTREAM_XEVENT_TYPE_DISCONNECTED , diostream);
   
