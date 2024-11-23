@@ -46,6 +46,12 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+enum DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION
+{
+  DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_UNKNOWN      =  0  ,
+  DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ               ,  
+  DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE              ,  
+};
 
 #pragma endregion
 
@@ -62,6 +68,9 @@ class DIOCOREPROTOCOL_MESSAGE
                                                                 DIOCOREPROTOCOL_MESSAGE       ();                                              
     virtual                                                    ~DIOCOREPROTOCOL_MESSAGE       ();
 
+    DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION                    GetAcquisitionType            ();
+    void                                                        SetAcquisitionType            (DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION acquisitiontype);  
+    
     DIOCOREPROTOCOL_HEADER*                                     GetHeader                     (); 
     XBUFFER*                                                    GetContent                    ();
         
@@ -69,6 +78,7 @@ class DIOCOREPROTOCOL_MESSAGE
 
     void                                                        Clean                         ();
 
+    DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION                    acquisitiontype;
     DIOCOREPROTOCOL_HEADER                                      header; 
     XBUFFER                                                     content;     
 };
@@ -81,6 +91,7 @@ class DIOCOREPROTOCOL_MESSAGES
     virtual                                                    ~DIOCOREPROTOCOL_MESSAGES      ();
 
     XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*   GetAll                        (); 
+    bool                                                        DeleteAll                     ();
 
     int                                                         FindRequest                   (XUUID* IDmessage);
     int                                                         FindResponse                  (XUUID* IDmessage);

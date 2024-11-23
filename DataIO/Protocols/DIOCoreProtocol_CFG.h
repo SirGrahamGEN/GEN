@@ -49,8 +49,8 @@
 
 #define DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE                       5 
 
-#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT     60 
-#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION              5 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT     10 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION                   15 
 
 
 #pragma endregion
@@ -84,8 +84,8 @@ class DIOCOREPROTOCOL_CFG
     void                                      SetTimeOutNoResponse                      (XDWORD timeoutnoresponse);      
     XDWORD                                    GetTimeToEliminateConnectionDisconnect    ();
     void                                      SetTimeToEliminateConnectionDisconnect    (XDWORD timetoeliminateconnectiondisconnect);      
-    XDWORD                                    GetTimeToHeardbetInConnection             ();
-    void                                      SetTimeToHeardbetInConnection             (XDWORD timetoheardbetinconnection);
+    XDWORD                                    GetTimeToCheckConnection                  ();
+    void                                      SetTimeToCheckConnection                  (XDWORD timetocheckconnection);
     
   private:
 
@@ -101,7 +101,7 @@ class DIOCOREPROTOCOL_CFG
 
     XDWORD                                    timeoutnoresponse;
     XDWORD                                    timetoeliminateconnectiondisconnect;
-    XDWORD                                    timetoheardbetinconnection;    
+    XDWORD                                    timetocheckconnection;    
 };
 
 

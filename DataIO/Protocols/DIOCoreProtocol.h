@@ -44,14 +44,19 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-
-#define DIOCOREPROTOCOL_HEADER_HUMANFORMAT_ACTIVE
-
-
 #define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM         __L("challenge")
 #define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM          __L("response")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
+
+enum DIOCOREPROTOCOL_COMMAND_TYPE
+{
+  DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                   = 0  ,
+  DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT                      ,
+
+  DIOCOREPROTOCOL_COMMAND_TYPE_LASTINTERNAL                   
+};
+
 
 #pragma endregion
 
@@ -80,7 +85,7 @@ class DIOCOREPROTOCOL
     DIOCOREPROTOCOL_CFG*                      GetProtocolCFG                      ();
 
     DIOSTREAM*                                GetDIOStream                        (); 
-    void                                      SetDIOStream                        (DIOSTREAM* diostream);     
+    void                                      SetDIOStream                        (DIOSTREAM* diostream);      
 
     bool                                      SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
     bool                                      ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
@@ -91,10 +96,15 @@ class DIOCOREPROTOCOL
 
     virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
     virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
+    
+    bool                                      MaskKey                             (XBYTE* key, int size, XBYTE mask);
 
-    #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
+    bool                                      Commands_Add                        (XDWORD type, XCHAR* command);
+    XDWORD                                    Commands_Get                        (XCHAR* command);
+    XCHAR*                                    Commands_Get                        (XDWORD type);
+    bool                                      Commands_DeleteAll                  ();
+
     bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content);  
-    #endif
 
   protected:
 
@@ -114,10 +124,11 @@ class DIOCOREPROTOCOL
     void                                      Clean                               ();   
    
     XUUID*                                    ID_machine;
-
-       
+    
     COMPRESSMANAGER*	                        compressmanager;
-    COMPRESSBASE*			                        compressor;    	   
+    COMPRESSBASE*			                        compressor; 
+
+    XMAP<int, XSTRING*>                       commands;   	   
 };
 
 

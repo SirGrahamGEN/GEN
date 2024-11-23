@@ -57,36 +57,41 @@
 class XTIMER;
 class XMUTEX;
 class DIOCOREPROTOCOL;
+class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT;
 class DIOCOREPROTOCOL_CONNECTION;
+class DIOCOREPROTOCOL_MESSAGE;
 
 
 class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 {
   public:
-                                            DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();
-    virtual                                ~DIOCOREPROTOCOL_CONNECTIONSMANAGER    ();   
+                                            DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();
+    virtual                                ~DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();   
 
-    bool                                    Ini                                   ();
-    bool                                    End                                   ();
+    bool                                    Ini                                           ();
+    bool                                    End                                           ();
 
-    DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                        ();
+    DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                                ();
 
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*     DIOStream_GetAll                      ();
-    bool                                    DIOStream_Add                         (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
-    bool                                    DIOStream_Delete                      (DIOSTREAMCONFIG* diostreamCFG);
-    bool                                    DIOStream_DeleteAll                   ();
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*     DIOStream_GetAll                              ();
+    bool                                    DIOStream_Add                                 (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
+    bool                                    DIOStream_Delete                              (DIOSTREAMCONFIG* diostreamCFG);
+    bool                                    DIOStream_DeleteAll                           ();
 
-    virtual DIOCOREPROTOCOL*                CreateProtocol                        (DIOSTREAM* diostream, XUUID* ID_machine);                                    
+    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream, XUUID* ID_machine);                                    
     
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connection_GetAll                     ();
-    XMUTEX*                                 Connection_GetXMutex                  ();  
-    DIOCOREPROTOCOL_CONNECTION*             Connection_Add                        (DIOSTREAM* stream);
-    DIOCOREPROTOCOL_CONNECTION*             Connection_Get                        (DIOSTREAM* stream);
-    bool                                    Connection_Delete                     (DIOCOREPROTOCOL_CONNECTION* connection);
-    bool                                    Connection_DeleAll                    ();
-
-    static bool                             CreateIDMachine                       (XUUID& ID);
-  
+    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connections_GetAll                            ();
+    XMUTEX*                                 Connections_GetXMutex                         ();  
+    DIOCOREPROTOCOL_CONNECTION*             Connections_Add                               (DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (DIOSTREAM* stream);
+    bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);
+    bool                                    Connections_SendAllHeartBet                   ();
+    bool                                    Connections_ReadMessages                      (); 
+    bool                                    Connections_DeleteAllDisconnected             ();
+    bool                                    Connections_DeleteAll                         ();
+    
+    virtual bool                            Received_AdditionsCommand                     (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
+        
   protected:
     
     DIOCOREPROTOCOL_CFG                     protocolCFG;
@@ -94,15 +99,17 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>      diostreams;
 
   private:
+    bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
 
-    
+    bool                                    CreateIDMachine                               (XUUID& ID);
+      
+    virtual void                            HandleEvent_CoreProtocolConnectionsManager    (DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT* event);
+    void                                    HandleEvent_DIOStream                         (DIOSTREAM_XEVENT* event);
+    void                                    HandleEvent                                   (XEVENT* xevent);
 
-    void                                    HandleEvent_DIOStream                 (DIOSTREAM_XEVENT* event);
-    void                                    HandleEvent                           (XEVENT* xevent);
+    static void                             ThreadConnections                             (void* param);
 
-    static void                             ThreadConnections                     (void* param);
-
-    void                                    Clean                                 ();
+    void                                    Clean                                         ();
           
     XMUTEX*                                 connections_xmutex;
     XTHREADCOLLECTED*                       connections_xthread;

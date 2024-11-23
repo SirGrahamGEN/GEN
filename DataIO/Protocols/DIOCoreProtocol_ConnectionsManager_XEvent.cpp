@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOProtocol_XEvent.cpp
+* @file       DIOCoreProtocol_ConnectionsManager_XEvent.cpp
 * 
 * @class      DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT
 * @brief      Data Input/Output Core Protocol Connections Manager eXtended Event class
@@ -86,37 +86,130 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::~DIOCOREPROTOCOL_CONNECTIONSMANAGER_X
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocol()
-* @brief      GetProtocol
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetConnection()
+* @brief      GetConnection
 * @ingroup    DATAIO
-*
-* @return     DIOPROTOCOL* :
-*
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetProtocol()
+DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetConnection()
 {
-  return protocol;
+  return connection;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocol(DIOPROTOCOL* protocol)
-* @brief      SetProtocol
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetConnection(DIOCOREPROTOCOL_CONNECTION* connection)
+* @brief      SetConnection
 * @ingroup    DATAIO
-*
-* @param[in]  protocol :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  connection : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocol(DIOCOREPROTOCOL* protocol)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetConnection(DIOCOREPROTOCOL_CONNECTION* connection)
 {
-  if(!protocol) return false;
-  this->protocol = protocol;
+  if(!connection) 
+    {
+      return false;
+    }
+
+  this->connection = connection;
 
   return true;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetActualStatus()
+* @brief      GetActualStatus
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetActualStatus()
+{
+  return actualstatus;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetActualStatus(DIOCOREPROTOCOL_CONNECTION_STATUS actualstatus)
+* @brief      SetActualStatus
+* @ingroup    DATAIO
+* 
+* @param[in]  actualstatus : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetActualStatus(DIOCOREPROTOCOL_CONNECTION_STATUS actualstatus)
+{
+  this->actualstatus = actualstatus;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetNextStatus()
+* @brief      GetNextStatus
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetNextStatus()
+{
+  return nextstatus;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS nextstatus)
+* @brief      SetNextStatus
+* @ingroup    DATAIO
+* 
+* @param[in]  nextstatus : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS nextstatus)
+{
+  this->nextstatus = nextstatus;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_MESSAGE* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetMsg()
+* @brief      GetMsg
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_MESSAGE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_MESSAGE* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetMsg()
+{
+  return message;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      SetMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  message : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* message)
+{
+  this->message = message;
 }
 
 
@@ -130,7 +223,12 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetProtocol(DIOCOREPROTOCOL* pro
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
 {
-  protocol    = NULL;  
+  connection    = NULL;  
+
+  actualstatus  = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE;  
+  nextstatus    = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE;  
+
+  message       = NULL;
 }
 
 

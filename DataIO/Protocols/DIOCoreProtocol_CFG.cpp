@@ -293,31 +293,31 @@ void DIOCOREPROTOCOL_CFG::SetTimeToEliminateConnectionDisconnect(XDWORD timetoel
   
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
-* @brief      GetTimeToHeardbetInConnection
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetTimeToCheckConnection()
+* @brief      GetTimeToCheckConnection
 * @ingroup    DATAIO
 * 
 * @return     XDWORD : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOCOREPROTOCOL_CFG::GetTimeToHeardbetInConnection()
+XDWORD DIOCOREPROTOCOL_CFG::GetTimeToCheckConnection()
 {
-  return timetoheardbetinconnection;
+  return timetocheckconnection;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
-* @brief      SetTimeToHeardbetInConnection
+* @fn         void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)
+* @brief      SetTimeToCheckConnection
 * @ingroup    DATAIO
 * 
 * @param[in]  timetoheardbetinconnection : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CFG::SetTimeToHeardbetInConnection(XDWORD timetoheardbetinconnection)
+void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)
 {
-  this->timetoheardbetinconnection = timetoheardbetinconnection;
+  this->timetocheckconnection = timetocheckconnection;
 }
 
 
@@ -340,7 +340,7 @@ void DIOCOREPROTOCOL_CFG::Clean()
   timeoutnoresponse                     = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
 
   timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
-  timetoheardbetinconnection            = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOHEARDBETINCONNECTION;
+  timetocheckconnection                 = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION;
 }
 
 

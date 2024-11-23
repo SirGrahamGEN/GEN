@@ -49,6 +49,7 @@
 #include "DIOCoreProtocol_Header.h"
 #include "DIOCoreProtocol.h"
 #include "DIOCoreProtocol_CFG.h"
+#include "DIOCoreProtocol_ConnectionsManager_XEvent.h"
 
 #include "XMemory_Control.h"
 
@@ -79,12 +80,16 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 {
   Clean();
 
-  xtimerstatus = GEN_XFACTORY.CreateTimer();
+  xtimerstatus            = GEN_XFACTORY.CreateTimer();
+  xtimerwithoutconnexion  = GEN_XFACTORY.CreateTimer();
 
   InitFSMachine();
 
   ciphercurve.GenerateRandomPrivateKey();
   ciphercurve.CreatePublicKey();
+
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS);
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
 
   SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED); 
 }
@@ -100,6 +105,9 @@ DIOCOREPROTOCOL_CONNECTION::DIOCOREPROTOCOL_CONNECTION() : XFSMACHINE(0)
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 {
+  DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS);
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
+
   if(protocol)
     {
       delete protocol;
@@ -108,6 +116,11 @@ DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
   if(xtimerstatus)
     {
       GEN_XFACTORY.DeleteTimer(xtimerstatus);
+    }
+
+  if(xtimerwithoutconnexion)
+    {
+      GEN_XFACTORY.DeleteTimer(xtimerwithoutconnexion);
     }
 
   Clean();
@@ -264,14 +277,14 @@ CIPHERKEYSYMMETRICAL* DIOCOREPROTOCOL_CONNECTION::GetCipherKey()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::GetStatus()
-* @brief      GetStatus
+* @fn         DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::Status_Get()
+* @brief      Status_Get
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_CONNECTION_STATUS : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::GetStatus()
+DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::Status_Get()
 {
   return status;
 }
@@ -279,14 +292,14 @@ DIOCOREPROTOCOL_CONNECTION_STATUS DIOCOREPROTOCOL_CONNECTION::GetStatus()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS status)
-* @brief      SetStatus
+* @fn         void DIOCOREPROTOCOL_CONNECTION::Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS status)
+* @brief      Status_Set
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS status)
+void DIOCOREPROTOCOL_CONNECTION::Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS status)
 {
   if(this->status != status)
     {
@@ -294,6 +307,13 @@ void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS sta
         {
           xtimerstatus->Reset();
         }
+
+      DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS);
+      xevent.SetConnection(this);
+      xevent.SetActualStatus(this->status);
+      xevent.SetNextStatus(status);
+
+      PostEvent(&xevent);
     }
 
   this->status = status;
@@ -302,8 +322,8 @@ void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS sta
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING status)
-* @brief      GetStatusString
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING status)
+* @brief      Status_GetString
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
@@ -311,7 +331,7 @@ void DIOCOREPROTOCOL_CONNECTION::SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS sta
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING& statusstring)
+bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STATUS status, XSTRING& statusstring)
 {
   statusstring.Empty();
 
@@ -336,6 +356,23 @@ bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING& statusstring)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING& statusstring)
+* @brief      Status_GetString
+* @ingroup    DATAIO
+* 
+* @param[in]  statusstring : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING& statusstring)
+{  
+  return Status_GetString(status, statusstring);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
 * @brief      GetXTimerStatus
 * @ingroup    DATAIO
@@ -346,6 +383,21 @@ bool DIOCOREPROTOCOL_CONNECTION::GetStatusString(XSTRING& statusstring)
 XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerStatus()
 {
   return xtimerstatus;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerWithoutConnexion()
+* @brief      GetXTimerWithoutConnexion
+* @ingroup    DATAIO
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerWithoutConnexion()
+{
+  return xtimerwithoutconnexion;
 }
 
 
@@ -366,229 +418,115 @@ DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::GetMessages()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
-* @brief      SendMsg
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param)
+* @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
+* @param[in]  command_type : 
 * @param[in]  message_priority : 
-* @param[in]  operation : 
-* @param[in]  operation_param : 
-* @param[in]  content : 
+* @param[in]  param : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param)
 {
-  DIOCOREPROTOCOL_HEADER* header          = NULL;
-  XBUFFER                 contentresult;
-  bool                    status          = false;
-
-  if(!protocol)
-    {
-      return false;  
-    }   
-
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
-  if(!header)
-    {      
-      return false;
-    }
-
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
-    {
-      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
-      if(message)
-        {
-          message->GetHeader()->CopyFrom(header);
-          message->GetContent()->Add(contentresult);  
-
-          GetMessages()->AddRequest(message);
-        }                                                                                                                                                       
-    }
-
-  delete header;
-           
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
-* @brief      SendMsg
-* @ingroup    DATAIO
-* 
-* @param[in]  ID_message : 
-* @param[in]  message_priority : 
-* @param[in]  operation : 
-* @param[in]  operation_param : 
-* @param[in]  content : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
-{
-  DIOCOREPROTOCOL_HEADER* header          = NULL;
-  XBUFFER                 contentresult;
-  bool                    status          = false;
-
-  if(!protocol)
-    {
-      return false;  
-    }   
-
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
-  if(!header)
-    {      
-      return false;
-    }
+  XSTRING commandstr;
+  bool    status;
   
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
-    {
-      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
-      if(message)
-        {
-          message->GetHeader()->CopyFrom(header);
-          message->GetContent()->Add(contentresult);  
-
-          GetMessages()->AddRequest(message);
-        }                                                                                                                                                       
-    }
-
-  delete header;
-   
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
-* @brief      SendMsg
-* @ingroup    DATAIO
-* 
-* @param[in]  ID_message : 
-* @param[in]  message_priority : 
-* @param[in]  operation : 
-* @param[in]  operation_param : 
-* @param[in]  content : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
-{
-  DIOCOREPROTOCOL_HEADER* header          = NULL;  
-  XBUFFER                 contentresult;  
-  bool                    status          = false;
-
   if(!protocol)
     {
-      return false;  
-    }   
-
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
-  if(!header)
-    {      
       return false;
     }
 
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
+  XCHAR* commmandptr = protocol->Commands_Get(command_type);
+  if(!commmandptr)
     {
-      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
-      if(message)
-        {
-          message->GetHeader()->CopyFrom(header);
-          message->GetContent()->Add(contentresult);  
-
-          GetMessages()->AddRequest(message);
-        }                                                                                                                                                       
+      return false;    
     }
 
-  delete header;
-               
-  return header;
+  commandstr.Set(commmandptr);
+
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+ 
+  return status;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
-* @brief      GetMsg
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param)
+* @brief      DoCommand
 * @ingroup    DATAIO
 * 
-* @param[in]  isrequest : 
-* @param[in]  operation : 
-* @param[in]  operation_param : 
-* @param[in]  header : 
-* @param[in]  content : 
+* @param[in]  ID_message : 
+* @param[in]  command_type : 
+* @param[in]  message_priority : 
+* @param[in]  param : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param)
 {
-  int index           = NOTFOUND;
-  int timeoutresponse = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
-
+  XSTRING commandstr;
+  bool    status;
+  
   if(!protocol)
     {
-      return false;  
-    }   
- 
-  if(protocol->GetProtocolCFG())
-    {
-      timeoutresponse = protocol->GetProtocolCFG()->GetTimeOutNoResponse();
+      return false;
     }
- 
-  if(isrequest)
-    {
-      index = GetMessages()->FindRequest(operation, operation_param);                                                                        
-    }
-   else
-    {
-      index = GetMessages()->FindResponse(operation, operation_param);                                                                        
-    }
- 
-  if(index != NOTFOUND)
-    { 
-      DIOCOREPROTOCOL_MESSAGE* message = NULL;
 
-      if(isrequest)
-        {
-          message = GetMessages()->GetAll()->GetKey(index); 
-        }
-       else 
-        {
-          message = GetMessages()->GetAll()->GetElement(index); 
-        }
-
-      if(message)
-        {
-          header.CopyFrom(message->GetHeader());
-          content.Add(message->GetContent());
-            
-          return true;
-        }
-    }
-   else
+  XCHAR* commmandptr = protocol->Commands_Get(command_type);
+  if(!commmandptr)
     {
-      if(xtimerstatus)
-        {
-          if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
-            {
-              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
-            }
-        }                                                                                            
-    }  
+      return false;    
+    }
 
-  return false;
+  commandstr.Set(commmandptr);
+
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param)
+* @brief      DoCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  command_type : 
+* @param[in]  message_priority : 
+* @param[in]  param : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param)
+{
+  XSTRING commandstr;
+  bool    status;
+  
+  if(!protocol)
+    {
+      return false;
+    }
+
+  XCHAR* commmandptr = protocol->Commands_Get(command_type);
+  if(!commmandptr)
+    {
+      return false;    
+    }
+
+  commandstr.Set(commmandptr);
+
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+
+  return status; 
 }
 
 
@@ -674,7 +612,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                               cipherkey.Set(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_SHARED), CIPHERCURVE25519_MAXKEY); 
 
                                                                                               SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);  
-                                                                                              SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);       
+                                                                                              Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);       
                                                                                             }
                                                                                         }
                                                                                     }
@@ -701,7 +639,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                                   if(sended)
                                                                                                     {
                                                                                                       SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
-                                                                                                      SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);    
+                                                                                                      Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);    
                                                                                                     } 
                                                                                                 }                                                                                                                                                                                                       
                                                                                             }
@@ -726,7 +664,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
             {
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_NONE                  : break; 
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED             : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED);    
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED             : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED);    
                                                                                 SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION);                                                                          
                                                                                 break; 
 
@@ -746,10 +684,11 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   }
                                                                                 break;
                 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : messages.DeleteAll();
+                                                                                Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
                                                                                 break; 
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : SetStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);   
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);   
                                                                                 if(protocol)
                                                                                   {   
                                                                                     if(protocol->GetDIOStream())
@@ -768,6 +707,282 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
+* @brief      SendMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
+{
+  DIOCOREPROTOCOL_HEADER* header          = NULL;
+  XBUFFER                 contentresult;
+  bool                    status          = false;
+
+  if(!protocol)
+    {
+      return false;  
+    }   
+
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  if(!header)
+    {      
+      return false;
+    }
+
+  status = protocol->SendMsg(header, contentresult);
+  if(status)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
+      if(message)
+        {
+          message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
+          message->GetHeader()->CopyFrom(header);
+          message->GetContent()->Add(contentresult);  
+
+          DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
+          xevent.SetConnection(this);
+          xevent.SetActualStatus(Status_Get());                      
+          xevent.SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_NONE);
+          xevent.SetMsg(message);
+
+          PostEvent(&xevent);
+
+          if(!ID_message)
+            {
+              GetMessages()->AddRequest(message);
+            }
+           else
+            {
+              GetMessages()->AddResponse(message);
+            }       
+        }                                                                                                                                                       
+    }
+
+  delete header;
+           
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
+* @brief      SendMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
+{
+  DIOCOREPROTOCOL_HEADER* header          = NULL;
+  XBUFFER                 contentresult;
+  bool                    status          = false;
+
+  if(!protocol)
+    {
+      return false;  
+    }   
+
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  if(!header)
+    {      
+      return false;
+    }
+  
+  status = protocol->SendMsg(header, contentresult);
+  if(status)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
+      if(message)
+        {
+          message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
+          message->GetHeader()->CopyFrom(header);
+          message->GetContent()->Add(contentresult);  
+
+          DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
+          xevent.SetConnection(this);
+          xevent.SetActualStatus(Status_Get());                      
+          xevent.SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_NONE);
+          xevent.SetMsg(message);
+
+          PostEvent(&xevent);
+
+          if(!ID_message)
+            {
+              GetMessages()->AddRequest(message);
+            }
+           else
+            {
+              GetMessages()->AddResponse(message);
+            }       
+        }                                                                                                                                                       
+    }
+
+  delete header;
+   
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
+* @brief      SendMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
+{
+  DIOCOREPROTOCOL_HEADER* header          = NULL;  
+  XBUFFER                 contentresult;  
+  bool                    status          = false;
+
+  if(!protocol)
+    {
+      return false;  
+    }   
+
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  if(!header)
+    {      
+      return false;
+    }
+
+  status = protocol->SendMsg(header, contentresult);
+  if(status)
+    {     
+      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
+      if(message)
+        {
+          message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
+          message->GetHeader()->CopyFrom(header);
+          message->GetContent()->Add(contentresult);  
+
+          DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
+          xevent.SetConnection(this);
+          xevent.SetActualStatus(Status_Get());                      
+          xevent.SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_NONE);
+          xevent.SetMsg(message);
+ 
+          PostEvent(&xevent);
+
+          if(!ID_message)
+            {
+              GetMessages()->AddRequest(message);
+            }
+           else
+            {
+              GetMessages()->AddResponse(message);
+            }       
+        }                                                                                                                                                       
+    }
+
+  delete header;
+               
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+* @brief      GetMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  isrequest : 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  header : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+{
+  int index           = NOTFOUND;
+  int timeoutresponse = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
+
+  if(!protocol)
+    {
+      return false;  
+    }   
+ 
+  if(protocol->GetProtocolCFG())
+    {
+      timeoutresponse = protocol->GetProtocolCFG()->GetTimeOutNoResponse();
+    }
+ 
+  if(isrequest)
+    {
+      index = GetMessages()->FindRequest(operation, operation_param);                                                                        
+    }
+   else
+    {
+      index = GetMessages()->FindResponse(operation, operation_param);                                                                        
+    }
+ 
+  if(index != NOTFOUND)
+    { 
+      DIOCOREPROTOCOL_MESSAGE* message = NULL;
+
+      if(isrequest)
+        {
+          message = GetMessages()->GetAll()->GetKey(index); 
+        }
+       else 
+        {
+          message = GetMessages()->GetAll()->GetElement(index); 
+        }
+
+      if(message)
+        {
+          header.CopyFrom(message->GetHeader());
+          content.Add(message->GetContent());
+            
+          return true;
+        }
+    }
+   else
+    {
+      if(xtimerstatus)
+        {
+          if(xtimerstatus->GetMeasureSeconds() >= timeoutresponse)
+            {
+              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);  
+            }
+        }                                                                                            
+    }  
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL_CONNECTION::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -776,11 +991,12 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CONNECTION::Clean()
 {
-  protocol      = NULL;
+  protocol                = NULL;
 
-  status        = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE; 
+  status                  = DIOCOREPROTOCOL_CONNECTION_STATUS_NONE; 
 
-  xtimerstatus  = NULL;
+  xtimerstatus            = NULL;
+  xtimerwithoutconnexion  = NULL;
 }
 
 

@@ -242,6 +242,11 @@ bool XSERIALIZABLE::DoSerialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
+  if(serializationmethod)
+    {
+      return false;
+    }
+
   SetSerializationMethod(serializationmethod);
 
   return Serialize();
@@ -261,6 +266,11 @@ bool XSERIALIZABLE::DoSerialize(XSERIALIZATIONMETHOD* serializationmethod)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 {
+  if(serializationmethod)
+    {
+      return false;
+    }
+
   SetSerializationMethod(serializationmethod);
 
   return Deserialize();

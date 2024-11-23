@@ -98,6 +98,8 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;
   this->ID_machine  = ID_machine;
+
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, __L("heartbeat"));
 }
 
 
@@ -111,6 +113,8 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL::~DIOCOREPROTOCOL()
 {
+  Commands_DeleteAll();
+
   if(compressmanager)
     {
       delete compressmanager;
@@ -236,14 +240,6 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
 
   status = SendData(senddata);
 
-  
-  #ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
-  if(status)
-    {
-      ShowDebug(true, header, contentresult);
-    }
-  #endif
-  
   return status;
 }
 
@@ -562,7 +558,168 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 }
 
 
-#ifdef DIOCOREPROTOCOL_DEBUG_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
+* @brief      MaskKey
+* @ingroup    DATAIO
+* 
+* @param[in]  key : 
+* @param[in]  size : 
+* @param[in]  mask : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
+{
+  if(!key)
+    {
+      return false;
+    }
+
+  for(XDWORD c=0; c<size; c+=2)
+    {    
+      key[c]   ^= (0xAA + mask);
+      key[c+1] ^= (0x55 + mask);
+    }
+      
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command)
+* @brief      Commands_Add
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* @param[in]  command : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command)
+{
+  if(!command)
+    {
+      return false;
+    }
+
+  if(Commands_Get(command))
+    {
+      return false;
+    }
+  
+  if(Commands_Get(type))
+    {
+      return false;
+    }
+  
+  XSTRING* commandstr = new XSTRING();
+  if(!commandstr)
+    {
+      return false;
+    }
+
+  commandstr->Set(command);
+
+  return commands.Add(type, commandstr);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL::Commands_Get(XCHAR* command)
+* @brief      Commands_Get
+* @ingroup    DATAIO
+* 
+* @param[in]  command : 
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL::Commands_Get(XCHAR* command)
+{
+  if(!command)
+    {
+      return false;
+    }
+
+  for(XDWORD c=0; c<commands.GetSize(); c++)
+    {
+      XSTRING* commandstr = commands.GetElement(c);
+      if(commandstr)
+        {
+          if(!commandstr->Compare(command, true))
+            {
+               return c; 
+            }
+        }
+    }
+
+  return 0;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
+* @brief      Commands_Get
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* 
+* @return     XCHAR* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
+{
+  if(!type)
+    {
+      return false;
+    }
+
+  for(XDWORD c=0; c<commands.GetSize(); c++)
+    {
+      XDWORD _type = commands.GetKey(c);
+      if(_type == type)
+        {
+          if(commands.GetElement(c))
+            {            
+               return commands.GetElement(c)->Get(); 
+            }
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::Commands_DeleteAll()
+* @brief      Commands_DeleteAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::Commands_DeleteAll()
+{
+  if(commands.IsEmpty())
+    {
+      return false;
+    }
+    
+  commands.DeleteElementContents();
+  commands.DeleteAll();
+
+  return true;
+}
+
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
@@ -578,25 +735,26 @@ bool DIOCOREPROTOCOL::GenerateAuthenticationResponse(XBUFFER& autentication_chal
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content)
 {
-  XBUFFER   contentresult;
-  int       colormsg = XTRACE_COLOR_BLUE;
+  XBUFFER   contentresult;  
+  int       colormsg = XTRACE_COLOR_PURPLE;
  
   if(!header)
     {
       return false;
     }
-
-  /*
-  if(header->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE)
-    {
-      colormsg = XTRACE_COLOR_PURPLE;
-    }
-  */
-
+ 
   if(!send)
     {
       colormsg = XTRACE_COLOR_GREEN;
     }  
+
+  if(header->GetSerializationXFileJSON()->GetRoot())
+    {  
+      if(!header->GetSerializationXFileJSON()->GetRoot()->GetValues()->GetSize())
+        {
+          header->Serialize();
+        }
+    }
 
   header->GetSerializationXFileJSON()->ShowTraceJSON(colormsg);
 
@@ -635,7 +793,6 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
 
   return true;
 }
-#endif
 
 
 /**-------------------------------------------------------------------------------------------------------------------

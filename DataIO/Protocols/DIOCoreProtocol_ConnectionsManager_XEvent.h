@@ -35,6 +35,7 @@
 #include "XEvent.h"
 
 #include "DIOCoreProtocol.h"
+#include "DIOCoreProtocol_Connection.h"
 #include "DIOCoreProtocol_ConnectionsManager.h"
 
 #pragma endregion
@@ -43,9 +44,13 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 enum DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE
 {
-   DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UNKNOWN         = XEVENT_TYPE_COREPROTOCOL ,
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UNKNOWN         = XEVENT_TYPE_COREPROTOCOLCONNECTIONSMANAGER ,
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS                                                 ,  
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG                                                      ,
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG
 };
 
 
@@ -62,14 +67,26 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT : public XEVENT
                                               DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT       (XSUBJECT* subject, XDWORD type = DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_COREPROTOCOLCONNECTIONSMANAGER);
     virtual                                  ~DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT       ();
 
-    DIOCOREPROTOCOL*                          GetProtocol                                     ();
-    bool                                      SetProtocol                                     (DIOCOREPROTOCOL* protocol);
-    
+    DIOCOREPROTOCOL_CONNECTION*               GetConnection                                   ();
+    bool                                      SetConnection                                   (DIOCOREPROTOCOL_CONNECTION* connection);
+
+    DIOCOREPROTOCOL_CONNECTION_STATUS         GetActualStatus                                 ();  
+    void                                      SetActualStatus                                 (DIOCOREPROTOCOL_CONNECTION_STATUS actualstatus);  
+
+    DIOCOREPROTOCOL_CONNECTION_STATUS         GetNextStatus                                   ();  
+    void                                      SetNextStatus                                   (DIOCOREPROTOCOL_CONNECTION_STATUS nextstatus);  
+
+    DIOCOREPROTOCOL_MESSAGE*                  GetMsg                                          ();
+    void                                      SetMsg                                          (DIOCOREPROTOCOL_MESSAGE* message);
+          
   private:
 
     void                                      Clean                                           ();
 
-    DIOCOREPROTOCOL*                          protocol;
+    DIOCOREPROTOCOL_CONNECTION*               connection;
+    DIOCOREPROTOCOL_CONNECTION_STATUS         actualstatus;  
+    DIOCOREPROTOCOL_CONNECTION_STATUS         nextstatus; 
+    DIOCOREPROTOCOL_MESSAGE*                  message;
 };
 
 

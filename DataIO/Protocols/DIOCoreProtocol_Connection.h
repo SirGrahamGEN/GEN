@@ -95,7 +95,7 @@ class DIOCOREPROTOCOL_CFG;
 class DIOCOREPROTOCOL;
 
 
-class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
+class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
 {
   public:
                                           DIOCOREPROTOCOL_CONNECTION            ();
@@ -113,22 +113,28 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
 
     CIPHERKEYSYMMETRICAL*                 GetCipherKey                          ();
 
-    DIOCOREPROTOCOL_CONNECTION_STATUS     GetStatus                             ();  
-    void                                  SetStatus                             (DIOCOREPROTOCOL_CONNECTION_STATUS status);
-    bool                                  GetStatusString                       (XSTRING& statusstring); 
+    DIOCOREPROTOCOL_CONNECTION_STATUS     Status_Get                            ();  
+    void                                  Status_Set                            (DIOCOREPROTOCOL_CONNECTION_STATUS status);
+    bool                                  Status_GetString                      (DIOCOREPROTOCOL_CONNECTION_STATUS status, XSTRING& statusstring);
+    bool                                  Status_GetString                      (XSTRING& statusstring); 
+
     XTIMER*                               GetXTimerStatus                       ();
+    XTIMER*                               GetXTimerWithoutConnexion             ();
 
     DIOCOREPROTOCOL_MESSAGES*             GetMessages                           ();
 
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param);
+    
+    bool                                  Update                                ();  
+
+  private:
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content);   
 
     bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
-
-    bool                                  Update                                ();  
-
-  private:
 
     void                                  Clean                                 ();    
     
@@ -141,6 +147,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE
 
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
     XTIMER*                               xtimerstatus;  
+    XTIMER*                               xtimerwithoutconnexion;  
 
     DIOCOREPROTOCOL_MESSAGES              messages;    
 };

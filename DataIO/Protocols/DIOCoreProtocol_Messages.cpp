@@ -87,6 +87,36 @@ DIOCOREPROTOCOL_MESSAGE::~DIOCOREPROTOCOL_MESSAGE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION DIOCOREPROTOCOL_MESSAGE::GetAcquisitionType()
+* @brief      GetAcquisitionType
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION DIOCOREPROTOCOL_MESSAGE::GetAcquisitionType()
+{
+  return acquisitiontype;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_MESSAGE::SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION acquisitiontype)
+* @brief      SetAcquisitionType
+* @ingroup    DATAIO
+* 
+* @param[in]  acquisitiontype : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_MESSAGE::SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION acquisitiontype)
+{
+  this->acquisitiontype = acquisitiontype;
+}  
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL_MESSAGE::GetHeader()
 * @brief      GetHeader
 * @ingroup    DATAIO
@@ -124,8 +154,8 @@ XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_MESSAGE::Clean()
-{
-
+{                                                            
+  acquisitiontype = DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_UNKNOWN;
 }
 
 
@@ -165,9 +195,7 @@ DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
       GEN_XFACTORY.Delete_Mutex(xmutexmessages);
     }
 
-  allmessages.DeleteKeyContents();
-  allmessages.DeleteElementContents();
-  allmessages.DeleteAll();
+  DeleteAll();
 
   Clean();
 }
@@ -185,6 +213,29 @@ DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
 XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*  DIOCOREPROTOCOL_MESSAGES::GetAll()
 {
   return &allmessages;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
+* @brief      DeleteAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
+{
+  if(allmessages.IsEmpty())
+    {
+      return false;
+    }
+
+  allmessages.DeleteKeyContents();
+  allmessages.DeleteElementContents();
+ 
+  return allmessages.DeleteAll();
 }
 
 
