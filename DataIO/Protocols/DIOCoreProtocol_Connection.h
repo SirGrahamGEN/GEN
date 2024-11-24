@@ -40,6 +40,7 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION           ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY                    ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED             ,
 
   DIOCOREPROTOCOL_CONNECTION_LASTEVENT
@@ -52,7 +53,8 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMSTATES
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED                ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION           ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE              ,
-  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                    ,     
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                    , 
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY              ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED             ,
 
   DIOCOREPROTOCOL_CONNECTION_LASTSTATE
@@ -66,6 +68,7 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
   DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED               , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE                 , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_READY                       ,
+  DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY                 ,
   DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED                ,
 };
 
@@ -120,7 +123,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
 
     XTIMER*                               GetXTimerStatus                       ();
     XTIMER*                               GetXTimerWithoutConnexion             ();
-
+       
     DIOCOREPROTOCOL_MESSAGES*             GetMessages                           ();
 
     bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param);
@@ -129,7 +132,11 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     
     bool                                  Update                                ();  
 
+    XDWORD                                GetHeartBetsCounter                   ();
+    void                                  SetHeartBetsCounter                   (XDWORD heartbetscounter = 0);
+
   private:
+
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content);   
@@ -148,6 +155,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     DIOCOREPROTOCOL_CONNECTION_STATUS     status;
     XTIMER*                               xtimerstatus;  
     XTIMER*                               xtimerwithoutconnexion;  
+    XDWORD                                heartbetscounter;
 
     DIOCOREPROTOCOL_MESSAGES              messages;    
 };

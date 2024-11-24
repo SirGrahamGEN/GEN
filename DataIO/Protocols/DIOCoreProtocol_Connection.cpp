@@ -159,6 +159,12 @@ bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
 
   if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY              ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY        ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY         ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
+                XFSMACHINESTATE_EVENTDEFEND)) return false;
+
+  if(!AddState( DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY        ,
+                DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY              ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY               ,
                 DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED       ,  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED        ,                
                 XFSMACHINESTATE_EVENTDEFEND)) return false;
   
@@ -342,6 +348,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STA
       case DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED  : statusstring = __L("Authenticated");        break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE    : statusstring = __L("Key exchange");         break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_READY          : statusstring = __L("Ready");                break;
+      case DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY    : statusstring = __L("Instability");          break;
       case DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED   : statusstring = __L("Disconnected");         break;
     }
 
@@ -562,13 +569,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                         }
                                                                                        else
                                                                                         {
-                                                                                          if(protocol)
-                                                                                            {   
-                                                                                              if(protocol->GetDIOStream())
-                                                                                                {
-                                                                                                  protocol->GetDIOStream()->Disconnect();
-                                                                                                }
-                                                                                            }
+                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                                                                                          
                                                                                         }                                                                                                       
                                                                                     }                                     
                                                                                 
@@ -611,6 +612,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                               ciphercurve.CreateSharedKey(content.Get());
                                                                                               cipherkey.Set(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_SHARED), CIPHERCURVE25519_MAXKEY); 
 
+                                                                                              messages.DeleteAll();
+
                                                                                               SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);  
                                                                                               Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);       
                                                                                             }
@@ -638,6 +641,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                                   sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, publickey);                                                                                                            
                                                                                                   if(sended)
                                                                                                     {
+                                                                                                      messages.DeleteAll();
+
                                                                                                       SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
                                                                                                       Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);    
                                                                                                     } 
@@ -650,6 +655,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                             break;
              
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : break; 
+
+          case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY           : break;
           
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : break;         
         }
@@ -684,24 +691,49 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   }
                                                                                 break;
                 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : messages.DeleteAll();
-                                                                                Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                 : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_READY); 
                                                                                 break; 
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);   
-                                                                                if(protocol)
-                                                                                  {   
-                                                                                    if(protocol->GetDIOStream())
-                                                                                      {
-                                                                                        protocol->GetDIOStream()->Disconnect();
-                                                                                      }
-                                                                                  }                                                                                                                                                              
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY           : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY); 
+                                                                                break;
+
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);                                                                                   
                                                                                 break;         
             }
         }
     }
 
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL_CONNECTION::GetHeartBetsCounter()
+* @brief      GetHeartBetsCounter
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CONNECTION::GetHeartBetsCounter()
+{
+  return heartbetscounter;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
+* @brief      SetHeartBetsCounter
+* @ingroup    DATAIO
+* 
+* @param[in]  heartbetscounter : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
+{
+  this->heartbetscounter = heartbetscounter;
 }
 
 
@@ -997,6 +1029,7 @@ void DIOCOREPROTOCOL_CONNECTION::Clean()
 
   xtimerstatus            = NULL;
   xtimerwithoutconnexion  = NULL;
+  heartbetscounter        = 0;
 }
 
 

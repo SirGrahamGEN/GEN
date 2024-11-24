@@ -516,29 +516,45 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
   do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
       if(connection)  
         {                        
-          if(connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY)
-            {              
-              if(connection->GetCoreProtocol())
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {       
+              DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+       
+              if(protocol)
                 {          
-                  if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= connection->GetCoreProtocol()->GetProtocolCFG()->GetTimeToCheckConnection())
+                  if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeToCheckConnection())
                     {
                       XSTRING data = __L("heartbet?");
                       connection->DoCommand(NULL, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, data);  
-
-                      connection->GetXTimerWithoutConnexion()->Reset();
-
-                      // -----------------------------------------------------------------------------------------  
-                      // A 2 second margin to wait for a HeartBeat response 
-                      int waitseconds = (int)connection->GetXTimerWithoutConnexion()->GetMeasureSeconds();
-
-                      waitseconds -=2;
-                      if(waitseconds < 2)
+                            
+                      if(connection->GetHeartBetsCounter() > 2)
                         {
-                          waitseconds = 2;
-                        }      
+                          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);   
+                        }
+                       else
+                        {
+                          if(connection->GetHeartBetsCounter() == 1)
+                            {
+                              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
+                            }
+                           
+                          connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);    
+                          connection->GetXTimerWithoutConnexion()->Reset();
+
+                          /*
+                          // -----------------------------------------------------------------------------------------  
+                          // Margin to wait for a HeartBeat response 
+ 
+                          connection->GetXTimerWithoutConnexion()->Reset();
+                          int waitseconds = (int)connection->GetXTimerWithoutConnexion()->GetMeasureSeconds();
+
+                          waitseconds /=3;
                               
-                      connection->GetXTimerWithoutConnexion()->AddSeconds(waitseconds);
-                      // -----------------------------------------------------------------------------------------  
+                          connection->GetXTimerWithoutConnexion()->AddSeconds(waitseconds);
+                          // -----------------------------------------------------------------------------------------  
+                          */
+                        }
                     }                                     
                 }
             }
@@ -573,7 +589,8 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
   do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
       if(connection)  
         {  
-          if(connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY)
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
             {              
               if(connection->GetCoreProtocol())
                 {          
@@ -746,8 +763,16 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
   
   if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
     {
+      managermessage = true;
+      
       XSTRING data = __L("bet!");
-      managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, data);       
+
+      managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, data);  
+      if(managermessage)
+        {
+          connection->SetHeartBetsCounter(0);    
+          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
+        }      
     }
 
   if(managermessage)
