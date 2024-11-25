@@ -323,6 +323,36 @@ void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD DIOCOREPROTOCOL_CFG::GetNTrysToCheckConnection()
+* @brief      GetNTrysToCheckConnection
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_CFG::GetNTrysToCheckConnection()
+{
+  return ntrystocheckconnection;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnection)
+* @brief      SetNTrysToCheckConnection
+* @ingroup    DATAIO
+* 
+* @param[in]  ntrystocheckconnection : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_CFG::SetNTrysToCheckConnection(XDWORD ntrystocheckconnection)
+{
+  this->ntrystocheckconnection = ntrystocheckconnection;
+}
+  
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL_CFG::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -338,9 +368,9 @@ void DIOCOREPROTOCOL_CFG::Clean()
   iscipher                              = false;
 
   timeoutnoresponse                     = DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE;
-
   timetoeliminateconnectiondisconnect   = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT;
   timetocheckconnection                 = DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION;
+  ntrystocheckconnection                = DIOCOREPROTOCOL_CFG_DEFAULT_NTRYSTOCHECKCONNECTION;
 }
 
 

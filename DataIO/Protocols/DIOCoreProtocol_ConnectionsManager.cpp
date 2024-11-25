@@ -138,9 +138,16 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
   
           if(diostream->Open())
             {
-              if(!diostream->WaitToConnected(5))
+              if(!diostream->WaitToConnected(3))
                 {
-                  return false;
+                  if(diostream->GetConfig()->IsServer())
+                    {
+                      return false;
+                    }
+                   else 
+                    {
+                      diostream->Close();
+                    } 
                 }            
             }
         }
@@ -497,144 +504,6 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Delete(DIOCOREPROTOCOL_CONN
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
-* @brief      Connections_SendAllHeartBet
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
-{
-  if(!connections.GetSize())
-    {
-      return false;
-    }
-
-  int index = 0;
-
-  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
-      if(connection)  
-        {                        
-          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
-             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
-            {       
-              DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
-       
-              if(protocol)
-                {          
-                  if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeToCheckConnection())
-                    {
-                      XSTRING data = __L("heartbet?");
-                      connection->DoCommand(NULL, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, data);  
-                            
-                      if(connection->GetHeartBetsCounter() > 2)
-                        {
-                          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);   
-                        }
-                       else
-                        {
-                          if(connection->GetHeartBetsCounter() == 1)
-                            {
-                              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
-                            }
-                           
-                          connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);    
-                          connection->GetXTimerWithoutConnexion()->Reset();
-
-                          /*
-                          // -----------------------------------------------------------------------------------------  
-                          // Margin to wait for a HeartBeat response 
- 
-                          connection->GetXTimerWithoutConnexion()->Reset();
-                          int waitseconds = (int)connection->GetXTimerWithoutConnexion()->GetMeasureSeconds();
-
-                          waitseconds /=3;
-                              
-                          connection->GetXTimerWithoutConnexion()->AddSeconds(waitseconds);
-                          // -----------------------------------------------------------------------------------------  
-                          */
-                        }
-                    }                                     
-                }
-            }
-          
-          index++;
-        }
-
-    } while(index < connections.GetSize());
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
-* @brief      Connections_ReadMessages
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
-{
-  if(!connections.GetSize())
-    {
-      return false;
-    }
-
-  int index = 0;
-
-  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
-      if(connection)  
-        {  
-          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
-             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
-            {              
-              if(connection->GetCoreProtocol())
-                {          
-                  DIOCOREPROTOCOL_MESSAGES* messages = connection->GetMessages();
-                  if(messages)
-                    {
-                      for(XDWORD c=0; c<messages->GetAll()->GetSize(); c++)
-                        {
-                          DIOCOREPROTOCOL_MESSAGE* message[2];
-
-                          message[0] = messages->GetAll()->GetKey(c);
-                          message[1] = messages->GetAll()->GetElement(c);
-
-                          if((message[0]->GetAcquisitionType() == DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ) && !message[1])                                
-                            {
-                              if(message[0]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST)
-                                {
-                                  switch(message[0]->GetHeader()->GetOperation())
-                                    {
-                                      case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN : break;
-
-                                      case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND : Received_AllCommandMessages(connection, message[0]);
-                                                                                      break;
-
-                                      case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE  : break;   
-                                    }
-                                }
-                            }                                     
-                        }                                      
-                    }
-                }
-            }
-            
-          index++;
-        }
-
-    } while(index < connections.GetSize());
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAllDisconnected()
 * @brief      Connections_DeleteAllDisconnected
 * @ingroup    DATAIO
@@ -725,6 +594,134 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOC
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
+* @brief      Connections_SendAllHeartBet
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
+{
+  if(!connections.GetSize())
+    {
+      return false;
+    }
+
+  int index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
+      if(connection)  
+        {                        
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {       
+              DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+       
+              if(protocol)
+                {          
+                  if(protocol->GetProtocolCFG()->GetNTrysToCheckConnection() >=1 )
+                    {
+                      if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeToCheckConnection())
+                        {
+                          XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_REQUEST_CONTENT;
+                          connection->DoCommand(NULL, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content);  
+                            
+                          if(connection->GetHeartBetsCounter() > protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
+                            {
+                              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);   
+                            }
+                           else
+                            {
+                              if(connection->GetHeartBetsCounter() == 1)
+                                {
+                                  connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
+                                }
+                           
+                              connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);    
+                              connection->GetXTimerWithoutConnexion()->Reset();
+                            }
+                        }                                     
+                    }
+                }
+            }
+          
+          index++;
+        }
+
+    } while(index < connections.GetSize());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
+* @brief      Connections_ReadMessages
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
+{
+  if(!connections.GetSize())
+    {
+      return false;
+    }
+
+  int index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
+      if(connection)  
+        {  
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {              
+              if(connection->GetCoreProtocol())
+                {          
+                  DIOCOREPROTOCOL_MESSAGES* messages = connection->Messages_GetAll();
+                  if(messages)
+                    {
+                      for(XDWORD c=0; c<messages->GetAll()->GetSize(); c++)
+                        {
+                          DIOCOREPROTOCOL_MESSAGE* message[2];
+
+                          message[0] = messages->GetAll()->GetKey(c);
+                          message[1] = messages->GetAll()->GetElement(c);
+
+                          if((message[0]->GetAcquisitionType() == DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ) && !message[1])                                
+                            {
+                              if(message[0]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST)
+                                {
+                                  switch(message[0]->GetHeader()->GetOperation())
+                                    {
+                                      case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN : break;
+
+                                      case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND : Received_AllCommandMessages(connection, message[0]);
+                                                                                      break;
+
+                                      case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE  : break;   
+                                    }
+                                }
+                            }                                     
+                        }                                      
+                    }
+                }
+            }
+            
+          index++;
+        }
+
+    } while(index < connections.GetSize());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 * @brief      Received_AllCommandMessages
 * @ingroup    DATAIO
@@ -765,9 +762,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
     {
       managermessage = true;
       
-      XSTRING data = __L("bet!");
+      XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_RESPONSE_CONTENT;
 
-      managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, data);  
+      managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content);  
       if(managermessage)
         {
           connection->SetHeartBetsCounter(0);    
@@ -777,7 +774,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
 
   if(managermessage)
     {
-
+      // More internal messages
     }
 
   if(!managermessage)
@@ -938,8 +935,8 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                         connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);
 
                                                         if(connection->GetCoreProtocol())
-                                                          {
-                                                            connection->GetCoreProtocol()->SetDIOStream(NULL);                                                              
+                                                          {                                                           
+                                                            connection->GetCoreProtocol()->SetDIOStream(NULL);                                                                                                                           
                                                           }
 
                                                         UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS, connection);
@@ -1011,9 +1008,30 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
       return;
     }
 
+  if(!connectionsmanager->GetProtocolCFG())
+    {
+      return;
+    }
+
   if(connectionsmanager->connections_xmutex)
     {
       connectionsmanager->connections_xmutex->Lock();
+    }
+
+  if(!connectionsmanager->GetProtocolCFG()->GetIsServer())
+    {
+      for(XDWORD c=0; c< connectionsmanager->DIOStream_GetAll()->GetSize(); c++)
+        {
+          DIOSTREAM* diostream = connectionsmanager->DIOStream_GetAll()->GetElement(c);
+          if(diostream)  
+            {
+              if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) 
+                {
+                  diostream->Close();
+                  diostream->Open();                     
+                }  
+            }                
+        }  
     }
 
   XDWORD c = 0;  
@@ -1041,7 +1059,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                                                                                 message->GetHeader()->CopyFrom(&header);
                                                                                 message->GetContent()->Add(content);  
 
-                                                                                status = connection->GetMessages()->AddRequest(message);
+                                                                                status = connection->Messages_GetAll()->AddRequest(message);
                                                                               }                                                                            
                                                                           } 
                                                                           break;
@@ -1053,7 +1071,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                                                                                 message->GetHeader()->CopyFrom(&header);
                                                                                 message->GetContent()->Add(content);  
 
-                                                                                status = connection->GetMessages()->AddResponse(message);
+                                                                                status = connection->Messages_GetAll()->AddResponse(message);
                                                                               }                                                                            
                                                                           } 
                                                                           break;                                            

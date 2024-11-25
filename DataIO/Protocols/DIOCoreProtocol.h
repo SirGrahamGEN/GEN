@@ -49,6 +49,9 @@
 #define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
 
+#define DIOCOREPROTOCOL_HEARTBEAT_REQUEST_CONTENT                        __L("heartbeat?")
+#define DIOCOREPROTOCOL_HEARTBEAT_RESPONSE_CONTENT                       __L("beat!")
+
 enum DIOCOREPROTOCOL_COMMAND_TYPE
 {
   DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                   = 0  ,

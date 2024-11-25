@@ -410,14 +410,14 @@ XTIMER* DIOCOREPROTOCOL_CONNECTION::GetXTimerWithoutConnexion()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::GetMessages()
-* @brief      GetMessages
+* @fn         DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
+* @brief      Messages_GetAll
 * @ingroup    DATAIO
 * 
 * @return     DIOCOREPROTOCOL_MESSAGES* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::GetMessages()
+DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
 {
   return &messages;
 }
@@ -589,9 +589,11 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                               sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, (*GetAuthenticationResponse()));                                                                                                            
                                                                                               if(sended)
                                                                                                 {
-                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);  
+                                                                                                  SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);                                                                                                   
                                                                                                 }
                                                                                             }
+
+                                                                                          sended = false;
                                                                                         }
                                                                                     }                                                                                     
                                                                                 }
@@ -646,6 +648,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                                       SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
                                                                                                       Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE);    
                                                                                                     } 
+
+                                                                                                   sended = false;
                                                                                                 }                                                                                                                                                                                                       
                                                                                             }
                                                                                         }                                                                                        
@@ -789,11 +793,11 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
           if(!ID_message)
             {
-              GetMessages()->AddRequest(message);
+              Messages_GetAll()->AddRequest(message);
             }
            else
             {
-              GetMessages()->AddResponse(message);
+              Messages_GetAll()->AddResponse(message);
             }       
         }                                                                                                                                                       
     }
@@ -856,11 +860,11 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
           if(!ID_message)
             {
-              GetMessages()->AddRequest(message);
+              Messages_GetAll()->AddRequest(message);
             }
            else
             {
-              GetMessages()->AddResponse(message);
+              Messages_GetAll()->AddResponse(message);
             }       
         }                                                                                                                                                       
     }
@@ -923,11 +927,11 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
           if(!ID_message)
             {
-              GetMessages()->AddRequest(message);
+              Messages_GetAll()->AddRequest(message);
             }
            else
             {
-              GetMessages()->AddResponse(message);
+              Messages_GetAll()->AddResponse(message);
             }       
         }                                                                                                                                                       
     }
@@ -970,11 +974,11 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
  
   if(isrequest)
     {
-      index = GetMessages()->FindRequest(operation, operation_param);                                                                        
+      index = Messages_GetAll()->FindRequest(operation, operation_param);                                                                        
     }
    else
     {
-      index = GetMessages()->FindResponse(operation, operation_param);                                                                        
+      index = Messages_GetAll()->FindResponse(operation, operation_param);                                                                        
     }
  
   if(index != NOTFOUND)
@@ -983,11 +987,11 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
 
       if(isrequest)
         {
-          message = GetMessages()->GetAll()->GetKey(index); 
+          message = Messages_GetAll()->GetAll()->GetKey(index); 
         }
        else 
         {
-          message = GetMessages()->GetAll()->GetElement(index); 
+          message = Messages_GetAll()->GetAll()->GetElement(index); 
         }
 
       if(message)

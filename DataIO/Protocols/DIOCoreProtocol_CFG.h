@@ -48,9 +48,9 @@
 #define DIOCOREPROTOCOL_CFG_DEFAULT_MINSIZECOMPRESS                         150 
 
 #define DIOCOREPROTOCOL_CFG_DEFAULT_TIMEOUTNORESPONSE                       5 
-
 #define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOELIMINATECONNECTIONDISCONNECT     10 
 #define DIOCOREPROTOCOL_CFG_DEFAULT_TIMETOCHECKCONNECTION                   15 
+#define DIOCOREPROTOCOL_CFG_DEFAULT_NTRYSTOCHECKCONNECTION                  3 
 
 
 #pragma endregion
@@ -82,10 +82,15 @@ class DIOCOREPROTOCOL_CFG
 
     XDWORD                                    GetTimeOutNoResponse                      ();
     void                                      SetTimeOutNoResponse                      (XDWORD timeoutnoresponse);      
+
     XDWORD                                    GetTimeToEliminateConnectionDisconnect    ();
     void                                      SetTimeToEliminateConnectionDisconnect    (XDWORD timetoeliminateconnectiondisconnect);      
+
     XDWORD                                    GetTimeToCheckConnection                  ();
     void                                      SetTimeToCheckConnection                  (XDWORD timetocheckconnection);
+
+    XDWORD                                    GetNTrysToCheckConnection                  ();
+    void                                      SetNTrysToCheckConnection                  (XDWORD ntrystocheckconnection);
     
   private:
 
@@ -101,7 +106,8 @@ class DIOCOREPROTOCOL_CFG
 
     XDWORD                                    timeoutnoresponse;
     XDWORD                                    timetoeliminateconnectiondisconnect;
-    XDWORD                                    timetocheckconnection;    
+    XDWORD                                    timetocheckconnection;  
+    XDWORD                                    ntrystocheckconnection;
 };
 
 

@@ -84,9 +84,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XMUTEX*                                 Connections_GetXMutex                         ();  
     DIOCOREPROTOCOL_CONNECTION*             Connections_Add                               (DIOSTREAM* stream);
     DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (DIOSTREAM* stream);
-    bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);
-    bool                                    Connections_SendAllHeartBet                   ();
-    bool                                    Connections_ReadMessages                      (); 
+    bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);    
     bool                                    Connections_DeleteAllDisconnected             ();
     bool                                    Connections_DeleteAll                         ();
     
@@ -99,6 +97,10 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>      diostreams;
 
   private:
+
+    bool                                    Connections_SendAllHeartBet                   ();
+    bool                                    Connections_ReadMessages                      (); 
+
     bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
 
     bool                                    CreateIDMachine                               (XUUID& ID);
