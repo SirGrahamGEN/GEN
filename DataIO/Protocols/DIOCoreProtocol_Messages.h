@@ -73,6 +73,9 @@ class DIOCOREPROTOCOL_MESSAGE
     
     DIOCOREPROTOCOL_HEADER*                                     GetHeader                     (); 
     XBUFFER*                                                    GetContent                    ();
+
+    bool                                                        IsConsumed                    ();
+    void                                                        SetIsConsumed                 (bool isconsumed);
         
   private:
 
@@ -80,7 +83,8 @@ class DIOCOREPROTOCOL_MESSAGE
 
     DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION                    acquisitiontype;
     DIOCOREPROTOCOL_HEADER                                      header; 
-    XBUFFER                                                     content;     
+    XBUFFER                                                     content;
+    bool                                                        isconsumed;     
 };
 
 
@@ -91,6 +95,7 @@ class DIOCOREPROTOCOL_MESSAGES
     virtual                                                    ~DIOCOREPROTOCOL_MESSAGES      ();
 
     XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*   GetAll                        (); 
+    bool                                                        Delete                        (XUUID* IDmessage);
     bool                                                        DeleteAll                     ();
 
     int                                                         FindRequest                   (XUUID* IDmessage);
@@ -102,12 +107,14 @@ class DIOCOREPROTOCOL_MESSAGES
     bool                                                        AddRequest                    (DIOCOREPROTOCOL_MESSAGE* message); 
     bool                                                        AddResponse                   (DIOCOREPROTOCOL_MESSAGE* message); 
 
+    bool                                                        ShowDebug                     (bool isserver);  
+
   private:
 
     void                                                        Clean                         ();
 
     XMUTEX*                                                     xmutexmessages;    
-    XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>    allmessages; 
+    XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>    allmessages;     
 };
 
 

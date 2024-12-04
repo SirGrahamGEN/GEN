@@ -281,110 +281,186 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
       return false;
     }
 
-  XDWORD start      = 0;
-  XDWORD sizeread   = 0;
-  bool   status     = false;
+  XDWORD start    = 0;
+  XDWORD sizeread = 0;
+  XDWORD index    = 0;
+  bool   status   = false;     
 
-  for(XDWORD c=0; c<16; c++)    
+  for(index=0; index<readbuffer->GetSize()-sizeof(XDWORD); index++)
     {
-      if(readbuffer->Get((XDWORD&)start, c))
+      if(readbuffer->Get((XDWORD&)start, index))
         {
-          sizeread += sizeof(XDWORD);
+           if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
+             {
+               break;
+             }
+        }
+    }
 
-          // Compress Data
-          if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
+  if(readbuffer->Get((XDWORD&)start, index))
+    {
+      sizeread += sizeof(XDWORD);
+
+      // Compress Data
+      if(start == DIOCOREPROTOCOL_HEADER_MAGIC_ID)
+        {
+          XBUFFER headerbuffer;
+          XWORD   sizeheader    = 0;
+          XWORD   sizeheadercmp = 0;
+          XDWORD  crc32header   = 0;
+
+          if(readbuffer->Get((XWORD&)sizeheader))
             {
-              XBUFFER headerbuffer;
-              XWORD   sizeheader    = 0;
-              XWORD   sizeheadercmp = 0;
-              XDWORD  crc32header   = 0;
+              sizeread += sizeof(XWORD);
 
-              if(readbuffer->Get((XWORD&)sizeheader))
+              if(readbuffer->Get((XWORD&)sizeheadercmp))
                 {
-                  sizeread += sizeof(XDWORD);
+                  sizeread += sizeof(XWORD);
 
-                  if(readbuffer->Get((XWORD&)sizeheadercmp))
+                  if(readbuffer->Get((XDWORD&)crc32header))
                     {
                       sizeread += sizeof(XDWORD);
+  
+                      if(sizeheader)
+                        {       
+                          XBYTE*    ptrheader       = &readbuffer->Get()[DIOCOREPROTOCOL_HEADER_SIZE_ID];
+                          XBYTE*    ptrcontent      = ptrheader;                           
+                          HASHCRC32 hashCRC32;
+                          XDWORD    crc32headercalc = 0;
+  
+                          if(sizeheadercmp)
+                            {     
+                              hashCRC32.Do(ptrheader, sizeheadercmp); 
+                            }
+                            else
+                            {
+                              hashCRC32.Do(ptrheader, sizeheader); 
+                            } 
 
-                      if(readbuffer->Get((XDWORD&)crc32header))
-                        {
-                          sizeread += sizeof(XDWORD);
-  
-                          if(sizeheader)
-                            {       
-                              XBYTE*    ptrheader  = &readbuffer->Get()[DIOCOREPROTOCOL_HEADER_SIZE_ID];
-                              XBYTE*    ptrcontent = ptrheader;                           
-                              HASHCRC32 hashCRC32;
-  
-                              if(sizeheadercmp)
-                                {     
-                                  hashCRC32.Do(ptrheader, sizeheadercmp); 
-                                }
-                               else
-                                {
-                                  hashCRC32.Do(ptrheader, sizeheader); 
-                                } 
+                          crc32headercalc = hashCRC32.GetResultCRC32();
    
-                              if(hashCRC32.GetResultCRC32() == crc32header)
+                          if(crc32headercalc == crc32header)
+                            {
+                              if(sizeheadercmp)
                                 {
-                                  if(sizeheadercmp)
+                                  headerbuffer.Resize(sizeheader);                                        
+                                  status      = compressor->Decompress(ptrheader, sizeheadercmp, &headerbuffer);
+                                  ptrcontent += sizeheadercmp;
+                                  sizeread   += sizeheadercmp;
+
+                                  if(!status)
                                     {
-                                      headerbuffer.Resize(sizeheader);                                        
-                                      status      = compressor->Decompress(ptrheader, sizeheadercmp, &headerbuffer);
-                                      ptrcontent += sizeheadercmp;
-                                      sizeread   += sizeheadercmp;
+                                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: to decompress header"));
                                     }
-                                   else
+                                }
+                                else
+                                {
+                                  status      = headerbuffer.Add(ptrheader, sizeheader);
+                                  ptrcontent += sizeheader;
+                                  sizeread   += sizeheader;
+
+                                  if(!status)
                                     {
-                                      status      = headerbuffer.Add(ptrheader, sizeheader);
-                                      ptrcontent += sizeheader;
-                                      sizeread   += sizeheader;
+                                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: to get header"));
                                     }
+                                }
 
-                                  XFILEJSON* headerxfileJSON = header.GetSerializationXFileJSON();
-                                  if(headerxfileJSON)
-                                    {                                                                                                  
-                                      header.GetSerializationXFileJSON()->AddBufferLines(XFILETXTFORMATCHAR_UTF8, headerbuffer);
-                                      header.GetSerializationXFileJSON()->DecodeAllLines();
-                                      header.DoDeserialize();
-                                    } 
+                              XFILEJSON* headerxfileJSON = header.GetSerializationXFileJSON();
+                              if(headerxfileJSON)
+                                {                                                                                                  
+                                  header.GetSerializationXFileJSON()->AddBufferLines(XFILETXTFORMATCHAR_UTF8, headerbuffer);
+                                  header.GetSerializationXFileJSON()->DecodeAllLines();
+                                  header.DoDeserialize();
+                                } 
 
-                                  HASHCRC32 hashCRC32;
+                              HASHCRC32 hashCRC32;
+                              XDWORD    crc32contentcalc = 0;
 
-                                  hashCRC32.Do(ptrcontent, header.GetContentCompressSize()?header.GetContentCompressSize():header.GetContentSize());  
-                                  status = (header.GetContentCRC32() == hashCRC32.GetResultCRC32())?true:false;
-                        
-                                  if(status)
-                                    {        
-                                      if(header.GetContentCompressSize())
+                              hashCRC32.Do(ptrcontent, header.GetContentCompressSize()?header.GetContentCompressSize():header.GetContentSize());  
+
+                              crc32contentcalc = hashCRC32.GetResultCRC32();
+                              
+                              if(header.GetContentCRC32() == crc32contentcalc)
+                                {        
+                                  if(header.GetContentCompressSize())
+                                    {
+                                      content.Resize(header.GetContentSize());
+                                      status    = compressor->Decompress(ptrcontent, header.GetContentCompressSize(), &content);
+                                      sizeread += header.GetContentCompressSize();
+
+                                      if(!status)
                                         {
-                                          content.Resize(header.GetContentSize());
-                                          status    = compressor->Decompress(ptrcontent, header.GetContentCompressSize(), &content);
-                                          sizeread += header.GetContentCompressSize();
+                                          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: to decompress content"));
                                         }
-                                       else
+                                    }
+                                    else
+                                    {
+                                      if(header.GetContentSize())
                                         {
-                                          if(header.GetContentSize())
+                                          status = content.Add(ptrcontent, header.GetContentSize());
+                                          sizeread += header.GetContentSize();
+
+                                          if(!status)
                                             {
-                                              status = content.Add(ptrcontent, header.GetContentSize());
-                                              sizeread += header.GetContentSize();
+                                              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: to get content"));
                                             }
                                         }
                                     }
                                 }
-
-                              readbuffer->Extract(NULL, c, sizeread);
-
-                              return status;  
                             }
-                        }
-                    }
-                }
-            }
-        }
-    }
 
+                          // ------------------------------------------------------------------------------------------------------------------------
+                          /*
+                          XBYTE color = XTRACE_COLOR_GREEN;
+                          if(GetProtocolCFG()->GetIsServer())
+                            {
+                              color = XTRACE_COLOR_BLUE;      
+                            }
+
+                          XTRACE_PRINTCOLOR(color, __L("READ -----------------------------------------------------------------------------------------------"));   
+                          XTRACE_PRINTDATABLOCKCOLOR(color, readbuffer->Get(), sizeread +  index); 
+                          */
+                          // ------------------------------------------------------------------------------------------------------------------------
+                          
+                          status = readbuffer->Extract(NULL, 0, sizeread +  index);
+
+                          if(!status)
+                            {
+                              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: eliminate buffer used: %d + %d"), sizeread, index);
+                            }
+
+                          return status;  
+                        }
+                       else
+                        {
+                          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: not read size header")); 
+                        }           
+                    }
+                   else
+                    {
+                      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: not read header CRC")); 
+                    }           
+                }
+               else
+                {
+                  XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: not read size header cmp")); 
+                }           
+            }
+           else
+            {
+              XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: not read size header")); 
+            }           
+        }
+       else
+        {
+          XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: not found magic")); 
+        }           
+    }
+   else
+    {
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: read magic")); 
+    }
+   
   return false;
 }
 
@@ -973,6 +1049,21 @@ bool DIOCOREPROTOCOL::SendData(XBUFFER& senddata)
     {
       return false;
     } 
+
+
+  // ------------------------------------------------------------------------------------------------------------------------
+  /*
+  XBYTE color = XTRACE_COLOR_GREEN;
+  if(GetProtocolCFG()->GetIsServer())
+    {
+      color = XTRACE_COLOR_BLUE;      
+    }
+
+  XTRACE_PRINTCOLOR(color, __L("WRITE ----------------------------------------------------------------------------------------------"));   
+  XTRACE_PRINTDATABLOCKCOLOR(color, senddata); 
+  */
+  // ------------------------------------------------------------------------------------------------------------------------
+
      
   status = diostream->Write(senddata);
 

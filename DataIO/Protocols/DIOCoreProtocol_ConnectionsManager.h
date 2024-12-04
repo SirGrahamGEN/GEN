@@ -78,12 +78,16 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    DIOStream_Delete                              (DIOSTREAMCONFIG* diostreamCFG);
     bool                                    DIOStream_DeleteAll                           ();
 
-    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream, XUUID* ID_machine);                                    
+    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream, XUUID* ID_machine);    
+
+    bool                                    DoCommand                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER& param, XBUFFER& result, XDWORD timeout);
+                               
     
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connections_GetAll                            ();
     XMUTEX*                                 Connections_GetXMutex                         ();  
     DIOCOREPROTOCOL_CONNECTION*             Connections_Add                               (DIOSTREAM* stream);
     DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (XDWORD index);
     bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);    
     bool                                    Connections_DeleteAllDisconnected             ();
     bool                                    Connections_DeleteAll                         ();

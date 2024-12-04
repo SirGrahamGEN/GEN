@@ -69,6 +69,12 @@
 XUUID::XUUID()
 {
   Clean();
+
+  xrand = GEN_XFACTORY.CreateRand();
+  if(xrand)
+    {
+      xrand->Ini();
+    }    
 }
 
 
@@ -82,6 +88,11 @@ XUUID::XUUID()
 * --------------------------------------------------------------------------------------------------------------------*/
 XUUID::~XUUID()
 {
+  if(xrand)
+    {
+      GEN_XFACTORY.DeleteRand(xrand);
+    }
+
   Clean();
 }
 
@@ -393,50 +404,50 @@ bool XUUID::CopyTo(XUUID& uuid)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XUUID::GenerateRandom()
 {
-  XRAND* GEN_XFACTORY_CREATE(xrand, CreateRand())
-  if(xrand) 
-    { 
-      xrand->Ini();
-
-      XDATETIME* GEN_XFACTORY_CREATE(datetime, CreateDateTime())
-      if(datetime)
-        {
-          XSTRING     datetimestr;
-          HASHCRC32   hashcrc32;
-
-          datetime->Read();
-          datetime->GetDateTimeToString((XDATETIME_FORMAT_YMD | XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS), datetimestr);
-
-          hashcrc32.Do((XBYTE*)datetimestr.Get(), (datetimestr.GetSize() * sizeof(XCHAR)));
-
-          data1 = hashcrc32.GetResultCRC32();
-          
-          for(int c=0; c<sizeof(XDWORD); c++)
-            {
-              data1 ^= (XBYTE)xrand->Max(255);
-              if(c!=sizeof(XDWORD)-1) data1 <<= 8;
-            }
   
-          if(xrand->Between(0, 1)) data1 |= 0x80000000;
-          
-
-          data2 = (XWORD)xrand->Between(0, 65535);
-          data3 = (XWORD)xrand->Between(0, 65535);
-
-          data4 = (XBYTE)xrand->Between(0, 255);
-          data5 = (XBYTE)xrand->Between(0, 255);
-
-          for(int c=0; c<XUUIDMAXDATA4; c++)
-            {
-              data6[c] = (XBYTE)xrand->Max(255);
-            }
-
-          GEN_XFACTORY.DeleteDateTime(datetime);
-        }
-
-      GEN_XFACTORY.DeleteRand(xrand);
+  if(!xrand) 
+    { 
+      return false;
+    }
+      
+  XDATETIME* GEN_XFACTORY_CREATE(datetime, CreateDateTime())
+  if(!datetime)
+    {
+      return false;
     }
 
+  XSTRING     datetimestr;
+  HASHCRC32   hashcrc32;
+
+  datetime->Read();
+  datetime->GetDateTimeToString((XDATETIME_FORMAT_YMD | XDATETIME_FORMAT_ADDTIME | XDATETIME_FORMAT_TIMEWITHSECONDS | XDATETIME_FORMAT_TIMEWITHMILLISECONDS), datetimestr);
+
+  hashcrc32.Do((XBYTE*)datetimestr.Get(), (datetimestr.GetSize() * sizeof(XCHAR)));
+
+  data1 = hashcrc32.GetResultCRC32();
+             
+  if(xrand->Between(0, 1)) 
+    {
+      data1 |= 0x80000000;
+    }
+   else
+    {
+      data1 &= 0x7FFFFFFF;
+    }
+          
+  data2 = (XWORD)xrand->Between(0, 65535);
+  data3 = (XWORD)xrand->Between(0, 65535);
+
+  data4 = (XBYTE)xrand->Between(0, 255);
+  data5 = (XBYTE)xrand->Between(0, 255);
+
+  for(int c=0; c<XUUIDMAXDATA4; c++)
+    {
+      data6[c] = (XBYTE)xrand->Max(255);
+    }
+
+  GEN_XFACTORY.DeleteDateTime(datetime);
+       
   return true;
 }
 
@@ -573,6 +584,8 @@ bool XUUID::SetFromString(XSTRING& string)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XUUID::Clean()
 {
+  xrand     = NULL;
+
   Empty();
 }
 

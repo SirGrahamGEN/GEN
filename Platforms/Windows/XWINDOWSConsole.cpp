@@ -453,7 +453,7 @@ int XWINDOWSCONSOLE::GetChar()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Generate()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  //#ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
 
   #ifndef BUILDER
   if(!AttachConsole(ATTACH_PARENT_PROCESS))
@@ -509,7 +509,7 @@ bool XWINDOWSCONSOLE::Generate()
   std::wcin.clear();
   std::cin.clear(); */
 
-  #endif
+  //#endif
 
   return true;   
 }
@@ -526,17 +526,17 @@ bool XWINDOWSCONSOLE::Generate()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Close()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  //#ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
 
   SendEnterKey();
 
   return FreeConsole();
 
-  #else
+  //#else
 
-  return false;
+  //return false;
 
-  #endif
+  //#endif
 
 }
 

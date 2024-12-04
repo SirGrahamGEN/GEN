@@ -1002,7 +1002,6 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_HEADER::Clean()
 { 
-  activehumanmode       = false;
   message_type          = DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN; 
   message_priority      = 0;
   operation             = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;  

@@ -147,6 +147,36 @@ XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_MESSAGE::IsConsumed()
+* @brief      IsConsumed
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGE::IsConsumed()
+{
+  return isconsumed;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_MESSAGE::SetIsConsumed(bool isconsumed)
+* @brief      SetIsConsumed
+* @ingroup    DATAIO
+* 
+* @param[in]  isconsumed : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_MESSAGE::SetIsConsumed(bool isconsumed)
+{
+  this->isconsumed = isconsumed;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -156,6 +186,7 @@ XBUFFER* DIOCOREPROTOCOL_MESSAGE::GetContent()
 void DIOCOREPROTOCOL_MESSAGE::Clean()
 {                                                            
   acquisitiontype = DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_UNKNOWN;
+  isconsumed      = false;
 }
 
 
@@ -190,12 +221,12 @@ DIOCOREPROTOCOL_MESSAGES::DIOCOREPROTOCOL_MESSAGES()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
 {
+  DeleteAll();
+
   if(xmutexmessages)
     {
       GEN_XFACTORY.Delete_Mutex(xmutexmessages);
     }
-
-  DeleteAll();
 
   Clean();
 }
@@ -218,6 +249,105 @@ XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>*  DIOCOREPROTOCOL_MESSA
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_MESSAGES::Delete(XUUID* IDmessage)
+* @brief      Delete
+* @ingroup    DATAIO
+* 
+* @param[in]  IDmessage : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGES::Delete(XUUID* IDmessage)
+{
+  if(!IDmessage) 
+    {
+      return false;
+    }
+
+  if(GetAll()->IsEmpty())
+    {
+      return false;
+    }  
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+  
+
+  bool    status  = false;
+  XDWORD  c       = 0;
+
+  while(c < GetAll()->GetSize())    
+    {
+      DIOCOREPROTOCOL_MESSAGE* request            = NULL;
+      DIOCOREPROTOCOL_MESSAGE* response           = NULL;
+      bool                     statusmessageID[2] = { false, false }; 
+
+      request = (DIOCOREPROTOCOL_MESSAGE*)GetAll()->GetKey(c);    
+      if(request)
+        {
+          if(request->GetHeader())
+            {
+              if(request->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
+                {
+                  statusmessageID[0] = true;                  
+                }
+            }
+        }
+
+      response = (DIOCOREPROTOCOL_MESSAGE*)GetAll()->GetElement(c);
+      if(response)
+        {
+          if(response->GetHeader())
+            {
+              if(response->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
+                {
+                  statusmessageID[1] = true;                                   
+                }
+            }
+        }
+      
+      if(statusmessageID[0] && statusmessageID[1])
+        {     
+          status = GetAll()->Delete(request);
+          if(status)
+            {                  
+              delete request; 
+              delete response;
+
+              status  = true;
+              break;
+            }            
+        }  
+                
+      c++;              
+    }
+ 
+  // ----------------------------------------------------------------------------------------------------------------           
+
+  if(!status)
+    {
+      XSTRING UUID;
+      IDmessage->GetToString(UUID);
+
+      XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Messages] Delete message %s"), UUID.Get());
+    }
+
+  // ----------------------------------------------------------------------------------------------------------------       
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
 * @brief      DeleteAll
 * @ingroup    DATAIO
@@ -231,11 +361,23 @@ bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
     {
       return false;
     }
+  
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
 
   allmessages.DeleteKeyContents();
   allmessages.DeleteElementContents();
  
-  return allmessages.DeleteAll();
+  bool status = allmessages.DeleteAll();
+
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return status;
 }
 
 
@@ -252,6 +394,13 @@ bool DIOCOREPROTOCOL_MESSAGES::DeleteAll()
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
 {
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  int result = NOTFOUND;
+
   for(XDWORD c=0; c<allmessages.GetSize(); c++)
     {
       DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
@@ -259,12 +408,18 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
         {
           if(message_request->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
             {
-              return (int)c;
+              result = (int)c;
+              break;  
             }
         }    
     }
 
-  return NOTFOUND;
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return result;
 }
 
 
@@ -281,6 +436,13 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(XUUID* IDmessage)
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
 {
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  int result = NOTFOUND;
+
   for(XDWORD c=0; c<allmessages.GetSize(); c++)
     {
       DIOCOREPROTOCOL_MESSAGE* message_response = allmessages.GetElement(c);
@@ -288,12 +450,18 @@ int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
         {
           if(message_response->GetHeader()->GetIDMessage()->Compare((*IDmessage)))
             {
-              return (int)c;
+              result = (int)c;
+              break;
             }
         }    
     }
 
-  return NOTFOUND;
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return result;
 }
 
 
@@ -311,6 +479,13 @@ int DIOCOREPROTOCOL_MESSAGES::FindResponse(XUUID* IDmessage)
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 {
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  int result = NOTFOUND;
+
   for(XDWORD c=0; c<allmessages.GetSize(); c++)
     {
       DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
@@ -318,12 +493,18 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION opera
         {
           if((message_request->GetHeader()->GetOperation() == operation) && !message_request->GetHeader()->GetOperationParam()->Compare(operation_param))
             {
-              return (int)c;
+              result = (int)c;
+              break;
             }
         }    
     }
 
-  return NOTFOUND;
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return result;
 }
 
 
@@ -341,6 +522,13 @@ int DIOCOREPROTOCOL_MESSAGES::FindRequest(DIOCOREPROTOCOL_HEADER_OPERATION opera
 * --------------------------------------------------------------------------------------------------------------------*/
 int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 {
+  if(xmutexmessages)
+    {
+      xmutexmessages->Lock();
+    }
+
+  int result = NOTFOUND;
+
   for(XDWORD c=0; c<allmessages.GetSize(); c++)
     {
       DIOCOREPROTOCOL_MESSAGE* message_response = allmessages.GetElement(c);
@@ -348,12 +536,18 @@ int DIOCOREPROTOCOL_MESSAGES::FindResponse(DIOCOREPROTOCOL_HEADER_OPERATION oper
         {
           if((message_response->GetHeader()->GetOperation() == operation) && !message_response->GetHeader()->GetOperationParam()->Compare(operation_param))
             {
-              return (int)c;
+              result = (int)c;
+              break;
             }
         }    
     }
 
-  return NOTFOUND;
+  if(xmutexmessages)
+    {
+      xmutexmessages->UnLock();
+    }
+
+  return result;
 }
 
 
@@ -375,19 +569,24 @@ bool DIOCOREPROTOCOL_MESSAGES::AddRequest(DIOCOREPROTOCOL_MESSAGE* message_reque
       return false;
     }
 
-  if(xmutexmessages)
+  int   index   = FindRequest(message_request->GetHeader()->GetIDMessage());
+  bool  status  = false;
+  if(index == NOTFOUND)
     {
-      xmutexmessages->Lock();
+      if(xmutexmessages)
+        {
+          xmutexmessages->Lock();
+        }
+
+      status = allmessages.Add(message_request, NULL); 
+
+      if(xmutexmessages)
+        {
+          xmutexmessages->UnLock();
+        }
     }
 
-  allmessages.Add(message_request, NULL); 
-
-  if(xmutexmessages)
-    {
-      xmutexmessages->UnLock();
-    }
-
-  return true;
+  return status;
 }
 
 
@@ -411,33 +610,129 @@ bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_resp
       return false;
     }
 
+  int index = FindRequest(message_response->GetHeader()->GetIDMessage());
+  if(index != NOTFOUND)
+    { 
+      if(xmutexmessages)
+        {
+          xmutexmessages->Lock();
+        }
+    
+      DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(index);
+      if(message_request)
+        {
+          status = allmessages.Set(message_request, message_response);  
+        }
+
+      if(xmutexmessages)
+        {
+          xmutexmessages->UnLock();
+        }
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_MESSAGES::ShowDebug(bool isserver)
+* @brief      ShowDebug
+* @ingroup    DATAIO
+* 
+* @param[in]  isserver : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_MESSAGES::ShowDebug(bool isserver)
+{
   if(xmutexmessages)
     {
       xmutexmessages->Lock();
     }
 
-  int index = FindRequest(message_response->GetHeader()->GetIDMessage());
+  XBYTE color = XTRACE_COLOR_GREEN;  
+  if(isserver)
+    {
+      color = XTRACE_COLOR_BLUE;  
+    }
 
+  XTRACE_PRINTCOLOR(color, __L("-------------------------------------------------------------------------------"));
+  XTRACE_PRINTCOLOR(color, __L("Actual Messages: [%d]"), allmessages.GetSize());
+  
   for(XDWORD c=0; c<allmessages.GetSize(); c++)
     {
-      DIOCOREPROTOCOL_MESSAGE* message_request = allmessages.GetKey(c);
+      DIOCOREPROTOCOL_MESSAGE*  message_request  = allmessages.GetKey(c);  
+      DIOCOREPROTOCOL_MESSAGE*  message_response = allmessages.GetElement(c);
+      XSTRING                   line;
+
+      line.AddFormat(__L(" [%d] "), c);
+      XTRACE_PRINTCOLOR(color, __L("%s"), line.Get());
+
+      line.Empty();
+      line.AddFormat(__L("%-24s"), __L("request  : "));
       if(message_request)
         {
-          if(message_request->GetHeader()->GetIDMessage()->Compare((*message_response->GetHeader()->GetIDMessage())))
-            {
-              allmessages.Set(message_request, message_response);
+          XSTRING UUID;
+          XSTRING  operation;
 
-              status = true;  
+          switch(message_request->GetAcquisitionType())
+            {
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_UNKNOWN  : operation = __L("unknown");    break;
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ     : operation = __L("Read");       break;
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE    : operation = __L("Write");      break;
             }
+
+          message_request->GetHeader()->GetIDMessage()->GetToString(UUID);  
+          line.AddFormat(__L("%-12s %08X %-42s consumed: %-10s"), operation.Get(), message_request, UUID.Get(), message_request->IsConsumed()?__L("Ok"):__L("none"));
         }    
+       else
+        {
+          line.AddFormat(__L("%-12s %08X %-42s consumed: %-10s"), __L("unknown"),  0, __L("NULL"), __L("none"));
+        } 
+
+      XTRACE_PRINTCOLOR(color, __L("%s"), line.Get());
+      if(message_request)
+        {
+          XTRACE_PRINTDATABLOCKCOLOR(color, (*message_request->GetContent()));
+        }
+
+      line.Empty();
+      line.AddFormat(__L("%-24s"), __L("response : "));
+      if(message_response)
+        {
+          XSTRING UUID;
+          XSTRING operation;
+
+          switch(message_response->GetAcquisitionType())
+            {
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_UNKNOWN  : operation = __L("unknown");    break;
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ     : operation = __L("Read");       break;
+              case DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE    : operation = __L("Write");      break;
+            }
+
+          message_response->GetHeader()->GetIDMessage()->GetToString(UUID); 
+          line.AddFormat(__L("%-12s %08X %-42s consumed: %-10s"), operation.Get(), message_response, UUID.Get(), message_response->IsConsumed()?__L("Ok"):__L("none"));          
+        }    
+       else
+        {
+          line.AddFormat(__L("%-12s %08X %-42s consumed: %-10s"), __L("unknown"),  0, __L("NULL"), __L("none"));
+        } 
+      
+      XTRACE_PRINTCOLOR(color, __L("%s"), line.Get());
+      if(message_response)
+        {      
+          XTRACE_PRINTDATABLOCKCOLOR(color, (*message_response->GetContent()));
+        }
     }
 
   if(xmutexmessages)
     {
       xmutexmessages->UnLock();
     }
-
-  return status;
+   
+  return true;
 }
 
 
@@ -451,7 +746,7 @@ bool DIOCOREPROTOCOL_MESSAGES::AddResponse(DIOCOREPROTOCOL_MESSAGE* message_resp
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_MESSAGES::Clean()
 {
-  xmutexmessages = NULL;
+  xmutexmessages  = NULL;
 }
 
 

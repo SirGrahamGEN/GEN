@@ -125,7 +125,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     XTIMER*                               GetXTimerWithoutConnexion             ();
        
     DIOCOREPROTOCOL_MESSAGES*             Messages_GetAll                       ();
-
+    
     bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param);
     bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param);
     bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param);

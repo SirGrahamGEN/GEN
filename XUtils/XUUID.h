@@ -48,6 +48,7 @@
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
 
+class XRAND;
 
 class XUUID
 {
@@ -95,6 +96,8 @@ class XUUID
   private:
 
     void                Clean       ();
+
+    XRAND*              xrand;    
 };
 
 

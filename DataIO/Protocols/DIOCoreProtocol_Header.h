@@ -71,7 +71,7 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
 
 
 #define DIOCOREPROTOCOL_HEADER_MAGIC_ID                                   0x47454E31  // GEN1
-#define DIOCOREPROTOCOL_HEADER_SIZE_ID                                    (sizeof(XDWORD)+sizeof(XWORD)*2+sizeof(XDWORD))
+#define DIOCOREPROTOCOL_HEADER_SIZE_ID                                    (sizeof(XDWORD)+(sizeof(XWORD)*2)+sizeof(XDWORD))
 
 
 #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
@@ -204,9 +204,7 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
   private:
 
     void                                      Clean                         ();
-    
-    bool                                      activehumanmode;  
-
+        
     XUUID                                     ID_message;
     XUUID                                     ID_machine;
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;  
