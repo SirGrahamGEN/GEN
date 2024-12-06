@@ -61,6 +61,9 @@ enum DIOCOREPROTOCOL_COMMAND_TYPE
 };
 
 
+#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT     __L("hearbeat")
+
+
 #pragma endregion
 
 
@@ -102,6 +105,7 @@ class DIOCOREPROTOCOL
     
     bool                                      MaskKey                             (XBYTE* key, int size, XBYTE mask);
 
+    XMAP<int, XSTRING*>*                      Commands_GetAll                     ();   	
     bool                                      Commands_Add                        (XDWORD type, XCHAR* command);
     XDWORD                                    Commands_Get                        (XCHAR* command);
     XCHAR*                                    Commands_Get                        (XDWORD type);

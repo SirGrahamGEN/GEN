@@ -33,6 +33,9 @@
 #pragma region INCLUDES
 
 #include "XEvent.h"
+#include "XBuffer.h"
+#include "XString.h"
+#include "XFileJSON.h"
 
 #include "DIOCoreProtocol.h"
 #include "DIOCoreProtocol_Connection.h"
@@ -48,9 +51,10 @@
 enum DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE
 {
   DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UNKNOWN         = XEVENT_TYPE_COREPROTOCOLCONNECTIONSMANAGER ,
-  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS                                                 ,  
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE                                                 ,  
   DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG                                                      ,
-  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG                                                     ,
+  DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE
 };
 
 
@@ -78,6 +82,10 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT : public XEVENT
 
     DIOCOREPROTOCOL_MESSAGE*                  GetMsg                                          ();
     void                                      SetMsg                                          (DIOCOREPROTOCOL_MESSAGE* message);
+
+    XBUFFER*                                  GetContentResponseBuffer                        ();
+    XSTRING*                                  GetContenteResponseString                       ();
+    XFILEJSON*                                GetContenteResponseXFileJSON                    ();
           
   private:
 
@@ -87,6 +95,9 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT : public XEVENT
     DIOCOREPROTOCOL_CONNECTION_STATUS         actualstatus;  
     DIOCOREPROTOCOL_CONNECTION_STATUS         nextstatus; 
     DIOCOREPROTOCOL_MESSAGE*                  message;
+    XBUFFER                                   contentresponsebuffer;
+    XSTRING                                   contentresponsestring;
+    XFILEJSON                                 contentresponsexfileJSON;
 };
 
 

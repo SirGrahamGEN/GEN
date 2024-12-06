@@ -99,7 +99,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->diostream   = diostream;
   this->ID_machine  = ID_machine;
 
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, __L("heartbeat"));
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT);
 }
 
 
@@ -661,6 +661,21 @@ bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
     }
       
   return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XMAP<int, XSTRING*>* DIOCOREPROTOCOL::Commands_GetAll()
+* @brief      Commands_GetAll
+* @ingroup    DATAIO
+* 
+* @return     XMAP<int, : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XMAP<int, XSTRING*>* DIOCOREPROTOCOL::Commands_GetAll()
+{
+  return &commands;
 }
 
 

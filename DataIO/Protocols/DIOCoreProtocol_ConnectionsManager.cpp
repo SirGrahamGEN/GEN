@@ -90,6 +90,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
   CreateIDMachine(ID_machine);
 
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
  
 }
 
@@ -105,6 +106,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
+  DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
  
   Clean();
 }
@@ -656,7 +658,48 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAll()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 {
-  return true;
+  bool managermessage = false;
+  bool status         = false;
+
+  if(!connection)
+    {
+      return false;
+    }
+
+  if(!message)
+    {
+      return false;
+    }
+
+  DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+  if(!protocol)
+    {
+      return false;
+    }
+
+  for(XDWORD c=DIOCOREPROTOCOL_COMMAND_TYPE_LASTINTERNAL;  c<protocol->Commands_GetAll()->GetSize()+1; c++)
+    {
+      if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(c), true))
+        { 
+          DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
+          xevent.SetConnection(connection);
+          xevent.SetMsg(message);
+                      
+          status = PostEvent(&xevent);    
+
+          if(status)
+            {     
+              managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), c, 10, (*xevent.GetContenteResponseString()));       
+              if(managermessage)
+                {
+                  message->SetIsConsumed(true);          
+                  status = true;
+                }         
+            }
+        }
+    }
+
+  return status;
 }
 
 
@@ -1071,7 +1114,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                               { 
                                                                 connection->SetCoreProtocol(protocol); 
 
-                                                                SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS, connection);
+                                                                SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE, connection);
                                                                 SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG     , this);
                                                                 SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG    , connection);
 
@@ -1103,7 +1146,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                             connection->GetCoreProtocol()->SetDIOStream(NULL);                                                                                                                           
                                                           }
 
-                                                        UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CHANGESTATUS, connection);
+                                                        UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE, connection);
                                                         UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG     , this);
                                                         UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG    , connection);
 

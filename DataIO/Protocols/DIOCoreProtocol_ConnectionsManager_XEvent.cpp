@@ -214,6 +214,51 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* 
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
+* @brief      GetContentResponseBuffer
+* @ingroup    EXAMPLES
+* 
+* @return     XBUFFER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
+{
+  return &contentresponsebuffer;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
+* @brief      GetContenteResponseString
+* @ingroup    EXAMPLES
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
+{
+  return &contentresponsestring;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XFILEJSON* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseXFileJSON()
+* @brief      GetContenteResponseXFileJSON
+* @ingroup    EXAMPLES
+* 
+* @return     XFILEJSON* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XFILEJSON* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseXFileJSON()
+{
+  return &contentresponsexfileJSON;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::Clean()
 * @brief      Clean the attributes of the class: Default initialice
