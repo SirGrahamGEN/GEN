@@ -92,8 +92,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    Connections_DeleteAllDisconnected             ();
     bool                                    Connections_DeleteAll                         ();
     
-    virtual bool                            Received_AdditionsCommand                     (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
-        
+   
   protected:
     
     DIOCOREPROTOCOL_CFG                     protocolCFG;
@@ -105,8 +104,11 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    Connections_SendAllHeartBet                   ();
     bool                                    Connections_ReadMessages                      (); 
 
-    bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
+    bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message); 
+    bool                                    Received_AdditionsCommand                     (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
 
+    bool                                    Received_AllUpdateClassMessages               (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
+        
     bool                                    CreateIDMachine                               (XUUID& ID);
       
     virtual void                            HandleEvent_CoreProtocolConnectionsManager    (DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT* event);

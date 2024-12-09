@@ -306,6 +306,54 @@ bool XUUID::SetData6(XBYTE* data)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XUUID::IsEmpty()
+* @brief      IsEmpty
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XUUID::IsEmpty()
+{
+  if(data1)
+    {
+      return false;
+    }
+
+  if(data2)
+    {
+      return false;
+    }
+
+  if(data3)
+    {
+      return false;
+    }
+
+  if(data4)
+    {
+      return false;
+    }
+
+  if(data5)
+    {
+      return false;
+    }
+
+  for(int c=0; c<XUUIDMAXDATA4; c++)
+    {
+      if(data6[c])
+        {
+          return false;
+        }
+    }
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XUUID::Empty()
 * @brief      Empty
 * @ingroup    XUTILS

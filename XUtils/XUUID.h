@@ -53,36 +53,37 @@ class XRAND;
 class XUUID
 {
   public:
-                        XUUID           ();
-    virtual            ~XUUID           ();
+                        XUUID             ();
+    virtual            ~XUUID             ();
 
-    XDWORD              GetData1        ();
-    XWORD               GetData2        ();
-    XWORD               GetData3        ();
-    XBYTE               GetData4        ();
-    XBYTE               GetData5        ();
-    XBYTE*              GetData6        ();
+    XDWORD              GetData1          ();
+    XWORD               GetData2          ();
+    XWORD               GetData3          ();
+    XBYTE               GetData4          ();
+    XBYTE               GetData5          ();
+    XBYTE*              GetData6          ();
 
-    bool                SetData1        (XDWORD data);
-    bool                SetData2        (XWORD data);
-    bool                SetData3        (XWORD data);
-    bool                SetData4        (XBYTE data);
-    bool                SetData5        (XBYTE data);
-    bool                SetData6        (XBYTE* data);
+    bool                SetData1          (XDWORD data);
+    bool                SetData2          (XWORD data);
+    bool                SetData3          (XWORD data);
+    bool                SetData4          (XBYTE data);
+    bool                SetData5          (XBYTE data);
+    bool                SetData6          (XBYTE* data);
 
-    bool                Empty           ();
+    bool                IsEmpty           ();
+    bool                Empty             ();
     
-    bool                Set             (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
+    bool                Set               (XDWORD data1, XWORD data2, XWORD data3, XBYTE data4, XBYTE data5, XBYTE* data6);
 
-    bool                CopyFrom        (XUUID& uuid);
-    bool                CopyTo          (XUUID& uuid);
+    bool                CopyFrom          (XUUID& uuid);
+    bool                CopyTo            (XUUID& uuid);
     
-    bool                GenerateRandom  ();
+    bool                GenerateRandom    ();
 
-    bool                Compare         (XUUID& uuid);  
+    bool                Compare           (XUUID& uuid);  
 
-    bool                GetToString     (XSTRING& string);
-    bool                SetFromString   (XSTRING& string);
+    bool                GetToString       (XSTRING& string);
+    bool                SetFromString     (XSTRING& string);
 
   protected:
 

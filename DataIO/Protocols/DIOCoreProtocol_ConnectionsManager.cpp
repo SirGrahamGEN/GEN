@@ -91,6 +91,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
  
 }
 
@@ -107,6 +108,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
+  DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
  
   Clean();
 }
@@ -369,12 +371,43 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DoCommand(DIOCOREPROTOCOL_CONNECTION* c
       return false;
     }
 
-  if(!connection->DoCommand(NULL, command_type, message_priority, param))
+  XTIMER* xtimer = GEN_XFACTORY.CreateTimer();
+  if(!xtimer)
     {
       return false;
     }
 
-  return true;
+  XUUID ID_message;
+  bool  status  = false;
+
+  if(connection->DoCommand(&ID_message, command_type, message_priority, param))
+    {
+      while(1)
+        {
+          int index = connection->Messages_GetAll()->FindResponse(&ID_message);
+          if(index != NOTFOUND)
+            {
+              DIOCOREPROTOCOL_MESSAGE* message = connection->Messages_GetAll()->GetAll()->GetElement(index);
+              if(message)
+                {
+                  message->SetIsConsumed(true);
+                  result.CopyFrom((*message->GetContent()));
+
+                  status = true;
+                  break;   
+                }
+            }
+      
+          if(xtimer->GetMeasureSeconds() >= timeout)
+            {
+              break;
+            }
+        }
+    }
+
+  GEN_XFACTORY.DeleteTimer(xtimer);
+
+  return status;
 }
 
 
@@ -646,6 +679,328 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
+* @brief      Connections_SendAllHeartBet
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
+{
+  if(!connections.GetSize())
+    {
+      return false;
+    } 
+
+  int index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
+      if(connection)  
+        {                           
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) || 
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {       
+              DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+              if(protocol)
+                {                          
+                  if(protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
+                    {
+                      if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeToCheckConnection())
+                        {
+                          XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_REQUEST_CONTENT;
+                          XUUID   ID_message;
+
+                          connection->DoCommand(&ID_message, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content);  
+                            
+                          if(connection->GetHeartBetsCounter() >= protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
+                            {
+                              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);   
+                            }
+
+                          if(connection->GetHeartBetsCounter() == 1)
+                            {
+                              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
+                            }
+                           
+                          // Test one time
+                          // protocol->GetProtocolCFG()->SetNTrysToCheckConnection(0);
+
+                          connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);                                  
+                          connection->GetXTimerWithoutConnexion()->Reset();
+                                
+                        }                                     
+                    }
+                }
+            }
+                      
+          index++;
+        }
+
+    } while(index < connections.GetSize());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
+* @brief      Connections_ReadMessages
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
+{
+  if(!connections.GetSize())
+    {
+      return false;
+    }
+
+  int index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
+      if(connection)  
+        {  
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {              
+              if(connection->GetCoreProtocol())
+                {          
+                  DIOCOREPROTOCOL_MESSAGES* messages = connection->Messages_GetAll();
+                  if(messages)
+                    {
+                      int indexmsg = 0;
+   
+                      while(indexmsg < messages->GetAll()->GetSize())
+                        {
+                          DIOCOREPROTOCOL_MESSAGE* message[2] = { NULL, NULL };
+
+                          message[0] = messages->GetAll()->GetKey(indexmsg);
+                          message[1] = messages->GetAll()->GetElement(indexmsg);
+                          
+                          if(message[0])
+                            {
+                              if(!message[0]->IsConsumed())
+                                {
+                                  if(message[0]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST) 
+                                    {                                                                             
+                                      switch(message[0]->GetHeader()->GetOperation())
+                                        {
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN     : break;
+
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND     : if(Received_AllCommandMessages(connection, message[0]))
+                                                                                                {                                                                                                       
+                                                                                                  message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
+                                                                                                  if(message[1]) 
+                                                                                                    {
+                                                                                                      message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                    }
+                                                                                                }
+
+                                                                                              // Test show message status
+                                                                                              // messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              break;
+
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS : if(Received_AllUpdateClassMessages(connection, message[0]))
+                                                                                                {                                                                                                       
+                                                                                                  message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
+                                                                                                  if(message[1]) 
+                                                                                                    {
+                                                                                                      message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                    }
+                                                                                                }
+
+                                                                                              // Test show message status
+                                                                                              //  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              break;
+                                        }                                       
+                                    }
+                                }
+                            }
+                          
+                          // -----------------------------------------------------------------------------------------------
+                          // Automatic consumption of the response received.
+                                       
+                          if(message[0] && message[1])
+                            {
+                              if(message[0]->IsConsumed() && !message[1]->IsConsumed())
+                                {
+                                  if((message[1]->GetAcquisitionType() == DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ) && (message[1]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE))
+                                    {                                                                             
+                                      switch(message[1]->GetHeader()->GetOperation())
+                                        {
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN     : break;
+
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND     : if(message[1]) 
+                                                                                                {
+                                                                                                  //if(!message[1]->GetHeader()->GetOperationParam()->Compare(DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT))
+                                                                                                    {                                                                                                  
+                                                                                                      message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                    }
+                                                                                                }
+
+                                                                                              // Test show message status
+                                                                                              // messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              break;
+
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS : if(message[1]) 
+                                                                                                {
+                                                                                                  message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                }
+
+                                                                                              // Test show message status
+                                                                                              // messages->ShowDebug(connection->IsServer());
+                                                                                              break;   
+                                        }                                       
+                                    }
+                                }
+                            }
+                            
+                          // -----------------------------------------------------------------------------------------------
+                             
+                          indexmsg++;
+                        }                                      
+                    }
+                }
+            }
+            
+          index++;
+        }
+
+    } while(index < connections.GetSize());
+
+   
+  // -----------------------------------------------------------------------------------------------
+  // Delete consumed messages
+                      
+  index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
+      if(connection)  
+        {  
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {        
+              DIOCOREPROTOCOL_MESSAGES* messages = connection->Messages_GetAll();
+              if(messages)
+                {
+                  int   indexmsg  = 0;
+                  bool  deletemsg = false;
+
+                  while(indexmsg < messages->GetAll()->GetSize())
+                    {
+                      DIOCOREPROTOCOL_MESSAGE* message[2];
+
+                      message[0] = messages->GetAll()->GetKey(indexmsg);
+                      message[1] = messages->GetAll()->GetElement(indexmsg);
+
+                      deletemsg = false;
+                          
+                      if(message[0] && message[1])
+                        {
+                          if(message[0]->IsConsumed() && message[1]->IsConsumed())
+                            {                              
+                              if(messages->Delete(message[0]->GetHeader()->GetIDMessage()))
+                                {
+                                  deletemsg = true;            
+                                }                              
+                            }
+                        }
+
+                      if(!deletemsg)
+                        {
+                          indexmsg++;
+                        }
+                    }
+                }
+            }
+
+          index++;
+        }
+
+    } while(index < connections.GetSize());
+
+  // -----------------------------------------------------------------------------------------------
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AllCommandMessages
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* @param[in]  message : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+{
+  if(!connection)
+    {
+      return false;
+    }  
+
+  if(!message)
+    {
+      return false;
+    }
+
+  if(message->GetHeader()->GetOperation() != DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND)
+    {
+      return false;
+    }
+
+  DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+  if(!protocol)
+    {
+      return false;
+    }
+
+  bool managermessage = false;
+  bool status         = false;
+  
+  if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
+    {         
+      message->SetIsConsumed(true);
+
+      XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_RESPONSE_CONTENT;      
+      if(connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content))
+        {
+          connection->SetHeartBetsCounter(0);    
+          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
+        }
+
+      managermessage = true;      
+    }
+
+  if(managermessage)
+    {
+      // More internal messages
+    }
+
+  if(!managermessage)
+    {
+      status = Received_AdditionsCommand(connection, message);
+    }
+   else
+    {
+      status = true;
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 * @brief      Received_AdditionsCommand
 * @ingroup    DATAIO
@@ -705,230 +1060,8 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOC
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
-* @brief      Connections_SendAllHeartBet
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_SendAllHeartBet()
-{
-  if(!connections.GetSize())
-    {
-      return false;
-    }
-
-  int index = 0;
-
-  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
-      if(connection)  
-        {               
-          //if(connection->IsServer())
-            {         
-              if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
-                 (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
-                {       
-                  DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
-                  if(protocol)
-                    {                          
-                      if(protocol->GetProtocolCFG()->GetNTrysToCheckConnection() >=1 )
-                        {
-                          if(connection->GetXTimerWithoutConnexion()->GetMeasureSeconds() >= protocol->GetProtocolCFG()->GetTimeToCheckConnection())
-                            {
-                              XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_REQUEST_CONTENT;
-                              connection->DoCommand(NULL, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content);  
-                            
-                              if(connection->GetHeartBetsCounter() > protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
-                                {
-                                  connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);   
-                                }
-                               else
-                                {
-                                  if(connection->GetHeartBetsCounter() == 1)
-                                    {
-                                      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY);   
-                                    }
-                           
-                                  //protocol->GetProtocolCFG()->SetNTrysToCheckConnection(0);
-
-                                  connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);                                  
-                                  connection->GetXTimerWithoutConnexion()->Reset();
-                                }
-                            }                                     
-                        }
-                    }
-                }
-            }
-          
-          index++;
-        }
-
-    } while(index < connections.GetSize());
-
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
-* @brief      Connections_ReadMessages
-* @ingroup    DATAIO
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
-{
-  if(!connections.GetSize())
-    {
-      return false;
-    }
-
-  int index = 0;
-
-  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
-      if(connection)  
-        {  
-          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
-             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
-            {              
-              if(connection->GetCoreProtocol())
-                {          
-                  DIOCOREPROTOCOL_MESSAGES* messages = connection->Messages_GetAll();
-                  if(messages)
-                    {
-                      int indexmsg = 0;
-   
-                      while(indexmsg < messages->GetAll()->GetSize())
-                        {
-                          DIOCOREPROTOCOL_MESSAGE* message[2] = { NULL, NULL };
-
-                          message[0] = messages->GetAll()->GetKey(indexmsg);
-                          message[1] = messages->GetAll()->GetElement(indexmsg);
-                          
-                          if(message[0])
-                            {
-                              if(!message[0]->IsConsumed())
-                                {
-                                  if(message[0]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST) 
-                                    {                                                                             
-                                      switch(message[0]->GetHeader()->GetOperation())
-                                        {
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN : break;
-
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND : if(Received_AllCommandMessages(connection, message[0]))
-                                                                                            {                                                                                                       
-                                                                                              message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
-                                                                                              if(message[1]) 
-                                                                                                {
-                                                                                                  message[1]->SetIsConsumed(true);                                                                                                  
-                                                                                                }
-                                                                                            }
-
-                                                                                          //messages->ShowDebug(connection->IsServer());                                                                                              
-                                                                                          break;
-
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE  : break;   
-                                        }                                       
-                                    }
-                                }
-                            }
-                           //else
-                            {           
-                              if(message[0] && message[1])
-                                {
-                                  if(message[0]->IsConsumed() && !message[1]->IsConsumed())
-                                    {
-                                      if((message[1]->GetAcquisitionType() == DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ) && (message[1]->GetHeader()->GetMessageType() == DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE))
-                                        {                                                                             
-                                          switch(message[1]->GetHeader()->GetOperation())
-                                            {
-                                              case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN : break;
-
-                                              case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND : if(message[1]) 
-                                                                                                {
-                                                                                                  message[1]->SetIsConsumed(true);                                                                                                  
-                                                                                                }
-                                                                                          
-                                                                                              //messages->ShowDebug(connection->IsServer());                                                                                              
-                                                                                              break;
-
-                                              case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATE  : break;   
-                                            }                                       
-                                        }
-                                    }
-                                }
-                            }
-                             
-                          indexmsg++;
-                        }                                      
-                    }
-                }
-            }
-            
-          index++;
-        }
-
-    } while(index < connections.GetSize());
-
-   
-  index = 0;
-
-  do{ DIOCOREPROTOCOL_CONNECTION* connection = connections.Get(index);
-      if(connection)  
-        {  
-          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) ||
-             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
-            {        
-              DIOCOREPROTOCOL_MESSAGES* messages = connection->Messages_GetAll();
-              if(messages)
-                {
-                  int   indexmsg  = 0;
-                  bool  deletemsg = false;
-
-                  while(indexmsg < messages->GetAll()->GetSize())
-                    {
-                      DIOCOREPROTOCOL_MESSAGE* message[2];
-
-                      message[0] = messages->GetAll()->GetKey(indexmsg);
-                      message[1] = messages->GetAll()->GetElement(indexmsg);
-
-                      deletemsg = false;
-                          
-                      if(message[0] && message[1])
-                        {
-                          if(message[0]->IsConsumed() && message[1]->IsConsumed())
-                            {                              
-                              if(messages->Delete(message[0]->GetHeader()->GetIDMessage()))
-                                {
-                                  deletemsg = true;            
-                                }                              
-                            }
-                        }
-
-                      if(!deletemsg)
-                        {
-                          indexmsg++;
-                        }
-                    }
-                }
-            }
-
-          index++;
-        }
-
-    } while(index < connections.GetSize());
-  
-  return true;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AllCommandMessages
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AllUpdateClassMessages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -937,61 +1070,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 {
-  if(!connection)
-    {
-      return false;
-    }  
-
-  if(!message)
-    {
-      return false;
-    }
-
-  if(message->GetHeader()->GetOperation() != DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND)
-    {
-      return false;
-    }
-
-  DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
-  if(!protocol)
-    {
-      return false;
-    }
-
-  bool managermessage = false;
-  bool status         = false;
-  
-  if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
-    {
-      managermessage = true;
-      
-      XSTRING content = DIOCOREPROTOCOL_HEARTBEAT_RESPONSE_CONTENT;
-
-      message->SetIsConsumed(true);
-
-      managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10, content);  
-      if(managermessage)
-        {
-          connection->SetHeartBetsCounter(0);    
-          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
-        }      
-    }
-
-  if(managermessage)
-    {
-      // More internal messages
-    }
-
-  if(!managermessage)
-    {
-      status = Received_AdditionsCommand(connection, message);
-    }
-   else
-    {
-      status = true;
-    }
+  bool status = false;
 
   return status;
 }

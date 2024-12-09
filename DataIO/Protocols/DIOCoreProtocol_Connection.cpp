@@ -680,18 +680,21 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 break; 
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION        : if(IsServer())
-                                                                                  {                                                                                    
-                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
+                                                                                  {   
+                                                                                    XUUID ID_message;
+                                                                                 
+                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
                                                                                   }
                                                                                 break; 
 
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE           : if(IsServer())
-                                                                                  {                                                                                    
+                                                                                  {          
+                                                                                    XUUID   ID_message;                                                                          
                                                                                     XBUFFER publickey;
-
+                                                                                    
                                                                                     publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
 
-                                                                                    SendMsg(NULL, 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, publickey);
+                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, publickey);
                                                                                   }
                                                                                 break;
                 
@@ -760,12 +763,25 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;
   XBUFFER                 contentresult;
+  bool                    IDmsgempty      = false;
   bool                    status          = false;
 
   if(!protocol)
     {
       return false;  
-    }   
+    }  
+   
+  if(ID_message)
+    {    
+      if(ID_message->IsEmpty())
+        {
+          IDmsgempty = true;
+        }
+    }
+   else
+    {
+      return false;
+    }
 
   header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
   if(!header)
@@ -783,7 +799,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
  
-          if(!ID_message)
+          if(IDmsgempty)
             {
               message->SetIsConsumed(true);
               status = Messages_GetAll()->AddRequest(message);
@@ -857,8 +873,18 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
- 
-          if(!ID_message)
+
+          bool IDmsgempty = false;
+
+          if(ID_message)
+            {    
+              if(ID_message->IsEmpty())
+                {
+                  IDmsgempty = true;
+                }
+            }
+          
+          if(IDmsgempty)
             {
               message->SetIsConsumed(true);
               status = Messages_GetAll()->AddRequest(message);
@@ -932,8 +958,18 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
- 
-          if(!ID_message)
+
+          bool IDmsgempty = false;
+
+          if(ID_message)
+            {    
+              if(ID_message->IsEmpty())
+                {
+                  IDmsgempty = true;
+                }
+            }
+          
+          if(IDmsgempty)
             {
               message->SetIsConsumed(true);
               status = Messages_GetAll()->AddRequest(message);

@@ -489,18 +489,27 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
       return NULL;
     }
 
-  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY);
-  header->SetContentSize(content.GetSize()); 
+  if(!content.IsEmpty())
+    {  
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY);
+      header->SetContentSize(content.GetSize()); 
 
-  if(!CompressContent(header, content, contentresult))
-    {                  
-      contentresult.CopyFrom(content);
-    }   
+      if(!CompressContent(header, content, contentresult))
+        {                  
+          contentresult.CopyFrom(content);
+        }   
   
-  HASHCRC32 hashCRC32;
+      HASHCRC32 hashCRC32;
 
-  hashCRC32.Do(contentresult);  
-  header->SetContentCRC32(hashCRC32.GetResultCRC32());
+      hashCRC32.Do(contentresult);  
+      header->SetContentCRC32(hashCRC32.GetResultCRC32());
+    }
+   else
+    {
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY);
+      header->SetContentSize(0); 
+      header->SetContentCRC32(0);
+    }
 
   return header;
 }
@@ -530,21 +539,30 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
       return NULL;
     }  
 
-  XBUFFER contentbinary;
-  content.ConvertToUTF8(contentbinary, false);
+  if(!content.IsEmpty())
+    {     
+      XBUFFER contentbinary;
+      content.ConvertToUTF8(contentbinary, false);
 
-  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT);
-  header->SetContentSize(contentbinary.GetSize());   
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT);
+      header->SetContentSize(contentbinary.GetSize());   
 
-  if(!CompressContent(header, contentbinary, contentresult))
-    {                  
-      contentresult.CopyFrom(contentbinary);
-    }   
+      if(!CompressContent(header, contentbinary, contentresult))
+        {                  
+          contentresult.CopyFrom(contentbinary);
+        }   
 
-  HASHCRC32 hashCRC32;
+      HASHCRC32 hashCRC32;
 
-  hashCRC32.Do(contentresult);  
-  header->SetContentCRC32(hashCRC32.GetResultCRC32());
+      hashCRC32.Do(contentresult);  
+      header->SetContentCRC32(hashCRC32.GetResultCRC32());
+    }
+   else
+    {
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT);
+      header->SetContentSize(0);   
+      header->SetContentCRC32(0);
+    }
 
   return header;
 }
@@ -574,26 +592,35 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
       return NULL;
     }  
 
-  XSTRING contentstring;
-  XBUFFER contentbinary;
-
   content.EncodeAllLines(false);  
-  content.GetAllInOneLine(contentstring);
 
-  contentstring.ConvertToUTF8(contentbinary);
+  if(!content.GetLines()->IsEmpty())
+    {  
+      XSTRING contentstring;
+      XBUFFER contentbinary;   
 
-  header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON);
-  header->SetContentSize(contentbinary.GetSize());   
+      content.GetAllInOneLine(contentstring);
+      contentstring.ConvertToUTF8(contentbinary);
 
-  if(!CompressContent(header, contentbinary, contentresult))
-    {                  
-      contentresult.CopyFrom(contentbinary);
-    }   
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON);
+      header->SetContentSize(contentbinary.GetSize());   
 
-  HASHCRC32 hashCRC32;
+      if(!CompressContent(header, contentbinary, contentresult))
+        {                  
+          contentresult.CopyFrom(contentbinary);
+        }   
 
-  hashCRC32.Do(contentresult);  
-  header->SetContentCRC32(hashCRC32.GetResultCRC32());
+      HASHCRC32 hashCRC32;
+
+      hashCRC32.Do(contentresult);  
+      header->SetContentCRC32(hashCRC32.GetResultCRC32());
+    }
+   else
+    {
+      header->SetContentType(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON);
+      header->SetContentSize(0);   
+      header->SetContentCRC32(0);
+    }
 
   return header;
 }
@@ -908,11 +935,26 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
       return NULL;
     }
 
-  if(!ID_message)
+  bool IDmsgempty = false;
+
+  if(ID_message)
+    {    
+      if(ID_message->IsEmpty())
+        {
+          IDmsgempty = true;
+        }
+    }
+   else
+    {
+      return NULL;
+    }
+
+  if(IDmsgempty)
     {
       header->SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE_REQUEST);
       header->GetIDMessage()->GenerateRandom();
-      
+
+      ID_message->CopyFrom((*header->GetIDMessage()));      
     }
    else
     {      
