@@ -1019,21 +1019,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAllDisconnected()
           if(connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED)
             {
               if(connection->GetXTimerStatus()->GetMeasureSeconds() >= connection->GetCoreProtocol()->GetProtocolCFG()->GetTimeToEliminateConnectionDisconnect())
-                {                                  
-                  if(connection->GetCoreProtocol())
-                    {
-                      DIOSTREAM* diostream = connection->GetCoreProtocol()->GetDIOStream();                                                                                                         
-                      if(diostream)                          
-                        {
-                          if(diostream->GetStatus() == DIOSTREAMSTATUS_CONNECTED)
-                            { 
-                              diostream->Close();                           
-                            }
-
-                          connection->GetCoreProtocol()->SetDIOStream(NULL);                                    
-                        }
-                    }
-
+                {                  
                   connections.Delete(connection);
                   delete connection;
 
@@ -1280,8 +1266,8 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
       
       if(connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, 10))
         {
-          //connection->SetHeartBetsCounter(0);    
-          //connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
+          connection->SetHeartBetsCounter(0);    
+          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
         }
 
       managermessage = true;      
@@ -1594,78 +1580,25 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
       connectionsmanager->connections_xmutex->Lock();
     }
 
-  for(XDWORD c=0; c< connectionsmanager->DIOStream_GetAll()->GetSize(); c++)
+  if(!connectionsmanager->Connections_GetAll()->GetSize())   
     {
-      DIOSTREAM* diostream = connectionsmanager->DIOStream_GetAll()->GetElement(c);
-      if(diostream)  
-        {              
-          if(diostream->GetConfig())
-            {
-              if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) 
-                {
-                  diostream->Close();
-                  diostream->Open();                     
-                }                  
-            }
-        }                
-    }  
-
-
-  /*
-  if(!connectionsmanager->GetProtocolCFG()->GetIsServer())
-    {  
-      if(connectionsmanager->Connections_GetAll()->GetSize())
+      for(XDWORD c=0; c< connectionsmanager->DIOStream_GetAll()->GetSize(); c++)
         {
-          for(XDWORD c=0; c<connectionsmanager->Connections_GetAll()->GetSize(); c++)
-            {
-              DIOCOREPROTOCOL_CONNECTION* connection = connectionsmanager->Connections_GetAll()->Get(c);
-              if(connection)
+          DIOSTREAM* diostream = connectionsmanager->DIOStream_GetAll()->GetElement(c);
+          if(diostream)  
+            {              
+              if(diostream->GetConfig())
                 {
-                  if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED) && 
-                     (connection->GetXTimerStatus()->GetMeasureSeconds() >= connectionsmanager->GetProtocolCFG()->GetTimeToEliminateConnectionDisconnect()))
+                  if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) 
                     {
-                      if(connection->GetCoreProtocol())
-                        {
-                          DIOSTREAM* diostream = connection->GetCoreProtocol()->GetDIOStream();
-                          if(diostream)  
-                            {              
-                              if(diostream->GetConfig())
-                                {
-                                  if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) 
-                                    {
-                                      diostream->Close();
-                                      diostream->Open(); 
-
-                                      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_NONE);                      
-                                    }                                  
-                                }
-                            }                
-                        }
-                   }
-               }
-           }  
-        }
-       else
-        {
-          for(XDWORD c=0; c< connectionsmanager->DIOStream_GetAll()->GetSize(); c++)
-            {
-              DIOSTREAM* diostream = connectionsmanager->DIOStream_GetAll()->GetElement(c);
-              if(diostream)  
-                {              
-                  if(diostream->GetConfig())
-                    {
-                      if(diostream->GetStatus() == DIOSTREAMSTATUS_DISCONNECTED) 
-                        {
-                          diostream->Close();
-                          diostream->Open();                     
-                        }                  
-                    }
-                }                
-            }  
-        }
+                      diostream->Close();
+                      diostream->Open();                     
+                    }                  
+                }
+            }                
+        }  
     }
-  */
-
+ 
   XDWORD c = 0;  
   while(c < connectionsmanager->Connections_GetAll()->GetSize())
     {
@@ -1805,7 +1738,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadHeartBets(void* param)
 
                           if(connectionsmanager->GetProtocolCFG()->GetIsServer())
                             { 
-                              //if(!status)                            
+                              if(!status)                            
                                 {
                                   connection->SetHeartBetsCounter(connection->GetHeartBetsCounter()+1);                                  
                                 }

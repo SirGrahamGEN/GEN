@@ -741,7 +741,15 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY           : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY); 
                                                                                 break;
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);                                                                                  
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);  
+
+                                                                                if(GetCoreProtocol())
+                                                                                  {
+                                                                                    if(GetCoreProtocol()->GetDIOStream())  
+                                                                                      {              
+                                                                                        GetCoreProtocol()->GetDIOStream()->Close();                                                                                                                                                                                   
+                                                                                      }                                                                                
+                                                                                  }
                                                                                 break;         
             }
         }

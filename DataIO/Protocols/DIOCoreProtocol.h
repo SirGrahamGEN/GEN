@@ -49,10 +49,20 @@
 #define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
 
+
+enum DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE
+{
+  DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_NONE         = 0 ,
+  DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER         ,
+  DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT         ,
+  DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_BOTH       
+};
+
+
 enum DIOCOREPROTOCOL_COMMAND_TYPE
 {
-  DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                   = 0  ,
-  DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT                      ,
+  DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                      = 0 ,
+  DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT                        ,
 
   DIOCOREPROTOCOL_COMMAND_TYPE_LASTINTERNAL                   
 };
@@ -74,64 +84,88 @@ class DIOCOREPROTOCOL_HEADER;
 class DIOCOREPROTOCOL_CFG;
 class CIPHERKEYSYMMETRICAL;
 
+class DIOCOREPROTOCOL_COMMAND
+{
+  public:                                              
+                                                              DIOCOREPROTOCOL_COMMAND             ();
+    virtual                                                  ~DIOCOREPROTOCOL_COMMAND             ();
+
+    int                                                       GetType                             ();
+    void                                                      SetType                             (int type);
+
+    XSTRING*                                                  GetTypeString                       ();   
+    
+    DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE              GetBidirectionalityMode             ();
+    void                                                      SetBidirectionalityMode             (DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode);
+
+  private:
+
+    int                                                       type;
+    XSTRING                                                   typestr;   
+    DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE              bidirectionalitymode;
+
+    void                                                      Clean                               ();   
+};
+
 
 class DIOCOREPROTOCOL
 {
   public:
                                               
-                                              DIOCOREPROTOCOL                     (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
-    virtual                                  ~DIOCOREPROTOCOL                     ();
+                                                              DIOCOREPROTOCOL                     (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
+    virtual                                                  ~DIOCOREPROTOCOL                     ();
 
-    bool                                      Ini                                 ();
-    bool                                      End                                 ();
+    bool                                                      Ini                                 ();
+    bool                                                      End                                 ();
 
-    DIOCOREPROTOCOL_CFG*                      GetProtocolCFG                      ();
+    DIOCOREPROTOCOL_CFG*                                      GetProtocolCFG                      ();
 
-    DIOSTREAM*                                GetDIOStream                        (); 
-    void                                      SetDIOStream                        (DIOSTREAM* diostream);      
+    DIOSTREAM*                                                GetDIOStream                        (); 
+    void                                                      SetDIOStream                        (DIOSTREAM* diostream);      
 
-    bool                                      SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
-    bool                                      ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+    bool                                                      SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
+    bool                                                      ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
  
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+    DIOCOREPROTOCOL_HEADER*                                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult);
 
-    virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
-    virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
+    virtual bool                                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
+    virtual bool                                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
     
-    bool                                      MaskKey                             (XBYTE* key, int size, XBYTE mask);
+    bool                                                      MaskKey                             (XBYTE* key, int size, XBYTE mask);
 
-    XMAP<int, XSTRING*>*                      Commands_GetAll                     ();   	
-    bool                                      Commands_Add                        (XDWORD type, XCHAR* command);
-    XDWORD                                    Commands_Get                        (XCHAR* command);
-    XCHAR*                                    Commands_Get                        (XDWORD type);
-    bool                                      Commands_DeleteAll                  ();
+    XMAP<int, XSTRING*>*                                      Commands_GetAll                     ();   	
+    bool                                                      Commands_Add                        (XDWORD type, XCHAR* command);
+    XDWORD                                                    Commands_Get                        (XCHAR* command);
+    XCHAR*                                                    Commands_Get                        (XDWORD type);
+    bool                                                      Commands_DeleteAll                  ();
 
-    bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, bool showlongformat);  
+    bool                                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, bool showlongformat);  
 
   protected:
 
-    DIOCOREPROTOCOL_CFG*                      protocolCFG;
-    DIOSTREAM*                                diostream;    
-    bool                                      initialization; 
+    DIOCOREPROTOCOL_CFG*                                      protocolCFG;
+    DIOSTREAM*                                                diostream;    
+    bool                                                      initialization; 
     
   private:
    
-    bool                                      GenerateHeaderToSend                (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
+    bool                                                      GenerateHeaderToSend                (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
       
-    bool                                      SendData                            (XBUFFER& senddata);
-    bool                                      CompressContent                     (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
+    bool                                                      SendData                            (XBUFFER& senddata);
+    bool                                                      CompressContent                     (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
 
-    void                                      Clean                               ();   
+    void                                                      Clean                               ();   
    
-    XUUID*                                    ID_machine;
+    XUUID*                                                    ID_machine;
     
-    COMPRESSMANAGER*	                        compressmanager;
-    COMPRESSBASE*			                        compressor; 
+    COMPRESSMANAGER*	                                        compressmanager;
+    COMPRESSBASE*			                                        compressor; 
 
-    XMAP<int, XSTRING*>                       commands;   	   
+    XMAP<int, XSTRING*>                                       commands; 
+    XVECTOR<DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE*>    _commands;  	   
 };
 
 

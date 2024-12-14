@@ -65,6 +65,128 @@
 
 
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_DIOCOREPROTOCOL_COMMAND
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_COMMAND::DIOCOREPROTOCOL_COMMAND()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_COMMAND::DIOCOREPROTOCOL_COMMAND()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_COMMAND::~DIOCOREPROTOCOL_COMMAND()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_COMMAND::~DIOCOREPROTOCOL_COMMAND()
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int DIOCOREPROTOCOL_COMMAND::GetType()
+* @brief      GetType
+* @ingroup    DATAIO
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int DIOCOREPROTOCOL_COMMAND::GetType()
+{
+  return type;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_COMMAND::SetType(int type)
+* @brief      SetType
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_COMMAND::SetType(int type)
+{
+  this->type = type;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_COMMAND::GetTypeString()
+* @brief      GetTypeString
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_COMMAND::GetTypeString()
+{
+  return &typestr;
+}
+    
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
+* @brief      GetBidirectionalityMode
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
+{
+  return bidirectionalitymode;
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @brief      SetBidirectionalityMode
+* @ingroup    DATAIO
+* 
+* @param[in]  bidirectionalitymode : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+{
+  this->bidirectionalitymode = bidirectionalitymode;
+}
+
+   
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_COMMAND::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_COMMAND::Clean()
+{
+  type                  = DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN;
+  typestr.Empty();   
+  bidirectionalitymode  = DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_NONE;
+}
+
+
+#pragma endregion
 
 
 #pragma region CLASS_DIOCOREPROTOCOL
