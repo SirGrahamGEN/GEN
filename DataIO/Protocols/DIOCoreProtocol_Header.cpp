@@ -456,7 +456,7 @@ bool DIOCOREPROTOCOL_HEADER::GetContentTypeToString(XSTRING& content_typestr)
 
   switch(content_type)
     {
-      case DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN  : content_typestr = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_UNKNOWN;  break;
+      case DIOCOREPROTOCOL_HEADER_CONTENTTYPE_NONE     : content_typestr = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_NONE;     break;
       case DIOCOREPROTOCOL_HEADER_CONTENTTYPE_BINARY   : content_typestr = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_BINARY;   break;
       case DIOCOREPROTOCOL_HEADER_CONTENTTYPE_TEXT     : content_typestr = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_TEXT;     break;
       case DIOCOREPROTOCOL_HEADER_CONTENTTYPE_JSON     : content_typestr = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_JSON;     break;
@@ -485,11 +485,11 @@ bool DIOCOREPROTOCOL_HEADER::GetContentTypeFromString(XSTRING* content_typestr, 
       return false;
     }
 
-  content_type = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN;
+  content_type = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_NONE;
 
-  if(!content_typestr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_UNKNOWN))
+  if(!content_typestr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_NONE))
     {
-      content_type = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN;
+      content_type = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_NONE;
     }
 
   if(!content_typestr->Compare(DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_BINARY))
@@ -1006,7 +1006,7 @@ void DIOCOREPROTOCOL_HEADER::Clean()
   message_priority      = 0;
   operation             = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;  
   datetime_send         = NULL;
-  content_type          = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_UNKNOWN;   
+  content_type          = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_NONE;   
   block_index           = 1;
   block_amount          = 1;
   content_size          = 0;

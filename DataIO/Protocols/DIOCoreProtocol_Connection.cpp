@@ -425,19 +425,18 @@ DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
 * @param[in]  command_type : 
 * @param[in]  message_priority : 
-* @param[in]  param : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& param)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority)
 {
   XSTRING commandstr;
   bool    status;
@@ -455,7 +454,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
   commandstr.Set(commmandptr);
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get());
  
   return status;
 }
@@ -463,7 +462,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& params)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
@@ -475,7 +474,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING& param)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER* params)
 {
   XSTRING commandstr;
   bool    status;
@@ -493,7 +492,45 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
   commandstr.Set(commmandptr);
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
+ 
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING* params)
+* @brief      DoCommand
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  command_type : 
+* @param[in]  message_priority : 
+* @param[in]  param : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING* params)
+{
+  XSTRING commandstr;
+  bool    status;
+  
+  if(!protocol)
+    {
+      return false;
+    }
+
+  XCHAR* commmandptr = protocol->Commands_Get(command_type);
+  if(!commmandptr)
+    {
+      return false;    
+    }
+
+  commandstr.Set(commmandptr);
+
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
 
   return status;
 }
@@ -501,7 +538,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON* param)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
@@ -513,7 +550,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON& param)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON* params)
 {
   XSTRING commandstr;
   bool    status;
@@ -531,7 +568,7 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
   commandstr.Set(commmandptr);
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), param);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
 
   return status; 
 }
@@ -586,7 +623,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                           if(protocol)
                                                                                             {
                                                                                               protocol->GenerateAuthenticationResponse((*GetAuthenticationChallenge()), (*GetAuthenticationResponse()));                                                                                                                                                                                                                     
-                                                                                              sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, (*GetAuthenticationResponse()));                                                                                                            
+                                                                                              sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM, GetAuthenticationResponse());                                                                                                            
                                                                                               if(sended)
                                                                                                 {
                                                                                                   SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE);                                                                                                   
@@ -640,7 +677,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
                                                                                                   publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
 
-                                                                                                  sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, publickey);                                                                                                            
+                                                                                                  sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM, &publickey);                                                                                                            
                                                                                                   if(sended)
                                                                                                     {
                                                                                                       messages.DeleteAll();
@@ -683,7 +720,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   {   
                                                                                     XUUID ID_message;
                                                                                  
-                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, (*GetAuthenticationChallenge()));
+                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE, DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM, GetAuthenticationChallenge());
                                                                                   }
                                                                                 break; 
 
@@ -694,7 +731,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                     
                                                                                     publickey.Add(ciphercurve.GetKey(CIPHERCURVE25519_TYPEKEY_PUBLIC), CIPHERCURVE25519_MAXKEY);
 
-                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, publickey);
+                                                                                    SendMsg(&ID_message, 100, DIOCOREPROTOCOL_HEADER_OPERATION_KEYEXCHANGE, DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM, &publickey);
                                                                                   }
                                                                                 break;
                 
@@ -704,7 +741,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
               case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY           : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY); 
                                                                                 break;
 
-              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);                                                                                   
+              case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED          : Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED);                                                                                  
                                                                                 break;         
             }
         }
@@ -746,7 +783,7 @@ void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
@@ -754,12 +791,11 @@ void DIOCOREPROTOCOL_CONNECTION::SetHeartBetsCounter(XDWORD heartbetscounter)
 * @param[in]  message_priority : 
 * @param[in]  operation : 
 * @param[in]  operation_param : 
-* @param[in]  content : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content)
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;
   XBUFFER                 contentresult;
@@ -783,7 +819,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
       return false;
     }
 
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param);
   if(!header)
     {      
       return false;
@@ -834,7 +870,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
@@ -847,7 +883,95 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content)
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content)
+{
+  DIOCOREPROTOCOL_HEADER* header          = NULL;
+  XBUFFER                 contentresult;
+  bool                    IDmsgempty      = false;
+  bool                    status          = false;
+
+  if(!protocol)
+    {
+      return false;  
+    }  
+   
+  if(ID_message)
+    {    
+      if(ID_message->IsEmpty())
+        {
+          IDmsgempty = true;
+        }
+    }
+   else
+    {
+      return false;
+    }
+
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, &contentresult);
+  if(!header)
+    {      
+      return false;
+    }
+
+  status = protocol->SendMsg(header, contentresult);
+  if(status)
+    {
+      DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
+      if(message)
+        {
+          message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
+          message->GetHeader()->CopyFrom(header);
+          message->GetContent()->CopyFrom(contentresult);  
+ 
+          if(IDmsgempty)
+            {
+              message->SetIsConsumed(true);
+              status = Messages_GetAll()->AddRequest(message);
+            }
+           else
+            {
+              status = Messages_GetAll()->AddResponse(message);
+            }       
+
+          if(status)
+            {
+              DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG);
+              xevent.SetConnection(this);
+              xevent.SetActualStatus(Status_Get());                      
+              xevent.SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_NONE);
+              xevent.SetMsg(message);
+
+              PostEvent(&xevent);
+            } 
+           else  
+            {
+              delete message;
+            }  
+        }                                                                                                                                                       
+    }
+
+  delete header;
+           
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content)
+* @brief      SendMsg
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  operation : 
+* @param[in]  operation_param : 
+* @param[in]  content : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content)
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;
   XBUFFER                 contentresult;
@@ -858,7 +982,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
       return false;  
     }   
 
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, &contentresult);
   if(!header)
     {      
       return false;
@@ -919,7 +1043,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
@@ -932,7 +1056,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content)
+bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content)
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;  
   XBUFFER                 contentresult;  
@@ -943,7 +1067,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
       return false;  
     }   
 
-  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, contentresult);
+  header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, &contentresult);
   if(!header)
     {      
       return false;

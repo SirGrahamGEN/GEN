@@ -47,6 +47,34 @@
 #pragma region DEFINES_ENUMS
 
 
+#define COMMAND_DO_WITHOUTPARAMS(connection, command_type, message_priority, result, timeout)    { XUUID ID_message;                                                                     \
+                                                                                                   bool  status  = false;                                                                \
+                                                                                                   if(!connection)                                                                       \
+                                                                                                     {                                                                                   \
+                                                                                                       return false;                                                                     \
+                                                                                                     }                                                                                   \
+                                                                                                   if(connection->DoCommand(&ID_message, command_type, message_priority))                \
+                                                                                                     {                                                                                   \
+                                                                                                       status = Command_Get(connection, &ID_message, result, timeout);                   \
+                                                                                                     }                                                                                   \
+                                                                                                   return status;                                                                        \
+                                                                                                 }                                                                                         
+
+ #define COMMAND_DO(connection, command_type, message_priority, params, result, timeout)         { XUUID ID_message;                                                                     \
+                                                                                                   bool  status  = false;                                                                \
+                                                                                                   if(!connection)                                                                       \
+                                                                                                     {                                                                                   \
+                                                                                                       return false;                                                                     \
+                                                                                                     }                                                                                   \
+                                                                                                   if(connection->DoCommand(&ID_message, command_type, message_priority, params))        \
+                                                                                                     {                                                                                   \
+                                                                                                       status = Command_Get(connection, &ID_message, result, timeout);                   \
+                                                                                                     }                                                                                   \
+                                                                                                   return status;                                                                        \
+                                                                                                 }                                                                                         
+
+
+
 #pragma endregion
 
 
@@ -56,6 +84,9 @@
 
 class XTIMER;
 class XMUTEX;
+class XBUFFER;
+class XSTRING;
+class XFILEJSON;
 class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT;
 class DIOCOREPROTOCOL_CONNECTION;
@@ -80,9 +111,26 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 
     virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream, XUUID* ID_machine);    
 
-    bool                                    DoCommand                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER& param, XBUFFER& result, XDWORD timeout);
-                               
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XSTRING& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XFILEJSON& result, XDWORD timeout);
+
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER* params, XBUFFER& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XSTRING* params, XBUFFER& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
     
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER* params, XSTRING& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XSTRING* params, XSTRING& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XFILEJSON* params, XSTRING& result, XDWORD timeout);
+    
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XSTRING* params, XFILEJSON& result, XDWORD timeout);
+    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBYTE message_priority, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
+        
+    bool                                    Command_Get                                   (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout);
+    bool                                    Command_Get                                   (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout);
+    bool                                    Command_Get                                   (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XFILEJSON& result, XDWORD timeout);
+                                   
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connections_GetAll                            ();
     XMUTEX*                                 Connections_GetXMutex                         ();  
     DIOCOREPROTOCOL_CONNECTION*             Connections_Add                               (DIOSTREAM* stream);
@@ -91,8 +139,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);    
     bool                                    Connections_DeleteAllDisconnected             ();
     bool                                    Connections_DeleteAll                         ();
-    
-   
+       
   protected:
     
     DIOCOREPROTOCOL_CFG                     protocolCFG;
@@ -101,7 +148,6 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 
   private:
 
-    bool                                    Connections_SendAllHeartBet                   ();
     bool                                    Connections_ReadMessages                      (); 
 
     bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message); 
@@ -116,11 +162,13 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     void                                    HandleEvent                                   (XEVENT* xevent);
 
     static void                             ThreadConnections                             (void* param);
+    static void                             ThreadHeartBets                               (void* param);
 
     void                                    Clean                                         ();
           
     XMUTEX*                                 connections_xmutex;
     XTHREADCOLLECTED*                       connections_xthread;
+    XTHREADCOLLECTED*                       heartbets_xthread;
 
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>    connections;
 };

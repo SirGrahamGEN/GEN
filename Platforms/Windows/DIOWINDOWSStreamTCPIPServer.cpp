@@ -404,6 +404,7 @@ bool DIOWINDOWSSTREAMTCPIPSERVER::DeleteAllStreamDisconnected()
                   delete diostream->GetConfig();
                 }
 
+              diostream->Close();
               delete diostream;
               GetMultiSocketStreams()->Delete(diostream);    
 

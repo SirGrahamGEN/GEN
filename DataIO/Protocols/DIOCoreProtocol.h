@@ -49,9 +49,6 @@
 #define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
 
-#define DIOCOREPROTOCOL_HEARTBEAT_REQUEST_CONTENT                        __L("heartbeat?")
-#define DIOCOREPROTOCOL_HEARTBEAT_RESPONSE_CONTENT                       __L("beat!")
-
 enum DIOCOREPROTOCOL_COMMAND_TYPE
 {
   DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN                   = 0  ,
@@ -96,9 +93,10 @@ class DIOCOREPROTOCOL
     bool                                      SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
     bool                                      ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
  
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING& content, XBUFFER& contentresult);
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON& content, XBUFFER& contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult);
 
     virtual bool                              GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
     virtual bool                              GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
@@ -111,7 +109,7 @@ class DIOCOREPROTOCOL
     XCHAR*                                    Commands_Get                        (XDWORD type);
     bool                                      Commands_DeleteAll                  ();
 
-    bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content);  
+    bool                                      ShowDebug                           (bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, bool showlongformat);  
 
   protected:
 
@@ -120,8 +118,6 @@ class DIOCOREPROTOCOL
     bool                                      initialization; 
     
   private:
-
-    DIOCOREPROTOCOL_HEADER*                   CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
    
     bool                                      GenerateHeaderToSend                (DIOCOREPROTOCOL_HEADER* header, XBUFFER& headerdatasend, XWORD* headersize = NULL);
       
