@@ -446,15 +446,31 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
       return false;
     }
 
-  XCHAR* commmandptr = protocol->Commands_Get(command_type);
-  if(!commmandptr)
+  DIOCOREPROTOCOL_COMMAND* coreprotocol_command = protocol->Commands_GetCoreProtocol(command_type);
+  if(!coreprotocol_command)
     {
-      return false;    
+      return false;  
     }
 
-  commandstr.Set(commmandptr);
+  if(ID_message->IsEmpty())
+    {
+      if(IsServer())
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+            {
+              return false;
+            }
+        }
+       else
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+            {
+              return false;
+            }
+        }
+    }
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get());
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, coreprotocol_command->GetTypeString()->Get());
  
   return status;
 }
@@ -483,16 +499,32 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
     {
       return false;
     }
-
-  XCHAR* commmandptr = protocol->Commands_Get(command_type);
-  if(!commmandptr)
+ 
+  DIOCOREPROTOCOL_COMMAND* coreprotocol_command = protocol->Commands_GetCoreProtocol(command_type);
+  if(!coreprotocol_command)
     {
-      return false;    
+      return false;  
     }
 
-  commandstr.Set(commmandptr);
+  if(ID_message->IsEmpty())
+    {
+      if(IsServer())
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+            {
+              return false;
+            }
+        }
+       else
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+            {
+              return false;
+            }
+        }
+    }
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, coreprotocol_command->GetTypeString()->Get(), params);
  
   return status;
 }
@@ -522,15 +554,31 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
       return false;
     }
 
-  XCHAR* commmandptr = protocol->Commands_Get(command_type);
-  if(!commmandptr)
+  DIOCOREPROTOCOL_COMMAND* coreprotocol_command = protocol->Commands_GetCoreProtocol(command_type);
+  if(!coreprotocol_command)
     {
-      return false;    
+      return false;  
     }
 
-  commandstr.Set(commmandptr);
+  if(ID_message->IsEmpty())
+    {
+      if(IsServer())
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+            {
+              return false;
+            }
+        }
+       else
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+            {
+              return false;
+            }
+        }
+    }
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, coreprotocol_command->GetTypeString()->Get(), params);
 
   return status;
 }
@@ -560,15 +608,31 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
       return false;
     }
 
-  XCHAR* commmandptr = protocol->Commands_Get(command_type);
-  if(!commmandptr)
+  DIOCOREPROTOCOL_COMMAND* coreprotocol_command = protocol->Commands_GetCoreProtocol(command_type);
+  if(!coreprotocol_command)
     {
-      return false;    
+      return false;  
     }
 
-  commandstr.Set(commmandptr);
+  if(ID_message->IsEmpty())
+    {
+      if(IsServer())
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+            {
+              return false;
+            }
+        }
+       else
+        {
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+            {
+              return false;
+            }
+        }
+    }
 
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, commandstr.Get(), params);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, coreprotocol_command->GetTypeString()->Get(), params);
 
   return status; 
 }

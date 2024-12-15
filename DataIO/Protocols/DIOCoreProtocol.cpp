@@ -221,7 +221,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->diostream   = diostream;
   this->ID_machine  = ID_machine;
 
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_BOTH);
 }
 
 
@@ -916,14 +916,14 @@ bool DIOCOREPROTOCOL::MaskKey(XBYTE* key, int size, XBYTE mask)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMAP<int, XSTRING*>* DIOCOREPROTOCOL::Commands_GetAll()
+* @fn         XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
 * @brief      Commands_GetAll
 * @ingroup    DATAIO
 * 
-* @return     XMAP<int, : 
+* @return     XVECTOR<DIOCOREPROTOCOL_COMMAND*>* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-XMAP<int, XSTRING*>* DIOCOREPROTOCOL::Commands_GetAll()
+XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
 {
   return &commands;
 }
@@ -931,17 +931,18 @@ XMAP<int, XSTRING*>* DIOCOREPROTOCOL::Commands_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command)
+* @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
 * @brief      Commands_Add
 * @ingroup    DATAIO
 * 
 * @param[in]  type : 
 * @param[in]  command : 
+* @param[in]  bidirectionalitymode : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command)
+bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
 {
   if(!command)
     {
@@ -957,16 +958,19 @@ bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command)
     {
       return false;
     }
-  
-  XSTRING* commandstr = new XSTRING();
-  if(!commandstr)
+
+
+  DIOCOREPROTOCOL_COMMAND* coreprotocolcommand = new DIOCOREPROTOCOL_COMMAND();
+  if(!coreprotocolcommand)
     {
       return false;
     }
+  
+  coreprotocolcommand->SetType(type);
+  coreprotocolcommand->GetTypeString()->Set(command);
+  coreprotocolcommand->SetBidirectionalityMode(bidirectionalitymode);
 
-  commandstr->Set(command);
-
-  return commands.Add(type, commandstr);
+  return commands.Add(coreprotocolcommand);
 }
 
 
@@ -990,10 +994,10 @@ XDWORD DIOCOREPROTOCOL::Commands_Get(XCHAR* command)
 
   for(XDWORD c=0; c<commands.GetSize(); c++)
     {
-      XSTRING* commandstr = commands.GetElement(c);
-      if(commandstr)
+      DIOCOREPROTOCOL_COMMAND* coreprotocolcommand = commands.Get(c);
+      if(coreprotocolcommand)
         {
-          if(!commandstr->Compare(command, true))
+          if(!coreprotocolcommand->GetTypeString()->Compare(command, true))
             {
                return c; 
             }
@@ -1024,12 +1028,46 @@ XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
 
   for(XDWORD c=0; c<commands.GetSize(); c++)
     {
-      XDWORD _type = commands.GetKey(c);
-      if(_type == type)
+      DIOCOREPROTOCOL_COMMAND* coreprotocolcommand = commands.Get(c);
+      if(coreprotocolcommand)
         {
-          if(commands.GetElement(c))
-            {            
-               return commands.GetElement(c)->Get(); 
+          if(coreprotocolcommand->GetType() == type)
+            {
+               return coreprotocolcommand->GetTypeString()->Get(); 
+            }
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_COMMAND* DIOCOREPROTOCOL::Commands_GetCoreProtocol(XDWORD type)
+* @brief      Commands_GetCoreProtocol
+* @ingroup    DATAIO
+* 
+* @param[in]  type : 
+* 
+* @return     DIOCOREPROTOCOL_COMMAND* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_COMMAND* DIOCOREPROTOCOL::Commands_GetCoreProtocol(XDWORD type)
+{
+  if(!type)
+    {
+      return false;
+    }
+
+  for(XDWORD c=0; c<commands.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_COMMAND* coreprotocolcommand = commands.Get(c);
+      if(coreprotocolcommand)
+        {
+          if(coreprotocolcommand->GetType() == type)
+            {
+               return coreprotocolcommand; 
             }
         }
     }
@@ -1054,7 +1092,7 @@ bool DIOCOREPROTOCOL::Commands_DeleteAll()
       return false;
     }
     
-  commands.DeleteElementContents();
+  commands.DeleteContents();
   commands.DeleteAll();
 
   return true;
