@@ -425,18 +425,18 @@ DIOCOREPROTOCOL_MESSAGES* DIOCOREPROTOCOL_CONNECTION::Messages_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  command_type : 
 * @param[in]  message_priority : 
+* @param[in]  command_type : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type)
 {
   XSTRING commandstr;
   bool    status;
@@ -478,19 +478,19 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER& params)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XBUFFER* params)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  command_type : 
 * @param[in]  message_priority : 
-* @param[in]  param : 
+* @param[in]  command_type : 
+* @param[in]  params : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER* params)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XBUFFER* params)
 {
   XSTRING commandstr;
   bool    status;
@@ -532,19 +532,19 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING* params)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XSTRING* params)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  command_type : 
 * @param[in]  message_priority : 
-* @param[in]  param : 
+* @param[in]  command_type : 
+* @param[in]  params : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING* params)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XSTRING* params)
 {
   XSTRING commandstr;
   bool    status;
@@ -586,19 +586,19 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON* param)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XFILEJSON* params)
 * @brief      DoCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  command_type : 
 * @param[in]  message_priority : 
-* @param[in]  param : 
+* @param[in]  command_type : 
+* @param[in]  params : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON* params)
+bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XFILEJSON* params)
 {
   XSTRING commandstr;
   bool    status;
@@ -633,6 +633,48 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XDWORD command_typ
     }
 
   status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND, coreprotocol_command->GetTypeString()->Get(), params);
+
+  return status; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XFILEJSON* classcontent)
+* @brief      DoUpdateClass
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  classname : 
+* @param[in]  classcontent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XFILEJSON* classcontent)
+{
+  bool status = false;
+  
+  if(!protocol)
+    {
+      return false;
+    }
+
+  if(ID_message->IsEmpty())
+    {
+      if(IsServer())
+        {
+          //return false;
+         
+        }
+       else
+        {
+          //return false;          
+        }
+    }
+
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS, classname, classcontent);
 
   return status; 
 }
@@ -1047,13 +1089,26 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;
   XBUFFER                 contentresult;
+  bool                    IDmsgempty      = false;
   bool                    status          = false;
 
   if(!protocol)
     {
       return false;  
-    }   
-
+    } 
+ 
+  if(ID_message)
+    {    
+      if(ID_message->IsEmpty())
+        {
+          IDmsgempty = true;
+        }
+    }
+   else
+    {
+      return false;
+    }
+  
   header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, &contentresult);
   if(!header)
     {      
@@ -1070,16 +1125,6 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
 
-          bool IDmsgempty = false;
-
-          if(ID_message)
-            {    
-              if(ID_message->IsEmpty())
-                {
-                  IDmsgempty = true;
-                }
-            }
-          
           if(IDmsgempty)
             {
               message->SetIsConsumed(true);
@@ -1132,12 +1177,25 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
 {
   DIOCOREPROTOCOL_HEADER* header          = NULL;  
   XBUFFER                 contentresult;  
+  bool                    IDmsgempty      = false;
   bool                    status          = false;
 
   if(!protocol)
     {
       return false;  
-    }   
+    } 
+
+  if(ID_message)
+    {    
+      if(ID_message->IsEmpty())
+        {
+          IDmsgempty = true;
+        }
+    }
+   else
+    {
+      return false;
+    }  
 
   header = protocol->CreateHeader(ID_message, message_priority, operation, operation_param, content, &contentresult);
   if(!header)
@@ -1154,9 +1212,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priori
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
-
-          bool IDmsgempty = false;
-
+          
           if(ID_message)
             {    
               if(ID_message->IsEmpty())

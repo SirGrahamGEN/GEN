@@ -126,10 +126,12 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
        
     DIOCOREPROTOCOL_MESSAGES*             Messages_GetAll                       ();
     
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XBUFFER* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XSTRING* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBYTE message_priority, XFILEJSON* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type);
+    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XBUFFER* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XSTRING* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XFILEJSON* params);
+
+    bool                                  DoUpdateClass                         (XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XFILEJSON* classcontent = NULL); 
     
     bool                                  Update                                ();  
 
