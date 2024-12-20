@@ -44,11 +44,14 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM         __L("challenge")
-#define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM          __L("response")
-#define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM               __L("key server")
-#define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM               __L("key client")
+#define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM                __L("key server")
+#define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM                __L("key client")
+#define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM          __L("challenge")
+#define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM           __L("response")
+#define DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM             __L("registerdata send")
+#define DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM         __L("registerdata response")
 
+#define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM                          __L("registerdata ok")
 
 enum DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE
 {
@@ -68,8 +71,7 @@ enum DIOCOREPROTOCOL_COMMAND_TYPE
 };
 
 
-#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT     __L("hearbeat")
-
+#define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT       __L("hearbeat")
 
 #pragma endregion
 

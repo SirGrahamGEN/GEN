@@ -37,10 +37,10 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
+#include "DIOCoreProtocol_Messages.h"
+
 #include "XBase.h"
 #include "XFactory.h"
-
-#include "DIOCoreProtocol_Messages.h"
 
 #include "XMemory_Control.h"
 

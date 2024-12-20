@@ -42,6 +42,7 @@
 #include "XFactory.h"
 #include "XSystem.h"
 #include "XRand.h"
+#include "XSerializable.h"
 
 #include "DIOStream.h"
 #include "DIOStreamConfig.h"
@@ -87,9 +88,8 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
   Clean(); 
 
   diostreams.SetIsMulti(false);
-
-  CreateIDMachine(ID_machine);
-
+  
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
@@ -107,6 +107,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
 {
+  DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
@@ -624,34 +625,53 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XFILEJSON& classcontent, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 * @brief      UpdateClass_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
 * @param[in]  message_priority : 
 * @param[in]  classname : 
-* @param[in]  classcontent : 
+* @param[in]  classserializable : 
 * @param[in]  timeout : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XFILEJSON& classcontent, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 {
-  XUUID ID_message;                                                                     
-  bool  status  = false;                                                                
-
+  XUUID                 ID_message;      
+  XFILEJSON             classcontent;                                                               
+  bool                  status  = false;
+  XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
+  if(serializationmethod)
+    {
+      return false;
+    }
+                                                                
   if(!connection)                                                                       
     {                                                                                   
       return false;                                                                     
-    }                                                                                   
+    }   
 
+  if(!classserializable)
+    {
+      return false;
+    } 
+
+  classserializable->SetSerializationMethod(serializationmethod);
+  classserializable->Deserialize(); 
+
+  if(serializationmethod)
+    {
+      delete serializationmethod;
+    }
+                
   if(connection->DoUpdateClass(&ID_message,message_priority, classname, &classcontent))
     {                                                                                   
       status = GetResult(connection, &ID_message, classcontent, timeout);                   
-    }                                                                                   
-  
+    }
+                                                                    
   return status;       
 }
 
@@ -1179,7 +1199,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                 }
 
                                                                                               // Test show message status
-                                                                                              //  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              // messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                               break;
                                         }                                       
                                     }
@@ -1549,17 +1569,32 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
     {
       case DIOSTREAM_XEVENT_TYPE_CONNECTED      : { DIOCOREPROTOCOL_CONNECTION* connection = Connections_Add(event->GetDIOStream());                                                                                                      
                                                     if(connection)          
-                                                      {
-                                                        if(!connection->GetCoreProtocol())
+                                                      {   
+                                                        SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION, this);
+                                                        SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE    , connection);
+                                                        SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG         , this);
+                                                        SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG        , connection);
+
+                                                        DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION);
+                                                        xevent.SetConnection(connection);                                                                                          
+                                                                                           
+                                                        PostEvent(&xevent);   
+
+                                                        if(!connection->GetRegisterData())
+                                                          {
+                                                            DIOCOREPROTOCOL_REGISTERDATA* registerdata = new DIOCOREPROTOCOL_REGISTERDATA();
+                                                            if(registerdata)
+                                                              {
+                                                                connection->SetRegisterData(registerdata);
+                                                              }
+                                                          }    
+                                                 
+                                                        if(!connection->GetCoreProtocol() && connection->GetRegisterData())
                                                           { 
-                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream(), &ID_machine);
+                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream(), connection->GetRegisterData()->GetIDMmachine());
                                                             if(protocol)
                                                               { 
                                                                 connection->SetCoreProtocol(protocol); 
-
-                                                                SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE, connection);
-                                                                SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG     , this);
-                                                                SubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG    , connection);
 
                                                                 if(connection->IsServer())
                                                                   {
@@ -1578,7 +1613,12 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                     if(connection)
                                                       {                                                        
                                                         connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED);                                                                                                             
-                                                      }                                                    
+                                                      }  
+
+                                                    UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION, this);
+                                                    UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_STATUSCHANGE    , connection);
+                                                    UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG         , this);
+                                                    UnSubscribeEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_WRITEMSG        , connection);                                                  
                                                   }
                                                   break;
     }

@@ -37,8 +37,9 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMEVENTS
 {
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_NONE                 = 0 ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_CONNECTED                ,
-  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION           ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_KEYEXCHANGE              ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_AUTHENTICATION           ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_REGISTRATION             ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY                    ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_INSTABILITY              ,
   DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_DISCONNECTED             ,
@@ -51,8 +52,9 @@ enum DIOCOREPROTOCOL_CONNECTION_XFSMSTATES
 {
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_NONE                 = 0 ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_CONNECTED                ,
-  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION           ,
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_KEYEXCHANGE              ,
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_AUTHENTICATION           , 
+  DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION             ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_READY                    , 
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_INSTABILITY              ,  
   DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_DISCONNECTED             ,
@@ -65,8 +67,9 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
 {
   DIOCOREPROTOCOL_CONNECTION_STATUS_NONE                    = 0 , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_CONNECTED                   , 
-  DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED               , 
   DIOCOREPROTOCOL_CONNECTION_STATUS_KEYEXCHANGE                 , 
+  DIOCOREPROTOCOL_CONNECTION_STATUS_AUTHENTICATED               ,   
+  DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED                  ,   
   DIOCOREPROTOCOL_CONNECTION_STATUS_READY                       ,
   DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY                 ,
   DIOCOREPROTOCOL_CONNECTION_STATUS_DISCONNECTED                ,
@@ -86,6 +89,7 @@ enum DIOCOREPROTOCOL_CONNECTION_STATUS
 
 
 #include "DIOCoreProtocol_Messages.h"
+#include "DIOCoreProtocol_RegisterData.h"
 
 #pragma endregion
 
@@ -107,6 +111,8 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     bool                                  InitFSMachine                         (); 
     
     bool                                  IsServer                              ();
+
+    XUUID*                                GetIDConnection                       ();
     
     DIOCOREPROTOCOL*                      GetCoreProtocol                       ();
     bool                                  SetCoreProtocol                       (DIOCOREPROTOCOL* protocol);
@@ -138,7 +144,12 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     XDWORD                                GetHeartBetsCounter                   ();
     void                                  SetHeartBetsCounter                   (XDWORD heartbetscounter = 0);
 
+    DIOCOREPROTOCOL_REGISTERDATA*         GetRegisterData                       ();
+    void                                  SetRegisterData                       (DIOCOREPROTOCOL_REGISTERDATA* registerdata);
+
   private:
+
+    bool                                  CreateIDConnection                    (XUUID& ID);
 
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content);
@@ -146,10 +157,14 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content);   
 
     bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content);
 
     void                                  Clean                                 ();    
     
     DIOCOREPROTOCOL*                      protocol;   
+
+    XUUID                                 ID_connection;
 
     XBUFFER                               authentication_challenge;  
     XBUFFER                               authentication_response;
@@ -161,7 +176,9 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     XTIMER*                               xtimerwithoutconnexion;  
     XDWORD                                heartbetscounter;
 
-    DIOCOREPROTOCOL_MESSAGES              messages;    
+    DIOCOREPROTOCOL_MESSAGES              messages; 
+
+    DIOCOREPROTOCOL_REGISTERDATA*         registerdata;
 };
 
 

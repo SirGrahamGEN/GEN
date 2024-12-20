@@ -87,6 +87,7 @@ class XMUTEX;
 class XBUFFER;
 class XSTRING;
 class XFILEJSON;
+class XSERIALIZABLE;
 class DIOCOREPROTOCOL;
 class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT;
 class DIOCOREPROTOCOL_CONNECTION;
@@ -127,7 +128,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
     bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
     
-    bool                                    UpdateClass_Do                                (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XFILEJSON& classcontent, XDWORD timeout);
+    bool                                    UpdateClass_Do                                (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
 
     bool                                    GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout);
     bool                                    GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout);
@@ -144,8 +145,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
        
   protected:
     
-    DIOCOREPROTOCOL_CFG                     protocolCFG;
-    XUUID                                   ID_machine;
+    DIOCOREPROTOCOL_CFG                     protocolCFG;    
     XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>      diostreams;
 
   private:
