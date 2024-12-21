@@ -98,7 +98,6 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
   #define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE           __L("update")
   
   #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("ID_message")
-  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE                           __L("ID_machine")    
   #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("message_type")
   #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("message_priority")
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("operation")
@@ -114,7 +113,6 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
 #else     
 
   #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("idm")
-  #define DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE                           __L("idc")    
   #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("mt")
   #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("mp")
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("o")
@@ -148,8 +146,7 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
     virtual                                  ~DIOCOREPROTOCOL_HEADER        ();
 
     XUUID*                                    GetIDMessage                  ();
-    XUUID*                                    GetIDMachine                  ();
-
+   
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        GetMessageType                (); 
     void                                      SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
     #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
@@ -208,7 +205,6 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
     void                                      Clean                         ();
         
     XUUID                                     ID_message;
-    XUUID                                     ID_machine;
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;  
     XBYTE                                     message_priority;
     DIOCOREPROTOCOL_HEADER_OPERATION          operation;

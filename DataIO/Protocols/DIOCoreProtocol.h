@@ -114,7 +114,7 @@ class DIOCOREPROTOCOL
 {
   public:
                                               
-                                                         DIOCOREPROTOCOL                     (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* IDmachine);
+                                                         DIOCOREPROTOCOL                     (DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream);
     virtual                                             ~DIOCOREPROTOCOL                     ();
 
     bool                                                 Ini                                 ();
@@ -161,9 +161,7 @@ class DIOCOREPROTOCOL
     bool                                                 CompressContent                     (DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XBUFFER& contentresult);
 
     void                                                 Clean                               ();   
-   
-    XUUID*                                               ID_machine;
-    
+       
     COMPRESSMANAGER*	                                   compressmanager;
     COMPRESSBASE*			                                   compressor; 
 

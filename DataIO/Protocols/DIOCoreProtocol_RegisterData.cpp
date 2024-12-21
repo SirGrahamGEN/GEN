@@ -66,9 +66,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL_REGISTERDATA::DIOCOREPROTOCOL_REGISTERDATA()
 {
-  Clean();
-
-  CreateIDMachine(ID_machine);
+  Clean();  
 }
 
 
@@ -83,6 +81,35 @@ DIOCOREPROTOCOL_REGISTERDATA::DIOCOREPROTOCOL_REGISTERDATA()
 DIOCOREPROTOCOL_REGISTERDATA::~DIOCOREPROTOCOL_REGISTERDATA()
 {
   Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_REGISTERDATA::InitializeData(bool isserver)
+* @brief      InitializeData
+* @ingroup    DATAIO
+* 
+* @param[in]  isserver : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_REGISTERDATA::InitializeData(bool isserver)
+{
+  if(isserver)
+    {
+      return false;
+    }
+
+  CreateIDMachine(ID_machine);
+
+  biosserialnumber  = GEN_XSYSTEM.GetBIOSSerialNumber()->Get();
+  CPUserialnumber   = GEN_XSYSTEM.GetCPUSerialNumber()->Get();
+
+  GEN_XSYSTEM.GetUserAndDomain(user, domain);
+
+  return true;
 }
 
 
@@ -103,6 +130,66 @@ XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDMmachine()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
+* @brief      GetBiosSerialNumber
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
+{
+  return &biosserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
+* @brief      GetCPUSerialNumber
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
+{
+  return &CPUserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetUser()
+* @brief      GetUser
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetUser()
+{
+  return &user;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetDomain()
+* @brief      GetDomain
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetDomain()
+{
+  return &domain;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_REGISTERDATA::Serialize()
 * @brief      Serialize
 * @ingroup    DATAIO
@@ -115,8 +202,17 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Serialize()
   XSTRING   string; 
   XVARIANT  data;
 
+  string.Empty();
   ID_machine.GetToString(string);
   Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE);
+  
+  Primitive_Add<XSTRING*>(&biosserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL);  
+
+  Primitive_Add<XSTRING*>(&CPUserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_CPUSERIAL);
+
+  Primitive_Add<XSTRING*>(&user, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER);
+
+  Primitive_Add<XSTRING*>(&domain, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_DOMAIN);
 
   return true;
 }
@@ -138,6 +234,14 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Deserialize()
   string.Empty();
   Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE);
   ID_machine.SetFromString(string);
+  
+  Primitive_Extract<XSTRING&>(biosserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL);
+    
+  Primitive_Extract<XSTRING&>(CPUserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_CPUSERIAL);
+
+  Primitive_Extract<XSTRING&>(user, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER);
+
+  Primitive_Extract<XSTRING&>(domain, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_DOMAIN);
        
   return true;
 }
@@ -238,6 +342,7 @@ bool DIOCOREPROTOCOL_REGISTERDATA::ShowDebug()
       delete serializationmethod;
     }     
 
+  XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE, __L("Register data:"));
   classcontent.ShowTraceJSON(XTRACE_COLOR_BLUE);      
 
   return true;

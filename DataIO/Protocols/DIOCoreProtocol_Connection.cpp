@@ -838,8 +838,7 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                               if(IsServer())
                                                                                 { 
                                                                                   if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM, header, classcontent))
-                                                                                    {
-                                                                                      XFILEJSON             classcontent;                                                                                                                                                     
+                                                                                    {                                                                                      
                                                                                       XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
                                                                                       if(!serializationmethod)
                                                                                         {
@@ -1692,6 +1691,7 @@ bool DIOCOREPROTOCOL_CONNECTION::GetMsg(bool isrequest, DIOCOREPROTOCOL_HEADER_O
           header.CopyFrom(message->GetHeader());
 
           content.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
+          content.DecodeAllLines();
             
           return true;
         }

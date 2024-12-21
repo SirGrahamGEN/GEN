@@ -110,7 +110,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     bool                                    DIOStream_Delete                              (DIOSTREAMCONFIG* diostreamCFG);
     bool                                    DIOStream_DeleteAll                           ();
 
-    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream, XUUID* ID_machine);    
+    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream);    
 
     bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout);
     bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING& result, XDWORD timeout);
@@ -171,7 +171,7 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
     XMUTEX*                                 connections_xmutex;
     XTHREADCOLLECTED*                       connections_xthread;
     XTHREADCOLLECTED*                       heartbets_xthread;
-
+   
     XVECTOR<DIOCOREPROTOCOL_CONNECTION*>    connections;
 };
 

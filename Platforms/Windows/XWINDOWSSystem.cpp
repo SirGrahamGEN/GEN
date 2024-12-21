@@ -489,7 +489,12 @@ XSTRING* XWINDOWSSYSTEM::GetBIOSSerialNumber()
   #ifndef BUILDER
   XWINDOWSWMIINTERFACE wmiinterface;
 
-  wmiinterface.DoQuery(__L("Win32_BaseBoard"), __L("SerialNumber"), BIOSserialnumber);
+  if(wmiinterface.Ini())
+    { 
+      wmiinterface.DoQuery(__L("Win32_BIOS"), __L("SerialNumber"), BIOSserialnumber);
+
+      wmiinterface.End();
+    }
   #endif
 
   return &BIOSserialnumber;
@@ -509,8 +514,12 @@ XSTRING* XWINDOWSSYSTEM::GetCPUSerialNumber()
 {
   #ifndef BUILDER
   XWINDOWSWMIINTERFACE wmiinterface;
+  if(wmiinterface.Ini())
+    { 
+      wmiinterface.DoQuery(__L("Win32_Processor"), __L("ProcessorId"), CPUserialnumber);
 
-  wmiinterface.DoQuery(__L("Win32_Processor"), __L("ProcessorId"), CPUserialnumber);
+      wmiinterface.End();
+    }
   #endif
 
   return &CPUserialnumber;

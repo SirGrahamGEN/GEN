@@ -92,8 +92,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_CREATECONNECTION);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
-  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
- 
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS); 
 }
 
 
@@ -354,9 +353,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_DeleteAll()
 * @return     DIOCOREPROTOCOL* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream, XUUID* ID_machine)
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
 {  
-  DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(&protocolCFG, diostream, ID_machine);
+  DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(&protocolCFG, diostream);
 
   return protocol;
 }
@@ -831,6 +830,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
               message->SetIsConsumed(true);
               
               result.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
+              result.DecodeAllLines();
 
               status = true;
               break;   
@@ -1591,10 +1591,12 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                  
                                                         if(!connection->GetCoreProtocol() && connection->GetRegisterData())
                                                           { 
-                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream(), connection->GetRegisterData()->GetIDMmachine());
+                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream());
                                                             if(protocol)
                                                               { 
                                                                 connection->SetCoreProtocol(protocol); 
+
+                                                                connection->GetRegisterData()->InitializeData(connection->IsServer());
 
                                                                 if(connection->IsServer())
                                                                   {

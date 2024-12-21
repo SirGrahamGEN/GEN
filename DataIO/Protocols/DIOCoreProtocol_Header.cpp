@@ -128,21 +128,6 @@ XUUID* DIOCOREPROTOCOL_HEADER::GetIDMessage()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
-* @brief      GetIDMachine
-* @ingroup    DATAIO
-* 
-* @return     XUUID* : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XUUID* DIOCOREPROTOCOL_HEADER::GetIDMachine()
-{
-  return &ID_machine;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         DIOCOREPROTOCOL_HEADER_MESSAGETYPE DIOCOREPROTOCOL_HEADER::GetMessageType()
 * @brief      GetMessageType
 * @ingroup    DATAIO
@@ -717,8 +702,7 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
     }
   
   ID_message.CopyFrom((*header->GetIDMessage()));
-  ID_machine.CopyFrom((*header->GetIDMachine()));
-
+  
   message_type          = header->GetMessageType();
 
   message_priority      = header->GetMessagePriority();
@@ -759,8 +743,7 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
     }
   
   ID_message.CopyTo((*header->GetIDMessage()));  
-  ID_machine.CopyTo((*header->GetIDMessage()));
-
+  
   header->SetMessageType(message_type);
 
   header->SetMessagePriority(message_priority);
@@ -804,12 +787,7 @@ bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
     {
       return false;
     }
-
-  if(!ID_machine.CopyTo((*header->GetIDMachine())))
-    {
-      return false;
-    }
-
+ 
   if(message_type != header->GetMessageType())
     {
       return false;
@@ -886,9 +864,6 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
   ID_message.GetToString(string);
   Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE);
 
-  ID_machine.GetToString(string);
-  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
-
   #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE           
     GetMessageTypeToString(string);  
     Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);    
@@ -949,10 +924,6 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
   Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE);
   ID_message.SetFromString(string);
 
-  string.Empty();
-  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_ID_MACHINE);
-  ID_machine.SetFromString(string);
-    
   #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
     GetMessageTypeFromString(&string, message_type);       

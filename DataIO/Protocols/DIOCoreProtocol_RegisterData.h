@@ -42,6 +42,10 @@
 #pragma region DEFINES_ENUMS
 
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE          __L("ID_machine")    
+#define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL          __L("biosserial")    
+#define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_CPUSERIAL           __L("cpuserial")    
+#define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER                __L("user")    
+#define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_DOMAIN              __L("domain")    
 
 #pragma endregion
 
@@ -55,7 +59,14 @@ class DIOCOREPROTOCOL_REGISTERDATA : public XSERIALIZABLE
                             DIOCOREPROTOCOL_REGISTERDATA    ();
     virtual                ~DIOCOREPROTOCOL_REGISTERDATA    ();
 
+    virtual bool            InitializeData                  (bool isserver);
+
     XUUID*                  GetIDMmachine                   ();
+
+    XSTRING*                GetBiosSerialNumber             ();
+    XSTRING*                GetCPUSerialNumber              ();                      
+    XSTRING*                GetUser                         ();                      
+    XSTRING*                GetDomain                       ();                      
 
     virtual bool            Serialize                       ();    
     virtual bool            Deserialize                     ();  
@@ -68,7 +79,12 @@ class DIOCOREPROTOCOL_REGISTERDATA : public XSERIALIZABLE
 
     void                    Clean                           ();
 
-    XUUID                   ID_machine;                      
+    XUUID                   ID_machine;
+
+    XSTRING                 biosserialnumber;
+    XSTRING                 CPUserialnumber; 
+    XSTRING                 user;
+    XSTRING                 domain;
 };
 
 #pragma endregion

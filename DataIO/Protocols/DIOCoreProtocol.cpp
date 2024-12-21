@@ -194,16 +194,15 @@ void DIOCOREPROTOCOL_COMMAND::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* ID_machine)
+* @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * @param[in]  DIOCOREPROTOCOL_CFG* : 
 * @param[in]   DIOSTREAM* diostream : 
-* @param[in]   XUUID* ID_machine : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream, XUUID* ID_machine)
+DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
 {
   Clean();
 
@@ -218,8 +217,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
     } 
 
   this->protocolCFG = protocolCFG;
-  this->diostream   = diostream;
-  this->ID_machine  = ID_machine;
+  this->diostream   = diostream;  
 
   Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_BOTH);
 }
@@ -644,11 +642,6 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
     {      
       header->SetMessageType(DIOCOREPROTOCOL_HEADER_MESSAGETYPE_RESPONSE);
       header->GetIDMessage()->CopyFrom((*ID_message));
-    }
-
-  if(ID_machine)
-    {
-      header->GetIDMachine()->CopyFrom((*ID_machine));
     }
 
   header->SetMessagePriority(message_priority), 
@@ -1137,15 +1130,13 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
 
   if(!showlongformat)
     {
-      XSTRING ID_machine;
       XSTRING ID_message;
       XSTRING operationstring;
 
-      header->GetIDMachine()->GetToString(ID_machine);
       header->GetIDMessage()->GetToString(ID_message);
       header->GetOperationToString(operationstring);
 
-      title.AddFormat(__L("%-20s -> %-20s %-15s [%s] "), ID_machine.Get(), ID_message.Get(), operationstring.Get(), header->GetOperationParam()->Get()); 
+      title.AddFormat(__L("%-20s %-15s [%s] "), ID_message.Get(), operationstring.Get(), header->GetOperationParam()->Get()); 
 
       XTRACE_PRINTCOLOR(colormsg, title.Get()); 
     }
@@ -1404,8 +1395,7 @@ void DIOCOREPROTOCOL::Clean()
 {
   protocolCFG     = NULL;
   diostream       = NULL;
-  ID_machine      = NULL;
-
+  
   compressmanager = NULL;
   compressor      = NULL;    	
   
