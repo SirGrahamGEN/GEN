@@ -1368,7 +1368,11 @@ bool XFILEJSON::SetRoot(XFILEJSONOBJECT* root)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XFILEJSON::DecodeAllLines()
 {
-  if(root) delete root;
+  if(root) 
+    {
+      delete root;
+      root = NULL;
+    }
 
   if(!GetAllInOneLine(all)) return false;
 
@@ -1504,7 +1508,6 @@ bool XFILEJSON::DeleteAllObjects()
   if(!root) return false;
 
   delete root;
-
   root = NULL;
 
   return true;

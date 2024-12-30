@@ -228,12 +228,14 @@ class XSERIALIZABLE
     bool                           DoSerialize                (XSERIALIZATIONMETHOD* serializationmethod);    
     bool                           DoDeserialize              (XSERIALIZATIONMETHOD* serializationmethod);   
 
+    virtual bool                   Update                     ();
+
     virtual bool                   Serialize                  ();    
     virtual bool                   Deserialize                ();  
     
   private:
 
-    void                           Clean                ();   
+    void                           Clean                      ();   
 
     XSERIALIZATIONMETHOD*          serializationmethod; 
        

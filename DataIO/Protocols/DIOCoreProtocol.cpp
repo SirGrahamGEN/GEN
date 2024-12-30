@@ -142,14 +142,14 @@ XSTRING* DIOCOREPROTOCOL_COMMAND::GetTypeString()
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
+* @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
 * @brief      GetBidirectionalityMode
 * @ingroup    DATAIO
 * 
-* @return     DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE : 
+* @return     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
+DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirectionalityMode()
 {
   return bidirectionalitymode;
 }
@@ -157,14 +157,14 @@ DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_COMMAND::GetBidirec
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @fn         void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 * @brief      SetBidirectionalityMode
 * @ingroup    DATAIO
 * 
 * @param[in]  bidirectionalitymode : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+void DIOCOREPROTOCOL_COMMAND::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 {
   this->bidirectionalitymode = bidirectionalitymode;
 }
@@ -182,7 +182,219 @@ void DIOCOREPROTOCOL_COMMAND::Clean()
 {
   type                  = DIOCOREPROTOCOL_COMMAND_TYPE_UNKNOWN;
   typestr.Empty();   
-  bidirectionalitymode  = DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_NONE;
+  bidirectionalitymode  = DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_NONE;
+}
+
+
+#pragma endregion
+
+
+#pragma region CLASS_DIOCOREPROTOCOL_UPDATECLASS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_UPDATECLASS::DIOCOREPROTOCOL_UPDATECLASS()
+* @brief      Constructor
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_UPDATECLASS::DIOCOREPROTOCOL_UPDATECLASS()
+{
+  Clean();
+  
+  timerlastupdate = GEN_XFACTORY.CreateTimer();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_UPDATECLASS::~DIOCOREPROTOCOL_UPDATECLASS()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_UPDATECLASS::~DIOCOREPROTOCOL_UPDATECLASS()
+{
+  if(timerlastupdate)
+    {
+      GEN_XFACTORY.DeleteTimer(timerlastupdate);
+    }
+
+  Clean();
+}
+
+    
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_UPDATECLASS::GetClassName()
+* @brief      GetClassName
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_UPDATECLASS::GetClassName()
+{
+  return &classname;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSERIALIZABLE* DIOCOREPROTOCOL_UPDATECLASS::GetClassPtr()
+* @brief      GetClassPtr
+* @ingroup    DATAIO
+* 
+* @return     XSERIALIZABLE* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSERIALIZABLE* DIOCOREPROTOCOL_UPDATECLASS::GetClassPtr()
+{
+  return classptr;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
+* @brief      SetClassPtr
+* @ingroup    DATAIO
+* 
+* @param[in]  classptr : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
+{
+  this->classptr = classptr;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
+* @brief      GetBidirectionalityMode
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
+{
+  return bidirectionalitymode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @brief      SetBidirectionalityMode
+* @ingroup    DATAIO
+* 
+* @param[in]  bidirectionalitymode : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+{
+  this->bidirectionalitymode = bidirectionalitymode;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetTimeToUpdate()
+* @brief      GetTimeToUpdate
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetTimeToUpdate()
+{
+  return timetoupdate;
+}
+
+ 
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetTimeToUpdate(XDWORD timetoupdate)
+* @brief      SetTimeToUpdate
+* @ingroup    DATAIO
+* 
+* @param[in]  timetoupdate : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetTimeToUpdate(XDWORD timetoupdate)
+{
+  this->timetoupdate = timetoupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
+* @brief      GetTimerLastUpdate
+* @ingroup    DATAIO
+* 
+* @return     XTIMER* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
+{
+  return timerlastupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
+* @brief      GetNUpdates
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
+{
+  return nupdates;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XQWORD DIOCOREPROTOCOL_UPDATECLASS::AddNUpdates()
+* @brief      AddNUpdates
+* @ingroup    DATAIO
+* 
+* @return     XQWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XQWORD DIOCOREPROTOCOL_UPDATECLASS::AddNUpdates()
+{
+  nupdates++;
+
+  return nupdates;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    DATAIO
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::Clean()
+{  
+  classname.Empty();   
+  classptr              = NULL;
+  bidirectionalitymode  = DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_NONE;
+
+  timetoupdate          = 0;
+  timerlastupdate       = NULL;
+  nupdates              = 0;
 }
 
 
@@ -219,7 +431,7 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;  
 
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_BOTH);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
 }
 
 
@@ -234,6 +446,8 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
 DIOCOREPROTOCOL::~DIOCOREPROTOCOL()
 {
   Commands_DeleteAll();
+
+  UpdateClass_DeleteAll();
 
   if(compressmanager)
     {
@@ -924,7 +1138,7 @@ XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @fn         bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 * @brief      Commands_Add
 * @ingroup    DATAIO
 * 
@@ -935,7 +1149,7 @@ XVECTOR<DIOCOREPROTOCOL_COMMAND*>* DIOCOREPROTOCOL::Commands_GetAll()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE bidirectionalitymode)
+bool DIOCOREPROTOCOL::Commands_Add(XDWORD type, XCHAR* command, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 {
   if(!command)
     {
@@ -1050,7 +1264,7 @@ DIOCOREPROTOCOL_COMMAND* DIOCOREPROTOCOL::Commands_GetCoreProtocol(XDWORD type)
 {
   if(!type)
     {
-      return false;
+      return NULL;
     }
 
   for(XDWORD c=0; c<commands.GetSize(); c++)
@@ -1087,6 +1301,124 @@ bool DIOCOREPROTOCOL::Commands_DeleteAll()
     
   commands.DeleteContents();
   commands.DeleteAll();
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>* DIOCOREPROTOCOL::UpdateClass_GetAll()
+* @brief      UpdateClass_GetAll
+* @ingroup    DATAIO
+* 
+* @return     XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*  DIOCOREPROTOCOL::UpdateClass_GetAll()
+{
+  return &updateclasses;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @brief      UpdateClass_Add
+* @ingroup    DATAIO
+* 
+* @param[in]  classname : 
+* @param[in]  classptr : 
+* @param[in]  bidirectionalitymode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+{
+  if(!classname)
+    {
+      return false;
+    }
+
+  if(!classptr)
+    {
+      return false;
+    }
+
+  DIOCOREPROTOCOL_UPDATECLASS* updateclass =  new DIOCOREPROTOCOL_UPDATECLASS();
+  if(!updateclass)
+    {
+      return false;
+    }
+
+  updateclass->GetClassName()->Set(classname);
+  if(updateclass->GetClassName()->IsEmpty())
+    {
+      delete updateclass;
+      return false;
+    }
+
+  updateclass->SetClassPtr(classptr);  
+  updateclass->SetTimeToUpdate(timetoupdate);
+  updateclass->SetBidirectionalityMode(bidirectionalitymode);
+
+  return updateclasses.Add(updateclass);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         DIOCOREPROTOCOL_UPDATECLASS* DIOCOREPROTOCOL::UpdateClass_Get(XCHAR* classname)
+* @brief      UpdateClass_Get
+* @ingroup    DATAIO
+* 
+* @param[in]  classname : 
+* 
+* @return     DIOCOREPROTOCOL_UPDATECLASS* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_UPDATECLASS* DIOCOREPROTOCOL::UpdateClass_Get(XCHAR* classname)
+{
+  if(!classname)
+    {
+      return NULL;
+    }
+
+  for(XDWORD c=0; c<updateclasses.GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_UPDATECLASS* coreprotocolupdateclass = updateclasses.Get(c);
+      if(coreprotocolupdateclass)
+        {
+          if(!coreprotocolupdateclass->GetClassName()->Compare(classname, true))
+            {
+              return coreprotocolupdateclass; 
+            }
+        }
+    }
+
+  return NULL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
+* @brief      UpdateClass_DeleteAll
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
+{
+  if(updateclasses.IsEmpty())
+    {
+      return false;
+    }
+
+  updateclasses.DeleteContents();
+  updateclasses.DeleteAll();  
 
   return true;
 }

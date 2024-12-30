@@ -166,10 +166,10 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
         {
           if(connections_xthread->Ini()) 
             {             
-              heartbets_xthread = CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, __L("DIOPROTOCOL_CONNECTIONSMANAGER::Ini"), ThreadHeartBets, (void*)this);
-              if(heartbets_xthread)
+              automaticoperations_xthread = CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, __L("DIOPROTOCOL_CONNECTIONSMANAGER::Ini"), ThreadAutomaticOperations, (void*)this);
+              if(automaticoperations_xthread)
                 { 
-                  heartbets_xthread->Ini();
+                  automaticoperations_xthread->Ini();
                   return true;
                 }
             }
@@ -195,11 +195,11 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
 { 
   Connections_DeleteAll();
 
-  if(heartbets_xthread)
+  if(automaticoperations_xthread)
     {
-      heartbets_xthread->End();
-      DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, heartbets_xthread);
-      heartbets_xthread = NULL;
+      automaticoperations_xthread->End();
+      DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, automaticoperations_xthread);
+      automaticoperations_xthread = NULL;
     }  
 
   if(connections_xthread)
@@ -344,6 +344,23 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateConnection()
+* @brief      CreateConnection
+* @ingroup    DATAIO
+* 
+* @return     DIOCOREPROTOCOL_CONNECTION* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateConnection()
+{  
+  DIOCOREPROTOCOL_CONNECTION* protocol = new DIOCOREPROTOCOL_CONNECTION();
+
+  return protocol;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
 * @brief      CreateProtocol
 * @ingroup    DATAIO
@@ -353,7 +370,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOStream_DeleteAll()
 * @return     DIOCOREPROTOCOL* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOSTREAM* diostream)
+DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOCOREPROTOCOL_CONNECTION* connection, DIOSTREAM* diostream)
 {  
   DIOCOREPROTOCOL* protocol = new DIOCOREPROTOCOL(&protocolCFG, diostream);
 
@@ -643,7 +660,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
   XFILEJSON             classcontent;                                                               
   bool                  status  = false;
   XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
-  if(serializationmethod)
+  if(!serializationmethod)
     {
       return false;
     }
@@ -658,17 +675,29 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
       return false;
     } 
 
+  classserializable->Update();
+
   classserializable->SetSerializationMethod(serializationmethod);
-  classserializable->Deserialize(); 
+  classserializable->Serialize(); 
 
   if(serializationmethod)
     {
       delete serializationmethod;
     }
                 
-  if(connection->DoUpdateClass(&ID_message,message_priority, classname, &classcontent))
-    {                                                                                   
-      status = GetResult(connection, &ID_message, classcontent, timeout);                   
+  if(connection->DoUpdateClass(&ID_message, message_priority, classname, &classcontent))
+    {     
+      XFILEJSON resultcontent;  
+                                                                              
+      status = GetResult(connection, &ID_message, resultcontent, timeout);                   
+      if(status)
+        {
+          XFILEJSONVALUE* value = resultcontent.GetValue(DIOCOREPROTOCOL_UPDATECLASS_CONFIRM);
+          if(value)
+            {
+              status = value->GetValueBoolean();
+            }  
+        }
     }
                                                                     
   return status;       
@@ -851,6 +880,47 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassDeserialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
+* @brief      UpdateClassDeserialize
+* @ingroup    DATAIO
+* 
+* @param[in]  message : 
+* @param[in]  classcontent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassDeserialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
+{
+  XFILEJSON              content;          
+  XSERIALIZATIONMETHOD*  serializationmethod = XSERIALIZABLE::CreateInstance(content);  
+  bool                   status              = false;
+
+  if(!classcontent)
+    {
+      return false;
+    }
+
+  if(!serializationmethod)
+    {
+      return false;  
+    }
+   
+  content.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
+  content.DecodeAllLines();
+                  
+  classcontent->SetSerializationMethod(serializationmethod);      
+
+  status = classcontent->Deserialize();
+
+  delete serializationmethod;
+                      
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XVECTOR<DIOCOREPROTOCOL_CONNECTION*>* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_GetAll()
 * @brief      Connections_GetAll
 * @ingroup    DATAIO
@@ -900,7 +970,7 @@ DIOCOREPROTOCOL_CONNECTION* DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_Add(
   DIOCOREPROTOCOL_CONNECTION* connection = Connections_Get(diostream);
   if(!connection)
     {
-      connection = new DIOCOREPROTOCOL_CONNECTION();
+      connection = CreateConnection();
       if(!connection)
         {
           return NULL;
@@ -1130,6 +1200,75 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
+* @brief      CreateIDMachine
+* @ingroup    DATAIO
+* 
+* @param[in]  ID : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
+{ 
+  XSTRING   origin; 
+  XBUFFER   originbuffer; 
+  HASHSHA2* sha2        = NULL;
+  XBUFFER*  result      = NULL;
+
+  ID.Empty();
+
+  GEN_XSYSTEM.GetOperativeSystemID(origin);
+  
+  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetBIOSSerialNumber()->Get());
+  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetCPUSerialNumber()->Get());
+
+  origin.ConvertToUTF8(originbuffer);
+    
+  sha2 = new HASHSHA2(HASHSHA2TYPE_256);
+  if(!sha2)
+    {
+      return false;
+    }
+
+  sha2->Do(originbuffer);
+  result = sha2->GetResult();
+
+  if(!result)
+    {
+      return false;
+    }
+
+  if(!result->GetSize())
+    {
+      return false;
+    }
+
+  XDWORD data1 = 0; 
+  XWORD  data2 = 0;
+  XWORD  data3 = 0;
+  XBYTE  data4 = 0;
+  XBYTE  data5 = 0; 
+  XBYTE* data6 = &result->Get()[12];
+
+  result->Get((XDWORD&)data1);  
+  result->Get((XWORD&)data2);  
+  result->Get((XWORD&)data3);  
+  result->Get((XBYTE&)data4);  
+  result->Get((XBYTE&)data5);  
+
+  ID.Set(data1, data2, data3, data4, data5, data6);
+
+  ID.GetToString(origin);
+
+  delete sha2;
+
+  return true;
+}
+         
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
 * @brief      Connections_ReadMessages
 * @ingroup    DATAIO
@@ -1186,7 +1325,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                 }
 
                                                                                               // Test show message status
-                                                                                              // messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                               break;
 
                                           case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS : if(Received_AllUpdateClassMessages(connection, message[0]))
@@ -1199,7 +1338,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                 }
 
                                                                                               // Test show message status
-                                                                                              // messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                              messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                               break;
                                         }                                       
                                     }
@@ -1315,18 +1454,18 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
     
   if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
     {         
-      message->SetIsConsumed(true);
-      
-      if(connection->DoCommand(message->GetHeader()->GetIDMessage(), 10, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT))
-        {
-          connection->SetHeartBetsCounter(0);    
-          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
-        }
+      message->SetIsConsumed(true); 
 
-      managermessage = true;      
+      connection->SetHeartBetsCounter(0);    
+      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
+      
+      status = connection->DoCommand(message->GetHeader()->GetIDMessage(), 10, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT);
+      if(status)
+        {
+          managermessage = true;      
+        }
     }
   
-
   if(managermessage)
     {
       // More internal messages
@@ -1334,7 +1473,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
   
   if(!managermessage)
     {
-      status = Received_AdditionsCommand(connection, message);
+      status = Received_AdditionalCommandMessages(connection, message);
     }
    else
     {
@@ -1347,8 +1486,8 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
-* @brief      Received_AdditionsCommand
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AdditionalCommandMessages
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
@@ -1357,10 +1496,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalCommandMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 {
-  bool managermessage = false;
-  bool status         = false;
+  bool status = false;
 
   if(!connection)
     {
@@ -1386,16 +1524,16 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionsCommand(DIOCOREPROTOC
           xevent.SetConnection(connection);
           xevent.SetMsg(message);
                       
-          status = PostEvent(&xevent);    
+          status = PostEvent(&xevent);  
+
+          message->SetIsConsumed(true);     
+
+          connection->SetHeartBetsCounter(0);    
+          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);   
 
           if(status)
             {     
-              managermessage = connection->DoCommand(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetMessagePriority(), c, xevent.GetContenteResponseString());       
-              if(managermessage)
-                {
-                  message->SetIsConsumed(true);          
-                  status = true;
-                }         
+              status = connection->DoCommand(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetMessagePriority(), c, xevent.GetContenteResponseString());       
             }
         }
     }
@@ -1439,20 +1577,53 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCORE
       return false;
     }
   
+  bool managermessage = false;
   bool status         = false;
-    
-  if(!message->GetHeader()->GetOperationParam()->Compare(__L("pepe"), true))
-    {               
-      message->SetIsConsumed(true);
 
-      XFILEJSON xfilejson;
+
+  for(XDWORD c=0; c<protocol->UpdateClass_GetAll()->GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_UPDATECLASS* updateclass = protocol->UpdateClass_GetAll()->Get(c);
+      if(updateclass)
+        {    
+          if(!message->GetHeader()->GetOperationParam()->Compare(updateclass->GetClassName()->Get(), true))
+            { 
+              XFILEJSON              content;          
+              XSERIALIZATIONMETHOD*  serializationmethod = XSERIALIZABLE::CreateInstance(content);                          
+
+              message->SetIsConsumed(true);
+
+              connection->SetHeartBetsCounter(0);    
+              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY); 
+            
+              if(serializationmethod)
+                {
+                  content.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
+                  content.DecodeAllLines();
+                  
+                  updateclass->GetClassPtr()->SetSerializationMethod(serializationmethod);                            
+                  updateclass->GetClassPtr()->Deserialize();
+                        
+                  delete serializationmethod;
+
+                  GenerateResponseUpdateClass(content, true);
                      
-      if(connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &xfilejson))
-        {
-          connection->SetHeartBetsCounter(0);    
-          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);        
+                  status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);
+                  if(status)
+                    {                                    
+                      managermessage = true;      
+                    }         
+                }                             
+            }
         }
+    }
 
+  if(!managermessage)
+    {
+      status = Received_AdditionalUpdateClassMessages(connection, message);
+    }
+   else
+    {
       status = true;
     }
  
@@ -1462,70 +1633,91 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCORE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
-* @brief      CreateIDMachine
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AdditionalUpdateClassMessages
 * @ingroup    DATAIO
 * 
-* @param[in]  ID : 
+* @param[in]  connection : 
+* @param[in]  message : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateIDMachine(XUUID& ID)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
 { 
-  XSTRING   origin; 
-  XBUFFER   originbuffer; 
-  HASHSHA2* sha2        = NULL;
-  XBUFFER*  result      = NULL;
+  bool status = false;
 
-  ID.Empty();
+  if(!connection)
+    {
+      return false;
+    }  
 
-  GEN_XSYSTEM.GetOperativeSystemID(origin);
-  
-  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetBIOSSerialNumber()->Get());
-  origin.AddFormat(__L(" %s"), GEN_XSYSTEM.GetCPUSerialNumber()->Get());
-
-  origin.ConvertToUTF8(originbuffer);
-    
-  sha2 = new HASHSHA2(HASHSHA2TYPE_256);
-  if(!sha2)
+  if(!message)
     {
       return false;
     }
-
-  sha2->Do(originbuffer);
-  result = sha2->GetResult();
-
-  if(!result)
+ 
+  if(message->GetHeader()->GetOperation() == DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS)
     {
-      return false;
+      DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
+      xevent.SetConnection(connection);
+      xevent.SetMsg(message);
+                      
+      status = PostEvent(&xevent);       
+
+      message->SetIsConsumed(true);
+
+      connection->SetHeartBetsCounter(0);    
+      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);  
+
+      if(status)
+        {     
+          XFILEJSON xfileJSON;
+
+          GenerateResponseUpdateClass(xfileJSON, true);
+                     
+          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &xfileJSON);          
+        }           
     }
 
-  if(!result->GetSize())
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& xfileJSON, bool statusresponse)
+* @brief      GenerateResponseUpdateClass
+* @ingroup    DATAIO
+* 
+* @param[in]  xfileJSON : 
+* @param[in]  statusresponse : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& xfileJSON, bool statusresponse)
+{
+  XFILEJSONOBJECT*  root;
+
+  xfileJSON.DeleteAllLines();
+  xfileJSON.DeleteAllObjects();
+         
+  root = xfileJSON.GetRoot();
+  if(!root)
     {
-      return false;
+      root = new XFILEJSONOBJECT();
+      if(!root) 
+        {
+          return false;
+        }
+
+      xfileJSON.SetRoot(root);
     }
 
-  XDWORD data1 = 0; 
-  XWORD  data2 = 0;
-  XWORD  data3 = 0;
-  XBYTE  data4 = 0;
-  XBYTE  data5 = 0; 
-  XBYTE* data6 = &result->Get()[12];
+   XFILEJSON_ADDVALUE(root, DIOCOREPROTOCOL_UPDATECLASS_CONFIRM, (bool*)statusresponse);   
 
-  result->Get((XDWORD&)data1);  
-  result->Get((XWORD&)data2);  
-  result->Get((XWORD&)data3);  
-  result->Get((XBYTE&)data4);  
-  result->Get((XBYTE&)data5);  
-
-  ID.Set(data1, data2, data3, data4, data5, data6);
-
-  ID.GetToString(origin);
-
-  delete sha2;
-
-  return true;
+  return true;         
 }
 
 
@@ -1591,12 +1783,10 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::HandleEvent_DIOStream(DIOSTREAM_XEVENT*
                                                  
                                                         if(!connection->GetCoreProtocol() && connection->GetRegisterData())
                                                           { 
-                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(event->GetDIOStream());
+                                                            DIOCOREPROTOCOL* protocol = CreateProtocol(connection, event->GetDIOStream());
                                                             if(protocol)
                                                               { 
                                                                 connection->SetCoreProtocol(protocol); 
-
-                                                                connection->GetRegisterData()->InitializeData(connection->IsServer());
 
                                                                 if(connection->IsServer())
                                                                   {
@@ -1758,6 +1948,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                       if(status)
                         {
                           DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(connectionsmanager, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
+
                           xevent.SetConnection(connection);
                           xevent.SetActualStatus(connection->Status_Get());                      
                           xevent.SetNextStatus(DIOCOREPROTOCOL_CONNECTION_STATUS_NONE);
@@ -1794,14 +1985,14 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadHeartBets(void* param)
-* @brief      ThreadHeartBets
+* @fn         void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
+* @brief      ThreadAutomaticOperations
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadHeartBets(void* param)
+void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
 {
   DIOCOREPROTOCOL_CONNECTIONSMANAGER* connectionsmanager = (DIOCOREPROTOCOL_CONNECTIONSMANAGER*)param;
   if(!connectionsmanager) 
@@ -1815,6 +2006,63 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadHeartBets(void* param)
     }
 
   int index = 0;
+
+  do{ DIOCOREPROTOCOL_CONNECTION* connection = connectionsmanager->connections.Get(index);
+      if(connection)  
+        {                           
+          if((connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_READY) || 
+             (connection->Status_Get() == DIOCOREPROTOCOL_CONNECTION_STATUS_INSTABILITY))
+            {       
+              DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+              if(protocol)
+                {                          
+                  for(XDWORD c=0; c<protocol->UpdateClass_GetAll()->GetSize(); c++)
+                    {
+                      bool validbidirectionaly =  true;   
+
+                      DIOCOREPROTOCOL_UPDATECLASS* updateclass = protocol->UpdateClass_GetAll()->Get(c);
+                      if(updateclass)
+                        {
+                          if(!connection->IsServer())
+                            {
+                              if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
+                                {
+                                  validbidirectionaly = false;
+                                }
+                            }
+                           else
+                            {
+                              if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
+                                {
+                                  validbidirectionaly = false;
+                                }
+                            }
+
+                          if(validbidirectionaly)
+                            {
+                              if(updateclass->GetTimerLastUpdate()->GetMeasureSeconds() >= updateclass->GetTimeToUpdate())
+                                {
+                                  bool status;
+                         
+                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                  if(status)
+                                    {
+                                      updateclass->GetTimerLastUpdate()->Reset();
+                                    }                                                          
+                                }
+                            }
+                        }                        
+                    }                   
+                }
+            }
+                      
+          index++;
+        }
+
+    } while(index < connectionsmanager->connections.GetSize());  
+
+
+  index = 0;
 
   do{ DIOCOREPROTOCOL_CONNECTION* connection = connectionsmanager->connections.Get(index);
       if(connection)  
@@ -1881,7 +2129,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::Clean()
   connections_xmutex          = NULL;
   connections_xthread         = NULL;
  
-  heartbets_xthread           = NULL;
+  automaticoperations_xthread = NULL;
 }
 
 

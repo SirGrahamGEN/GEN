@@ -279,6 +279,21 @@ bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XSERIALIZABLE::Update()
+* @brief      Update
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZABLE::Update()
+{
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XSERIALIZABLE::Serialize()
 * @brief      Serialize
 * @ingroup    XUTILS

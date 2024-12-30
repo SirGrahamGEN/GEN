@@ -39,6 +39,7 @@
 
 #include "DIOStream_XEvent.h"
 #include "DIOCoreProtocol_CFG.h"
+#include "DIOCoreProtocol.h"
 
 #pragma endregion
 
@@ -89,91 +90,99 @@ class XSTRING;
 class XFILEJSON;
 class XSERIALIZABLE;
 class DIOCOREPROTOCOL;
-class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT;
 class DIOCOREPROTOCOL_CONNECTION;
+class DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT;
 class DIOCOREPROTOCOL_MESSAGE;
 
 
 class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 {
   public:
-                                            DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();
-    virtual                                ~DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();   
+                                             DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();
+    virtual                                 ~DIOCOREPROTOCOL_CONNECTIONSMANAGER            ();   
 
-    bool                                    Ini                                           ();
-    bool                                    End                                           ();
+    bool                                     Ini                                           ();
+    bool                                     End                                           ();
 
-    DIOCOREPROTOCOL_CFG*                    GetProtocolCFG                                ();
+    DIOCOREPROTOCOL_CFG*                     GetProtocolCFG                                ();
 
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*     DIOStream_GetAll                              ();
-    bool                                    DIOStream_Add                                 (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
-    bool                                    DIOStream_Delete                              (DIOSTREAMCONFIG* diostreamCFG);
-    bool                                    DIOStream_DeleteAll                           ();
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>*      DIOStream_GetAll                              ();
+    bool                                     DIOStream_Add                                 (DIOSTREAMCONFIG* diostreamCFG, DIOSTREAM* diostream);
+    bool                                     DIOStream_Delete                              (DIOSTREAMCONFIG* diostreamCFG);
+    bool                                     DIOStream_DeleteAll                           ();
 
-    virtual DIOCOREPROTOCOL*                CreateProtocol                                (DIOSTREAM* diostream);    
+    virtual DIOCOREPROTOCOL_CONNECTION*      CreateConnection                              ();
 
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON& result, XDWORD timeout);
+    virtual DIOCOREPROTOCOL*                 CreateProtocol                                (DIOCOREPROTOCOL_CONNECTION* connection, DIOSTREAM* diostream);    
 
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON& result, XDWORD timeout);
+
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
     
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout);
     
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
-    bool                                    Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                    (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
     
-    bool                                    UpdateClass_Do                                (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
+    bool                                     UpdateClass_Do                                (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
 
-    bool                                    GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout);
-    bool                                    GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout);
-    bool                                    GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XFILEJSON& result, XDWORD timeout);
+    bool                                     GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout);
+    bool                                     GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout);
+    bool                                     GetResult                                     (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XFILEJSON& result, XDWORD timeout);
+
+    static bool                              UpdateClassDeserialize                        (DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent);
                               
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*   Connections_GetAll                            ();
-    XMUTEX*                                 Connections_GetXMutex                         ();  
-    DIOCOREPROTOCOL_CONNECTION*             Connections_Add                               (DIOSTREAM* stream);
-    DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (DIOSTREAM* stream);
-    DIOCOREPROTOCOL_CONNECTION*             Connections_Get                               (XDWORD index);
-    bool                                    Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);    
-    bool                                    Connections_DeleteAllDisconnected             ();
-    bool                                    Connections_DeleteAll                         ();
-       
+    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>*    Connections_GetAll                            ();
+    XMUTEX*                                  Connections_GetXMutex                         ();  
+    DIOCOREPROTOCOL_CONNECTION*              Connections_Add                               (DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*              Connections_Get                               (DIOSTREAM* stream);
+    DIOCOREPROTOCOL_CONNECTION*              Connections_Get                               (XDWORD index);
+    bool                                     Connections_Delete                            (DIOCOREPROTOCOL_CONNECTION* connection);    
+    bool                                     Connections_DeleteAllDisconnected             ();
+    bool                                     Connections_DeleteAll                         (); 
+
+    static bool                              CreateIDMachine                               (XUUID& ID);
+    
   protected:
     
-    DIOCOREPROTOCOL_CFG                     protocolCFG;    
-    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>      diostreams;
+    DIOCOREPROTOCOL_CFG                      protocolCFG;    
+    XMAP<DIOSTREAMCONFIG*, DIOSTREAM*>       diostreams;
 
   private:
 
-    bool                                    Connections_ReadMessages                      (); 
+    bool                                     Connections_ReadMessages                      (); 
 
-    bool                                    Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message); 
-    bool                                    Received_AdditionsCommand                     (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
+    bool                                     Received_AllCommandMessages                   (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message); 
+    bool                                     Received_AdditionalCommandMessages            (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
 
-    bool                                    Received_AllUpdateClassMessages               (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
-        
-    bool                                    CreateIDMachine                               (XUUID& ID);
-      
-    virtual void                            HandleEvent_CoreProtocolConnectionsManager    (DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT* event);
-    void                                    HandleEvent_DIOStream                         (DIOSTREAM_XEVENT* event);
-    void                                    HandleEvent                                   (XEVENT* xevent);
+    bool                                     Received_AllUpdateClassMessages               (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
+    bool                                     Received_AdditionalUpdateClassMessages        (DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message);
 
-    static void                             ThreadConnections                             (void* param);
-    static void                             ThreadHeartBets                               (void* param);
+    bool                                     GenerateResponseUpdateClass                   (XFILEJSON& xfileJSON, bool statusresponse);
+           
+    virtual void                             HandleEvent_CoreProtocolConnectionsManager    (DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT* event);
+    void                                     HandleEvent_DIOStream                         (DIOSTREAM_XEVENT* event);
+    void                                     HandleEvent                                   (XEVENT* xevent);
 
-    void                                    Clean                                         ();
+    static void                              ThreadConnections                             (void* param);
+    static void                              ThreadAutomaticOperations                     (void* param);
+
+    void                                     Clean                                         ();
           
-    XMUTEX*                                 connections_xmutex;
-    XTHREADCOLLECTED*                       connections_xthread;
-    XTHREADCOLLECTED*                       heartbets_xthread;
+    XMUTEX*                                  connections_xmutex;
+    XTHREADCOLLECTED*                        connections_xthread;
+    XTHREADCOLLECTED*                        automaticoperations_xthread;
    
-    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>    connections;
+    XVECTOR<DIOCOREPROTOCOL_CONNECTION*>     connections;    
 };
+
 
 #pragma endregion
 

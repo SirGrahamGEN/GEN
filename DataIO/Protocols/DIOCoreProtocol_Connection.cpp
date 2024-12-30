@@ -484,16 +484,16 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_prio
 
   if(ID_message->IsEmpty())
     {
-      if(IsServer())
+      if(!IsServer())
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
             {
               return false;
             }
         }
        else
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
             {
               return false;
             }
@@ -538,16 +538,16 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_prio
 
   if(ID_message->IsEmpty())
     {
-      if(IsServer())
+      if(!IsServer())
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
             {
               return false;
             }
         }
        else
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
             {
               return false;
             }
@@ -592,16 +592,16 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_prio
 
   if(ID_message->IsEmpty())
     {
-      if(IsServer())
+      if(!IsServer())
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
             {
               return false;
             }
         }
        else
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
             {
               return false;
             }
@@ -646,16 +646,16 @@ bool DIOCOREPROTOCOL_CONNECTION::DoCommand(XUUID* ID_message, XBYTE message_prio
 
   if(ID_message->IsEmpty())
     {
-      if(IsServer())
+      if(!IsServer())
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOCLIENT)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
             {
               return false;
             }
         }
        else
         {
-          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_COMMAND_BIDIRECTIONALITYMODE_TOSERVER)
+          if(coreprotocol_command->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
             {
               return false;
             }
@@ -691,19 +691,14 @@ bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XBYTE message_
       return false;
     }
 
-  if(ID_message->IsEmpty())
+  /*
+  DIOCOREPROTOCOL_UPDATECLASS* coreprotocol_updateclass = protocol->UpdateClass_Get(classname);
+  if(!coreprotocol_updateclass)
     {
-      if(IsServer())
-        {
-          //return false;
-         
-        }
-       else
-        {
-          //return false;          
-        }
+      return false;
     }
-
+  */
+  
   status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS, classname, classcontent);
 
   return status; 
@@ -833,45 +828,54 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
 
           case DIOCOREPROTOCOL_CONNECTION_XFSMSTATE_REGISTRATION          : { DIOCOREPROTOCOL_HEADER  header;
                                                                               XFILEJSON               classcontent;
-                                                                              XSTRING                 confirmstr;
+                                                                              XSTRING                 confirmstr;  
+                                                                              XSERIALIZATIONMETHOD*   serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
 
+                                                                              if(!serializationmethod)
+                                                                                {
+                                                                                  break;
+                                                                                }      
+                                                                                                                                                                     
+                                                                              if(!GetRegisterData())
+                                                                                {
+                                                                                  break;
+                                                                                }     
+
+                                                                              GetRegisterData()->SetSerializationMethod(serializationmethod);                                                           
+  
                                                                               if(IsServer())
                                                                                 { 
                                                                                   if(GetMsg(true, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM, header, classcontent))
-                                                                                    {                                                                                      
-                                                                                      XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
-                                                                                      if(!serializationmethod)
-                                                                                        {
-                                                                                          break;
-                                                                                        }                                                                
-  
-                                                                                      if(!GetRegisterData())
-                                                                                        {
-                                                                                          break;
-                                                                                        } 
+                                                                                    { 
+                                                                                      GetRegisterData()->Deserialize();        
 
-                                                                                      GetRegisterData()->SetSerializationMethod(serializationmethod);
-                                                                                      GetRegisterData()->Deserialize(); 
-
-                                                                                      if(serializationmethod)
-                                                                                        {
-                                                                                          delete serializationmethod;
-                                                                                        }     
-
+                                                                                      GetRegisterData()->InitializeData(IsServer());
+                                                                                      //GetRegisterData()->ShowDebug(); 
+                                                                                 
                                                                                       static bool sended =  false;
                                                                                       if(!sended)
-                                                                                        {
-                                                                                          confirmstr = DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM;    
+                                                                                        { 
+                                                                                          classcontent.DecodeAllLines();
+                                                                                          classcontent.DeleteAllObjects();    
 
-                                                                                          sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, &confirmstr);                                                                                                            
+                                                                                          if(serializationmethod)
+                                                                                            {
+                                                                                              delete serializationmethod;
+                                                                                              serializationmethod = NULL;  
+                                                                                            } 
+
+                                                                                          serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
+                                                                                          GetRegisterData()->SetSerializationMethod(serializationmethod);         
+                                                                                                                                                                                                                    
+                                                                                          GetRegisterData()->Serialize();
+                                                                                          
+                                                                                          sended = SendMsg(header.GetIDMessage(), 100, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM,  &classcontent);                                                                                                            
                                                                                           if(sended)
                                                                                             {
                                                                                               messages.DeleteAll();
 
                                                                                               Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED); 
-                                                                                              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY); 
-
-                                                                                              GetRegisterData()->ShowDebug();
+                                                                                              SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                               
                                                                                             }
 
                                                                                           sended = false;
@@ -881,17 +885,23 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                 }
                                                                                else 
                                                                                 {
-                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, header, confirmstr))
+                                                                                  if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, header, classcontent))
                                                                                     {
-                                                                                      if(!confirmstr.Compare(DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM, true))
-                                                                                        {
-                                                                                          messages.DeleteAll();
+                                                                                      GetRegisterData()->Deserialize();   
+                                                                                      //GetRegisterData()->ShowDebug();  
 
-                                                                                          Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED); 
-                                                                                          SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                                           
-                                                                                        }
+                                                                                      messages.DeleteAll();
+
+                                                                                      Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS_REGISTERED); 
+                                                                                      SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);                                                                                                                                                                                                                                                                                      
                                                                                     }                                                                                                                                                             
                                                                                 }
+
+                                                                              if(serializationmethod)
+                                                                                {
+                                                                                  delete serializationmethod;
+                                                                                  serializationmethod = NULL;  
+                                                                                }                                                                                           
                                                                             }
                                                                             break; 
    
@@ -949,6 +959,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                       {
                                                                                         break;
                                                                                       } 
+
+                                                                                    GetRegisterData()->InitializeData(IsServer());
 
                                                                                     GetRegisterData()->SetSerializationMethod(serializationmethod);
                                                                                     GetRegisterData()->Serialize(); 

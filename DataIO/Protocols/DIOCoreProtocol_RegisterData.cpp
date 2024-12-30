@@ -107,6 +107,9 @@ bool DIOCOREPROTOCOL_REGISTERDATA::InitializeData(bool isserver)
   biosserialnumber  = GEN_XSYSTEM.GetBIOSSerialNumber()->Get();
   CPUserialnumber   = GEN_XSYSTEM.GetCPUSerialNumber()->Get();
 
+  GEN_XSYSTEM.GetPlatform(&plataformname);
+  GEN_XSYSTEM.GetOperativeSystemID(SOidentifier);
+
   GEN_XSYSTEM.GetUserAndDomain(user, domain);
 
   return true;
@@ -155,6 +158,36 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
 XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
 {
   return &CPUserialnumber;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOName()
+* @brief      GetSOName
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetPlataformName()
+{
+  return &plataformname;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOIdentifier()
+* @brief      GetSOIdentifier
+* @ingroup    DATAIO
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOIdentifier()
+{
+  return &SOidentifier;
 }
 
 
@@ -210,6 +243,10 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Serialize()
 
   Primitive_Add<XSTRING*>(&CPUserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_CPUSERIAL);
 
+  Primitive_Add<XSTRING*>(&plataformname, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_PLATAFORM);
+
+  Primitive_Add<XSTRING*>(&SOidentifier, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_SOIDENTIFIER);
+
   Primitive_Add<XSTRING*>(&user, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER);
 
   Primitive_Add<XSTRING*>(&domain, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_DOMAIN);
@@ -238,6 +275,10 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Deserialize()
   Primitive_Extract<XSTRING&>(biosserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL);
     
   Primitive_Extract<XSTRING&>(CPUserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_CPUSERIAL);
+
+  Primitive_Extract<XSTRING&>(plataformname, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_PLATAFORM); 
+
+  Primitive_Extract<XSTRING&>(SOidentifier, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_SOIDENTIFIER);
 
   Primitive_Extract<XSTRING&>(user, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER);
 
