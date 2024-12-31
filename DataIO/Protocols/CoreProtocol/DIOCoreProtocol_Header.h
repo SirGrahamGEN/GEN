@@ -59,7 +59,8 @@ enum DIOCOREPROTOCOL_HEADER_OPERATION
   DIOCOREPROTOCOL_HEADER_OPERATION_AUTHENTICATE             ,  
   DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA             ,  
   DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND                  ,
-  DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS                  
+  DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS              ,    
+  DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS                  
 };
 
 enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
@@ -87,6 +88,7 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
   #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_REGISTERDATA            __L("registerdata")
   #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_COMMAND                 __L("command")
   #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_UPDATECLASS             __L("updateclass")
+  #define DIOCOREPROTOCOL_HEADER_OPERATION_STRING_ASKUPDATECLASS          __L("askupdateclass")
   
   #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_NONE                  __L("none")
   #define DIOCOREPROTOCOL_HEADER_CONTENTTYPE_STRING_BINARY                __L("binary")
@@ -142,83 +144,83 @@ class COMPRESSBASE;
 class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
 {
   public:
-                                              DIOCOREPROTOCOL_HEADER        ();
-    virtual                                  ~DIOCOREPROTOCOL_HEADER        ();
+                                                  DIOCOREPROTOCOL_HEADER        ();
+    virtual                                      ~DIOCOREPROTOCOL_HEADER        ();
 
-    XUUID*                                    GetIDMessage                  ();
+    XUUID*                                        GetIDMessage                  ();
    
-    DIOCOREPROTOCOL_HEADER_MESSAGETYPE        GetMessageType                (); 
-    void                                      SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
+    DIOCOREPROTOCOL_HEADER_MESSAGETYPE            GetMessageType                (); 
+    void                                          SetMessageType                (DIOCOREPROTOCOL_HEADER_MESSAGETYPE message_type); 
     #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
-    bool                                      GetMessageTypeToString        (XSTRING& message_typestr); 
-    bool                                      GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type);
+    bool                                          GetMessageTypeToString        (XSTRING& message_typestr); 
+    bool                                          GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type);
     #endif
 
-    XBYTE                                     GetMessagePriority            ();
-    void                                      SetMessagePriority            (XBYTE message_priority);
+    XBYTE                                         GetMessagePriority            ();
+    void                                          SetMessagePriority            (XBYTE message_priority);
 
-    DIOCOREPROTOCOL_HEADER_OPERATION          GetOperation                  ();
-    void                                      SetOperation                  (DIOCOREPROTOCOL_HEADER_OPERATION operation);
+    DIOCOREPROTOCOL_HEADER_OPERATION              GetOperation                  ();
+    void                                          SetOperation                  (DIOCOREPROTOCOL_HEADER_OPERATION operation);
     #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
-    bool                                      GetOperationToString          (XSTRING& operationstr); 
-    bool                                      GetOperationFromString        (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation);
+    bool                                          GetOperationToString          (XSTRING& operationstr); 
+    bool                                          GetOperationFromString        (XSTRING* operationstr, DIOCOREPROTOCOL_HEADER_OPERATION& operation);
     #endif
     
-    XSTRING*                                  GetOperationParam             (); 
+    XSTRING*                                      GetOperationParam             (); 
     
-    XDATETIME*                                GetDateTimeSend               ();
+    XDATETIME*                                    GetDateTimeSend               ();
 
-    DIOCOREPROTOCOL_HEADER_CONTENTTYPE        GetContentType                (); 
-    void                                      SetContentType                (DIOCOREPROTOCOL_HEADER_CONTENTTYPE content_type); 
+    DIOCOREPROTOCOL_HEADER_CONTENTTYPE            GetContentType                (); 
+    void                                          SetContentType                (DIOCOREPROTOCOL_HEADER_CONTENTTYPE content_type); 
     #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
-    bool                                      GetContentTypeToString        (XSTRING& content_typestr); 
-    bool                                      GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type);   
+    bool                                          GetContentTypeToString        (XSTRING& content_typestr); 
+    bool                                          GetContentTypeFromString      (XSTRING* content_typestr, DIOCOREPROTOCOL_HEADER_CONTENTTYPE& content_type);   
     #endif
 
-    XDWORD                                    GetBlockIndex                 ();
-    void                                      SetBlockIndex                 (XDWORD block_index);
+    XDWORD                                        GetBlockIndex                 ();
+    void                                          SetBlockIndex                 (XDWORD block_index);
 
-    XDWORD                                    GetBlockAmount                ();
-    void                                      SetBlockAmount                (XDWORD block_amount);
+    XDWORD                                        GetBlockAmount                ();
+    void                                          SetBlockAmount                (XDWORD block_amount);
 
-    XDWORD                                    GetContentSize                ();        
-    void                                      SetContentSize                (XDWORD content_size);        
+    XDWORD                                        GetContentSize                ();        
+    void                                          SetContentSize                (XDWORD content_size);        
 
-    XDWORD                                    GetContentCompressSize        ();        
-    void                                      SetContentCompressSize        (XDWORD content_compresssize);        
+    XDWORD                                        GetContentCompressSize        ();        
+    void                                          SetContentCompressSize        (XDWORD content_compresssize);        
 
-    XDWORD                                    GetContentCRC32               ();        
-    void                                      SetContentCRC32               (XDWORD content_CRC32);        
+    XDWORD                                        GetContentCRC32               ();        
+    void                                          SetContentCRC32               (XDWORD content_CRC32);        
 
-    XFILEJSON*                                GetSerializationXFileJSON     ();      
-    XSERIALIZATIONMETHOD*                     GetSerializationMethod        ();
+    XFILEJSON*                                    GetSerializationXFileJSON     ();      
+    XSERIALIZATIONMETHOD*                         GetSerializationMethod        ();
 
-    bool                                      CopyFrom                      (DIOCOREPROTOCOL_HEADER* header);    
-    bool                                      CopyTo                        (DIOCOREPROTOCOL_HEADER* header);    
-    bool                                      Compare                       (DIOCOREPROTOCOL_HEADER* header);   
+    bool                                          CopyFrom                      (DIOCOREPROTOCOL_HEADER* header);    
+    bool                                          CopyTo                        (DIOCOREPROTOCOL_HEADER* header);    
+    bool                                          Compare                       (DIOCOREPROTOCOL_HEADER* header);   
 
-    bool                                      Serialize                     ();    
-    bool                                      Deserialize                   ();  
+    bool                                          Serialize                     ();    
+    bool                                          Deserialize                   ();  
    
   private:
 
-    void                                      Clean                         ();
+    void                                          Clean                         ();
         
-    XUUID                                     ID_message;
-    DIOCOREPROTOCOL_HEADER_MESSAGETYPE        message_type;  
-    XBYTE                                     message_priority;
-    DIOCOREPROTOCOL_HEADER_OPERATION          operation;
-    XSTRING                                   operation_param;
-    XDATETIME*                                datetime_send;
-    DIOCOREPROTOCOL_HEADER_CONTENTTYPE        content_type;   
-    XDWORD                                    block_index;
-    XDWORD                                    block_amount;
-    XDWORD                                    content_size;
-    XDWORD                                    content_compresssize;          
-    XDWORD                                    content_CRC32;          
+    XUUID                                         ID_message;
+    DIOCOREPROTOCOL_HEADER_MESSAGETYPE            message_type;  
+    XBYTE                                         message_priority;
+    DIOCOREPROTOCOL_HEADER_OPERATION              operation;
+    XSTRING                                       operation_param;
+    XDATETIME*                                    datetime_send;
+    DIOCOREPROTOCOL_HEADER_CONTENTTYPE            content_type;   
+    XDWORD                                        block_index;
+    XDWORD                                        block_amount;
+    XDWORD                                        content_size;
+    XDWORD                                        content_compresssize;          
+    XDWORD                                        content_CRC32;          
 
-    XFILEJSON                                 xfileJSON;      
-    XSERIALIZATIONMETHOD*                     serializationmethod;
+    XFILEJSON                                     xfileJSON;      
+    XSERIALIZATIONMETHOD*                         serializationmethod;
 };
 
 

@@ -51,9 +51,10 @@
 #define DIOCOREPROTOCOL_AUTHENTICATION_RESPONSE_OPERATION_PARAM           __L("response")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_SEND_OPERATION_PARAM             __L("registerdata send")
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM         __L("registerdata response")
-#define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM                          __L("registerdata ok")
+#define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM_PARAM                    __L("registerdata ok")
 
-#define DIOCOREPROTOCOL_UPDATECLASS_CONFIRM                               __L("status")
+#define DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM                         __L("status")
+
 
 enum DIOCOREPROTOCOL_BIDIRECTIONALITYMODE
 {
@@ -124,7 +125,10 @@ class DIOCOREPROTOCOL_UPDATECLASS
 
     XSERIALIZABLE*                                        GetClassPtr                         ();    
     void                                                  SetClassPtr                         (XSERIALIZABLE* classptr);    
-    
+
+    bool                                                  IsAsk                               ();
+    void                                                  SetIsAsk                            (bool isask);
+      
     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  GetBidirectionalityMode             ();
     void                                                  SetBidirectionalityMode             (DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
 
@@ -142,6 +146,7 @@ class DIOCOREPROTOCOL_UPDATECLASS
     
     XSTRING                                               classname;   
     XSERIALIZABLE*                                        classptr; 
+    bool                                                  isask;
     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  bidirectionalitymode;  
     XDWORD                                                timetoupdate; 
     XTIMER*                                               timerlastupdate;  
@@ -185,7 +190,7 @@ class DIOCOREPROTOCOL
     bool                                                  Commands_DeleteAll                  ();
 
     XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*                UpdateClass_GetAll                  ();
-    bool                                                  UpdateClass_Add                     (XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
+    bool                                                  UpdateClass_Add                     (bool isask, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
     DIOCOREPROTOCOL_UPDATECLASS*                          UpdateClass_Get                     (XCHAR* classname);
     bool                                                  UpdateClass_DeleteAll               ();
            

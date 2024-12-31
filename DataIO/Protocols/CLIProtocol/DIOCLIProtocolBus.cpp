@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOProtocolCLIBus.cpp
+* @file       DIOCLIProtocolBus.cpp
 * 
-* @class      DIOPROTOCOLCLIBUS
+* @class      DIOCLIPROTOCOLBUS
 * @brief      Data Input/Output protocol in CLI Bus class
 * @ingroup    DATAIO
 * 
@@ -37,7 +37,7 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "DIOProtocolCLIBus.h"
+#include "DIOCLIProtocolBus.h"
 
 #include "XFactory.h"
 #include "XRand.h"
@@ -61,34 +61,34 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
+* @fn         DIOCLIPROTOCOLBUS::DIOCLIPROTOCOLBUS()
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPROTOCOLCLIBUS::DIOPROTOCOLCLIBUS()
+DIOCLIPROTOCOLBUS::DIOCLIPROTOCOLBUS()
 
 {
   Clean();
 
-  nretries = DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES;
+  nretries = DIOCLIPROTOCOLBUS_SEND_DEFAULNRETRIES;
 
-	AddCommand(DIOPROTOCOLCLIBUS_COMMAND_VERSION			      , 0);
-	AddCommand(DIOPROTOCOLCLIBUS_COMMAND_PING					      , 0);
-  AddCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUM 				      , 0);
-  AddCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST        , 0);
+	AddCommand(DIOCLIPROTOCOLBUS_COMMAND_VERSION			      , 0);
+	AddCommand(DIOCLIPROTOCOLBUS_COMMAND_PING					      , 0);
+  AddCommand(DIOCLIPROTOCOLBUS_COMMAND_ENUM 				      , 0);
+  AddCommand(DIOCLIPROTOCOLBUS_COMMAND_ENUMREQUEST        , 0);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
+* @fn         DIOCLIPROTOCOLBUS::~DIOCLIPROTOCOLBUS()
 * @brief      Destructor
 * @note       VIRTUAL
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
+DIOCLIPROTOCOLBUS::~DIOCLIPROTOCOLBUS()
 
 {
   enum_remotedevices.DeleteContents();
@@ -100,7 +100,7 @@ DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
+* @fn         bool DIOCLIPROTOCOLBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 * @brief      Ini
 * @ingroup    DATAIO
 * 
@@ -111,7 +111,7 @@ DIOPROTOCOLCLIBUS::~DIOPROTOCOLCLIBUS()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
+bool DIOCLIPROTOCOLBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 {	
 	this->ID = ID;
 
@@ -121,10 +121,10 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
   GEN_XFACTORY_CREATE(enum_mutex, Create_Mutex());
   if(!enum_mutex) return false;
 
-  threadsendenumrequest	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini2"), ThreadSendEnumRequest, (void*)this);
+  threadsendenumrequest	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOCLIPROTOCOLBUS::Ini2"), ThreadSendEnumRequest, (void*)this);
   if(!threadsendenumrequest) return false;
 
-	threadreceivedcommand	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOPROTOCOLCLIBUS::Ini"), ThreadReceivedCommand,	(void*)this);
+	threadreceivedcommand	= CREATEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CLI_BUS, __L("DIOCLIPROTOCOLBUS::Ini"), ThreadReceivedCommand,	(void*)this);
   if(!threadreceivedcommand) return false;
 
   enum_timer = GEN_XFACTORY.CreateTimer();
@@ -132,13 +132,13 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
   	
   if(!threadreceivedcommand->Ini()) return false;
 
-  return DIOPROTOCOLCLI::Ini(diostream, ID, timeout);  
+  return DIOCLIPROTOCOL::Ini(diostream, ID, timeout);  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
+* @fn         bool DIOCLIPROTOCOLBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
 * @brief      GetVersion
 * @ingroup    DATAIO
 * 
@@ -149,7 +149,7 @@ bool DIOPROTOCOLCLIBUS::Ini(DIOSTREAM* diostream, XCHAR* ID, int timeout)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
+bool DIOCLIPROTOCOLBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerror)
 {
   if((!version) && (!subversion) && (!subversionerror)) return false;
 
@@ -163,7 +163,7 @@ bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
+* @fn         void DIOCLIPROTOCOLBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
 * @brief      SetVersion
 * @ingroup    DATAIO
 * 
@@ -172,7 +172,7 @@ bool DIOPROTOCOLCLIBUS::GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& 
 * @param[in]  subversionerror : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
+void DIOCLIPROTOCOLBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerror)
 {
   this->version         = version;
   this->subversion      = subversion;
@@ -182,7 +182,7 @@ void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
+* @fn         bool DIOCLIPROTOCOLBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
 * @brief      EnumRemoteDevices
 * @ingroup    DATAIO
 * 
@@ -192,7 +192,7 @@ void DIOPROTOCOLCLIBUS::SetVersion(XDWORD version, XDWORD subversion, XDWORD sub
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
+bool DIOCLIPROTOCOLBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWORD maxtime)
 {
   bool status = false;
 
@@ -201,7 +201,7 @@ bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWO
 
   if(!enum_timer) return false;
 
-  SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUM, NULL, NULL, 0);
+  SendCommand(DIOCLIPROTOCOLBUS_COMMAND_ENUM, NULL, NULL, 0);
     
   enum_maxtimersec = maxtime;
 
@@ -226,7 +226,7 @@ bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
+* @fn         bool DIOCLIPROTOCOLBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
 * @brief      GetEnumRemoteDevices
 * @ingroup    DATAIO
 * 
@@ -235,7 +235,7 @@ bool DIOPROTOCOLCLIBUS::EnumRemoteDevices(XVECTOR<XSTRING*>* remotedevices, XDWO
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
+bool DIOCLIPROTOCOLBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
 {
   if(!enum_timer)       return false;
   if(!enum_maxtimersec) return false;
@@ -258,14 +258,14 @@ bool DIOPROTOCOLCLIBUS::GetEnumRemoteDevices(XVECTOR<XSTRING*>& remotedevices)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         int DIOPROTOCOLCLIBUS::GetNRetries()
+* @fn         int DIOCLIPROTOCOLBUS::GetNRetries()
 * @brief      GetNRetries
 * @ingroup    DATAIO
 * 
 * @return     int : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOPROTOCOLCLIBUS::GetNRetries()
+int DIOCLIPROTOCOLBUS::GetNRetries()
 {
   return nretries;
 }
@@ -273,14 +273,14 @@ int DIOPROTOCOLCLIBUS::GetNRetries()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
+* @fn         void DIOCLIPROTOCOLBUS::SetNRetries(int nretries)
 * @brief      SetNRetries
 * @ingroup    DATAIO
 * 
 * @param[in]  nretries : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
+void DIOCLIPROTOCOLBUS::SetNRetries(int nretries)
 {
   this->nretries = nretries;
 }
@@ -289,7 +289,7 @@ void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
+* @fn         bool DIOCLIPROTOCOLBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
 * @brief      SendCommand
 * @ingroup    DATAIO
 * 
@@ -302,7 +302,7 @@ void DIOPROTOCOLCLIBUS::SetNRetries(int nretries)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
+bool DIOCLIPROTOCOLBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...)
 {
   if(!command) return false;
   
@@ -313,7 +313,7 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
   va_list arg;
 			
   va_start(arg, timeoutanswer);	
-  status = DIOPROTOCOLCLI::SendCommandArg(command, target, answer, timeoutanswer, &arg);           																		
+  status = DIOCLIPROTOCOL::SendCommandArg(command, target, answer, timeoutanswer, &arg);           																		
   va_end(arg);  
   
   if(xmutexsendcommand) xmutexsendcommand->UnLock();
@@ -324,7 +324,7 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+* @fn         bool DIOCLIPROTOCOLBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 * @brief      ReceivedCommand
 * @ingroup    DATAIO
 * 
@@ -336,29 +336,29 @@ bool DIOPROTOCOLCLIBUS::SendCommand(XCHAR* command, XSTRING* target, XSTRING* an
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
+bool DIOCLIPROTOCOLBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVECTOR<XSTRING*>& params, XSTRING& answer)
 {
   bool status = false;
   
 	answer.Empty();  
   
-  DIOPROTOCOLCLICOMMAND* protocolcommand = GetCommand(command.Get());
+  DIOCLIPROTOCOLCOMMAND* protocolcommand = GetCommand(command.Get());
 	if(protocolcommand) 
 		{
 			if(protocolcommand->GetNParams() < (int)params.GetSize()) return false;			
 
-			if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_VERSION, true))	  		 
+			if(!command.Compare(DIOCLIPROTOCOLBUS_COMMAND_VERSION, true))	  		 
 				{
 					answer.Format(__L("%d.%d.%d"), version, subversion, subversionerror); 
 					status = true;            
 				}
 
-			if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_PING, true))	  		 
+			if(!command.Compare(DIOCLIPROTOCOLBUS_COMMAND_PING, true))	  		 
 				{					
 					status = true;            
 				}
 
-      if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUM, true))	  		 
+      if(!command.Compare(DIOCLIPROTOCOLBUS_COMMAND_ENUM, true))	  		 
 				{		
           enum_mutex->Lock();
 
@@ -369,7 +369,7 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVE
           threadsendenumrequest->Ini();
 				}
       
-      if(!command.Compare(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, true))
+      if(!command.Compare(DIOCLIPROTOCOLBUS_COMMAND_ENUMREQUEST, true))
         {
           bool found = false;
 
@@ -402,12 +402,12 @@ bool DIOPROTOCOLCLIBUS::ReceivedCommand(XSTRING& originID, XSTRING& command, XVE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::End()
+* @fn         void DIOCLIPROTOCOLBUS::End()
 * @brief      End
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::End()
+void DIOCLIPROTOCOLBUS::End()
 {
   exitproccess = true;
 
@@ -445,22 +445,22 @@ void DIOPROTOCOLCLIBUS::End()
       enum_timer = NULL;
     }
 
-  return DIOPROTOCOLCLI::End();  
+  return DIOCLIPROTOCOL::End();  
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
+* @fn         void DIOCLIPROTOCOLBUS::ThreadReceivedCommand(void* param)
 * @brief      ThreadReceivedCommand
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
+void DIOCLIPROTOCOLBUS::ThreadReceivedCommand(void* param)
 {
-  DIOPROTOCOLCLIBUS* sp = (DIOPROTOCOLCLIBUS*)param;
+  DIOCLIPROTOCOLBUS* sp = (DIOCLIPROTOCOLBUS*)param;
 	if(!sp) return;
 
   if(sp->exitproccess) 
@@ -474,16 +474,16 @@ void DIOPROTOCOLCLIBUS::ThreadReceivedCommand(void* param)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
+* @fn         void DIOCLIPROTOCOLBUS::ThreadSendEnumRequest(void* param)
 * @brief      ThreadSendEnumRequest
 * @ingroup    DATAIO
 * 
 * @param[in]  param : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
+void DIOCLIPROTOCOLBUS::ThreadSendEnumRequest(void* param)
 {
-  DIOPROTOCOLCLIBUS* sp = (DIOPROTOCOLCLIBUS*)param;
+  DIOCLIPROTOCOLBUS* sp = (DIOCLIPROTOCOLBUS*)param;
 	if(!sp) return;
 
   if(sp->exitproccess) 
@@ -501,7 +501,7 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
     {    
       XSTRING answer;
   
-      bool status = sp->SendCommand(DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST, &sp->enum_sendoriginID, &answer, sp->enum_maxtimersec); 
+      bool status = sp->SendCommand(DIOCLIPROTOCOLBUS_COMMAND_ENUMREQUEST, &sp->enum_sendoriginID, &answer, sp->enum_maxtimersec); 
       if(status)
         {
           sp->enum_sendoriginID.Empty();
@@ -514,13 +514,13 @@ void DIOPROTOCOLCLIBUS::ThreadSendEnumRequest(void* param)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void DIOPROTOCOLCLIBUS::Clean()
+* @fn         void DIOCLIPROTOCOLBUS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
 * @ingroup    DATAIO
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOLCLIBUS::Clean()
+void DIOCLIPROTOCOLBUS::Clean()
 {
   version                 = 0;
   subversion              = 0;

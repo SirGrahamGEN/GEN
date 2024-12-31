@@ -93,6 +93,7 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::DIOCOREPROTOCOL_CONNECTIONSMANAGER()
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
   RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS); 
+  RegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_ASKUPDATECLASS); 
 }
 
 
@@ -110,7 +111,8 @@ DIOCOREPROTOCOL_CONNECTIONSMANAGER::~DIOCOREPROTOCOL_CONNECTIONSMANAGER()
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_READMSG);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_COMMANDRESPONSE);
   DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_UPDATECLASS);
- 
+  DeRegisterEvent(DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_ASKUPDATECLASS);
+
   Clean();
 }
 
@@ -692,11 +694,68 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
       status = GetResult(connection, &ID_message, resultcontent, timeout);                   
       if(status)
         {
-          XFILEJSONVALUE* value = resultcontent.GetValue(DIOCOREPROTOCOL_UPDATECLASS_CONFIRM);
+          XFILEJSONVALUE* value = resultcontent.GetValue(DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM);
           if(value)
             {
               status = value->GetValueBoolean();
             }  
+        }
+    }
+                                                                    
+  return status;       
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+* @brief      UpdateClass_DoAsk
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* @param[in]  message_priority : 
+* @param[in]  classname : 
+* @param[in]  classserializable : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+{
+  XUUID                 ID_message;      
+  bool                  status  = false;
+                                                
+  if(!connection)                                                                       
+    {                                                                                   
+      return false;                                                                     
+    }   
+
+  if(!classserializable)
+    {
+      return false;
+    } 
+                
+  if(connection->DoAskUpdateClass(&ID_message, message_priority, classname))
+    {     
+      XFILEJSON resultcontent;  
+                                                                              
+      status = GetResult(connection, &ID_message, resultcontent, timeout);                   
+      if(status)
+        {  
+          XSERIALIZATIONMETHOD* serializationmethod = XSERIALIZABLE::CreateInstance(resultcontent);
+          if(!serializationmethod)
+            {
+              return false;
+            }
+                 
+          classserializable->SetSerializationMethod(serializationmethod);
+          status = classserializable->Deserialize(); 
+
+          if(serializationmethod)
+            {
+              delete serializationmethod;
+            }
         }
     }
                                                                     
@@ -874,6 +933,58 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GetResult(DIOCOREPROTOCOL_CONNECTION* c
   
   GEN_XFACTORY.DeleteTimer(xtimer);
 
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassSerialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
+* @brief      UpdateClassSerialize
+* @ingroup    DATAIO
+* 
+* @param[in]  message : 
+* @param[in]  classcontent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassSerialize(DIOCOREPROTOCOL_MESSAGE* message, XSERIALIZABLE* classcontent)
+{
+  XFILEJSON              content;          
+  XSERIALIZATIONMETHOD*  serializationmethod = XSERIALIZABLE::CreateInstance(content);  
+  bool                   status              = false;
+
+  if(!classcontent)
+    {
+      return false;
+    }
+
+  if(!serializationmethod)
+    {
+      return false;  
+    } 
+
+  classcontent->Update();
+
+  classcontent->SetSerializationMethod(serializationmethod);    
+  
+  status = classcontent->Serialize();
+  if(status)
+    { 
+      XSTRING contentstring;
+      XBUFFER contentbinary;   
+     
+      content.EncodeAllLines();
+      content.GetAllInOneLine(contentstring);
+      contentstring.ConvertToUTF8(contentbinary);
+      
+      message->GetContent()->Empty();
+      message->GetContent()->Add(contentbinary);
+    } 
+                
+  delete serializationmethod;
+                      
   return status;
 }
 
@@ -1313,33 +1424,47 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                     {                                                                             
                                       switch(message[0]->GetHeader()->GetOperation())
                                         {
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN     : break;
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN         : break;
 
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND     : if(Received_AllCommandMessages(connection, message[0]))
-                                                                                                {                                                                                                       
-                                                                                                  message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
-                                                                                                  if(message[1]) 
-                                                                                                    {
-                                                                                                      message[1]->SetIsConsumed(true);                                                                                                  
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_COMMAND         : if(Received_AllCommandMessages(connection, message[0]))
+                                                                                                    {                                                                                                       
+                                                                                                      message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
+                                                                                                      if(message[1]) 
+                                                                                                        {
+                                                                                                          message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                        }
                                                                                                     }
-                                                                                                }
 
-                                                                                              // Test show message status
-                                                                                              messages->ShowDebug(connection->IsServer());                                                                                              
-                                                                                              break;
+                                                                                                  // Test show message status
+                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  break;
 
-                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS : if(Received_AllUpdateClassMessages(connection, message[0]))
-                                                                                                {                                                                                                       
-                                                                                                  message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
-                                                                                                  if(message[1]) 
-                                                                                                    {
-                                                                                                      message[1]->SetIsConsumed(true);                                                                                                  
+                                          
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS     : if(Received_AllUpdateClassMessages(connection, message[0]))
+                                                                                                    {                                                                                                       
+                                                                                                      message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
+                                                                                                      if(message[1]) 
+                                                                                                        {
+                                                                                                          message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                        }
                                                                                                     }
-                                                                                                }
 
-                                                                                              // Test show message status
-                                                                                              messages->ShowDebug(connection->IsServer());                                                                                              
-                                                                                              break;
+                                                                                                  // Test show message status
+                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  break;
+
+                                          case DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS  : if(Received_AllAskUpdateClassMessages(connection, message[0]))
+                                                                                                    {                                                                                                       
+                                                                                                      message[1] = messages->GetAll()->GetElement(indexmsg);                                                                                     
+                                                                                                      if(message[1]) 
+                                                                                                        {
+                                                                                                          message[1]->SetIsConsumed(true);                                                                                                  
+                                                                                                        }
+                                                                                                    }
+
+                                                                                                  // Test show message status
+                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  break;
                                         }                                       
                                     }
                                 }
@@ -1686,6 +1811,145 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AllAskUpdateClassMessages
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* @param[in]  message : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+{
+  if(!connection)
+    {
+      return false;
+    }  
+
+  if(!message)
+    {
+      return false;
+    }
+
+  if(message->GetHeader()->GetOperation() != DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS)
+    {
+      return false;
+    }
+
+  DIOCOREPROTOCOL* protocol = connection->GetCoreProtocol();
+  if(!protocol)
+    {
+      return false;
+    }
+  
+  bool managermessage = false;
+  bool status         = false;
+
+  for(XDWORD c=0; c<protocol->UpdateClass_GetAll()->GetSize(); c++)
+    {
+      DIOCOREPROTOCOL_UPDATECLASS* updateclass = protocol->UpdateClass_GetAll()->Get(c);
+      if(updateclass)
+        {      
+          if(!message->GetHeader()->GetOperationParam()->Compare(updateclass->GetClassName()->Get(), true))
+            {
+              message->SetIsConsumed(true);
+
+              connection->SetHeartBetsCounter(0);    
+              connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY); 
+
+              XFILEJSON              content;          
+              XSERIALIZATIONMETHOD*  serializationmethod = XSERIALIZABLE::CreateInstance(content);             
+
+              updateclass->GetClassPtr()->Update();
+
+              updateclass->GetClassPtr()->SetSerializationMethod(serializationmethod);                            
+              updateclass->GetClassPtr()->Serialize();
+
+              if(serializationmethod)
+                {
+                  delete serializationmethod;
+                }    
+   
+              status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);
+              if(status)
+                {                                    
+                  managermessage = true;      
+                }         
+            }    
+        }
+    }
+
+  if(!managermessage)
+    {
+      status = Received_AdditionalAskUpdateClassMessages(connection, message);
+    }
+   else
+    {
+      status = true;
+    }
+ 
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+* @brief      Received_AdditionalAskUpdateClassMessages
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* @param[in]  message : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalAskUpdateClassMessages(DIOCOREPROTOCOL_CONNECTION* connection, DIOCOREPROTOCOL_MESSAGE* message)
+{ 
+  bool status = false;
+
+  if(!connection)
+    {
+      return false;
+    }  
+
+  if(!message)
+    {
+      return false;
+    }
+ 
+  if(message->GetHeader()->GetOperation() == DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS)
+    {
+      DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT xevent(this, DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE_ASKUPDATECLASS);
+      xevent.SetConnection(connection);
+      xevent.SetMsg(message);
+                      
+      status = PostEvent(&xevent);       
+
+      message->SetIsConsumed(true);
+
+      connection->SetHeartBetsCounter(0);    
+      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);  
+
+      if(status)
+        {     
+          XFILEJSON content;
+
+          content.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
+          content.DecodeAllLines();
+                     
+          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);          
+        }           
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& xfileJSON, bool statusresponse)
 * @brief      GenerateResponseUpdateClass
 * @ingroup    DATAIO
@@ -1715,7 +1979,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::GenerateResponseUpdateClass(XFILEJSON& 
       xfileJSON.SetRoot(root);
     }
 
-   XFILEJSON_ADDVALUE(root, DIOCOREPROTOCOL_UPDATECLASS_CONFIRM, (bool*)statusresponse);   
+  XFILEJSON_ADDVALUE(root, DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM, (bool*)statusresponse);   
 
   return true;         
 }
@@ -2044,7 +2308,15 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                                 {
                                   bool status;
                          
-                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                  if(updateclass->IsAsk())
+                                    {  
+                                      status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                    }
+                                   else
+                                    { 
+                                      status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                    }
+                                
                                   if(status)
                                     {
                                       updateclass->GetTimerLastUpdate()->Reset();

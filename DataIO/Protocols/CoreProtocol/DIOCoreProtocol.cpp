@@ -273,6 +273,36 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetClassPtr(XSERIALIZABLE* classptr)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
+* @brief      IsAsk
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_UPDATECLASS::IsAsk()
+{
+  return isask;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
+* @brief      SetIsAsk
+* @ingroup    DATAIO
+* 
+* @param[in]  isask : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetIsAsk(bool isask)
+{
+  this->isask = isask;  
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         DIOCOREPROTOCOL_BIDIRECTIONALITYMODE DIOCOREPROTOCOL_UPDATECLASS::GetBidirectionalityMode()
 * @brief      GetBidirectionalityMode
 * @ingroup    DATAIO
@@ -390,6 +420,7 @@ void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 {  
   classname.Empty();   
   classptr              = NULL;
+  isask                 = false;  
   bidirectionalitymode  = DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_NONE;
 
   timetoupdate          = 0;
@@ -1323,18 +1354,20 @@ XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*  DIOCOREPROTOCOL::UpdateClass_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 * @brief      UpdateClass_Add
 * @ingroup    DATAIO
 * 
+* @param[in]  isask : 
 * @param[in]  classname : 
 * @param[in]  classptr : 
+* @param[in]  timetoupdate : 
 * @param[in]  bidirectionalitymode : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 {
   if(!classname)
     {
@@ -1352,6 +1385,7 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(XCHAR* classname, XSERIALIZABLE* classptr,
       return false;
     }
 
+  updateclass->SetIsAsk(isask);
   updateclass->GetClassName()->Set(classname);
   if(updateclass->GetClassName()->IsEmpty())
     {

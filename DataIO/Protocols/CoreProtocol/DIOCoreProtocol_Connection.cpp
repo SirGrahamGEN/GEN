@@ -690,16 +690,37 @@ bool DIOCOREPROTOCOL_CONNECTION::DoUpdateClass(XUUID* ID_message, XBYTE message_
     {
       return false;
     }
+  
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS, classname, classcontent);
 
-  /*
-  DIOCOREPROTOCOL_UPDATECLASS* coreprotocol_updateclass = protocol->UpdateClass_Get(classname);
-  if(!coreprotocol_updateclass)
+  return status; 
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::DoAskUpdateClass(XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XSTRING* classcontent)
+* @brief      DoAskUpdateClass
+* @ingroup    DATAIO
+* 
+* @param[in]  ID_message : 
+* @param[in]  message_priority : 
+* @param[in]  classname : 
+* @param[in]  classcontent : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTION::DoAskUpdateClass(XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XSTRING* classcontent)
+{
+  bool status = false;
+  
+  if(!protocol)
     {
       return false;
     }
-  */
   
-  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_UPDATECLASS, classname, classcontent);
+  status = SendMsg(ID_message, message_priority, DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS, classname, classcontent);
 
   return status; 
 }

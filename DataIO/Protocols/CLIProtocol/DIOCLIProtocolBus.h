@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOProtocolCLIBus.h
+* @file       DIOCLIProtocolBus.h
 * 
-* @class      DIOPROTOCOLCLIBUS
+* @class      DIOCLIPROTOCOLBUS
 * @brief      Data Input/Output protocol in CLI Bus class
 * @ingroup    DATAIO
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOPROTOCOLCLIBUS_H_
-#define _DIOPROTOCOLCLIBUS_H_
+#ifndef _DIOCLIPROTOCOLBUS_H_
+#define _DIOCLIPROTOCOLBUS_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -36,7 +36,7 @@
 #include "XVector.h"
 #include "XThreadCollected.h"
 
-#include "DIOProtocolCLI.h"
+#include "DIOCLIProtocol.h"
 
 #pragma endregion
 
@@ -44,13 +44,13 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
-#define DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME     30
-#define DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES     3
+#define DIOCLIPROTOCOLBUS_ENUM_DEFAULTMAXTIME     30
+#define DIOCLIPROTOCOLBUS_SEND_DEFAULNRETRIES     3
 
-#define DIOPROTOCOLCLIBUS_COMMAND_VERSION			    __L("version")
-#define DIOPROTOCOLCLIBUS_COMMAND_PING   			    __L("ping")
-#define DIOPROTOCOLCLIBUS_COMMAND_ENUM  			    __L("enum")
-#define DIOPROTOCOLCLIBUS_COMMAND_ENUMREQUEST     __L("enumrequest")
+#define DIOCLIPROTOCOLBUS_COMMAND_VERSION			    __L("version")
+#define DIOCLIPROTOCOLBUS_COMMAND_PING   			    __L("ping")
+#define DIOCLIPROTOCOLBUS_COMMAND_ENUM  			    __L("enum")
+#define DIOCLIPROTOCOLBUS_COMMAND_ENUMREQUEST     __L("enumrequest")
 
 #pragma endregion
 
@@ -59,22 +59,22 @@
 #pragma region CLASS
 
 
-class DIOPROTOCOLCLIBUS : public DIOPROTOCOLCLI
+class DIOCLIPROTOCOLBUS : public DIOCLIPROTOCOL
 {
   public:
-                            DIOPROTOCOLCLIBUS             ();
-    virtual                ~DIOPROTOCOLCLIBUS             ();
+                            DIOCLIPROTOCOLBUS             ();
+    virtual                ~DIOCLIPROTOCOLBUS             ();
     
-    bool                    Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOPROTOCOLCLI_TIMEOUT);
+    bool                    Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOCLIPROTOCOL_TIMEOUT);
 
     bool                    GetVersion                    (XDWORD& version, XDWORD& subversion, XDWORD& subversionerror);
     void                    SetVersion                    (XDWORD version, XDWORD subversion, XDWORD subversionerror);    
    
-    bool                    EnumRemoteDevices             (XVECTOR<XSTRING*>* remotedevices = NULL, XDWORD maxtime = DIOPROTOCOLCLIBUS_ENUM_DEFAULTMAXTIME);
+    bool                    EnumRemoteDevices             (XVECTOR<XSTRING*>* remotedevices = NULL, XDWORD maxtime = DIOCLIPROTOCOLBUS_ENUM_DEFAULTMAXTIME);
     bool                    GetEnumRemoteDevices          (XVECTOR<XSTRING*>& remotedevices);
     
     int                     GetNRetries                   ();
-    void                    SetNRetries                   (int nretries = DIOPROTOCOLCLIBUS_SEND_DEFAULNRETRIES);
+    void                    SetNRetries                   (int nretries = DIOCLIPROTOCOLBUS_SEND_DEFAULNRETRIES);
 
     bool                    SendCommand                   (XCHAR* command, XSTRING* target, XSTRING* answer, int timeoutanswer, ...);
 

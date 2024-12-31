@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOProtocolCLI.h
+* @file       DIOCLIProtocol.h
 * 
-* @class      DIOPROTOCOLCLI
+* @class      DIOCLIPROTOCOL
 * @brief      Data Input/Output protocol in CLI class
 * @ingroup    DATAIO
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOPROTOCOLCLI_H_
-#define _DIOPROTOCOLCLI_H_
+#ifndef _DIOCLIPROTOCOL_H_
+#define _DIOCLIPROTOCOL_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -43,31 +43,31 @@
 #pragma region DEFINES_ENUMS
 
 
-enum DIOPROTOCOLCLI_ERROR
+enum DIOCLIPROTOCOL_ERROR
 {
-  DIOPROTOCOLCLI_ERROR_NONE                    = 0 ,
-  DIOPROTOCOLCLI_ERROR_INTERNAL                    ,
-  DIOPROTOCOLCLI_ERROR_INVALIDCOMMAND              ,
-  DIOPROTOCOLCLI_ERROR_INVALIDPARAM                ,
-  DIOPROTOCOLCLI_ERROR_INSUFFICIENTPARAMS          ,
-  DIOPROTOCOLCLI_ERROR_ERROREXECCOMMAND            ,
-  DIOPROTOCOLCLI_ERROR_TIMEOUT                     ,
-  DIOPROTOCOLCLI_ERROR_WRITECMD                    ,
-  DIOPROTOCOLCLI_ERROR_NOTANSWER                   ,
+  DIOCLIPROTOCOL_ERROR_NONE                    = 0 ,
+  DIOCLIPROTOCOL_ERROR_INTERNAL                    ,
+  DIOCLIPROTOCOL_ERROR_INVALIDCOMMAND              ,
+  DIOCLIPROTOCOL_ERROR_INVALIDPARAM                ,
+  DIOCLIPROTOCOL_ERROR_INSUFFICIENTPARAMS          ,
+  DIOCLIPROTOCOL_ERROR_ERROREXECCOMMAND            ,
+  DIOCLIPROTOCOL_ERROR_TIMEOUT                     ,
+  DIOCLIPROTOCOL_ERROR_WRITECMD                    ,
+  DIOCLIPROTOCOL_ERROR_NOTANSWER                   ,
 };
 
-#define DIOPROTOCOLCLI_MARK_DONOTANSWER     __C('#')
-#define DIOPROTOCOLCLI_MARK_ISANSWER        __C('>')
-#define DIOPROTOCOLCLI_MARK_ORIGIN          __L("[@]")
-#define DIOPROTOCOLCLI_MARK_TARGET          __L("[$]") 
-#define DIOPROTOCOLCLI_MARK_BROADCAST       __L("[*]") 
-#define DIOPROTOCOLCLI_MARK_ANSWER          __L("[-]") 
-#define DIOPROTOCOLCLI_MARK_CRC32           __L("[|]") 
+#define DIOCLIPROTOCOL_MARK_DONOTANSWER     __C('#')
+#define DIOCLIPROTOCOL_MARK_ISANSWER        __C('>')
+#define DIOCLIPROTOCOL_MARK_ORIGIN          __L("[@]")
+#define DIOCLIPROTOCOL_MARK_TARGET          __L("[$]") 
+#define DIOCLIPROTOCOL_MARK_BROADCAST       __L("[*]") 
+#define DIOCLIPROTOCOL_MARK_ANSWER          __L("[-]") 
+#define DIOCLIPROTOCOL_MARK_CRC32           __L("[|]") 
 
-#define DIOPROTOCOLCLI_OK                   __L("ok")
-#define DIOPROTOCOLCLI_ERROR                __L("error")
+#define DIOCLIPROTOCOL_OK                   __L("ok")
+#define DIOCLIPROTOCOL_ERROR                __L("error")
 
-#define DIOPROTOCOLCLI_TIMEOUT              5  //Seconds
+#define DIOCLIPROTOCOL_TIMEOUT              5  //Seconds
 
 
 #pragma endregion
@@ -80,11 +80,11 @@ enum DIOPROTOCOLCLI_ERROR
 class DIOSTREAM;
 
 
-class DIOPROTOCOLCLICOMMAND
+class DIOCLIPROTOCOLCOMMAND
 {
   public:
-                                          DIOPROTOCOLCLICOMMAND         ();
-    virtual                              ~DIOPROTOCOLCLICOMMAND         ();
+                                          DIOCLIPROTOCOLCOMMAND         ();
+    virtual                              ~DIOCLIPROTOCOLCOMMAND         ();
     
     XCHAR*                                GetCommand                    ();
     int                                   GetNParams                    ();
@@ -99,11 +99,11 @@ class DIOPROTOCOLCLICOMMAND
 };
 
 
-class DIOPROTOCOLCLIANSWER
+class DIOCLIPROTOCOLANSWER
 {
   public:
-                                          DIOPROTOCOLCLIANSWER          ();                                       
-    virtual                              ~DIOPROTOCOLCLIANSWER          ();                                        
+                                          DIOCLIPROTOCOLANSWER          ();                                       
+    virtual                              ~DIOCLIPROTOCOLANSWER          ();                                        
 
     XSTRING*                              GetOriginID                   ();
     XSTRING*                              GetCommand                    ();
@@ -119,13 +119,13 @@ class DIOPROTOCOLCLIANSWER
 };
 
 
-class DIOPROTOCOLCLI
+class DIOCLIPROTOCOL
 {
   public:
-                                          DIOPROTOCOLCLI                ();
-    virtual                              ~DIOPROTOCOLCLI                ();
+                                          DIOCLIPROTOCOL                ();
+    virtual                              ~DIOCLIPROTOCOL                ();
 
-    virtual bool                          Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOPROTOCOLCLI_TIMEOUT);
+    virtual bool                          Ini                           (DIOSTREAM* diostream, XCHAR* ID, int timeout = DIOCLIPROTOCOL_TIMEOUT);
 
     bool                                  IsIni                         ();  
 
@@ -140,7 +140,7 @@ class DIOPROTOCOLCLI
     void                                  ReceivedCommandManager        ();
 
     bool                                  AddAnswer                     (XSTRING& originID, XSTRING& command, XSTRING& answer);
-    DIOPROTOCOLCLIANSWER*                 GetFirstAnswer                (XCHAR* command);
+    DIOCLIPROTOCOLANSWER*                 GetFirstAnswer                (XCHAR* command);
     bool                                  DeleteFirstAnswer             (XCHAR* command);
     bool                                  DeleteAllAnswers              ();
 
@@ -149,7 +149,7 @@ class DIOPROTOCOLCLI
   protected:
 
     bool                                  AddCommand                    (XCHAR* command, int nparams);
-    DIOPROTOCOLCLICOMMAND*                GetCommand                    (XCHAR* command);
+    DIOCLIPROTOCOLCOMMAND*                GetCommand                    (XCHAR* command);
     bool                                  DeleteAllCommand              ();
 
     bool                                  ExtractParamsFromCommand      (XSTRING& stringreceived, XSTRING& command, XVECTOR<XSTRING*>& params);
@@ -169,10 +169,10 @@ class DIOPROTOCOLCLI
     XTIMER*                               xtimerout;
     int                                   timeout;
 
-    XVECTOR<DIOPROTOCOLCLICOMMAND*>       commands;
+    XVECTOR<DIOCLIPROTOCOLCOMMAND*>       commands;
 
     XMUTEX*                               xmutexanswers;
-    XVECTOR<DIOPROTOCOLCLIANSWER*>        answers;
+    XVECTOR<DIOCLIPROTOCOLANSWER*>        answers;
 
     XSTRING                               laststringreceived;
 };

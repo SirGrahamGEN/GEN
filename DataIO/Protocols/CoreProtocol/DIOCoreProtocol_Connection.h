@@ -138,6 +138,7 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
     bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XFILEJSON* params);
 
     bool                                  DoUpdateClass                         (XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XFILEJSON* classcontent = NULL); 
+    bool                                  DoAskUpdateClass                      (XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XSTRING* classcontent = NULL);
     
     bool                                  Update                                ();  
 
