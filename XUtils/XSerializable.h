@@ -228,6 +228,9 @@ class XSERIALIZABLE
     bool                           DoSerialize                (XSERIALIZATIONMETHOD* serializationmethod);    
     bool                           DoDeserialize              (XSERIALIZATIONMETHOD* serializationmethod);   
 
+    bool                           HasBeenChanged             ();
+    void                           SetHasBeenChanged          (bool hasbeenchanged);
+                                 
     virtual bool                   Update                     ();
 
     virtual bool                   Serialize                  ();    
@@ -237,6 +240,7 @@ class XSERIALIZABLE
 
     void                           Clean                      ();   
 
+    bool                           hasbeenchanged;
     XSERIALIZATIONMETHOD*          serializationmethod; 
        
 };

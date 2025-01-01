@@ -1436,7 +1436,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                     }
 
                                                                                                   // Test show message status
-                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  // messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                                   break;
 
                                           
@@ -1450,7 +1450,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                     }
 
                                                                                                   // Test show message status
-                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  // messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                                   break;
 
                                           case DIOCOREPROTOCOL_HEADER_OPERATION_ASKUPDATECLASS  : if(Received_AllAskUpdateClassMessages(connection, message[0]))
@@ -1463,7 +1463,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Connections_ReadMessages()
                                                                                                     }
 
                                                                                                   // Test show message status
-                                                                                                  messages->ShowDebug(connection->IsServer());                                                                                              
+                                                                                                  // messages->ShowDebug(connection->IsServer());                                                                                              
                                                                                                   break;
                                         }                                       
                                     }
@@ -2282,7 +2282,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                 {                          
                   for(XDWORD c=0; c<protocol->UpdateClass_GetAll()->GetSize(); c++)
                     {
-                      bool validbidirectionaly =  true;   
+                      bool makeupdate = true;   
 
                       DIOCOREPROTOCOL_UPDATECLASS* updateclass = protocol->UpdateClass_GetAll()->Get(c);
                       if(updateclass)
@@ -2291,37 +2291,57 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                             {
                               if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
                                 {
-                                  validbidirectionaly = false;
+                                  makeupdate = false;
                                 }
                             }
                            else
                             {
                               if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
                                 {
-                                  validbidirectionaly = false;
+                                  makeupdate = false;
                                 }
                             }
 
-                          if(validbidirectionaly)
+                          if(updateclass->GetTimeToUpdate() != DIOCOREPROTOCOL_UPDATECLASS_FORCHANGE)
                             {
-                              if(updateclass->GetTimerLastUpdate()->GetMeasureSeconds() >= updateclass->GetTimeToUpdate())
+                              if(updateclass->GetTimerLastUpdate()->GetMeasureSeconds() < updateclass->GetTimeToUpdate())
                                 {
-                                  bool status;
-                         
-                                  if(updateclass->IsAsk())
-                                    {  
-                                      status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                  makeupdate = false;                                     
+                                }                               
+                            }
+                           else 
+                            {  
+                              if(updateclass->GetClassPtr())
+                                {
+                                  if(!updateclass->GetClassPtr()->HasBeenChanged())
+                                    {
+                                      makeupdate = false;    
                                     }
                                    else
-                                    { 
-                                      status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
-                                    }
-                                
-                                  if(status)
                                     {
-                                      updateclass->GetTimerLastUpdate()->Reset();
-                                    }                                                          
+                                      updateclass->GetClassPtr()->SetHasBeenChanged(false);
+                                    }           
                                 }
+                            }
+
+                          if(makeupdate)
+                            {                                                             
+                              bool status;
+                         
+                              if(updateclass->IsAsk())
+                                {  
+                                  status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                }
+                                else
+                                { 
+                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                }
+                                
+                              if(status)
+                                {
+                                  updateclass->GetTimerLastUpdate()->Reset();
+                                }                                                          
+                                
                             }
                         }                        
                     }                   

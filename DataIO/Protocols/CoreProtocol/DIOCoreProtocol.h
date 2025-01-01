@@ -45,6 +45,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 #define DIOCOREPROTOCOL_KEYEXCHANGE_SERVER_OPERATION_PARAM                __L("key server")
 #define DIOCOREPROTOCOL_KEYEXCHANGE_CLIENT_OPERATION_PARAM                __L("key client")
 #define DIOCOREPROTOCOL_AUTHENTICATION_CHALLENGE_OPERATION_PARAM          __L("challenge")
@@ -54,6 +55,8 @@
 #define DIOCOREPROTOCOL_REGISTRATIONDATA_CONFIRM_PARAM                    __L("registerdata ok")
 
 #define DIOCOREPROTOCOL_UPDATECLASS_CONFIRM_PARAM                         __L("status")
+
+#define DIOCOREPROTOCOL_UPDATECLASS_FORCHANGE                             0  
 
 
 enum DIOCOREPROTOCOL_BIDIRECTIONALITYMODE
@@ -75,6 +78,7 @@ enum DIOCOREPROTOCOL_COMMAND_TYPE
 
 
 #define DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT       __L("hearbeat")
+
 
 #pragma endregion
 

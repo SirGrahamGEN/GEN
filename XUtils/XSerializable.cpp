@@ -279,6 +279,36 @@ bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool XSERIALIZABLE::HasBeenChanged()
+* @brief      HasBeenChanged
+* @ingroup    XUTILS
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XSERIALIZABLE::HasBeenChanged()
+{
+  return hasbeenchanged;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void XSERIALIZABLE::SetHasBeenChanged(bool hasbeenchanged)
+* @brief      SetHasBeenChanged
+* @ingroup    XUTILS
+* 
+* @param[in]  hasbeenchanged : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void XSERIALIZABLE::SetHasBeenChanged(bool hasbeenchanged)
+{
+  this->hasbeenchanged = hasbeenchanged;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         bool XSERIALIZABLE::Update()
 * @brief      Update
 * @ingroup    XUTILS
@@ -336,6 +366,7 @@ bool XSERIALIZABLE::Deserialize()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XSERIALIZABLE::Clean()
 {
+  hasbeenchanged      = false;
   serializationmethod = NULL;
 }
 
