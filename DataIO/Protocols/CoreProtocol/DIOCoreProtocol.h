@@ -136,13 +136,13 @@ class DIOCOREPROTOCOL_UPDATECLASS
     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  GetBidirectionalityMode             ();
     void                                                  SetBidirectionalityMode             (DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
 
+    bool                                                  IsInitialUpdate                     ();
+    void                                                  SetIsInitialUpdate                  (bool isinitialupdate);
+
     XDWORD                                                GetTimeToUpdate                     ();
     void                                                  SetTimeToUpdate                     (XDWORD timetoupdate);
 
     XTIMER*                                               GetTimerLastUpdate                  ();
-
-    XQWORD                                                GetNUpdates                         ();  
-    XQWORD                                                AddNUpdates                         ();  
     
   private:
     
@@ -150,11 +150,11 @@ class DIOCOREPROTOCOL_UPDATECLASS
     
     XSTRING                                               classname;   
     XSERIALIZABLE*                                        classptr; 
-    bool                                                  isask;
+    bool                                                  isask;    
     DIOCOREPROTOCOL_BIDIRECTIONALITYMODE                  bidirectionalitymode;  
+    bool                                                  isinitialupdate;
     XDWORD                                                timetoupdate; 
-    XTIMER*                                               timerlastupdate;  
-    XQWORD                                                nupdates;          
+    XTIMER*                                               timerlastupdate;      
 };
 
 
@@ -194,7 +194,7 @@ class DIOCOREPROTOCOL
     bool                                                  Commands_DeleteAll                  ();
 
     XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*                UpdateClass_GetAll                  ();
-    bool                                                  UpdateClass_Add                     (bool isask, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
+    bool                                                  UpdateClass_Add                     (bool isask, XCHAR* classname, XSERIALIZABLE* classcontent, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode);
     DIOCOREPROTOCOL_UPDATECLASS*                          UpdateClass_Get                     (XCHAR* classname);
     bool                                                  UpdateClass_DeleteAll               ();
            

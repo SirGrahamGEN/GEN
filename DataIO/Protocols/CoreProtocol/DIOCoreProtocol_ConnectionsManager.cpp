@@ -676,9 +676,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
     {
       return false;
     } 
-
-  classserializable->Update();
-
+  
   classserializable->SetSerializationMethod(serializationmethod);
   classserializable->Serialize(); 
 
@@ -964,8 +962,6 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClassSerialize(DIOCOREPROTOCOL_ME
     {
       return false;  
     } 
-
-  classcontent->Update();
 
   classcontent->SetSerializationMethod(serializationmethod);    
   
@@ -1861,9 +1857,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOC
 
               XFILEJSON              content;          
               XSERIALIZATIONMETHOD*  serializationmethod = XSERIALIZABLE::CreateInstance(content);             
-
-              updateclass->GetClassPtr()->Update();
-
+              
               updateclass->GetClassPtr()->SetSerializationMethod(serializationmethod);                            
               updateclass->GetClassPtr()->Serialize();
 
@@ -2302,25 +2296,35 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                                 }
                             }
 
-                          if(updateclass->GetTimeToUpdate() != DIOCOREPROTOCOL_UPDATECLASS_FORCHANGE)
+                          if(makeupdate)
                             {
-                              if(updateclass->GetTimerLastUpdate()->GetMeasureSeconds() < updateclass->GetTimeToUpdate())
+                              if(updateclass->IsInitialUpdate())
                                 {
-                                  makeupdate = false;                                     
-                                }                               
-                            }
-                           else 
-                            {  
-                              if(updateclass->GetClassPtr())
+                                  updateclass->SetIsInitialUpdate(false);
+                                }
+                               else
                                 {
-                                  if(!updateclass->GetClassPtr()->HasBeenChanged())
+                                  if(updateclass->GetTimeToUpdate() != DIOCOREPROTOCOL_UPDATECLASS_FORCHANGE)
                                     {
-                                      makeupdate = false;    
+                                      if(updateclass->GetTimerLastUpdate()->GetMeasureSeconds() < updateclass->GetTimeToUpdate())
+                                        {
+                                          makeupdate = false;                                     
+                                        }                               
                                     }
-                                   else
-                                    {
-                                      updateclass->GetClassPtr()->SetHasBeenChanged(false);
-                                    }           
+                                   else 
+                                    {  
+                                      if(updateclass->GetClassPtr())
+                                        {
+                                          if(!updateclass->GetClassPtr()->HasBeenChanged())
+                                            {
+                                              makeupdate = false;    
+                                            }
+                                           else
+                                            {
+                                              updateclass->GetClassPtr()->SetHasBeenChanged(false);
+                                            }           
+                                        }
+                                    }
                                 }
                             }
 
@@ -2330,11 +2334,11 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                          
                               if(updateclass->IsAsk())
                                 {  
-                                  status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                  status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
                                 }
                                 else
                                 { 
-                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3); 
+                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
                                 }
                                 
                               if(status)

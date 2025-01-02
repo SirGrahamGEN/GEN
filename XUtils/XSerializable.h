@@ -230,11 +230,9 @@ class XSERIALIZABLE
 
     bool                           HasBeenChanged             ();
     void                           SetHasBeenChanged          (bool hasbeenchanged);
-                                 
-    virtual bool                   Update                     ();
-
+                                     
     virtual bool                   Serialize                  ();    
-    virtual bool                   Deserialize                ();  
+    virtual bool                   Deserialize                ();   
     
   private:
 
@@ -242,6 +240,8 @@ class XSERIALIZABLE
 
     bool                           hasbeenchanged;
     XSERIALIZATIONMETHOD*          serializationmethod; 
+
+    XBUFFER                        cache;
        
 };
 

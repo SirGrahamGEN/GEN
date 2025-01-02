@@ -288,6 +288,36 @@ bool XSERIALIZABLE::DoDeserialize(XSERIALIZATIONMETHOD* serializationmethod)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSERIALIZABLE::HasBeenChanged()
 {
+  if(!hasbeenchanged)
+    {
+      XFILEJSON               content;
+      
+      XSERIALIZATIONMETHOD*   serializationmethod = XSERIALIZABLE::CreateInstance(content);             
+              
+      if(serializationmethod)  
+        {
+          XSTRING contentstring;         
+          XBUFFER contentbinary;   
+
+          SetSerializationMethod(serializationmethod);                            
+          Serialize();
+
+          content.EncodeAllLines();
+          content.GetAllInOneLine(contentstring);
+          contentstring.ConvertToUTF8(contentbinary);
+
+          SetSerializationMethod(NULL);  
+          delete serializationmethod;  
+
+          hasbeenchanged = !contentbinary.Compare(cache);
+          if(hasbeenchanged)
+            {
+              cache.Empty();
+              cache.Add(contentbinary);    
+            }                                 
+        }
+    }
+
   return hasbeenchanged;
 }
 
@@ -304,21 +334,6 @@ bool XSERIALIZABLE::HasBeenChanged()
 void XSERIALIZABLE::SetHasBeenChanged(bool hasbeenchanged)
 {
   this->hasbeenchanged = hasbeenchanged;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool XSERIALIZABLE::Update()
-* @brief      Update
-* @ingroup    XUTILS
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool XSERIALIZABLE::Update()
-{
-  return false;
 }
 
 

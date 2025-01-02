@@ -333,6 +333,36 @@ void DIOCOREPROTOCOL_UPDATECLASS::SetBidirectionalityMode(DIOCOREPROTOCOL_BIDIRE
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
+* @brief      IsInitialUpdate
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_UPDATECLASS::IsInitialUpdate()
+{
+  return isinitialupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
+* @brief      SetIsInitialUpdate
+* @ingroup    DATAIO
+* 
+* @param[in]  isinitialupdate : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_UPDATECLASS::SetIsInitialUpdate(bool isinitialupdate)
+{
+  this->isinitialupdate = isinitialupdate;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XDWORD DIOCOREPROTOCOL_UPDATECLASS::GetTimeToUpdate()
 * @brief      GetTimeToUpdate
 * @ingroup    DATAIO
@@ -378,38 +408,6 @@ XTIMER* DIOCOREPROTOCOL_UPDATECLASS::GetTimerLastUpdate()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
-* @brief      GetNUpdates
-* @ingroup    DATAIO
-* 
-* @return     XQWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XQWORD DIOCOREPROTOCOL_UPDATECLASS::GetNUpdates()
-{
-  return nupdates;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XQWORD DIOCOREPROTOCOL_UPDATECLASS::AddNUpdates()
-* @brief      AddNUpdates
-* @ingroup    DATAIO
-* 
-* @return     XQWORD : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XQWORD DIOCOREPROTOCOL_UPDATECLASS::AddNUpdates()
-{
-  nupdates++;
-
-  return nupdates;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
 * @fn         void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
@@ -423,10 +421,10 @@ void DIOCOREPROTOCOL_UPDATECLASS::Clean()
   isask                 = false;  
   bidirectionalitymode  = DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_NONE;
 
+  isinitialupdate       = false;
   timetoupdate          = 0;
   timerlastupdate       = NULL;
-  nupdates              = 0;
-}
+ }
 
 
 #pragma endregion
@@ -1354,20 +1352,21 @@ XVECTOR<DIOCOREPROTOCOL_UPDATECLASS*>*  DIOCOREPROTOCOL::UpdateClass_GetAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 * @brief      UpdateClass_Add
 * @ingroup    DATAIO
 * 
 * @param[in]  isask : 
 * @param[in]  classname : 
 * @param[in]  classptr : 
+* @param[in]  initupdate : 
 * @param[in]  timetoupdate : 
 * @param[in]  bidirectionalitymode : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
+bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABLE* classptr, bool initupdate, XDWORD timetoupdate, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE bidirectionalitymode)
 {
   if(!classname)
     {
@@ -1394,6 +1393,7 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
     }
 
   updateclass->SetClassPtr(classptr);  
+  updateclass->SetIsInitialUpdate(initupdate);
   updateclass->SetTimeToUpdate(timetoupdate);
   updateclass->SetBidirectionalityMode(bidirectionalitymode);
 
