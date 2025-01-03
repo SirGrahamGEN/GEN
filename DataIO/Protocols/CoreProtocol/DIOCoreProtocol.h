@@ -127,6 +127,8 @@ class DIOCOREPROTOCOL_UPDATECLASS
     
     XSTRING*                                              GetClassName                        ();
 
+    bool                                                  InitCache                           ();
+
     XSERIALIZABLE*                                        GetClassPtr                         ();    
     void                                                  SetClassPtr                         (XSERIALIZABLE* classptr);    
 

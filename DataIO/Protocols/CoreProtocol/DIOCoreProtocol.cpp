@@ -243,6 +243,30 @@ XSTRING* DIOCOREPROTOCOL_UPDATECLASS::GetClassName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         bool DIOCOREPROTOCOL_UPDATECLASS::InitCache()
+* @brief      InitCache
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_UPDATECLASS::InitCache()
+{
+  if(classptr)
+    {
+      return false;
+    }
+
+  classptr->HasBeenChanged();
+  classptr->SetHasBeenChanged(false);  
+
+  return false;
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XSERIALIZABLE* DIOCOREPROTOCOL_UPDATECLASS::GetClassPtr()
 * @brief      GetClassPtr
 * @ingroup    DATAIO
@@ -1396,6 +1420,8 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
   updateclass->SetIsInitialUpdate(initupdate);
   updateclass->SetTimeToUpdate(timetoupdate);
   updateclass->SetBidirectionalityMode(bidirectionalitymode);
+
+  updateclass->InitCache();
 
   return updateclasses.Add(updateclass);
 }

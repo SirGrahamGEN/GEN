@@ -195,8 +195,6 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
 { 
-  Connections_DeleteAll();
-
   if(automaticoperations_xthread)
     {
       automaticoperations_xthread->End();
@@ -209,7 +207,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::End()
       connections_xthread->End();
       DELETEXTHREAD(XTHREADGROUPID_DIOPROTOCOL_CONNECTIONMANAGER, connections_xthread);
       connections_xthread = NULL;
-    }  
+    }    
+
+  Connections_DeleteAll();
 
   if(connections_xmutex)
     {
@@ -2300,6 +2300,9 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                             {
                               if(updateclass->IsInitialUpdate())
                                 {
+                                  updateclass->GetClassPtr()->HasBeenChanged();
+                                  updateclass->GetClassPtr()->SetHasBeenChanged(false);
+
                                   updateclass->SetIsInitialUpdate(false);
                                 }
                                else
