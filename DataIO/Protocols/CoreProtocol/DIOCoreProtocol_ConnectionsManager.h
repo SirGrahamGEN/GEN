@@ -48,31 +48,31 @@
 #pragma region DEFINES_ENUMS
 
 
-#define COMMAND_DO_WITHOUTPARAMS(connection, message_priority, command_type, result, timeout)    { XUUID ID_message;                                                                     \
-                                                                                                   bool  status  = false;                                                                \
-                                                                                                   if(!connection)                                                                       \
-                                                                                                     {                                                                                   \
-                                                                                                       return false;                                                                     \
-                                                                                                     }                                                                                   \
-                                                                                                   if(connection->DoCommand(&ID_message, message_priority, command_type))                \
-                                                                                                     {                                                                                   \
-                                                                                                       status = GetResult(connection, &ID_message, result, timeout);                     \
-                                                                                                     }                                                                                   \
-                                                                                                   return status;                                                                        \
-                                                                                                 }                                                                                         
+#define COMMAND_DO_WITHOUTPARAMS(connection, command_type, result, timeout)    { XUUID ID_message;                                                                     \
+                                                                                 bool  status  = false;                                                                \
+                                                                                 if(!connection)                                                                       \
+                                                                                   {                                                                                   \
+                                                                                     return false;                                                                     \
+                                                                                   }                                                                                   \
+                                                                                 if(connection->DoCommand(&ID_message, command_type))                                  \
+                                                                                   {                                                                                   \
+                                                                                     status = GetResult(connection, &ID_message, result, timeout);                     \
+                                                                                   }                                                                                   \
+                                                                                 return status;                                                                        \
+                                                                               }                                                                                         
 
- #define COMMAND_DO(connection, message_priority, command_type, params, result, timeout)         { XUUID ID_message;                                                                     \
-                                                                                                   bool  status  = false;                                                                \
-                                                                                                   if(!connection)                                                                       \
-                                                                                                     {                                                                                   \
-                                                                                                       return false;                                                                     \
-                                                                                                     }                                                                                   \
-                                                                                                   if(connection->DoCommand(&ID_message, message_priority, command_type, params))        \
-                                                                                                     {                                                                                   \
-                                                                                                       status = GetResult(connection, &ID_message, result, timeout);                     \
-                                                                                                     }                                                                                   \
-                                                                                                   return status;                                                                        \
-                                                                                                 }                                                                                         
+ #define COMMAND_DO(connection, command_type, params, result, timeout)         { XUUID ID_message;                                                                     \
+                                                                                 bool  status  = false;                                                                \
+                                                                                 if(!connection)                                                                       \
+                                                                                   {                                                                                   \
+                                                                                     return false;                                                                     \
+                                                                                   }                                                                                   \
+                                                                                 if(connection->DoCommand(&ID_message, command_type, params))                          \
+                                                                                   {                                                                                   \
+                                                                                     status = GetResult(connection, &ID_message, result, timeout);                     \
+                                                                                   }                                                                                   \
+                                                                                 return status;                                                                        \
+                                                                               }                                                                                         
 
 
 
@@ -115,24 +115,24 @@ class DIOCOREPROTOCOL_CONNECTIONSMANAGER : public XOBSERVER, public XSUBJECT
 
     virtual DIOCOREPROTOCOL*                 CreateProtocol                                 (DIOCOREPROTOCOL_CONNECTION* connection, DIOSTREAM* diostream);    
 
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON& result, XDWORD timeout);
 
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout);
     
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout);
     
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
-    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout);
+    bool                                     Command_Do                                     (DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout);
     
-    bool                                     UpdateClass_Do                                 (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
-    bool                                     UpdateClass_DoAsk                              (DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout);
+    bool                                     UpdateClass_Do                                 (DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classcontent, XDWORD timeout);
+    bool                                     UpdateClass_DoAsk                              (DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout);
 
     bool                                     GetResult                                      (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XBUFFER& result, XDWORD timeout);
     bool                                     GetResult                                      (DIOCOREPROTOCOL_CONNECTION* connection, XUUID* ID_message, XSTRING& result, XDWORD timeout);

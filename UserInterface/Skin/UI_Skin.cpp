@@ -27,7 +27,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 
@@ -48,9 +48,16 @@
 #include "UI_Property_Scrolleable.h"
 #include "UI_Animation.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/

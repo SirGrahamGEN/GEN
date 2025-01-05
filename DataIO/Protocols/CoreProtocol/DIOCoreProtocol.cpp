@@ -27,7 +27,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 
@@ -53,9 +53,16 @@
 #include "DIOCoreProtocol_Header.h"
 #include "DIOCoreProtocol_CFG.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
@@ -864,19 +871,18 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  message_priority : 
 * @param[in]  operation : 
 * @param[in]  operation_param : 
 * 
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param)
 {
   DIOCOREPROTOCOL_HEADER* header = new DIOCOREPROTOCOL_HEADER();
   if(!header)
@@ -911,7 +917,6 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
       header->GetIDMessage()->CopyFrom((*ID_message));
     }
 
-  header->SetMessagePriority(message_priority), 
   header->SetOperation(operation);
   header->GetOperationParam()->Set(operation_param);
   header->GetDateTimeSend()->Read();
@@ -926,12 +931,11 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  message_priority : 
 * @param[in]  operation : 
 * @param[in]  operation_param : 
 * @param[in]  content : 
@@ -940,9 +944,9 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, message_priority, operation, operation_param);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, operation, operation_param);
   if(!header)
     {
       return NULL;
@@ -984,12 +988,11 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
-* @param[in]  ID_message : 
-* @param[in]  message_priority : 
+* @param[in]  ID_message :  
 * @param[in]  operation : 
 * @param[in]  operation_param : 
 * @param[in]  content : 
@@ -998,9 +1001,9 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, message_priority, operation, operation_param);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, operation, operation_param);
   if(!header)
     {
       return NULL;
@@ -1045,12 +1048,11 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult)
+* @fn         DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult)
 * @brief      CreateHeader
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  message_priority : 
 * @param[in]  operation : 
 * @param[in]  operation_param : 
 * @param[in]  content : 
@@ -1059,9 +1061,9 @@ DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE m
 * @return     DIOCOREPROTOCOL_HEADER* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult)
+DIOCOREPROTOCOL_HEADER* DIOCOREPROTOCOL::CreateHeader(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult)
 {
-  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, message_priority, operation, operation_param);
+  DIOCOREPROTOCOL_HEADER* header = CreateHeader(ID_message, operation, operation_param);
   if(!header)
     {
       return NULL;
@@ -1283,7 +1285,7 @@ XCHAR* DIOCOREPROTOCOL::Commands_Get(XDWORD type)
 {
   if(!type)
     {
-      return false;
+      return NULL;
     }
 
   for(XDWORD c=0; c<commands.GetSize(); c++)

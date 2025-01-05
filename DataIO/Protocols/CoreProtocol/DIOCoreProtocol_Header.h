@@ -100,8 +100,7 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
   #define DIOCOREPROTOCOL_HEADER_CONTENTOPERATION_STRING_UPDATE           __L("update")
   
   #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("ID_message")
-  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("message_type")
-  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("message_priority")
+  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("message_type")  
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("operation")
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM                      __L("operation_param")
   #define DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND                        __L("datetime_send")
@@ -116,7 +115,6 @@ enum DIOCOREPROTOCOL_HEADER_CONTENTTYPE
 
   #define DIOCOREPROTOCOL_HEADER_VAR_ID_MESSAGE                           __L("idm")
   #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE                         __L("mt")
-  #define DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY                     __L("mp")
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION                            __L("o")
   #define DIOCOREPROTOCOL_HEADER_VAR_OPERATION_PARAM                      __L("op")
   #define DIOCOREPROTOCOL_HEADER_VAR_DATETIME_SEND                        __L("dts")
@@ -155,9 +153,6 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
     bool                                          GetMessageTypeToString        (XSTRING& message_typestr); 
     bool                                          GetMessageTypeFromString      (XSTRING* message_typestr, DIOCOREPROTOCOL_HEADER_MESSAGETYPE& message_type);
     #endif
-
-    XBYTE                                         GetMessagePriority            ();
-    void                                          SetMessagePriority            (XBYTE message_priority);
 
     DIOCOREPROTOCOL_HEADER_OPERATION              GetOperation                  ();
     void                                          SetOperation                  (DIOCOREPROTOCOL_HEADER_OPERATION operation);
@@ -208,7 +203,6 @@ class DIOCOREPROTOCOL_HEADER : public XSERIALIZABLE
         
     XUUID                                         ID_message;
     DIOCOREPROTOCOL_HEADER_MESSAGETYPE            message_type;  
-    XBYTE                                         message_priority;
     DIOCOREPROTOCOL_HEADER_OPERATION              operation;
     XSTRING                                       operation_param;
     XDATETIME*                                    datetime_send;

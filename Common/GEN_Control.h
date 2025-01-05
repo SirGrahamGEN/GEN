@@ -1,10 +1,10 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       XStack.h
+* @file       GEN_Control.h
 * 
-* @class      XSTACK
-* @brief      eXtended Utils Stack template class
-* @ingroup    XUTILS
+* @class      GEN_CONTROL
+* @brief      GEN Control precompilated
+* @ingroup    PLATFORM_COMMON
 * 
 * @copyright  GEN Group. All rights reserved.
 * 
@@ -26,24 +26,15 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _XSTACK_H_
-#define _XSTACK_H_
+#ifndef _GEN_CONTROL_H_
+#define _GEN_CONTROL_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#include "XVector.h"
+#include "XMemory_Control.h"
 
 #pragma endregion
-
-
-/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_CONTROL_INCLUDE
-
-#include "GEN_Control.h"
-
-#pragma endregion
-
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
@@ -57,40 +48,6 @@
 #pragma region CLASS
 
 
-template<class T>
-class XSTACK
-{
-  public:
-                                  XSTACK        ()              {                                         }
-    virtual                      ~XSTACK        ()              {                                         }
-
-    bool                          IsEmpty       ()              { return stack.IsEmpty();                 }
-
-    XDWORD                        GetSize       ()              { return stack.GetSize();                 }
-    void                          Clear         ()
-                                  {
-                                    stack.DeleteContents();
-                                    stack.DeleteAll();
-                                  }
-
-    void                          Push          (T element)     { stack.Add(element);                     }
-    T                             Pop           ()
-                                  {
-                                    T element = stack.GetLast();
-                                    stack.Delete(element);
-                                    return element;
-                                  }
-
-    T                             Top           ()              { return stack.GetLast();                 }
-
-    XVECTOR<T>*                   GetVector     ()              { return &stack;                          }
-
-  private:
-
-    XVECTOR<T>                    stack;
-};
-
-
 #pragma endregion
 
 
@@ -102,4 +59,8 @@ class XSTACK
 
 
 #endif
+
+
+
+
 

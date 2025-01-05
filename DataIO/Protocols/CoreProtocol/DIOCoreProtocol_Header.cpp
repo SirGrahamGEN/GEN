@@ -27,7 +27,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 
@@ -47,9 +47,16 @@
 
 #include "CompressManager.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
@@ -222,35 +229,6 @@ bool DIOCOREPROTOCOL_HEADER::GetMessageTypeFromString(XSTRING* message_typestr, 
   return message_type;
 }
 #endif
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         XBYTE DIOCOREPROTOCOL_HEADER::GetMessagePriority()
-* @brief      GetMessagePriority
-* @ingroup    DATAIO
-* 
-* @return     XBYTE : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-XBYTE DIOCOREPROTOCOL_HEADER::GetMessagePriority()
-{
-  return message_priority;
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         void DIOCOREPROTOCOL_HEADER::SetMessagePriority(XBYTE message_priority)
-* @brief      SetMessagePriority
-* @ingroup    DATAIO
-* 
-* @param[in]  message_priority : 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-void DIOCOREPROTOCOL_HEADER::SetMessagePriority(XBYTE message_priority)
-{
-  this->message_priority = message_priority;
-}
 
 
 /**-------------------------------------------------------------------------------------------------------------------
@@ -711,8 +689,6 @@ bool DIOCOREPROTOCOL_HEADER::CopyFrom(DIOCOREPROTOCOL_HEADER* header)
   
   message_type          = header->GetMessageType();
 
-  message_priority      = header->GetMessagePriority();
-
   operation             = header->GetOperation();
   operation_param       = header->GetOperationParam()->Get();  
 
@@ -751,9 +727,7 @@ bool DIOCOREPROTOCOL_HEADER::CopyTo(DIOCOREPROTOCOL_HEADER* header)
   ID_message.CopyTo((*header->GetIDMessage()));  
   
   header->SetMessageType(message_type);
-
-  header->SetMessagePriority(message_priority);
-
+  
   header->SetOperation(operation);
   header->GetOperationParam()->Set(operation_param);  
 
@@ -795,11 +769,6 @@ bool DIOCOREPROTOCOL_HEADER::Compare(DIOCOREPROTOCOL_HEADER* header)
     }
  
   if(message_type != header->GetMessageType())
-    {
-      return false;
-    } 
-
-  if(message_priority != header->GetMessagePriority())
     {
       return false;
     } 
@@ -877,8 +846,6 @@ bool DIOCOREPROTOCOL_HEADER::Serialize()
     Primitive_Add<int>(message_type, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
   #endif
   
-  Primitive_Add<XBYTE>(message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
-
   #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE           
     GetOperationToString(string);  
     Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);    
@@ -937,8 +904,6 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
     Primitive_Extract<int&>((int&)message_type, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_TYPE);
   #endif
   
-  Primitive_Extract<XBYTE&>((XBYTE&)message_priority, DIOCOREPROTOCOL_HEADER_VAR_MESSAGE_PRIORITY);
-      
   #ifdef DIOCOREPROTOCOL_HUMANFORMAT_ACTIVE
     Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_HEADER_VAR_OPERATION);
     GetOperationFromString(&string, operation);    
@@ -986,7 +951,6 @@ bool DIOCOREPROTOCOL_HEADER::Deserialize()
 void DIOCOREPROTOCOL_HEADER::Clean()
 { 
   message_type          = DIOCOREPROTOCOL_HEADER_MESSAGETYPE_UNKNOWN; 
-  message_priority      = 0;
   operation             = DIOCOREPROTOCOL_HEADER_OPERATION_UNKNOWN;  
   datetime_send         = NULL;
   content_type          = DIOCOREPROTOCOL_HEADER_CONTENTTYPE_NONE;   

@@ -75,8 +75,7 @@ class XRAND : public FACTORYBASE
 
     void                  Clean               ();
 
-    static XRAND*         instance;
-    int                   initialvalue;
+    static XRAND*         instance;    
 };
 
 

@@ -27,7 +27,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 
@@ -41,9 +41,16 @@
 
 #include <time.h>
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
@@ -179,13 +186,15 @@ bool XRAND::Ini()
   const int* prime1    = new int();
   const int* prime2    = new int();
 
-  initialvalue = (unsigned)time(NULL);
-  initialvalue += (initialvalue + (int)prime1 + (int)prime2);
+  XQWORD initialvaluelong = (XQWORD)time(NULL);
+
+  initialvaluelong += (XQWORD)prime1;
+  initialvaluelong += (XQWORD)prime2;
 
   delete prime1;
   delete prime2;
 
-  srand(initialvalue);
+  srand((int)(initialvaluelong));
 
   return true;
 }
@@ -293,7 +302,7 @@ bool XRAND::Percent(int percent)
 * --------------------------------------------------------------------------------------------------------------------*/
 void XRAND::Clean()
 {
-  initialvalue = 0;
+
 }
 
 

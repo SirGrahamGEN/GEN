@@ -27,7 +27,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 
 /*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 
@@ -56,10 +56,16 @@
 
 #include "HashSHA2.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
 
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
@@ -382,12 +388,11 @@ DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOCOREPROTO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  result : 
 * @param[in]  timeout : 
@@ -395,9 +400,9 @@ DIOCOREPROTOCOL* DIOCOREPROTOCOL_CONNECTIONSMANAGER::CreateProtocol(DIOCOREPROTO
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER& result, XDWORD timeout)
 {
-  COMMAND_DO_WITHOUTPARAMS(connection, message_priority, command_type, result, timeout)
+  COMMAND_DO_WITHOUTPARAMS(connection, command_type, result, timeout)
 }
 
 
@@ -416,15 +421,15 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING& result, XDWORD timeout)
 {
-  COMMAND_DO_WITHOUTPARAMS(connection, message_priority, command_type, result, timeout)
+  COMMAND_DO_WITHOUTPARAMS(connection, command_type, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
@@ -437,42 +442,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON& result, XDWORD timeout)
 {
-  COMMAND_DO_WITHOUTPARAMS(connection, message_priority, command_type, result, timeout)
+  COMMAND_DO_WITHOUTPARAMS(connection, command_type, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
-* @param[in]  command_type : 
-* @param[in]  params : 
-* @param[in]  result : 
-* @param[in]  timeout : 
-* 
-* @return     bool : true if is succesful. 
-* 
-* --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout)
-{
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
-}
-
-
-/**-------------------------------------------------------------------------------------------------------------------
-* 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout)
-* @brief      Command_Do
-* @ingroup    DATAIO
-* 
-* @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -481,20 +463,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XBUFFER& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -503,20 +484,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XBUFFER& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -525,9 +505,30 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XBUFFER& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout)
+* @brief      Command_Do
+* @ingroup    DATAIO
+* 
+* @param[in]  connection : 
+* @param[in]  command_type : 
+* @param[in]  params : 
+* @param[in]  result : 
+* @param[in]  timeout : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XSTRING& result, XDWORD timeout)
+{
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
@@ -538,7 +539,6 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -547,20 +547,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XSTRING& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -569,9 +568,9 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XSTRING& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
@@ -581,8 +580,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
-* @param[in]  connection : 
-* @param[in]  message_priority : 
+* @param[in]  connection :  
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -591,20 +589,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XBUFFER* params, XFILEJSON& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -613,20 +610,20 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XSTRING* params, XFILEJSON& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout)
 * @brief      Command_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
+
 * @param[in]  command_type : 
 * @param[in]  params : 
 * @param[in]  result : 
@@ -635,20 +632,19 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* connection, XDWORD command_type, XFILEJSON* params, XFILEJSON& result, XDWORD timeout)
 {
-  COMMAND_DO(connection, message_priority, command_type, params, result, timeout)
+  COMMAND_DO(connection, command_type, params, result, timeout)
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 * @brief      UpdateClass_Do
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  classname : 
 * @param[in]  classserializable : 
 * @param[in]  timeout : 
@@ -656,7 +652,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Command_Do(DIOCOREPROTOCOL_CONNECTION* 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 {
   XUUID                 ID_message;      
   XFILEJSON             classcontent;                                                               
@@ -685,7 +681,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
       delete serializationmethod;
     }
                 
-  if(connection->DoUpdateClass(&ID_message, message_priority, classname, &classcontent))
+  if(connection->DoUpdateClass(&ID_message, classname, &classcontent))
     {     
       XFILEJSON resultcontent;  
                                                                               
@@ -706,12 +702,11 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+* @fn         bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 * @brief      UpdateClass_DoAsk
 * @ingroup    DATAIO
 * 
 * @param[in]  connection : 
-* @param[in]  message_priority : 
 * @param[in]  classname : 
 * @param[in]  classserializable : 
 * @param[in]  timeout : 
@@ -719,7 +714,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_Do(DIOCOREPROTOCOL_CONNECTI
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XBYTE message_priority, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
+bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNECTION* connection, XCHAR* classname, XSERIALIZABLE* classserializable, XDWORD timeout)
 {
   XUUID                 ID_message;      
   bool                  status  = false;
@@ -734,7 +729,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::UpdateClass_DoAsk(DIOCOREPROTOCOL_CONNE
       return false;
     } 
                 
-  if(connection->DoAskUpdateClass(&ID_message, message_priority, classname))
+  if(connection->DoAskUpdateClass(&ID_message, classname))
     {     
       XFILEJSON resultcontent;  
                                                                               
@@ -1580,7 +1575,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
       connection->SetHeartBetsCounter(0);    
       connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
       
-      status = connection->DoCommand(message->GetHeader()->GetIDMessage(), 10, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT);
+      status = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT);
       if(status)
         {
           managermessage = true;      
@@ -1654,7 +1649,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalCommandMessages(DIOC
 
           if(status)
             {     
-              status = connection->DoCommand(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetMessagePriority(), c, xevent.GetContenteResponseString());       
+              status = connection->DoCommand(message->GetHeader()->GetIDMessage(), c, xevent.GetContenteResponseString());       
             }
         }
     }
@@ -1729,7 +1724,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllUpdateClassMessages(DIOCORE
 
                   GenerateResponseUpdateClass(content, true);
                      
-                  status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);
+                  status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetOperationParam()->Get(), &content);
                   if(status)
                     {                                    
                       managermessage = true;      
@@ -1797,7 +1792,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalUpdateClassMessages(
 
           GenerateResponseUpdateClass(xfileJSON, true);
                      
-          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &xfileJSON);          
+          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetOperationParam()->Get(), &xfileJSON);          
         }           
     }
 
@@ -1866,7 +1861,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllAskUpdateClassMessages(DIOC
                   delete serializationmethod;
                 }    
    
-              status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);
+              status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetOperationParam()->Get(), &content);
               if(status)
                 {                                    
                   managermessage = true;      
@@ -1934,7 +1929,7 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AdditionalAskUpdateClassMessag
           content.AddBufferLines(XFILETXTFORMATCHAR_UTF8, (*message->GetContent()));
           content.DecodeAllLines();
                      
-          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), 10, message->GetHeader()->GetOperationParam()->Get(), &content);          
+          status = connection->DoUpdateClass(message->GetHeader()->GetIDMessage(), message->GetHeader()->GetOperationParam()->Get(), &content);          
         }           
     }
 
@@ -2337,11 +2332,11 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                          
                               if(updateclass->IsAsk())
                                 {  
-                                  status = connectionsmanager->UpdateClass_DoAsk(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
+                                  status = connectionsmanager->UpdateClass_DoAsk(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
                                 }
                                 else
                                 { 
-                                  status = connectionsmanager->UpdateClass_Do(connection, 10, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
+                                  status = connectionsmanager->UpdateClass_Do(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
                                 }
                                 
                               if(status)
@@ -2379,7 +2374,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                           XBUFFER result;
                           bool    status;
                                                    
-                          status = connectionsmanager->Command_Do(connection, 10, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, result, 3); 
+                          status = connectionsmanager->Command_Do(connection, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, result, 3); 
 
                           if(connection->GetHeartBetsCounter() >= protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
                             {

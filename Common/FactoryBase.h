@@ -30,7 +30,7 @@
 #define _FACTORYBASE_H_
 
 /*---- PRECOMPILATION INCLUDES ----------------------------------------------------------------------------------------*/
-#pragma region PRECOMPILATION_INCLUDES
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
 
 #include "GEN_Defines.h"
 

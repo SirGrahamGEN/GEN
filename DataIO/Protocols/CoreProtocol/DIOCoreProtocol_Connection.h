@@ -132,13 +132,13 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
        
     DIOCOREPROTOCOL_MESSAGES*             Messages_GetAll                       ();
     
-    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type);
-    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XBUFFER* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XSTRING* params);
-    bool                                  DoCommand                             (XUUID* ID_message, XBYTE message_priority, XDWORD command_type, XFILEJSON* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XBUFFER* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XSTRING* params);
+    bool                                  DoCommand                             (XUUID* ID_message, XDWORD command_type, XFILEJSON* params);
 
-    bool                                  DoUpdateClass                         (XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XFILEJSON* classcontent = NULL); 
-    bool                                  DoAskUpdateClass                      (XUUID* ID_message, XBYTE message_priority, XCHAR* classname, XSTRING* classcontent = NULL);
+    bool                                  DoUpdateClass                         (XUUID* ID_message, XCHAR* classname, XFILEJSON* classcontent = NULL); 
+    bool                                  DoAskUpdateClass                      (XUUID* ID_message, XCHAR* classname, XSTRING* classcontent = NULL);
     
     bool                                  Update                                ();  
 
@@ -152,14 +152,14 @@ class DIOCOREPROTOCOL_CONNECTION : public XFSMACHINE, public XSUBJECT
 
     bool                                  CreateIDConnection                    (XUUID& ID);
 
-    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
-    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content);
-    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content);
-    bool                                  SendMsg                               (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content);   
+    bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+    bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content);
+    bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content);
+    bool                                  SendMsg                               (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content);   
 
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content);
-    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XBUFFER& content, XDWORD timeoutresponse);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XSTRING& content, XDWORD timeoutresponse);
+    bool                                  GetMsg                                (bool isrequest, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, DIOCOREPROTOCOL_HEADER& header, XFILEJSON& content, XDWORD timeoutresponse);
 
     void                                  Clean                                 ();    
     

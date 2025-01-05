@@ -35,9 +35,16 @@
 #include "XAVLTree.h"
 #include "XPair.h"
 
-#include "XMemory_Control.h"
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
 
 #pragma endregion
+
 
 
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/

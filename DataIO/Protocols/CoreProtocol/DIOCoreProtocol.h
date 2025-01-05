@@ -178,10 +178,10 @@ class DIOCOREPROTOCOL
     bool                                                  SendMsg                             (DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult);
     bool                                                  ReceivedMsg                         (DIOCOREPROTOCOL_HEADER& header, XBUFFER& content);
  
-    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
-    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult);
-    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult);
-    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param);
+    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XBUFFER* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content, XBUFFER* contentresult);
+    DIOCOREPROTOCOL_HEADER*                               CreateHeader                        (XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XFILEJSON* content, XBUFFER* contentresult);
 
     virtual bool                                          GenerateAuthenticationChallenge     (XBUFFER& autentication_challange);
     virtual bool                                          GenerateAuthenticationResponse      (XBUFFER& autentication_challange, XBUFFER& autentication_response);
