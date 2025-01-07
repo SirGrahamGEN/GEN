@@ -184,6 +184,36 @@ void DIOCOREPROTOCOL_MESSAGE::SetIsConsumed(bool isconsumed)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XDWORD DIOCOREPROTOCOL_MESSAGE::GetSizeAllMessage()
+* @brief      GetSizeAllMessage
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL_MESSAGE::GetSizeAllMessage()
+{
+  return sizeallmessage;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL_MESSAGE::SetSizeAllMessage(XDWORD sizeallmessage)
+* @brief      SetSizeAllMessage
+* @ingroup    DATAIO
+* 
+* @param[in]  sizeallmessage : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL_MESSAGE::SetSizeAllMessage(XDWORD sizeallmessage)
+{
+  this->sizeallmessage = sizeallmessage;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         void DIOCOREPROTOCOL_MESSAGE::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL

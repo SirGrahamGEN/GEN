@@ -76,6 +76,9 @@ class DIOCOREPROTOCOL_MESSAGE
 
     bool                                                        IsConsumed                    ();
     void                                                        SetIsConsumed                 (bool isconsumed);
+
+    XDWORD                                                      GetSizeAllMessage             ();
+    void                                                        SetSizeAllMessage             (XDWORD sizeallmessage);
         
   private:
 
@@ -85,6 +88,7 @@ class DIOCOREPROTOCOL_MESSAGE
     DIOCOREPROTOCOL_HEADER                                      header; 
     XBUFFER                                                     content;
     bool                                                        isconsumed;     
+    XDWORD                                                      sizeallmessage;
 };
 
 

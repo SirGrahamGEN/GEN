@@ -491,7 +491,8 @@ DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* di
   this->protocolCFG = protocolCFG;
   this->diostream   = diostream;  
 
-  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT             , DIOCOREPROTOCOL_COMMAND_TYPE_STRING_HEARTBEAT             , DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
+  Commands_Add(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_COMMAND_TYPE_STRING_UPDATECLASSINITIALIZED, DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_BOTH);
 }
 
 
@@ -533,10 +534,8 @@ DIOCOREPROTOCOL::~DIOCOREPROTOCOL()
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::Ini()
-{
-  initialization = false;
-
-  return initialization;
+{  
+  return false;
 }
 
 
@@ -551,8 +550,6 @@ bool DIOCOREPROTOCOL::Ini()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool DIOCOREPROTOCOL::End()
 {  
-  initialization = false;
-
   return false;
 }
 
@@ -614,7 +611,7 @@ void DIOCOREPROTOCOL::SetDIOStream(DIOSTREAM* diostream)
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
+XDWORD DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentresult)
 {
   XBUFFER senddata; 
   XWORD   headersize;
@@ -622,19 +619,26 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
 
   if(!header)
     {
-      return false;
+      return 0;
     }
     
   if(!GenerateHeaderToSend(header, senddata, &headersize))
     {
-      return false;
+      return 0;
     }
            
   senddata.Add(contentresult);
 
-  status = SendData(senddata);
+  XDWORD size = senddata.GetSize();
+  if(size)
+    {
+      if(!SendData(senddata))
+        {
+          return 0;
+        }
+    }
 
-  return status;
+  return size;
 }
 
 
@@ -650,36 +654,36 @@ bool DIOCOREPROTOCOL::SendMsg(DIOCOREPROTOCOL_HEADER* header, XBUFFER& contentre
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
+XDWORD DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& content)
 {
   if(!protocolCFG)
     {
-      return false;
+      return 0;
     }
 
   if(!diostream)
     {
-      return false;
+      return 0;
     }
 
   XBUFFER* readbuffer = diostream->GetInXBuffer();
   if(!readbuffer)
     {
-      return false;
+      return 0;
     }
   
   readbuffer->ResetPosition();
 
   if(readbuffer->GetSize() < DIOCOREPROTOCOL_HEADER_SIZE_ID)
     {
-      return false;
+      return 0;
     }
 
   XDWORD start    = 0;
   XDWORD sizeread = 0;
   XDWORD index    = 0;
-  bool   status   = false;     
-
+  bool   status   = false;
+ 
   for(index=0; index<readbuffer->GetSize()-sizeof(XDWORD); index++)
     {
       if(readbuffer->Get((XDWORD&)start, index))
@@ -833,7 +837,7 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
                               XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: eliminate buffer used: %d + %d"), sizeread, index);
                             }
 
-                          return status;  
+                          return sizeread;  
                         }
                        else
                         {
@@ -865,7 +869,7 @@ bool DIOCOREPROTOCOL::ReceivedMsg(DIOCOREPROTOCOL_HEADER& header, XBUFFER& conte
       XTRACE_PRINTCOLOR(XTRACE_COLOR_RED, __L("[DIO Core Protocol Header] Error to read msg: read magic")); 
     }
    
-  return false;
+  return sizeread;
 }
 
 
@@ -1404,6 +1408,11 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
       return false;
     }
 
+  if(UpdateClass_Get(classname))
+    {
+      return false;
+    }
+
   DIOCOREPROTOCOL_UPDATECLASS* updateclass =  new DIOCOREPROTOCOL_UPDATECLASS();
   if(!updateclass)
     {
@@ -1420,6 +1429,12 @@ bool DIOCOREPROTOCOL::UpdateClass_Add(bool isask, XCHAR* classname, XSERIALIZABL
 
   updateclass->SetClassPtr(classptr);  
   updateclass->SetIsInitialUpdate(initupdate);
+
+  if(initupdate)
+    {
+      updateclass_nforinitialization++;
+    }
+
   updateclass->SetTimeToUpdate(timetoupdate);
   updateclass->SetBidirectionalityMode(bidirectionalitymode);
 
@@ -1488,19 +1503,145 @@ bool DIOCOREPROTOCOL::UpdateClass_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, bool showlongformat)
+* @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
+* @brief      UpdateClass_GetNForInitialization
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL::UpdateClass_GetNForInitialization()
+{
+  return updateclass_nforinitialization;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nforinitialization)
+* @brief      UpdateClass_SetNForInitialization
+* @ingroup    DATAIO
+* 
+* @param[in]  updateclass_nforinitialization : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL::UpdateClass_SetNForInitialization(XDWORD updateclass_nforinitialization)
+{
+  this->updateclass_nforinitialization = updateclass_nforinitialization;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
+* @brief      UpdateClass_GetNInitialized
+* @ingroup    DATAIO
+* 
+* @return     XDWORD : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XDWORD DIOCOREPROTOCOL::UpdateClass_GetNInitialized()
+{
+  return updateclass_ninitialized;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialized)
+* @brief      UpdateClass_SetNInitialized
+* @ingroup    DATAIO
+* 
+* @param[in]  updateclass_ninitialized : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL::UpdateClass_SetNInitialized(XDWORD updateclass_ninitialized)
+{
+  this->updateclass_ninitialized = updateclass_ninitialized;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remoteallinitialized)
+* @brief      UpdateClass_SetRemoteAllInitialized
+* @ingroup    DATAIO
+* 
+* @param[in]  updateclass_remoteallinitialized : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL::UpdateClass_SetRemoteAllInitialized(bool updateclass_remoteallinitialized)
+{
+  this->updateclass_remoteallinitialized = updateclass_remoteallinitialized;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
+* @brief      UpdateClass_GetSendAllClassInitializated
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::UpdateClass_GetSendAllClassInitializated()
+{
+  return updateclass_sendallclassinitializated;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_sendallclassinitializated)
+* @brief      UpdateClass_SetSendAllClassInitializated
+* @ingroup    DATAIO
+* 
+* @param[in]  updateclass_sendallclassinitializated : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void DIOCOREPROTOCOL::UpdateClass_SetSendAllClassInitializated(bool updateclass_sendallclassinitializated)
+{
+  this->updateclass_sendallclassinitializated = updateclass_sendallclassinitializated;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
+* @brief      UpdateClass_IsAllInitialized
+* @ingroup    DATAIO
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool DIOCOREPROTOCOL::UpdateClass_IsAllInitialized()
+{
+  if((updateclass_nforinitialization == updateclass_ninitialized) && updateclass_remoteallinitialized)
+    {
+      return true;
+    }
+
+  return false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XDWORD sizeallmessage, bool showlongformat)
 * @brief      ShowDebug
 * @ingroup    DATAIO
 * 
 * @param[in]  send : 
 * @param[in]  header : 
 * @param[in]  content : 
+* @param[in]  sizeallmessage : 
 * @param[in]  showlongformat : 
 * 
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, bool showlongformat)
+bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFFER& content, XDWORD sizeallmessage, bool showlongformat)
 {
   XBUFFER   contentresult;  
   int       colormsg = XTRACE_COLOR_PURPLE;
@@ -1515,11 +1656,11 @@ bool DIOCOREPROTOCOL::ShowDebug(bool send, DIOCOREPROTOCOL_HEADER* header, XBUFF
     {
       colormsg = XTRACE_COLOR_GREEN;
   
-      title = __L("[Net Conn] Read message : "); 
+      title.Format(__L("[Net Conn] Read  message [%5d bytes] : "), sizeallmessage); 
     }  
    else 
     {
-      title = __L("[Net Conn] Write message: ");  
+      title.Format(__L("[Net Conn] Write message [%5d bytes] : "), sizeallmessage);  
     }
 
   if(!showlongformat)
@@ -1787,13 +1928,18 @@ bool DIOCOREPROTOCOL::CompressContent(DIOCOREPROTOCOL_HEADER* header, XBUFFER& c
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL::Clean()
 {
-  protocolCFG     = NULL;
-  diostream       = NULL;
+  protocolCFG                           = NULL;
+  diostream                             = NULL;
   
-  compressmanager = NULL;
-  compressor      = NULL;    	
+  compressmanager                       = NULL;
+  compressor                            = NULL;    	
   
-  initialization  = false;
+  initialization                        = false;
+
+  updateclass_nforinitialization        = 0;
+  updateclass_ninitialized              = 0;
+  updateclass_remoteallinitialized      = false;
+  updateclass_sendallclassinitializated = false;
 }
 
 

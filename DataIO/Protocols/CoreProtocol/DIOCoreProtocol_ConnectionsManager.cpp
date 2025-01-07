@@ -1568,23 +1568,37 @@ bool DIOCOREPROTOCOL_CONNECTIONSMANAGER::Received_AllCommandMessages(DIOCOREPROT
   bool managermessage = false;
   bool status         = false;
     
-  if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
-    {         
-      message->SetIsConsumed(true); 
+  if(!managermessage)
+    {   
+      if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT), true))
+        {         
+          message->SetIsConsumed(true); 
 
-      connection->SetHeartBetsCounter(0);    
-      connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
+          connection->SetHeartBetsCounter(0);    
+          connection->SetEvent(DIOCOREPROTOCOL_CONNECTION_XFSMEVENT_READY);
       
-      status = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT);
-      if(status)
-        {
-          managermessage = true;      
+          status = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT);
+          if(status)
+            {
+              managermessage = true;      
+            }
         }
     }
   
-  if(managermessage)
-    {
-      // More internal messages
+  if(!managermessage)
+    {     
+      if(!message->GetHeader()->GetOperationParam()->Compare(protocol->Commands_Get(DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED), true))
+        {         
+          message->SetIsConsumed(true); 
+
+          protocol->UpdateClass_SetRemoteAllInitialized(true);
+          
+          status = connection->DoCommand(message->GetHeader()->GetIDMessage(), DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED);
+          if(status)
+            {
+              managermessage = true;      
+            }
+        } 
     }
   
   if(!managermessage)
@@ -2165,8 +2179,10 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                 {
                   DIOCOREPROTOCOL_HEADER  header;
                   XBUFFER                 content;
+                  XDWORD                  sizeread;
 
-                  if(connection->GetCoreProtocol()->ReceivedMsg(header, content))
+                  sizeread = connection->GetCoreProtocol()->ReceivedMsg(header, content);
+                  if(sizeread)
                     {
                       DIOCOREPROTOCOL_MESSAGE*  message = NULL;
                       bool                      status  = false;
@@ -2179,6 +2195,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                                                                                     message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ);
                                                                                     message->GetHeader()->CopyFrom(&header);
                                                                                     message->GetContent()->CopyFrom(content);  
+                                                                                    message->SetSizeAllMessage(sizeread);
 
                                                                                     status = connection->Messages_GetAll()->AddRequest(message);
                                                                                   }                                                                            
@@ -2191,6 +2208,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadConnections(void* param)
                                                                                     message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_READ);
                                                                                     message->GetHeader()->CopyFrom(&header);
                                                                                     message->GetContent()->CopyFrom(content);  
+                                                                                    message->SetSizeAllMessage(sizeread);
 
                                                                                     status = connection->Messages_GetAll()->AddResponse(message);                                                                                
                                                                                   }                                                                            
@@ -2280,6 +2298,12 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                             {
                               if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOCLIENT)
                                 {
+                                  if(updateclass->IsInitialUpdate())
+                                    {
+                                      protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
+                                      updateclass->SetIsInitialUpdate(false);
+                                    }
+
                                   makeupdate = false;
                                 }
                             }
@@ -2287,6 +2311,12 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                             {
                               if(updateclass->GetBidirectionalityMode() == DIOCOREPROTOCOL_BIDIRECTIONALITYMODE_TOSERVER)
                                 {
+                                  if(updateclass->IsInitialUpdate())
+                                    {
+                                      protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
+                                      updateclass->SetIsInitialUpdate(false);
+                                    }
+
                                   makeupdate = false;
                                 }
                             }
@@ -2296,7 +2326,9 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                               if(updateclass->IsInitialUpdate())
                                 {
                                   updateclass->GetClassPtr()->HasBeenChanged();
-                                  updateclass->GetClassPtr()->SetHasBeenChanged(false);
+                                  updateclass->GetClassPtr()->SetHasBeenChanged(false);                                  
+                                  
+                                  protocol->UpdateClass_SetNInitialized(protocol->UpdateClass_GetNInitialized()+1);
 
                                   updateclass->SetIsInitialUpdate(false);
                                 }
@@ -2332,11 +2364,11 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                          
                               if(updateclass->IsAsk())
                                 {  
-                                  status = connectionsmanager->UpdateClass_DoAsk(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
+                                  status = connectionsmanager->UpdateClass_DoAsk(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), connectionsmanager->GetProtocolCFG()->GetTimeOutNoResponse());                                   
                                 }
                                 else
                                 { 
-                                  status = connectionsmanager->UpdateClass_Do(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), 3);                                   
+                                  status = connectionsmanager->UpdateClass_Do(connection, updateclass->GetClassName()->Get(), updateclass->GetClassPtr(), connectionsmanager->GetProtocolCFG()->GetTimeOutNoResponse());                                   
                                 }
                                 
                               if(status)
@@ -2346,7 +2378,13 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                                 
                             }
                         }                        
-                    }                   
+                    }    
+                 
+                  if(!protocol->UpdateClass_GetSendAllClassInitializated())
+                    {
+                       XBUFFER result; 
+                       protocol->UpdateClass_SetSendAllClassInitializated(connectionsmanager->Command_Do(connection, DIOCOREPROTOCOL_COMMAND_TYPE_UPDATECLASSINITIALIZED, result, connectionsmanager->GetProtocolCFG()->GetTimeOutNoResponse()));  
+                    }               
                 }
             }
                       
@@ -2374,7 +2412,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER::ThreadAutomaticOperations(void* param)
                           XBUFFER result;
                           bool    status;
                                                    
-                          status = connectionsmanager->Command_Do(connection, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, result, 3); 
+                          status = connectionsmanager->Command_Do(connection, DIOCOREPROTOCOL_COMMAND_TYPE_HEARTBEAT, result, connectionsmanager->GetProtocolCFG()->GetTimeOutNoResponse()); 
 
                           if(connection->GetHeartBetsCounter() >= protocol->GetProtocolCFG()->GetNTrysToCheckConnection())
                             {

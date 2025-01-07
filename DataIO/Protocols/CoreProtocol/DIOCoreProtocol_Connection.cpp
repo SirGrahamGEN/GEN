@@ -1224,8 +1224,8 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
       return false;
     }
 
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
+  XDWORD sendsize = protocol->SendMsg(header, contentresult);
+  if(sendsize)
     {
       DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
       if(message)
@@ -1233,6 +1233,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
+          message->SetSizeAllMessage(sendsize);
  
           if(IDmsgempty)
             {
@@ -1311,8 +1312,8 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
       return false;
     }
 
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
+  XDWORD sendsize = protocol->SendMsg(header, contentresult);
+  if(sendsize)
     {
       DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
       if(message)
@@ -1320,6 +1321,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
+          message->SetSizeAllMessage(sendsize);
  
           if(IDmsgempty)
             {
@@ -1399,8 +1401,8 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
       return false;
     }
   
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
+  XDWORD sendsize = protocol->SendMsg(header, contentresult);
+  if(sendsize)
     {
       DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
       if(message)
@@ -1408,6 +1410,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
+          message->SetSizeAllMessage(sendsize);
 
           if(IDmsgempty)
             {
@@ -1486,8 +1489,8 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
       return false;
     }
 
-  status = protocol->SendMsg(header, contentresult);
-  if(status)
+  XDWORD sendsize = protocol->SendMsg(header, contentresult);
+  if(sendsize)
     {     
       DIOCOREPROTOCOL_MESSAGE* message = new DIOCOREPROTOCOL_MESSAGE();
       if(message)
@@ -1495,6 +1498,7 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
           message->SetAcquisitionType(DIOCOREPROTOCOL_MESSAGE_TYPE_ACQUISITION_WRITE);
           message->GetHeader()->CopyFrom(header);
           message->GetContent()->CopyFrom(contentresult);  
+          message->SetSizeAllMessage(sendsize);
           
           if(ID_message)
             {    
