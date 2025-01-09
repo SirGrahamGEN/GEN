@@ -886,8 +886,8 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                     { 
                                                                                       static bool sended =  false;
 
-                                                                                      GetRegisterData()->Deserialize();        
-
+                                                                                      GetRegisterData()->Deserialize();  
+                                                                                    
                                                                                       if(GetRegisterData()->InitializeData(IsServer()))
                                                                                         {                                                                                        
                                                                                           //GetRegisterData()->ShowDebug();                                                                                  
@@ -904,7 +904,9 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                                 } 
 
                                                                                               serializationmethod = XSERIALIZABLE::CreateInstance(classcontent);
-                                                                                              GetRegisterData()->SetSerializationMethod(serializationmethod);         
+                                                                                              GetRegisterData()->SetSerializationMethod(serializationmethod);  
+
+                                                                                              GetRegisterData()->GetIDConnection()->CopyFrom((*GetIDConnection()));
                                                                                                                                                                                                                     
                                                                                               GetRegisterData()->Serialize();
                                                                                           
@@ -933,6 +935,9 @@ bool DIOCOREPROTOCOL_CONNECTION::Update()
                                                                                   if(GetMsg(false, DIOCOREPROTOCOL_HEADER_OPERATION_REGISTERDATA, DIOCOREPROTOCOL_REGISTRATIONDATA_RESPONSE_OPERATION_PARAM, header, classcontent, protocol->GetProtocolCFG()->GetTimeOutNoResponse()))
                                                                                     {
                                                                                       GetRegisterData()->Deserialize();   
+
+                                                                                      GetIDConnection()->CopyFrom((*GetRegisterData()->GetIDConnection()));      
+
                                                                                       //GetRegisterData()->ShowDebug();  
 
                                                                                       messages.DeleteAll();

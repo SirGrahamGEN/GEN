@@ -140,6 +140,21 @@ XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDMmachine()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
+* @fn         XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDConnection()
+* @brief      GetIDConnection
+* @ingroup    DATAIO
+* 
+* @return     XUUID* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XUUID* DIOCOREPROTOCOL_REGISTERDATA::GetIDConnection()
+{
+  return &ID_connection;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
 * @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetBiosSerialNumber()
 * @brief      GetBiosSerialNumber
 * @ingroup    DATAIO
@@ -245,6 +260,10 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Serialize()
   string.Empty();
   ID_machine.GetToString(string);
   Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE);
+
+  string.Empty();
+  ID_connection.GetToString(string);
+  Primitive_Add<XSTRING*>(&string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_CONNECTION);
   
   Primitive_Add<XSTRING*>(&biosserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL);  
 
@@ -278,6 +297,10 @@ bool DIOCOREPROTOCOL_REGISTERDATA::Deserialize()
   string.Empty();
   Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE);
   ID_machine.SetFromString(string);
+
+  string.Empty();
+  Primitive_Extract<XSTRING&>(string, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_CONNECTION);
+  ID_connection.SetFromString(string);
   
   Primitive_Extract<XSTRING&>(biosserialnumber, DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL);
     
