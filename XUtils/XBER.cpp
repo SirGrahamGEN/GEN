@@ -387,11 +387,12 @@ bool XBER::GetDump(XBUFFER& xbuffer, bool notheader)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XBER::SetFromDump(XBUFFER& buffer)
+* @fn         bool XBER::SetFromDump(XBUFFER& buffer, XOBSERVER* observer)
 * @brief      SetFromDump
 * @ingroup    XUTILS
 * 
 * @param[in]  buffer : 
+* @param[in]  observer : 
 * 
 * @return     bool : true if is succesful. 
 * 

@@ -68,6 +68,7 @@
 #include "XWINDOWSRegistryManager.h"
 
 #include "XFactory.h"
+#include "XString.h"
 #include "XSleep.h"
 #include "XFile.h"
 #include "XFileTXT.h"
@@ -137,11 +138,12 @@ XWINDOWSSYSTEM_CPUUSAGE::~XWINDOWSSYSTEM_CPUUSAGE()
 * --------------------------------------------------------------------------------------------------------------------*/
 double XWINDOWSSYSTEM_CPUUSAGE::GetTotalCpuUsage() 
 {
+  #ifndef BUILDER
   FILETIME idletime;
   FILETIME kerneltime;
   FILETIME usertime;
 
-  if(GetSystemTimes(&idletime, &kerneltime, &usertime) == 0) 
+  if(GetSystemTimes(&idletime, &kerneltime, &usertime) == 0)
     {
       return -1;
     }
@@ -157,12 +159,16 @@ double XWINDOWSSYSTEM_CPUUSAGE::GetTotalCpuUsage()
   lastsyskerneltime       = kerneltime;
   lastsysusertime         = usertime;
 
-  if(totalsystime == 0) 
+  if(totalsystime == 0)
     {
       return -1;
     }
 
   return (systotal * 100.0) / totalsystime;
+  
+  #else
+  return 0.0f;
+  #endif
 }
 
 
@@ -179,6 +185,7 @@ double XWINDOWSSYSTEM_CPUUSAGE::GetTotalCpuUsage()
 * --------------------------------------------------------------------------------------------------------------------*/
 double XWINDOWSSYSTEM_CPUUSAGE::GetProcessCpuUsage(DWORD processID) 
 {
+  #ifndef BUILDER
   HANDLE hprocess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processID);
   if(hprocess == NULL) 
     {
@@ -221,6 +228,9 @@ double XWINDOWSSYSTEM_CPUUSAGE::GetProcessCpuUsage(DWORD processID)
   lastprocesstime = processtime;
 
   return (processtimediff * 100.0) / (timediff * GetNumberOfProcessors());
+  #else
+  return 0.0f;
+  #endif
 }
 
 
@@ -377,15 +387,15 @@ XWINDOWSSYSTEM::~XWINDOWSSYSTEM()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
-* @brief      Get Type Hardware
+* @brief      GetTypeHardware
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  revision : Type hardware
-*
-* @return     XSYSTEM_HARDWARETYPE :
-*
+* 
+* @param[in]  revision : 
+* 
+* @return     XSYSTEM_HARDWARETYPE : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 {
@@ -400,12 +410,12 @@ XSYSTEM_HARDWARETYPE XWINDOWSSYSTEM::GetTypeHardware(int* revision)
 * @fn         XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 * @brief      GetPlatform
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  namestring : 
 * 
 * @return     XSYSTEM_PLATFORM : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 XSYSTEM_PLATFORM XWINDOWSSYSTEM::GetPlatform(XSTRING* namestring)
 {
   if(namestring)  namestring->Set(__L("Windows"));
@@ -571,8 +581,8 @@ float XWINDOWSSYSTEM::GetCPUTemperature()
 * @brief      Get Memory Info
 * @ingroup    PLATFORM_WINDOWS
 *
-* @param[out]  total : total memory in bytes.
-* @param[out]  free : free memory in bytes.
+* @param[out] total : total memory in bytes.
+* @param[out] free : free memory in bytes.
 *
 * @return     bool : true if is succesful.
 *
@@ -656,15 +666,15 @@ int XWINDOWSSYSTEM::GetCPUUsageTotal()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 * @brief      GetCPUUsageForProcessName
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  processname : 
-*
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 {
@@ -710,18 +720,19 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessName(XCHAR* processname)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 * @brief      GetCPUUsageForProcessID
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  processID : 
-*
+* 
 * @return     int : 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
-{ int				                              cpuusage            = 0;
+{ 
+  int				                              cpuusage            = 0;
 
   #ifndef BUILDER
   XWINDOWSSYSTEM_PERFCOUNTERS<LONGLONG>   perfcounters;
@@ -772,35 +783,35 @@ int XWINDOWSSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+* 
+* @fn         XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* name)
 * @brief      GetEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  variablename :
-*
-* @return     XCHAR* :
-*
+* 
+* @param[in]  name : 
+* 
+* @return     XCHAR* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+XCHAR* XWINDOWSSYSTEM::GetEnviromentVariable(XCHAR* name)
 {
-  return (XCHAR*)_wgetenv((const wchar_t *)variablename);
+  return (XCHAR*)_wgetenv((const wchar_t *)name);
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+* 
+* @fn         bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  variablename :
-* @param[in]  value :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 {
   XSTRING                 all;
   XWINDOWSREGISTRYMANAGER registrymanager;
@@ -823,32 +834,32 @@ bool XWINDOWSSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
         {
           XVARIANT valuevariant;
 
-          registrykeyenv.ReadValue(variablename, valuevariant);
+          registrykeyenv.ReadValue(name, valuevariant);
           valuevariant = value;
-          registrykeyenv.WriteValue(variablename, valuevariant);
+          registrykeyenv.WriteValue(name, valuevariant);
 
           registrymanager.CloseKey(registrykeyenv);
         }
     }
 
-  all.Format(__L("%s=%s"), variablename, value);
+  all.Format(__L("%s=%s"), name, value);
 
   return _wputenv(all.Get())?false:true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
+* 
+* @fn         bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* name)
 * @brief      DelEnviromentVariable
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  variablename :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
+bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* name)
 {
   XSTRING                 all;
   XWINDOWSREGISTRYMANAGER registrymanager;
@@ -869,28 +880,28 @@ bool XWINDOWSSYSTEM::DelEnviromentVariable(XCHAR* variablename)
 
       if(status)
         {
-          registrykeyenv.DeleteValue(variablename);
+          registrykeyenv.DeleteValue(name);
           registrymanager.CloseKey(registrykeyenv);
         }
     }
 
-  all.Format(__L("%s="), variablename);
+  all.Format(__L("%s="), name);
 
   return _wputenv(all.Get())?false:true;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 * @brief      GetUserAndDomain
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  user : 
 * @param[in]  domain : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 {
@@ -901,10 +912,9 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
   bool          status   = false;
 
   XSTRING       userextend;
-  
-  
+    
   #ifndef BUILDER
-   ULONG         size = 1024;
+  ULONG         size     = 1024;
    
   userextend.AdjustSize(size);  
   GetUserNameEx(NameUserPrincipal, userextend.Get(), &size);
@@ -957,15 +967,15 @@ bool XWINDOWSSYSTEM::GetUserAndDomain(XSTRING& user, XSTRING& domain)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
-* @brief      ShutDown of the SO
+* @brief      ShutDown
 * @ingroup    PLATFORM_WINDOWS
-*
-* @param[in]  type : type of shutdown
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  type : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::ShutDown(XSYSTEM_CHANGESTATUSTYPE type)
 {
@@ -1074,15 +1084,15 @@ int XWINDOWSSYSTEM::Sound_GetLevel()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 * @brief      Sound_SetLevel
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  level : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 {
@@ -1144,15 +1154,15 @@ bool XWINDOWSSYSTEM::Sound_SetLevel(int level)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
+* 
 * @fn         bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 * @brief      Sound_SetMutex
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  on : 
-*
+* 
 * @return     bool : true if is succesful. 
-*
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 {
@@ -1206,13 +1216,13 @@ bool XWINDOWSSYSTEM::Sound_SetMutex(bool on)
 * @fn         bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 * @brief      GetBatteryLevel
 * @ingroup    PLATFORM_WINDOWS
-*
+* 
 * @param[in]  isincharge : 
 * @param[in]  levelpercent : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSSYSTEM::GetBatteryLevel(bool& isincharge, XBYTE& levelpercent)
 {
   SYSTEM_POWER_STATUS powerstatus;

@@ -57,8 +57,8 @@ class DIONOTIFICATION
     XSTRING*                        Get_Title                 ();
     XSTRING*                        Get_Message               ();
 
-    void*                           GetApplicationHandle      ();
-    void                            SetApplicationHandle      (void* applicationhandle);
+    void*                           Application_GetHandle      ();
+    void                            Application_SetHandle      (void* applicationhandle);
 
     void*                           GetApplicationIcon        ();
     void                            SetApplicationIcon        (void* applicationicon);

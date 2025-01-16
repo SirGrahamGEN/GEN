@@ -43,9 +43,9 @@
 
 #include "ANDROIDNativeActivity.h"
 
-#ifdef APP_ACTIVE
-#include "APPBase.h"
-#include "APPMain.h"
+#ifdef APPFLOW_ACTIVE
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 #endif
 
 #include "MainProc.h"
@@ -84,7 +84,7 @@ class MAINPROCANDROID :  public ANDROIDNATIVEACTIVITY_HANDLER, public ANDROIDNAT
                                     MAINPROCANDROID                     ();
     virtual                        ~MAINPROCANDROID                     ();
 
-    bool                            Ini                                 (XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain = NULL, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN);
+    bool                            Ini                                 (XSTRING* apkpath, XSTRING* datapath, APPFLOWMAIN* appmain = NULL, APPFLOWBASE_MODE_TYPE applicationmode = APPFLOWBASE_MODE_TYPE_UNKNOWN);
     bool                            Update                              ();
     bool                            End                                 ();
 

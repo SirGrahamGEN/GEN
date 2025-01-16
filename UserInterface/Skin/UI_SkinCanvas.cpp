@@ -68,7 +68,7 @@
 #include "UI_Layout.h"
 #include "UI_Manager.h"
 
-#include "APPBase.h"
+#include "APPFlowBase.h"
 
 #pragma endregion
 
@@ -101,8 +101,8 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  GRPSCREEN* : 
-* @param[in]   int viewportindex : 
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_REBUILDAREAS::UI_SKINCANVAS_REBUILDAREAS(GRPSCREEN* screen, int viewportindex)
@@ -423,13 +423,14 @@ void UI_SKINCANVAS_REBUILDAREAS::Clean()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen) : UI_SKIN()
+* @fn         UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen, int viewportindex)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
-*
-* @param[in]  screen : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* @param[in]  screen : 
+* @param[in]  viewportindex : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS::UI_SKINCANVAS(GRPSCREEN* screen,  int viewportindex) : UI_SKIN(),  UI_SKINCANVAS_REBUILDAREAS(screen)
 { 
   Clean();     
@@ -540,7 +541,7 @@ bool UI_SKINCANVAS::LoadFonts()
                 {                  
                   XPATH pathnamefilecmp;
 
-                  pathnamefilecmp = APPDEFAULT_DIRECTORY_FONTS;
+                  pathnamefilecmp = APPFLOW_DEFAULT_DIRECTORY_FONTS;
                   pathnamefilecmp.Slash_Add();
                   pathnamefilecmp += vectorfontname;
 

@@ -63,7 +63,7 @@
 * 
 * @}
 *
-* @defgroup APPLICATION Application
+* @defgroup APPFLOW AppFlow
 * @{
 * 
 * @}
@@ -248,8 +248,10 @@
 #define GEN_DIOALERTS                     DIOALERTS::GetInstance()
 #endif
 
-#ifndef GEN_APPALERTS
-#define GEN_APPALERTS                     APPALERTS::GetInstance()
+// --- AppFlow ------------------------------------------------------------------------------------
+
+#ifndef GEN_APPFLOWALERTS
+#define GEN_APPFLOWALERTS                 APPFLOWALERTS::GetInstance()
 #endif
 
 

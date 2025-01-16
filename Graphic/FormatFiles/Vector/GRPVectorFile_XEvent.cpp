@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       GRPVectorFileXEvent.cpp
+* @file       GRPVectorFile_XEvent.cpp
 * 
-* @class      GRPVECTORFILEXEVENT
+* @class      GRPVECTORFILE_XEVENT
 * @brief      Graphic Vector File eXtended Event class
 * @ingroup    GRAPHIC
 * 
@@ -68,9 +68,9 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  XSUBJECT* : 
-* @param[in]   XDWORD type : 
-* @param[in]   XDWORD family : 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILE_XEVENT::GRPVECTORFILE_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family) : XEVENT(subject, type, family)

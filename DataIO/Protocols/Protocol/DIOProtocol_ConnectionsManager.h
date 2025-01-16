@@ -150,10 +150,10 @@ class DIOPROTOCOL_CONNECTIONSMANAGER : public XSUBJECT
 
     bool                                SendEvent                                      (DIOPROTOCOL_CONNECTIONSMANAGER_XEVENT_TYPE type, DIOPROTOCOL_CONNECTION* protocolconnection);
 
-    void                                GetApplicationVersion                          (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
-    void                                SetApplicationVersion                          (XDWORD version, XDWORD subversion, XDWORD subversionerr);
+    void                                Application_GetVersion                          (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
+    void                                Application_SetVersion                          (XDWORD version, XDWORD subversion, XDWORD subversionerr);
 
-    XSTRING*                            GetApplicationName                             ();
+    XSTRING*                            Application_GetName                             ();
 
   protected:
 

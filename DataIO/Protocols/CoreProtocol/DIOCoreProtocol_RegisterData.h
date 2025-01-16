@@ -1,6 +1,6 @@
-/**-------------------------------------------------------------------------------------------------------------------/**-------------------------------------------------------------------------------------------------------------------
+/**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocol_Register.h
+* @file       DIOCoreProtocol_RegisterData.h
 * 
 * @class      DIOCOREPROTOCOL_REGISTERDATA
 * @brief      Data Input/Output Core Protocol Register Data class
@@ -41,6 +41,7 @@
 /*---- DEFINES & ENUMS  ----------------------------------------------------------------------------------------------*/
 #pragma region DEFINES_ENUMS
 
+
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_MACHINE          __L("ID_machine")    
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_ID_CONNECTION       __L("ID_connection")    
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_BIOSSERIAL          __L("biosserial")    
@@ -50,11 +51,13 @@
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_USER                __L("user")    
 #define DIOCOREPROTOCOL_REGISTERDATA_HEADER_VAR_DOMAIN              __L("domain")    
 
+
 #pragma endregion
 
 
 /*---- CLASS ---------------------------------------------------------------------------------------------------------*/
 #pragma region CLASS
+
 
 class DIOCOREPROTOCOL_REGISTERDATA : public XSERIALIZABLE
 {
@@ -94,6 +97,7 @@ class DIOCOREPROTOCOL_REGISTERDATA : public XSERIALIZABLE
     XSTRING                 domain;
 };
 
+
 #pragma endregion
 
 
@@ -105,4 +109,3 @@ class DIOCOREPROTOCOL_REGISTERDATA : public XSERIALIZABLE
 
 
 #endif
-

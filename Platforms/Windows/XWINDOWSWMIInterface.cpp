@@ -102,13 +102,13 @@ XWINDOWSWMIINTERFACE_RESULT::~XWINDOWSWMIINTERFACE_RESULT()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResults()
-* @brief      GetResults
+* 
+* @fn         XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsString()
+* @brief      GetResultsString
 * @ingroup    PLATFORM_WINDOWS
-*
-* @return     XVECTOR<XSTRING*>* :
-*
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 XVECTOR<XSTRING*>* XWINDOWSWMIINTERFACE_RESULT::GetResultsString()
 {

@@ -44,7 +44,7 @@
 
 #define SCRIPT_LIB_NAME_WINDOW    __L("Window")
 
-#define SCRIPT_SET_LIB_APPGRAPHICS(script, appgraphics)     { SCRIPT_LIB_WINDOW* lib = (SCRIPT_LIB_WINDOW*)script->GetLibrary(SCRIPT_LIB_NAME_WINDOW); \
+#define SCRIPT_SET_LIB_APPFLOWGRAPHICS(script, appgraphics)     { SCRIPT_LIB_WINDOW* lib = (SCRIPT_LIB_WINDOW*)script->GetLibrary(SCRIPT_LIB_NAME_WINDOW); \
                                                               if(lib) \
                                                                 { \
                                                                   lib->SetAppGraphics(appgraphics); \
@@ -63,7 +63,7 @@
 class XVARIANT;
 class SCRIPT;
 class GRPBITMAP; 
-class APPGRAPHICS;
+class APPFLOWGRAPHICS;
 
 class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 {
@@ -80,8 +80,8 @@ class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
 
 
     #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-    static APPGRAPHICS*   GetAppGraphics                        ();
-    static void           SetAppGraphics                        (APPGRAPHICS* appgraphics);
+    static APPFLOWGRAPHICS*   GetAppGraphics                        ();
+    static void           SetAppGraphics                        (APPFLOWGRAPHICS* appgraphics);
     #endif
 
   private:
@@ -92,7 +92,7 @@ class SCRIPT_LIB_WINDOW : public SCRIPT_LIB
     XBYTE                 bmpfindCFG_pixelmargin;
 
     #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-    static APPGRAPHICS*   appgraphics;
+    static APPFLOWGRAPHICS*   appgraphics;
     #endif
 
 };

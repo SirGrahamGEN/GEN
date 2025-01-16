@@ -191,12 +191,12 @@ XBYTE DIOLEDNEOPIXELWS2812B::GetBrightnessLevel()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
-* @brief      SetBrightnesslevel
+* @brief      SetBrightnessLevel
 * @ingroup    DATAIO
-*
-* @param[in]  brightnessLevel : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* @param[in]  brightnesslevel : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
 void DIOLEDNEOPIXELWS2812B::SetBrightnessLevel(XBYTE brightnesslevel)
 {
   this->brightnesslevel = brightnesslevel;

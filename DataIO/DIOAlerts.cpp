@@ -325,14 +325,14 @@ XDATETIME* DIOALERT::GetDateTime()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* DIOALERT::GetApplicationID()
-* @brief      GetApplicationID
+* @fn         XSTRING* DIOALERT::Application_GetID()
+* @brief      Application_GetID
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOALERT::GetApplicationID()
+XSTRING* DIOALERT::Application_GetID()
 {
   return &applicationID;
 }
@@ -340,8 +340,8 @@ XSTRING* DIOALERT::GetApplicationID()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      GetApplicationVersion
+* @fn         bool DIOALERT::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+* @brief      Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -351,7 +351,7 @@ XSTRING* DIOALERT::GetApplicationID()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+bool DIOALERT::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version       = applicationversion;
   subversion    = applicationsubversion;
@@ -363,8 +363,8 @@ bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      SetApplicationVersion
+* @fn         bool DIOALERT::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+* @brief      Application_SetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -374,7 +374,7 @@ bool DIOALERT::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOALERT::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+bool DIOALERT::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   applicationversion        = version;
   applicationsubversion     = subversion;
@@ -559,9 +559,9 @@ bool DIOALERT::CopyFrom(DIOALERT* alert)
 
   xdatetime->CopyFrom(alert->GetDateTime());
 
-  applicationID = alert->GetApplicationID()->Get();
+  applicationID = alert->Application_GetID()->Get();
 
-  alert->GetApplicationVersion(applicationversion, applicationsubversion, applicationsubversionerr);
+  alert->Application_GetVersion(applicationversion, applicationsubversion, applicationsubversionerr);
 
   ID            = alert->GetID();
   level         = alert->GetLevel();
@@ -703,14 +703,14 @@ bool DIOALERTS::Ini()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* DIOALERTS::GetApplicationID()
-* @brief      GetApplicationID
+* @fn         XSTRING* DIOALERTS::Application_GetID()
+* @brief      Application_GetID
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOALERTS::GetApplicationID()
+XSTRING* DIOALERTS::Application_GetID()
 {
   return &applicationID;
 }
@@ -718,8 +718,8 @@ XSTRING* DIOALERTS::GetApplicationID()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      GetApplicationVersion
+* @fn         bool DIOALERTS::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+* @brief      Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -729,7 +729,7 @@ XSTRING* DIOALERTS::GetApplicationID()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+bool DIOALERTS::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version       = applicationversion;
   subversion    = applicationsubversion;
@@ -741,8 +741,8 @@ bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWOR
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOALERTS::SetApplicationVersion (XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      SetApplicationVersion
+* @fn         bool DIOALERTS::Application_SetVersion (XDWORD version, XDWORD subversion, XDWORD subversionerr)
+* @brief      Application_SetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -752,7 +752,7 @@ bool DIOALERTS::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWOR
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOALERTS::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+bool DIOALERTS::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   applicationversion        = version;
   applicationsubversion     = subversion;
@@ -820,8 +820,8 @@ DIOALERT* DIOALERTS::CreateAlert(XCHAR* applicationID, DIOALERTLEVEL level, XCHA
     {
       if(alert->GetDateTime()) alert->GetDateTime()->Read();
 
-      alert->GetApplicationID()->Set(applicationID);
-      alert->SetApplicationVersion(applicationversion, applicationsubversion, applicationsubversionerr);
+      alert->Application_GetID()->Set(applicationID);
+      alert->Application_SetVersion(applicationversion, applicationsubversion, applicationsubversionerr);
       alert->SetLevel(level);
       alert->GetOrigin()->Set(origin);
       alert->GetTitle()->Set(title);
@@ -1482,11 +1482,11 @@ bool DIOALERTS::Sender_SMTPSend(DIOALERT* alert)
   XSTRING appIDstring;
   XSTRING appverstring;
 
-  SMTP->GetSenderName()->Set(alert->GetApplicationID()->Get());
+  SMTP->GetSenderName()->Set(alert->Application_GetID()->Get());
 
   if(applicationversion || applicationsubversion  || applicationsubversionerr) appverstring.Format(__L(" %d.%d.%d"), applicationversion, applicationsubversion, applicationsubversionerr);
 
-  appIDstring = alert->GetApplicationID()->Get();
+  appIDstring = alert->Application_GetID()->Get();
   if(!appverstring.IsEmpty()) appIDstring += appverstring.Get();
 
   appIDstring += __L(": ");
@@ -1532,14 +1532,14 @@ bool DIOALERTS::Sender_SMSSend(DIOALERT* alert)
         {
           XSTRING smstext;
 
-          if(alert->GetApplicationID()->GetSize())
+          if(alert->Application_GetID()->GetSize())
             {
               XSTRING appverstring;
 
               if(applicationversion || applicationsubversion  || applicationsubversionerr) appverstring.Format(__L(" %d.%d.%d"), applicationversion, applicationsubversion, applicationsubversionerr);
 
               smstext += __L("<");
-              smstext += alert->GetApplicationID()->Get();
+              smstext += alert->Application_GetID()->Get();
 
               if(!appverstring.IsEmpty()) smstext += appverstring.Get();
 
@@ -1609,7 +1609,7 @@ bool DIOALERTS::Sender_WEBSend(DIOALERT* alert)
 
   if(applicationversion || applicationsubversion  || applicationsubversionerr) applicationverstring.Format(__L(" %d.%d.%d"), applicationversion, applicationsubversion, applicationsubversionerr);
 
-  applicationIDstring = alert->GetApplicationID()->Get();
+  applicationIDstring = alert->Application_GetID()->Get();
   if(!applicationverstring.IsEmpty()) applicationIDstring += applicationverstring.Get();
 
   for(int c=0; c<(int)WEBrecipients.GetSize(); c++)
@@ -1741,7 +1741,7 @@ bool DIOALERTS::Sender_UDPSend(DIOALERT* alert)
   xbuffer.Add((XDWORD)alert->GetDateTime()->GetMinutes());                                                          // Minutes
   xbuffer.Add((XDWORD)alert->GetDateTime()->GetSeconds());                                                          // Seconds
 
-  xbuffer.Add((XDWORD)alert->GetApplicationID()->GetSize());    xbuffer.Add((*alert->GetApplicationID()));          // Aplication String
+  xbuffer.Add((XDWORD)alert->Application_GetID()->GetSize());    xbuffer.Add((*alert->Application_GetID()));          // Aplication String
   xbuffer.Add((XDWORD)applicationversion);                                                                          // Aplicatcion version
   xbuffer.Add((XDWORD)applicationsubversion);                                                                       // Aplication  subversion
   xbuffer.Add((XDWORD)applicationsubversionerr);                                                                    // Application subversion err

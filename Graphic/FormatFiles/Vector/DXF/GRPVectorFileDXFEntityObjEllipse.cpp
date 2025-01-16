@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  XCHAR* : 
+* @param[in]  nametype : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYOBJELLIPSE::GRPVECTORFILEDXFENTITYOBJELLIPSE(XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)

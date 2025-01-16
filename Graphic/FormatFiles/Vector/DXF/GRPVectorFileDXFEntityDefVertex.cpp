@@ -80,7 +80,7 @@ GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  GRPVECTORFILEDXFENTITYDEFVERTEX* : 
+* @param[in]  vertex : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYDEFVERTEX::GRPVECTORFILEDXFENTITYDEFVERTEX(GRPVECTORFILEDXFENTITYDEFVERTEX* vertex)

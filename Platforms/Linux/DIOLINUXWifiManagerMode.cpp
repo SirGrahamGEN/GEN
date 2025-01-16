@@ -303,8 +303,11 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
 
       for(int c=0; c<10; c++)
         {        
+          XBUFFER in;
+          XBUFFER out;
+
           param.Format(__L("-x"));   
-          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), NULL, NULL, &returncode);
+          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &in, &out, &returncode);
         }
 
       for(int c=0; c<10; c++)
@@ -327,9 +330,12 @@ bool DIOLINUXWIFIMANAGERMODE::WPA_SetMode(int mode, XCHAR* SSID, XCHAR* password
       
 
       for(int c=0; c<10; c++)
-        {        
+        {      
+          XBUFFER in;
+          XBUFFER out;  
+
           param.Format(__L("-x"));   
-          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), NULL, NULL, &returncode);
+          GEN_XPROCESSMANAGER.Application_Execute(__L("/sbin/dhcpcd"), param.Get(), &in, &out, &returncode);
         }
 
       for(int c=0; c<10; c++)

@@ -83,9 +83,9 @@ class XLINUXSYSTEM : public XSYSTEM
     int							            GetCPUUsageForProcessName	    (XCHAR* processname);
     int							            GetCPUUsageForProcessID		    (XDWORD processID);
 
-    XCHAR*                      GetEnviromentVariable         (XCHAR* variablename);
-    bool                        SetEnviromentVariable         (XCHAR* variablename, XCHAR* value);
-    bool                        DelEnviromentVariable         (XCHAR* variablename);
+    XCHAR*                      GetEnviromentVariable         (XCHAR* name);
+    bool                        SetEnviromentVariable         (XCHAR* name, XCHAR* value);
+    bool                        DelEnviromentVariable         (XCHAR* name);
 
     bool                        ShutDown                      (XSYSTEM_CHANGESTATUSTYPE type);
 

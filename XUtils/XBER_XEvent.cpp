@@ -229,11 +229,9 @@ void XBER_XEVENT::SetTagType(XBYTE tagtype)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* XBER_XEVENT::GetTagTypeName(XSTRING& name)
+* @fn         XSTRING* XBER_XEVENT::GetTagTypeName()
 * @brief      GetTagTypeName
 * @ingroup    XUTILS
-* 
-* @param[in]  name : 
 * 
 * @return     XSTRING* : 
 * 

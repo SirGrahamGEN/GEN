@@ -1344,8 +1344,8 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      GetApplicationVersion
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+* @brief      Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -1353,7 +1353,7 @@ bool DIOPROTOCOL_CONNECTIONSMANAGER::SendEvent(DIOPROTOCOL_CONNECTIONSMANAGER_XE
 * @param[in]  subversionerr :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+void DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version         = this->applicationversion;
   subversion      = this->applicationsubversion;
@@ -1363,8 +1363,8 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      SetApplicationVersion
+* @fn         void DIOPROTOCOL_CONNECTIONSMANAGER::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+* @brief      Application_SetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -1372,7 +1372,7 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationVersion(XDWORD& version, XDWO
 * @param[in]  subversionerr :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+void DIOPROTOCOL_CONNECTIONSMANAGER::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   this->applicationversion        = version;
   this->applicationsubversion     = subversion;
@@ -1382,14 +1382,14 @@ void DIOPROTOCOL_CONNECTIONSMANAGER::SetApplicationVersion(XDWORD version, XDWOR
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
-* @brief      GetApplicationName
+* @fn         XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetName()
+* @brief      Application_GetName
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::GetApplicationName()
+XSTRING* DIOPROTOCOL_CONNECTIONSMANAGER::Application_GetName()
 {
   return &applicationname;
 }

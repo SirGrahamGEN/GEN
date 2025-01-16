@@ -1617,14 +1617,14 @@ bool DIOAPPLICATIONUPDATE::IsNewVersion(DIOAPPLICATIONUPDATE_VERSIONDATA& update
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
-* @brief      GetApplicationVersion
+* @fn         XDWORD DIOAPPLICATIONUPDATE::Application_GetVersion()
+* @brief      Application_GetVersion
 * @ingroup    DATAIO
 *
 * @return     XDWORD :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XDWORD DIOAPPLICATIONUPDATE::GetApplicationVersion()
+XDWORD DIOAPPLICATIONUPDATE::Application_GetVersion()
 {
   return this->applicationversion;
 }

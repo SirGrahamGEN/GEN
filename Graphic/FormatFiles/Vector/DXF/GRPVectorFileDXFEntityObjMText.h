@@ -2,7 +2,8 @@
 * 
 * @file       GRPVectorFileDXFEntityObjMText.h
 * 
-* @class      GRPVECTORFILEDXFENTITYOBJMTEXT Obj MText class
+* @class      GRPVECTORFILEDXFENTITYOBJMTEXT
+* @brief      Graphic Vector File DXF Entity Obj MText class
 * @ingroup    GRAPHIC
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -64,6 +65,7 @@ class GRPVECTORFILEDXFENTITYOBJMTEXT : public GRPVECTORFILEDXFENTITYOBJ
     void              Clean                             ();                  
 };
 
+
 #pragma endregion
 
 
@@ -75,4 +77,3 @@ class GRPVECTORFILEDXFENTITYOBJMTEXT : public GRPVECTORFILEDXFENTITYOBJ
 
 
 #endif
-

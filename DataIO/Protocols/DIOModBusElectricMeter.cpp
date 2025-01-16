@@ -79,7 +79,7 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type)
+* @fn         DIOMODBUSELECTRICMETERXEVENT::DIOMODBUSELECTRICMETERXEVENT(XSUBJECT* subject,XDWORD type) : XEVENT(subject,type)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
@@ -224,7 +224,7 @@ bool DIOMODBUSELECTRICMETER::Connect(XBYTE unit, bool inlittleendian, int timeou
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool DIOMODBUSELECTRICMETER::CMD_C_CI_NU_2_ReadAllValues(int TM, XDATETIME* timestart, XDATETIME* timeend, XVECTOR<DIO_C_CI_NU_2_RESULT*>* results, int timeout)
-* @brief      CMD_C_CI_NU_2_ReadAllValues
+* @brief      CMD C CI NU 2  read all values
 * @ingroup    DATAIO
 * 
 * @param[in]  TM : 

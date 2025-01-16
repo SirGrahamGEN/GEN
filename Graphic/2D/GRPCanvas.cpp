@@ -361,23 +361,6 @@ GRPCANVAS::~GRPCANVAS()
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         GRPRECTINT* GRPCANVAS::GetScreenZone()
-* @brief      Get Screen Zone
-* @ingroup    GRAPHIC
-*
-* @return     GRPRECTINT* : rect of screen zone
-*
-* --------------------------------------------------------------------------------------------------------------------*/
-/*
-GRPRECTINT* GRPCANVAS::GetScreenZone()
-{
-  return &screenzone;
-}
-*/
-
-
-/**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool GRPCANVAS::Buffer_Create()
 * @brief      Buffer_Create

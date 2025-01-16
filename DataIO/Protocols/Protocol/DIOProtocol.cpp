@@ -907,8 +907,8 @@ DIOPROTOCOL::DIOPROTOCOL(DIOSTREAM* diostream)
 
   AddCommand(DIOPROTOCOL_CMDTYPE_SENDISINITSERVERPROTOCOL   , __L("O")                , __L("O")            , RCV_SendIsInitServerProtocol      , __L("SendIsInitServerProtocol")   );
   AddCommand(DIOPROTOCOL_CMDTYPE_GETPROTOCOLVERSION         , __L("")                 , __L("WWW")          , RCV_GetProtocolVersion            , __L("GetProtocolVersion")         );
-  AddCommand(DIOPROTOCOL_CMDTYPE_GETAPPLICATIONVERSION      , __L("")                 , __L("WWW")          , RCV_GetApplicationVersion         , __L("GetApplicationVersion")      );
-  AddCommand(DIOPROTOCOL_CMDTYPE_GETAPPLICATIONNAME         , __L("")                 , __L("S")            , RCV_GetApplicationName            , __L("GetApplicationName")         );
+  AddCommand(DIOPROTOCOL_CMDTYPE_GETAPPLICATIONVERSION      , __L("")                 , __L("WWW")          , RCV_Application_GetVersion         , __L("Application_GetVersion")      );
+  AddCommand(DIOPROTOCOL_CMDTYPE_GETAPPLICATIONNAME         , __L("")                 , __L("S")            , RCV_Application_GetName            , __L("Application_GetName")         );
   AddCommand(DIOPROTOCOL_CMDTYPE_PING                       , __L("")                 , __L("O")            , RCV_Ping                          , __L("Ping")                       );
   AddCommand(DIOPROTOCOL_CMDTYPE_GETDATETIME                , __L("")                 , __L("S")            , RCV_GetDateTime                   , __L("GetDateTime")                );
   AddCommand(DIOPROTOCOL_CMDTYPE_SETDATETIME                , __L("S")                , __L("O")            , RCV_SetDateTime                   , __L("SetDateTime")                );
@@ -2180,8 +2180,8 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
-* @brief      GetApplicationVersion
+* @fn         void DIOPROTOCOL::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+* @brief      Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2189,7 +2189,7 @@ void DIOPROTOCOL::SetProtocolVersion(XDWORD version, XDWORD subversion, XDWORD s
 * @param[in]  subversionerr :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
+void DIOPROTOCOL::Application_GetVersion(XDWORD& version, XDWORD& subversion, XDWORD& subversionerr)
 {
   version         = this->applicationversion;
   subversion      = this->applicationsubversion;
@@ -2199,8 +2199,8 @@ void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDW
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
-* @brief      SetApplicationVersion
+* @fn         void DIOPROTOCOL::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+* @brief      Application_SetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2208,7 +2208,7 @@ void DIOPROTOCOL::GetApplicationVersion(XDWORD& version, XDWORD& subversion, XDW
 * @param[in]  subversionerr :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
+void DIOPROTOCOL::Application_SetVersion(XDWORD version, XDWORD subversion, XDWORD subversionerr)
 {
   this->applicationversion        = version;
   this->applicationsubversion     = subversion;
@@ -2218,14 +2218,14 @@ void DIOPROTOCOL::SetApplicationVersion(XDWORD version, XDWORD subversion, XDWOR
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* DIOPROTOCOL::GetApplicationName()
-* @brief      GetApplicationName
+* @fn         XSTRING* DIOPROTOCOL::Application_GetName()
+* @brief      Application_GetName
 * @ingroup    DATAIO
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* DIOPROTOCOL::GetApplicationName()
+XSTRING* DIOPROTOCOL::Application_GetName()
 {
   return &applicationname;
 }
@@ -2390,8 +2390,8 @@ int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
-* @brief      CMD_GetApplicationVersion
+* @fn         bool DIOPROTOCOL::CMD_Application_GetVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
+* @brief      CMD_Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  version :
@@ -2401,7 +2401,7 @@ int DIOPROTOCOL::RCV_GetProtocolVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMA
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
+bool DIOPROTOCOL::CMD_Application_GetVersion(XWORD& version, XWORD& subversion, XWORD& subversionerr)
 {
   bool result = false;
 
@@ -2426,8 +2426,8 @@ bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, X
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetApplicationVersion
+* @fn         int DIOPROTOCOL::RCV_Application_GetVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
+* @brief      RCV_Application_GetVersion
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2439,7 +2439,7 @@ bool DIOPROTOCOL::CMD_GetApplicationVersion(XWORD& version, XWORD& subversion, X
 * @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
+int DIOPROTOCOL::RCV_Application_GetVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 {
   xbuffer.Delete();
 
@@ -2449,8 +2449,8 @@ int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_CO
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
-* @brief      CMD_GetApplicationName
+* @fn         bool DIOPROTOCOL::CMD_Application_GetName(XSTRING& applicationname)
+* @brief      CMD_Application_GetName
 * @ingroup    DATAIO
 *
 * @param[in]  applicationname :
@@ -2458,7 +2458,7 @@ int DIOPROTOCOL::RCV_GetApplicationVersion(DIOPROTOCOL* protocol, DIOPROTOCOL_CO
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
+bool DIOPROTOCOL::CMD_Application_GetName(XSTRING& applicationname)
 {
   DIOPROTOCOL_COMMAND* cmd = GetCommand(DIOPROTOCOL_CMDTYPE_GETAPPLICATIONNAME);
   if(!cmd) return false;
@@ -2480,8 +2480,8 @@ bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         int DIOPROTOCOL::RCV_GetApplicationName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
-* @brief      RCV_GetApplicationName
+* @fn         int DIOPROTOCOL::RCV_Application_GetName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
+* @brief      RCV_Application_GetName
 * @ingroup    DATAIO
 *
 * @param[in]  protocol :
@@ -2493,7 +2493,7 @@ bool DIOPROTOCOL::CMD_GetApplicationName(XSTRING& applicationname)
 * @return     int :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-int DIOPROTOCOL::RCV_GetApplicationName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
+int DIOPROTOCOL::RCV_Application_GetName(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param)
 {
   xbuffer.Delete();
   return xbuffer.AddWithMask(cmd->GetSOUTMask(), &protocol->applicationname);
@@ -3613,10 +3613,10 @@ bool DIOPROTOCOL::CMD_SendAlert(DIOALERT* alert)
   bool     result     = false;
 
   alert->GetDateTime()->GetDateTimeToString(XDATETIME_FORMAT_STANDARD, datetimestr);
-  alert->GetApplicationVersion(applicationversion, applicationsubversion, applicationsubversionerr);
+  alert->Application_GetVersion(applicationversion, applicationsubversion, applicationsubversionerr);
 
   xbuffer.AddWithMask(cmd->GetSINMask() , &datetimestr
-                                        , alert->GetApplicationID()
+                                        , alert->Application_GetID()
                                         , applicationversion
                                         , applicationsubversion
                                         , applicationsubversionerr
@@ -3696,8 +3696,8 @@ int DIOPROTOCOL::RCV_SendAlert(DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, 
       DIOALERT alert;
 
       alert.GetDateTime()->GetDateTimeFromString(datetimestr, XDATETIME_FORMAT_STANDARD);
-      alert.GetApplicationID()->Set(applicationID);
-      alert.SetApplicationVersion(applicationversion, applicationsubversion, applicationsubversionerr);
+      alert.Application_GetID()->Set(applicationID);
+      alert.Application_SetVersion(applicationversion, applicationsubversion, applicationsubversionerr);
       alert.SetID(ID);      
       alert.SetLevel((DIOALERTLEVEL)level);
       alert.GetOrigin()->Set(origin);

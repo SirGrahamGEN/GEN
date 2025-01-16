@@ -57,7 +57,7 @@ class MAINPROCESP32 : public MAINPROC
                                   MAINPROCESP32         ();
     virtual                      ~MAINPROCESP32         ();
 
-    virtual bool                  Ini                   (APPMAIN* appmain = NULL);
+    virtual bool                  Ini                   (APPFLOWMAIN* appmain = NULL);
     virtual bool                  Update                ();
     virtual bool                  End                   ();
 

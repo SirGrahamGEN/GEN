@@ -114,8 +114,6 @@ class GRPCANVAS : public GRPPROPERTIES, public GRP2DREBUILDAREAS
                                   GRPCANVAS                           ();
     virtual                      ~GRPCANVAS                           ();
 
-    //GRPRECTINT*                   GetScreenZone                       ();
-
     virtual bool                  Buffer_Create                       ();   
     XBYTE*                        Buffer_Get                          ();
     XDWORD                        Buffer_GetSize                      ();

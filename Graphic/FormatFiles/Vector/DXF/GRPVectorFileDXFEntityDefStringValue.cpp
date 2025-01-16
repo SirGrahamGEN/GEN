@@ -80,8 +80,8 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  int : 
-* @param[in]  XCHAR* string : 
+* @param[in]  value : 
+* @param[in]  string : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int value, XCHAR* string)
@@ -96,7 +96,7 @@ GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(int v
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* : 
+* @param[in]  stringvalue : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYDEFSTRINGVALUE::GRPVECTORFILEDXFENTITYDEFSTRINGVALUE(GRPVECTORFILEDXFENTITYDEFSTRINGVALUE* stringvalue)

@@ -612,19 +612,19 @@ int XLINUXSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+* 
+* @fn         XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* name)
 * @brief      GetEnviromentVariable
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  variablename :
-*
-* @return     XCHAR* :
-*
+* 
+* @param[in]  name : 
+* 
+* @return     XCHAR* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* name)
 {
-  XSTRING        _variablename = variablename;
+  XSTRING        _variablename = name;
   static XSTRING result;
 
   XBUFFER charstr;
@@ -637,29 +637,29 @@ XCHAR* XLINUXSYSTEM::GetEnviromentVariable(XCHAR* variablename)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+* 
+* @fn         bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    PLATFORM_LINUX
-*
-* @param[in]  variablename :
-* @param[in]  value :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 {
-  XSTRING _variablename;
+  XSTRING _name;
   XSTRING _value;
 
-  _variablename = variablename;
-  _value        = value;
+  _name   = name;
+  _value  = value;
 
   XBUFFER charstr1;  
   XBUFFER charstr2;
   
-  _variablename.ConvertToASCII(charstr1);  
+  _name.ConvertToASCII(charstr1);  
   _value.ConvertToASCII(charstr2);
 
   int status = setenv(charstr1.GetPtrChar(), charstr2.GetPtrChar(), 1);
@@ -670,24 +670,24 @@ bool XLINUXSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
+* @fn         bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* name)
 * @brief      DelEnviromentVariable
 * @ingroup    PLATFORM_LINUX
 *
-* @param[in]  variablename :
+* @param[in]  name :
 *
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* variablename)
+bool XLINUXSYSTEM::DelEnviromentVariable(XCHAR* name)
 {
-  XSTRING _variablename;
+  XSTRING _name;
 
-  _variablename = variablename;
+  _name = name;
 
   XBUFFER charstr;
   
-  _variablename.ConvertToASCII(charstr);
+  _name.ConvertToASCII(charstr);
 
   int status = unsetenv(charstr.GetPtrChar());
   

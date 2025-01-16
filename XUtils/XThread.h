@@ -100,7 +100,7 @@ enum XTHREADGROUPID
   XTHREADGROUPID_GRPLOADER                            ,
   XTHREADGROUPID_GRPFRAMERATE                         ,
   XTHREADGROUPID_SOUND                                ,
-  XTHREADGROUPID_APPEXTENDED                          ,                         
+  XTHREADGROUPID_APPFLOWEXTENDED                      ,                         
  
   XTHREADGROUPID_APPOWNER
 };

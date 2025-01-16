@@ -114,6 +114,7 @@ class XPROCESSMANAGER
     virtual bool                    OpenURL                         (XCHAR* url);
 
     virtual bool                    Application_Execute             (XCHAR* applicationpath, XCHAR* params = NULL, XBUFFER* in = NULL, XBUFFER* out = NULL, int* returncode = NULL);
+    bool                            Application_Execute             (XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode = NULL);
 
     virtual bool                    Application_IsRunning           (XCHAR* command, XDWORD* ID = NULL);
 

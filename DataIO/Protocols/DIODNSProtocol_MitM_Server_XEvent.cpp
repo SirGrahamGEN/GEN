@@ -62,15 +62,15 @@
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
-* @brief      DIODNSPROTOCOL_MITM_SERVER_XEVENT
+* 
+* @fn         DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
+* @brief      Constructor
 * @ingroup    DATAIO
-*
-* @param[in]  subject :
-* @param[in]  type :
-* @param[in]  family :
-*
+* 
+* @param[in]  subject : 
+* @param[in]  type : 
+* @param[in]  family : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIODNSPROTOCOL_MITM_SERVER_XEVENT::DIODNSPROTOCOL_MITM_SERVER_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family): XEVENT(subject, type, family)
 {

@@ -82,7 +82,7 @@
 * --------------------------------------------------------------------------------------------------------------------*/
 XWINDOWSCONSOLE::XWINDOWSCONSOLE(): XCONSOLE()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HANDLE                hconsole    = GetStdHandle(STD_OUTPUT_HANDLE);   // Get the number of character cells in the current buffer.
   CONSOLE_CURSOR_INFO   cursorinfo;
@@ -123,7 +123,7 @@ XWINDOWSCONSOLE::~XWINDOWSCONSOLE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HWND consolehandle = GetConsoleWindow();
   RECT rect;
@@ -156,7 +156,7 @@ bool XWINDOWSCONSOLE::GetSize(int& width, int& height)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::SetSize(int width, int height)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HWND consolehandle = GetConsoleWindow();
   RECT rect;
@@ -191,7 +191,7 @@ bool XWINDOWSCONSOLE::SetSize(int width, int height)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   CONSOLE_SCREEN_BUFFER_INFO csbi;
 
@@ -217,7 +217,7 @@ bool XWINDOWSCONSOLE::GetSizeText(int& columns, int& rows)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Maximize()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HANDLE                     hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
   HWND                       hwindow  = GetConsoleWindow();
@@ -252,7 +252,7 @@ bool XWINDOWSCONSOLE::Maximize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Minimize()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HANDLE                     hconsole = GetStdHandle(STD_OUTPUT_HANDLE);
   HWND                       hwindow  = GetConsoleWindow();
@@ -287,7 +287,7 @@ bool XWINDOWSCONSOLE::Minimize()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Hide()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HWND hwindow  = GetConsoleWindow();
   if(!hwindow)  return false;
@@ -311,7 +311,7 @@ bool XWINDOWSCONSOLE::Hide()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::IsHide()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE  
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE  
 
   HWND hwindow  = GetConsoleWindow();
   if(!hwindow)  return false;
@@ -337,7 +337,7 @@ bool XWINDOWSCONSOLE::IsHide()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::UnHide()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   HWND hwindow  = GetConsoleWindow();
   if(!hwindow)  return false;
@@ -364,7 +364,7 @@ bool XWINDOWSCONSOLE::UnHide()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Print(XCHAR* string)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   if(!string)     return false;
   if(!string[0])  return false;
@@ -391,7 +391,7 @@ bool XWINDOWSCONSOLE::Print(XCHAR* string)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Clear(bool fill)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   system("cls");
 
@@ -412,7 +412,7 @@ bool XWINDOWSCONSOLE::Clear(bool fill)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::KBHit(void)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   #ifdef _MSC_VER
   if(_kbhit()) return true;
@@ -435,7 +435,7 @@ bool XWINDOWSCONSOLE::KBHit(void)
 * --------------------------------------------------------------------------------------------------------------------*/
 int XWINDOWSCONSOLE::GetChar()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
   
   //if(!KBHit()) return 0;
 
@@ -460,7 +460,7 @@ int XWINDOWSCONSOLE::GetChar()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Generate()
 {
-  //#ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  //#ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   #ifndef BUILDER
   if(!AttachConsole(ATTACH_PARENT_PROCESS))
@@ -533,7 +533,7 @@ bool XWINDOWSCONSOLE::Generate()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSCONSOLE::Close()
 {
-  //#ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  //#ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   SendEnterKey();
 
@@ -557,7 +557,7 @@ bool XWINDOWSCONSOLE::Close()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XWINDOWSCONSOLE::SendEnterKey() 
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   INPUT ip;
   // Set up a generic keyboard event.

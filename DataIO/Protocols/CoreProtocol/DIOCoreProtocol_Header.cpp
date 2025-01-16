@@ -355,8 +355,8 @@ bool DIOCOREPROTOCOL_HEADER::GetOperationFromString(XSTRING* operationstr, DIOCO
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOCOREPROTOCOL_HEADER::GetMessageParam()
-* @brief      GetMessageParam
+* @fn         XSTRING* DIOCOREPROTOCOL_HEADER::GetOperationParam()
+* @brief      GetOperationParam
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
@@ -628,7 +628,7 @@ XDWORD DIOCOREPROTOCOL_HEADER::GetContentCRC32()
 * @brief      SetContentCRC32
 * @ingroup    DATAIO
 * 
-* @param[in]  contentCRC32 : 
+* @param[in]  content_CRC32 : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_HEADER::SetContentCRC32(XDWORD content_CRC32)

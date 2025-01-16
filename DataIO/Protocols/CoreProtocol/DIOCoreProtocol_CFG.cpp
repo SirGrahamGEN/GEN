@@ -319,7 +319,7 @@ XDWORD DIOCOREPROTOCOL_CFG::GetTimeToCheckConnection()
 * @brief      SetTimeToCheckConnection
 * @ingroup    DATAIO
 * 
-* @param[in]  timetoheardbetinconnection : 
+* @param[in]  timetocheckconnection : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void DIOCOREPROTOCOL_CFG::SetTimeToCheckConnection(XDWORD timetocheckconnection)

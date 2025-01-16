@@ -59,7 +59,7 @@ class INPCAPTURE : public XSUBJECT
                                       INPCAPTURE                  ();                                      
     virtual                          ~INPCAPTURE                  ();
 
-    void                              SetApplicationHandle        (void* applicationhandle);
+    void                              Application_SetHandle        (void* applicationhandle);
 
     virtual bool                      Activate                    ();
     virtual bool                      Deactivate                  ();

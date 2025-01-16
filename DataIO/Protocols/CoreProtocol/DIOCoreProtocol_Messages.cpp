@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocol_Message.cpp
+* @file       DIOCoreProtocol_Messages.cpp
 * 
-* @class      DIOCOREPROTOCOL_MESSAGE
-* @brief      Data Input/Output Core Protocol CFG class
+* @class      DIOCOREPROTOCOL_MESSAGES
+* @brief      Data Input/Output Core Protocol Messages class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -271,8 +271,8 @@ DIOCOREPROTOCOL_MESSAGES::~DIOCOREPROTOCOL_MESSAGES()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_MESSAGES::GetMessages()
-* @brief      GetMessages
+* @fn         XMAP<DIOCOREPROTOCOL_MESSAGE*, DIOCOREPROTOCOL_MESSAGE*>* DIOCOREPROTOCOL_MESSAGES::GetAll()
+* @brief      GetAll
 * @ingroup    DATAIO
 * 
 * @return     XMAP<DIOCOREPROTOCOL_MESSAGE*, : 

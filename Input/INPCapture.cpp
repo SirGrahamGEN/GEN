@@ -93,14 +93,14 @@ INPCAPTURE::~INPCAPTURE()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void INPCAPTURE::SetApplicationHandle(void* applicationhandle)
-* @brief      SetApplicationHandle
+* @fn         void INPCAPTURE::Application_SetHandle(void* applicationhandle)
+* @brief      Application_SetHandle
 * @ingroup    INPUT
 * 
 * @param[in]  applicationhandle : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void INPCAPTURE::SetApplicationHandle(void* applicationhandle)
+void INPCAPTURE::Application_SetHandle(void* applicationhandle)
 {
   this->applicationhandle = applicationhandle;
 }
@@ -187,7 +187,7 @@ XDWORD INPCAPTURE::GetLimit()
 * @brief      SetLimit
 * @ingroup    INPUT
 * 
-* @param[in]  capture_limit : 
+* @param[in]  limit : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE::SetLimit(XDWORD limit)

@@ -42,11 +42,11 @@
 #include "XVariant.h"
 #include "XProcessManager.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-#include "APPGraphics.h"
+#include "APPFlowGraphics.h"
 #endif
 
 #include "INPFactory.h"
@@ -81,7 +81,7 @@ int            windowsposx = 0;
 int            windowsposy = 0;
 
 #ifdef SCRIPT_LIB_WINDOWS_DEBUG
-APPGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
+APPFLOWGRAPHICS*   SCRIPT_LIB_WINDOW::appgraphics = NULL;
 #endif
 			
 #pragma endregion
@@ -215,14 +215,14 @@ void SCRIPT_LIB_WINDOW::BmpFindCFG_SetPixelMargin(XBYTE pixelmargin)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
+* @fn         APPFLOWGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
 * @brief      GetAppGraphics
 * @ingroup    SCRIPT
 * 
-* @return     APPGRAPHICS* : 
+* @return     APPFLOWGRAPHICS* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
+APPFLOWGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
 {
   return appgraphics;
 }
@@ -230,14 +230,14 @@ APPGRAPHICS* SCRIPT_LIB_WINDOW::GetAppGraphics()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* appgraphics)
+* @fn         void SCRIPT_LIB_WINDOW::SetAppGraphics(APPFLOWGRAPHICS* appgraphics)
 * @brief      SetAppGraphics
 * @ingroup    SCRIPT
 * 
 * @param[in]  _appgraphics : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-void SCRIPT_LIB_WINDOW::SetAppGraphics(APPGRAPHICS* _appgraphics)
+void SCRIPT_LIB_WINDOW::SetAppGraphics(APPFLOWGRAPHICS* _appgraphics)
 {
   appgraphics = _appgraphics;
 }

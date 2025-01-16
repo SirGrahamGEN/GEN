@@ -405,12 +405,12 @@ bool DIOALERTSUDPSERVER::ReceivedEvents()
                   data.Extract(dataxdword);   alert->GetDateTime()->SetMinutes(dataxdword);                                       // Minutes
                   data.Extract(dataxdword);   alert->GetDateTime()->SetSeconds(dataxdword);                                       // Seconds
 
-                  data.Extract(sizestring);  data.Extract(string, 0, sizestring);   alert->GetApplicationID()->Set(string);       // Aplication String
+                  data.Extract(sizestring);  data.Extract(string, 0, sizestring);   alert->Application_GetID()->Set(string);       // Aplication String
                   data.Extract(applicationversion);
                   data.Extract(applicationsubversion);
                   data.Extract(applicationsubversionerr);
 
-                  alert->SetApplicationVersion(applicationversion, applicationsubversion, applicationsubversionerr);
+                  alert->Application_SetVersion(applicationversion, applicationsubversion, applicationsubversionerr);
 
                   data.Extract(dataxdword);                                         alert->SetID(dataxdword);                     // ID
                   data.Extract(dataxdword);                                         alert->SetType(dataxdword);                   // Type

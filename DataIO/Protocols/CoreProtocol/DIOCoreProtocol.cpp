@@ -463,15 +463,14 @@ void DIOCOREPROTOCOL_UPDATECLASS::Clean()
 
 #pragma region CLASS_DIOCOREPROTOCOL
 
-
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  DIOCOREPROTOCOL_CFG* : 
-* @param[in]   DIOSTREAM* diostream : 
+* @param[in]  protocolCFG : 
+* @param[in]  diostream : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 DIOCOREPROTOCOL::DIOCOREPROTOCOL(DIOCOREPROTOCOL_CFG* protocolCFG, DIOSTREAM* diostream)

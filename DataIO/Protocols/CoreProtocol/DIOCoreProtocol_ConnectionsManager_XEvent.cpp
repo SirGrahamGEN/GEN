@@ -224,7 +224,7 @@ void DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::SetMsg(DIOCOREPROTOCOL_MESSAGE* 
 * 
 * @fn         XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
 * @brief      GetContentResponseBuffer
-* @ingroup    EXAMPLES
+* @ingroup    DATAIO
 * 
 * @return     XBUFFER* : 
 * 
@@ -239,7 +239,7 @@ XBUFFER* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContentResponseBuffer()
 * 
 * @fn         XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
 * @brief      GetContenteResponseString
-* @ingroup    EXAMPLES
+* @ingroup    DATAIO
 * 
 * @return     XSTRING* : 
 * 
@@ -254,7 +254,7 @@ XSTRING* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseString()
 * 
 * @fn         XFILEJSON* DIOCOREPROTOCOL_CONNECTIONSMANAGER_XEVENT::GetContenteResponseXFileJSON()
 * @brief      GetContenteResponseXFileJSON
-* @ingroup    EXAMPLES
+* @ingroup    DATAIO
 * 
 * @return     XFILEJSON* : 
 * 

@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 *
-* @param[in]  skin : 
+* @param[in]  ui_skin : 
 * 
 * ---------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT::UI_LAYOUT(UI_SKIN* ui_skin)    

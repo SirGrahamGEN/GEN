@@ -32,9 +32,9 @@
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
 
-#ifdef APP_ACTIVE
-#include "APPBase.h"
-#include "APPMain.h"
+#ifdef APPFLOW_ACTIVE
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 #endif
 
 #include "MainProc.h"
@@ -58,7 +58,7 @@ class MAINPROCLINUX : public MAINPROC
                                   MAINPROCLINUX         ();
     virtual                      ~MAINPROCLINUX         ();
 
-    bool                          Ini                   (APPMAIN* appmain = NULL, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN);
+    bool                          Ini                   (APPFLOWMAIN* appmain = NULL, APPFLOWBASE_MODE_TYPE applicationmode = APPFLOWBASE_MODE_TYPE_UNKNOWN);
     bool                          Update                ();
     bool                          End                   ();
 

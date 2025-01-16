@@ -160,7 +160,7 @@
 #include "XTranslation.h"
 #include "XPublisher.h"
 
-#include "APPBase.h"
+#include "APPFlowBase.h"
 
 #pragma endregion
 
@@ -230,7 +230,7 @@ MAINPROCLINUX::~MAINPROCLINUX()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+* @fn         bool MAINPROCLINUX::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_LINUX
 *
@@ -240,7 +240,7 @@ MAINPROCLINUX::~MAINPROCLINUX()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+bool MAINPROCLINUX::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 {
   this->appmain = appmain;
 
@@ -252,7 +252,7 @@ bool MAINPROCLINUX::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicati
   
   if(!Factorys_Ini()) return false;
   
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(!appmain)                              return false;
   if(!appmain->Create())                    return false;
@@ -295,7 +295,7 @@ bool MAINPROCLINUX::Update()
   GEN_INPMANAGER.Update();
   #endif
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain)
     {
@@ -330,7 +330,7 @@ bool MAINPROCLINUX::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCLINUX::End()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->End();
 
@@ -343,7 +343,7 @@ bool MAINPROCLINUX::End()
 
   #endif
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->Delete();
 
@@ -708,8 +708,8 @@ int main(int argc, char* argv[])
 
   int status = 0;
   
-  #ifdef APP_ACTIVE
-  if(!mainproclinux.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+  #ifdef APPFLOW_ACTIVE
+  if(!mainproclinux.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_APPLICATION))
   #else
   if(!mainproclinux.Ini())
   #endif
@@ -732,7 +732,7 @@ int main(int argc, char* argv[])
 
   int returncode = 0;
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(mainproclinux.GetAppMain())
     {
       if(mainproclinux.GetAppMain()->GetApplication())
@@ -783,8 +783,8 @@ static void LIBRARY_Ini(void)
   if(rb >= 0) xpathexecutable[rb] = '\0';
 
   mainproclinux.GetXPathExec()->Set(xpathexecutable);
-  #ifdef APP_ACTIVE
-  mainproclinux.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+  #ifdef APPFLOW_ACTIVE
+  mainproclinux.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_DINAMICLIBRARY);
   #else
   mainproclinux.Ini();
   #endif
@@ -899,13 +899,13 @@ static void Signal_Handler(int sig)
 
   allexceptiontext.Empty();
 
-  #ifdef APP_ACTIVE
-  APPBASE* app = NULL;
+  #ifdef APPFLOW_ACTIVE
+  APPFLOWBASE* app = NULL;
   if(mainproclinux.GetAppMain()) app = mainproclinux.GetAppMain()->GetApplication();
 
   if(app)
     {
-      if(app->GetExitType()!=APPBASE_EXITTYPE_UNKNOWN) return;
+      if(app->GetExitType()!=APPFLOWBASE_EXITTYPE_UNKNOWN) return;
     }
   #endif
 
@@ -975,7 +975,7 @@ static void Signal_Handler(int sig)
 
   Signal_Printf(iserror, __L("SIGNAL"), __L("[SIG%s] Error: %s"), signalstr.Get(), description.Get());
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(app)
     {
       if(app->GetTimerGlobal())
@@ -1012,10 +1012,10 @@ static void Signal_Handler(int sig)
 
                           fprintf(stderr," \n");
 
-                          #ifdef APP_ACTIVE
+                          #ifdef APPFLOW_ACTIVE
                           if(app)
                             {
-                              app->SetExitType(APPBASE_EXITTYPE_BY_SERIOUSERROR);
+                              app->SetExitType(APPFLOWBASE_EXITTYPE_BY_SERIOUSERROR);
                               app->AppProc_End();
                             }
                           #endif
@@ -1029,15 +1029,15 @@ static void Signal_Handler(int sig)
 
 
       case SIGINT     :
-                        #ifdef APP_ACTIVE
-                        if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                        #ifdef APPFLOW_ACTIVE
+                        if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                         #endif
                         allexceptiontext.Empty();
                         break;
 
       case SIGQUIT    :
-                        #ifdef APP_ACTIVE
-                        if(app) app->SetExitType(APPBASE_EXITTYPE_BY_SHUTDOWN);
+                        #ifdef APPFLOW_ACTIVE
+                        if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_SHUTDOWN);
                         #endif
                         allexceptiontext.Empty();
                         break;
@@ -1046,10 +1046,10 @@ static void Signal_Handler(int sig)
       case SIGTERM    : { XCHAR previous;
                           XCHAR actual;
 
-                          #ifdef APP_ACTIVE
+                          #ifdef APPFLOW_ACTIVE
                           if(app)
                             {
-                              if(app->GetExitType()!=APPBASE_EXITTYPE_UNKNOWN) return;
+                              if(app->GetExitType()!=APPFLOWBASE_EXITTYPE_UNKNOWN) return;
                             }
                           #endif
 
@@ -1057,16 +1057,16 @@ static void Signal_Handler(int sig)
                             {
                               if(actual == __C('0'))
                                 {
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_SHUTDOWN);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_SHUTDOWN);
                                   #endif
                                   allexceptiontext.Empty();
                                   break;
                                 }
                             }
 
-                          #ifdef APP_ACTIVE
-                          if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                          #ifdef APPFLOW_ACTIVE
+                          if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                           #endif
                           allexceptiontext.Empty();
                         }

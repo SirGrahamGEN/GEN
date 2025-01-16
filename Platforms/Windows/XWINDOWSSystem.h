@@ -400,18 +400,18 @@ class XWINDOWSSYSTEM_CPUUSAGESTATUS
 class XWINDOWSSYSTEM_CPUUSAGE 
 {
 	public:
-																								XWINDOWSSYSTEM_CPUUSAGE			();
-																							 ~XWINDOWSSYSTEM_CPUUSAGE			();
+																								XWINDOWSSYSTEM_CPUUSAGE														();
+																							 ~XWINDOWSSYSTEM_CPUUSAGE														();
 
-    double																			GetTotalCpuUsage						();
-    double																			GetProcessCpuUsage					(DWORD processID);
+    double																			GetTotalCpuUsage																	();
+    double																			GetProcessCpuUsage																(DWORD processID);
       
 	private:
    
-    ULONGLONG																		SubtractTimes								(const FILETIME& fta, const FILETIME& ftb);		
-    int																					GetNumberOfProcessors				();
+    ULONGLONG																		SubtractTimes																			(const FILETIME& fta, const FILETIME& ftb);		
+    int																					GetNumberOfProcessors															();
 
-		void																				Clean												();
+		void																				Clean																							();
 
 		FILETIME																		lastsysidletime;
 		FILETIME																		lastsyskerneltime;
@@ -449,9 +449,9 @@ class XWINDOWSSYSTEM : public XSYSTEM
     int																					GetCPUUsageForProcessName													(XCHAR* processname);
     int																					GetCPUUsageForProcessID														(XDWORD processID);
 
-    XCHAR*																			GetEnviromentVariable															(XCHAR* variablename);
-    bool																				SetEnviromentVariable															(XCHAR* variablename, XCHAR* value);
-    bool																				DelEnviromentVariable															(XCHAR* variablename);
+    XCHAR*																			GetEnviromentVariable															(XCHAR* name);
+    bool																				SetEnviromentVariable															(XCHAR* name, XCHAR* value);
+    bool																				DelEnviromentVariable															(XCHAR* name);
 
 		bool																				GetUserAndDomain																	(XSTRING& user, XSTRING& domain);
 

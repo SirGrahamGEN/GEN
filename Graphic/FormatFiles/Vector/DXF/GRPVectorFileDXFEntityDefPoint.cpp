@@ -80,9 +80,9 @@ GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT()
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  double : 
-* @param[in]   double ypoint : 
-* @param[in]   double zpoint : 
+* @param[in]  xpoint : 
+* @param[in]  ypoint : 
+* @param[in]  zpoint : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(double xpoint, double ypoint, double zpoint)
@@ -101,7 +101,7 @@ GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(double xpoint, do
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  GRPVECTORFILEDXFENTITYDEFPOINT* : 
+* @param[in]  point : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYDEFPOINT::GRPVECTORFILEDXFENTITYDEFPOINT(GRPVECTORFILEDXFENTITYDEFPOINT* point)

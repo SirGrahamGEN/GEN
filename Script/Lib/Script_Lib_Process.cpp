@@ -43,8 +43,8 @@
 #include "XProcessManager.h"
 #include "XVariant.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #include "Script.h"
 
@@ -271,10 +271,12 @@ void Call_ExecApplication(SCRIPT_LIB* library, SCRIPT* script, XVECTOR<XVARIANT*
     }
   
   if(app_path)
-    {      
-      int returncode = 0;
+    {    
+      XBUFFER in;
+      XBUFFER out;  
+      int     returncode = 0;
 
-      status = GEN_XPROCESSMANAGER.Application_Execute(app_path->Get(), app_params?app_params->Get():__L(""), NULL, NULL, &returncode);    
+      status = GEN_XPROCESSMANAGER.Application_Execute(app_path->Get(), app_params?app_params->Get():__L(""), &in, &out, &returncode);    
       if(status)
         {            
           (*returnvalue) = returncode?false:true; 

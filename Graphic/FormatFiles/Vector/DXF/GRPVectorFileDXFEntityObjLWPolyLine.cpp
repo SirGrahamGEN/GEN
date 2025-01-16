@@ -69,7 +69,7 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  XCHAR* : 
+* @param[in]  nametype : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GRPVECTORFILEDXFENTITYOBJLWPOLYLINE(XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ (nametype)
@@ -108,14 +108,14 @@ int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetNVertex()
   return nvertex;
 }
       
-      
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetNVertex(int nvertex)
 * @brief      SetNVertex
 * @ingroup    GRAPHIC
 * 
-* @param[in]  nVertex : 
+* @param[in]  nvertex : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetNVertex(int nvertex)
@@ -138,14 +138,14 @@ int GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetPolyLineFlag()
   return polylineflag;
 }
       
-      
+    
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetPolyLineFlag(int polylineflag)
 * @brief      SetPolyLineFlag
 * @ingroup    GRAPHIC
 * 
-* @param[in]  polyLineFlag : 
+* @param[in]  polylineflag : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetPolyLineFlag(int polylineflag)
@@ -175,7 +175,7 @@ double GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::GetConstantWidth()
 * @brief      SetConstantWidth
 * @ingroup    GRAPHIC
 * 
-* @param[in]  constantWidth : 
+* @param[in]  constantwidth : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPVECTORFILEDXFENTITYOBJLWPOLYLINE::SetConstantWidth(double constantwidth)

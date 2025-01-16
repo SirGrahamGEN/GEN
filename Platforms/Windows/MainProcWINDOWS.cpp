@@ -207,7 +207,7 @@ MAINPROCWINDOWS::~MAINPROCWINDOWS()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+* @fn         bool MAINPROCWINDOWS::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_WINDOWS
 *
@@ -217,7 +217,7 @@ MAINPROCWINDOWS::~MAINPROCWINDOWS()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+bool MAINPROCWINDOWS::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 {
   this->appmain = appmain;
 
@@ -245,7 +245,7 @@ bool MAINPROCWINDOWS::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applica
 
   if(!Factorys_Ini()) return false;
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(!appmain)                              return false;
   if(!appmain->Create())                    return false;
@@ -291,7 +291,7 @@ bool MAINPROCWINDOWS::Update()
       #ifdef GRP_ACTIVE
       MSG   msg;
 
-      APPBASE* app = NULL;
+      APPFLOWBASE* app = NULL;
       if(mainprocwindows.GetAppMain()) 
         {
           app = mainprocwindows.GetAppMain()->GetApplication();
@@ -303,11 +303,11 @@ bool MAINPROCWINDOWS::Update()
             {
               case WM_QUIT        : if(app) 
                                       {
-                                        app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                                        app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                                       }
                                     break;
 
-              case WM_CLOSE       : PostQuitMessage(APPBASE_EXITTYPE_BY_USER);
+              case WM_CLOSE       : PostQuitMessage(APPFLOWBASE_EXITTYPE_BY_USER);
                                     break;
             }
           
@@ -322,7 +322,7 @@ bool MAINPROCWINDOWS::Update()
     }
 
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain)
     {
       if(!appmain->Update()) 
@@ -359,7 +359,7 @@ bool MAINPROCWINDOWS::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCWINDOWS::End()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) 
     {
@@ -378,7 +378,7 @@ bool MAINPROCWINDOWS::End()
 
   #endif
   
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) 
     {
@@ -701,8 +701,8 @@ int MAINPROCWINDOWS::MainLoop()
   #ifndef BUILDER
   __try  {
   #endif
-          #ifdef APP_ACTIVE
-          if(!mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+          #ifdef APPFLOW_ACTIVE
+          if(!mainprocwindows.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_APPLICATION))
           #else
           if(!mainprocwindows.Ini())
           #endif
@@ -933,14 +933,14 @@ void WINDOWSSERVICE::On_Start(DWORD argc, XCHAR** args)
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Stop()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(mainprocwindows.GetAppMain())
     {
       if(mainprocwindows.GetAppMain()->GetApplication())
         {
-          if(mainprocwindows.GetAppMain()->GetApplication()->GetExitType() == APPBASE_EXITTYPE_UNKNOWN)  
+          if(mainprocwindows.GetAppMain()->GetApplication()->GetExitType() == APPFLOWBASE_EXITTYPE_UNKNOWN)  
             {
-              mainprocwindows.GetAppMain()->GetApplication()->SetExitType(APPBASE_EXITTYPE_BY_USER);            
+              mainprocwindows.GetAppMain()->GetApplication()->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);            
             }
         }
     }
@@ -970,7 +970,7 @@ void WINDOWSSERVICE::On_Stop()
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_Shutdown()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(mainprocwindows.GetAppMain())
     {
       if(mainprocwindows.GetAppMain()->GetApplication())
@@ -993,7 +993,7 @@ void WINDOWSSERVICE::On_Shutdown()
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   //XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
 
   if(mainprocwindows.GetAppMain())
@@ -1021,7 +1021,7 @@ void WINDOWSSERVICE::On_PowerEvent(DWORD eventtype)
 * --------------------------------------------------------------------------------------------------------------------*/
 void WINDOWSSERVICE::On_SessionChange(DWORD eventtype)
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   //XSYSTEM_CHANGESTATUSTYPE systemchangestatustype = XSYSTEM_CHANGESTATUSTYPE_UNKNOWN;
 
   if(mainprocwindows.GetAppMain())
@@ -1077,8 +1077,8 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
 
   if(!service) return false;
 
-  #ifdef APP_ACTIVE
-  if(!mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_SERVICE))
+  #ifdef APPFLOW_ACTIVE
+  if(!mainprocwindows.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_SERVICE))
   #else
   if(!mainprocwindows.Ini())
   #endif
@@ -1099,9 +1099,9 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
     }
 
   
-  APPBASE_EXITTYPE exittype = APPBASE_EXITTYPE_UNKNOWN;
+  APPFLOWBASE_EXITTYPE exittype = APPFLOWBASE_EXITTYPE_UNKNOWN;
 
-  #ifdef APP_ACTIVE  
+  #ifdef APPFLOW_ACTIVE  
   exittype =  mainprocwindows.GetAppMain()->GetApplication()->GetExitType();
   #endif
   
@@ -1109,7 +1109,7 @@ DWORD WINAPI Service_WorkerThread(LPVOID lpparam)
   mainprocwindows.End();
 
 
-  if(exittype == APPBASE_EXITTYPE_BY_SERVICERELOAD)
+  if(exittype == APPFLOWBASE_EXITTYPE_BY_SERVICERELOAD)
     {
       service->SetMustRestartService(true);
     }
@@ -1181,8 +1181,8 @@ int wmain(int argc, wchar_t* argv[])
       int returncode        = 0;
       int ntotaltests       = 0;
 
-      #ifdef APP_ACTIVE
-      if(!mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+      #ifdef APPFLOW_ACTIVE
+      if(!mainprocwindows.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_APPLICATION))
       #else
       if(!mainprocwindows.Ini())
       #endif
@@ -1200,7 +1200,7 @@ int wmain(int argc, wchar_t* argv[])
           #endif
         }
 
-      #ifdef APP_ACTIVE
+      #ifdef APPFLOW_ACTIVE
       if(mainprocwindows.GetAppMain())
         {
           if(mainprocwindows.GetAppMain()->GetApplication())
@@ -1234,7 +1234,7 @@ int wmain(int argc, wchar_t* argv[])
 
         }
 
-      #ifdef APP_ACTIVE
+      #ifdef APPFLOW_ACTIVE
       if(mainprocwindows.GetAppMain())
         {
           if(mainprocwindows.GetAppMain()->GetApplication())
@@ -1301,7 +1301,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hprevinst, LPSTR cmdline, int 
         }
     }
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(mainprocwindows.GetAppMain())
     {
       if(mainprocwindows.GetAppMain()->GetApplication())
@@ -1346,8 +1346,8 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, XDWORD fdwReason,LPVOID lpvReserved)
                                   mainprocwindows.GetXPathExec()->Set(xpathexecutable);
                                   xpathexecutable.Empty();
                                   
-                                  #ifdef APP_ACTIVE
-                                  mainprocwindows.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_DINAMICLIBRARY);
+                                  #ifdef APPFLOW_ACTIVE
+                                  mainprocwindows.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_DINAMICLIBRARY);
                                   #else
                                   mainprocwindows.Ini();
                                   #endif
@@ -1456,43 +1456,43 @@ void MAINPROCWINDOWSSTACKWALKER::OnCallstackEntry(CallstackEntryType eType, Call
 * --------------------------------------------------------------------------------------------------------------------*/
 BOOL Exception_ConsoleHandler(DWORD fdwctrltype)
 {
-  #ifdef APP_ACTIVE
-  APPBASE* app = NULL;
+  #ifdef APPFLOW_ACTIVE
+  APPFLOWBASE* app = NULL;
   if(mainprocwindows.GetAppMain()) app = mainprocwindows.GetAppMain()->GetApplication();
   #endif
 
   switch(fdwctrltype)
     {
       case CTRL_BREAK_EVENT     : Exception_Printf(false, __L("EVENT"), __L("Ctrl-Break event."));
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                                   #endif
                                   return FALSE;
 
       case CTRL_C_EVENT         : Exception_Printf(false, __L("EVENT"), __L("Ctrl-C event."));
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                                   #endif
                                   return FALSE;
 
       case CTRL_CLOSE_EVENT     :
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_USER);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_USER);
                                   #endif
                                   FreeConsole();         // Detachxconsole
                                   break;
 
       case CTRL_LOGOFF_EVENT    : Exception_Printf(false, __L("EVENT"), __L("Ctrl-Logoff event."));
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_SHUTDOWN);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_SHUTDOWN);
                                   #endif
                                   FreeConsole();         // Detachxconsole
                                   ExitThread(0);         // Prevent closing.
                                   break;
 
       case CTRL_SHUTDOWN_EVENT  : Exception_Printf(false, __L("EVENT"), __L("Ctrl-Shutdown event."));
-                                  #ifdef APP_ACTIVE
-                                  if(app) app->SetExitType(APPBASE_EXITTYPE_BY_SHUTDOWN);
+                                  #ifdef APPFLOW_ACTIVE
+                                  if(app) app->SetExitType(APPFLOWBASE_EXITTYPE_BY_SHUTDOWN);
                                   #endif
                                   FreeConsole();         // Detachxconsole
                                   ExitThread(0);         // Prevent closing.
@@ -1526,8 +1526,8 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
   allexceptiontext = new XSTRING();
   if(!allexceptiontext) return 0;
 
-  APPBASE* app = NULL;
-  #ifdef APP_ACTIVE
+  APPFLOWBASE* app = NULL;
+  #ifdef APPFLOW_ACTIVE
   if(mainprocwindows.GetAppMain()) app = mainprocwindows.GetAppMain()->GetApplication();
   #endif
 
@@ -1624,7 +1624,7 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
 
   Exception_Printf(true, __L("EXCEPTION"), __L("%s: %s"), exception.Get(), description.Get());
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(app)
     {
       if(app->GetTimerGlobal())
@@ -1674,8 +1674,8 @@ int Exception_Filter(XDWORD code, struct _EXCEPTION_POINTERS* ep)
                                                     }
                                                   #endif
 
-                                                  #ifdef APP_ACTIVE
-                                                  if(app) exit(APPBASE_EXITTYPE_BY_SERIOUSERROR);
+                                                  #ifdef APPFLOW_ACTIVE
+                                                  if(app) exit(APPFLOWBASE_EXITTYPE_BY_SERIOUSERROR);
                                                   #endif
 
                                                   #endif 

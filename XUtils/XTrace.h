@@ -156,9 +156,9 @@ enum XTRACE_TYPE_STATUS_MSG
   #define XTRACE_ADDTARGET(type , aim)                                                                    XTRACE::instance->AddTarget(type, aim)
   #define XTRACE_DEACTIVATEALLTARGETS()                                                                   XTRACE::instance->DeactivateAllTargets()
   #define XTRACE_SETSIZELIMIT(sizelimit)                                                                  XTRACE::instance->SetSizeLimit(sizelimit)
-  #define XTRACE_SETAPPLICATIONNAME(name)                                                                 XTRACE::instance->SetApplicationName(name)
-  #define XTRACE_SETAPPLICATIONVERSION(version, subversion, subversionerr)                                XTRACE::instance->SetApplicationVersion(version, subversion, subversionerr)
-  #define XTRACE_SETAPPLICATIONID(ID)                                                                     XTRACE::instance->SetApplicationID(ID)
+  #define XTRACE_SETAPPLICATIONNAME(name)                                                                 XTRACE::instance->Application_SetName(name)
+  #define XTRACE_SETAPPLICATIONVERSION(version, subversion, subversionerr)                                XTRACE::instance->Application_SetVersion(version, subversion, subversionerr)
+  #define XTRACE_SETAPPLICATIONID(ID)                                                                     XTRACE::instance->Application_SetID(ID)
   #define XTRACE_SETSCRAPERWEBSCRIPURLDOWNLOAD(URL)                                                       XTRACE::instance->SetScraperWebScriptURLDownload(URL)
   #define XTRACE_SETPUBLICIP(IP)                                                                          XTRACE::instance->SetPublicIPString(IP)
   #define XTRACE_SETLOCALIPFILTER(LOCALIPFILTER)                                                          XTRACE::instance->SetLocalIPFilter(LOCALIPFILTER)
@@ -414,17 +414,17 @@ class XTRACE
     XDWORD                          GetSizeLimit                      ();
     bool                            SetSizeLimit                      (XDWORD sizelimit = XTRACE_SIZELIMITDEFAULT);
 
-    XCHAR*                          GetApplicationName                ();
-    void                            SetApplicationName                (XCHAR* applicationname);
-    void                            SetApplicationName                (XCHAR* applicationname, XDWORD size);
-    void                            SetApplicationName                (XSTRING& applicationname);
+    XCHAR*                          Application_GetName               ();
+    void                            Application_SetName               (XCHAR* applicationname);
+    void                            Application_SetName               (XCHAR* applicationname, XDWORD size);
+    void                            Application_SetName               (XSTRING& applicationname);
 
-    void                            GetApplicationVersion             (int& applicationversion, int& applicationsubversion, int& applicationsubversionerr);
-    void                            SetApplicationVersion             (int applicationversion, int applicationsubversion, int applicationsubversionerr);
+    void                            Application_GetVersion            (int& applicationversion, int& applicationsubversion, int& applicationsubversionerr);
+    void                            Application_SetVersion            (int applicationversion, int applicationsubversion, int applicationsubversionerr);
 
-    XCHAR*                          GetApplicationID                  ();
-    void                            SetApplicationID                  (XCHAR* applicationID, XDWORD size);
-    void                            SetApplicationID                  (XSTRING& applicationID);   
+    XCHAR*                          Application_GetID                 ();
+    void                            Application_SetID                 (XCHAR* applicationID, XDWORD size);
+    void                            Application_SetID                 (XSTRING& applicationID);   
 
     bool                            ClearScreen                       (XBYTE level);
     void                            PrintHeader                       (XBYTE level, XCHAR* header);

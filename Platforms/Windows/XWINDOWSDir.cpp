@@ -153,10 +153,20 @@ bool XWINDOWSDIR::Exist(XCHAR* path)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 {
-  if(!path)   return false;
-  if(!path[0]) return false;
+  if(!path)     
+    {
+      return false;
+    }
 
-  if(Exist(path)) return true;
+  if(!path[0]) 
+    {
+      return false;
+    }
+
+  if(Exist(path)) 
+    {
+      return true;
+    }
 
   XPATH   xpath;
 
@@ -186,7 +196,10 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
                       //XTRACE_PRINTCOLOR(2, __L("---> Make: %s"), xpathsequence.Get());
 
                       int result = CreateDirectory(xpathsequence.Get(), NULL);
-                      if(!result) return false;
+                      if(!result) 
+                        {
+                          return false;
+                        }
                     }
                 }
 
@@ -199,7 +212,10 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
    else
     {
       int result = CreateDirectory(xpath.Get(), NULL);
-      if(!result) return false;
+      if(!result) 
+        {
+          return false;
+        }
     }
 
   return true;
@@ -219,8 +235,15 @@ bool XWINDOWSDIR::Make(XCHAR* path, bool recursive)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::ChangeTo(XCHAR* path)
 {
-  if(!path)    return false;
-  if(!path[0]) return false;
+  if(!path)    
+    {
+      return false;
+    }
+
+  if(!path[0]) 
+    {
+      return false;
+    }
 
   int result = SetCurrentDirectory(path);
 
@@ -244,7 +267,7 @@ bool XWINDOWSDIR::Delete(XCHAR* path,bool all)
 {
   XDIRELEMENT search;
   XPATH       xpathname;
-  XSTRING patternsearch;
+  XSTRING     patternsearch;
 
   if(all)
     {
@@ -288,7 +311,10 @@ bool XWINDOWSDIR::GetActual(XPATH& xpath)
 
   xpath.AdjustSize(_MAXPATH);
 
-  if(!GetCurrentDirectory(xpath.GetSize(), xpath.Get())) return false;
+  if(!GetCurrentDirectory(xpath.GetSize(), xpath.Get())) 
+    {
+      return false;
+    }
 
   xpath.AdjustSize();
 
@@ -311,11 +337,21 @@ bool XWINDOWSDIR::GetActual(XPATH& xpath)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::FirstSearch(XCHAR* xpath,XCHAR* patternsearch,XDIRELEMENT* searchelement)
 {
-  if(!xpath)         return false;
-  if(!patternsearch) return false;
+  if(!xpath)         
+    {
+      return false;
+    }
+
+  if(!patternsearch) 
+    {
+      return false;
+    }
 
   XBYTE* findfiledata = new XBYTE[sizeof(WIN32_FIND_DATA)];
-  if(!findfiledata) return false;
+  if(!findfiledata) 
+    {
+      return false;
+    }
 
   memset(findfiledata,0,sizeof(WIN32_FIND_DATA));
 
@@ -407,7 +443,10 @@ bool XWINDOWSDIR::NextSearch(XDIRELEMENT* searchelement)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XWINDOWSDIR::ReconvertSearchData(XDIRELEMENT* searchelement)
 {
-  if(!searchelement) return false;
+  if(!searchelement) 
+    {
+      return false;
+    }
 
   WIN32_FIND_DATA* search =(WIN32_FIND_DATA*)searchelement->GetFindFileData();
 

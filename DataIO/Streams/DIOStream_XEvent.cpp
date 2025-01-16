@@ -60,14 +60,14 @@
 /*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
 #pragma region CLASS_MEMBERS
 
-    
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         DIOSTREAM_XEVENT::DIOSTREAM_XEVENT(XSUBJECT* subject, XDWORD type, XDWORD family)
 * @brief      Constructor
 * @ingroup    DATAIO
 * 
-* @param[in]  XSUBJECT* : 
+* @param[in]  subject : 
 * @param[in]  type : 
 * @param[in]  family : 
 * 

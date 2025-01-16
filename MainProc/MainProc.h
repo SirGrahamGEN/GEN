@@ -37,7 +37,7 @@
 #include "XVector.h"
 #include "XPath.h"
 
-#include "APPBase.h"
+#include "APPFlowBase.h"
 
 #pragma endregion
 
@@ -76,7 +76,7 @@ typedef bool (*MAIN_FUNCTION_TYPE)(MAINPROC* main);
 #pragma region CLASS
 
 class XSTRING;
-class APPMAIN;
+class APPFLOWMAIN;
 
 class MAINPROC
 {
@@ -84,7 +84,7 @@ class MAINPROC
                                   MAINPROC                ();
     virtual                      ~MAINPROC                ();
 
-    virtual bool                  Ini                     (APPMAIN* appmain = NULL, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN);
+    virtual bool                  Ini                     (APPFLOWMAIN* appmain = NULL, APPFLOWBASE_MODE_TYPE applicationmode = APPFLOWBASE_MODE_TYPE_UNKNOWN);
     virtual bool                  Update                  ();
     virtual bool                  End                     ();
 
@@ -107,7 +107,7 @@ class MAINPROC
     virtual bool                  Factorys_Ini            ();
     virtual bool                  Factorys_End            ();
 
-    APPMAIN*                      GetAppMain              ();
+    APPFLOWMAIN*                  GetAppMain              ();
 
   protected:
 
@@ -116,7 +116,7 @@ class MAINPROC
     XPATH                         xpathexec;
 		#endif
 	
-    APPMAIN*                      appmain;
+    APPFLOWMAIN*                  appmain;
 
   private:
 

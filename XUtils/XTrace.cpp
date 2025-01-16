@@ -1098,14 +1098,14 @@ bool XTRACE::SetSizeLimit(XDWORD sizelimit)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XCHAR* XTRACE::GetApplicationName()
+* @fn         XCHAR* XTRACE::Application_GetName()
 * @brief      Get Application Name
 * @ingroup    XUTILS
 *
 * @return     XCHAR* : application name
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XTRACE::GetApplicationName()
+XCHAR* XTRACE::Application_GetName()
 {
   return applicationname;
 }
@@ -1113,14 +1113,14 @@ XCHAR* XTRACE::GetApplicationName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationName(XCHAR* applicationname)
+* @fn         void XTRACE::Application_SetName(XCHAR* applicationname)
 * @brief      Set Application Name
 * @ingroup    XUTILS
 *
 * @param[in]  applicationname : new application name
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationName(XCHAR* applicationname)
+void XTRACE::Application_SetName(XCHAR* applicationname)
 {
   XDWORD size = 0;
   if(applicationname) size=XSTRING::GetSize(applicationname);
@@ -1132,7 +1132,7 @@ void XTRACE::SetApplicationName(XCHAR* applicationname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
+* @fn         void XTRACE::Application_SetName(XCHAR* applicationname, XDWORD size)
 * @brief      Set Application Name
 * @ingroup    XUTILS
 *
@@ -1140,7 +1140,7 @@ void XTRACE::SetApplicationName(XCHAR* applicationname)
 * @param[in]  size : size of application name
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
+void XTRACE::Application_SetName(XCHAR* applicationname, XDWORD size)
 {
   memset(this->applicationname, 0, _MAXSTR*sizeof(XCHAR));
   if(applicationname) memcpy(this->applicationname, applicationname, (size+1)*sizeof(XCHAR));
@@ -1149,22 +1149,22 @@ void XTRACE::SetApplicationName(XCHAR* applicationname, XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationName(XSTRING& applicationname)
+* @fn         void XTRACE::Application_SetName(XSTRING& applicationname)
 * @brief      Set Application name
 * @ingroup    XUTILS
 *
 * @param[in]  applicationname : new application name
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationName(XSTRING& applicationname)
+void XTRACE::Application_SetName(XSTRING& applicationname)
 {
-  SetApplicationName(applicationname.Get(), applicationname.GetSize());
+  Application_SetName(applicationname.Get(), applicationname.GetSize());
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
+* @fn         void XTRACE::Application_GetVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
 * @brief      Get Application version (three data)
 * @ingroup    XUTILS
 *
@@ -1173,7 +1173,7 @@ void XTRACE::SetApplicationName(XSTRING& applicationname)
 * @param[in]  applicationsubversionerr : subversion error number
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
+void XTRACE::Application_GetVersion(int& applicationversion, int& applicationsubversion, int& applicationsubversionerr)
 {
   applicationversion        = this->applicationversion;
   applicationsubversion     = this->applicationsubversion;
@@ -1183,7 +1183,7 @@ void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubv
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
+* @fn         void XTRACE::Application_SetVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
 * @brief      Set Application version
 * @ingroup    XUTILS
 *
@@ -1192,7 +1192,7 @@ void XTRACE::GetApplicationVersion(int& applicationversion, int& applicationsubv
 * @param[in]  applicationsubversionerr : new subversion error number
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
+void XTRACE::Application_SetVersion(int applicationversion, int applicationsubversion, int applicationsubversionerr)
 {
   this->applicationversion        = applicationversion;
   this->applicationsubversion     = applicationsubversion;
@@ -1202,14 +1202,14 @@ void XTRACE::SetApplicationVersion(int applicationversion, int applicationsubver
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XCHAR* XTRACE::GetApplicationID()
+* @fn         XCHAR* XTRACE::Application_GetID()
 * @brief      Get Application ID
 * @ingroup    XUTILS
 *
 * @return     XCHAR* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XTRACE::GetApplicationID()
+XCHAR* XTRACE::Application_GetID()
 {
   return applicationID;
 }
@@ -1217,7 +1217,7 @@ XCHAR* XTRACE::GetApplicationID()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
+* @fn         void XTRACE::Application_SetID(XCHAR* applicationID, XDWORD size)
 * @brief      Set Application ID
 * @ingroup    XUTILS
 *
@@ -1225,7 +1225,7 @@ XCHAR* XTRACE::GetApplicationID()
 * @param[in]  size : size application ID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
+void XTRACE::Application_SetID(XCHAR* applicationID, XDWORD size)
 {
   memset(this->applicationID, 0, _MAXSTR*sizeof(XCHAR)),
   memcpy(this->applicationID, applicationID, (size+1)*sizeof(XCHAR));
@@ -1234,16 +1234,16 @@ void XTRACE::SetApplicationID(XCHAR* applicationID, XDWORD size)
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void XTRACE::SetApplicationID(XSTRING& applicationID)
+* @fn         void XTRACE::Application_SetID(XSTRING& applicationID)
 * @brief      Set Application ID
 * @ingroup    XUTILS
 *
 * @param[in]  applicationID : new string application ID
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void XTRACE::SetApplicationID(XSTRING& applicationID)
+void XTRACE::Application_SetID(XSTRING& applicationID)
 {
-  SetApplicationID(applicationID.Get(), applicationID.GetSize());
+  Application_SetID(applicationID.Get(), applicationID.GetSize());
 }
 
 

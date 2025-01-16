@@ -162,14 +162,12 @@ class XSYSTEM
     virtual int                     GetCPUUsageForProcessName       (XCHAR* processname);  
     virtual int                     GetCPUUsageForProcessID         (XDWORD processID);  
 
-    virtual XCHAR*                  GetEnviromentVariable           (XCHAR* namevariable);
-    XCHAR*                          GetEnviromentVariable           (XSTRING& namevariable);
-
-    virtual bool                    SetEnviromentVariable           (XCHAR* namevariable, XCHAR* value);
-    bool                            SetEnviromentVariable           (XSTRING& namevariable, XSTRING& value);
-
-    virtual bool                    DelEnviromentVariable           (XCHAR* namevariable);
-    bool                            DelEnviromentVariable           (XSTRING& namevariable);
+    virtual XCHAR*                  GetEnviromentVariable           (XCHAR* name);
+    XCHAR*                          GetEnviromentVariable           (XSTRING& name);
+    virtual bool                    SetEnviromentVariable           (XCHAR* name, XCHAR* value);
+    bool                            SetEnviromentVariable           (XSTRING& name, XSTRING& value);
+    virtual bool                    DelEnviromentVariable           (XCHAR* name);
+    bool                            DelEnviromentVariable           (XSTRING& name);
 
     virtual bool                    GetUserAndDomain                (XSTRING& user, XSTRING& domain);
 

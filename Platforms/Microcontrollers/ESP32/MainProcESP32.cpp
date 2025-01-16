@@ -67,8 +67,8 @@
 #include "XTranslation.h"
 #include "XPublisher.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #pragma endregion
 
@@ -125,7 +125,7 @@ MAINPROCESP32::~MAINPROCESP32()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCESP32::Ini(APPMAIN* appmain)
+* @fn         bool MAINPROCESP32::Ini(APPFLOWMAIN* appmain)
 * @brief      Ini
 * @ingroup    PLATFORM_ESP32
 *
@@ -134,13 +134,13 @@ MAINPROCESP32::~MAINPROCESP32()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCESP32::Ini(APPMAIN* appmain)
+bool MAINPROCESP32::Ini(APPFLOWMAIN* appmain)
 {
   this->appmain = appmain;
 
   if(!Factorys_Ini()) return false;
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(!appmain)            return false;
   if(!appmain->Create())  return false;
@@ -175,7 +175,7 @@ bool MAINPROCESP32::Ini(APPMAIN* appmain)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCESP32::Update()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain)
     {
       if(!appmain->Update()) return false;
@@ -202,7 +202,7 @@ bool MAINPROCESP32::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCESP32::End()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->End();
 
@@ -221,7 +221,7 @@ bool MAINPROCESP32::End()
 
   Factorys_End();
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->Delete();
 
@@ -387,8 +387,8 @@ int main()
   int status = 0;
 
   
-  #ifdef APP_ACTIVE
-  if(!mainprocesp32.Ini(&GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+  #ifdef APPFLOW_ACTIVE
+  if(!mainprocesp32.Ini(&GEN_appmain, APPFLOWBASE_MODE_TYPE_APPLICATION))
   #else
   if(!mainprocesp32.Ini())
   #endif

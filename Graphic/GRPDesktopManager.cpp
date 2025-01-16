@@ -62,13 +62,13 @@
 
 
 #pragma region CLASS_GRPDESKTOPMONITORS
-
    
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         GRPDESKTOPMONITORS::GRPDESKTOPMONITORS()
 * @brief      Constructor
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDESKTOPMONITORS::GRPDESKTOPMONITORS()
@@ -84,7 +84,7 @@ GRPDESKTOPMONITORS::GRPDESKTOPMONITORS()
 * @fn         GRPDESKTOPMONITORS::~GRPDESKTOPMONITORS()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDESKTOPMONITORS::~GRPDESKTOPMONITORS()
@@ -100,7 +100,7 @@ GRPDESKTOPMONITORS::~GRPDESKTOPMONITORS()
 * 
 * @fn         XVECTOR<GRPRECTINT*>* GRPDESKTOPMONITORS::GetMonitorsRects()
 * @brief      GetMonitorsRects
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * @return     XVECTOR<GRPRECTINT*>* : 
 * 
@@ -115,7 +115,7 @@ XVECTOR<GRPRECTINT*>* GRPDESKTOPMONITORS::GetMonitorsRects()
 * 
 * @fn         GRPRECTINT* GRPDESKTOPMONITORS::GetCombinedRect()
 * @brief      GetCombinedRect
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * @return     GRPRECTINT* : 
 * 
@@ -131,7 +131,7 @@ GRPRECTINT* GRPDESKTOPMONITORS::GetCombinedRect()
 * @fn         void GRPDESKTOPMONITORS::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPDESKTOPMONITORS::Clean()
@@ -150,7 +150,7 @@ void GRPDESKTOPMONITORS::Clean()
 * 
 * @fn         GRPDESKTOPMANAGER::GRPDESKTOPMANAGER()
 * @brief      Constructor
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDESKTOPMANAGER::GRPDESKTOPMANAGER()
@@ -164,7 +164,7 @@ GRPDESKTOPMANAGER::GRPDESKTOPMANAGER()
 * @fn         GRPDESKTOPMANAGER::~GRPDESKTOPMANAGER()
 * @brief      Destructor
 * @note       VIRTUAL
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPDESKTOPMANAGER::~GRPDESKTOPMANAGER()
@@ -177,7 +177,7 @@ GRPDESKTOPMANAGER::~GRPDESKTOPMANAGER()
 * 
 * @fn         GRPDESKTOPMONITORS* GRPDESKTOPMANAGER::GetDesktopMonitors()
 * @brief      GetDesktopMonitors
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * @return     GRPDESKTOPMONITORS* : 
 * 
@@ -193,7 +193,7 @@ GRPDESKTOPMONITORS* GRPDESKTOPMANAGER::GetDesktopMonitors()
 * @fn         void GRPDESKTOPMANAGER::Clean()
 * @brief      Clean the attributes of the class: Default initialice
 * @note       INTERNAL
-* @ingroup    GRAPHICS
+* @ingroup    GRAPHIC
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void GRPDESKTOPMANAGER::Clean()

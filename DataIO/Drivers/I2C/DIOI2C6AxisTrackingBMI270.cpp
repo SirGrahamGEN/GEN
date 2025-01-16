@@ -4519,7 +4519,6 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::bmi2_get_internal_status(XBYTE *int_stat, st
     return rslt;
 }
 
-/*! @cond DOXYGEN_SUPRESS */
 
 /* Suppressing doxygen warnings triggered for same static function names present across various sensor variant
  * directories */
@@ -4580,7 +4579,6 @@ XBYTESIG DIOI2C6AXISTRACKINGBMI270::verify_foc_position(XBYTE sens_list,
     return rslt;
 }
 
-/*! @endcond */
 
 /*!
  * @brief This API performs Fast Offset Compensation for accelerometer.
@@ -4899,7 +4897,8 @@ XBYTE DIOI2C6AXISTRACKINGBMI270::bmi2_extract_input_feat_config(struct bmi2_feat
 }
 
 
-/*! @cond DOXYGEN_SUPRESS */
+/// @cond
+
 
 /* Suppressing doxygen warnings triggered for same static function names present across various sensor variant
  * directories */
@@ -13684,5 +13683,6 @@ void DIOI2C6AXISTRACKINGBMI270::Clean()
   prev_status           = -1;    
 }
 
+/// @endcond
 
 #pragma endregion

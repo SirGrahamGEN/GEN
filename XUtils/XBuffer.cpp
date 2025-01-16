@@ -2224,11 +2224,12 @@ bool XBUFFER::Delete(bool setblocked)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool XBUFFER::DeleteByte(XBYTE data)
+* @fn         bool XBUFFER::DeleteByte(XBYTE data, bool setblocked)
 * @brief      DeleteByte
 * @ingroup    XUTILS
 * 
 * @param[in]  data : 
+* @param[in]  setblocked : 
 * 
 * @return     bool : true if is succesful. 
 * 

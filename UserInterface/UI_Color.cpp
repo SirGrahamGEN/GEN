@@ -82,7 +82,7 @@ UI_COLOR::UI_COLOR()
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  XCHAR* : 
+* @param[in]  string : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::UI_COLOR(XCHAR* string)
@@ -99,7 +99,7 @@ UI_COLOR::UI_COLOR(XCHAR* string)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  XSTRING& : 
+* @param[in]  string : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_COLOR::UI_COLOR(XSTRING& string)

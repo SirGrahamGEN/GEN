@@ -96,7 +96,7 @@
 
 #include "ANDROIDJNI.h"
 
-#include "APPGraphics.h"
+#include "APPFlowGraphics.h"
 
 #pragma endregion
 
@@ -156,7 +156,7 @@ MAINPROCANDROID::~MAINPROCANDROID()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+* @fn         bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    PLATFORM_ANDROID
 * 
@@ -168,7 +168,7 @@ MAINPROCANDROID::~MAINPROCANDROID()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 {
   // #Imanol : required for openal as static library
   java_vm = androidapplication->activity->vm;
@@ -176,7 +176,7 @@ bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain,
   this->appmain = appmain;
 
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(!appmain)            return false;
   if(!appmain->Create())  return false;
@@ -202,7 +202,7 @@ bool MAINPROCANDROID::Ini(XSTRING* apkpath, XSTRING* datapath, APPMAIN* appmain,
 
   GetDPI(androidapplication);
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain)
     {
       if(!appmain->Ini(this, applicationmode)) return false;
@@ -230,7 +230,7 @@ bool MAINPROCANDROID::Update()
   GEN_INPMANAGER.Update();
   #endif
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain)
     {
       if(!appmain->Update()) return false;
@@ -256,7 +256,7 @@ bool MAINPROCANDROID::End()
   DeleteInputDevices();  
   #endif
   
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain) appmain->End();
   #endif
 
@@ -265,7 +265,7 @@ bool MAINPROCANDROID::End()
   DeleteAllExecParams();
   Factorys_End();
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain) appmain->Delete();
   #endif
 
@@ -596,8 +596,8 @@ void MAINPROCANDROID::OnStart()
   
   GEN_XPATHSMANAGER.AddPathSection(XPATHSMANAGERSECTIONTYPE_ROOT, datapath);
   
-  #ifdef APP_ACTIVE  
-  if(androidmain.Ini(&apkpath, &datapath, &GEN_appmain, APPBASE_APPLICATIONMODE_TYPE_APPLICATION))
+  #ifdef APPFLOW_ACTIVE  
+  if(androidmain.Ini(&apkpath, &datapath, &GEN_appmain, APPFLOWBASE_MODE_TYPE_APPLICATION))
   #else
   if(androidmain.Ini(&apkpath))
   #endif
@@ -704,12 +704,12 @@ void MAINPROCANDROID::OnConfigurationChanged()
   int32_t maxwidth  = ANativeWindow_getWidth(androidapplication->window);
   int32_t maxheight = ANativeWindow_getHeight(androidapplication->window);
 
-  APPBASE* app = NULL;
+  APPFLOWBASE* app = NULL;
   if(androidmain.GetAppMain()) app = androidmain.GetAppMain()->GetApplication();
 
   if(!app) return;
 
-  APPGRAPHICS* applicationgrp  = (APPGRAPHICS*)app;
+  APPFLOWGRAPHICS* applicationgrp  = (APPFLOWGRAPHICS*)app;
   if(applicationgrp)
     {
       GRPANDROIDSCREEN* mainscreen = (GRPANDROIDSCREEN*)applicationgrp->GetMainScreen();
@@ -781,12 +781,12 @@ void MAINPROCANDROID::OnCreateWindow()
       maxheight = w;
     }
 
-  APPBASE* app = NULL;
+  APPFLOWBASE* app = NULL;
   if(androidmain.GetAppMain()) app = androidmain.GetAppMain()->GetApplication();
 
   if(!app) return;
 
-  APPGRAPHICS* applicationgrp  = (APPGRAPHICS*)app;
+  APPFLOWGRAPHICS* applicationgrp  = (APPFLOWGRAPHICS*)app;
   if(applicationgrp)
     {
       GRPANDROIDSCREEN* mainscreen = (GRPANDROIDSCREEN*)applicationgrp->GetMainScreen();
@@ -871,12 +871,12 @@ void MAINPROCANDROID::OnDestroyWindow()
   DeleteInputDevices();  
   #endif
   
-  APPBASE* app = NULL;
+  APPFLOWBASE* app = NULL;
   if(androidmain.GetAppMain()) app = androidmain.GetAppMain()->GetApplication();
 
   if(!app) return;
 
-  APPGRAPHICS* applicationgrp  = (APPGRAPHICS*)app;
+  APPFLOWGRAPHICS* applicationgrp  = (APPFLOWGRAPHICS*)app;
   if(applicationgrp)
     {
       GRPANDROIDSCREEN* mainscreen = (GRPANDROIDSCREEN*)applicationgrp->GetMainScreen();
@@ -903,7 +903,7 @@ void MAINPROCANDROID::OnGainFocus()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnGainFocus"));
 
-  //APPGRAPHICS* gap = dynamic_cast<APPGRAPHICS*>(application);
+  //APPFLOWGRAPHICS* gap = dynamic_cast<APPFLOWGRAPHICS*>(application);
   //if(gap) gap->OnFocus();  
 }
 
@@ -919,7 +919,7 @@ void MAINPROCANDROID::OnLostFocus()
 {
   XTRACE_PRINTCOLOR(XTRACE_COLOR_BLUE , __L("[ANDROID Event] OnLostFocus"));
 
-  //APPGRAPHICS* gap = dynamic_cast<APPGRAPHICS*>(application);
+  //APPFLOWGRAPHICS* gap = dynamic_cast<APPFLOWGRAPHICS*>(application);
   //if(gap) gap->OnLostFocus();  
 }
 

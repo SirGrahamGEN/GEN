@@ -41,8 +41,8 @@
 #include "XString.h"
 #include "XSystem.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #include "MainProc.h"
 
@@ -72,7 +72,7 @@ class MAINPROCWINDOWS : public MAINPROC
                                     MAINPROCWINDOWS                   ();
     virtual                        ~MAINPROCWINDOWS                   ();
 
-    bool                            Ini                               (APPMAIN* appmain = NULL, APPBASE_APPLICATIONMODE_TYPE applicationmode = APPBASE_APPLICATIONMODE_TYPE_UNKNOWN);
+    bool                            Ini                               (APPFLOWMAIN* appmain = NULL, APPFLOWBASE_MODE_TYPE applicationmode = APPFLOWBASE_MODE_TYPE_UNKNOWN);
     bool                            Update                            ();
     bool                            End                               ();
 

@@ -59,7 +59,7 @@
 #include "GRPCanvas.h"
 #include "GRPBitmapFile.h"
 
-#include "AppBase.h"
+#include "AppFlowBase.h"
 
 #include "UI_XEvent.h"
 #include "UI_Color.h"
@@ -282,7 +282,7 @@ bool UI_MANAGER::LoadLayout(XPATH& pathfile, GRPSCREEN* screen, int viewportinde
   return status;
 }
 
-/*
+
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool UI_MANAGER::IsZippedFile()
@@ -524,8 +524,8 @@ bool UI_MANAGER::Layouts_DeleteAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetInAll()
-* @brief      Layouts_GetInAll
+* @fn         UI_LAYOUT* UI_MANAGER::Layouts_GetCommonLayout()
+* @brief      Layouts_GetCommonLayout
 * @ingroup    USERINTERFACE
 * 
 * @return     UI_LAYOUT* : 
@@ -1027,16 +1027,17 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XCHAR* name, UI_ELEMENT_T
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_ELEMENT* UI_MANAGER::GetElement(XSTRING& name, UI_ELEMENT_TYPE type)
-* @brief      GetElement
+* @fn         UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XSTRING& name, UI_ELEMENT_TYPE type)
+* @brief      Element_Get
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layoutname : 
 * @param[in]  name : 
 * @param[in]  type : 
 * 
 * @return     UI_ELEMENT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_ELEMENT* UI_MANAGER::Element_Get(XCHAR* layoutname, XSTRING& name, UI_ELEMENT_TYPE type)
 {
   return Element_Get(layoutname, name.Get(), type);
@@ -1101,15 +1102,15 @@ UI_ELEMENT* UI_MANAGER::Element_Get(XSTRING& name, UI_ELEMENT_TYPE type)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_LAYOUT* UI_MANAGER::GetElementLayout(UI_ELEMENT* element)
-* @brief      GetElementLayout
+* @fn         UI_LAYOUT* UI_MANAGER::Element_GetLayout(UI_ELEMENT* element)
+* @brief      Element_GetLayout
 * @ingroup    USERINTERFACE
-*
+* 
 * @param[in]  element : 
 * 
 * @return     UI_LAYOUT* : 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 UI_LAYOUT* UI_MANAGER::Element_GetLayout(UI_ELEMENT* element)
 {
   if(!element) 
@@ -1424,11 +1425,10 @@ bool UI_MANAGER::Elements_SetToRedraw()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_LAYOUT* layout, UI_ELEMENT* element, bool recursive)
+* @fn         bool UI_MANAGER::Elements_SetToRedraw(UI_ELEMENT* element, bool recursive)
 * @brief      Elements_SetToRedraw
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  layout : 
 * @param[in]  element : 
 * @param[in]  recursive : 
 * 
@@ -1616,15 +1616,16 @@ bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname, UI_ELEMENT* element)
 * @brief      Elements_RebuildDrawAreas
 * @ingroup    USERINTERFACE
-*
+* 
+* @param[in]  layoutname : 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 
 * 
-* ---------------------------------------------------------------------------------------------------------------------*/
+* --------------------------------------------------------------------------------------------------------------------*/
 bool UI_MANAGER::Elements_RebuildDrawAreas(XCHAR* layoutname, UI_ELEMENT* element)
 {
   UI_LAYOUT* layout = NULL;
@@ -1794,11 +1795,9 @@ bool UI_MANAGER::SetPreselectElement(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::ResetPreselect(XCHAR* layoutname)
+* @fn         bool UI_MANAGER::ResetPreselect()
 * @brief      ResetPreselect
 * @ingroup    USERINTERFACE
-* 
-* @param[in]  layoutname : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -4195,7 +4194,7 @@ GRPBITMAP* UI_MANAGER::LoadBackgroundBitmap(XSTRING& namefilebitmap, GRPPROPERTY
         {                
           XPATH pathnamefilecmp;
 
-          pathnamefilecmp = APPDEFAULT_DIRECTORY_GRAPHICS;
+          pathnamefilecmp = APPFLOW_DEFAULT_DIRECTORY_GRAPHICS;
           pathnamefilecmp.Slash_Add();
           pathnamefilecmp += namefilebitmap;
  
@@ -4558,11 +4557,10 @@ bool UI_MANAGER::SelectedElement(UI_ELEMENT* element)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool UI_MANAGER::UnSelectedElement(UI_LAYOUT* layout, UI_ELEMENT* element)
+* @fn         bool UI_MANAGER::UnSelectedElement(UI_ELEMENT* element)
 * @brief      UnSelectedElement
 * @ingroup    USERINTERFACE
 * 
-* @param[in]  layout : 
 * @param[in]  element : 
 * 
 * @return     bool : true if is succesful. 

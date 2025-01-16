@@ -80,12 +80,11 @@
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
   Clean();
 }
-*/
+
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -95,12 +94,11 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
 CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 {
   Clean();
 }
-*/
+
     
 /**-------------------------------------------------------------------------------------------------------------------
 * 
@@ -110,12 +108,11 @@ CIPHERKEYSFILEPEM_TYPECERTIFICATE::~CIPHERKEYSFILEPEM_TYPECERTIFICATE()
 * @ingroup    CIPHER
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-/*
 void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 {
 
 }
-*/
+
 
 #pragma endregion
 
@@ -128,8 +125,6 @@ void CIPHERKEYSFILEPEM_TYPECERTIFICATE::Clean()
 * @fn         CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
 * @brief      Constructor
 * @ingroup    CIPHER
-* 
-* @param[in]  xpath : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 CIPHERKEYSFILEPEM::CIPHERKEYSFILEPEM()
@@ -204,8 +199,8 @@ bool CIPHERKEYSFILEPEM::Key_Del(CIPHERKEY* key)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERKEYSFILEPEM::DeleteAllKeys()
-* @brief      DeleteAllKeys
+* @fn         bool CIPHERKEYSFILEPEM::Key_DelAll()
+* @brief      Key_DelAll
 * @ingroup    CIPHER
 * 
 * @return     bool : true if is succesful. 
@@ -227,9 +222,11 @@ bool CIPHERKEYSFILEPEM::Key_DelAll()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool CIPHERKEYSFILEPEM::ReadAllFile()
-* @brief      ReadAllFile
+* @fn         bool CIPHERKEYSFILEPEM::ReadDecodeAllFile(XPATH& xpath)
+* @brief      ReadDecodeAllFile
 * @ingroup    CIPHER
+* 
+* @param[in]  xpath : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -499,8 +496,6 @@ bool CIPHERKEYSFILEPEM::DecodeCertificates(CIPHERROOTCERTIFICATES certificates, 
 
   return true;
 }
-
-
 
 
 /**-------------------------------------------------------------------------------------------------------------------

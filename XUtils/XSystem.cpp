@@ -447,106 +447,106 @@ int XSYSTEM::GetCPUUsageForProcessID(XDWORD processID)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+* 
+* @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* name)
 * @brief      GetEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  variablename :
-*
-* @return     XCHAR* :
-*
+* 
+* @param[in]  name : 
+* 
+* @return     XCHAR* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* variablename)
+XCHAR* XSYSTEM::GetEnviromentVariable(XCHAR* name)
 {
   return __L("");
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& variablename)
+* 
+* @fn         XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& name)
 * @brief      GetEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  variablename :
-*
-* @return     XCHAR* :
-*
+* 
+* @param[in]  name : 
+* 
+* @return     XCHAR* : 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& variablename)
+XCHAR* XSYSTEM::GetEnviromentVariable(XSTRING& name)
 {
-  return GetEnviromentVariable(variablename.Get());
+  return GetEnviromentVariable(name.Get());
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+* 
+* @fn         bool XSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 * @brief      SetEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  variablename :
-* @param[in]  value :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSYSTEM::SetEnviromentVariable(XCHAR* variablename, XCHAR* value)
+bool XSYSTEM::SetEnviromentVariable(XCHAR* name, XCHAR* value)
 {
   return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSYSTEM::SetEnviromentVariable(XSTRING& variablename, XSTRING& value)
+* 
+* @fn         bool XSYSTEM::SetEnviromentVariable(XSTRING& name, XSTRING& value)
 * @brief      SetEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  variablename :
-* @param[in]  value :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* @param[in]  value : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSYSTEM::SetEnviromentVariable(XSTRING& variablename, XSTRING& value)
+bool XSYSTEM::SetEnviromentVariable(XSTRING& name, XSTRING& value)
 {
-  return SetEnviromentVariable(variablename.Get(), value.Get());
+  return SetEnviromentVariable(name.Get(), value.Get());
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSYSTEM::DelEnviromentVariable(XCHAR* namevariable)
+* 
+* @fn         bool XSYSTEM::DelEnviromentVariable(XCHAR* name)
 * @brief      DelEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  namevariable :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSYSTEM::DelEnviromentVariable(XCHAR* namevariable)
+bool XSYSTEM::DelEnviromentVariable(XCHAR* name)
 {
   return false;
 }
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSYSTEM::DelEnviromentVariable(XSTRING& namevariable);
+* 
+* @fn         bool XSYSTEM::DelEnviromentVariable(XSTRING& name)
 * @brief      DelEnviromentVariable
 * @ingroup    XUTILS
-*
-* @param[in]  namevariable) :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  name : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool XSYSTEM::DelEnviromentVariable(XSTRING& namevariable)
+bool XSYSTEM::DelEnviromentVariable(XSTRING& name)
 {
-  return DelEnviromentVariable(namevariable.Get());
+  return DelEnviromentVariable(name.Get());
 }
 
 

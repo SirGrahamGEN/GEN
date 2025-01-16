@@ -101,7 +101,7 @@ MAINPROC::~MAINPROC()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+* @fn         bool MAINPROC::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 * @brief      Ini
 * @ingroup    MAIN_PROCEDURE
 * 
@@ -111,7 +111,7 @@ MAINPROC::~MAINPROC()
 * @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROC::Ini(APPMAIN* appmain, APPBASE_APPLICATIONMODE_TYPE applicationmode)
+bool MAINPROC::Ini(APPFLOWMAIN* appmain, APPFLOWBASE_MODE_TYPE applicationmode)
 {
   return false;
 }
@@ -358,14 +358,14 @@ bool MAINPROC::Factorys_End()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         APPMAIN* MAINPROC::GetAppMain()
+* @fn         APPFLOWMAIN* MAINPROC::GetAppMain()
 * @brief      GetAppMain
 * @ingroup    MAIN_PROCEDURE
 * 
-* @return     APPMAIN* : 
+* @return     APPFLOWMAIN* : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-APPMAIN* MAINPROC::GetAppMain()
+APPFLOWMAIN* MAINPROC::GetAppMain()
 {
   return appmain;
 }

@@ -48,7 +48,7 @@ class MAINPROCSTM32 : public MAINPROC
                                   MAINPROCSTM32         ();
     virtual                      ~MAINPROCSTM32         ();
 
-    virtual bool                  Ini                   (APPMAIN* appmain = NULL);
+    virtual bool                  Ini                   (APPFLOWMAIN* appmain = NULL);
     virtual bool                  Update                ();
     virtual bool                  End                   ();
 

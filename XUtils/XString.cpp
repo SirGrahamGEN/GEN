@@ -2777,16 +2777,16 @@ bool XSTRING::ConvertFromNULL(bool uppercase)
 
 
 /**-------------------------------------------------------------------------------------------------------------------
-*
-* @fn         bool XSTRING::ConvertFromBoolean(bool boolean, bool uppercase)
+* 
+* @fn         bool XSTRING::ConvertFromBoolean(bool boolean, XBYTE mode)
 * @brief      ConvertFromBoolean
 * @ingroup    XUTILS
-*
-* @param[in]  boolean :
-* @param[in]  uppercase :
-*
-* @return     bool : true if is succesful.
-*
+* 
+* @param[in]  boolean : 
+* @param[in]  mode : 
+* 
+* @return     bool : true if is succesful. 
+* 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XSTRING::ConvertFromBoolean(bool boolean, XBYTE mode)
 {

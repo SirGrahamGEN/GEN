@@ -354,10 +354,10 @@ class DIOPROTOCOL : public XSUBJECT
      void                                     GetProtocolVersion              (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
      void                                     SetProtocolVersion              (XDWORD version, XDWORD subversion, XDWORD subversionerr);
 
-     void                                     GetApplicationVersion           (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
-     void                                     SetApplicationVersion           (XDWORD version, XDWORD subversion, XDWORD subversionerr);
+     void                                     Application_GetVersion           (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
+     void                                     Application_SetVersion           (XDWORD version, XDWORD subversion, XDWORD subversionerr);
 
-     XSTRING*                                 GetApplicationName              ();
+     XSTRING*                                 Application_GetName              ();
 
      bool                                     SetFileProgress                 (DIOPROTOCOL_DIRECTION direction,XPATH& sourcename,XPATH& targetname,XDWORD CRC32);
      DIOPROTOCOL_FILE*                        GetFileProgress                 ();
@@ -369,11 +369,11 @@ class DIOPROTOCOL : public XSUBJECT
      bool                                     CMD_GetProtocolVersion          (XWORD& version, XWORD& subversion, XWORD& subversionerr);
      static int                               RCV_GetProtocolVersion          (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
 
-     bool                                     CMD_GetApplicationVersion       (XWORD& version, XWORD& subversion, XWORD& subversionerr);
-     static int                               RCV_GetApplicationVersion       (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
+     bool                                     CMD_Application_GetVersion       (XWORD& version, XWORD& subversion, XWORD& subversionerr);
+     static int                               RCV_Application_GetVersion       (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
 
-     bool                                     CMD_GetApplicationName          (XSTRING& applicationname);
-     static int                               RCV_GetApplicationName          (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
+     bool                                     CMD_Application_GetName          (XSTRING& applicationname);
+     static int                               RCV_Application_GetName          (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);
 
      bool                                     CMD_Ping                        (XDWORD& milliseconds, int timeout = DIOPROTOCOL_TIMEOUT);
      static int                               RCV_Ping                        (DIOPROTOCOL* protocol, DIOPROTOCOL_COMMAND* cmd, XBUFFER& xbuffer, XDWORD rID, XDWORD& param);

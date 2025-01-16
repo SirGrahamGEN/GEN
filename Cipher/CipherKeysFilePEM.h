@@ -80,7 +80,7 @@ class CIPHERKEY;
 class XFILETXT;
 class XBER_XEVENT;
 
-/*   
+   
 class CIPHERKEYSFILEPEM_TYPECERTIFICATE 
 {
   public:
@@ -124,7 +124,6 @@ class CIPHERKEYSFILEPEM_TYPECERTIFICATE
     XBYTE*                  bytes;
     XDWORD                  len;    
 };
-*/
 
 
 class CIPHERKEYSFILEPEM : public XOBSERVER

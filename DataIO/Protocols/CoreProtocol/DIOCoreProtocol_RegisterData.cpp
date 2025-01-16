@@ -185,8 +185,8 @@ XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetCPUSerialNumber()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetSOName()
-* @brief      GetSOName
+* @fn         XSTRING* DIOCOREPROTOCOL_REGISTERDATA::GetPlataformName()
+* @brief      GetPlataformName
 * @ingroup    DATAIO
 * 
 * @return     XSTRING* : 

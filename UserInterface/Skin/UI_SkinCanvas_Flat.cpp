@@ -80,11 +80,12 @@
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen) 
+* @fn         UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen, int viewportindex)
 * @brief      Constructor
 * @ingroup    USERINTERFACE
 * 
 * @param[in]  screen : 
+* @param[in]  viewportindex : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 UI_SKINCANVAS_FLAT::UI_SKINCANVAS_FLAT(GRPSCREEN* screen, int viewportindex) : UI_SKINCANVAS(screen, viewportindex)

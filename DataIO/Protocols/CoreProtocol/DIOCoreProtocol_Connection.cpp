@@ -144,9 +144,9 @@ DIOCOREPROTOCOL_CONNECTION::~DIOCOREPROTOCOL_CONNECTION()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool NETCONN::InitFSMachine()
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::InitFSMachine()
 * @brief      InitFSMachine
-* @ingroup    APPLICATION
+* @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -363,11 +363,12 @@ void DIOCOREPROTOCOL_CONNECTION::Status_Set(DIOCOREPROTOCOL_CONNECTION_STATUS st
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(XSTRING status)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Status_GetString(DIOCOREPROTOCOL_CONNECTION_STATUS status, XSTRING& statusstring)
 * @brief      Status_GetString
 * @ingroup    DATAIO
 * 
 * @param[in]  status : 
+* @param[in]  statusstring : 
 * 
 * @return     bool : true if is succesful. 
 * 
@@ -728,8 +729,8 @@ bool DIOCOREPROTOCOL_CONNECTION::DoAskUpdateClass(XUUID* ID_message, XCHAR* clas
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::UpdateMsgReceived()
-* @brief      UpdateMsgReceived
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::Update()
+* @brief      Update
 * @ingroup    DATAIO
 * 
 * @return     bool : true if is succesful. 
@@ -1363,12 +1364,11 @@ bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEAD
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, XBYTE message_priority, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content)
+* @fn         bool DIOCOREPROTOCOL_CONNECTION::SendMsg(XUUID* ID_message, DIOCOREPROTOCOL_HEADER_OPERATION operation, XCHAR* operation_param, XSTRING* content)
 * @brief      SendMsg
 * @ingroup    DATAIO
 * 
 * @param[in]  ID_message : 
-* @param[in]  message_priority : 
 * @param[in]  operation : 
 * @param[in]  operation_param : 
 * @param[in]  content : 

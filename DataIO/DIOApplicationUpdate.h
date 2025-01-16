@@ -98,7 +98,7 @@ enum DIOAPPLICATIONUPDATE_ERROR
 #define DIOAPPLICATIONUPDATE_RESTOREDIR_ID                          __L("update_")
 #define DIOAPPLICATIONUPDATE_RESTOREDIR_MASK                        __L("[%d.%d.%d]")
 
-#define DIOAPPLICATIONUPDATE_LOG_SECTIONID_APPUPDATE                __L("AppUpdate")
+#define DIOAPPLICATIONUPDATE_LOG_SECTIONID_APPFLOWUPDATE            __L("AppUpdate")
 
 #pragma endregion
 
@@ -201,7 +201,7 @@ class DIOAPPLICATIONUPDATE : public XSUBJECT
 
     bool                                  IsNewVersion                          (DIOAPPLICATIONUPDATE_VERSIONDATA& updateversiondata);
 
-    XDWORD                                GetApplicationVersion                 ();
+    XDWORD                                Application_GetVersion                 ();
     XDWORD                                GetApplicationSubversion              ();
     XDWORD                                GetApplicationSubVersionError         ();
 

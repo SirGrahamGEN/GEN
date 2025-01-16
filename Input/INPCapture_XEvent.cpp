@@ -267,7 +267,7 @@ XDWORD INPCAPTURE_XEVENT::GetLimit()
 * @brief      SetLimit
 * @ingroup    INPUT
 * 
-* @param[in]  capture_limit : 
+* @param[in]  limit : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 void INPCAPTURE_XEVENT::SetLimit(XDWORD limit)

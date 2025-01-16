@@ -1,8 +1,8 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       GRPVectorFileXEvent.h
+* @file       GRPVectorFile_XEvent.h
 * 
-* @class      GRPVECTORFILEXEVENT
+* @class      GRPVECTORFILE_XEVENT
 * @brief      Graphic Vector File eXtended Event class
 * @ingroup    GRAPHIC
 * 
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _GRPVECTORFILEXEVENT_H_
-#define _GRPVECTORFILEXEVENT_H_
+#ifndef _GRPVECTORFILE_XEVENT_H_
+#define _GRPVECTORFILE_XEVENT_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES
@@ -60,24 +60,24 @@ class XPUBLISHER;
 class GRPVECTORFILE_XEVENT : public XEVENT
 {
   public:
-                        GRPVECTORFILE_XEVENT        (XSUBJECT* subject, XDWORD type = GRPVECTORFILE_XEVENTTYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_VECTORFILE);
-    virtual            ~GRPVECTORFILE_XEVENT        ();
+                            GRPVECTORFILE_XEVENT        (XSUBJECT* subject, XDWORD type = GRPVECTORFILE_XEVENTTYPE_UNKNOWN, XDWORD family = XEVENT_TYPE_VECTORFILE);
+    virtual                ~GRPVECTORFILE_XEVENT        ();
 
-    GRPVECTORFILETYPE      GetType                     ();
-    void                SetType                     (GRPVECTORFILETYPE type);
+    GRPVECTORFILETYPE       GetType                     ();
+    void                    SetType                     (GRPVECTORFILETYPE type);
 
-    XPATH*              GetPath                     ();
+    XPATH*                  GetPath                     ();
 
-    XSTRING*            GetMsg                      ();
+    XSTRING*                GetMsg                      ();
 
   private:
 
-    void                Clean                       ();
+    void                    Clean                       ();
 
-    XPATH               pathfile;
-    GRPVECTORFILETYPE      type;
-    XPATH               path;
-    XSTRING             message;
+    XPATH                   pathfile;
+    GRPVECTORFILETYPE       type;
+    XPATH                   path;
+    XSTRING                 message;
 };
 
 #pragma endregion

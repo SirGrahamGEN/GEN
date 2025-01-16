@@ -329,6 +329,7 @@ long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD method, ...)
 }
 
 
+template<>
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method, ...)
@@ -341,15 +342,14 @@ long long ANDROIDJNIOBJECT::CallMethod<long long>(ANDROIDJNIMETHOD method, ...)
 * @return     XSTRING : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
-template<>
-XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method2, ...)
+XSTRING ANDROIDJNIOBJECT::CallMethod<XSTRING>(ANDROIDJNIMETHOD method, ...)
 {
   JNIEnv* JEnv = ANDROIDJNI::GetJNIEnv();
 
   va_list Params;
 
-  va_start(Params, method2);
-  jstring RetVal = static_cast<jstring>(JEnv->CallObjectMethodV(jniobject, method2.method, Params));
+  va_start(Params, method);
+  jstring RetVal = static_cast<jstring>(JEnv->CallObjectMethodV(jniobject, method.method, Params));
   va_end(Params);
 
   ANDROIDJNI::CheckJavaException();

@@ -604,6 +604,42 @@ bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params,
 
 
 /**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+* @brief      application  execute
+* @ingroup    XUTILS
+* 
+* @param[in]  applicationpath : 
+* @param[in]  params : 
+* @param[in]  in : 
+* @param[in]  out : 
+* @param[in]  returncode : 
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool XPROCESSMANAGER::Application_Execute(XCHAR* applicationpath, XCHAR* params, XSTRING* in, XSTRING* out, int* returncode)
+{
+  XBUFFER _in;
+  XBUFFER _out;
+
+  if(in)
+    {
+      in->ConvertToASCII(_in);
+    }
+
+  bool status = Application_Execute(applicationpath, params, &_in, &_out, returncode);
+
+  if(out)
+    {
+      out->ConvertFromASCII(_out);
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
 *
 * @fn         bool XPROCESSMANAGER::Application_IsRunning(XCHAR* applicationname, XDWORD* ID)
 * @brief      Check if Is Application Running

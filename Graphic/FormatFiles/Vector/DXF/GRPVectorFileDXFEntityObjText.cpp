@@ -67,7 +67,7 @@
 * @brief      Constructor
 * @ingroup    GRAPHIC
 * 
-* @param[in]  XCHAR* : 
+* @param[in]  nametype : 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 GRPVECTORFILEDXFENTITYOBJTEXT::GRPVECTORFILEDXFENTITYOBJTEXT(XCHAR* nametype) : GRPVECTORFILEDXFENTITYOBJ(nametype)

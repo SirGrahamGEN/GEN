@@ -1,6 +1,6 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocolHeader.h
+* @file       DIOCoreProtocol_Header.h
 * 
 * @class      DIOCOREPROTOCOL_HEADER
 * @brief      Data Input/Output Core Protocol Header class

@@ -42,8 +42,8 @@
 #include "XVariant.h"
 #include "XProcessManager.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #include "INPFactory.h"
 #include "INPSimulate.h"

@@ -141,10 +141,10 @@ class DIOALERT
 
     XDATETIME*                                      GetDateTime                 ();
 
-    XSTRING*                                        GetApplicationID            ();
+    XSTRING*                                        Application_GetID            ();
 
-    bool                                            GetApplicationVersion       (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
-    bool                                            SetApplicationVersion       (XDWORD version, XDWORD subversion, XDWORD subversionerr);
+    bool                                            Application_GetVersion       (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
+    bool                                            Application_SetVersion       (XDWORD version, XDWORD subversion, XDWORD subversionerr);
 
     XDWORD                                          GetID                       ();
     void                                            SetID                       (XDWORD ID);
@@ -186,9 +186,9 @@ class DIOALERTS
 
     bool                                            Ini                         ();
 
-    XSTRING*                                        GetApplicationID            ();
-    bool                                            GetApplicationVersion       (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
-    bool                                            SetApplicationVersion       (XDWORD version, XDWORD subversion, XDWORD subversionerr);
+    XSTRING*                                        Application_GetID            ();
+    bool                                            Application_GetVersion       (XDWORD& version, XDWORD& subversion, XDWORD& subversionerr);
+    bool                                            Application_SetVersion       (XDWORD version, XDWORD subversion, XDWORD subversionerr);
 
     XSTRING*                                        GetOrigin                   ();
 

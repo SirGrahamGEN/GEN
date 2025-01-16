@@ -62,8 +62,8 @@
 #include "XTranslation.h"
 #include "XPublisher.h"
 
-#include "APPBase.h"
-#include "APPMain.h"
+#include "APPFlowBase.h"
+#include "APPFlowMain.h"
 
 #include "MainProcSTM32.h"
 
@@ -111,7 +111,7 @@ MAINPROCSTM32::~MAINPROCSTM32()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         bool MAINPROCSTM32::Ini(APPMAIN* appmain)
+* @fn         bool MAINPROCSTM32::Ini(APPFLOWMAIN* appmain)
 * @brief      Ini
 * @ingroup    PLATFORM_STM32
 *
@@ -120,13 +120,13 @@ MAINPROCSTM32::~MAINPROCSTM32()
 * @return     bool : true if is succesful.
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-bool MAINPROCSTM32::Ini(APPMAIN* appmain)
+bool MAINPROCSTM32::Ini(APPFLOWMAIN* appmain)
 {
   this->appmain = appmain;
 
   if(!Factorys_Ini()) return false;
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(!appmain)            return false;
   if(!appmain->Create())  return false;
@@ -162,7 +162,7 @@ bool MAINPROCSTM32::Ini(APPMAIN* appmain)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCSTM32::Update()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
   if(appmain)
     {
       if(!appmain->Update()) return false;
@@ -190,7 +190,7 @@ bool MAINPROCSTM32::Update()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool MAINPROCSTM32::End()
 {
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->End();
 
@@ -209,7 +209,7 @@ bool MAINPROCSTM32::End()
 
   Factorys_End();
 
-  #ifdef APP_ACTIVE
+  #ifdef APPFLOW_ACTIVE
 
   if(appmain) appmain->Delete();
 

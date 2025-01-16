@@ -163,7 +163,7 @@ class XLICENSE  : public XSUBJECT
     virtual bool          GetBufferKeyFromMachineID     (XSTRING& applicationID, XBUFFER& keybuffer);
     virtual bool          CipherExpirationDate          (bool cipher, XSTRING& applicationID, XSTRING& expirationdate);
 
-    XSTRING*              GetApplicationID              ();
+    XSTRING*              Application_GetID              ();
     XDATETIME*            GetExpirationDateTime         ();
     XBUFFER*              Get                           ();
     bool                  Get                           (XSTRING& licensestring);

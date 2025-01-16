@@ -111,7 +111,7 @@ XLINUXCONSOLE::~XLINUXCONSOLE()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   struct winsize console_size;
 
@@ -138,7 +138,7 @@ bool XLINUXCONSOLE::GetSizeText(int& columns, int& rows)
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Maximize()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
   setvbuf(stdout, NULL,_IONBF,0);
   #endif
 
@@ -204,7 +204,7 @@ bool XLINUXCONSOLE::IsHide()
 * --------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Print(XCHAR* string)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   if(!string)     return false;
   if(!string[0])  return false;
@@ -239,7 +239,7 @@ bool XLINUXCONSOLE::Print(XCHAR* string)
 * ---------------------------------------------------------------------------------------------------------------------*/
 bool XLINUXCONSOLE::Clear(bool fill)
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   printf("\033[2J");
   printf("\033[H");
@@ -270,7 +270,7 @@ bool XLINUXCONSOLE::Clear(bool fill)
 bool XLINUXCONSOLE::KBHit(void)
 {
 
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
   /*
   struct termios oldt;
   struct termios newt;
@@ -328,7 +328,7 @@ bool XLINUXCONSOLE::KBHit(void)
 * --------------------------------------------------------------------------------------------------------------------*/
 int XLINUXCONSOLE::GetChar()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   struct termios oldt, newt;
   int ch;
@@ -363,7 +363,7 @@ int XLINUXCONSOLE::GetChar()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeEnable()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   termios term;
 
@@ -384,7 +384,7 @@ void XLINUXCONSOLE::RawModeEnable()
 * --------------------------------------------------------------------------------------------------------------------*/
 void XLINUXCONSOLE::RawModeDisable()
 {
-  #ifndef APP_GRAPHICS_NOTCONSOLE_ACTIVE
+  #ifndef APPFLOW_GRAPHICS_NOTCONSOLE_ACTIVE
 
   termios term;
   

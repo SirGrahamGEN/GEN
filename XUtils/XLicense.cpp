@@ -504,14 +504,14 @@ bool XLICENSE::CipherExpirationDate(bool cipher, XSTRING& applicationID, XSTRING
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         XSTRING* XLICENSE::GetApplicationID()
-* @brief      GetApplicationID
+* @fn         XSTRING* XLICENSE::Application_GetID()
+* @brief      Application_GetID
 * @ingroup    XUTILS
 *
 * @return     XSTRING* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-XSTRING* XLICENSE::GetApplicationID()
+XSTRING* XLICENSE::Application_GetID()
 {
   return &applicationID;
 }

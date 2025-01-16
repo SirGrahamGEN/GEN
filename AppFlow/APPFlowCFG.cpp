@@ -1,0 +1,1933 @@
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @file       APPFLOWCFG.cpp
+* 
+* @class      APPFLOWCFG
+* @brief      Application Flow Config class
+* @ingroup    APPFLOW
+* 
+* @copyright  GEN Group. All rights reserved.
+* 
+* @cond
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+* documentation files(the "Software"), to deal in the Software without restriction, including without limitation
+* the rights to use, copy, modify, merge, publish, distribute, sublicense, and/ or sell copies of the Software,
+* and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of
+* the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+* THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+* @endcond
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_DEFINES_INCLUDE
+
+#include "GEN_Defines.h"
+
+#pragma endregion
+
+
+/*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
+#pragma region INCLUDES
+
+#include "APPFLOWCFG.h"
+
+#include "Common_DefaultXTraceCFG.h"
+
+#include "XTrace.h"
+#include "XLog.h"
+#include "DIODNSResolver.h"
+
+#pragma endregion
+
+
+/*---- PRECOMPILATION INCLUDES ---------------------------------------------------------------------------------------*/
+#pragma region PRECOMPILATION_CONTROL_INCLUDE
+
+#include "GEN_Control.h"
+
+#pragma endregion
+
+
+
+/*---- GENERAL VARIABLE ----------------------------------------------------------------------------------------------*/
+#pragma region GENERAL_VARIABLE
+
+#pragma endregion
+
+
+/*---- CLASS MEMBERS -------------------------------------------------------------------------------------------------*/
+#pragma region CLASS_MEMBERS
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         APPFLOWCFG::APPFLOWCFG(XCHAR* namefile)
+* @brief      Constructor
+* @ingroup    APPFLOW
+* 
+* @param[in]  namefile : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+APPFLOWCFG::APPFLOWCFG(XCHAR* namefile)
+#ifdef APPFLOW_CFG_REMOTEFILE_ACTIVE
+ : DIOREMOTEFILECFG(namefile)
+#else
+ : XFILECFG(namefile)
+#endif
+{
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         APPFLOWCFG::~APPFLOWCFG()
+* @brief      Destructor
+* @note       VIRTUAL
+* @ingroup    APPFLOW
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+APPFLOWCFG::~APPFLOWCFG()
+{
+  End();
+
+  Clean();
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPFLOWCFG::DoVariableMapping()
+* @brief      do variable mapping
+* @ingroup    APPFLOW
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::DoVariableMapping()
+{
+  if(!XFILECFG::DoVariableMapping())
+    {
+      return false;
+    }
+
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_GENERAL_ACTIVE  
+  AddRemark(APPFLOW_CFG_SECTION_GENERAL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_GENERAL, __L(" General section of configuration"), 0, 2);
+
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_GENERAL                   , APPFLOW_CFG_SCRAPERWEBSCRIPTURLDOWNLOAD                         , &scraperwebscripturldownload                                        , __L("Scrapper WEB Script URL download")                                   , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_GENERAL                   , APPFLOW_CFG_SHOWDETAILINFO                                      , &showdetailinfo                                                     , __L("Show Detail info")                                                   , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  #ifdef XTRACE_ACTIVE
+  XFILECFGVALUE* CFGvalue = AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_GENERAL, APPFLOW_CFG_TRACETARGET, __L("%02d"), XTRACE_MINNTARGETS
+                                                                                                                , XTRACE_MAXNTARGETS
+                                                                                                                , tracetargets
+                                                                                                                , ntracetargets                                                                                               , __L("eXtended Trace Aim ")                                                , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  if(CFGvalue) 
+    { 
+      CFGvalue->SetModeRemoteMix((XFILECFG_MODEREMOTEMIX)(CFGvalue->GetModeRemoteMix() | XFILECFG_MODEREMOTEMIX_NOTDELADDKEYS));
+    }
+  #endif  
+  #endif
+
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE, __L(" Check resources section of configuration"), 0, 2);
+
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSCHECKCADENCE              , &checkresourceshardware_memstatuscheckcadence                 , __L("System Memory status check cadence")                                 , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_MEMSTATUSLIMITPERCENT              , &checkresourceshardware_memstatuslimitpercent                 , __L("System Memory free Limit percent")                                   , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGECHECKCADENCE          , &checkresourceshardware_totalcpuusagecheckcadence             , __L("System Total CPU usage cadence")                                     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_TOTALCPUUSAGELIMITPERCENT          , &checkresourceshardware_totalcpuusagelimitpercent             , __L("System Total CPU limit percent")                                     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);  
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGEPROCESSNAME             , &checkresourceshardware_appcpuusageprocessname                , __L("System App CPU usage process name")                                  , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGECHECKCADENCE            , &checkresourceshardware_appcpuusagecheckcadence               , __L("System App CPU usage cadence")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_CHECKRESOURCESHARDWARE    , APPFLOW_CFG_CHECKRESOURCESHARDWARE_APPCPUUSAGELIMITPERCENT            , &checkresourceshardware_appcpuusagelimitpercent               , __L("System App CPU limit percent")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);    
+  #endif
+
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_INTERNETSERVICES_ACTIVE
+
+  AddRemark(APPFLOW_CFG_SECTION_INTERNETSERVICES, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_INTERNETSERVICES, __L(" Internet services section of configuration"), 0, 2);
+
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_CHECKINTERNETSTATUSCADENCE               , &internetservices_checkinternetstatuscadence                  , __L("Internet connection status cadence")                                 , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_DONOTLETINTERNETCONNECTIONMATTER         , &internetservices_donotletinternetconnectionmatter            , __L("Do not let Internet connection matter")                              , APPFLOW_CFG_DEFAULT_REMARK_COLUMN); 
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_CHECKIPSCHANGECADENCE                    , &internetservices_checkipschangecadence                       , __L("Internet IP Change Cadence")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_UPDATETIMEBYNTPCADENCE                   , &internetservices_updatetimebyntpcadence                      , __L("Internet update time by NTP cadence")                                , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_INTERNETSERVICES,  APPFLOW_CFG_INTERNETSERVICES_UPDATETIMENTPSERVER, __L("%02d") , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                                            , internetservices_updatetimentpservers
+                                                                                                                                                            , internetservices_nupdatetimentpservers                          , __L("Internet update NTP Server")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN); 
+
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE          , &internetservices_updatetimentpmeridiandifference             , __L("Internet update meridian difference")                                , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_INTERNETSERVICES          , APPFLOW_CFG_INTERNETSERVICES_UPDATETIMENTPUSEDAYLIGHTSAVING           , &internetservices_updatetimentpusedaylightsaving              , __L("Internet update time day light saving")                              , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  #ifdef APPFLOW_CFG_DNSRESOLVER_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_DNSRESOLVER, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_DNSRESOLVER, __L(" DNS resolved section of configuration"), 0, 2); 
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_DNSRESOLVER, APPFLOW_CFG_DNSRESOLVER_HOSTRESOLVED, __L("%02d") , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                          , hostsresolved
+                                                                                                                                          , nhostsresolved                                                                    , __L("Host resolved for DNS ")                                     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_DNSRESOLVER, APPFLOW_CFG_DNSRESOLVER_DNSSERVER   , __L("%02d") , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                          , DNSservers, nDNSservers                                                           , __L("Server for DNS ")                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+  #ifdef APPFLOW_CFG_DYNDNSMANAGER_ACTIVE
+  AddRemark(APPFLOW_CFG_DYNDNSMANAGER_URL, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_DYNDNSMANAGER_URL, __L(" DynDNS Manager section of iguration"), 0, 2);
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_DYNDNSMANAGER,  APPFLOW_CFG_DYNDNSMANAGER_URL, __L("%02d")     , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                          , dnsmanager_urls
+                                                                                                                                          , dnsmanager_nurls                                                                  , __L("DynDNS Manager URL to assign")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+  #endif
+
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_DIOLOCATION_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_LOCATION, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_LOCATION, __L(" Location info section of configuration"), 0, 2);
+  
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_LOCATION                  , APPFLOW_CFG_LOCATION_STREET                                     , &location_street                                                    , __L("Location street")                                                    , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_LOCATION                  , APPFLOW_CFG_LOCATION_TOWN                                       , &location_city                                                      , __L("Location city")                                                      , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_LOCATION                  , APPFLOW_CFG_LOCATION_STATE                                      , &location_state                                                     , __L("Location state")                                                     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_LOCATION                  , APPFLOW_CFG_LOCATION_COUNTRY                                    , &location_country                                                   , __L("Location country")                                                   , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_LOCATION                  , APPFLOW_CFG_LOCATION_POSTALCODE                                 , &location_postalcode                                                , __L("Location postal code")                                               , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+  //---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_APPUPDATE_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_APPLICATIONUPDATE, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_APPLICATIONUPDATE, __L(" Application Update section of configuration"), 0, 2);
+
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_ISACTIVE                          , &applicationupdate_isactive                                         , __L("Application Update is active")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_URL                               , &applicationupdate_URL                                              , __L("Application Update URL")                                             , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);      
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_PORT                              , &applicationupdate_port                                             , __L("Application Update port")                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_CHECKCADENCE                      , &applicationupdate_checkcadence                                     , __L("Application Update check cadence")                                   , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_CHECKTIME                         , &applicationupdate_checktime                                        , __L("Application Update check time")                                      , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_APPLICATIONUPDATE         , APPFLOW_CFG_APPLICATIONUPDATE_MAXRESTORATIONS                   , &applicationupdate_maxrestorations                                  , __L("Application Update maximum number of restorations")                  , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+
+  #ifdef APPFLOW_CFG_WEBSERVER_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_WEBSERVER, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_WEBSERVER, __L(" Web server section of configuration"), 0, 2);
+
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_LOCALADDR                                 , &webserver_localaddr                                                , __L("Local IP for the WEB server")                                        , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_PORT                                      , &webserver_port                                                     , __L("Port for the WEB server")                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_TIMEOUTTOSERVERPAGE                       , &webserver_timeouttoserverpage                                      , __L("Timeout for the WEB server")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_AUTHENTICATEDACCESS                       , &webserver_isauthenticatedaccess                                    , __L("Authenticate access for the WEB server")                             , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_PASSWORD                                  , &webserver_password                                                 , __L("Password for the WEB server")                                        , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_PATH_RESOURCES                            , &webserver_path_resources                                           , __L("Path resources for the WEB server")                                  , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_WEBSERVER                 , APPFLOW_CFG_WEBSERVER_PATH_PHP                                  , &webserver_path_PHP                                                 , __L("Path instalation PHP for the WEB server")                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+
+  #ifdef APPFLOW_CFG_ALERTS_ACTIVE
+  AddRemark(APPFLOW_CFG_SECTION_ALERTS, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_ALERTS, __L(" Alerts section of configuration"), 0, 2);
+  
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_ISACTIVE                                     , &alerts_isactive                                                    , __L("De/Activate all alerts")                                             , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_ALERTS,  APPFLOW_CFG_ALERTS_CONDITION, __L("%02d")     , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                  , alerts_conditions
+                                                                                                                                  , alerts_nconditions                                                                        , __L("Conditions for alerts")                                              , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_ISACTIVE                                , &alerts_SMTP_isactive                                               , __L("De/Activate alerts by SMTP")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_URL                                     , &alerts_SMTP_URL                                                    , __L("URL for the SMTP server")                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_PORT                                    , &alerts_SMTP_port                                                   , __L("Port for the SMTP server")                                           , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_LOGIN                                   , &alerts_SMTP_login                                                  , __L("Login for the SMTP server")                                          , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_PASSWORD                                , &alerts_SMTP_password                                               , __L("Password for the SMTP server")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMTP_SENDER                                  , &alerts_SMTP_sender                                                 , __L("Sender for the SMTP server")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_ALERTS, APPFLOW_CFG_ALERTS_SMTP_RECIPIENT, __L("%02d") , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                  , alerts_SMTP_recipients
+                                                                                                                                  , alerts_SMTP_nrecipients                                                                   , __L("Recipient for sending by SMTP")                                      , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_SMS_ISACTIVE                                 , &alerts_SMS_isactive                                                , __L("De/Activate alerts by SMS")                                          , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_ALERTS, APPFLOW_CFG_ALERTS_SMS_RECIPIENT, __L("%02d")  , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                  , alerts_SMS_recipients
+                                                                                                                                  , alerts_SMS_nrecipients                                                                    , __L("Recipient for sending by SMS")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_WEB_ISACTIVE                                 , &alerts_WEB_isactive                                                , __L("De/Activate alerts by WEB")                                          , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_WEB_UISUSEGET                                , &alerts_WEB_isuseget                                                , __L("Use Get for alerts by WEB")                                          , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_ALERTS, APPFLOW_CFG_ALERTS_WEB_RECIPIENT, __L("%02d")  , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                  , alerts_WEB_recipients
+                                                                                                                                  , alerts_WEB_nrecipients                                                                    , __L("Recipient for sending by WEB")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_UDP_ISACTIVE                                 , &alerts_UDP_isactive                                                , __L("De/Activate alerts by UDP")                                          , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_ALERTS                    , APPFLOW_CFG_ALERTS_UDP_PORT                                     , &alerts_UDP_port                                                    , __L("Port for the UDP server")                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_ALERTS, APPFLOW_CFG_ALERTS_UDP_RECIPIENT, __L("%02d")  , 3, XFILECFG_DEFAULTMAXSECUENCEENTRYS
+                                                                                                                                  , alerts_UDP_recipients
+                                                                                                                                  , alerts_UDP_nrecipients                                                                    , __L("Recipient for sending by UDP")                                       , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+
+  #ifdef APPFLOW_CFG_SCRIPTS_ACTIVE
+
+  AddRemark(APPFLOW_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_LOG, __L(" Scripts list"), 0, 2);
+
+  AddValueSecuence<XSTRING>(XFILECFG_VALUETYPE_STRING, APPFLOW_CFG_SECTION_SCRIPTS    , APPFLOW_CFG_SCRIPTS_SCRIPT                , __L("%03d"), 3, 999 
+                                                                                                                                  , scripts_list
+                                                                                                                                  , scripts_nscripts                                                                          , __L("Scripts")                                                            , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+
+
+
+  #endif
+
+
+  #ifdef APPFLOW_CFG_LOG_ACTIVE
+
+  AddRemark(APPFLOW_CFG_SECTION_LOG, __L("--------------------------------------------------------------------------------------------------------------------------------------------"), 0, 1);
+  AddRemark(APPFLOW_CFG_SECTION_LOG, __L(" Log section of configuration"), 0, 2);
+  
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_ISACTIVE                                          , &log_isactive                                                       , __L("De/Activate log generation")                                         , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_BACKUPISACTIVE                                    , &log_backupisactive                                                 , __L("De/Activate backup for the log")                                     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_BACKUPMAXFILES                                    , &log_backupmaxfiles                                                 , __L("Maximum number of backup files (ZIP)")                               , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_BOOLEAN , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_BACKUPISCOMPRESS                                  , &log_backupiscompress                                               , __L("De/Activate compression in log backup")                              , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);   
+  AddValue(XFILECFG_VALUETYPE_STRING  , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_ACTIVESECTIONSID                                  , &log_activesectionsID                                               , __L("Section filter by ID in the log")                                    , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_MASK    , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_LEVELMASK                                         , &log_levelmask                                                      , __L("Filter by level mask")                                               , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_MAXSIZE                                           , &log_maxsize                                                        , __L("Limit of the main file to perform the backup (in Kb)")               , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  AddValue(XFILECFG_VALUETYPE_INT     , APPFLOW_CFG_SECTION_LOG                     , APPFLOW_CFG_LOG_REDUCTIONPERCENT                                  , &log_reductionpercent                                               , __L("Reduction (percentage) of the main file when performing backup")     , APPFLOW_CFG_DEFAULT_REMARK_COLUMN);
+  #endif
+
+  return true;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPFLOWCFG::DoDefault()
+* @brief      do default
+* @ingroup    APPFLOW
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::DoDefault()
+{
+  if(!XFILECFG::DoDefault())
+    {
+      return false;
+    }
+  
+
+  #ifdef APPFLOW_CFG_GENERAL_ACTIVE
+  showdetailinfo = __L("0000");
+  #ifdef XTRACE_ACTIVE
+  SetDefaultTraceTargets();
+  #endif
+  #endif
+
+
+  #ifdef APPFLOW_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+  checkresourceshardware_memstatuscheckcadence      = 30;
+  checkresourceshardware_memstatuslimitpercent      = 5;
+  checkresourceshardware_totalcpuusagecheckcadence  = 20;
+  checkresourceshardware_totalcpuusagelimitpercent  = 70;  
+  checkresourceshardware_appcpuusageprocessname.Empty();
+  checkresourceshardware_appcpuusagecheckcadence    = 20;
+  checkresourceshardware_appcpuusagelimitpercent    = 70;  
+  #endif
+
+
+  #ifdef APPFLOW_CFG_INTERNETSERVICES_ACTIVE
+  internetservices_checkinternetstatuscadence       = 30;
+  internetservices_donotletinternetconnectionmatter = false;
+  internetservices_checkipschangecadence            = 3600;
+  internetservices_updatetimebyntpcadence           = 4;
+  internetservices_updatetimentpservers.Get(0)->Set(__L("1.es.pool.ntp.org")); 
+  internetservices_updatetimentpservers.Get(1)->Set(__L("1.europe.pool.ntp.org")); 
+  internetservices_updatetimentpservers.Get(2)->Set(__L("3.europe.pool.ntp.org")); 
+  internetservices_updatetimentpmeridiandifference  = APPFLOW_CFG_INTERNETSERVICES_UPDATETIMENTPMERIDIANDIFFERENCE_AUTO;
+  internetservices_updatetimentpusedaylightsaving   = true;
+  #endif
+
+
+  #ifdef APPFLOW_CFG_WEBSERVER_ACTIVE
+  webserver_timeouttoserverpage                     = 30;
+  #endif
+
+
+  #ifdef APPFLOW_CFG_APPUPDATE_ACTIVE
+  applicationupdate_maxrestorations                 = 12;
+  #endif
+
+
+  #ifdef APPFLOW_CFG_LOG_ACTIVE
+  log_isactive                                      = true;
+  log_backupisactive                                = true;
+  log_backupmaxfiles                                = 10;
+  log_backupiscompress                              = true;
+  log_activesectionsID.Empty();
+  log_activesectionsID                             += APPFLOW_CFG_LOG_SECTIONID_INITIATION;
+  log_activesectionsID                             += __L(",");
+  log_activesectionsID                             += APPFLOW_CFG_LOG_SECTIONID_GENERIC;
+  log_activesectionsID                             += __L(",");
+  log_activesectionsID                             += APPFLOW_CFG_LOG_SECTIONID_STATUSAPP;
+  log_activesectionsID                             += __L(",");
+  log_activesectionsID                             += APPFLOW_CFG_LOG_SECTIONID_ENDING;
+  log_levelmask                                     = XLOGLEVEL_ALL;
+  log_maxsize                                       = 3000;
+  log_reductionpercent                              = 10;
+  #endif
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPFLOWCFG::End()
+* @brief      end
+* @ingroup    APPFLOW
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::End()
+{ 
+  #ifdef APPFLOW_CFG_GENERAL_ACTIVE
+  showdetailinfo.Empty();
+  #ifdef XTRACE_ACTIVE
+  tracetargets.DeleteContents();
+  tracetargets.DeleteAll();
+  #endif
+  #endif
+
+  #ifdef APPFLOW_CFG_INTERNETSERVICES_ACTIVE
+  internetservices_updatetimentpservers.DeleteContents();
+  internetservices_updatetimentpservers.DeleteAll();
+
+  #ifdef APPFLOW_CFG_DNSRESOLVER_ACTIVE
+  hostsresolved.DeleteContents();
+  hostsresolved.DeleteAll();
+  DNSservers.DeleteContents();
+  DNSservers.DeleteAll();
+  #endif
+
+  #ifdef APPFLOW_CFG_DYNDNSMANAGER_ACTIVE
+  dnsmanager_urls.DeleteContents();  
+  dnsmanager_urls.DeleteAll();
+  #endif
+  #endif
+
+  #ifdef APPFLOW_CFG_ALERTS_ACTIVE
+  alerts_conditions.DeleteContents();
+  alerts_conditions.DeleteAll();
+  alerts_SMTP_recipients.DeleteContents();
+  alerts_SMTP_recipients.DeleteAll();
+  alerts_SMS_recipients.DeleteContents();
+  alerts_SMS_recipients.DeleteAll();
+  alerts_WEB_recipients.DeleteContents();
+  alerts_WEB_recipients.DeleteAll();
+  alerts_UDP_recipients.DeleteContents();
+  alerts_UDP_recipients.DeleteAll();
+  #endif  
+
+  #ifdef APPFLOW_CFG_SCRIPTS_ACTIVE
+  scripts_list.DeleteContents();
+  scripts_list.DeleteAll();
+  #endif
+
+  #ifdef APPFLOW_CFG_REMOTEFILE_ACTIVE
+  return DIOREMOTEFILECFG::End();
+  #else
+  return XFILECFG::End();
+  #endif
+}
+
+
+
+#ifdef APPFLOW_CFG_GENERAL_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::GetScraperWebScriptURLDownload()
+* @brief      GetScraperWebScriptURLDownload
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::GetScraperWebScriptURLDownload()
+{
+  return &scraperwebscripturldownload;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XWORD APPFLOWCFG::GetShowDetailInfo()
+* @brief      GetShowDetailInfo
+* @ingroup    APPFLOW
+*
+* @return     XWORD : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XWORD APPFLOWCFG::GetShowDetailInfo()
+{
+  XDWORD detail = 0x0000;
+
+  showdetailinfo.ToUpperCase();
+  showdetailinfo.UnFormat(__L("%04X"), &detail);
+
+  return detail;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         void APPFLOWCFG::SetShowDetailInfo(XWORD detail)
+* @brief      SetShowDetailInfo
+* @ingroup    APPFLOW
+*
+* @param[in]  detail : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPFLOWCFG::SetShowDetailInfo(XWORD detail)
+{
+  showdetailinfo.Format(__L("%04X"), detail);
+}
+
+
+#ifdef XTRACE_ACTIVE
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::GetTraceTarget(int index)
+* @brief      GetTraceTarget
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::GetTraceTarget(int index)
+{
+  if(index <  0)                   return NULL;
+  if(index >= XTRACE_MAXNTARGETS)  return NULL;
+
+  return tracetargets.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::SetTraceTarget(int index, XSTRING& target)
+* @brief      SetTraceTarget
+* @ingroup    APPFLOW
+*
+* @param[in]  index :
+* @param[in]  target :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::SetTraceTarget(int index, XSTRING& target)
+{
+  if(index <  0)                   return false;
+  if(index >= XTRACE_MAXNTARGETS)  return false;
+
+  tracetargets.Get(index)->Set(target.Get());
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::SetAutomaticTraceTargets()
+* @brief      SetAutomaticTraceTargets
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::SetAutomaticTraceTargets()
+{
+  bool status = false;
+
+  for(int c=0;c<XTRACE_MAXNTARGETS; c++)
+    {
+      XSTRING* debugcfg = GetTraceTarget(c);
+      if(debugcfg)
+        {
+          if(!debugcfg->IsEmpty())
+            {
+              int      type;
+              XSTRING  aim;
+
+              aim.AdjustSize(_MAXSTR);
+              debugcfg->UnFormat(__L("%d,%s"), &type, aim.Get());
+              aim.AdjustSize();
+
+              XTRACE_SETTARGET(c, (XTRACE_TYPE)type, aim.Get());
+
+              status = true;
+            }
+        }
+    }
+
+  return status;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::SetDefaultTraceTargets()
+* @brief      SetDefaultTraceTargets
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::SetDefaultTraceTargets()
+{
+  GEN_XTRACE_NET_CFG_DEFAULT_01
+
+  return true;
+}
+
+#endif
+
+#endif
+
+
+#ifdef APPFLOW_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetMemStatusCheckCadence()
+* @brief      CheckResourcesHardware_GetMemStatusCheckCadence
+* @ingroup    APPFLOW
+*
+* @return     int :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetMemStatusCheckCadence()
+{
+  return checkresourceshardware_memstatuscheckcadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetMemStatusLimitPercent()
+* @brief      CheckResourcesHardware_GetMemStatusLimitPercent
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetMemStatusLimitPercent()
+{
+  return checkresourceshardware_memstatuslimitpercent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetTotalCPUUsageCheckCadence()
+* @brief      CheckResourcesHardware_GetTotalCPUUsageCheckCadence
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetTotalCPUUsageCheckCadence()
+{
+  return checkresourceshardware_totalcpuusagecheckcadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetTotalCPUUsageLimitPercent()
+* @brief      CheckResourcesHardware_GetTotalCPUUsageLimitPercent
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetTotalCPUUsageLimitPercent()
+{
+  return checkresourceshardware_totalcpuusagelimitpercent;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageProcessName()
+* @brief      CheckResourcesHardware_GetAppCPUUsageProcessName
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageProcessName()
+{
+  return &checkresourceshardware_appcpuusageprocessname;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageCheckCadence()
+* @brief      CheckResourcesHardware_GetAppCPUUsageCheckCadence
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageCheckCadence()
+{
+  return checkresourceshardware_appcpuusagecheckcadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageLimitPercent()
+* @brief      CheckResourcesHardware_GetAppCPUUsageLimitPercent
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::CheckResourcesHardware_GetAppCPUUsageLimitPercent()
+{
+  return checkresourceshardware_appcpuusagelimitpercent;
+}
+
+
+#endif
+
+
+#ifdef APPFLOW_CFG_INTERNETSERVICES_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::InternetServices_GetCheckInternetStatusCadence()
+* @brief      Get cadence for check Internet Status (in seconds)
+* @ingroup    APPFLOW
+*
+* @return     int : check cadence in seconds
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::InternetServices_GetCheckInternetStatusCadence()
+{
+  return internetservices_checkinternetstatuscadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool APPFLOWCFG::InternetServices_DoNotLetInternetConnectionMatter()
+* @brief      InternetServices_DoNotLetInternetConnectionMatter
+* @ingroup    APPFLOW
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::InternetServices_DoNotLetInternetConnectionMatter()
+{
+  return internetservices_donotletinternetconnectionmatter;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         int APPFLOWCFG::InternetServices_GetCheckIPsChangeCadence()
+* @brief      InternetServices_GetCheckIPsChangeCadence
+* @ingroup    APPFLOW
+* 
+* @return     int : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::InternetServices_GetCheckIPsChangeCadence()
+{
+  return internetservices_checkipschangecadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::InternetServices_GetUpdateTimeByNTPCadence()
+* @brief      Get cadence for update time by NTP (in hours)
+* @ingroup    APPFLOW
+*
+* @return     int : check cadence in seconds
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::InternetServices_GetUpdateTimeByNTPCadence()
+{
+  return (internetservices_updatetimebyntpcadence*3600);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::InternetServices_GetUpdateTimeNTPServers()
+* @brief      InternetServices_GetUpdateTimeNTPServers
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::InternetServices_GetUpdateTimeNTPServers()
+{
+  return &internetservices_updatetimentpservers;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::InternetServices_GetUpdateTimeNTPServer(int index)
+* @brief      Get Update Time NTP Server by Index from a List
+* @ingroup    APPFLOW
+*
+* @param[in]  index :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::InternetServices_GetUpdateTimeNTPServer(int index)
+{  
+  if(index < 0)                                                      return NULL;
+  if(index >= (int)internetservices_updatetimentpservers.GetSize())  return NULL;
+
+  return internetservices_updatetimentpservers.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::InternetServices_GetUpdateTimeNTPMeridianDifference()
+* @brief      InternetServices_GetUpdateTimeNTPMeridianDifference
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::InternetServices_GetUpdateTimeNTPMeridianDifference()
+{
+  return internetservices_updatetimentpmeridiandifference;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::InternetServices_GetUpdateTimeNTPUseDayLightSaving()
+* @brief      InternetServices_GetUpdateTimeNTPUseDayLightSaving
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::InternetServices_GetUpdateTimeNTPUseDayLightSaving()
+{
+  return internetservices_updatetimentpusedaylightsaving;
+}
+
+
+#ifdef APPFLOW_CFG_DNSRESOLVER_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::DNSResolver_GetHost(int index, XSTRING& host, XSTRING& IPresolved)
+* @brief      DNSResolver_GetHost
+* @ingroup    APPFLOW
+*
+* @param[in]  index :
+* @param[in]  host :
+* @param[in]  IPresolved :
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::DNSResolver_GetHost(int index, XSTRING& host, XSTRING& IPresolved)
+{
+  if(index < 0)                       return false;
+  if(index >= hostsresolved.GetSize()) return false;
+
+  host.AdjustSize(_MAXSTR);
+  IPresolved.AdjustSize(_MAXSTR);
+
+  hostsresolved.Get(index)->UnFormat(__L("%s,%s"), host.Get(), IPresolved.Get());
+
+  host.AdjustSize();
+  IPresolved.AdjustSize();
+
+  return (host.GetSize() && IPresolved.GetSize())?true:false;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::DNSResolver_GetDNSserver(int index)
+* @brief      DNSResolver_GetDNSserver
+* @ingroup    APPFLOW
+*
+* @param[in]  index :
+*
+* @return     XSTRING* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::DNSResolver_GetDNSserver(int index)
+{
+  if(index < 0)                       return NULL;
+  if(index >= DNSservers.GetSize())   return NULL;
+
+  if(!DNSservers.GetSize()) return NULL;
+
+  return DNSservers.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::SetAutomaticDNSResolver()
+* @brief      SetAutomaticDNSResolver
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::SetAutomaticDNSResolver()
+{
+  for(XDWORD c=0; c<nhostsresolved; c++)
+    {
+      XSTRING  host;
+      XSTRING  IPresolved;
+
+      if(DNSResolver_GetHost(c, host, IPresolved))
+        {
+          GEN_DIODNSRESOLVER.Host_Add(host, IPresolved);
+        }
+    }
+
+  for(XDWORD c=0; c<nDNSservers; c++)
+    {
+      XSTRING* dnsserver = DNSResolver_GetDNSserver(c);
+      if(dnsserver)
+        {
+          GEN_DIODNSRESOLVER.DNSServer_AddDNSServer(dnsserver->Get());
+        }
+    }
+
+  return true;
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_DYNDNSMANAGER_ACTIVE
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::DNSManager_GetURLs()
+* @brief      DNSManager_GetURLs
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::DNSManager_GetURLs()
+{
+  return &dnsmanager_urls;
+
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::DNSManager_GetURL(int index)
+* @brief
+* @ingroup    APPFLOW
+*
+* @param[in]  index :
+*
+* @return     XSTRING* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::DNSManager_GetURL(int index)
+{
+  if(index < 0)                          return NULL;
+  if(index >= dnsmanager_urls.GetSize()) return NULL;
+
+  return dnsmanager_urls.Get(index);
+}
+
+#endif
+
+#endif
+
+
+#ifdef APPFLOW_CFG_DIOLOCATION_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Location_GetStreet()
+* @brief      Location_GetStreet
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Location_GetStreet()
+{
+  return &location_street;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Location_GetCity()
+* @brief      Location_GetCity
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Location_GetCity()
+{
+  return &location_city;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Location_GetState()
+* @brief      Location_GetState
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Location_GetState()
+{
+  return &location_state;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Location_GetCountry()
+* @brief      Location_GetCountry
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Location_GetCountry()
+{
+  return &location_country;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Location_GetPostalCode()
+* @brief      Location_GetPostalCode
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Location_GetPostalCode()
+{
+  return location_postalcode;
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_APPUPDATE_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::ApplicationUpdate_IsActive()
+* @brief      ApplicationUpdate_IsActive
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::ApplicationUpdate_IsActive()
+{
+  return applicationupdate_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::ApplicationUpdate_GetPort()
+* @brief      ApplicationUpdate_GetPort
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::ApplicationUpdate_GetPort()
+{
+  return applicationupdate_port;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::ApplicationUpdate_GetURL()
+* @brief      ApplicationUpdate_GetURL
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::ApplicationUpdate_GetURL()
+{
+  return &applicationupdate_URL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::ApplicationUpdate_GetCheckCadence()
+* @brief      ApplicationUpdate_GetCheckCadence
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::ApplicationUpdate_GetCheckCadence()
+{
+  return applicationupdate_checkcadence;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::ApplicationUpdate_GetCheckTime()
+* @brief      Get CFG Check time to Update
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::ApplicationUpdate_GetCheckTime()
+{
+  return &applicationupdate_checktime;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::ApplicationUpdate_GetMaxRestorations()
+* @brief      ApplicationUpdate_GetMaxRestorations
+* @ingroup    APPFLOW
+*
+* @return     int :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::ApplicationUpdate_GetMaxRestorations()
+{
+  return applicationupdate_maxrestorations;
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_ALERTS_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_IsActive()
+* @brief      Alerts_IsActive
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_IsActive()
+{
+  return alerts_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetConditions()
+* @brief      Alerts_GetConditions
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetConditions()
+{
+  return &alerts_conditions;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetCondition(int index)
+* @brief      Alerts_GetCondition
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetCondition(int index)
+{
+  if(index < 0)                              return NULL;
+  if(index >= alerts_conditions.GetSize())   return NULL;
+
+  return alerts_conditions.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_GetCondition(int index, XDWORD& conditionID, int& timelimitforrepeat, int& everynumberoftimes)
+* @brief      Alerts_GetCondition
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+* @param[in]  conditionID : 
+* @param[in]  timelimitforrepeat : 
+* @param[in]  everynumberoftimes : 
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_GetCondition(int index, XDWORD& conditionID, int& timelimitforrepeat, int& everynumberoftimes)
+{
+  XSTRING* string = Alerts_GetCondition(index);
+  if(!string)             return false;
+  if(string->IsEmpty())   return false;
+
+  conditionID          = 0; 
+  timelimitforrepeat   = 0;
+  everynumberoftimes   = 0;
+
+  string->UnFormat(__L("%d,%d,%d"), &conditionID, &timelimitforrepeat, &everynumberoftimes);
+
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_IsActiveSMTP()
+* @brief      Alerts_IsActiveSMTP
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_IsActiveSMTP()
+{
+  return alerts_SMTP_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMTPURL()
+* @brief      Alerts_GetSMTPURL
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMTPURL()
+{
+  return &alerts_SMTP_URL;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Alerts_GetSMTPPort()
+* @brief      Alerts_GetSMTPPort
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Alerts_GetSMTPPort()
+{
+  return alerts_SMTP_port;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMTPLogin()
+* @brief      Alerts_GetSMTPLogin
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMTPLogin()
+{
+  return &alerts_SMTP_login;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMTPPassword()
+* @brief      Alerts_GetSMTPPassword
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMTPPassword()
+{
+  return &alerts_SMTP_password;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMTPSender()
+* @brief      Alerts_GetSMTPSender
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMTPSender()
+{
+  return &alerts_SMTP_sender;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetSMTPRecipients()
+* @brief      Alerts_GetSMTPRecipients
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetSMTPRecipients()
+{
+  return &alerts_SMTP_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMTPRecipient(int index)
+* @brief      Alerts_GetSMTPRecipient
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMTPRecipient(int index)
+{
+  if(index < 0)                                  return NULL;
+  if(index >= alerts_SMTP_recipients.GetSize())  return NULL;
+
+  return alerts_SMTP_recipients.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_IsActiveSMS()
+* @brief      Alerts_IsActiveSMS
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_IsActiveSMS()
+{
+  return alerts_SMS_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetSMSRecipients()
+* @brief      Alerts_GetSMSRecipients
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetSMSRecipients()
+{
+  return &alerts_SMS_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetSMSRecipient(int index)
+* @brief      Alerts_GetSMSRecipient
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetSMSRecipient(int index)
+{
+  if(index < 0)                                 return NULL;
+  if(index >= alerts_SMS_recipients.GetSize())  return NULL;
+
+  return alerts_SMS_recipients.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_IsActiveWEB()
+* @brief      Alerts_IsActiveWEB
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_IsActiveWEB()
+{
+  return alerts_WEB_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_GetWEBIsUseGet()
+* @brief      Alerts_GetWEBIsUseGet
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_GetWEBIsUseGet()
+{
+  return alerts_WEB_isuseget;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetWEBRecipients()
+* @brief      Alerts_GetWEBRecipients
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetWEBRecipients()
+{
+  return &alerts_WEB_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetWEBRecipient(int index)
+* @brief      Alerts_GetWEBRecipient
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetWEBRecipient(int index)
+{
+  if(index <  0)                               return NULL;
+  if(index >= alerts_WEB_recipients.GetSize()) return NULL;
+
+  return alerts_WEB_recipients.Get(index);
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Alerts_IsActiveUDP()
+* @brief      Alerts_IsActiveUDP
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful. 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Alerts_IsActiveUDP()
+{
+  return alerts_UDP_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Alerts_GetUDPPort()
+* @brief      Alerts_GetUDPPort
+* @ingroup    APPFLOW
+*
+* @return     int : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Alerts_GetUDPPort()
+{
+  return alerts_UDP_port;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetUDPRecipients()
+* @brief      Alerts_GetUDPRecipients
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Alerts_GetUDPRecipients()
+{
+  return &alerts_UDP_recipients;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Alerts_GetUDPRecipient(int index)
+* @brief      Alerts_GetUDPRecipient
+* @ingroup    APPFLOW
+*
+* @param[in]  index : 
+*
+* @return     XSTRING* : 
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Alerts_GetUDPRecipient(int index)
+{
+  if(index <  0)                                return NULL;
+  if(index >= alerts_UDP_recipients.GetSize())  return NULL;
+
+  return alerts_UDP_recipients.Get(index);
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_WEBSERVER_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::WebServer_GetLocalAddress()
+* @brief      Get Local Address for Web Server
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : local address
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::WebServer_GetLocalAddress()
+{
+  return &webserver_localaddr;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::WebServer_GetPort()
+* @brief      Get Port for Web Server
+* @ingroup    APPFLOW
+*
+* @return     int : port number
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::WebServer_GetPort()
+{
+  return webserver_port;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::WebServer_GetTimeoutToServerPage()
+* @brief      WebServer_GetTimeoutToServerPage
+* @ingroup    APPFLOW
+*
+* @return     int :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::WebServer_GetTimeoutToServerPage()
+{
+  return webserver_timeouttoserverpage;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::WebServer_AuthenticatedAccess()
+* @brief      WebServer_AuthenticatedAccess
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::WebServer_IsAuthenticatedAccess()
+{
+  return webserver_isauthenticatedaccess;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::WebServer_GetPassword()
+* @brief      Get Password for Web Server
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : Password web server
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::WebServer_GetPassword()
+{
+  return &webserver_password;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XPATH* APPFLOWCFG::WebServer_PathResources()
+* @brief      WebServer_DirResources
+* @ingroup    APPFLOW
+*
+* @return     XPATH* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH* APPFLOWCFG::WebServer_PathResources()
+{
+  return &webserver_path_resources;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XPATH* APPFLOWCFG::WebServer_PathPHP()
+* @brief      WebServer_PathPHP
+* @ingroup    APPFLOW
+*
+* @return     XPATH* :
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XPATH* APPFLOWCFG::WebServer_PathPHP()
+{
+  return &webserver_path_PHP;
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_SCRIPTS_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XVECTOR<XSTRING*>* CBUILDER_CFG::Scripts_GetAll()
+* @brief      Scripts_GetAll
+* @ingroup    APPFLOW
+* 
+* @return     XVECTOR<XSTRING*>* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XVECTOR<XSTRING*>* APPFLOWCFG::Scripts_GetAll()
+{
+  return &scripts_list;
+}
+    
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         XSTRING* CBUILDER_CFG::Scripts_GetScript(int index)
+* @brief      Scripts_GetScript
+* @ingroup    APPFLOW
+* 
+* @param[in]  index : 
+* 
+* @return     XSTRING* : 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Scripts_GetScript(int index)
+{
+  if(index <  0)                        return NULL;
+  if(index >= scripts_list.GetSize())   return NULL;
+
+  return scripts_list.Get(index);
+}
+
+#endif
+
+
+#ifdef APPFLOW_CFG_LOG_ACTIVE
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Log_IsActive()
+* @brief      Is Active Log
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Log_IsActive()
+{
+  return log_isactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Log_Backup_IsActive()
+* @brief      Is Active Log Backup
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Log_Backup_IsActive()
+{
+  return log_backupisactive;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Log_Backup_GetMaxFiles()
+* @brief      Get Max Files to Log Backup
+* @ingroup    APPFLOW
+*
+* @return     int : max files number
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Log_Backup_GetMaxFiles()
+{
+  return log_backupmaxfiles;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         bool APPFLOWCFG::Log_Backup_IsCompress()
+* @brief      Is Backup Compress
+* @ingroup    APPFLOW
+*
+* @return     bool : true if is succesful.
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+bool APPFLOWCFG::Log_Backup_IsCompress()
+{
+  return log_backupiscompress;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XSTRING* APPFLOWCFG::Log_ActiveSectionsID()
+* @brief      Active Sections ID of log
+* @ingroup    APPFLOW
+*
+* @return     XSTRING* : string with the secctions active (separated by comma ',')
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XSTRING* APPFLOWCFG::Log_ActiveSectionsID()
+{
+  return &log_activesectionsID;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         XBYTE APPFLOWCFG::Log_LevelMask()
+* @brief      Level Mask for Log
+* @ingroup    APPFLOW
+*
+* @return     XBYTE : Mask of log
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+XBYTE APPFLOWCFG::Log_LevelMask()
+{
+  return (XBYTE)log_levelmask;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Log_MaxSize()
+* @brief      Max Size of Log
+* @ingroup    APPFLOW
+*
+* @return     int : size in bytes
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Log_MaxSize()
+{
+  return log_maxsize;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+*
+* @fn         int APPFLOWCFG::Log_ReductionPercent()
+* @brief      Reduction Percent to Log file
+* @ingroup    APPFLOW
+*
+* @return     int : percent reduction (what remains)
+*
+* --------------------------------------------------------------------------------------------------------------------*/
+int APPFLOWCFG::Log_ReductionPercent()
+{
+  return log_reductionpercent;
+}
+
+#endif
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         void APPFLOWCFG::Clean()
+* @brief      Clean the attributes of the class: Default initialice
+* @note       INTERNAL
+* @ingroup    APPFLOW
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+void APPFLOWCFG::Clean()
+{  
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_GENERAL_ACTIVE
+  scraperwebscripturldownload.Empty();
+  showdetailinfo.Empty();
+  #ifdef XTRACE_ACTIVE
+  ntracetargets = 0;
+  #endif
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_CHECKRESOURCESHARDWARE_ACTIVE
+  checkresourceshardware_memstatuscheckcadence      = 0;
+  checkresourceshardware_memstatuslimitpercent      = 0;
+  checkresourceshardware_totalcpuusagecheckcadence  = 0;                      
+  checkresourceshardware_totalcpuusagelimitpercent  = 0;  
+  checkresourceshardware_appcpuusageprocessname.Empty();
+  checkresourceshardware_appcpuusagecheckcadence    = 0;                      
+  checkresourceshardware_appcpuusagelimitpercent    = 0;  
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_INTERNETSERVICES_ACTIVE
+  internetservices_checkinternetstatuscadence       = 0;
+  internetservices_donotletinternetconnectionmatter = false;
+  internetservices_checkipschangecadence            = 0;
+  internetservices_updatetimebyntpcadence           = 0;
+  internetservices_nupdatetimentpservers            = 0;
+  internetservices_updatetimentpmeridiandifference  = 0;
+  internetservices_updatetimentpusedaylightsaving   = false;
+  #ifdef APPFLOW_CFG_DNSRESOLVER_ACTIVE
+  nhostsresolved = 0; 
+  nDNSservers    = 0;  
+  #endif
+  #ifdef APPFLOW_CFG_DYNDNSMANAGER_ACTIVE
+  dnsmanager_nurls = 0;   
+  #endif
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_DIOLOCATION_ACTIVE
+  location_street.Empty();
+  location_city.Empty();
+  location_state.Empty();
+  location_country.Empty();
+  location_postalcode                               = 0;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_APPUPDATE_ACTIVE
+  applicationupdate_isactive                        = false;
+  applicationupdate_port                            = 0;
+  applicationupdate_checkcadence                    = 0;
+  applicationupdate_checktime.Empty();
+  applicationupdate_maxrestorations                 = 0;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_WEBSERVER_ACTIVE
+  webserver_localaddr.Empty();
+  webserver_port                                    = 0;
+  webserver_timeouttoserverpage                     = 0;
+  webserver_isauthenticatedaccess                   = false;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_ALERTS_ACTIVE
+  alerts_isactive                                   = false;
+  alerts_nconditions                                = 0;
+  alerts_SMTP_isactive                              = false;
+  alerts_SMTP_port                                  = 0; 
+  alerts_SMTP_nrecipients                           = 0;
+  alerts_SMS_isactive                               = false;
+  alerts_SMS_nrecipients                            = 0;  
+  alerts_WEB_isactive                               = false;
+  alerts_WEB_isuseget                               = false;
+  alerts_WEB_nrecipients                            = 0;
+  alerts_UDP_isactive                               = false;
+  alerts_UDP_port                                   = 0;
+  alerts_UDP_nrecipients                            = 0;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_SCRIPTS_ACTIVE
+  scripts_nscripts                                  = 0;  
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+
+  #ifdef APPFLOW_CFG_LOG_ACTIVE
+  log_isactive                                      = false;
+  log_backupisactive                                = false;
+  log_backupmaxfiles                                = 0;
+  log_backupiscompress                              = false;
+  log_activesectionsID.Empty();
+  log_levelmask                                     = 0;
+  log_maxsize                                       = 0;
+  log_reductionpercent                              = 0;
+  #endif
+
+  //-----------------------------------------------------------------------------------------------------
+}
+
+
+#pragma endregion

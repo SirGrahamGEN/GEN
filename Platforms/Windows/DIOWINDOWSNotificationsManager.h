@@ -131,7 +131,6 @@ TOASTNOTIFICATIONACTIVATIONCALLBACK : public Microsoft::WRL::RuntimeClass<Micros
 };
 
 
-
 class DIOWINDOWSNOTIFICATIONSMANAGER : public DIONOTIFICATIONSMANAGER, public ToastPP::INotifier
 {
   public:

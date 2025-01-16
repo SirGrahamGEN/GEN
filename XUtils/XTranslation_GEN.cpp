@@ -426,47 +426,47 @@ bool XTRANSLATION_GEN::Sentences_AddAll()
 
   //--- APPLICATION LOG ----------------------------------------------------------------------------------------------
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating LOG system")                                           , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling LOG system")                                            , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating App status")                                           , 0);        
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling App status")                                            , 0); 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating Internet status")                                      , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling Internet status")                                       , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application Root Path")                                           , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_ENG , __L("APP version")                                                     , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("S.O. version")                                                    , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Total memory %d Kb, free %d Kb (%d%%).")                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INILOG                                       , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating LOG system")                                           , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDLOG                                       , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling LOG system")                                            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INIAPPSTATUS                                 , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating App status")                                           , 0);        
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDAPPSTATUS                                 , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling App status")                                            , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INIINTERNETSTATUS                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Activating Internet status")                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDINTERNETSTATUS                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Disabling Internet status")                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_APPROOTPATH                                  , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application Root Path")                                           , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_APPVERSION                                   , XLANGUAGE_ISO_639_3_CODE_ENG , __L("APP version")                                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_SOVERSION                                    , XLANGUAGE_ISO_639_3_CODE_ENG , __L("S.O. version")                                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_TOTALMEMORY                                  , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Total memory %d Kb, free %d Kb (%d%%).")                          , 0);
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INILOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando sistema de LOG")                                        , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDLOG                                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando sistema de LOG")                                     , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado aplicacion")                                     , 0);        
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDAPPSTATUS                                     , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado aplicacion")                                  , 0); 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_INIINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado Internet")                                       , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_ENDINTERNETSTATUS                                , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado Internet")                                    , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPROOTPATH                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Camino raiz de application")                                      , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_APPVERSION                                       , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version APP")                                                     , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_SOVERSION                                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version S.O.")                                                    , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPEXTENDED_TOTALMEMORY                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Memoria total %d Kb, libre %d Kb (%d%%).")                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INILOG                                       , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando sistema de LOG")                                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDLOG                                       , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando sistema de LOG")                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INIAPPSTATUS                                 , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado aplicacion")                                     , 0);        
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDAPPSTATUS                                 , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado aplicacion")                                  , 0); 
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_INIINTERNETSTATUS                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Activando estado Internet")                                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_ENDINTERNETSTATUS                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Desactivando estado Internet")                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_APPROOTPATH                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Camino raiz de application")                                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_APPVERSION                                   , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version APP")                                                     , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_SOVERSION                                    , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Version S.O.")                                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWEXTENDED_TOTALMEMORY                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Memoria total %d Kb, libre %d Kb (%d%%).")                        , 0);
   
   //--- APPLICATION CONSOLE EXIT CODE --------------------------------------------------------------------------------
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_NOTINFO                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("No closing information")                                          , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SERIOUSERROR                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed due to a serious error")                       , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_UPDATE                                    , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by update")                                    , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_APPLICATION                               , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Execution of the application concluded")                          , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_USER                                      , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by the user")                                  , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SHUTDOWN                                  , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by shutdown of the operating system")          , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_INVALIDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by invalid license")                           , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_EXPIREDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Closed application for expired license")                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_NOTINFO                                  , XLANGUAGE_ISO_639_3_CODE_ENG , __L("No closing information")                                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_SERIOUSERROR                          , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed due to a serious error")                       , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_UPDATE                                , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by update")                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_APPLICATION                           , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Execution of the application concluded")                          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_USER                                  , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by the user")                                  , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_SHUTDOWN                              , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by shutdown of the operating system")          , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_INVALIDLICENSE                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Application closed by invalid license")                           , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_EXPIREDLICENSE                        , XLANGUAGE_ISO_639_3_CODE_ENG , __L("Closed application for expired license")                          , 0);
 
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_NOTINFO                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("No hay informacion de cierre")                                    , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SERIOUSERROR                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada debido a un error grave")                      , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_UPDATE                                    , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por actualizacion")                            , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_APPLICATION                               , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Ejecucion de la aplicacion concluida")                            , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_USER                                      , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por el usuario")                               , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_SHUTDOWN                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por apagado del sistema operativo")            , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_INVALIDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia invalida")                        , 0);
-  Sentence_Add(XTRANSLATION_GEN_ID_APPCONSOLE_EXIT_BY_EXPIREDLICENSE                            , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia vencida")                         , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_NOTINFO                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("No hay informacion de cierre")                                    , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_SERIOUSERROR                          , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada debido a un error grave")                      , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_UPDATE                                , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por actualizacion")                            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_APPLICATION                           , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Ejecucion de la aplicacion concluida")                            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_USER                                  , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por el usuario")                               , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_SHUTDOWN                              , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplicacion cerrada por apagado del sistema operativo")            , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_INVALIDLICENSE                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia invalida")                        , 0);
+  Sentence_Add(XTRANSLATION_GEN_ID_APPFLOWCONSOLE_EXIT_BY_EXPIREDLICENSE                        , XLANGUAGE_ISO_639_3_CODE_SPA , __L("Aplication cerrada por licencia vencida")                         , 0);
 
   #endif
 

@@ -123,14 +123,14 @@ XSTRING* DIONOTIFICATION::Get_Message()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void* DIONOTIFICATION::GetApplicationHandle()
-* @brief      GetApplicationHandle
+* @fn         void* DIONOTIFICATION::Application_GetHandle()
+* @brief      Application_GetHandle
 * @ingroup    DATAIO
 *
 * @return     void* :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void* DIONOTIFICATION::GetApplicationHandle()
+void* DIONOTIFICATION::Application_GetHandle()
 {
   return applicationhandle;
 }
@@ -138,14 +138,14 @@ void* DIONOTIFICATION::GetApplicationHandle()
 
 /**-------------------------------------------------------------------------------------------------------------------
 *
-* @fn         void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
-* @brief      SetApplicationHandle
+* @fn         void DIONOTIFICATION::Application_SetHandle(void* applicationhandle)
+* @brief      Application_SetHandle
 * @ingroup    DATAIO
 *
 * @param[in]  applicationhandle :
 *
 * --------------------------------------------------------------------------------------------------------------------*/
-void DIONOTIFICATION::SetApplicationHandle(void* applicationhandle)
+void DIONOTIFICATION::Application_SetHandle(void* applicationhandle)
 {
   this->applicationhandle = applicationhandle;
 }

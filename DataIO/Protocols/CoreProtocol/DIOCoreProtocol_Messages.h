@@ -1,9 +1,9 @@
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @file       DIOCoreProtocol_Message.h
+* @file       DIOCoreProtocol_Messages.h
 * 
-* @class      DIOCOREPROTOCOL_MESSAGE
-* @brief      Data Input/Output Core Protocol CFG class
+* @class      DIOCOREPROTOCOL_MESSAGES
+* @brief      Data Input/Output Core Protocol Messages class
 * @ingroup    DATAIO
 * 
 * @copyright  GEN Group. All rights reserved.
@@ -26,8 +26,8 @@
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 
-#ifndef _DIOCOREPROTOCOL_MESSAGE_H_
-#define _DIOCOREPROTOCOL_MESSAGE_H_
+#ifndef _DIOCOREPROTOCOL_MESSAGES_H_
+#define _DIOCOREPROTOCOL_MESSAGES_H_
 
 /*---- INCLUDES ------------------------------------------------------------------------------------------------------*/
 #pragma region INCLUDES

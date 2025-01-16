@@ -2,7 +2,7 @@
 * 
 * @file       VersionFrameWork.cpp
 * 
-* @class      VERSIONFRAMEWORKFRAMEWORK
+* @class      VERSIONFRAMEWORK
 * @brief      Version of framework
 * @ingroup    PLATFORM_COMMON
 * 
@@ -222,8 +222,8 @@ XSTRING* VERSIONFRAMEWORK::GetAppExecName()
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSIONFRAMEWORK::GetAppVersion(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
-* @brief      GetAppVersion
+* @fn         void VERSIONFRAMEWORK::GetAppVersions(XDWORD& app_version, XDWORD& app_subversion, XDWORD& app_versionerror)
+* @brief      GetAppVersions
 * @ingroup    PLATFORM_COMMON
 * 
 * @param[in]  app_version : 
@@ -250,7 +250,7 @@ void VERSIONFRAMEWORK::GetAppVersions(XDWORD& app_version, XDWORD& app_subversio
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* VERSIONFRAMEWORK::GetAppOwner()
 {
-  return &app_ower;
+  return &app_owner;
 }
 
 
@@ -280,6 +280,17 @@ XDWORD VERSIONFRAMEWORK::GetAppCreationYear()
 * --------------------------------------------------------------------------------------------------------------------*/
 XSTRING* VERSIONFRAMEWORK::GetAppTitle()
 {
+  static int revised = 0;
+
+  if(revised > 100)
+    {
+      UpdateYearAppVersion();
+
+      revised = 0;
+    }
+
+  revised++;
+
   return &app_titlestr;
 }
 
@@ -302,7 +313,7 @@ XSTRING* VERSIONFRAMEWORK::GetAppVersion()
 /**-------------------------------------------------------------------------------------------------------------------
 * 
 * @fn         bool VERSIONFRAMEWORK::GetAppVersionStatus(XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XSTRING& statusstr)
-* @brief      GetAppVersionStatus
+* @brief      Get app version status
 * @ingroup    PLATFORM_COMMON
 * 
 * @param[in]  app_version : 
@@ -363,16 +374,19 @@ bool VERSIONFRAMEWORK::GetAppVersion(XDWORD app_version, XDWORD app_subversion, 
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         void VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror,XCHAR* app_owner, XDWORD app_creationyear)
+* @fn         bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XCHAR* app_execname, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
 * @brief      SetAppVersion
 * @ingroup    PLATFORM_COMMON
 * 
 * @param[in]  app_name : 
+* @param[in]  app_execname : 
 * @param[in]  app_version : 
 * @param[in]  app_subversion : 
 * @param[in]  app_versionerror : 
 * @param[in]  app_owner : 
 * @param[in]  app_creationyear : 
+* 
+* @return     bool : true if is succesful. 
 * 
 * --------------------------------------------------------------------------------------------------------------------*/
 bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XCHAR* app_execname, XDWORD app_version, XDWORD app_subversion, XDWORD app_versionerror, XCHAR* app_owner, XDWORD app_creationyear)
@@ -385,6 +399,8 @@ bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XCHAR* app_execname, XDWOR
   this->app_version       = app_version;
   this->app_subversion    = app_subversion;
   this->app_versionerror  = app_versionerror;
+  this->app_owner         = app_owner;
+  this->app_creationyear  = app_creationyear;
 
   app_versionstr.Format(__L("%s %d.%d.%d"), app_name?app_name:__L(""), app_version, app_subversion, app_versionerror);
  
@@ -408,6 +424,47 @@ bool VERSIONFRAMEWORK::SetAppVersion(XCHAR* app_name, XCHAR* app_execname, XDWOR
 
   app_titlestr += string2;
   if(app_owner) app_titlestr += app_owner;
+  
+  return true;
+}
+
+
+/**-------------------------------------------------------------------------------------------------------------------
+* 
+* @fn         bool VERSIONFRAMEWORK::UpdateYearAppVersion()
+* @brief      UpdateYearAppVersion
+* @ingroup    PLATFORM_COMMON
+* 
+* @return     bool : true if is succesful. 
+* 
+* --------------------------------------------------------------------------------------------------------------------*/
+bool VERSIONFRAMEWORK::UpdateYearAppVersion()
+{
+  app_titlestr.Empty();
+  app_versionstr.Empty();
+
+  app_versionstr.Format(__L("%s %d.%d.%d"), !app_name.IsEmpty()?app_name.Get():__L(""), app_version, app_subversion, app_versionerror);
+ 
+  XSTRING statusstr;
+
+  GetAppVersionStatus(app_version, app_subversion, app_versionerror, statusstr);
+  app_versionstr += statusstr;
+ 
+  app_titlestr = app_versionstr;
+  app_titlestr += __L(" Copyright (c) ");
+
+  XSTRING string2; 
+
+  XDATETIME* GEN_XFACTORY_CREATE(xdatetime, CreateDateTime())
+  if(!xdatetime) return false;
+
+  xdatetime->Read();
+  string2.Format(((XDWORD)xdatetime->GetYear()>app_creationyear)?__L("%d-%d "):__L("%d "), app_creationyear, xdatetime->GetYear());
+
+  GEN_XFACTORY.DeleteDateTime(xdatetime);
+
+  app_titlestr += string2;
+  if(!app_owner.IsEmpty()) app_titlestr += app_owner;
   
   return true;
 }
@@ -469,7 +526,7 @@ void VERSIONFRAMEWORK::Clean()
   app_version         = 0;
   app_subversion      = 0;
   app_versionerror    = 0;
-  app_ower.Empty();
+  app_owner.Empty();
   app_creationyear    = 0;
   app_versionstr.Empty();
 }

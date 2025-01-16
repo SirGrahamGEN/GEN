@@ -997,8 +997,8 @@ bool GRPSCREEN::SetScreenCanvas(GRPCANVAS* screencanvas)
 
 /**-------------------------------------------------------------------------------------------------------------------
 * 
-* @fn         bool GRPSCREEN::Rotate90Clockwise(XBYTE* target, GRPCANVAS* screencanvas)
-* @brief      Rotate90Clockwise
+* @fn         bool GRPSCREEN::Rotate(XBYTE* target, GRPCANVAS* screencanvas)
+* @brief      Rotate
 * @ingroup    GRAPHIC
 * 
 * @param[in]  target : 
